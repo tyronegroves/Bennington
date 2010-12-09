@@ -1,0 +1,69 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using System.Web.Routing;
+using Paragon.ContentTree.Models;
+using Paragon.ContentTree.TreeNodeExtensionProvider;
+using Paragon.ContentTreeSectionNodeProvider.Repositories;
+
+namespace Paragon.ContentTreeSectionNodeProvider
+{
+	public class ContentTreeSectionNodeExtensionProvider : IAmATreeNodeExtensionProvider
+	{
+		private readonly IContentTreeSectionNodeRepository contentTreeSectionNodeRepository;
+
+		public ContentTreeSectionNodeExtensionProvider(IContentTreeSectionNodeRepository contentTreeSectionNodeRepository)
+		{
+			this.contentTreeSectionNodeRepository = contentTreeSectionNodeRepository;
+		}
+
+		public IQueryable<IAmATreeNodeExtension> GetAll()
+		{
+			var query = from item in contentTreeSectionNodeRepository.GetAllContentTreeSectionNodes()
+						select item;
+			
+			return query;
+		}
+
+		public string Name
+		{
+			get { return "Section"; }
+		}
+
+		public string ControllerToUseForCreation
+		{
+			get { return ControllerToUseForModification; }
+			set { throw new NotImplementedException(); }
+		}
+
+		public string ActionToUseForCreation
+		{
+			get { return "Create"; }
+			set { throw new NotImplementedException(); }
+		}
+
+		public IRouteConstraint IgnoreConstraint
+		{
+			get { return null; }
+		}
+
+		public IEnumerable<ContentTreeNodeContentItem> ContentTreeNodeContentItems
+		{
+			get { throw new NotImplementedException(); }
+			set { throw new NotImplementedException(); }
+		}
+
+		public string ControllerToUseForModification
+		{
+			get { return "ContentTreeSectionNode"; }
+			set { throw new NotImplementedException(); }
+		}
+
+		public string ActionToUseForModification
+		{
+			get { return "Modify"; }
+			set { throw new NotImplementedException(); }
+		}
+	}
+}

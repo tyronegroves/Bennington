@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Paragon" EntityNamespace="Paragon.ContentTree.Data" Class="DataModelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DEGWLUCASF1\sqlexpress;Initial Catalog=Paragon;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ParagonConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TreeNode" Member="TreeNodes">
+    <Type Name="TreeNode">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LastModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifyBy" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ParentTreeNodeId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Association Name="TreeNode_TreeNode" Member="TreeNodes" ThisKey="Id" OtherKey="ParentTreeNodeId" Type="TreeNode" />
+      <Association Name="TreeNode_TreeNode" Member="TreeNode1" ThisKey="ParentTreeNodeId" OtherKey="Id" Type="TreeNode" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

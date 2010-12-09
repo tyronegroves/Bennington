@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F5B06173-0873-4E7E-BBD5-9F58D69E077F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Paragon.ContentTreeSectionNodeProvider</RootNamespace>
+    <AssemblyName>Paragon.ContentTreeSectionNodeProvider</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapperAssist">
+      <HintPath>..\..\..\lib\AutoMapperAssist\AutoMapperAssist.dll</HintPath>
+    </Reference>
+    <Reference Include="Deg.Alt.FluentValidation">
+      <HintPath>..\..\..\lib\Deg.Alt.FluentValidation\Deg.Alt.FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=1.2.0.0, Culture=neutral, PublicKeyToken=a82054b837897c66, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Deg.Alt.FluentValidation\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Engine" />
+    <Reference Include="MvcTurbine">
+      <HintPath>..\..\..\lib\Turbine\MvcTurbine.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcTurbine.EmbeddedViews">
+      <HintPath>..\..\..\lib\Turbine\MvcTurbine.EmbeddedViews.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcTurbine.FluentValidation">
+      <HintPath>..\..\..\lib\FluentValidation\MvcTurbine.FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcTurbine.Unity">
+      <HintPath>..\..\..\lib\Turbine\MvcTurbine.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcTurbine.Web">
+      <HintPath>..\..\..\lib\Turbine\MvcTurbine.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\ContentTreeSectionNodeContext.cs" />
+    <Compile Include="Controllers\ContentTreeSectionNodeController.cs" />
+    <Compile Include="Controllers\ContentTreeSectionController.cs" />
+    <Compile Include="Data\ContentTreeSectionNodeProviderDataModel.cs">
+      <DependentUpon>ContentTreeSectionNodeProviderDataModel.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ContentTreeSectionNodeProviderDataModel.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContentTreeSectionNodeProviderDataModel.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Mappers\ContentTreeSectionNodeInputModelToContentTreeSectionNodeMapper.cs" />
+    <Compile Include="Mappers\ContentTreeSectionNodeToContentTreeSectionInputModelMapper.cs" />
+    <Compile Include="Models\ContentTreeSectionInputModel.cs" />
+    <Compile Include="Models\ContentTreeSectionNodeViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
+    <Compile Include="Routing\RegisterSectionRoutes.cs" />
+    <Compile Include="TreeNodeExtensionProviderRegistration.cs" />
+    <Compile Include="ContentTreeSectionNodeExtensionProvider.cs" />
+    <Compile Include="Repositories\ContentTreeSectionNodeRepository.cs" />
+    <Compile Include="Validation\ContentTreeInputModelValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Data\ContentTreeSectionNodeProviderDataModel.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ContentTreeSectionNodeProviderDataModel.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\ContentTreeSectionNodeProviderDataModel.dbml.layout">
+      <DependentUpon>ContentTreeSectionNodeProviderDataModel.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Views\ContentTreeSectionNode\Modify.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Paragon.ContentTree\Paragon.ContentTree.csproj">
+      <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
+      <Name>Paragon.ContentTree</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Paragon.Core\Paragon.Core.csproj">
+      <Project>{3DE65C2E-791C-4B05-815F-986782A5153A}</Project>
+      <Name>Paragon.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Paragon.Pages\Paragon.Pages.csproj">
+      <Project>{19D2FC38-0EA3-4501-8297-A48C3923ED77}</Project>
+      <Name>Paragon.Pages</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\DefaultTreeNodeId.ascx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

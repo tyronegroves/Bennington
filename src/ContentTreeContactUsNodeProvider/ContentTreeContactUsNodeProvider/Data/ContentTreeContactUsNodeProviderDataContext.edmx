@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ContentTreeContactUsNodeProvider.Data.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ContentTreeContactUsNodeProviderDataStoreContainer">
+          <EntitySet Name="ContentTreeContactUsNode" EntityType="ContentTreeContactUsNodeProvider.Data.Store.ContentTreeContactUsNode" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="ContentTreeContactUsNode">
+          <Key>
+            <PropertyRef Name="Key" />
+          </Key>
+          <Property Name="Key" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="LastModifyDate" Type="datetime" />
+          <Property Name="LastModifyBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="TreeNodeId" Type="nvarchar" MaxLength="100" />
+          <Property Name="Sequence" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="UrlSegment" Type="nvarchar" MaxLength="500" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ContentTreeContactUsNodeProvider.Data" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ContentTreecontactUsNodeDataModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ContentTreeContactUsNodes" EntityType="ContentTreeContactUsNodeProvider.Data.ContentTreeContactUsNode" />
+        </EntityContainer>
+        <EntityType Name="ContentTreeContactUsNode">
+          <Key>
+            <PropertyRef Name="Key" />
+          </Key>
+          <Property Name="Key" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="DateTime" />
+          <Property Name="CreateBy" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="LastModifyDate" Type="DateTime" />
+          <Property Name="LastModifyBy" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="TreeNodeId" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Sequence" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="UrlSegment" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ContentTreeContactUsNodeProviderDataStoreContainer" CdmEntityContainer="ContentTreecontactUsNodeDataModel">
+          <EntitySetMapping Name="ContentTreeContactUsNodes"><EntityTypeMapping TypeName="ContentTreeContactUsNodeProvider.Data.ContentTreeContactUsNode"><MappingFragment StoreEntitySet="ContentTreeContactUsNode">
+            <ScalarProperty Name="Key" ColumnName="Key" />
+            <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+            <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+            <ScalarProperty Name="LastModifyDate" ColumnName="LastModifyDate" />
+            <ScalarProperty Name="LastModifyBy" ColumnName="LastModifyBy" />
+            <ScalarProperty Name="TreeNodeId" ColumnName="TreeNodeId" />
+            <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="UrlSegment" ColumnName="UrlSegment" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ContentTreeContactUsNodeProviderDataContext">
+        <EntityTypeShape EntityType="ContentTreeContactUsNodeProvider.Data.ContentTreeContactUsNode" Width="2.25" PointX="0.75" PointY="0.75" Height="2.9417936197916665" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
