@@ -15,19 +15,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.Cms", "Paragon.Cms\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8EEFC35E-7566-4D96-93A7-87CD90AEA666}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.Cms.Tests", "Tests\Paragon.Cms.Tests\Paragon.Cms.Tests.csproj", "{474349E9-716F-4336-8BBC-4D62346731A7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.Tests", "Tests\Paragon.ContentTree.Tests\Paragon.ContentTree.Tests.csproj", "{06B21D4A-7480-4AD3-8112-B09B73B80573}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.Pages.Tests", "Tests\Paragon.Pages.Tests\Paragon.Pages.Tests.csproj", "{B74F5BA4-3C1D-4B62-9858-C50B35B0DDB8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.Core.Tests", "Tests\Paragon.Core.Tests\Paragon.Core.Tests.csproj", "{39B12768-97F9-4521-BD44-25C261CA3FFB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.ContentNodeProvider", "Paragon.ContentTree.ContentNodeProvider\Paragon.ContentTree.ContentNodeProvider.csproj", "{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.ContentNodeProvider.Tests", "Paragon.ContentTree.ContentNodeProvider.Tests\Paragon.ContentTree.ContentNodeProvider.Tests.csproj", "{F6D3D7F4-4970-4CA5-AFFD-D2D2E7B669EA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webroot", "Webroot\Webroot.csproj", "{1DDF21A7-EEBA-492F-98A4-57D7C4D88A99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.Cms.Tests", "Paragon.Cms.Tests\Paragon.Cms.Tests.csproj", "{474349E9-716F-4336-8BBC-4D62346731A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.Core.Tests", "Paragon.Core.Tests\Paragon.Core.Tests.csproj", "{39B12768-97F9-4521-BD44-25C261CA3FFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.Tests", "Paragon.ContentTree.Tests\Paragon.ContentTree.Tests.csproj", "{06B21D4A-7480-4AD3-8112-B09B73B80573}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.Pages.Tests", "Paragon.Pages.Tests\Paragon.Pages.Tests.csproj", "{B74F5BA4-3C1D-4B62-9858-C50B35B0DDB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,22 +59,6 @@ Global
 		{7516E4A6-54D1-437B-B14A-5EAA25D84730}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7516E4A6-54D1-437B-B14A-5EAA25D84730}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7516E4A6-54D1-437B-B14A-5EAA25D84730}.Release|Any CPU.Build.0 = Release|Any CPU
-		{474349E9-716F-4336-8BBC-4D62346731A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{474349E9-716F-4336-8BBC-4D62346731A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{474349E9-716F-4336-8BBC-4D62346731A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{474349E9-716F-4336-8BBC-4D62346731A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{06B21D4A-7480-4AD3-8112-B09B73B80573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06B21D4A-7480-4AD3-8112-B09B73B80573}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06B21D4A-7480-4AD3-8112-B09B73B80573}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06B21D4A-7480-4AD3-8112-B09B73B80573}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B74F5BA4-3C1D-4B62-9858-C50B35B0DDB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B74F5BA4-3C1D-4B62-9858-C50B35B0DDB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B74F5BA4-3C1D-4B62-9858-C50B35B0DDB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B74F5BA4-3C1D-4B62-9858-C50B35B0DDB8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -87,15 +71,31 @@ Global
 		{1DDF21A7-EEBA-492F-98A4-57D7C4D88A99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DDF21A7-EEBA-492F-98A4-57D7C4D88A99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DDF21A7-EEBA-492F-98A4-57D7C4D88A99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{474349E9-716F-4336-8BBC-4D62346731A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{474349E9-716F-4336-8BBC-4D62346731A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{474349E9-716F-4336-8BBC-4D62346731A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{474349E9-716F-4336-8BBC-4D62346731A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06B21D4A-7480-4AD3-8112-B09B73B80573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06B21D4A-7480-4AD3-8112-B09B73B80573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06B21D4A-7480-4AD3-8112-B09B73B80573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06B21D4A-7480-4AD3-8112-B09B73B80573}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B74F5BA4-3C1D-4B62-9858-C50B35B0DDB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B74F5BA4-3C1D-4B62-9858-C50B35B0DDB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B74F5BA4-3C1D-4B62-9858-C50B35B0DDB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B74F5BA4-3C1D-4B62-9858-C50B35B0DDB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{F6D3D7F4-4970-4CA5-AFFD-D2D2E7B669EA} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
 		{474349E9-716F-4336-8BBC-4D62346731A7} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
+		{39B12768-97F9-4521-BD44-25C261CA3FFB} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
 		{06B21D4A-7480-4AD3-8112-B09B73B80573} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
 		{B74F5BA4-3C1D-4B62-9858-C50B35B0DDB8} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
-		{39B12768-97F9-4521-BD44-25C261CA3FFB} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
-		{F6D3D7F4-4970-4CA5-AFFD-D2D2E7B669EA} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
 	EndGlobalSection
 EndGlobal

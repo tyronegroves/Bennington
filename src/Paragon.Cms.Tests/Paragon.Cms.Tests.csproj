@@ -6,11 +6,11 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{06B21D4A-7480-4AD3-8112-B09B73B80573}</ProjectGuid>
+    <ProjectGuid>{474349E9-716F-4336-8BBC-4D62346731A7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Paragon.ContentTree.Tests</RootNamespace>
-    <AssemblyName>Paragon.ContentTree.Tests</AssemblyName>
+    <RootNamespace>Paragon.Cms.Tests</RootNamespace>
+    <AssemblyName>Paragon.Cms.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -33,22 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapperAssist">
-      <HintPath>..\..\lib\AutoMapperAssist\AutoMapperAssist.dll</HintPath>
-    </Reference>
     <Reference Include="AutoMoq">
-      <HintPath>..\..\lib\AutoMoq\AutoMoq.dll</HintPath>
+      <HintPath>..\..\..\lib\AutoMoq\AutoMoq.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="MvcTurbine">
-      <HintPath>..\..\lib\Turbine\MvcTurbine.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
@@ -56,22 +48,12 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contexts\TreeNodeProviderContextTests_GetAllTreeNodeProviders.cs" />
-    <Compile Include="Contexts\TreeNodeSummarContextTests_GetChildren.cs" />
-    <Compile Include="Contexts\TreeNodeSummaryContextTests_Create.cs" />
-    <Compile Include="Controllers\ContentTreeControllerTests_Branch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TreeNodeExtensionProvider\GetAllContentTreeNodeProvidersTests_GetAll.cs" />
-    <Compile Include="ViewModelBuilders\TreeBranchViewModelBuilderTests_BuildViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Paragon.ContentTree\Paragon.ContentTree.csproj">
-      <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
-      <Name>Paragon.ContentTree</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Paragon.Core\Paragon.Core.csproj">
-      <Project>{3DE65C2E-791C-4B05-815F-986782A5153A}</Project>
-      <Name>Paragon.Core</Name>
+    <ProjectReference Include="..\Paragon.Cms\Paragon.Cms.csproj">
+      <Project>{7516E4A6-54D1-437B-B14A-5EAA25D84730}</Project>
+      <Name>Paragon.Cms</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
