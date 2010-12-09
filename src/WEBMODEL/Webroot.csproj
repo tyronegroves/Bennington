@@ -6,12 +6,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3FFB9C9E-5215-4EF3-AE8F-116D4BC1AAFD}</ProjectGuid>
+    <ProjectGuid>{1DDF21A7-EEBA-492F-98A4-57D7C4D88A99}</ProjectGuid>
     <ProjectTypeGuids>{F85E285D-A4E0-4152-9332-AB1D724D3325};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DEGSMS4</RootNamespace>
-    <AssemblyName>DEGSMS4</AssemblyName>
+    <RootNamespace>Webroot</RootNamespace>
+    <AssemblyName>Webroot</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
   </PropertyGroup>
@@ -49,12 +49,13 @@
     <Reference Include="MvcTurbine">
       <HintPath>..\..\..\lib\Turbine\MvcTurbine.dll</HintPath>
     </Reference>
-    <Reference Include="MvcTurbine.Unity, Version=2.1.0.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="MvcTurbine.EmbeddedViews">
+      <HintPath>..\..\..\lib\Turbine\MvcTurbine.EmbeddedViews.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcTurbine.Unity">
       <HintPath>..\..\..\lib\Turbine\MvcTurbine.Unity.dll</HintPath>
     </Reference>
-    <Reference Include="MvcTurbine.Web, Version=2.1.0.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="MvcTurbine.Web">
       <HintPath>..\..\..\lib\Turbine\MvcTurbine.Web.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -94,8 +95,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Routing\RegisterDefaultRoutes.cs">
-      <SubType>Code</SubType>
+    <Compile Include="Routes.aspx.cs">
+      <DependentUpon>Routes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -113,8 +115,9 @@
     <Content Include="Content\JSTree\Style.css" />
     <Content Include="Content\JSTree\throbber.gif" />
     <Content Include="Content\Reset.css" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\ManageSite.css" />
     <Content Include="Global.asax" />
+    <Content Include="Routes.aspx" />
     <Content Include="Scripts\global.js" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
@@ -379,10 +382,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
     <Folder Include="Scripts\tiny_mce\plugins\autosave\images\" />
     <Folder Include="Scripts\tiny_mce\plugins\spellchecker\classes\utils\" />
     <Folder Include="Scripts\tiny_mce\plugins\spellchecker\includes\" />
-    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Target_\Active\ConnectionStrings.config" />
@@ -405,25 +408,36 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ContentTreeContactUsNodeProvider\ContentTreeContactUsNodeProvider\ContentTreeContactUsNodeProvider.csproj">
+    <Content Include="Views\Shared\Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ContentTreeContactUsNodeProvider\ContentTreeContactUsNodeProvider\_ContentTreeContactUsNodeProvider.csproj">
       <Project>{41C30A0E-6C5E-48F1-9DCC-998456ED21CD}</Project>
-      <Name>ContentTreeContactUsNodeProvider</Name>
+      <Name>_ContentTreeContactUsNodeProvider</Name>
     </ProjectReference>
     <ProjectReference Include="..\Paragon.Cms\Paragon.Cms.csproj">
       <Project>{7516E4A6-54D1-437B-B14A-5EAA25D84730}</Project>
       <Name>Paragon.Cms</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Paragon.ContentTreeNodeProvider\Paragon.ContentTreeNodeProvider.csproj">
+    <ProjectReference Include="..\Paragon.ContentTree.ContentNodeProvider\Paragon.ContentTree.ContentNodeProvider.csproj">
       <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
-      <Name>Paragon.ContentTreeNodeProvider</Name>
+      <Name>Paragon.ContentTree.ContentNodeProvider</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Paragon.ContentTreeSectionNodeProvider\Paragon.ContentTreeSectionNodeProvider.csproj">
+    <ProjectReference Include="..\Paragon.ContentTreeSectionNodeProvider\Paragon.ContentTree.SectionNodeProvider.csproj">
       <Project>{F5B06173-0873-4E7E-BBD5-9F58D69E077F}</Project>
-      <Name>Paragon.ContentTreeSectionNodeProvider</Name>
+      <Name>Paragon.ContentTree.SectionNodeProvider</Name>
     </ProjectReference>
     <ProjectReference Include="..\Paragon.ContentTree\Paragon.ContentTree.csproj">
       <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
       <Name>Paragon.ContentTree</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Paragon.Core\Paragon.Core.csproj">
+      <Project>{3DE65C2E-791C-4B05-815F-986782A5153A}</Project>
+      <Name>Paragon.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Paragon.Pages\Paragon.ContentTree.Routing.csproj">
+      <Project>{19D2FC38-0EA3-4501-8297-A48C3923ED77}</Project>
+      <Name>Paragon.ContentTree.Routing</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -441,7 +455,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>54878</DevelopmentServerPort>
+          <DevelopmentServerPort>49747</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

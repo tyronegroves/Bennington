@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEBMODEL", "WEBMODEL\WEBMODEL.csproj", "{1DDF21A7-EEBA-492F-98A4-57D7C4D88A99}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webroot", "WEBMODEL\Webroot.csproj", "{1DDF21A7-EEBA-492F-98A4-57D7C4D88A99}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.Core", "Paragon.Core\Paragon.Core.csproj", "{3DE65C2E-791C-4B05-815F-986782A5153A}"
 EndProject
