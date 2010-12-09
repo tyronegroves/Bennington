@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.Routing
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.SectionNodeProvider", "Paragon.ContentTreeSectionNodeProvider\Paragon.ContentTree.SectionNodeProvider.csproj", "{F5B06173-0873-4E7E-BBD5-9F58D69E077F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_ContentTreeContactUsNodeProvider", "ContentTreeContactUsNodeProvider\ContentTreeContactUsNodeProvider\_ContentTreeContactUsNodeProvider.csproj", "{41C30A0E-6C5E-48F1-9DCC-998456ED21CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider", "ContentTreeContactUsNodeProvider\ContentTreeContactUsNodeProvider\Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.csproj", "{41C30A0E-6C5E-48F1-9DCC-998456ED21CD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.Cms", "Paragon.Cms\Paragon.Cms.csproj", "{7516E4A6-54D1-437B-B14A-5EAA25D84730}"
 EndProject
