@@ -1,10 +1,6 @@
-﻿using System;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-using Paragon.Pages.Content;
+﻿using System.Web.Mvc;
 
-namespace Paragon.Pages.Controllers
+namespace Paragon.ContentTree.Routing.Controllers
 {
     public class ParagonPageController : Controller
     {

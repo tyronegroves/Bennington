@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Paragon.Pages.Content.Json
+namespace Paragon.ContentTree.Routing.Content.Json
 {
     [DataContract]
     public class JsTreeNode

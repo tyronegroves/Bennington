@@ -9,9 +9,9 @@ using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Data;
 using Paragon.ContentTree.Models;
 using Paragon.ContentTree.Repositories;
-using Paragon.Pages.Content;
-using Paragon.Pages.Mappers;
-using Paragon.Pages.Routing.Helpers;
+using Paragon.ContentTree.Routing.Content;
+using Paragon.ContentTree.Routing.Mappers;
+using Paragon.ContentTree.Routing.Routing.Helpers;
 
 namespace Paragon.Pages.Tests.Routing.Helpers
 {

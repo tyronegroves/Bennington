@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using AutoMapperAssist;
+﻿using AutoMapperAssist;
 using Paragon.ContentTree.Data;
-using Paragon.Pages.Content;
+using Paragon.ContentTree.Routing.Content;
 
-namespace Paragon.Pages.Mappers
+namespace Paragon.ContentTree.Routing.Mappers
 {
 	public interface IContentTreeNodeToTreeNodeMapper
 	{

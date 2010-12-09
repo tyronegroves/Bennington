@@ -4,10 +4,9 @@ using System.Text;
 using System.Web.Mvc;
 using System.Web.Routing;
 using MvcTurbine;
-using Paragon.ContentTree.Contexts;
-using Paragon.Pages.Content;
+using Paragon.ContentTree.Routing.Content;
 
-namespace Paragon.Pages.Routing
+namespace Paragon.ContentTree.Routing.Routing
 {
 	public interface IContentTreeRouteBuilder
 	{

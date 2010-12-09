@@ -1,6 +1,5 @@
 ﻿using System;
-using Paragon.Pages.Content;
-using Paragon.Pages.Content.Json;
+using Paragon.ContentTree.Routing.Content;
 
 namespace Paragon.Pages.Tests
 {

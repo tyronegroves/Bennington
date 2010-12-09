@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Paragon.ContentTree.Data;
-using Paragon.Pages.Data;
-using Paragon.Pages.Mappers;
 
 namespace Paragon.Pages.Adapters
 {

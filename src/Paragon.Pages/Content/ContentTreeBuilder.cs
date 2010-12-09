@@ -1,7 +1,7 @@
 ﻿using MvcTurbine;
-using Paragon.Pages.Data;
+using Paragon.ContentTree.Routing.Data;
 
-namespace Paragon.Pages.Content
+namespace Paragon.ContentTree.Routing.Content
 {
 	public interface IContentTreeBuilder
 	{

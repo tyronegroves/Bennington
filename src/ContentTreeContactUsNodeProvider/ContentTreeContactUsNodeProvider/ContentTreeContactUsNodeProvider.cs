@@ -12,8 +12,8 @@ using Paragon.ContentTree.ContentNodeProvider.Repositories;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Models;
 using Paragon.ContentTree.Repositories;
+using Paragon.ContentTree.Routing.Routing.Helpers;
 using Paragon.ContentTree.TreeNodeExtensionProvider;
-using Paragon.Pages.Routing.Helpers;
 
 
 namespace ContentTreeContactUsNodeProvider

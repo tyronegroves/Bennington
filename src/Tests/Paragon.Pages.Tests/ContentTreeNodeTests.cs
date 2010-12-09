@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Paragon.Pages.Content;
+using Paragon.ContentTree.Routing.Content;
 
 namespace Paragon.Pages.Tests
 {

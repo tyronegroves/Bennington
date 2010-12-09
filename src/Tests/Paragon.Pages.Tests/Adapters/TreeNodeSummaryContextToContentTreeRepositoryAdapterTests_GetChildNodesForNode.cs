@@ -7,9 +7,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Models;
-using Paragon.Pages.Adapters;
-using Paragon.Pages.Content;
-using Paragon.Pages.Mappers;
+using Paragon.ContentTree.Routing.Adapters;
+using Paragon.ContentTree.Routing.Content;
+using Paragon.ContentTree.Routing.Mappers;
 
 namespace Paragon.Pages.Tests.Adapters
 {

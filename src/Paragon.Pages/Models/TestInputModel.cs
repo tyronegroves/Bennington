@@ -1,4 +1,4 @@
-﻿namespace Paragon.Pages.Models
+﻿namespace Paragon.ContentTree.Routing.Models
 {
 	public class TestInputModel
 	{

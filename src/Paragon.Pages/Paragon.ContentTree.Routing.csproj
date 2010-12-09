@@ -10,8 +10,8 @@
     <ProjectTypeGuids>{F85E285D-A4E0-4152-9332-AB1D724D3325};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Paragon.Pages</RootNamespace>
-    <AssemblyName>Paragon.Pages</AssemblyName>
+    <RootNamespace>Paragon.ContentTree.Routing</RootNamespace>
+    <AssemblyName>Paragon.ContentTree.Routing</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
   </PropertyGroup>
@@ -46,8 +46,9 @@
       <HintPath>..\..\..\lib\FluentValidation\FluentValidation.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="MvcTurbine">
-      <HintPath>..\..\..\lib\Turbine\MvcTurbine.dll</HintPath>
+    <Reference Include="MvcTurbine, Version=2.1.0.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Turbine\MvcTurbine.dll</HintPath>
     </Reference>
     <Reference Include="MvcTurbine.FluentValidation">
       <HintPath>..\..\..\lib\FluentValidation\MvcTurbine.FluentValidation.dll</HintPath>

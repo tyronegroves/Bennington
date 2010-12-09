@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Paragon.ContentTree.Routing.Routing.Helpers;
 using Paragon.ContentTree.SectionNodeProvider.Repositories;
-using Paragon.Pages.Routing.Helpers;
 
 namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 {

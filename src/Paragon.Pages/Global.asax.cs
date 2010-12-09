@@ -1,6 +1,6 @@
 ﻿using System.Web;
 
-namespace Paragon.Pages
+namespace Paragon.ContentTree.Routing
 {
     public class MvcApplication : HttpApplication
     {

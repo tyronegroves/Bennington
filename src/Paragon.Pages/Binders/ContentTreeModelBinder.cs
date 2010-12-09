@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
-using Paragon.Pages.Content;
+using Paragon.ContentTree.Routing.Content;
 
-namespace Paragon.Pages.Binders
+namespace Paragon.ContentTree.Routing.Binders
 {
     public class ContentTreeModelBinder : IModelBinder
     {

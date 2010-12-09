@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.Core", "Paragon.Cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree", "Paragon.ContentTree\Paragon.ContentTree.csproj", "{97981EC9-A1C5-460E-9244-9D5C9169E47F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.Pages", "Paragon.Pages\Paragon.Pages.csproj", "{19D2FC38-0EA3-4501-8297-A48C3923ED77}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.Routing", "Paragon.Pages\Paragon.ContentTree.Routing.csproj", "{19D2FC38-0EA3-4501-8297-A48C3923ED77}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.SectionNodeProvider", "Paragon.ContentTreeSectionNodeProvider\Paragon.ContentTree.SectionNodeProvider.csproj", "{F5B06173-0873-4E7E-BBD5-9F58D69E077F}"
 EndProject

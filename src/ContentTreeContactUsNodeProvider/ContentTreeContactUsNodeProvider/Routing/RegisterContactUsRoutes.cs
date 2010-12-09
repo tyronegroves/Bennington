@@ -7,7 +7,7 @@ using System.Web.Routing;
 using ContentTreeContactUsNodeProvider.Repositories;
 using MvcTurbine.Routing;
 using Paragon.ContentTree.Repositories;
-using Paragon.Pages.Routing.Helpers;
+using Paragon.ContentTree.Routing.Routing.Helpers;
 
 namespace ContentTreeContactUsNodeProvider.Routing
 {

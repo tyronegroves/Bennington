@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using MvcTurbine.ComponentModel;
-using Paragon.Pages.Adapters;
-using Paragon.Pages.Data;
+﻿using MvcTurbine.ComponentModel;
+using Paragon.ContentTree.Routing.Adapters;
+using Paragon.ContentTree.Routing.Data;
 
-namespace Paragon.Pages.Registration
+namespace Paragon.ContentTree.Routing.Registration
 {
 	public class TreeNodeSummaryContextToContentTreeRepositoryAdapterServiceRegistration : IServiceRegistration
 	{

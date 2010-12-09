@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using MvcTurbine.Routing;
 using Paragon.ContentTree.Repositories;
-using Paragon.Pages.Routing.Helpers;
+using Paragon.ContentTree.Routing.Routing.Helpers;
 
 namespace Paragon.ContentTree.SectionNodeProvider.Routing
 {

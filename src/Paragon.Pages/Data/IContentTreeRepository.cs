@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Paragon.Pages.Content;
+using Paragon.ContentTree.Routing.Content;
 
-namespace Paragon.Pages.Data
+namespace Paragon.ContentTree.Routing.Data
 {
     public interface IContentTreeRepository
     {

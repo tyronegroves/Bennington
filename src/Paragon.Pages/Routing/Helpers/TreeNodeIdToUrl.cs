@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Repositories;
-using Paragon.Pages.Mappers;
+using Paragon.ContentTree.Routing.Mappers;
 
-namespace Paragon.Pages.Routing.Helpers
+namespace Paragon.ContentTree.Routing.Routing.Helpers
 {
 	public interface ITreeNodeIdToUrl
 	{

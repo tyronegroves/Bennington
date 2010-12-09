@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Paragon.Pages.Content.Json;
-using Paragon.Pages.Routing;
+using Paragon.ContentTree.Routing.Routing;
 
-namespace Paragon.Pages.Content
+namespace Paragon.ContentTree.Routing.Content
 {
     public class ContentTree
     {

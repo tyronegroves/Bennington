@@ -1,8 +1,8 @@
 ﻿using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.Pages.Content;
-using Paragon.Pages.Data;
+using Paragon.ContentTree.Routing.Content;
+using Paragon.ContentTree.Routing.Data;
 
 namespace Paragon.Pages.Tests
 {

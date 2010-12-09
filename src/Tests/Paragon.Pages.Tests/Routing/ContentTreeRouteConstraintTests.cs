@@ -1,7 +1,7 @@
 ﻿using System.Web.Routing;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Paragon.Pages.Routing;
+using Paragon.ContentTree.Routing.Routing;
 
 namespace Paragon.Pages.Tests.Routing
 {

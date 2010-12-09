@@ -5,7 +5,7 @@ using System.Linq;
 using AutoMapperAssist;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Paragon.Pages.Mappers;
+using Paragon.ContentTree.Routing.Mappers;
 
 namespace Paragon.Pages.Tests.Mappers
 {

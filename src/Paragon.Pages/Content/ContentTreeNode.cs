@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Paragon.Pages.Content.Json;
 
-namespace Paragon.Pages.Content
+namespace Paragon.ContentTree.Routing.Content
 {
     public class ContentTreeNode : IEnumerable<ContentTreeNode>
     {

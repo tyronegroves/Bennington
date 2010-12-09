@@ -1,6 +1,6 @@
 ﻿using System.Web.Routing;
 
-namespace Paragon.Pages.Routing
+namespace Paragon.ContentTree.Routing.Routing
 {
     public interface IWantCustomRouting
     {

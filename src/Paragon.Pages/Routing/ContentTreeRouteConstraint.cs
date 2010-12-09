@@ -1,15 +1,12 @@
 ﻿using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 using System.Web.Routing;
-using Paragon.ContentTree.Contexts;
-using Paragon.Pages.Content;
 
-namespace Paragon.Pages.Routing
+namespace Paragon.ContentTree.Routing.Routing
 {
     public class ContentTreeRouteConstraint : IRouteConstraint
     {
-		private readonly Paragon.Pages.Content.ContentTree contentTree;
+		private readonly Content.ContentTree contentTree;
 		//private readonly ITreeNodeProviderContext treeNodeProviderContext;
 
 		public ContentTreeRouteConstraint(Content.ContentTree contentTree/*, ITreeNodeProviderContext treeNodeProviderContext*/)

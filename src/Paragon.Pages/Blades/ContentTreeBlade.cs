@@ -1,10 +1,9 @@
 ﻿using System.Web.Mvc;
 using MvcTurbine;
 using MvcTurbine.Blades;
-using Paragon.Pages.Binders;
-using Paragon.Pages.Content;
+using Paragon.ContentTree.Routing.Binders;
 
-namespace Paragon.Pages.Blades
+namespace Paragon.ContentTree.Routing.Blades
 {
     public class ContentTreeBlade : IBlade
     {

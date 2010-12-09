@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using Paragon.ContentTree.Contexts;
-using Paragon.Pages.Content;
-using Paragon.Pages.Data;
-using Paragon.Pages.Mappers;
+using Paragon.ContentTree.Routing.Content;
+using Paragon.ContentTree.Routing.Data;
+using Paragon.ContentTree.Routing.Mappers;
 
-namespace Paragon.Pages.Adapters
+namespace Paragon.ContentTree.Routing.Adapters
 {
 	public class TreeNodeSummaryContextToContentTreeRepositoryAdapter : IContentTreeRepository
 	{
