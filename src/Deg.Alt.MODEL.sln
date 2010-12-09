@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.Cms.Tests", "Tests\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.Tests", "Tests\Paragon.ContentTree.Tests\Paragon.ContentTree.Tests.csproj", "{06B21D4A-7480-4AD3-8112-B09B73B80573}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTreeNodeProvider.Tests", "Tests\Paragon.ContentTreeNodeProvider.Tests\Paragon.ContentTreeNodeProvider.Tests.csproj", "{F6D3D7F4-4970-4CA5-AFFD-D2D2E7B669EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.ContentNodeProvider.Tests", "Tests\Paragon.ContentTreeNodeProvider.Tests\Paragon.ContentTree.ContentNodeProvider.Tests.csproj", "{F6D3D7F4-4970-4CA5-AFFD-D2D2E7B669EA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.Pages.Tests", "Tests\Paragon.Pages.Tests\Paragon.Pages.Tests.csproj", "{B74F5BA4-3C1D-4B62-9858-C50B35B0DDB8}"
 EndProject

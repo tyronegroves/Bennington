@@ -1,8 +1,4 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMoq;
+﻿using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Paragon.ContentTree.ContentNodeProvider.Context;
@@ -11,9 +7,8 @@ using Paragon.ContentTree.ContentNodeProvider.Mappers;
 using Paragon.ContentTree.ContentNodeProvider.Models;
 using Paragon.ContentTree.ContentNodeProvider.Repositories;
 using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Models;
 
-namespace Paragon.ContentTreeNodeProvider.Tests.Context
+namespace Paragon.ContentTree.ContentNodeProvider.Tests.Context
 {
 	[TestClass]
 	public class ContentTreeNodeContextTests_CreateTreeNodeAndReturnTreeNodeId

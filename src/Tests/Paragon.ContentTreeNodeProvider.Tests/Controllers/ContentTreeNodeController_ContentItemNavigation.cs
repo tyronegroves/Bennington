@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -14,7 +13,7 @@ using Paragon.ContentTree.Models;
 using Paragon.ContentTree.Repositories;
 using Paragon.ContentTree.TreeNodeExtensionProvider;
 
-namespace Paragon.LandingPageContentTreeNodeProvider.Tests.Controllers
+namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 {
 	[TestClass]
 	public class ContentTreeNodeController_ContentItemNavigation

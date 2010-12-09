@@ -1,13 +1,9 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMapperAssist;
+﻿using AutoMapperAssist;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Paragon.ContentTree.ContentNodeProvider.Mappers;
 
-namespace Paragon.ContentTreeNodeProvider.Tests.Mappers
+namespace Paragon.ContentTree.ContentNodeProvider.Tests.Mappers
 {
 	[TestClass]
 	public class ContentTreeInputModelToContentTreeNodeMapperTests

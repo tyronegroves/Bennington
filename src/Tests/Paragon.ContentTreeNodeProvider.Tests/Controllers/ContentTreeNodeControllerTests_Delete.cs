@@ -1,15 +1,11 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Paragon.ContentTree.ContentNodeProvider.Context;
 using Paragon.ContentTree.ContentNodeProvider.Controllers;
 
-namespace Paragon.ContentTreeNodeProvider.Tests.Controllers
+namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 {
 	[TestClass]
 	public class LandingPageControllerTests_Delete

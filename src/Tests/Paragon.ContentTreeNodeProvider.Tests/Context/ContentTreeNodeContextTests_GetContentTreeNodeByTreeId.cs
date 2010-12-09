@@ -1,14 +1,11 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Paragon.ContentTree.ContentNodeProvider.Context;
 using Paragon.ContentTree.ContentNodeProvider.Data;
 using Paragon.ContentTree.ContentNodeProvider.Repositories;
 
-namespace Paragon.LandingPageContentTreeNodeProvider.Tests.Context
+namespace Paragon.ContentTree.ContentNodeProvider.Tests.Context
 {
 	[TestClass]
 	public class ContentTreeNodeContextTests_GetContentTreeNodeByTreeId
