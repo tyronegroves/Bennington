@@ -7,11 +7,11 @@ using System.Web.Routing;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.ContentTreeNodeProvider.Controllers;
-using Paragon.ContentTreeNodeProvider.Data;
-using Paragon.ContentTreeNodeProvider.Mappers;
-using Paragon.ContentTreeNodeProvider.Models;
-using Paragon.ContentTreeNodeProvider.Repositories;
+using Paragon.ContentTree.ContentNodeProvider.Controllers;
+using Paragon.ContentTree.ContentNodeProvider.Data;
+using Paragon.ContentTree.ContentNodeProvider.Mappers;
+using Paragon.ContentTree.ContentNodeProvider.Models;
+using Paragon.ContentTree.ContentNodeProvider.Repositories;
 
 namespace Paragon.ContentTreeNodeProvider.Tests.Controllers
 {

@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Web.Routing;
+using Paragon.ContentTree.ContentNodeProvider.Context;
+using Paragon.ContentTree.ContentNodeProvider.Models;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.ViewModelBuilders.Helpers;
-using Paragon.ContentTreeNodeProvider.Context;
-using Paragon.ContentTreeNodeProvider.Models;
 
-namespace Paragon.ContentTreeNodeProvider.ViewModelBuilders
+namespace Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders
 {
 	public interface IContentTreeNodeDisplayViewModelBuilder
 	{

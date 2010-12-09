@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Paragon.ContentTreeNodeProvider.Context;
-using Paragon.ContentTreeNodeProvider.Data;
-using Paragon.ContentTreeNodeProvider.Repositories;
+using Paragon.ContentTree.ContentNodeProvider.Context;
+using Paragon.ContentTree.ContentNodeProvider.Data;
+using Paragon.ContentTree.ContentNodeProvider.Repositories;
 
 namespace Paragon.LandingPageContentTreeNodeProvider.Tests.Context
 {

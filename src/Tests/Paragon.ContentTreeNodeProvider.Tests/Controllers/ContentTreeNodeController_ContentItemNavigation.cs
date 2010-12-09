@@ -6,13 +6,13 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Paragon.ContentTree.ContentNodeProvider.Controllers;
+using Paragon.ContentTree.ContentNodeProvider.Models;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Data;
 using Paragon.ContentTree.Models;
 using Paragon.ContentTree.Repositories;
 using Paragon.ContentTree.TreeNodeExtensionProvider;
-using Paragon.ContentTreeNodeProvider.Controllers;
-using Paragon.ContentTreeNodeProvider.Models;
 
 namespace Paragon.LandingPageContentTreeNodeProvider.Tests.Controllers
 {

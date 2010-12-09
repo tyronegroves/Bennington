@@ -8,8 +8,8 @@
     <ProjectGuid>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Paragon.ContentTreeNodeProvider</RootNamespace>
-    <AssemblyName>Paragon.ContentTreeNodeProvider</AssemblyName>
+    <RootNamespace>Paragon.ContentTree.ContentNodeProvider</RootNamespace>
+    <AssemblyName>Paragon.ContentTree.ContentNodeProvider</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -79,11 +79,12 @@
     <Compile Include="Controllers\ContentTreeNodeController.cs" />
     <Compile Include="Data\ContentTreeNodeProviderDataModel.cs">
       <DependentUpon>ContentTreeNodeProviderDataModel.dbml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Data\ContentTreeNodeProviderDataModel.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>ContentTreeNodeProviderDataModel.dbml</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Mappers\ContentTreeNodeInputModelToContentTreeNodeMapper.cs" />
     <Compile Include="Mappers\ContentTreeNodeToLandingPageInputModelMapper.cs" />
@@ -99,7 +100,7 @@
     </Compile>
     <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
     <Compile Include="TreeNodeExtensionProviderRegistration.cs" />
-    <Compile Include="ContentTreeNodeExtensionProvider.cs" />
+    <Compile Include="ContentNodeProvider.cs" />
     <Compile Include="Repositories\ContentTreeNodeRepository.cs" />
     <Compile Include="Validation\ContentTreeInputModelValidator.cs" />
     <Compile Include="ViewModelBuilders\ContentTreeNodeDisplayViewModelBuilder.cs" />
@@ -108,9 +109,12 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Data\ContentTreeNodeProviderDataModel.dbml">
+      <SubType>Designer</SubType>
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>ContentTreeNodeProviderDataModel.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
+    </None>
+    <None Include="Data\ContentTreeNodeProviderDataModel.dbml.layout">
+      <DependentUpon>ContentTreeNodeProviderDataModel.dbml</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -121,9 +125,6 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\ContentTreeNodeProviderDataModel.dbml.layout">
-      <DependentUpon>ContentTreeNodeProviderDataModel.dbml</DependentUpon>
-    </None>
     <EmbeddedResource Include="Views\ContentTreeNode\Modify.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </EmbeddedResource>

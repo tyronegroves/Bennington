@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using Paragon.ContentTree.Models;
 
-namespace Paragon.ContentTreeNodeProvider.Models
+namespace Paragon.ContentTree.ContentNodeProvider.Models
 {
 	public class ContentItemNavigationViewModel
 	{

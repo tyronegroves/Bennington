@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
-using System.Web.UI.WebControls;
+using Paragon.ContentTree.ContentNodeProvider.Context;
+using Paragon.ContentTree.ContentNodeProvider.Mappers;
+using Paragon.ContentTree.ContentNodeProvider.Models;
+using Paragon.ContentTree.ContentNodeProvider.Repositories;
+using Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders;
+using Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders.Helpers;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Repositories;
-using Paragon.ContentTreeNodeProvider.Context;
-using Paragon.ContentTreeNodeProvider.Mappers;
-using Paragon.ContentTreeNodeProvider.Models;
-using Paragon.ContentTreeNodeProvider.Repositories;
-using Paragon.ContentTreeNodeProvider.ViewModelBuilders;
-using Paragon.ContentTreeNodeProvider.ViewModelBuilders.Helpers;
 
-namespace Paragon.ContentTreeNodeProvider.Controllers
+namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 {
 	public class ContentTreeNodeController : Controller
 	{

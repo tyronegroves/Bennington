@@ -6,16 +6,16 @@ using System.Web.Routing;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using Paragon.ContentTree.ContentNodeProvider.Context;
+using Paragon.ContentTree.ContentNodeProvider.Data;
+using Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Data;
 using Paragon.ContentTree.Models;
 using Paragon.ContentTree.ViewModelBuilders.Helpers;
-using Paragon.ContentTreeNodeProvider.Context;
-using Paragon.ContentTreeNodeProvider.Data;
-using Paragon.ContentTreeNodeProvider.ViewModelBuilders;
 using Paragon.Pages.Adapters;
 
-namespace Paragon.LandingPageContentTreeNodeProvider.Tests.ViewModelBuilders
+namespace Paragon.ContentTreeNodeProvider.Tests.ViewModelBuilders
 {
 	[TestClass]
 	public class ContentTreeNodeDisplayViewModelBuilderTests_BuildViewModel

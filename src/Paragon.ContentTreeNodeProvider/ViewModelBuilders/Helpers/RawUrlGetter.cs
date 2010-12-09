@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web;
+﻿using System.Web;
 
-namespace Paragon.ContentTreeNodeProvider.ViewModelBuilders.Helpers
+namespace Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders.Helpers
 {
 	public interface IRawUrlGetter
 	{

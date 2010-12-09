@@ -1,10 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
+using Paragon.ContentTree.ContentNodeProvider.Data;
 using Paragon.ContentTree.Repositories;
-using Paragon.ContentTreeNodeProvider.Data;
 
-
-namespace Paragon.ContentTreeNodeProvider.Repositories
+namespace Paragon.ContentTree.ContentNodeProvider.Repositories
 {
 	public interface IContentTreeNodeRepository
 	{

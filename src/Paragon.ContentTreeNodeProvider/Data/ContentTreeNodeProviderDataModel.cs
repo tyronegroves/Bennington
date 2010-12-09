@@ -1,10 +1,8 @@
-using System;
 using System.Configuration;
-using System.Data.Linq;
 using System.Transactions;
 using Paragon.ContentTree.Models;
 
-namespace Paragon.ContentTreeNodeProvider.Data
+namespace Paragon.ContentTree.ContentNodeProvider.Data
 {
 	public interface IDataModelDataContext
 	{

@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Paragon.ContentTree.ContentNodeProvider.Data;
+using Paragon.ContentTree.ContentNodeProvider.Mappers;
+using Paragon.ContentTree.ContentNodeProvider.Models;
+using Paragon.ContentTree.ContentNodeProvider.Repositories;
 using Paragon.ContentTree.Contexts;
-using Paragon.ContentTreeNodeProvider.Data;
-using Paragon.ContentTreeNodeProvider.Mappers;
-using Paragon.ContentTreeNodeProvider.Models;
-using Paragon.ContentTreeNodeProvider.Repositories;
 
-namespace Paragon.ContentTreeNodeProvider.Context
+namespace Paragon.ContentTree.ContentNodeProvider.Context
 {
 	public interface IContentTreeNodeContext
 	{

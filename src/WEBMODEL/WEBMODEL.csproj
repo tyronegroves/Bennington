@@ -419,9 +419,9 @@
       <Project>{7516E4A6-54D1-437B-B14A-5EAA25D84730}</Project>
       <Name>Paragon.Cms</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Paragon.ContentTreeNodeProvider\Paragon.ContentTreeNodeProvider.csproj">
+    <ProjectReference Include="..\Paragon.ContentTreeNodeProvider\Paragon.ContentTree.ContentNodeProvider.csproj">
       <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
-      <Name>Paragon.ContentTreeNodeProvider</Name>
+      <Name>Paragon.ContentTree.ContentNodeProvider</Name>
     </ProjectReference>
     <ProjectReference Include="..\Paragon.ContentTreeSectionNodeProvider\Paragon.ContentTreeSectionNodeProvider.csproj">
       <Project>{F5B06173-0873-4E7E-BBD5-9F58D69E077F}</Project>

@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Paragon.ContentTreeNodeProvider.Data
+namespace Paragon.ContentTree.ContentNodeProvider.Data
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -36,7 +36,7 @@ namespace Paragon.ContentTreeNodeProvider.Data
     #endregion
 		
 		public ContentTreeNodeProviderDataModelDataContext() : 
-				base(global::Paragon.ContentTreeNodeProvider.Properties.Settings.Default.ParagonConnectionString, mappingSource)
+				base(global::Paragon.ContentTree.ContentNodeProvider.Properties.Settings.Default.ParagonConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

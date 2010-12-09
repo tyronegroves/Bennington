@@ -6,8 +6,8 @@ using System.Web.Mvc;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.ContentTreeNodeProvider.Context;
-using Paragon.ContentTreeNodeProvider.Controllers;
+using Paragon.ContentTree.ContentNodeProvider.Context;
+using Paragon.ContentTree.ContentNodeProvider.Controllers;
 
 namespace Paragon.ContentTreeNodeProvider.Tests.Controllers
 {

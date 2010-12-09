@@ -3,7 +3,7 @@ using Microsoft.Practices.Unity;
 using MvcTurbine.ComponentModel;
 using MvcTurbine.Unity;
 using MvcTurbine.Web;
-using Paragon.ContentTreeNodeProvider.Data;
+using Paragon.ContentTree.ContentNodeProvider.Data;
 using Paragon.ContentTreeSectionNodeProvider.Data;
 
 namespace WEBMODEL

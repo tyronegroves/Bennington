@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using AutoMapper;
+﻿using AutoMapper;
 using AutoMapperAssist;
-using Paragon.ContentTreeNodeProvider.Data;
-using Paragon.ContentTreeNodeProvider.Models;
+using Paragon.ContentTree.ContentNodeProvider.Data;
+using Paragon.ContentTree.ContentNodeProvider.Models;
 
-namespace Paragon.ContentTreeNodeProvider.Mappers
+namespace Paragon.ContentTree.ContentNodeProvider.Mappers
 {
 	public interface IContentTreeNodeInputModelToContentTreeNodeMapper
 	{

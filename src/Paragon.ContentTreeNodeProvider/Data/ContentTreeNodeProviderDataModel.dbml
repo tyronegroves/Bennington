@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Paragon" Class="ContentTreeNodeProviderDataModelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DEGWLUCASF1\sqlexpress;Initial Catalog=Paragon;Integrated Security=True" SettingsObjectName="Paragon.ContentTreeNodeProvider.Properties.Settings" SettingsPropertyName="ParagonConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DEGWLUCASF1\sqlexpress;Initial Catalog=Paragon;Integrated Security=True" SettingsObjectName="Paragon.ContentTree.ContentNodeProvider.Properties.Settings" SettingsPropertyName="ParagonConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ContentTreeNode" Member="ContentTreeNodes">
     <Type Name="ContentTreeNode">
       <Column Name="[Key]" Member="Key" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Paragon.ContentTreeNodeProvider.Properties {
+namespace Paragon.ContentTree.ContentNodeProvider.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

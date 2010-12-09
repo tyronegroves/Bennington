@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Paragon.ContentTreeNodeProvider.Models;
-using Paragon.ContentTreeNodeProvider.Validation;
+using Paragon.ContentTree.ContentNodeProvider.Models;
+using Paragon.ContentTree.ContentNodeProvider.Validation;
 
 namespace Paragon.ContentTreeNodeProvider.Tests
 {

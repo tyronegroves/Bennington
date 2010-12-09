@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Paragon.ContentTreeNodeProvider.Models
+﻿namespace Paragon.ContentTree.ContentNodeProvider.Models
 {
 	public class ContentTreeNodeViewModel
 	{

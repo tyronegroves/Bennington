@@ -7,18 +7,18 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using ContentTreeContactUsNodeProvider.Controllers;
 using ContentTreeContactUsNodeProvider.Repositories;
+using Paragon.ContentTree.ContentNodeProvider;
+using Paragon.ContentTree.ContentNodeProvider.Repositories;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Models;
 using Paragon.ContentTree.Repositories;
 using Paragon.ContentTree.TreeNodeExtensionProvider;
-using Paragon.ContentTreeNodeProvider;
-using Paragon.ContentTreeNodeProvider.Repositories;
 using Paragon.Pages.Routing.Helpers;
 
 
 namespace ContentTreeContactUsNodeProvider
 {
-	public class ContentTreeContactUsNodeProvider : ContentTreeNodeExtensionProvider, IAmATreeNodeExtensionProvider //, IRouteConstraint
+	public class ContentTreeContactUsNodeProvider : ContentNodeProvider, IAmATreeNodeExtensionProvider //, IRouteConstraint
 	{
 		private readonly ITreeNodeIdToUrl treeNodeIdToUrl;
 		private readonly ITreeNodeRepository treeNodeRepository;
