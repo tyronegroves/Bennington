@@ -146,7 +146,7 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Paragon.ContentTreeNodeProvider\Paragon.ContentTree.ContentNodeProvider.csproj">
+    <ProjectReference Include="..\..\Paragon.ContentTree.ContentNodeProvider\Paragon.ContentTree.ContentNodeProvider.csproj">
       <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
       <Name>Paragon.ContentTree.ContentNodeProvider</Name>
     </ProjectReference>
