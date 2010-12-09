@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using Paragon.ContentTree.Contexts;
-using Paragon.ContentTreeSectionNodeProvider.Mappers;
-using Paragon.ContentTreeSectionNodeProvider.Models;
-using Paragon.ContentTreeSectionNodeProvider.Repositories;
+using Paragon.ContentTree.SectionNodeProvider.Mappers;
+using Paragon.ContentTree.SectionNodeProvider.Models;
+using Paragon.ContentTree.SectionNodeProvider.Repositories;
 
-namespace Paragon.ContentTreeSectionNodeProvider.Context
+namespace Paragon.ContentTree.SectionNodeProvider.Context
 {
 	public interface IContentTreeSectionNodeContext
 	{
@@ -30,7 +27,7 @@ namespace Paragon.ContentTreeSectionNodeProvider.Context
 
 		public string CreateTreeNodeAndReturnTreeNodeId(ContentTreeSectionInputModel contentTreeSectionInputModel)
 		{
-			var newTreeNodeId = treeNodeSummaryContext.Create(contentTreeSectionInputModel.ParentTreeNodeId, typeof(ContentTreeSectionNodeExtensionProvider));
+			var newTreeNodeId = treeNodeSummaryContext.Create(contentTreeSectionInputModel.ParentTreeNodeId, typeof(SectionNodeProvider));
 			contentTreeSectionInputModel.TreeNodeId = newTreeNodeId;
 			var node = contentTreeSectionInputModelToContentTreeSectionNodeMapper.CreateInstance(contentTreeSectionInputModel);
 			contentTreeSectionNodeRepository.Create(node);

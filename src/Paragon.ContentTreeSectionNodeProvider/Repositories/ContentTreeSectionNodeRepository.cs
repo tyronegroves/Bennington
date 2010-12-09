@@ -1,10 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Paragon.ContentTree.Repositories;
-using Paragon.ContentTreeSectionNodeProvider.Data;
+using Paragon.ContentTree.SectionNodeProvider.Data;
 
-
-namespace Paragon.ContentTreeSectionNodeProvider.Repositories
+namespace Paragon.ContentTree.SectionNodeProvider.Repositories
 {
 	public interface IContentTreeSectionNodeRepository
 	{

@@ -1,8 +1,8 @@
 ﻿using Deg.Alt.FluentValidation;
 using FluentValidation;
-using Paragon.ContentTreeSectionNodeProvider.Models;
+using Paragon.ContentTree.SectionNodeProvider.Models;
 
-namespace Paragon.ContentTreeSectionNodeProvider.Validation
+namespace Paragon.ContentTree.SectionNodeProvider.Validation
 {
 	public class ContentTreeSectionInputModelValidator : AbstractValidator<ContentTreeSectionInputModel>
 	{

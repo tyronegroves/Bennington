@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.Mvc;
 using System.Web.Routing;
 using Paragon.ContentTree.Models;
+using Paragon.ContentTree.SectionNodeProvider.Repositories;
 using Paragon.ContentTree.TreeNodeExtensionProvider;
-using Paragon.ContentTreeSectionNodeProvider.Repositories;
 
-namespace Paragon.ContentTreeSectionNodeProvider
+namespace Paragon.ContentTree.SectionNodeProvider
 {
-	public class ContentTreeSectionNodeExtensionProvider : IAmATreeNodeExtensionProvider
+	public class SectionNodeProvider : IAmATreeNodeExtensionProvider
 	{
 		private readonly IContentTreeSectionNodeRepository contentTreeSectionNodeRepository;
 
-		public ContentTreeSectionNodeExtensionProvider(IContentTreeSectionNodeRepository contentTreeSectionNodeRepository)
+		public SectionNodeProvider(IContentTreeSectionNodeRepository contentTreeSectionNodeRepository)
 		{
 			this.contentTreeSectionNodeRepository = contentTreeSectionNodeRepository;
 		}

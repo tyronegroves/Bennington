@@ -5,7 +5,7 @@ using MvcTurbine.Routing;
 using Paragon.ContentTree.Repositories;
 using Paragon.Pages.Routing.Helpers;
 
-namespace Paragon.ContentTreeSectionNodeProvider.Routing
+namespace Paragon.ContentTree.SectionNodeProvider.Routing
 {
 	public class RegisterSectionRoutes : IRouteRegistrator
 	{
@@ -20,7 +20,7 @@ namespace Paragon.ContentTreeSectionNodeProvider.Routing
 
 		public void Register(RouteCollection routes)
 		{
-			foreach (var treeNode in treeNodeRepository.GetAll().Where(a => a.Type == typeof(ContentTreeSectionNodeExtensionProvider).FullName))
+			foreach (var treeNode in treeNodeRepository.GetAll().Where(a => a.Type == typeof(SectionNodeProvider).FullName))
 			{
 				var url = treeNodeIdToUrl.GetUrlByTreeNodeId(treeNode.Id);
 				if (url.StartsWith("/")) url = url.Substring(1);

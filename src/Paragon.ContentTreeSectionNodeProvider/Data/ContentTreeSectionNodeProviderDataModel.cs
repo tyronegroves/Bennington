@@ -4,7 +4,7 @@ using System.Data.Linq;
 using System.Transactions;
 using Paragon.ContentTree.Models;
 
-namespace Paragon.ContentTreeSectionNodeProvider.Data
+namespace Paragon.ContentTree.SectionNodeProvider.Data
 {
 	public interface IDataModelDataContext
 	{

@@ -1,23 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Routing;
-using System.Web.UI.WebControls;
-using Paragon.ContentTreeSectionNodeProvider.Context;
-using Paragon.ContentTreeSectionNodeProvider.Mappers;
-using Paragon.ContentTreeSectionNodeProvider.Models;
-using Paragon.ContentTreeSectionNodeProvider.Repositories;
+using Paragon.ContentTree.SectionNodeProvider.Repositories;
 using Paragon.Pages.Routing.Helpers;
 
-namespace Paragon.ContentTreeSectionNodeProvider.Controllers
+namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 {
 	public class ContentTreeSectionController : Controller
 	{
 		private readonly ITreeNodeIdToUrl treeNodeIdToUrl;
-		private IContentTreeSectionNodeRepository contentTreeSectionNodeRepository;
+		private readonly IContentTreeSectionNodeRepository contentTreeSectionNodeRepository;
 
 		public ContentTreeSectionController(ITreeNodeIdToUrl treeNodeIdToUrl, IContentTreeSectionNodeRepository contentTreeSectionNodeRepository)
 		{
