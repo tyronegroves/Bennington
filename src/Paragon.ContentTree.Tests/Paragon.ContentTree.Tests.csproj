@@ -61,6 +61,7 @@
     <Compile Include="Contexts\TreeNodeSummaryContextTests_Create.cs" />
     <Compile Include="Controllers\ContentTreeControllerTests_Branch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Routing\RegisterRoutesForAllProvidersTests_Register.cs" />
     <Compile Include="TreeNodeExtensionProvider\GetAllContentTreeNodeProvidersTests_GetAll.cs" />
     <Compile Include="ViewModelBuilders\TreeBranchViewModelBuilderTests_BuildViewModel.cs" />
   </ItemGroup>
