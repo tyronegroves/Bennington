@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using Paragon.ContentTree.ContentNodeProvider.Repositories;
+using Paragon.ContentTree.ExampleEngineNodeProvider.Controllers;
 using Paragon.ContentTree.Models;
-using Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Controllers;
 using Paragon.ContentTree.Repositories;
 using Paragon.ContentTree.Routing.Routing.Helpers;
 using Paragon.ContentTree.TreeNodeExtensionProvider;
 
-namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider
+namespace Paragon.ContentTree.ExampleEngineNodeProvider
 {
-	public class ContentTreeContactUsNodeProvider : ContentNodeProvider.ContentNodeProvider, IAmATreeNodeExtensionProvider //, IRouteConstraint
+	public class ExampleEngineNodeProvider : ContentNodeProvider.ContentNodeProvider, IAmATreeNodeExtensionProvider //, IRouteConstraint
 	{
 		private readonly ITreeNodeIdToUrl treeNodeIdToUrl;
 		private readonly ITreeNodeRepository treeNodeRepository;
 
-		public ContentTreeContactUsNodeProvider(IContentTreeNodeRepository contentTreeNodeRepository, ITreeNodeRepository treeNodeRepository)
+		public ExampleEngineNodeProvider(IContentTreeNodeRepository contentTreeNodeRepository, ITreeNodeRepository treeNodeRepository)
 			: base(contentTreeNodeRepository)
 		{
 			this.treeNodeRepository = treeNodeRepository;

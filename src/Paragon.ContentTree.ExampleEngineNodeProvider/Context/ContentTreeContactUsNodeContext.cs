@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Mappers;
-using Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Models;
-using Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Repositories;
+using Paragon.ContentTree.ExampleEngineNodeProvider.Mappers;
+using Paragon.ContentTree.ExampleEngineNodeProvider.Models;
+using Paragon.ContentTree.ExampleEngineNodeProvider.Repositories;
 
-namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Context
+namespace Paragon.ContentTree.ExampleEngineNodeProvider.Context
 {
 	public interface IContentTreeContactUsNodeContext
 	{
@@ -27,7 +27,7 @@ namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Context
 
 		public string CreateTreeNodeAndReturnTreeNodeId(ContentTreeContactUsNodeInputModel contentTreeContactUsNodeInputModel)
 		{
-			var newTreeNodeId = treeNodeSummaryContext.Create(contentTreeContactUsNodeInputModel.ParentTreeNodeId, typeof(ContentTreeContactUsNodeProvider));
+			var newTreeNodeId = treeNodeSummaryContext.Create(contentTreeContactUsNodeInputModel.ParentTreeNodeId, typeof(ExampleEngineNodeProvider));
 			contentTreeContactUsNodeInputModel.TreeNodeId = newTreeNodeId;
 			var node = contentTreeContactUsNodeInputModelToContentTreeContactUsNodeMapper.CreateInstance(contentTreeContactUsNodeInputModel);
 			contentTreeContactUsNodeRepository.Create(node);

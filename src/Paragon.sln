@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.Routing
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.Routing.Tests", "Paragon.ContentTree.Routing.Tests\Paragon.ContentTree.Routing.Tests.csproj", "{B74F5BA4-3C1D-4B62-9858-C50B35B0DDB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider", "Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider\Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.csproj", "{41C30A0E-6C5E-48F1-9DCC-998456ED21CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.ExampleEngineNodeProvider", "Paragon.ContentTree.ExampleEngineNodeProvider\Paragon.ContentTree.ExampleEngineNodeProvider.csproj", "{41C30A0E-6C5E-48F1-9DCC-998456ED21CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

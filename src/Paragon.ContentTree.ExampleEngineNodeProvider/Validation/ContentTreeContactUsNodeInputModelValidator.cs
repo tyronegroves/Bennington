@@ -1,8 +1,8 @@
 ﻿using Deg.Alt.FluentValidation;
 using FluentValidation;
-using Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Models;
+using Paragon.ContentTree.ExampleEngineNodeProvider.Models;
 
-namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Validation
+namespace Paragon.ContentTree.ExampleEngineNodeProvider.Validation
 {
 	public class ContentTreeSectionInputModelValidator : AbstractValidator<ContentTreeContactUsNodeInputModel>
 	{

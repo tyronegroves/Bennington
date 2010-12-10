@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using AutoMapperAssist;
-using Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Data;
-using Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Models;
+using Paragon.ContentTree.ExampleEngineNodeProvider.Data;
+using Paragon.ContentTree.ExampleEngineNodeProvider.Models;
 
-namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Mappers
+namespace Paragon.ContentTree.ExampleEngineNodeProvider.Mappers
 {
 	public interface IContentTreeContactUsNodeToContentTreeContactUsInputModelMapper
 	{

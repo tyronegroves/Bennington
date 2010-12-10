@@ -1,14 +1,14 @@
 ﻿using MvcTurbine.ComponentModel;
 using Paragon.ContentTree.TreeNodeExtensionProvider;
 
-namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider
+namespace Paragon.ContentTree.ExampleEngineNodeProvider
 {
 	public class ContentTreeContactUsTreeNodeExtensionProviderRegistration : IServiceRegistration
 	{
 		public void Register(IServiceLocator locator)
 		{
-			var typeName = typeof(ContentTreeContactUsNodeProvider).Name;
-			locator.Register<IAmATreeNodeExtensionProvider, ContentTreeContactUsNodeProvider>(typeName);
+			var typeName = typeof(ExampleEngineNodeProvider).Name;
+			locator.Register<IAmATreeNodeExtensionProvider, ExampleEngineNodeProvider>(typeName);
 		}
 	}
 }

@@ -5,7 +5,7 @@ using MvcTurbine.Routing;
 using Paragon.ContentTree.Repositories;
 using Paragon.ContentTree.Routing.Routing.Helpers;
 
-namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Routing
+namespace Paragon.ContentTree.ExampleEngineNodeProvider.Routing
 {
 	public class RegisterContactUsRoutes : IRouteRegistrator
 	{
@@ -20,7 +20,7 @@ namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Routing
 
 		public void Register(RouteCollection routes)
 		{
-			foreach (var contactUsNode in treeNodeRepository.GetAll().Where(a => a.Type == typeof(ContentTreeContactUsNodeProvider).FullName))
+			foreach (var contactUsNode in treeNodeRepository.GetAll().Where(a => a.Type == typeof(ExampleEngineNodeProvider).FullName))
 			{
 				var url = treeNodeIdToUrl.GetUrlByTreeNodeId(contactUsNode.Id);
 				if (url.StartsWith("/")) url = url.Substring(1);

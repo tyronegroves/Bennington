@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Web.Mvc;
 
-namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Models
+namespace Paragon.ContentTree.ExampleEngineNodeProvider.Models
 {
 	public class ContentTreeContactUsNodeInputModel
 	{
