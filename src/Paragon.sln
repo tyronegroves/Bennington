@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree", "Para
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.SectionNodeProvider", "Paragon.ContentTreeSectionNodeProvider\Paragon.ContentTree.SectionNodeProvider.csproj", "{F5B06173-0873-4E7E-BBD5-9F58D69E077F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider", "ContentTreeContactUsNodeProvider\ContentTreeContactUsNodeProvider\Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.csproj", "{41C30A0E-6C5E-48F1-9DCC-998456ED21CD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.Cms", "Paragon.Cms\Paragon.Cms.csproj", "{7516E4A6-54D1-437B-B14A-5EAA25D84730}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8EEFC35E-7566-4D96-93A7-87CD90AEA666}"
@@ -29,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.Routing
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.Routing.Tests", "Paragon.ContentTree.Routing.Tests\Paragon.ContentTree.Routing.Tests.csproj", "{B74F5BA4-3C1D-4B62-9858-C50B35B0DDB8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider", "Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider\Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.csproj", "{41C30A0E-6C5E-48F1-9DCC-998456ED21CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,10 +47,6 @@ Global
 		{F5B06173-0873-4E7E-BBD5-9F58D69E077F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5B06173-0873-4E7E-BBD5-9F58D69E077F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5B06173-0873-4E7E-BBD5-9F58D69E077F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{41C30A0E-6C5E-48F1-9DCC-998456ED21CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{41C30A0E-6C5E-48F1-9DCC-998456ED21CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{41C30A0E-6C5E-48F1-9DCC-998456ED21CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{41C30A0E-6C5E-48F1-9DCC-998456ED21CD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7516E4A6-54D1-437B-B14A-5EAA25D84730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7516E4A6-54D1-437B-B14A-5EAA25D84730}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7516E4A6-54D1-437B-B14A-5EAA25D84730}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -87,6 +83,10 @@ Global
 		{B74F5BA4-3C1D-4B62-9858-C50B35B0DDB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B74F5BA4-3C1D-4B62-9858-C50B35B0DDB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B74F5BA4-3C1D-4B62-9858-C50B35B0DDB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41C30A0E-6C5E-48F1-9DCC-998456ED21CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41C30A0E-6C5E-48F1-9DCC-998456ED21CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41C30A0E-6C5E-48F1-9DCC-998456ED21CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41C30A0E-6C5E-48F1-9DCC-998456ED21CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

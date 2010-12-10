@@ -411,10 +411,6 @@
     <Content Include="Views\Shared\Site.Master" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ContentTreeContactUsNodeProvider\ContentTreeContactUsNodeProvider\Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.csproj">
-      <Project>{41C30A0E-6C5E-48F1-9DCC-998456ED21CD}</Project>
-      <Name>Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Paragon.Cms\Paragon.Cms.csproj">
       <Project>{7516E4A6-54D1-437B-B14A-5EAA25D84730}</Project>
       <Name>Paragon.Cms</Name>
