@@ -435,10 +435,6 @@
       <Project>{3DE65C2E-791C-4B05-815F-986782A5153A}</Project>
       <Name>Paragon.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Paragon.Pages\Paragon.ContentTree.Routing.csproj">
-      <Project>{19D2FC38-0EA3-4501-8297-A48C3923ED77}</Project>
-      <Name>Paragon.ContentTree.Routing</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

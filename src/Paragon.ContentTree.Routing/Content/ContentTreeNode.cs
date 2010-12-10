@@ -15,7 +15,7 @@ namespace Paragon.ContentTree.Routing.Content
 
         public string NodeId { get; set; }
         public string UrlSegment { get; set; }
-        public ContentTreeNode Parent { get; internal set; }
+        public ContentTreeNode Parent { get; set; }
         public ContentTreeNodeCollection ChildNodes { get; set; }
 
         public int Depth

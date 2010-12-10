@@ -81,10 +81,6 @@
       <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
       <Name>Paragon.ContentTree</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Paragon.Pages\Paragon.ContentTree.Routing.csproj">
-      <Project>{19D2FC38-0EA3-4501-8297-A48C3923ED77}</Project>
-      <Name>Paragon.ContentTree.Routing</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

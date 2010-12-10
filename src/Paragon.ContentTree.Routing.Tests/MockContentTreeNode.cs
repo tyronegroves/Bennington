@@ -1,7 +1,6 @@
-﻿using System;
-using Paragon.ContentTree.Routing.Content;
+﻿using Paragon.ContentTree.Routing.Content;
 
-namespace Paragon.Pages.Tests
+namespace Paragon.ContentTree.Routing.Tests
 {
     public class MockContentTreeNode : ContentTreeNode
     {

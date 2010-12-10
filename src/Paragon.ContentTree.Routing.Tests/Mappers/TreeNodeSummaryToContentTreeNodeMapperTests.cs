@@ -1,13 +1,9 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMapperAssist;
+﻿using AutoMapperAssist;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Paragon.ContentTree.Routing.Mappers;
 
-namespace Paragon.Pages.Tests.Mappers
+namespace Paragon.ContentTree.Routing.Tests.Mappers
 {
 	[TestClass]
 	public class TreeNodeSummaryToContentTreeNodeMapperTests

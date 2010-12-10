@@ -1,9 +1,8 @@
-﻿using System.Web.Routing;
-using AutoMoq;
+﻿using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Paragon.ContentTree.Routing.Routing;
 
-namespace Paragon.Pages.Tests.Routing
+namespace Paragon.ContentTree.Routing.Tests.Routing
 {
     [TestClass]
     public class ContentTreeRouteConstraintTests

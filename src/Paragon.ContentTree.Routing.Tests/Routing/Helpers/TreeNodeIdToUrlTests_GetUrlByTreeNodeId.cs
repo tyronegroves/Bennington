@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -13,7 +10,7 @@ using Paragon.ContentTree.Routing.Content;
 using Paragon.ContentTree.Routing.Mappers;
 using Paragon.ContentTree.Routing.Routing.Helpers;
 
-namespace Paragon.Pages.Tests.Routing.Helpers
+namespace Paragon.ContentTree.Routing.Tests.Routing.Helpers
 {
 	[TestClass]
 	public class TreeNodeIdToUrlTests_GetUrlByTreeNodeId

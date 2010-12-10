@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Paragon.ContentTree.Routing.Content;
 
-namespace Paragon.Pages.Tests
+namespace Paragon.ContentTree.Routing.Tests
 {
     [TestClass]
     public class ContentTreeNodeTests

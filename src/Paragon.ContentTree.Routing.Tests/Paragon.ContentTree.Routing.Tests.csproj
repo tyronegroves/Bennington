@@ -9,8 +9,8 @@
     <ProjectGuid>{B74F5BA4-3C1D-4B62-9858-C50B35B0DDB8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Paragon.Pages.Tests</RootNamespace>
-    <AssemblyName>Paragon.Pages.Tests</AssemblyName>
+    <RootNamespace>Paragon.ContentTree.Routing.Tests</RootNamespace>
+    <AssemblyName>Paragon.ContentTree.Routing.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -33,9 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapperAssist, Version=1.0.0.155, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="AutoMapperAssist">
+      <HintPath>..\..\lib\AutoMapperAssist\AutoMapperAssist.dll</HintPath>
+    </Reference>
     <Reference Include="AutoMoq">
-      <HintPath>..\..\..\..\lib\AutoMoq\AutoMoq.dll</HintPath>
+      <HintPath>..\..\lib\AutoMoq\AutoMoq.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -66,13 +68,13 @@
     <Compile Include="Routing\Helpers\TreeNodeIdToUrlTests_GetUrlByTreeNodeId.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Paragon.ContentTree.Routing\Paragon.ContentTree.Routing.csproj">
+      <Project>{19D2FC38-0EA3-4501-8297-A48C3923ED77}</Project>
+      <Name>Paragon.ContentTree.Routing</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Paragon.ContentTree\Paragon.ContentTree.csproj">
       <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
       <Name>Paragon.ContentTree</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Paragon.Pages\Paragon.ContentTree.Routing.csproj">
-      <Project>{19D2FC38-0EA3-4501-8297-A48C3923ED77}</Project>
-      <Name>Paragon.ContentTree.Routing</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

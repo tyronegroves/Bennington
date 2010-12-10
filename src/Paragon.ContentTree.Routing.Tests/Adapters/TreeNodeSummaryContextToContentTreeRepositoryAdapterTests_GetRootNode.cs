@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -11,7 +8,7 @@ using Paragon.ContentTree.Routing.Adapters;
 using Paragon.ContentTree.Routing.Content;
 using Paragon.ContentTree.Routing.Mappers;
 
-namespace Paragon.Pages.Tests.Adapters
+namespace Paragon.ContentTree.Routing.Tests.Adapters
 {
 	[TestClass]
 	public class TreeNodeSummaryContextToContentTreeRepositoryAdapterTests_GetRootNode

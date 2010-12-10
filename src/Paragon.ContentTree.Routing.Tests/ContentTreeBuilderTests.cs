@@ -4,7 +4,7 @@ using Moq;
 using Paragon.ContentTree.Routing.Content;
 using Paragon.ContentTree.Routing.Data;
 
-namespace Paragon.Pages.Tests
+namespace Paragon.ContentTree.Routing.Tests
 {
     [TestClass]
     public class ContentTreeBuilderTests
