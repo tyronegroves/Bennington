@@ -8,8 +8,6 @@ namespace Paragon.Cms.Routing
     {
         public void Register(RouteCollection routes)
         {
-			//routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
 			routes.MapRoute(
 				"ManageDefault",
 				"Manage/{controller}/{action}",
