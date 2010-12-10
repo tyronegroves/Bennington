@@ -1,4 +1,4 @@
-﻿<%@ Import Namespace="Paragon.ContentTreeSectionNodeProvider.Models" %>
+﻿<%@ Import Namespace="Paragon.ContentTree.SectionNodeProvider.Models" %>
 
 <%@ Page Language="C#" MasterPageFile="~/Views/Shared/ManageSite.Master" Inherits="System.Web.Mvc.ViewPage<ContentTreeSectionNodeViewModel>" %>
 

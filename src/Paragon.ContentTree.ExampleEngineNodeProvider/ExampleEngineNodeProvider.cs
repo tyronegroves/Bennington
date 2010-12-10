@@ -5,19 +5,16 @@ using Paragon.ContentTree.ExampleEngineNodeProvider.Controllers;
 using Paragon.ContentTree.Models;
 using Paragon.ContentTree.Repositories;
 using Paragon.ContentTree.Routing.Routing.Helpers;
-using Paragon.ContentTree.TreeNodeExtensionProvider;
 
 namespace Paragon.ContentTree.ExampleEngineNodeProvider
 {
-	public class ExampleEngineNodeProvider : ContentNodeProvider.ContentNodeProvider, IAmATreeNodeExtensionProvider //, IRouteConstraint
+	public class ExampleEngineNodeProvider : ContentNodeProvider.ContentNodeProvider
 	{
 		private readonly ITreeNodeIdToUrl treeNodeIdToUrl;
-		private readonly ITreeNodeRepository treeNodeRepository;
 
 		public ExampleEngineNodeProvider(IContentTreeNodeRepository contentTreeNodeRepository, ITreeNodeRepository treeNodeRepository)
 			: base(contentTreeNodeRepository)
 		{
-			this.treeNodeRepository = treeNodeRepository;
 			this.treeNodeIdToUrl = treeNodeIdToUrl;
 		}
 
@@ -47,23 +44,5 @@ namespace Paragon.ContentTree.ExampleEngineNodeProvider
 			}
 			set { throw new NotImplementedException(); }
 		}
-
-		//public bool Match(HttpContextBase httpContext, Route route, string parameterName, RouteValueDictionary values, RouteDirection routeDirection)
-		//{
-		//    foreach (var treeNode in treeNodeRepository.GetAll().Where(a => a.Type == this.GetType().FullName))
-		//    {
-		//        if (httpContext.Request.RawUrl.StartsWith(treeNodeIdToUrl.GetUrlByTreeNodeId(treeNode.Id)))
-		//            return true;
-		//    }
-		//    return false;
-		//}
-
-		//public virtual IRouteConstraint IgnoreConstraint
-		//{
-		//    get
-		//    {
-		//        return this;
-		//    }
-		//}
 	}
 }
