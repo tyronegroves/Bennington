@@ -4,15 +4,15 @@ using MvcTurbine.Routing;
 
 namespace Paragon.Cms.Routing
 {
-    public class RegisterDefaultRoutes : IRouteRegistrator
-    {
-        public void Register(RouteCollection routes)
-        {
+	public class RegisterDefaultRoutes : IRouteRegistrator
+	{
+		public void Register(RouteCollection routes)
+		{
 			routes.MapRoute(
-				"ManageDefault",
-				"Manage/{controller}/{action}",
-				new { controller = "Home", action = "Index" }
+				null,
+				"Manage/MenuSystemController/{action}",
+				new { controller = "MenuSystem", action = "Index" }
 				);
-        }
-    }
+		}
+	}
 }

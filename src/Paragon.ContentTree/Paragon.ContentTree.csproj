@@ -90,6 +90,7 @@
     <Compile Include="Contexts\TreeNodeSummaryContext.cs" />
     <Compile Include="Repositories\TreeNodeRepository.cs" />
     <Compile Include="Contexts\TreeNodeProviderContext.cs" />
+    <Compile Include="Routing\RegisterDefaultRoutes.cs" />
     <Compile Include="TreeNodeExtensionProvider\IAmATreeNodeExtensionProvider.cs" />
     <Compile Include="ViewModelBuilders\Helpers\GetParentRouteDataDictionaryFromChildActionRouteData.cs" />
     <Compile Include="ViewModelBuilders\TreeBranchViewModelBuilder.cs" />

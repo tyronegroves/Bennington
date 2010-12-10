@@ -98,6 +98,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
+    <Compile Include="Routing\RegisterDefaultRoutes.cs" />
     <Compile Include="TreeNodeExtensionProviderRegistration.cs" />
     <Compile Include="ContentNodeProvider.cs" />
     <Compile Include="Repositories\ContentTreeNodeRepository.cs" />
