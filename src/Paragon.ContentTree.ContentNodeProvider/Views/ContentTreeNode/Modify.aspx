@@ -1,6 +1,6 @@
-﻿<%@ Import Namespace="Paragon.ContentTreeNodeProvider.Models" %>
+﻿<%@ Import Namespace="Paragon.ContentTree.ContentNodeProvider.Models" %>
 
-<%@ Page Language="C#" MasterPageFile="~/Views/Shared/ManageSite.Master" Inherits="System.Web.Mvc.ViewPage<Paragon.ContentTreeNodeProvider.Models.ContentTreeNodeViewModel>" %>
+<%@ Page Language="C#" MasterPageFile="~/Views/Shared/ManageSite.Master" Inherits="System.Web.Mvc.ViewPage<Paragon.ContentTree.ContentNodeProvider.Models.ContentTreeNodeViewModel>" %>
 
 <%@ Import Namespace="System.Web.Mvc" %>
 

@@ -1,5 +1,5 @@
-﻿<%@ Import Namespace="Paragon.ContentTreeNodeProvider.Models" %>
-<%--<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Paragon.ContentTreeNodeProvider.Models.ContentTreeNodeDisplayViewModel>" %>--%>
+﻿<%@ Import Namespace="Paragon.ContentTree.ContentNodeProvider.Models" %>
+<%--<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Paragon.ContentTree.ContentNodeProvider.Models.ContentTreeNodeDisplayViewModel>" %>--%>
 <%@ Import Namespace="System.Web.Mvc" %>
 <%@ Import Namespace="System.Security.Policy" %>
 
