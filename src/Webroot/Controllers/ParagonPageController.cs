@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Paragon.ContentTree.Routing.Controllers
+namespace Webroot.Controllers
 {
     public class ParagonPageController : Controller
     {

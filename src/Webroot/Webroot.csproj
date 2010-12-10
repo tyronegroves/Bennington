@@ -102,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ParagonPageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -403,6 +404,7 @@
     <Content Include="Target_\Active\System.Web.CustomErrors.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Views\ParagonPage\Index.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

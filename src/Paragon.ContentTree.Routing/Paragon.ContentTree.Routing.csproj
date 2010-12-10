@@ -104,9 +104,6 @@
     <Compile Include="Content\IContentTreeBuilder.cs" />
     <Compile Include="Content\Json\JsTreeNode.cs" />
     <Compile Include="Content\Json\JsTreeNodeData.cs" />
-    <Compile Include="Controllers\ParagonPageController.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Data\IContentTreeRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -128,7 +125,6 @@
     <Content Include="Global.asax" />
     <EmbeddedResource Include="Scripts\jquery.jstree.min.js" />
     <EmbeddedResource Include="Scripts\jquery.js" />
-    <EmbeddedResource Include="Views\ParagonPage\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -139,6 +135,7 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Controllers\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
