@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Paragon.ContentTree.Models;
+﻿using Paragon.ContentTree.Models;
 
-namespace ContentTreeContactUsNodeProvider.Data
+namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Data
 {
 	partial class ContentTreeContactUsNode : IAmATreeNodeExtension
 	{

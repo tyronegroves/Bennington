@@ -1,24 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-using ContentTreeContactUsNodeProvider.Controllers;
-using ContentTreeContactUsNodeProvider.Repositories;
-using Paragon.ContentTree.ContentNodeProvider;
 using Paragon.ContentTree.ContentNodeProvider.Repositories;
-using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Models;
+using Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Controllers;
 using Paragon.ContentTree.Repositories;
 using Paragon.ContentTree.Routing.Routing.Helpers;
 using Paragon.ContentTree.TreeNodeExtensionProvider;
 
-
-namespace ContentTreeContactUsNodeProvider
+namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider
 {
-	public class ContentTreeContactUsNodeProvider : ContentNodeProvider, IAmATreeNodeExtensionProvider //, IRouteConstraint
+	public class ContentTreeContactUsNodeProvider : ContentNodeProvider.ContentNodeProvider, IAmATreeNodeExtensionProvider //, IRouteConstraint
 	{
 		private readonly ITreeNodeIdToUrl treeNodeIdToUrl;
 		private readonly ITreeNodeRepository treeNodeRepository;

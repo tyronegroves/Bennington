@@ -17,7 +17,7 @@ using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 
-namespace ContentTreeContactUsNodeProvider.Data
+namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Data
 {
     #region Contexts
     
@@ -103,7 +103,7 @@ namespace ContentTreeContactUsNodeProvider.Data
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ContentTreeContactUsNodeProvider.Data", Name="ContentTreeContactUsNode")]
+    [EdmEntityTypeAttribute(NamespaceName="Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Data", Name="ContentTreeContactUsNode")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ContentTreeContactUsNode : EntityObject

@@ -10,8 +10,8 @@
     <ProjectTypeGuids>{F85E285D-A4E0-4152-9332-AB1D724D3325};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ContentTreeContactUsNodeProvider</RootNamespace>
-    <AssemblyName>ContentTreeContactUsNodeProvider</AssemblyName>
+    <RootNamespace>Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider</RootNamespace>
+    <AssemblyName>Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
   </PropertyGroup>
@@ -99,12 +99,12 @@
     <Compile Include="Controllers\ContentTreeContactUsNodeController.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Data\ContentTreeContactUsNodeProviderDataContext.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ContentTreeContactUsNodeProviderDataContext.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Data\ContentTreeContactUsNode.cs" />
+    <Compile Include="Data\ContentTreeContactUsNodeProviderDataContext.Designer.cs">
+      <DependentUpon>ContentTreeContactUsNodeProviderDataContext.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Include="Mappers\ContentTreeContactIsInputModelToContentTreeContactUsNodeMapper.cs" />
     <Compile Include="Mappers\ContentTreeContactUsNodeToContentTreeContactUsInputModelMapper.cs" />
     <Compile Include="Models\ContentTreeContactUsNodeInputModel.cs" />
@@ -138,7 +138,6 @@
     </Content>
     <Content Include="Views\Web.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <EntityDeploy Include="Data\ContentTreeContactUsNodeProviderDataContext.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

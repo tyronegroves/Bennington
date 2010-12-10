@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Paragon.Core.Registration;
 
-namespace ContentTreeContactUsNodeProvider.Registration
+namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Registration
 {
     public class RegisterInterfaceToSingleImplementations : InterfaceToSingleImplementationRegistrationConvention
     {

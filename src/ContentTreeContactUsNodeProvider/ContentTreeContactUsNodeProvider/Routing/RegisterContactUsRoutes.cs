@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
-using ContentTreeContactUsNodeProvider.Repositories;
 using MvcTurbine.Routing;
 using Paragon.ContentTree.Repositories;
 using Paragon.ContentTree.Routing.Routing.Helpers;
 
-namespace ContentTreeContactUsNodeProvider.Routing
+namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Routing
 {
 	public class RegisterContactUsRoutes : IRouteRegistrator
 	{

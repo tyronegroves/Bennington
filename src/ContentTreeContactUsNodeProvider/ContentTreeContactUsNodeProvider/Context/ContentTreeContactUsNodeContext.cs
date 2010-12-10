@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using ContentTreeContactUsNodeProvider.Models;
-using ContentTreeContactUsNodeProvider.Repositories;
 using Paragon.ContentTree.Contexts;
-using Paragon.ContentTreeContactUsNodeProvider.Mappers;
+using Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Mappers;
+using Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Models;
+using Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Repositories;
 
-namespace ContentTreeContactUsNodeProvider.Context
+namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Context
 {
 	public interface IContentTreeContactUsNodeContext
 	{

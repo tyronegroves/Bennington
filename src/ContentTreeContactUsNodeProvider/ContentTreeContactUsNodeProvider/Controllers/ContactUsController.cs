@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace ContentTreeContactUsNodeProvider.Controllers
+namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Controllers
 {
     public class ContactUsController : Controller
     {

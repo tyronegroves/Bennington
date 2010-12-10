@@ -1,12 +1,12 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
-using ContentTreeContactUsNodeProvider.Context;
-using ContentTreeContactUsNodeProvider.Models;
-using ContentTreeContactUsNodeProvider.Repositories;
-using Paragon.ContentTreeContactUsNodeProvider.Mappers;
+using Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Context;
+using Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Mappers;
+using Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Models;
+using Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Repositories;
 
-namespace ContentTreeContactUsNodeProvider.Controllers
+namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Controllers
 {
 	public class ContentTreeContactUsNodeController : Controller
 	{

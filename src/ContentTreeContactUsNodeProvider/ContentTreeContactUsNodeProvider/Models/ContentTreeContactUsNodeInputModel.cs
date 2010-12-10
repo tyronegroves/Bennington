@@ -1,8 +1,7 @@
 ﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
-namespace ContentTreeContactUsNodeProvider.Models
+namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Models
 {
 	public class ContentTreeContactUsNodeInputModel
 	{

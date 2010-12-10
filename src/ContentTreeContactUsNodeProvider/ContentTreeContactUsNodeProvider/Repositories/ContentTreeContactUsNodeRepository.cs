@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Configuration;
 using System.Linq;
-using ContentTreeContactUsNodeProvider.Data;
+using Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Data;
 using Paragon.Core.EntityFramework;
 
-namespace ContentTreeContactUsNodeProvider.Repositories
+namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Repositories
 {
 	public interface IContentTreeContactUsNodeRepository
 	{

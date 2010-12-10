@@ -27,9 +27,9 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ContentTreeContactUsNodeProvider.Data" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <Schema Namespace="Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Data" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="ContentTreecontactUsNodeDataModel" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ContentTreeContactUsNodes" EntityType="ContentTreeContactUsNodeProvider.Data.ContentTreeContactUsNode" />
+          <EntitySet Name="ContentTreeContactUsNodes" EntityType="Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Data.ContentTreeContactUsNode" />
         </EntityContainer>
         <EntityType Name="ContentTreeContactUsNode">
           <Key>
@@ -52,7 +52,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ContentTreeContactUsNodeProviderDataStoreContainer" CdmEntityContainer="ContentTreecontactUsNodeDataModel">
-          <EntitySetMapping Name="ContentTreeContactUsNodes"><EntityTypeMapping TypeName="ContentTreeContactUsNodeProvider.Data.ContentTreeContactUsNode"><MappingFragment StoreEntitySet="ContentTreeContactUsNode">
+          <EntitySetMapping Name="ContentTreeContactUsNodes"><EntityTypeMapping TypeName="Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Data.ContentTreeContactUsNode"><MappingFragment StoreEntitySet="ContentTreeContactUsNode">
             <ScalarProperty Name="Key" ColumnName="Key" />
             <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
             <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
@@ -85,7 +85,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="ContentTreeContactUsNodeProviderDataContext">
-        <EntityTypeShape EntityType="ContentTreeContactUsNodeProvider.Data.ContentTreeContactUsNode" Width="2.25" PointX="0.75" PointY="0.75" Height="2.9417936197916665" IsExpanded="true" />
+        <EntityTypeShape EntityType="Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Data.ContentTreeContactUsNode" Width="2.25" PointX="0.75" PointY="0.75" Height="2.9417936197916665" IsExpanded="true" />
       </Diagram>
     </Diagrams>
   </Designer>

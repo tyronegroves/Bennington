@@ -1,4 +1,4 @@
-﻿namespace ContentTreeContactUsNodeProvider.Models
+﻿namespace Paragon.ContentTree.Providers.ContentTreeContactUsNodeProvider.Models
 {
 	public class ContentTreeContactUsNodeViewModel
 	{
