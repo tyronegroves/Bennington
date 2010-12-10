@@ -41,7 +41,7 @@ namespace Paragon.ContentTree.Tests.Routing
 			mocker.Resolve<RegisterRoutesForAllProviders>().Register(routes);
 			
 			var query = from item in routes
-						where (((System.Web.Routing.Route)item).Url == "Manage/ControllerToUseForCreation/ActionToUseForCreation")
+						where (((System.Web.Routing.Route)item).Url == "Manage/ControllerToUseForCreation/{action}")
 						select item;
 
 			Assert.AreEqual(1, query.Count());
@@ -62,7 +62,7 @@ namespace Paragon.ContentTree.Tests.Routing
 			mocker.Resolve<RegisterRoutesForAllProviders>().Register(routes);
 
 			var query = from item in routes
-						where (((System.Web.Routing.Route)item).Url == "Manage/ControllerToUseForModification/ActionToUseForModification")
+						where (((System.Web.Routing.Route)item).Url == "Manage/ControllerToUseForModification/{action}")
 						select item;
 
 			Assert.AreEqual(1, query.Count());
