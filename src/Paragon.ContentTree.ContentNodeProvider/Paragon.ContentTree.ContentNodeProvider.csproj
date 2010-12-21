@@ -40,21 +40,24 @@
     <Reference Include="FluentValidation">
       <HintPath>..\..\lib\Deg.Alt.FluentValidation\FluentValidation.dll</HintPath>
     </Reference>
-    <Reference Include="FluentValidation.Mvc">
-      <HintPath>..\..\..\lib\FluentValidation\FluentValidation.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Build.Engine" />
     <Reference Include="MvcTurbine">
       <HintPath>..\..\lib\Turbine\MvcTurbine.dll</HintPath>
     </Reference>
-    <Reference Include="MvcTurbine.EmbeddedViews">
-      <HintPath>..\..\..\lib\Turbine\MvcTurbine.EmbeddedViews.dll</HintPath>
+    <Reference Include="SimpleCqrs">
+      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.dll</HintPath>
     </Reference>
-    <Reference Include="MvcTurbine.Unity">
-      <HintPath>..\..\..\lib\Turbine\MvcTurbine.Unity.dll</HintPath>
+    <Reference Include="SimpleCqrs.Commanding">
+      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.Commanding.dll</HintPath>
     </Reference>
-    <Reference Include="MvcTurbine.Web">
-      <HintPath>..\..\..\lib\Turbine\MvcTurbine.Web.dll</HintPath>
+    <Reference Include="SimpleCqrs.Core">
+      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleCqrs.Domain">
+      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleCqrs.Eventing">
+      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.Eventing.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Activities" />
@@ -149,6 +152,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
