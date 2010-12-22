@@ -11,6 +11,10 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 			Apply(new PageCreatedEvent(){ AggregateRootId = pageId });
 		}
 
+		public Page()
+		{
+		}
+
 		protected void OnPagetCreated(PageCreatedEvent pageCreatedEvent)
 		{
 			Id = pageCreatedEvent.AggregateRootId;

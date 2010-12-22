@@ -6,7 +6,7 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 
 		public void SetDefaultPage(string pageId) { }
 
-		public void SetParent(string id) { }
+		public void SetParentId(string id) { }
 
 		public void SetSequence(int? sequence) { }
 	}

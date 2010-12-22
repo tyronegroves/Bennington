@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandHandlers\CreatePageCommandHandler.cs" />
+    <Compile Include="CommandHandlers\ModifyPageCommandHandler.cs" />
     <Compile Include="Commands\CreatePageCommand.cs" />
     <Compile Include="Commands\ModifyPageCommand.cs" />
     <Compile Include="Events\BodySetEvent.cs" />
