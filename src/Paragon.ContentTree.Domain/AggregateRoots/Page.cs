@@ -16,6 +16,11 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 			Id = pageCreatedEvent.AggregateRootId;
 		}
 
+		public void SetStepId(string stepId)
+		{
+			Apply(new StepIdSetEvent());
+		}
+
 		public void SetHeaderText(string headerText)
 		{
 			Apply(new HeaderTextSetEvent() { HeaderText = headerText });

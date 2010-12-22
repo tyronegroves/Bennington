@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Paragon.ContentTree.ContentNodeProvider.Context;
@@ -26,7 +27,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 		private readonly IContentTreeNodeDisplayViewModelBuilder contentTreeNodeDisplayViewModelBuilder;
 		private readonly IRawUrlGetter rawUrlGetter;
 		private readonly ICommandBus commandBus;
-		private IGuidGetter guidGetter;
+		private readonly IGuidGetter guidGetter;
 
 		public ContentTreeNodeController(IContentTreeNodeRepository contentTreeNodeRepository, 
 											IContentTreeNodeToContentTreeNodeInputModelMapper contentTreeNodeToContentTreeNodeInputModelMapper, 
@@ -116,6 +117,17 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 		{
 			if (ModelState.IsValid == false)
 				return View("Modify", new ContentTreeNodeViewModel() { Action = "Modify", ContentTreeNodeInputModel = contentTreeNodeInputModel });
+
+			commandBus.Send(new ModifyPageCommand()
+			                	{
+									AggregateRootId = new Guid(contentTreeNodeInputModel.TreeNodeId),
+			                		HeaderText = contentTreeNodeInputModel.Name,
+									Body = contentTreeNodeInputModel.Content,
+									ParentId = contentTreeNodeInputModel.ParentTreeNodeId,
+									Sequence = contentTreeNodeInputModel.Sequence,
+									UrlSegment = contentTreeNodeInputModel.UrlSegment,
+									StepId = contentTreeNodeInputModel.ContentItemId,
+			                	});
 
 			var contentTreeNodeFromRepository = contentTreeNodeRepository.GetAllContentTreeNodes().Where(a => a.TreeNodeId == contentTreeNodeInputModel.TreeNodeId && a.ContentItemId == contentTreeNodeInputModel.ContentItemId).FirstOrDefault();
 			

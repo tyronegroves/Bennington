@@ -6,9 +6,9 @@ using SimpleCqrs.Commanding;
 
 namespace Paragon.ContentTree.Domain.Commands
 {
-	public class CreatePageCommand : CommandWithAggregateRootId
+	public class ModifyPageCommand : CommandWithAggregateRootId
 	{
-		public string Type { get; set; }
+		public string StepId { get; set; }
 		public string ParentId { get; set; }
 		public string HeaderText { get; set; }
 		public string UrlSegment { get; set; }

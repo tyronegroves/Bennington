@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="CommandHandlers\CreatePageCommandHandler.cs" />
     <Compile Include="Commands\CreatePageCommand.cs" />
+    <Compile Include="Commands\ModifyPageCommand.cs" />
     <Compile Include="Events\BodySetEvent.cs" />
     <Compile Include="Events\HeaderTextSetEvent.cs" />
     <Compile Include="Events\PageCreatedEvent.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="AggregateRoots\Section.cs" />
     <Compile Include="Events\ParentIdSetEvent.cs" />
     <Compile Include="Events\SequenceSetEvent.cs" />
+    <Compile Include="Events\StepIdSetEvent.cs" />
     <Compile Include="Events\TypeSetEvent.cs" />
     <Compile Include="Events\UrlSegmentSetEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
