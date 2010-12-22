@@ -8,7 +8,9 @@ using Paragon.ContentTree.ContentNodeProvider.Repositories;
 using Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders;
 using Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders.Helpers;
 using Paragon.ContentTree.Contexts;
+using Paragon.ContentTree.Domain.Commands;
 using Paragon.ContentTree.Repositories;
+using SimpleCqrs.Commanding;
 
 namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 {
@@ -22,9 +24,19 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 		private readonly ITreeNodeProviderContext treeNodeProviderContext;
 		private readonly IContentTreeNodeDisplayViewModelBuilder contentTreeNodeDisplayViewModelBuilder;
 		private readonly IRawUrlGetter rawUrlGetter;
+		private ICommandBus commandBus;
 
-		public ContentTreeNodeController(IContentTreeNodeRepository contentTreeNodeRepository, IContentTreeNodeToContentTreeNodeInputModelMapper contentTreeNodeToContentTreeNodeInputModelMapper, IContentTreeNodeInputModelToContentTreeNodeMapper contentTreeNodeInputModelToContentTreeNodeMapper, IContentTreeNodeContext contentTreeNodeContext, ITreeNodeRepository treeNodeRepository, ITreeNodeProviderContext treeNodeProviderContext,  IContentTreeNodeDisplayViewModelBuilder contentTreeNodeDisplayViewModelBuilder, IRawUrlGetter rawUrlGetter)
+		public ContentTreeNodeController(IContentTreeNodeRepository contentTreeNodeRepository, 
+											IContentTreeNodeToContentTreeNodeInputModelMapper contentTreeNodeToContentTreeNodeInputModelMapper, 
+											IContentTreeNodeInputModelToContentTreeNodeMapper contentTreeNodeInputModelToContentTreeNodeMapper, 
+											IContentTreeNodeContext contentTreeNodeContext, 
+											ITreeNodeRepository treeNodeRepository, 
+											ITreeNodeProviderContext treeNodeProviderContext,  
+											IContentTreeNodeDisplayViewModelBuilder contentTreeNodeDisplayViewModelBuilder, 
+											IRawUrlGetter rawUrlGetter,
+											ICommandBus commandBus)
 		{
+			this.commandBus = commandBus;
 			this.rawUrlGetter = rawUrlGetter;
 			this.contentTreeNodeDisplayViewModelBuilder = contentTreeNodeDisplayViewModelBuilder;
 			this.treeNodeProviderContext = treeNodeProviderContext;
@@ -58,6 +70,14 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 				                      	});
 			contentTreeNodeInputModel.TreeNodeId = contentTreeNodeContext.CreateTreeNodeAndReturnTreeNodeId(contentTreeNodeInputModel);
 
+			commandBus.Send(new CreatePageCommand()
+			                	{
+			                		Body = contentTreeNodeInputModel.Content,
+									HeaderText = contentTreeNodeInputModel.Name,
+									Sequence = contentTreeNodeInputModel.Sequence,
+									UrlSegment = contentTreeNodeInputModel.UrlSegment,
+									ParentId = contentTreeNodeInputModel.ParentTreeNodeId,
+			                	});
 
 			if (!string.IsNullOrEmpty(contentTreeNodeInputModel.Action))
 			{

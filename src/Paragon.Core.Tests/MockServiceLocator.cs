@@ -66,7 +66,12 @@ namespace Paragon.Core.Tests
             throw new NotImplementedException();
         }
 
-        public void Release(object instance)
+    	public void Register<Interface>(Func<Interface> factoryMethod) where Interface : class
+    	{
+    		throw new NotImplementedException();
+    	}
+
+    	public void Release(object instance)
         {
             throw new NotImplementedException();
         }

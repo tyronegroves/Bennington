@@ -43,6 +43,9 @@
       <HintPath>..\..\..\lib\Deg.Alt.FluentValidation\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="SimpleCqrs">
+      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -76,6 +79,10 @@
     <ProjectReference Include="..\Paragon.ContentTree.ContentNodeProvider\Paragon.ContentTree.ContentNodeProvider.csproj">
       <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
       <Name>Paragon.ContentTree.ContentNodeProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Paragon.ContentTree.Domain\Paragon.ContentTree.Domain.csproj">
+      <Project>{9F36EE92-6F9A-4C57-AA4B-81328423D0DA}</Project>
+      <Name>Paragon.ContentTree.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\Paragon.ContentTree\Paragon.ContentTree.csproj">
       <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
