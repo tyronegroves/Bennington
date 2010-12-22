@@ -426,9 +426,13 @@
     <Content Include="Target_\Active\System.Web.CustomErrors.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Target_\Active\CommandBusConfig.config" />
+    <Content Include="Target_\Active\CommandBusConfig.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Views\ParagonPage\Index.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.Debug.config">

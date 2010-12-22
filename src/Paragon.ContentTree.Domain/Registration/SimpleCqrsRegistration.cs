@@ -19,7 +19,7 @@ namespace Paragon.ContentTree.Domain.Registration
 				.DefaultBuilder()
 				.BinarySerializer()
 				.SimpleCqrs(runtime)
-					.UseNsbCommandBus()
+				//	.UseNsbCommandBus()
 				//.MsmqTransport()
 				//.UnicastBus()
 				//    .CreateBus()
