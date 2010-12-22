@@ -41,6 +41,11 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 			Apply(new SequenceSetEvent() { Sequence = sequence });
 		}
 
+		public void SetType(string type)
+		{
+			Apply(new TypeSetEvent());
+		}
+
 		public void Publish()
 		{
 			throw new NotImplementedException();

@@ -11,7 +11,7 @@ using SimpleCqrs.Commanding;
 namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 {
 	[TestClass]
-	public class ContentTreeNodeControllerTests_Create_contentPageInputModel
+	public class ContentTreeNodeControllerTests_Create_ContentPageInputModel
 	{
 		private AutoMoqer mocker;
 
@@ -191,6 +191,24 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.ParentId == contentTreeNodeInputModel.ParentTreeNodeId)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_CreatePageCommand_command_with_correct_Type_when_ModelState_is_valid()
+		{
+			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
+														{
+															ParentTreeNodeId = "2",
+															Content = "content",
+															Name = "header text",
+															Sequence = 100,
+															UrlSegment = "url segment",
+															Type = "type",
+														};
+
+			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Type == contentTreeNodeInputModel.Type)), Times.Once());
 		}
 
 		[TestMethod]

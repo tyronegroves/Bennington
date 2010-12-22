@@ -24,7 +24,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 		private readonly ITreeNodeProviderContext treeNodeProviderContext;
 		private readonly IContentTreeNodeDisplayViewModelBuilder contentTreeNodeDisplayViewModelBuilder;
 		private readonly IRawUrlGetter rawUrlGetter;
-		private ICommandBus commandBus;
+		private readonly ICommandBus commandBus;
 
 		public ContentTreeNodeController(IContentTreeNodeRepository contentTreeNodeRepository, 
 											IContentTreeNodeToContentTreeNodeInputModelMapper contentTreeNodeToContentTreeNodeInputModelMapper, 
@@ -77,6 +77,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 									Sequence = contentTreeNodeInputModel.Sequence,
 									UrlSegment = contentTreeNodeInputModel.UrlSegment,
 									ParentId = contentTreeNodeInputModel.ParentTreeNodeId,
+									Type = contentTreeNodeInputModel.Type,
 			                	});
 
 			if (!string.IsNullOrEmpty(contentTreeNodeInputModel.Action))

@@ -76,6 +76,7 @@
     <Compile Include="AggregateRoots\Section.cs" />
     <Compile Include="Events\ParentIdSetEvent.cs" />
     <Compile Include="Events\SequenceSetEvent.cs" />
+    <Compile Include="Events\TypeSetEvent.cs" />
     <Compile Include="Events\UrlSegmentSetEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\SimpleCqrsRegistration.cs" />

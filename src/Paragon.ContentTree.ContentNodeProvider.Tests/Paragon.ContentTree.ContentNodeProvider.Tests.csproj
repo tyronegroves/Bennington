@@ -62,7 +62,7 @@
     <Compile Include="Context\ContentTreeNodeContextTests_CreateTreeNodeAndReturnTreeNodeId.cs" />
     <Compile Include="Context\ContentTreeNodeContextTests_Delete.cs" />
     <Compile Include="Context\ContentTreeNodeContextTests_GetContentTreeNodeByTreeId.cs" />
-    <Compile Include="Controllers\ContentTreeNodeControllerTests_Create_contentPageInputModel.cs" />
+    <Compile Include="Controllers\ContentTreeNodeControllerTests_Create_ContentPageInputModel.cs" />
     <Compile Include="Controllers\ContentTreeNodeControllerTests_Create_parentTreeNodeId_providerType.cs" />
     <Compile Include="Controllers\ContentTreeNodeControllerTests_Delete.cs" />
     <Compile Include="Controllers\ContentTreeNodeControllerTests_Display.cs" />

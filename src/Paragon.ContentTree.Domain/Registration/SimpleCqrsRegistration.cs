@@ -15,18 +15,18 @@ namespace Paragon.ContentTree.Domain.Registration
 		{
 			var runtime = new WebRootSimpleCqrsRuntime();
 
-			Configure.WithWeb()
-				.DefaultBuilder()
-				.BinarySerializer()
-				.SimpleCqrs(runtime)
-					.UseNsbCommandBus()
-				.MsmqTransport()
-				.UnicastBus()
-					.CreateBus()
-					.Start();
+			//Configure.WithWeb()
+			//    .DefaultBuilder()
+			//    .BinarySerializer()
+			//    .SimpleCqrs(runtime)
+			//        .UseNsbCommandBus()
+			//    .MsmqTransport()
+			//    .UnicastBus()
+			//        .CreateBus()
+			//        .Start();
 
-			var commandBus = runtime.ServiceLocator.Resolve<ICommandBus>();
-			locator.Register(commandBus);
+			//var commandBus = runtime.ServiceLocator.Resolve<ICommandBus>();
+			//locator.Register(commandBus);
 		}
 	}
 }
