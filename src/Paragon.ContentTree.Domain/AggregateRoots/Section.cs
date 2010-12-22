@@ -20,6 +20,11 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 			Id = sectionCreatedEvent.AggregateRootId;
 		}
 
+		public void SetName(string name)
+		{
+			Apply(new NameSetEvent(){});
+		}
+
 		public void SetUrlSegment(string urlSegment)
 		{
 			Apply(new UrlSegmentSetEvent(){ UrlSegment = urlSegment });

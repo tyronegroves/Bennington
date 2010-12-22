@@ -70,13 +70,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandHandlers\ModifySectionCommandHandler.cs" />
+    <Compile Include="CommandHandlers\CreateSectionCommandHandler.cs" />
     <Compile Include="CommandHandlers\CreatePageCommandHandler.cs" />
     <Compile Include="CommandHandlers\ModifyPageCommandHandler.cs" />
+    <Compile Include="Commands\ModifySectionCommand.cs" />
+    <Compile Include="Commands\CreateSectionCommand.cs" />
     <Compile Include="Commands\CreatePageCommand.cs" />
     <Compile Include="Commands\ModifyPageCommand.cs" />
     <Compile Include="Events\BodySetEvent.cs" />
     <Compile Include="Events\DefaultPageSetEvent.cs" />
     <Compile Include="Events\HeaderTextSetEvent.cs" />
+    <Compile Include="Events\NameSetEvent.cs" />
     <Compile Include="Events\PageCreatedEvent.cs" />
     <Compile Include="AggregateRoots\Page.cs" />
     <Compile Include="AggregateRoots\Section.cs" />
