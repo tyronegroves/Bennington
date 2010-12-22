@@ -36,19 +36,12 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MvcTurbine">
-      <HintPath>..\..\..\lib\Turbine\MvcTurbine.dll</HintPath>
+      <HintPath>..\..\lib\Turbine\MvcTurbine.dll</HintPath>
     </Reference>
     <Reference Include="Paragon.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Paragon.Core\bin\Debug\Paragon.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleCqrs">
-      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.dll</HintPath>
-    </Reference>
-    <Reference Include="SimpleCqrs.Domain">
-      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.Domain.dll</HintPath>
-    </Reference>
-    <Reference Include="SimpleCqrs.Eventing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Activities" />
     <Reference Include="System.ComponentModel.Composition" />

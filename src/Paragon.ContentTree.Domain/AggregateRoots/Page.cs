@@ -6,6 +6,11 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 {
 	public class Page : SimpleCqrs.Domain.AggregateRoot
 	{
+		public Page(Guid pageId)
+		{
+			Apply(new PageCreatedEvent(){ AggregateRootId = pageId });
+		}
+
 		protected void OnPagetCreated(PageCreatedEvent pageCreatedEvent)
 		{
 			Id = pageCreatedEvent.AggregateRootId;

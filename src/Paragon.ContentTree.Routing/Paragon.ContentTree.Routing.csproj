@@ -34,24 +34,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapperAssist">
-      <HintPath>..\..\WEB\WEBMODEL\Bin\AutoMapperAssist.dll</HintPath>
-    </Reference>
-    <Reference Include="Deg.Alt.FluentValidation">
-      <HintPath>..\..\..\lib\Deg.Alt.FluentValidation\Deg.Alt.FluentValidation.dll</HintPath>
-    </Reference>
-    <Reference Include="FluentValidation">
-      <HintPath>..\..\..\lib\Deg.Alt.FluentValidation\FluentValidation.dll</HintPath>
-    </Reference>
-    <Reference Include="FluentValidation.Mvc">
-      <HintPath>..\..\..\lib\FluentValidation\FluentValidation.Mvc.dll</HintPath>
+      <HintPath>..\..\lib\AutoMapperAssist\AutoMapperAssist.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MvcTurbine, Version=2.1.0.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Turbine\MvcTurbine.dll</HintPath>
-    </Reference>
-    <Reference Include="MvcTurbine.FluentValidation">
-      <HintPath>..\..\..\lib\FluentValidation\MvcTurbine.FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="Paragon.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

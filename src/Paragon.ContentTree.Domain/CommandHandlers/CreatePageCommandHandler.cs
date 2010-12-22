@@ -5,18 +5,29 @@ using System.Text;
 using Paragon.ContentTree.Domain.AggregateRoots;
 using Paragon.ContentTree.Domain.Commands;
 using SimpleCqrs.Commanding;
+using SimpleCqrs.Domain;
 
 namespace Paragon.ContentTree.Domain.CommandHandlers
 {
-	public class CreatePageCommandHandler : AggregateRootCommandHandler<CreatePageCommand, Page>
+	public class CreatePageCommandHandler : CommandHandler<CreatePageCommand>
 	{
-		public override void Handle(CreatePageCommand command, Page page)
+		private readonly IDomainRepository domainRepository;
+
+		public CreatePageCommandHandler(IDomainRepository domainRepository)
 		{
+			this.domainRepository = domainRepository;
+		}
+
+		public override void Handle(CreatePageCommand command)
+		{
+			var page = new Page(command.PageId);
 			page.SetParentId(command.ParentId);
 			page.SetBody(command.Body);
 			page.SetHeaderText(command.HeaderText);
 			page.SetSequence(command.Sequence);
 			page.SetUrlSegment(command.UrlSegment);
+
+			domainRepository.Save(page);
 		}
 	}
 }

@@ -14,11 +14,11 @@ namespace Paragon.ContentTree.Domain.Commands
 		public int? Sequence { get; set; }
 		public string Body { get; set; }
 
-		//public Guid PageId
-		//{
-		//    get { return AggregateRootId; }
-		//    set { AggregateRootId = value; }
-		//}
+		public Guid PageId
+		{
+			get { return AggregateRootId; }
+			set { AggregateRootId = value; }
+		}
 
 		//public Guid AggregateRootId
 		//{
