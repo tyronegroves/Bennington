@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\EntityConnectionInformation.cs" />
+    <Compile Include="Helpers\GuidGetter.cs" />
     <Compile Include="MenuSystem\IAmASectionMenuItem.cs" />
     <Compile Include="MenuSystem\IAmAnIconMenuItem.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

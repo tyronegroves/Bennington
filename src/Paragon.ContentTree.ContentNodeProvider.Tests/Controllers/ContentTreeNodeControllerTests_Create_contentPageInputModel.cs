@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -6,6 +7,7 @@ using Paragon.ContentTree.ContentNodeProvider.Context;
 using Paragon.ContentTree.ContentNodeProvider.Controllers;
 using Paragon.ContentTree.ContentNodeProvider.Models;
 using Paragon.ContentTree.Domain.Commands;
+using Paragon.Core.Helpers;
 using SimpleCqrs.Commanding;
 
 namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
@@ -209,6 +211,26 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Type == contentTreeNodeInputModel.Type)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_CreatePageCommand_command_with_PageId_set_from_IGuidGetter_when_ModelState_is_valid()
+		{
+			var guid = new Guid("66666666-6969-6969-6969-666666666666");
+			mocker.GetMock<IGuidGetter>().Setup(a => a.GetGuid()).Returns(guid);
+			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
+														{
+															ParentTreeNodeId = "2",
+															Content = "content",
+															Name = "header text",
+															Sequence = 100,
+															UrlSegment = "url segment",
+															Type = "type",
+														};
+
+			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.PageId == guid)), Times.Once());
 		}
 
 		[TestMethod]

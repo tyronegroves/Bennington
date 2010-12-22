@@ -10,6 +10,7 @@ using Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders.Helpers;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Domain.Commands;
 using Paragon.ContentTree.Repositories;
+using Paragon.Core.Helpers;
 using SimpleCqrs.Commanding;
 
 namespace Paragon.ContentTree.ContentNodeProvider.Controllers
@@ -25,6 +26,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 		private readonly IContentTreeNodeDisplayViewModelBuilder contentTreeNodeDisplayViewModelBuilder;
 		private readonly IRawUrlGetter rawUrlGetter;
 		private readonly ICommandBus commandBus;
+		private IGuidGetter guidGetter;
 
 		public ContentTreeNodeController(IContentTreeNodeRepository contentTreeNodeRepository, 
 											IContentTreeNodeToContentTreeNodeInputModelMapper contentTreeNodeToContentTreeNodeInputModelMapper, 
@@ -34,8 +36,10 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 											ITreeNodeProviderContext treeNodeProviderContext,  
 											IContentTreeNodeDisplayViewModelBuilder contentTreeNodeDisplayViewModelBuilder, 
 											IRawUrlGetter rawUrlGetter,
-											ICommandBus commandBus)
+											ICommandBus commandBus,
+											IGuidGetter guidGetter)
 		{
+			this.guidGetter = guidGetter;
 			this.commandBus = commandBus;
 			this.rawUrlGetter = rawUrlGetter;
 			this.contentTreeNodeDisplayViewModelBuilder = contentTreeNodeDisplayViewModelBuilder;
@@ -72,6 +76,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 
 			commandBus.Send(new CreatePageCommand()
 			                	{
+									PageId = guidGetter.GetGuid(),
 			                		Body = contentTreeNodeInputModel.Content,
 									HeaderText = contentTreeNodeInputModel.Name,
 									Sequence = contentTreeNodeInputModel.Sequence,
