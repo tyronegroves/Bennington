@@ -20,10 +20,11 @@ namespace Paragon.ContentTree.Domain.Registration
 				.BinarySerializer()
 				.SimpleCqrs(runtime)
 					.UseNsbCommandBus()
-				.MsmqTransport()
-				.UnicastBus()
-					.CreateBus()
-					.Start();
+				//.MsmqTransport()
+				//.UnicastBus()
+				//    .CreateBus()
+				//    .Start()
+					;
 
 			var commandBus = runtime.ServiceLocator.Resolve<ICommandBus>();
 			locator.Register(commandBus);
