@@ -12,9 +12,9 @@ namespace Paragon.ContentTree.Domain.CommandHandlers
 	{
 		public override void Handle(ModifySectionCommand command, Section page)
 		{
-			page.SetParentId(command.ParentId);
+			page.SetParentTreeNodeId(new Guid(command.ParentId));
 			page.SetName(command.Name);
-			page.SetDefaultPage(command.DefaultPageId);
+			page.SetDefaultPage(new Guid(command.DefaultPageId));
 			page.SetSequence(command.Sequence);
 			page.SetUrlSegment(command.UrlSegment);
 		}

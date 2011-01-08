@@ -21,14 +21,13 @@ namespace Paragon.ContentTree.Domain.CommandHandlers
 		public override void Handle(CreatePageCommand command)
 		{
 			var page = new Page(command.PageId);
-			page.SetTreeNodeId(command.TreeNodeId);
-			page.SetStepId("Index");
-			page.SetParentId(command.ParentId);
+			page.SetTreeNodeId(new Guid(command.TreeNodeId));
+			page.SetActionId("Index");
+			page.SetParentTreeNodeId(new Guid(command.ParentId));
 			page.SetBody(command.Body);
 			page.SetHeaderText(command.HeaderText);
 			page.SetSequence(command.Sequence);
 			page.SetUrlSegment(command.UrlSegment);
-			page.SetType(command.Type);
 
 			domainRepository.Save(page);
 		}

@@ -4,30 +4,20 @@ using SimpleCqrs.Eventing;
 
 namespace Paragon.ContentTree.Domain.AggregateRoots
 {
-	public class Section : SimpleCqrs.Domain.AggregateRoot
+	public class TreeNode : SimpleCqrs.Domain.AggregateRoot
 	{
-		public Section()
+		public TreeNode(Guid treeNodeId)
+		{
+			Apply(new TreeNodeCreatedEvent(){ AggregateRootId = treeNodeId });
+		}
+
+		public TreeNode()
 		{
 		}
 
-		public Section(Guid sectionId)
+		protected void OnTreeNodeCreated(TreeNodeCreatedEvent treeNodeCreatedEvent)
 		{
-			Apply(new SectionCreatedEvent(){ AggregateRootId = sectionId });
-		}
-
-		public void OnSectionCreatedEvent(SectionCreatedEvent sectionCreatedEvent)
-		{
-			Id = sectionCreatedEvent.AggregateRootId;
-		}
-
-		public void SetName(string name)
-		{
-			Apply(new NameSetEvent() { });
-		}
-
-		public void SetDefaultPage(Guid pageId)
-		{
-			Apply(new DefaultPageSetEvent(){ PageId = pageId });
+			Id = treeNodeCreatedEvent.AggregateRootId;
 		}
 
 		public void SetUrlSegment(string urlSegment)

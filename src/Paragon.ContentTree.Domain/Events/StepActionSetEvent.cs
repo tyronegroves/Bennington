@@ -6,7 +6,7 @@ using SimpleCqrs.Eventing;
 
 namespace Paragon.ContentTree.Domain.Events
 {
-	public class StepIdSetEvent : DomainEvent
+	public class StepActionSetEvent : DomainEvent
 	{
 	}
 }

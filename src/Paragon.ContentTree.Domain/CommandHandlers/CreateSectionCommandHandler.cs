@@ -22,8 +22,8 @@ namespace Paragon.ContentTree.Domain.CommandHandlers
 		{
 			var page = new Section(command.AggregateRootId);
 			page.SetName(command.Name);
-			page.SetParentId(command.ParentId);
-			page.SetDefaultPage(command.DefaultPageId);
+			page.SetParentTreeNodeId(new Guid(command.ParentId));
+			page.SetDefaultPage(new Guid(command.DefaultPageId));
 			page.SetSequence(command.Sequence);
 			page.SetUrlSegment(command.UrlSegment);
 

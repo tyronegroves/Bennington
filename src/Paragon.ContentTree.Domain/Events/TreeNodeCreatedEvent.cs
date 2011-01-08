@@ -6,8 +6,7 @@ using SimpleCqrs.Eventing;
 
 namespace Paragon.ContentTree.Domain.Events
 {
-	public class DefaultPageSetEvent : DomainEvent
+	public class TreeNodeCreatedEvent : DomainEvent
 	{
-		public Guid PageId { get; set; }
 	}
 }

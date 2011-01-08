@@ -70,6 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AggregateRoots\TreeNode.cs" />
     <Compile Include="CommandHandlers\ModifySectionCommandHandler.cs" />
     <Compile Include="CommandHandlers\CreateSectionCommandHandler.cs" />
     <Compile Include="CommandHandlers\CreatePageCommandHandler.cs" />
@@ -81,14 +82,22 @@
     <Compile Include="Events\BodySetEvent.cs" />
     <Compile Include="Events\DefaultPageSetEvent.cs" />
     <Compile Include="Events\HeaderTextSetEvent.cs" />
-    <Compile Include="Events\NameSetEvent.cs" />
+    <Compile Include="Events\IsActiveSetEvent.cs" />
+    <Compile Include="Events\IsVisibleSetEvent.cs" />
+    <Compile Include="Events\MetaDescriptionSetEvent.cs" />
+    <Compile Include="Events\MetaKeywordSetEvent.cs" />
+    <Compile Include="Events\MetaTitleSetEvent.cs" />
+    <Compile Include="Events\SectionNameSetEvent.cs" />
     <Compile Include="Events\PageCreatedEvent.cs" />
     <Compile Include="AggregateRoots\Page.cs" />
     <Compile Include="AggregateRoots\Section.cs" />
-    <Compile Include="Events\ParentIdSetEvent.cs" />
+    <Compile Include="Events\PagePublishedEvent.cs" />
+    <Compile Include="Events\ParentTreeNodeIdSetEvent.cs" />
     <Compile Include="Events\SectionCreatedEvent.cs" />
     <Compile Include="Events\SequenceSetEvent.cs" />
-    <Compile Include="Events\StepIdSetEvent.cs" />
+    <Compile Include="Events\StepActionSetEvent.cs" />
+    <Compile Include="Events\TreeNodeCreatedEvent.cs" />
+    <Compile Include="Events\TreeNodeIdSetEvent.cs" />
     <Compile Include="Events\TypeSetEvent.cs" />
     <Compile Include="Events\UrlSegmentSetEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

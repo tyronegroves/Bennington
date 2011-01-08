@@ -6,8 +6,8 @@ using SimpleCqrs.Eventing;
 
 namespace Paragon.ContentTree.Domain.Events
 {
-	public class ParentIdSetEvent : DomainEvent
+	public class IsVisibleSetEvent : DomainEvent
 	{
-		public string ParentId { get; set; }
+		public bool IsVisible { get; set; }
 	}
 }

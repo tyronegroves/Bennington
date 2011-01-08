@@ -20,9 +20,34 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 			Id = pageCreatedEvent.AggregateRootId;
 		}
 
-		public void SetStepId(string stepId)
+		public void SetName(string name)
 		{
-			Apply(new StepIdSetEvent());
+			Apply(new NameSetEvent() { });
+		}
+
+		public void SetActionId(string stepId)
+		{
+			Apply(new StepActionSetEvent());
+		}
+
+		public void SetParentTreeNodeId(Guid parentTreeNodeId)
+		{
+			Apply(new ParentTreeNodeIdSetEvent(){ ParentTreeNodeId = parentTreeNodeId });
+		}
+
+		public void SetMetaTitle(string metaTitle)
+		{
+			Apply(new MetaTitleSetEvent(){ MetaTitle = metaTitle });
+		}
+
+		public void SetMetaDescription(string metaDescription)
+		{
+			Apply(new MetaDescriptionSetEvent() { MetaDescription = metaDescription });
+		}
+
+		public void SetMetaKeyword(string metaKeyword)
+		{
+			Apply(new MetaKeywordSetEvent() { MetaKeyword = metaKeyword });
 		}
 
 		public void SetHeaderText(string headerText)
@@ -40,34 +65,19 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 			Apply(new UrlSegmentSetEvent() { UrlSegment = urlSegment });
 		}
 
-		public void SetParentId(string parentId)
-		{
-			Apply(new ParentIdSetEvent() { ParentId = parentId });
-		}
-
 		public void SetSequence(int? sequence)
 		{
 			Apply(new SequenceSetEvent() { Sequence = sequence });
 		}
 
-		public void SetType(string type)
+		public void SetTreeNodeId(Guid treeNodeId)
 		{
-			Apply(new TypeSetEvent());
+			Apply(new TreeNodeIdSetEvent() { TreeNodeId  = treeNodeId });
 		}
 
 		public void Publish()
 		{
-			throw new NotImplementedException();
-		}
-
-		public void Revert(int versionNumber)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void SetTreeNodeId(string treeNodeId)
-		{
-			throw new NotImplementedException();
+			Apply(new PagePublishedEvent(){ Id = Id });
 		}
 	}
 }
