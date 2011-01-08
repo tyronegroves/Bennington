@@ -17,7 +17,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Context
 
 	public class ContentTreeNodeContext : IContentTreeNodeContext
 	{
-		public const string RootNodeId = "0";
+		public const string RootNodeId = "00000000-0000-0000-0000-000000000000";
 		private readonly IContentTreeNodeRepository contentTreeNodeRepository;
 		private readonly IContentTreeNodeInputModelToContentTreeNodeMapper contentTreeNodeInputModelToContentTreeNodeMapper;
 		private readonly ITreeNodeSummaryContext treeNodeSummaryContext;

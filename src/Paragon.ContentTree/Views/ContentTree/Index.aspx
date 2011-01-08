@@ -1,5 +1,6 @@
 ﻿<%@ Import Namespace="Paragon.ContentTree.Models" %>
 <%@ Page Language="C#" MasterPageFile="~/Views/Shared/ManageSite.Master" Inherits="System.Web.Mvc.ViewPage<Paragon.ContentTree.Models.TreeNodeCreationInputModel>" %>
+<%@ Import Namespace="System.Security.Policy" %>
 
 <asp:Content ID="aboutTitle" ContentPlaceHolderID="TitleContent" runat="server">
     Content Tree
@@ -14,7 +15,7 @@
 					"ajax": {
 						"url": "<%=Url.Action("Branch", "ContentTree") %>",
 						"data": function (n) {
-							return { id: n.attr ? n.attr("id") : 0 };
+							return { id: n.attr ? n.attr("id") : '00000000-0000-0000-0000-000000000000' };
 						}
 					}
 				},
@@ -58,7 +59,7 @@
                     </div>
                 </div>--%>
             </div>
-			<a href="#" class="noicon" onclick="$('#ParentTreeNodeId').val('0');return(false);">[Create in Root]</a>
+			<a href="#" class="noicon" onclick="$('#ParentTreeNodeId').val('00000000-0000-0000-0000-000000000000');return(false);">[Create in Root]</a>
         </div>
 
     </div>

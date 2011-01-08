@@ -49,8 +49,8 @@ CREATE TABLE [dbo].[ContentTreeSectionNode](
 GO
 
 
-Insert Into dbo.[ContentTreeNode] (TreeNodeId, UrlSegment, Sequence) Values ('0', '', Null);
+Insert Into dbo.[ContentTreeNode] (TreeNodeId, UrlSegment, Sequence) Values ('00000000-0000-0000-0000-000000000000', '', Null);
 Insert Into dbo.[ContentTreeNode] (TreeNodeId, UrlSegment, Sequence, [Name]) Values ('Home', 'Index_', 10, 'Homepage');
 
-Insert Into dbo.[TreeNode] (Id, [Type], ParentTreeNodeId) Values ('0', 'Paragon.ContentTreeNodeProvider.ContentTreeNodeExtensionProvider', '-1');
+Insert Into dbo.[TreeNode] (Id, [Type], ParentTreeNodeId) Values ('00000000-0000-0000-0000-000000000000', 'Paragon.ContentTreeNodeProvider.ContentTreeNodeExtensionProvider', '-1');
 Insert Into dbo.[TreeNode] (Id, [Type], ParentTreeNodeId) Values ('Home', 'Paragon.ContentTreeNodeProvider.ContentTreeNodeExtensionProvider', '0');
