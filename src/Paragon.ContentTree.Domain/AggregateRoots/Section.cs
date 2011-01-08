@@ -1,5 +1,6 @@
 using System;
 using Paragon.ContentTree.Domain.Events;
+using Paragon.ContentTree.Domain.Events.Section;
 using SimpleCqrs.Eventing;
 
 namespace Paragon.ContentTree.Domain.AggregateRoots
@@ -22,7 +23,7 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 
 		public void SetName(string name)
 		{
-			Apply(new NameSetEvent() { });
+			Apply(new SectionNameSetEvent() { Name = name });
 		}
 
 		public void SetDefaultPage(Guid pageId)
@@ -32,27 +33,27 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 
 		public void SetUrlSegment(string urlSegment)
 		{
-			Apply(new UrlSegmentSetEvent() { UrlSegment = urlSegment });
+			Apply(new SectionUrlSegmentSetEvent() { UrlSegment = urlSegment });
 		}
 
 		public void SetIsActive(bool isActive)
 		{
-			Apply(new IsActiveSetEvent() { IsActive = isActive });
+			Apply(new SectionIsActiveSetEvent() { IsActive = isActive });
 		}
 
 		public void SetIsVisible(bool isVisible)
 		{
-			Apply(new IsVisibleSetEvent() { IsVisible = isVisible });
+			Apply(new SectionIsVisibleSetEvent() { IsVisible = isVisible });
 		}
 
 		public void SetParentTreeNodeId(Guid parentTreeNodeId)
 		{
-			Apply(new ParentTreeNodeIdSetEvent() { ParentTreeNodeId = parentTreeNodeId });
+			Apply(new SectionParentTreeNodeIdSetEvent() { ParentTreeNodeId = parentTreeNodeId });
 		}
 
 		public void SetSequence(int? sequence)
 		{
-			Apply(new SequenceSetEvent() { Sequence = sequence });
+			Apply(new SectionSequenceSetEvent() { SectionSequence = sequence });
 		}
 	}
 }

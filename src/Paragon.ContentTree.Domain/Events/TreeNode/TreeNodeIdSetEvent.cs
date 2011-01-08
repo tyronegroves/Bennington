@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using SimpleCqrs.Eventing;
 
-namespace Paragon.ContentTree.Domain.Events
+namespace Paragon.ContentTree.Domain.Events.TreeNode
 {
 	public class TreeNodeIdSetEvent : DomainEvent
 	{

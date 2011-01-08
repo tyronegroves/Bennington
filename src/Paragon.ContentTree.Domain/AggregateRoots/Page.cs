@@ -1,5 +1,7 @@
 using System;
 using Paragon.ContentTree.Domain.Events;
+using Paragon.ContentTree.Domain.Events.Page;
+using Paragon.ContentTree.Domain.Events.TreeNode;
 using SimpleCqrs.Eventing;
 
 namespace Paragon.ContentTree.Domain.AggregateRoots
@@ -22,17 +24,17 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 
 		public void SetName(string name)
 		{
-			Apply(new NameSetEvent() { });
+			Apply(new PageNameSetEvent() { Name = name });
 		}
 
 		public void SetActionId(string stepId)
 		{
-			Apply(new StepActionSetEvent());
+			Apply(new PageActionSetEvent());
 		}
 
 		public void SetParentTreeNodeId(Guid parentTreeNodeId)
 		{
-			Apply(new ParentTreeNodeIdSetEvent(){ ParentTreeNodeId = parentTreeNodeId });
+			Apply(new PageParentTreeNodeIdSetEvent(){ ParentTreeNodeId = parentTreeNodeId });
 		}
 
 		public void SetMetaTitle(string metaTitle)
@@ -62,12 +64,7 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 
 		public void SetUrlSegment(string urlSegment)
 		{
-			Apply(new UrlSegmentSetEvent() { UrlSegment = urlSegment });
-		}
-
-		public void SetSequence(int? sequence)
-		{
-			Apply(new SequenceSetEvent() { Sequence = sequence });
+			Apply(new PageUrlSegmentSetEvent() { UrlSegment = urlSegment });
 		}
 
 		public void SetTreeNodeId(Guid treeNodeId)

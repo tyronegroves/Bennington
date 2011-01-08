@@ -26,7 +26,6 @@ namespace Paragon.ContentTree.Domain.CommandHandlers
 			page.SetParentTreeNodeId(new Guid(command.ParentId));
 			page.SetBody(command.Body);
 			page.SetHeaderText(command.HeaderText);
-			page.SetSequence(command.Sequence);
 			page.SetUrlSegment(command.UrlSegment);
 
 			domainRepository.Save(page);

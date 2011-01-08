@@ -1,5 +1,6 @@
 using System;
 using Paragon.ContentTree.Domain.Events;
+using Paragon.ContentTree.Domain.Events.TreeNode;
 using SimpleCqrs.Eventing;
 
 namespace Paragon.ContentTree.Domain.AggregateRoots
@@ -22,27 +23,27 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 
 		public void SetUrlSegment(string urlSegment)
 		{
-			Apply(new UrlSegmentSetEvent() { UrlSegment = urlSegment });
+			Apply(new TreeNodeUrlSegmentSetEvent() { UrlSegment = urlSegment });
 		}
 
 		public void SetIsActive(bool isActive)
 		{
-			Apply(new IsActiveSetEvent() { IsActive = isActive });
+			Apply(new TreeNodeIsActiveSetEvent() { IsActive = isActive });
 		}
 
 		public void SetIsVisible(bool isVisible)
 		{
-			Apply(new IsVisibleSetEvent() { IsVisible = isVisible });
+			Apply(new TreeNodeIsVisibleSetEvent() { IsVisible = isVisible });
 		}
 
 		public void SetParentTreeNodeId(Guid parentTreeNodeId)
 		{
-			Apply(new ParentTreeNodeIdSetEvent() { ParentTreeNodeId = parentTreeNodeId });
+			Apply(new TreeNodeParentTreeNodeIdSetEvent() { ParentTreeNodeId = parentTreeNodeId });
 		}
 
 		public void SetSequence(int? sequence)
 		{
-			Apply(new SequenceSetEvent() { Sequence = sequence });
+			Apply(new TreeNodeSequenceSetEvent() { TreeNodeSequence = sequence });
 		}
 	}
 }
