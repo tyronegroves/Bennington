@@ -12,11 +12,10 @@ namespace Paragon.ContentTree.Domain.CommandHandlers
 	{
 		public override void Handle(ModifyPageCommand command, Page page)
 		{
-			page.SetParentTreeNodeId(new Guid(command.ParentId));
 			page.SetBody(command.Body);
 			page.SetHeaderText(command.HeaderText);
 			page.SetUrlSegment(command.UrlSegment);
-			page.SetActionId(command.StepId);
+			page.SetActionId(command.ActionId);
 		}
 	}
 }

@@ -26,6 +26,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		[TestMethod]
 		public void Sets_ContentItemId_property_of_inputModel_to_Index_if_blank()
 		{
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>())).Returns(new Guid().ToString());
 			var contentPageInputMOdel = new ContentTreeNodeInputModel()
 			{
 				ParentTreeNodeId = "2",
@@ -44,6 +45,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			{
 				ParentTreeNodeId = "2",
 			};
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>()))
+				.Returns(new Guid().ToString());
 
 			var contentTreeNodeController = mocker.Resolve<ContentTreeNodeController>();
 			var result = contentTreeNodeController.Create(contentTreeNodeInputModel);
@@ -69,6 +72,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		[TestMethod]
 		public void Calls_Create_method_of_IContentTreeNodeContext_when_ModelState_is_valid()
 		{
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>())).Returns(new Guid().ToString());
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 			                            	{
 			                            		ParentTreeNodeId = "2",
@@ -106,6 +110,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		[TestMethod]
 		public void Sends_CreatePageCommand_command_when_ModelState_is_valid()
 		{
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>())).Returns(new Guid().ToString());
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 														{
 															ParentTreeNodeId = "2",
@@ -119,6 +124,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		[TestMethod]
 		public void Sends_CreatePageCommand_command_with_correct_Body_when_ModelState_is_valid()
 		{
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>())).Returns(new Guid().ToString());
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 														{
 															ParentTreeNodeId = "2",
@@ -133,6 +139,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		[TestMethod]
 		public void Sends_CreatePageCommand_command_with_correct_HeaderText_when_ModelState_is_valid()
 		{
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>())).Returns(new Guid().ToString());
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 														{
 															ParentTreeNodeId = "2",
@@ -148,6 +155,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		[TestMethod]
 		public void Sends_CreatePageCommand_command_with_correct_Sequence_when_ModelState_is_valid()
 		{
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>())).Returns(new Guid().ToString());
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 														{
 															ParentTreeNodeId = "2",
@@ -164,6 +172,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		[TestMethod]
 		public void Sends_CreatePageCommand_command_with_correct_UrlSegment_when_ModelState_is_valid()
 		{
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>())).Returns(new Guid().ToString());
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 														{
 															ParentTreeNodeId = "2",
@@ -181,6 +190,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		[TestMethod]
 		public void Sends_CreatePageCommand_command_with_correct_ParentId_when_ModelState_is_valid()
 		{
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>())).Returns(new Guid().ToString());
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 														{
 															ParentTreeNodeId = "2",
@@ -198,6 +208,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		[TestMethod]
 		public void Sends_CreatePageCommand_command_with_correct_Type_when_ModelState_is_valid()
 		{
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>())).Returns(new Guid().ToString());
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 														{
 															ParentTreeNodeId = "2",
@@ -217,7 +228,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		public void Sends_CreatePageCommand_command_with_PageId_set_from_IGuidGetter_when_ModelState_is_valid()
 		{
 			var guid = new Guid("66666666-6969-6969-6969-666666666666");
-			mocker.GetMock<IGuidGetter>().Setup(a => a.GetGuid()).Returns(guid);
+			//mocker.GetMock<IGuidGetter>().Setup(a => a.GetGuid()).Returns(guid);
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>())).Returns(guid.ToString());
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 														{
 															ParentTreeNodeId = "2",

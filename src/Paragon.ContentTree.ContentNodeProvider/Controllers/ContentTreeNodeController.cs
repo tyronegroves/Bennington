@@ -77,7 +77,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 
 			commandBus.Send(new CreatePageCommand()
 			                	{
-									PageId = guidGetter.GetGuid(),
+									PageId = new Guid(contentTreeNodeInputModel.TreeNodeId),
 			                		Body = contentTreeNodeInputModel.Content,
 									HeaderText = contentTreeNodeInputModel.Name,
 									Sequence = contentTreeNodeInputModel.Sequence,
@@ -126,7 +126,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 									ParentId = contentTreeNodeInputModel.ParentTreeNodeId,
 									Sequence = contentTreeNodeInputModel.Sequence,
 									UrlSegment = contentTreeNodeInputModel.UrlSegment,
-									StepId = contentTreeNodeInputModel.ContentItemId,
+									ActionId = contentTreeNodeInputModel.ContentItemId,
 			                	});
 
 			var contentTreeNodeFromRepository = contentTreeNodeRepository.GetAllContentTreeNodes().Where(a => a.TreeNodeId == contentTreeNodeInputModel.TreeNodeId && a.ContentItemId == contentTreeNodeInputModel.ContentItemId).FirstOrDefault();

@@ -14,7 +14,7 @@ namespace Paragon.ContentTree.Domain.Commands
 		public string UrlSegment { get; set; }
 		public int? Sequence { get; set; }
 		public string Body { get; set; }
-		public string TreeNodeId { get; set; }
+		//public string TreeNodeId { get; set; }
 
 		public Guid PageId
 		{

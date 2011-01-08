@@ -348,7 +348,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 
 			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
 
-			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.StepId == inputModel.ContentItemId)), Times.Once());
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.ActionId == inputModel.ContentItemId)), Times.Once());
 		}
 
 		[TestMethod]

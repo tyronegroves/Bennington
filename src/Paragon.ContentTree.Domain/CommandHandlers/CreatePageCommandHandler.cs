@@ -21,7 +21,7 @@ namespace Paragon.ContentTree.Domain.CommandHandlers
 		public override void Handle(CreatePageCommand command)
 		{
 			var page = new Page(command.PageId);
-			page.SetTreeNodeId(new Guid(command.TreeNodeId));
+			page.SetTreeNodeId(command.PageId);
 			page.SetActionId("Index");
 			page.SetParentTreeNodeId(new Guid(command.ParentId));
 			page.SetBody(command.Body);
