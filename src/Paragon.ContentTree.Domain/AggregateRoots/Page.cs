@@ -64,5 +64,10 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 		{
 			throw new NotImplementedException();
 		}
+
+		public void SetTreeNodeId(string treeNodeId)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }
