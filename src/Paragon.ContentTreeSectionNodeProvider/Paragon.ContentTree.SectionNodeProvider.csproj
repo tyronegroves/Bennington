@@ -57,6 +57,9 @@
     <Reference Include="MvcTurbine.Web">
       <HintPath>..\..\..\lib\Turbine\MvcTurbine.Web.dll</HintPath>
     </Reference>
+    <Reference Include="SimpleCqrs">
+      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Activities" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -127,6 +130,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Paragon.ContentTree.Domain\Paragon.ContentTree.Domain.csproj">
+      <Project>{9F36EE92-6F9A-4C57-AA4B-81328423D0DA}</Project>
+      <Name>Paragon.ContentTree.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Paragon.ContentTree.Routing\Paragon.ContentTree.Routing.csproj">
       <Project>{19D2FC38-0EA3-4501-8297-A48C3923ED77}</Project>
       <Name>Paragon.ContentTree.Routing</Name>

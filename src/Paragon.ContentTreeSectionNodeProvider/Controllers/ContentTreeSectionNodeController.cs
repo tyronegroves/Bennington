@@ -1,10 +1,12 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Paragon.ContentTree.Domain.Commands;
 using Paragon.ContentTree.SectionNodeProvider.Context;
 using Paragon.ContentTree.SectionNodeProvider.Mappers;
 using Paragon.ContentTree.SectionNodeProvider.Models;
 using Paragon.ContentTree.SectionNodeProvider.Repositories;
+using SimpleCqrs.Commanding;
 
 namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 {
@@ -14,10 +16,16 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 		private readonly IContentTreeSectionNodeToContentTreeSectionInputModelMapper contentTreeSectionNodeToContentTreeSectionInputModelMapper;
 		private readonly IContentTreeSectionInputModelToContentTreeSectionNodeMapper contentTreeSectionInputModelToContentTreeSectionNodeMapper;
 		private readonly IContentTreeSectionNodeContext contentTreeSectionNodeContext;
+		private ICommandBus commandBus;
 
-		public ContentTreeSectionNodeController(IContentTreeSectionNodeRepository contentTreeSectionNodeRepository, IContentTreeSectionNodeToContentTreeSectionInputModelMapper contentTreeSectionNodeToContentTreeSectionInputModelMapper, IContentTreeSectionInputModelToContentTreeSectionNodeMapper contentTreeSectionInputModelToContentTreeSectionNodeMapper, IContentTreeSectionNodeContext ContentTreeSectionNodeContext)
+		public ContentTreeSectionNodeController(IContentTreeSectionNodeRepository contentTreeSectionNodeRepository, 
+												IContentTreeSectionNodeToContentTreeSectionInputModelMapper contentTreeSectionNodeToContentTreeSectionInputModelMapper, 
+												IContentTreeSectionInputModelToContentTreeSectionNodeMapper contentTreeSectionInputModelToContentTreeSectionNodeMapper, 
+												IContentTreeSectionNodeContext contentTreeSectionNodeContext,
+												ICommandBus commandBus)
 		{
-			this.contentTreeSectionNodeContext = ContentTreeSectionNodeContext;
+			this.commandBus = commandBus;
+			this.contentTreeSectionNodeContext = contentTreeSectionNodeContext;
 			this.contentTreeSectionInputModelToContentTreeSectionNodeMapper = contentTreeSectionInputModelToContentTreeSectionNodeMapper;
 			this.contentTreeSectionNodeToContentTreeSectionInputModelMapper = contentTreeSectionNodeToContentTreeSectionInputModelMapper;
 			this.contentTreeSectionNodeRepository = contentTreeSectionNodeRepository;
@@ -40,6 +48,15 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 				                      	});
 			
 			contentTreeSectionInputModel.TreeNodeId = contentTreeSectionNodeContext.CreateTreeNodeAndReturnTreeNodeId(contentTreeSectionInputModel);
+
+			commandBus.Send(new CreateSectionCommand()
+			                	{
+			                		DefaultTreeNodeId = contentTreeSectionInputModel.DefaultTreeNodeId,
+									Name = contentTreeSectionInputModel.Name,
+									ParentTreeNodeId = contentTreeSectionInputModel.ParentTreeNodeId,
+									Sequence = contentTreeSectionInputModel.Sequence,
+									UrlSegment = contentTreeSectionInputModel.UrlSegment,
+			                	});	
 
 			if (contentTreeSectionInputModel.Action.ToLower() == "save and exit")
 				return new RedirectToRouteResult(new RouteValueDictionary()
@@ -72,7 +89,9 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 			var contentTreeSectionNodeFromRepository = contentTreeSectionNodeRepository.GetAllContentTreeSectionNodes().Where(a => a.TreeNodeId == contentTreeSectionInputModel.TreeNodeId).FirstOrDefault();
 			contentTreeSectionInputModelToContentTreeSectionNodeMapper.LoadIntoInstance(contentTreeSectionInputModel, contentTreeSectionNodeFromRepository);
 			contentTreeSectionNodeRepository.Update(contentTreeSectionNodeFromRepository);
-			
+
+			commandBus.Send(new ModifySectionCommand());
+
 			if (contentTreeSectionInputModel.Action != null)
 			{
 				if (contentTreeSectionInputModel.Action.ToLower() == "save and exit")
