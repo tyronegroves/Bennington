@@ -20,6 +20,7 @@ CREATE TABLE [dbo].[ContentTreeNode](
 	[Sequence] [int] NULL,
 	[Name] [nvarchar](100) NULL,
 	[Content] [ntext] NULL,
+	[ContentItemId] [nvarchar] (100) NULL,
  CONSTRAINT [PK_ContentTreeNode] PRIMARY KEY CLUSTERED 
 (
 	[Key] ASC
@@ -49,8 +50,8 @@ CREATE TABLE [dbo].[ContentTreeSectionNode](
 GO
 
 
-Insert Into dbo.[ContentTreeNode] (TreeNodeId, UrlSegment, Sequence) Values ('00000000-0000-0000-0000-000000000000', '', Null);
-Insert Into dbo.[ContentTreeNode] (TreeNodeId, UrlSegment, Sequence, [Name]) Values ('Home', 'Index_', 10, 'Homepage');
+Insert Into dbo.[ContentTreeNode] (TreeNodeId, UrlSegment, Sequence, [ContentItemId]) Values ('00000000-0000-0000-0000-000000000000', '', Null, 'Index');
+Insert Into dbo.[ContentTreeNode] (TreeNodeId, UrlSegment, Sequence, [Name], [ContentItemId]) Values ('3333e2e3-e968-44b3-b2ba-1f86a2481ce2', 'TestPage', 10, 'Test Page', 'Index');
 
-Insert Into dbo.[TreeNode] (Id, [Type], ParentTreeNodeId) Values ('00000000-0000-0000-0000-000000000000', 'Paragon.ContentTreeNodeProvider.ContentTreeNodeExtensionProvider', '-1');
-Insert Into dbo.[TreeNode] (Id, [Type], ParentTreeNodeId) Values ('Home', 'Paragon.ContentTreeNodeProvider.ContentTreeNodeExtensionProvider', '0');
+Insert Into dbo.[TreeNode] (Id, [Type], ParentTreeNodeId) Values ('00000000-0000-0000-0000-000000000000', 'Paragon.ContentTree.ContentNodeProvider.ContentNodeProvider', '-1');
+Insert Into dbo.[TreeNode] (Id, [Type], ParentTreeNodeId) Values ('3333e2e3-e968-44b3-b2ba-1f86a2481ce2', 'Paragon.ContentTree.ContentNodeProvider.ContentNodeProvider', '00000000-0000-0000-0000-000000000000');
