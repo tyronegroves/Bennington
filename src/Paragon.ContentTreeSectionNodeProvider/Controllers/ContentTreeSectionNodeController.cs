@@ -90,7 +90,14 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 			contentTreeSectionInputModelToContentTreeSectionNodeMapper.LoadIntoInstance(contentTreeSectionInputModel, contentTreeSectionNodeFromRepository);
 			contentTreeSectionNodeRepository.Update(contentTreeSectionNodeFromRepository);
 
-			commandBus.Send(new ModifySectionCommand());
+			commandBus.Send(new ModifySectionCommand()
+			                	{
+			                		DefaultTreeNodeId = contentTreeSectionInputModel.DefaultTreeNodeId,
+									ParentTreeNodeId = contentTreeSectionInputModel.ParentTreeNodeId,
+									UrlSegment = contentTreeSectionInputModel.UrlSegment,
+									Sequence = contentTreeSectionInputModel.Sequence,
+									Name = contentTreeSectionInputModel.Name,
+			                	});
 
 			if (contentTreeSectionInputModel.Action != null)
 			{

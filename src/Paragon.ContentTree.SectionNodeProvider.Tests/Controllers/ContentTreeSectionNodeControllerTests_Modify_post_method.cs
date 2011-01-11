@@ -41,5 +41,70 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.IsAny<ModifySectionCommand>()), Times.Never());
 		}
+
+		[TestMethod]
+		public void Sends_ModifySectionCommand_with_correct_DefaultTreeNodeId_set_when_input_model_is_valid()
+		{
+			var defaultTreeNodeId = new Guid().ToString();
+			mocker.Resolve<ContentTreeSectionNodeController>().Modify(new ContentTreeSectionInputModel()
+			{
+				Action = "action",
+				DefaultTreeNodeId = defaultTreeNodeId,
+			});
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifySectionCommand>(b => b.DefaultTreeNodeId == defaultTreeNodeId)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_ModifySectionCommand_with_correct_Name_set_when_input_model_is_valid()
+		{
+			var defaultTreeNodeId = new Guid().ToString();
+			mocker.Resolve<ContentTreeSectionNodeController>().Modify(new ContentTreeSectionInputModel()
+			{
+				Action = "action",
+				Name = "name"
+			});
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifySectionCommand>(b => b.Name == "name")), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_ModifySectionCommand_with_correct_ParentTreeNodeId_set_when_input_model_is_valid()
+		{
+			var defaultTreeNodeId = new Guid().ToString();
+			mocker.Resolve<ContentTreeSectionNodeController>().Modify(new ContentTreeSectionInputModel()
+			{
+				Action = "action",
+				ParentTreeNodeId = "parentId"
+			});
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifySectionCommand>(b => b.ParentTreeNodeId == "parentId")), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_ModifySectionCommand_with_correct_Sequence_set_when_input_model_is_valid()
+		{
+			var defaultTreeNodeId = new Guid().ToString();
+			mocker.Resolve<ContentTreeSectionNodeController>().Modify(new ContentTreeSectionInputModel()
+			{
+				Action = "action",
+				Sequence = 1000,
+			});
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifySectionCommand>(b => b.Sequence == 1000)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_ModifySectionCommand_with_correct_UrlSegment_set_when_input_model_is_valid()
+		{
+			var defaultTreeNodeId = new Guid().ToString();
+			mocker.Resolve<ContentTreeSectionNodeController>().Modify(new ContentTreeSectionInputModel()
+			{
+				Action = "action",
+				UrlSegment = "urlSegment",
+			});
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifySectionCommand>(b => b.UrlSegment == "urlSegment")), Times.Once());
+		}
 	}
 }
