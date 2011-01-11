@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Paragon.ContentTree.Domain.Commands;
@@ -16,7 +17,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 		private readonly IContentTreeSectionNodeToContentTreeSectionInputModelMapper contentTreeSectionNodeToContentTreeSectionInputModelMapper;
 		private readonly IContentTreeSectionInputModelToContentTreeSectionNodeMapper contentTreeSectionInputModelToContentTreeSectionNodeMapper;
 		private readonly IContentTreeSectionNodeContext contentTreeSectionNodeContext;
-		private ICommandBus commandBus;
+		private readonly ICommandBus commandBus;
 
 		public ContentTreeSectionNodeController(IContentTreeSectionNodeRepository contentTreeSectionNodeRepository, 
 												IContentTreeSectionNodeToContentTreeSectionInputModelMapper contentTreeSectionNodeToContentTreeSectionInputModelMapper, 
@@ -33,6 +34,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 
 		public ActionResult Delete(string treeNodeId)
 		{
+			commandBus.Send(new DeleteSectionCommand(){ AggregateRootId = new Guid(treeNodeId) });
 			contentTreeSectionNodeContext.Delete(treeNodeId);
 			return new RedirectToRouteResult(new RouteValueDictionary { { "controller", "ContentTree" }, { "action", "Index" } });
 		}
