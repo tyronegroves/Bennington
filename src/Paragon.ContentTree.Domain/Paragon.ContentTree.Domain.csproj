@@ -71,20 +71,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AggregateRoots\TreeNode.cs" />
+    <Compile Include="CommandHandlers\DeleteSectionCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DeletePageCommandHandler.cs" />
     <Compile Include="CommandHandlers\ModifySectionCommandHandler.cs" />
     <Compile Include="CommandHandlers\CreateSectionCommandHandler.cs" />
     <Compile Include="CommandHandlers\CreatePageCommandHandler.cs" />
     <Compile Include="CommandHandlers\ModifyPageCommandHandler.cs" />
+    <Compile Include="Commands\DeletePageCommand.cs" />
+    <Compile Include="Commands\DeleteSectionCommand.cs" />
     <Compile Include="Commands\ModifySectionCommand.cs" />
     <Compile Include="Commands\CreateSectionCommand.cs" />
     <Compile Include="Commands\CreatePageCommand.cs" />
     <Compile Include="Commands\ModifyPageCommand.cs" />
     <Compile Include="Events\Page\BodySetEvent.cs" />
+    <Compile Include="Events\Page\PageDeletedEvent.cs" />
     <Compile Include="Events\Section\DefaultPageSetEvent.cs" />
     <Compile Include="Events\Page\HeaderTextSetEvent.cs" />
     <Compile Include="Events\Page\PageNameSetEvent.cs" />
     <Compile Include="Events\Page\PageParentTreeNodeIdSetEvent.cs" />
     <Compile Include="Events\Page\PageUrlSegmentSetEvent.cs" />
+    <Compile Include="Events\Section\SectionDeletedEvent.cs" />
     <Compile Include="Events\Section\SectionIsActiveSetEvent.cs" />
     <Compile Include="Events\Section\SectionIsVisibleSetEvent.cs" />
     <Compile Include="Events\Page\MetaDescriptionSetEvent.cs" />

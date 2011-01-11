@@ -55,5 +55,10 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 		{
 			Apply(new SectionSequenceSetEvent() { SectionSequence = sequence });
 		}
+
+		public void Delete()
+		{
+			Apply(new SectionDeletedEvent());
+		}
 	}
 }

@@ -422,7 +422,9 @@
     <Folder Include="Scripts\tiny_mce\plugins\spellchecker\includes\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Target_\Active\ConnectionStrings.config" />
+    <Content Include="Target_\Active\ConnectionStrings.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Target_\Active\System.Web.CustomErrors.config" />
   </ItemGroup>
   <ItemGroup>
