@@ -81,5 +81,13 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 		{
 			Apply(new PageDeletedEvent());
 		}
+
+		public void SetType(Type type)
+		{
+			Apply(new PageTypeSetEvent()
+			      	{
+			      		Type = type
+			      	});
+		}
 	}
 }

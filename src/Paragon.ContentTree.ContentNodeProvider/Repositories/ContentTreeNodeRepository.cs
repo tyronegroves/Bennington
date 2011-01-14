@@ -30,8 +30,6 @@ namespace Paragon.ContentTree.ContentNodeProvider.Repositories
 
 		public void Delete(ContentTreeNode instance)
 		{
-			
-			// dataModelDataContext.Delete(instance);
 			treeNodeRepository.Delete(instance.TreeNodeId);
 		}
 

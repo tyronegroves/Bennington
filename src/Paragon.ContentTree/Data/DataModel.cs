@@ -9,6 +9,7 @@ namespace Paragon.ContentTree.Data
 		System.Data.Linq.Table<TreeNode> TreeNodes { get; }
 		TreeNode Create(TreeNode instance);
 		void Delete(string id);
+		void Update(TreeNode treeNode);
 	}
 
 	partial class DataModelDataContext : IDataModelDataContext
@@ -21,6 +22,14 @@ namespace Paragon.ContentTree.Data
 				SubmitChanges();
 			}
 			return instance;
+		}
+
+		public void Update(TreeNode instance)
+		{
+			using (new TransactionScope(TransactionScopeOption.Suppress))
+			{
+				SubmitChanges();
+			}
 		}
 
 		partial void OnCreated()

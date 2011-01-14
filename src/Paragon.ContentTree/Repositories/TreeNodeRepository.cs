@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 using System.Web;
 using Paragon.ContentTree.Data;
 
@@ -11,6 +12,7 @@ namespace Paragon.ContentTree.Repositories
 		IQueryable<TreeNode> GetAll();
 		TreeNode Create(TreeNode treeNode);
 		void Delete(string id);
+		void Update(TreeNode treeNode);
 	}
 
 	public class TreeNodeRepository : ITreeNodeRepository
@@ -36,6 +38,11 @@ namespace Paragon.ContentTree.Repositories
 		public void Delete(string id)
 		{
 			dataModelDataContext.Delete(id);
+		}
+
+		public void Update(TreeNode treeNode)
+		{
+			dataModelDataContext.Update(treeNode);
 		}
 	}
 }

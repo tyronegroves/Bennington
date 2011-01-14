@@ -3,8 +3,8 @@ using SimpleCqrs.Eventing;
 
 namespace Paragon.ContentTree.Domain.Events.Page
 {
-	public class PageCreatedEvent : DomainEvent
+	public class PageTypeSetEvent : DomainEvent
 	{
-		public Type ProviderType { get; set; }
+		public Type Type { get; set; }
 	}
 }

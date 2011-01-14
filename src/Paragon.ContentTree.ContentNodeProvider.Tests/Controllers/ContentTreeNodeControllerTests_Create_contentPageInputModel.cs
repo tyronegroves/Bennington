@@ -30,6 +30,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			var contentPageInputMOdel = new ContentTreeNodeInputModel()
 			{
 				ParentTreeNodeId = "2",
+				Type = typeof(string).AssemblyQualifiedName
 			};
 
 			var contentTreeNodeController = mocker.Resolve<ContentTreeNodeController>();
@@ -44,6 +45,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 			{
 				ParentTreeNodeId = "2",
+				Type = typeof(string).AssemblyQualifiedName
 			};
 			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>()))
 				.Returns(new Guid().ToString());
@@ -76,6 +78,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 			                            	{
 			                            		ParentTreeNodeId = "2",
+												Type = typeof(string).AssemblyQualifiedName
 			                            	};
 			var contentTreeNodeController = mocker.Resolve<ContentTreeNodeController>();
 			var result = contentTreeNodeController.Create(contentTreeNodeInputModel);
@@ -89,6 +92,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 			{
 				ParentTreeNodeId = "2",
+				Type = typeof(string).AssemblyQualifiedName
 			};
 			var contentTreeNodeController = mocker.Resolve<ContentTreeNodeController>();
 			contentTreeNodeController.ModelState.AddModelError("key", "error");
@@ -114,6 +118,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 														{
 															ParentTreeNodeId = "2",
+															Type = typeof(string).AssemblyQualifiedName
 														};
 
 			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
@@ -128,7 +133,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 														{
 															ParentTreeNodeId = "2",
-															Content = "content"
+															Content = "content",
+															Type = typeof(string).AssemblyQualifiedName
 														};
 
 			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
@@ -144,7 +150,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 														{
 															ParentTreeNodeId = "2",
 															Content = "content",
-															Name = "header text"
+															Name = "header text",
+															Type = typeof(string).AssemblyQualifiedName
 														};
 
 			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
@@ -162,6 +169,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 															Content = "content",
 															Name = "header text",
 															Sequence = 100,
+															Type = typeof(string).AssemblyQualifiedName
 														};
 
 			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
@@ -179,7 +187,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 															Content = "content",
 															Name = "header text",
 															Sequence = 100,
-															UrlSegment = "url segment"
+															UrlSegment = "url segment",
+															Type = typeof(string).AssemblyQualifiedName
 														};
 
 			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
@@ -198,6 +207,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 															Name = "header text",
 															Sequence = 100,
 															UrlSegment = "url segment",
+															Type = typeof(string).AssemblyQualifiedName
 														};
 
 			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
@@ -216,12 +226,12 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 															Name = "header text",
 															Sequence = 100,
 															UrlSegment = "url segment",
-															Type = "type",
+															Type = typeof(string).AssemblyQualifiedName,
 														};
 
 			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
 
-			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Type == contentTreeNodeInputModel.Type)), Times.Once());
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Type == Type.GetType(contentTreeNodeInputModel.Type))), Times.Once());
 		}
 
 		[TestMethod]

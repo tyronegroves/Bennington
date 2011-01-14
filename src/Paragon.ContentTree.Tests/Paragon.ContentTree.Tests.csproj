@@ -43,6 +43,9 @@
     <Reference Include="MvcTurbine">
       <HintPath>..\..\lib\Turbine\MvcTurbine.dll</HintPath>
     </Reference>
+    <Reference Include="SimpleCqrs">
+      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -60,12 +63,22 @@
     <Compile Include="Contexts\TreeNodeSummarContextTests_GetChildren.cs" />
     <Compile Include="Contexts\TreeNodeSummaryContextTests_Create.cs" />
     <Compile Include="Controllers\ContentTreeControllerTests_Branch.cs" />
+    <Compile Include="Denormalizers\TreeNodeDenormalizerTests_Handle_PageCreatedEvent.cs" />
+    <Compile Include="Denormalizers\TreeNodeDenormalizerTests_Handle_PageParentTreeNodeIdSetEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routing\RegisterRoutesForAllProvidersTests_Register.cs" />
     <Compile Include="TreeNodeExtensionProvider\GetAllContentTreeNodeProvidersTests_GetAll.cs" />
     <Compile Include="ViewModelBuilders\TreeBranchViewModelBuilderTests_BuildViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Paragon.ContentTree.ContentNodeProvider\Paragon.ContentTree.ContentNodeProvider.csproj">
+      <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
+      <Name>Paragon.ContentTree.ContentNodeProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Paragon.ContentTree.Domain\Paragon.ContentTree.Domain.csproj">
+      <Project>{9F36EE92-6F9A-4C57-AA4B-81328423D0DA}</Project>
+      <Name>Paragon.ContentTree.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Paragon.ContentTree\Paragon.ContentTree.csproj">
       <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
       <Name>Paragon.ContentTree</Name>

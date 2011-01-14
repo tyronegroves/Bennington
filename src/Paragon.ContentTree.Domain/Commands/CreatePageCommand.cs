@@ -8,7 +8,7 @@ namespace Paragon.ContentTree.Domain.Commands
 {
 	public class CreatePageCommand : CommandWithAggregateRootId
 	{
-		public string Type { get; set; }
+		public Type Type { get; set; }
 		public string ParentId { get; set; }
 		public string HeaderText { get; set; }
 		public string UrlSegment { get; set; }

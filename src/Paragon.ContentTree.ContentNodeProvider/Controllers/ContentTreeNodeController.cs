@@ -87,7 +87,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 									Sequence = contentTreeNodeInputModel.Sequence,
 									UrlSegment = contentTreeNodeInputModel.UrlSegment,
 									ParentId = contentTreeNodeInputModel.ParentTreeNodeId,
-									Type = contentTreeNodeInputModel.Type,
+									Type = Type.GetType(contentTreeNodeInputModel.Type),
 			                	});
 
 			if (!string.IsNullOrEmpty(contentTreeNodeInputModel.Action))
