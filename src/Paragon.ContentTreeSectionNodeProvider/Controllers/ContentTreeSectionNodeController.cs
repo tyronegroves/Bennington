@@ -139,10 +139,10 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 			return View("Modify", viewModel);
 		}
 
-		private string GetRedirectUrlToModifyMethod(ContentTreeSectionInputModel ContentTreeSectionInputModel)
+		private string GetRedirectUrlToModifyMethod(ContentTreeSectionInputModel contentTreeSectionInputModel)
 		{
 			if (Url == null) return "/";
-			return Url.Action("Modify", "ContentTreeSectionNode", new { treeNodeId = ContentTreeSectionInputModel == null ? "0" : ContentTreeSectionInputModel.TreeNodeId });
+			return Url.Action("Modify", "ContentTreeSectionNode", new { treeNodeId = contentTreeSectionInputModel == null ? "0" : contentTreeSectionInputModel.TreeNodeId });
 		}
 	}
 }
