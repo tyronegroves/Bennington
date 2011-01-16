@@ -22,14 +22,30 @@ namespace Paragon.ContentTree.DeNormalizers
 			treeNodeRepository.Create(new TreeNode()
 			                          	{
 			                          		Id = domainEvent.AggregateRootId.ToString(),
-											Type = domainEvent.ProviderType.AssemblyQualifiedName,
 			                          	});
 		}
 
 		public void Handle(PageParentTreeNodeIdSetEvent domainEvent)
 		{
-			var treeNode = treeNodeRepository.GetAll().Where(a => a.Id == domainEvent.AggregateRootId.ToString()).FirstOrDefault();
+			var treeNode = GetTreeNodeFromDomainEvent(domainEvent);
 			treeNode.ParentTreeNodeId = domainEvent.ParentTreeNodeId.ToString();
+			treeNodeRepository.Update(treeNode);
+		}
+
+		private TreeNode GetTreeNodeFromDomainEvent(DomainEvent domainEvent)
+		{
+			return treeNodeRepository.GetAll().Where(a => a.Id == domainEvent.AggregateRootId.ToString()).FirstOrDefault();
+		}
+
+		public void Handle(PageDeletedEvent domainEvent)
+		{
+			treeNodeRepository.Delete(domainEvent.AggregateRootId.ToString());
+		}
+
+		public void Handle(PageTypeSetEvent domainEvent)
+		{
+			var treeNode = GetTreeNodeFromDomainEvent(domainEvent);
+			treeNode.Type = domainEvent.Type.AssemblyQualifiedName;
 			treeNodeRepository.Update(treeNode);
 		}
 	}

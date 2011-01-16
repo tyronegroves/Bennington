@@ -13,7 +13,7 @@ using Paragon.ContentTree.Repositories;
 namespace Paragon.ContentTree.Tests.Denormalizers
 {
 	[TestClass]
-	public class TreeNodeDenormalizerTests_Handle_PageCreatedEvent
+	public class TreeNodeDenormalizerTests_Handle_PageTypeSetEvent
 	{
 		private AutoMoqer mocker;
 
@@ -24,16 +24,25 @@ namespace Paragon.ContentTree.Tests.Denormalizers
 		}
 
 		[TestMethod]
-		public void Creates_new_tree_node_with_correct_id()
+		public void Sets_Type_of_correct_tree_node()
 		{
 			var guid = new Guid();
+			mocker.GetMock<ITreeNodeRepository>().Setup(a => a.GetAll())
+				.Returns(new TreeNode[]
+				         	{
+				         		new TreeNode()
+				         			{
+				         				Id = guid.ToString(),
+				         			}, 
+							}.AsQueryable());
 
-			mocker.Resolve<TreeNodeDenormalizer>().Handle(new PageCreatedEvent()
+			mocker.Resolve<TreeNodeDenormalizer>().Handle(new PageTypeSetEvent()
 			                                              	{
 			                                              		AggregateRootId = guid,
+																Type = typeof(string)
 			                                              	});
 
-			mocker.GetMock<ITreeNodeRepository>().Verify(a => a.Create(It.Is<TreeNode>(b => b.Id == guid.ToString())), Times.Once());
+			mocker.GetMock<ITreeNodeRepository>().Verify(a => a.Update(It.Is<TreeNode>(b => b.Type == typeof(string).AssemblyQualifiedName && b.Id == guid.ToString())), Times.Once());
 		}
 	}
 }

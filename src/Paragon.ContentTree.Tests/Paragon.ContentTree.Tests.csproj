@@ -63,6 +63,8 @@
     <Compile Include="Contexts\TreeNodeSummarContextTests_GetChildren.cs" />
     <Compile Include="Contexts\TreeNodeSummaryContextTests_Create.cs" />
     <Compile Include="Controllers\ContentTreeControllerTests_Branch.cs" />
+    <Compile Include="Denormalizers\TreeNodeDenormalizerTests_Handle_PageTypeSetEvent.cs" />
+    <Compile Include="Denormalizers\TreeNodeDenormalizerTests_Handle_PageDeletedEvent.cs" />
     <Compile Include="Denormalizers\TreeNodeDenormalizerTests_Handle_PageCreatedEvent.cs" />
     <Compile Include="Denormalizers\TreeNodeDenormalizerTests_Handle_PageParentTreeNodeIdSetEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

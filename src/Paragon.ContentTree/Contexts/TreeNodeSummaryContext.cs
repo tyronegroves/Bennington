@@ -37,7 +37,7 @@ namespace Paragon.ContentTree.Contexts
 		{
 			var newTreeNode = treeNodeRepository.Create(new TreeNode()
 			{
-				Id = System.Guid.NewGuid().ToString(),
+				Id = Guid.NewGuid().ToString(),
 				Type = providerType,
 				ParentTreeNodeId = parentNodeId,
 			});
