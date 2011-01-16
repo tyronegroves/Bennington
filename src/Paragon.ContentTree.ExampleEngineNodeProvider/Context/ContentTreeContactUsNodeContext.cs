@@ -27,7 +27,7 @@ namespace Paragon.ContentTree.ExampleEngineNodeProvider.Context
 
 		public string CreateTreeNodeAndReturnTreeNodeId(ContentTreeContactUsNodeInputModel contentTreeContactUsNodeInputModel)
 		{
-			var newTreeNodeId = treeNodeSummaryContext.Create(contentTreeContactUsNodeInputModel.ParentTreeNodeId, typeof(ExampleEngineNodeProvider));
+			var newTreeNodeId = treeNodeSummaryContext.Create(contentTreeContactUsNodeInputModel.ParentTreeNodeId, typeof(ExampleEngineNodeProvider).AssemblyQualifiedName);
 			contentTreeContactUsNodeInputModel.TreeNodeId = newTreeNodeId;
 			var node = contentTreeContactUsNodeInputModelToContentTreeContactUsNodeMapper.CreateInstance(contentTreeContactUsNodeInputModel);
 			contentTreeContactUsNodeRepository.Create(node);

@@ -71,12 +71,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AggregateRoots\TreeNode.cs" />
+    <Compile Include="CommandHandlers\CreateTreeNodeCommandHandler.cs" />
     <Compile Include="CommandHandlers\DeleteSectionCommandHandler.cs" />
     <Compile Include="CommandHandlers\DeletePageCommandHandler.cs" />
     <Compile Include="CommandHandlers\ModifySectionCommandHandler.cs" />
     <Compile Include="CommandHandlers\CreateSectionCommandHandler.cs" />
     <Compile Include="CommandHandlers\CreatePageCommandHandler.cs" />
     <Compile Include="CommandHandlers\ModifyPageCommandHandler.cs" />
+    <Compile Include="Commands\CreateTreeNodeCommand.cs" />
     <Compile Include="Commands\DeletePageCommand.cs" />
     <Compile Include="Commands\DeleteSectionCommand.cs" />
     <Compile Include="Commands\ModifySectionCommand.cs" />
@@ -114,6 +116,7 @@
     <Compile Include="Events\TreeNode\TreeNodeSequenceSetEvent.cs" />
     <Compile Include="Events\TreeNode\TreeNodeUrlSegmentSetEvent.cs" />
     <Compile Include="Events\Section\SectionUrlSegmentSetEvent.cs" />
+    <Compile Include="Events\TreeNode\TreeNodeTypeSetEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\SimpleCqrsRegistration.cs" />
     <Compile Include="WebRootSimpleCqrsRuntime.cs" />

@@ -28,7 +28,7 @@ namespace Paragon.ContentTree.Contexts
 
 		public IAmATreeNodeExtensionProvider GetProviderByTypeName(string providerTypeName)
 		{
-			var services = serviceLocator.ResolveServices<IAmATreeNodeExtensionProvider>().Where(a => a.GetType().FullName == providerTypeName);
+			var services = serviceLocator.ResolveServices<IAmATreeNodeExtensionProvider>().Where(a => a.GetType().AssemblyQualifiedName == providerTypeName);
 			return services.FirstOrDefault();
 		}
 	}

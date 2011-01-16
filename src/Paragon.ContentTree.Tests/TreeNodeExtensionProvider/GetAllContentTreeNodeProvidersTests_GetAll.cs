@@ -35,7 +35,7 @@ namespace Paragon.ContentTree.Tests.TreeNodeExtensionProvider
 				         	});
 
 			var getAllContentTreeNodeProviders = mocker.Resolve<TreeNodeProviderContext>();
-			var result = getAllContentTreeNodeProviders.GetProviderByTypeName(typeof (IamATreeNodeExtensionProvider2).FullName);
+			var result = getAllContentTreeNodeProviders.GetProviderByTypeName(typeof (IamATreeNodeExtensionProvider2).AssemblyQualifiedName);
 
 			Assert.AreEqual("IamATreeNodeExtensionProvider2", result.Name);
 		}

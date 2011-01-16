@@ -27,7 +27,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Context
 
 		public string CreateTreeNodeAndReturnTreeNodeId(ContentTreeSectionInputModel contentTreeSectionInputModel)
 		{
-			var newTreeNodeId = treeNodeSummaryContext.Create(contentTreeSectionInputModel.ParentTreeNodeId, typeof(SectionNodeProvider));
+			var newTreeNodeId = treeNodeSummaryContext.Create(contentTreeSectionInputModel.ParentTreeNodeId, typeof(SectionNodeProvider).AssemblyQualifiedName);
 			contentTreeSectionInputModel.TreeNodeId = newTreeNodeId;
 			var node = contentTreeSectionInputModelToContentTreeSectionNodeMapper.CreateInstance(contentTreeSectionInputModel);
 			contentTreeSectionNodeRepository.Create(node);

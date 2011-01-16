@@ -45,5 +45,10 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 		{
 			Apply(new TreeNodeSequenceSetEvent() { TreeNodeSequence = sequence });
 		}
+
+		public void SetType(Type type)
+		{
+			Apply(new TreeNodeTypeSetEvent(){Type = type});
+		}
 	}
 }

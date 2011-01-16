@@ -1,47 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Routing;
 using Paragon.ContentTree.Data;
+using Paragon.ContentTree.Domain.Commands;
 using Paragon.ContentTree.Models;
 using Paragon.ContentTree.Repositories;
 using Paragon.ContentTree.TreeNodeExtensionProvider;
+using Paragon.Core.Helpers;
+using SimpleCqrs.Commanding;
 
 namespace Paragon.ContentTree.Contexts
 {
 	public interface ITreeNodeSummaryContext
 	{
-		string Create(string parentNodeId, Type providerType);
 		IEnumerable<TreeNodeSummary> GetChildren(string parentNodeId);
-		string Create(string parentNodeId, string providerType);
+		string Create(string parentNodeId, string providerTypeAssemblyQualifiedName);
 	}
 
 	public class TreeNodeSummaryContext : ITreeNodeSummaryContext
 	{
 		private readonly ITreeNodeRepository treeNodeRepository;
 		private readonly ITreeNodeProviderContext treeNodeProviderContext;
+		private readonly ICommandBus commandBus;
+		private readonly IGuidGetter guidGetter;
 
-		public TreeNodeSummaryContext(ITreeNodeRepository treeNodeRepository, ITreeNodeProviderContext treeNodeProviderContext)
+		public TreeNodeSummaryContext(ITreeNodeRepository treeNodeRepository, 
+										ITreeNodeProviderContext treeNodeProviderContext,
+										ICommandBus commandBus,
+										IGuidGetter guidGetter)
 		{
+			this.guidGetter = guidGetter;
+			this.commandBus = commandBus;
 			this.treeNodeProviderContext = treeNodeProviderContext;
 			this.treeNodeRepository = treeNodeRepository;
 		}
 
-		public string Create(string parentNodeId, Type providerType)
+		public string Create(string parentNodeId, string providerTypeAssemblyQualifiedName)
 		{
-			ThrowExceptionIfTheProviderTypeDoesNotImplementIAmATreeNodeExtensionProvider(providerType);
+			ThrowExceptionIfTheProviderTypeDoesNotImplementIAmATreeNodeExtensionProvider(Type.GetType(providerTypeAssemblyQualifiedName));
 
-			return Create(parentNodeId, providerType.FullName);
-		}
+			//var newTreeNode = treeNodeRepository.Create(new TreeNode()
+			//                                                    {
+			//                                                        Id = Guid.NewGuid().ToString(),
+			//                                                        Type = providerTypeAssemblyQualifiedName,
+			//                                                        ParentTreeNodeId = parentNodeId,
+			//                                                    });
 
-		public string Create(string parentNodeId, string providerType)
-		{
-			var newTreeNode = treeNodeRepository.Create(new TreeNode()
-			{
-				Id = Guid.NewGuid().ToString(),
-				Type = providerType,
-				ParentTreeNodeId = parentNodeId,
-			});
-			return newTreeNode == null ? string.Empty : newTreeNode.Id;
+			var guid = guidGetter.GetGuid();
+			commandBus.Send(new CreateTreeNodeCommand()
+			                	{
+			                		ParentId = parentNodeId,
+									Type = Type.GetType(providerTypeAssemblyQualifiedName),
+									TreeNodeId = guid,
+									AggregateRootId = guid
+			                	});
+
+			return guid.ToString();
 		}
 
 		private static void ThrowExceptionIfTheProviderTypeDoesNotImplementIAmATreeNodeExtensionProvider(Type providerType)

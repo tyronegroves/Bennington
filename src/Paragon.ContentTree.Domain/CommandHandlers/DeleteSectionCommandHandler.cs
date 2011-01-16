@@ -8,9 +8,9 @@ using SimpleCqrs.Commanding;
 
 namespace Paragon.ContentTree.Domain.CommandHandlers
 {
-	public class DeleteSectionCommandHandler : AggregateRootCommandHandler<DeletePageCommand, Section>
+	public class DeleteSectionCommandHandler : AggregateRootCommandHandler<DeleteSectionCommand, Section>
 	{
-		public override void Handle(DeletePageCommand command, Section aggregateRoot)
+		public override void Handle(DeleteSectionCommand command, Section aggregateRoot)
 		{
 			aggregateRoot.Delete();
 		}

@@ -8,9 +8,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Data;
+using Paragon.ContentTree.Domain.Commands;
 using Paragon.ContentTree.Models;
 using Paragon.ContentTree.Repositories;
 using Paragon.ContentTree.TreeNodeExtensionProvider;
+using Paragon.Core.Helpers;
+using SimpleCqrs.Commanding;
 
 namespace Paragon.ContentTree.Tests.Contexts
 {
@@ -28,10 +31,8 @@ namespace Paragon.ContentTree.Tests.Contexts
 		[TestMethod]
 		public void Returns_newly_created_tree_node()
 		{
-			var treeNode = new TreeNodeSummary()
-			               	{
-			               		Id = "id",
-			               	};
+			var guid = new Guid();
+			mocker.GetMock<IGuidGetter>().Setup(a => a.GetGuid()).Returns(guid);
 			mocker.GetMock<ITreeNodeRepository>().Setup(a => a.Create(It.IsAny<TreeNode>()))
 				.Returns(new TreeNode()
 				         	{
@@ -39,34 +40,16 @@ namespace Paragon.ContentTree.Tests.Contexts
 				         	});
 
 			var treeNodeSummaryContext = mocker.Resolve<TreeNodeSummaryContext>();
-			var result = treeNodeSummaryContext.Create("parentNodeId", typeof(FakeTreeNodeExtensionProvider));
+			var result = treeNodeSummaryContext.Create("parentNodeId", typeof(FakeTreeNodeExtensionProvider).AssemblyQualifiedName);
 
-			Assert.AreEqual(treeNode.Id, result);
-		}
-
-		[TestMethod]
-		public void Calls_Create_method_of_ITreeNodeRepository_with_new_node_with_correct_ParentTreeNodeId_property()
-		{
-			var treeNodeSummaryContext = mocker.Resolve<TreeNodeSummaryContext>();
-			treeNodeSummaryContext.Create("parentNodeId", typeof(FakeTreeNodeExtensionProvider));
-
-			mocker.GetMock<ITreeNodeRepository>().Verify(a => a.Create(It.Is<TreeNode>(b => b.ParentTreeNodeId == "parentNodeId")));
-		}
-
-		[TestMethod]
-		public void Calls_Create_method_of_ITreeNodeRepository_with_new_node_with_correct_Type_property()
-		{
-			var treeNodeSummaryContext = mocker.Resolve<TreeNodeSummaryContext>();
-			treeNodeSummaryContext.Create("parentNodeId", typeof (FakeTreeNodeExtensionProvider));
-
-			mocker.GetMock<ITreeNodeRepository>().Verify(a => a.Create(It.Is<TreeNode>(b => b.Type == typeof(FakeTreeNodeExtensionProvider).FullName)));
+			Assert.AreEqual(guid.ToString(), result);
 		}
 
 		[TestMethod]
 		public void Does_not_throw_exception_when_passing_type_that_does_implements_IAmATreeNodeExtensionProvider()
 		{
 			var treeNodeSummaryContext = mocker.Resolve<TreeNodeSummaryContext>();
-			treeNodeSummaryContext.Create(null, typeof(FakeTreeNodeExtensionProvider));
+			treeNodeSummaryContext.Create(null, typeof(FakeTreeNodeExtensionProvider).AssemblyQualifiedName);
 		}
 
 		[TestMethod]
@@ -76,7 +59,7 @@ namespace Paragon.ContentTree.Tests.Contexts
 
 			try
 			{
-				treeNodeSummaryContext.Create(null, typeof(string));
+				treeNodeSummaryContext.Create(null, typeof(string).AssemblyQualifiedName);
 			}
 			catch (Exception e)
 			{
@@ -84,6 +67,68 @@ namespace Paragon.ContentTree.Tests.Contexts
 				return;
 			}
 			throw new Exception("Should throw excpetion above");
+		}
+
+		public class FakeProvider : IAmATreeNodeExtensionProvider
+		{
+			public IQueryable<IAmATreeNodeExtension> GetAll()
+			{
+				throw new NotImplementedException();
+			}
+
+			public string Name
+			{
+				get { throw new NotImplementedException(); }
+			}
+
+			public string ControllerToUseForModification
+			{
+				get { throw new NotImplementedException(); }
+				set { throw new NotImplementedException(); }
+			}
+
+			public string ActionToUseForModification
+			{
+				get { throw new NotImplementedException(); }
+				set { throw new NotImplementedException(); }
+			}
+
+			public string ControllerToUseForCreation
+			{
+				get { throw new NotImplementedException(); }
+				set { throw new NotImplementedException(); }
+			}
+
+			public string ActionToUseForCreation
+			{
+				get { throw new NotImplementedException(); }
+				set { throw new NotImplementedException(); }
+			}
+
+			public IRouteConstraint IgnoreConstraint
+			{
+				get { throw new NotImplementedException(); }
+			}
+
+			public IEnumerable<ContentTreeNodeContentItem> ContentTreeNodeContentItems
+			{
+				get { throw new NotImplementedException(); }
+				set { throw new NotImplementedException(); }
+			}
+		}
+
+		[TestMethod]
+		public void Create_method_sends_CreateTreeNodeCommand()
+		{
+			var guid = new Guid();
+			mocker.GetMock<IGuidGetter>().Setup(a => a.GetGuid()).Returns(guid);
+
+			mocker.Resolve<TreeNodeSummaryContext>().Create("parentNodeId", typeof(FakeProvider).AssemblyQualifiedName);
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreateTreeNodeCommand>(b => b.ParentId == "parentNodeId"
+																									&& b.TreeNodeId == guid
+																									&& b.Type == typeof(FakeProvider)
+																									&& b.AggregateRootId == guid)), Times.Once());
 		}
 
 		private class FakeTreeNodeExtensionProvider : IAmATreeNodeExtensionProvider
