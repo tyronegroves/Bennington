@@ -12,7 +12,7 @@ namespace Paragon.ContentTree.Domain.CommandHandlers
 	{
 		public override void Handle(DeletePageCommand command, Page aggregateRoot)
 		{
-			aggregateRoot.Delete();
+			aggregateRoot.Delete(command.AggregateRootId);
 		}
 	}
 }

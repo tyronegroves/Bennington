@@ -79,6 +79,8 @@ namespace Paragon.ContentTree.Contexts
 			var provider = treeNodeProviderContext.GetProviderByTypeName(treeNode.Type);
 			if (provider == null) throw new Exception(string.Format("Content tree node provider for type: {0} not found.", treeNode.Type));
 
+			var z = provider.GetAll();
+
 			var node = provider.GetAll().Where(a => a.TreeNodeId == treeNode.Id).FirstOrDefault();
 			if (node == null) throw new Exception(string.Format("Node with id \"{0}\" was not found by provider type \"{1}\".", treeNode.Id, provider.GetType().AssemblyQualifiedName));
 

@@ -27,7 +27,9 @@ namespace Paragon.ContentTree.Domain.Registration
 					;
 
 			var commandBus = runtime.ServiceLocator.Resolve<ICommandBus>();
-			locator.Register(commandBus);			
+			locator.Register(commandBus);
+
+			locator.Register<SimpleCqrs.IServiceLocator>(runtime.ServiceLocator);
 		}
 	}
 }

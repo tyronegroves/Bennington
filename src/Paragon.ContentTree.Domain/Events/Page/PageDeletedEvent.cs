@@ -7,6 +7,7 @@ using SimpleCqrs.Eventing;
 namespace Paragon.ContentTree.Domain.Events.Page
 {
 	public class PageDeletedEvent : DomainEvent
-	{ 
+	{
+		public Guid TreeNodeId { get; set; }
 	}
 }

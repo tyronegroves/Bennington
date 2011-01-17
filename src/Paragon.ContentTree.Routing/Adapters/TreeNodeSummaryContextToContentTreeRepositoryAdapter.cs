@@ -10,7 +10,7 @@ namespace Paragon.ContentTree.Routing.Adapters
 {
 	public class TreeNodeSummaryContextToContentTreeRepositoryAdapter : IContentTreeRepository
 	{
-		public const string RootNodeParentId = "-1";
+		public const string RootNodeId = "";
 		private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
 		private readonly ITreeNodeSummaryToContentTreeNodeMapper treeNodeSummaryToContentTreeNodeMapper;
 
@@ -22,7 +22,7 @@ namespace Paragon.ContentTree.Routing.Adapters
 
 		public ContentTreeNode GetRootNode()
 		{
-			var children = treeNodeSummaryContext.GetChildren(RootNodeParentId);
+			var children = treeNodeSummaryContext.GetChildren(RootNodeId);
 			var rootSummary = children.FirstOrDefault();
 			if (rootSummary == null) throw new Exception("Root node was not found.");
 

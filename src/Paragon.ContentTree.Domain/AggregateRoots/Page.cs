@@ -77,9 +77,13 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 			Apply(new PagePublishedEvent(){ Id = Id });
 		}
 
-		public void Delete()
+		public void Delete(Guid treeNodeId)
 		{
-			Apply(new PageDeletedEvent());
+			Apply(new PageDeletedEvent()
+			      	{
+			      		AggregateRootId = treeNodeId,
+						TreeNodeId = treeNodeId,
+			      	});
 		}
 
 		public void SetType(Type type)

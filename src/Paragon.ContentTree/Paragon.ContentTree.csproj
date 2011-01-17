@@ -70,6 +70,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Blades\RegisterAssemblyWithSimpleCqrsServiceLocatorBlade.cs" />
     <Compile Include="ContentManagementMenuRegistration.cs" />
     <Compile Include="Controllers\ContentTreeController.cs" />
     <Compile Include="Data\DataModel.cs">

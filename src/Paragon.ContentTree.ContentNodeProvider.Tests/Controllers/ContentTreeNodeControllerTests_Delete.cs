@@ -21,16 +21,16 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			mocker = new AutoMoqer();
 		}
 
-		[TestMethod]
-		public void Calls_delete_on_IContentTreeNodeContext_with_correct_id()
-		{
-			var guid = new Guid();
+		//[TestMethod]
+		//public void Calls_delete_on_IContentTreeNodeContext_with_correct_id()
+		//{
+		//    var guid = new Guid();
 
-			var contentTreeNodeController = mocker.Resolve<ContentTreeNodeController>();
-			contentTreeNodeController.Delete(guid.ToString());
+		//    var contentTreeNodeController = mocker.Resolve<ContentTreeNodeController>();
+		//    contentTreeNodeController.Delete(guid.ToString());
 
-			mocker.GetMock<IContentTreeNodeContext>().Verify(a => a.Delete(guid.ToString()), Times.Once());
-		}
+		//    mocker.GetMock<IContentTreeNodeContext>().Verify(a => a.Delete(guid.ToString()), Times.Once());
+		//}
 
 		[TestMethod]
 		public void Returns_redirect_to_ContentTreeController_Index_action()

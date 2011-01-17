@@ -8,6 +8,7 @@ using Moq;
 using Paragon.ContentTree.Data;
 using Paragon.ContentTree.DeNormalizers;
 using Paragon.ContentTree.Domain.Events.Page;
+using Paragon.ContentTree.Domain.Events.TreeNode;
 using Paragon.ContentTree.Repositories;
 
 namespace Paragon.ContentTree.Tests.Denormalizers
@@ -36,7 +37,7 @@ namespace Paragon.ContentTree.Tests.Denormalizers
 				         			}, 
 							}.AsQueryable());
 
-			mocker.Resolve<TreeNodeDenormalizer>().Handle(new PageTypeSetEvent()
+			mocker.Resolve<TreeNodeDenormalizer>().Handle(new TreeNodeTypeSetEvent()
 			                                              	{
 			                                              		AggregateRootId = guid,
 																Type = typeof(string)

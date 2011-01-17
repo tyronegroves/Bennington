@@ -59,10 +59,10 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 
 		public ActionResult Delete(string treeNodeId)
 		{
-			contentTreeNodeContext.Delete(treeNodeId);
+			//contentTreeNodeContext.Delete(treeNodeId);
 			commandBus.Send(new DeletePageCommand()
 			                	{
-			                		AggregateRootId = new Guid(treeNodeId)
+			                		AggregateRootId = new Guid(treeNodeId),
 			                	});
 			return new RedirectToRouteResult(new RouteValueDictionary { { "controller", "ContentTree" }, { "action", "Index" }});
 		}

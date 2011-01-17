@@ -9,22 +9,15 @@ using SimpleCqrs.Eventing;
 namespace Paragon.ContentTree.DeNormalizers
 {
 	public class TreeNodeDenormalizer : IHandleDomainEvents<PageDeletedEvent>,
-										IHandleDomainEvents<PageParentTreeNodeIdSetEvent>,
-										IHandleDomainEvents<PageTypeSetEvent>,
-										IHandleDomainEvents<TreeNodeCreatedEvent>
+										IHandleDomainEvents<TreeNodeCreatedEvent>,
+										IHandleDomainEvents<TreeNodeTypeSetEvent>,
+										IHandleDomainEvents<TreeNodeParentTreeNodeIdSetEvent>
 	{
 		private readonly ITreeNodeRepository treeNodeRepository;
 
 		public TreeNodeDenormalizer(ITreeNodeRepository treeNodeRepository)
 		{
 			this.treeNodeRepository = treeNodeRepository;
-		}
-
-		public void Handle(PageParentTreeNodeIdSetEvent domainEvent)
-		{
-			var treeNode = GetTreeNodeFromDomainEvent(domainEvent);
-			treeNode.ParentTreeNodeId = domainEvent.ParentTreeNodeId.ToString();
-			treeNodeRepository.Update(treeNode);
 		}
 
 		private TreeNode GetTreeNodeFromDomainEvent(DomainEvent domainEvent)
@@ -34,14 +27,7 @@ namespace Paragon.ContentTree.DeNormalizers
 
 		public void Handle(PageDeletedEvent domainEvent)
 		{
-			treeNodeRepository.Delete(domainEvent.AggregateRootId.ToString());
-		}
-
-		public void Handle(PageTypeSetEvent domainEvent)
-		{
-			var treeNode = GetTreeNodeFromDomainEvent(domainEvent);
-			treeNode.Type = domainEvent.Type.AssemblyQualifiedName;
-			treeNodeRepository.Update(treeNode);
+			treeNodeRepository.Delete(domainEvent.TreeNodeId.ToString());
 		}
 
 		public void Handle(TreeNodeCreatedEvent domainEvent)
