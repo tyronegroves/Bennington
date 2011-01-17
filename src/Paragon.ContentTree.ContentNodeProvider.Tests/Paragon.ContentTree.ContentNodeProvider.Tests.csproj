@@ -69,6 +69,7 @@
     <Compile Include="Controllers\ContentTreeNodeControllerTests_Modify_ContentPageInputModel.cs" />
     <Compile Include="Controllers\ContentTreeNodeControllerTests_Modify_parentTreeNodeId.cs" />
     <Compile Include="Controllers\ContentTreeNodeController_ContentItemNavigation.cs" />
+    <Compile Include="Denomarlizers\ContentNodeProviderDraftDenormalizerTests_Handle.cs" />
     <Compile Include="Mappers\ContentTreeNodeToContentTreeNodeInputModelMapperTest.cs" />
     <Compile Include="Mappers\ContentTreeNodeInputModelToLandingPageContentTreeNodeMapperTests.cs" />
     <Compile Include="Validation\ContentTreeInputModelValidatorTests.cs" />

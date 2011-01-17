@@ -5,6 +5,5 @@ namespace Paragon.ContentTree.Domain.Events.Page
 {
 	public class PageCreatedEvent : DomainEvent
 	{
-		public Type ProviderType { get; set; }
 	}
 }
