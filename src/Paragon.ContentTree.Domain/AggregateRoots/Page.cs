@@ -29,12 +29,12 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 
 		public void SetActionId(string stepId)
 		{
-			Apply(new PageActionSetEvent());
+			Apply(new PageActionSetEvent() { Action = stepId });
 		}
 
 		public void SetParentTreeNodeId(Guid parentTreeNodeId)
 		{
-			Apply(new PageParentTreeNodeIdSetEvent(){ ParentTreeNodeId = parentTreeNodeId });
+			Apply(new PageParentTreeNodeIdSetEvent() { ParentTreeNodeId = parentTreeNodeId });
 		}
 
 		public void SetMetaTitle(string metaTitle)

@@ -415,6 +415,14 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 		
 		private string _ContentItemId;
 		
+		private string _MetaTitle;
+		
+		private string _MetaDescription;
+		
+		private string _HeaderText;
+		
+		private string _Body;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -441,6 +449,14 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
     partial void OnContentChanged();
     partial void OnContentItemIdChanging(string value);
     partial void OnContentItemIdChanged();
+    partial void OnMetaTitleChanging(string value);
+    partial void OnMetaTitleChanged();
+    partial void OnMetaDescriptionChanging(string value);
+    partial void OnMetaDescriptionChanged();
+    partial void OnHeaderTextChanging(string value);
+    partial void OnHeaderTextChanged();
+    partial void OnBodyChanging(string value);
+    partial void OnBodyChanged();
     #endregion
 		
 		public ContentNodeProviderDraft()
@@ -664,6 +680,86 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 					this._ContentItemId = value;
 					this.SendPropertyChanged("ContentItemId");
 					this.OnContentItemIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MetaTitle")]
+		public string MetaTitle
+		{
+			get
+			{
+				return this._MetaTitle;
+			}
+			set
+			{
+				if ((this._MetaTitle != value))
+				{
+					this.OnMetaTitleChanging(value);
+					this.SendPropertyChanging();
+					this._MetaTitle = value;
+					this.SendPropertyChanged("MetaTitle");
+					this.OnMetaTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MetaDescription")]
+		public string MetaDescription
+		{
+			get
+			{
+				return this._MetaDescription;
+			}
+			set
+			{
+				if ((this._MetaDescription != value))
+				{
+					this.OnMetaDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._MetaDescription = value;
+					this.SendPropertyChanged("MetaDescription");
+					this.OnMetaDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HeaderText")]
+		public string HeaderText
+		{
+			get
+			{
+				return this._HeaderText;
+			}
+			set
+			{
+				if ((this._HeaderText != value))
+				{
+					this.OnHeaderTextChanging(value);
+					this.SendPropertyChanging();
+					this._HeaderText = value;
+					this.SendPropertyChanged("HeaderText");
+					this.OnHeaderTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Body")]
+		public string Body
+		{
+			get
+			{
+				return this._Body;
+			}
+			set
+			{
+				if ((this._Body != value))
+				{
+					this.OnBodyChanging(value);
+					this.SendPropertyChanging();
+					this._Body = value;
+					this.SendPropertyChanged("Body");
+					this.OnBodyChanged();
 				}
 			}
 		}

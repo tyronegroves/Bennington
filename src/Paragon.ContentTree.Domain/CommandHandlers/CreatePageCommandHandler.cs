@@ -28,7 +28,8 @@ namespace Paragon.ContentTree.Domain.CommandHandlers
 			page.SetBody(command.Body);
 			page.SetHeaderText(command.HeaderText);
 			page.SetUrlSegment(command.UrlSegment);
-
+			page.SetMetaTitle(command.MetaTitle);
+			page.SetMetaDescription(command.MetaDescription);
 			domainRepository.Save(page);
 		}
 	}

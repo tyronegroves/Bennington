@@ -28,6 +28,10 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="Content" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="ContentItemId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MetaTitle" Type="System.String" CanBeNull="true" />
+      <Column Name="MetaDescription" Type="System.String" CanBeNull="true" />
+      <Column Name="HeaderText" Type="System.String" CanBeNull="true" />
+      <Column Name="Body" Type="System.String" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

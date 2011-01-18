@@ -25,5 +25,59 @@ namespace Paragon.ContentTree.ContentNodeProvider.Denormalizers
 			                                          		TreeNodeId = domainEvent.AggregateRootId.ToString()
 			                                          	});
 		}
+
+		public void Handle(PageNameSetEvent domainEvent)
+		{
+			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
+			contentNodeProviderDraft.Name = domainEvent.Name;
+			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+		}
+
+		public void Handle(PageActionSetEvent domainEvent)
+		{
+			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
+			contentNodeProviderDraft.ContentItemId = domainEvent.Action;
+			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+		}
+
+		private ContentNodeProviderDraft GetContentNodeProviderDraft(DomainEvent domainEvent)
+		{
+			return contentNodeProviderDraftRepository.GetAllContentNodeProviderDrafts().Where(a => a.TreeNodeId == domainEvent.AggregateRootId.ToString()).FirstOrDefault();
+		}
+
+		public void Handle(MetaTitleSetEvent domainEvent)
+		{
+			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
+			contentNodeProviderDraft.MetaTitle = domainEvent.MetaTitle;
+			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+		}
+
+		public void Handle(MetaDescriptionSetEvent domainEvent)
+		{
+			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
+			contentNodeProviderDraft.MetaDescription = domainEvent.MetaDescription;
+			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+		}
+
+		public void Handle(PageUrlSegmentSetEvent domainEvent)
+		{
+			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
+			contentNodeProviderDraft.UrlSegment = domainEvent.UrlSegment;
+			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+		}
+
+		public void Handle(HeaderTextSetEvent domainEvent)
+		{
+			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
+			contentNodeProviderDraft.HeaderText = domainEvent.HeaderText;
+			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+		}
+
+		public void Handle(BodySetEvent domainEvent)
+		{
+			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
+			contentNodeProviderDraft.Body = domainEvent.Body;
+			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+		}
 	}
 }

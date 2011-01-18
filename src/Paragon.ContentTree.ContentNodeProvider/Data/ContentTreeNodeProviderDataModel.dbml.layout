@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ContentTreeNodeProviderDataModel">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.625" name="ContentTreeNodeProviderDataModel">
   <DataContextMoniker Name="/ContentTreeNodeProviderDataModelDataContext" />
   <nestedChildShapes>
     <classShape Id="91789ec0-3b95-4af6-a6b6-2b58bfe18340" absoluteBounds="2.25, 1.125, 2, 2.9247054036458326">
@@ -8,10 +8,10 @@
         <elementListCompartment Id="a7661e5c-d42a-47db-8fa1-9e897f5557a3" absoluteBounds="2.265, 1.585, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="12a2d6bb-dc2d-4a92-8ab2-f22c48ec02af" absoluteBounds="1.875, 4.625, 2, 2.9247054036458331">
+    <classShape Id="12a2d6bb-dc2d-4a92-8ab2-f22c48ec02af" absoluteBounds="1.875, 4.625, 2, 3.6939111328125005">
       <DataClassMoniker Name="/ContentTreeNodeProviderDataModelDataContext/ContentNodeProviderDraft" />
       <nestedChildShapes>
-        <elementListCompartment Id="d4315486-ff25-4ccb-a59f-62f6f11b7cd9" absoluteBounds="1.8900000000000001, 5.085, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d4315486-ff25-4ccb-a59f-62f6f11b7cd9" absoluteBounds="1.8900000000000001, 5.085, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
