@@ -77,6 +77,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Blades\RegisterAssemblyWithSimpleCqrsServiceLocatorBlade.cs" />
     <Compile Include="Context\ContentTreeNodeContext.cs" />
     <Compile Include="Controllers\ContentTreeNodeController.cs" />
     <Compile Include="Data\ContentTreeNodeProviderDataModel.cs">

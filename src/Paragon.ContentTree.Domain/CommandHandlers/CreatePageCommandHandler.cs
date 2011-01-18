@@ -30,6 +30,7 @@ namespace Paragon.ContentTree.Domain.CommandHandlers
 			page.SetUrlSegment(command.UrlSegment);
 			page.SetMetaTitle(command.MetaTitle);
 			page.SetMetaDescription(command.MetaDescription);
+			page.SetSequence(command.Sequence);
 			domainRepository.Save(page);
 		}
 	}

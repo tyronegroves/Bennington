@@ -178,5 +178,29 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
 				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.HeaderText == "HeaderText" && b.TreeNodeId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
 		}
+
+		[TestMethod]
+		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_TreeNodeId_and_Sequence_set_for_PageSequenceSetEvent()
+		{
+			var guid = new Guid();
+			mocker.GetMock<IContentNodeProviderDraftRepository>().Setup(a => a.GetAllContentNodeProviderDrafts())
+				.Returns(new ContentNodeProviderDraft[]
+				         	{
+				         		new ContentNodeProviderDraft()
+				         			{
+										TreeNodeId = guid.ToString(),
+				         				CreateBy = "CreateBy"
+				         			}, 
+							}.AsQueryable());
+
+			mocker.Resolve<ContentNodeProviderDraftDenormalizer>().Handle(new PageSequenceSetEvent()
+			{
+				AggregateRootId = guid,
+				PageSequence = -1
+			});
+
+			mocker.GetMock<IContentNodeProviderDraftRepository>()
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.Sequence == -1 && b.TreeNodeId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+		}
 	}
 }

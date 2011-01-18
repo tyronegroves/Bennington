@@ -93,5 +93,14 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 			      		Type = type
 			      	});
 		}
+
+
+		public void SetSequence(int? sequence)
+		{
+			Apply(new PageSequenceSetEvent()
+			{
+				PageSequence = sequence
+			});
+		}
 	}
 }
