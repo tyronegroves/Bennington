@@ -2,12 +2,6 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ContentTreeNodeProviderDataModel">
   <DataContextMoniker Name="/ContentTreeNodeProviderDataModelDataContext" />
   <nestedChildShapes>
-    <classShape Id="91789ec0-3b95-4af6-a6b6-2b58bfe18340" absoluteBounds="2.75, 0.5, 2, 2.9247054036458326">
-      <DataClassMoniker Name="/ContentTreeNodeProviderDataModelDataContext/ContentTreeNode" />
-      <nestedChildShapes>
-        <elementListCompartment Id="a7661e5c-d42a-47db-8fa1-9e897f5557a3" absoluteBounds="2.765, 0.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="8eaf69a3-b3e7-4463-b4b0-99486b29e7ed" absoluteBounds="0.5, 0.625, 2, 3.5016097005208326">
       <DataClassMoniker Name="/ContentTreeNodeProviderDataModelDataContext/ContentNodeProviderDraft" />
       <nestedChildShapes>

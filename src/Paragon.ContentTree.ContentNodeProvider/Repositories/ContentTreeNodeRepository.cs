@@ -1,6 +1,8 @@
-﻿using System.Linq;
-using Paragon.ContentTree.ContentNodeProvider.Data;
+﻿using System;
+using System.Linq;
+using Paragon.ContentTree.Data;
 using Paragon.ContentTree.Repositories;
+using IDataModelDataContext = Paragon.ContentTree.ContentNodeProvider.Data.IDataModelDataContext;
 
 namespace Paragon.ContentTree.ContentNodeProvider.Repositories
 {
@@ -25,7 +27,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Repositories
 
 		public IQueryable<ContentTreeNode> GetAllContentTreeNodes()
 		{
-			return dataModelDataContext.ContentTreeNodes;
+			throw new NotImplementedException();
+			//return dataModelDataContext.ContentTreeNodes;
 		}
 
 		public void Delete(ContentTreeNode instance)
@@ -35,12 +38,14 @@ namespace Paragon.ContentTree.ContentNodeProvider.Repositories
 
 		public void Update(ContentTreeNode instance)
 		{
-			dataModelDataContext.Update(instance);
+			throw new NotImplementedException();
+			//dataModelDataContext.Update(instance);
 		}
 
 		public void Create(ContentTreeNode instance)
 		{
-			dataModelDataContext.Create(instance);
+			throw new NotImplementedException();
+			//dataModelDataContext.Create(instance);
 		}
 	}
 }

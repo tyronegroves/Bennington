@@ -7,6 +7,7 @@ using Paragon.ContentTree.ContentNodeProvider.Mappers;
 using Paragon.ContentTree.ContentNodeProvider.Models;
 using Paragon.ContentTree.ContentNodeProvider.Repositories;
 using Paragon.ContentTree.Contexts;
+using Paragon.ContentTree.Data;
 
 namespace Paragon.ContentTree.ContentNodeProvider.Tests.Context
 {

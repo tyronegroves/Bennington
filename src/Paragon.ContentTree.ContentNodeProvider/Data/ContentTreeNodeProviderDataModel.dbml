@@ -1,20 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Paragon" Class="ContentTreeNodeProviderDataModelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=Paragon;Integrated Security=True" SettingsObjectName="Paragon.ContentTree.ContentNodeProvider.Properties.Settings" SettingsPropertyName="ParagonConnectionString1" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.ContentTreeNode" Member="ContentTreeNodes">
-    <Type Name="ContentTreeNode">
-      <Column Name="[Key]" Member="Key" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="LastModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="LastModifyBy" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="TreeNodeId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="UrlSegment" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="Sequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="Content" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ContentItemId" Type="System.String" DbType="nvarchar(100)" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.ContentNodeProviderDraft" Member="ContentNodeProviderDrafts">
     <Type Name="ContentNodeProviderDraft">
       <Column Name="[Key]" Member="Key" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

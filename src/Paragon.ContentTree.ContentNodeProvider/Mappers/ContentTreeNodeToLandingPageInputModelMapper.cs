@@ -3,6 +3,7 @@ using AutoMapper;
 using AutoMapperAssist;
 using Paragon.ContentTree.ContentNodeProvider.Data;
 using Paragon.ContentTree.ContentNodeProvider.Models;
+using Paragon.ContentTree.Data;
 using Paragon.ContentTree.Repositories;
 
 namespace Paragon.ContentTree.ContentNodeProvider.Mappers
