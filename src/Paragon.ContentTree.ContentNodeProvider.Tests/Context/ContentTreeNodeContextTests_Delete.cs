@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Paragon.ContentTree.ContentNodeProvider.Context;
 using Paragon.ContentTree.ContentNodeProvider.Data;
+using Paragon.ContentTree.ContentNodeProvider.Models;
 using Paragon.ContentTree.ContentNodeProvider.Repositories;
 using Paragon.ContentTree.Data;
 

@@ -4,6 +4,7 @@ using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Paragon.ContentTree.ContentNodeProvider.Data;
 using Paragon.ContentTree.ContentNodeProvider.Mappers;
+using Paragon.ContentTree.ContentNodeProvider.Models;
 using Paragon.ContentTree.Data;
 using Paragon.ContentTree.Repositories;
 

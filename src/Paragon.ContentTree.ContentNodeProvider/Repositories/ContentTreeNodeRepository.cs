@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Paragon.ContentTree.ContentNodeProvider.Models;
 using Paragon.ContentTree.Data;
 using Paragon.ContentTree.Repositories;
 using IDataModelDataContext = Paragon.ContentTree.ContentNodeProvider.Data.IDataModelDataContext;
