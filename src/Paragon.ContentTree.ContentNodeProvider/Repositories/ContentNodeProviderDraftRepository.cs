@@ -15,11 +15,9 @@ namespace Paragon.ContentTree.ContentNodeProvider.Repositories
 	public class ContentNodeProviderDraftRepository : IContentNodeProviderDraftRepository
 	{
 		private readonly IDataModelDataContext dataModelDataContext;
-		private readonly ITreeNodeRepository treeNodeRepository;
 
-		public ContentNodeProviderDraftRepository(IDataModelDataContext dataModelDataContext, ITreeNodeRepository treeNodeRepository)
+		public ContentNodeProviderDraftRepository(IDataModelDataContext dataModelDataContext)
 		{
-			this.treeNodeRepository = treeNodeRepository;
 			this.dataModelDataContext = dataModelDataContext;
 		}
 
@@ -30,7 +28,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Repositories
 
 		public void Delete(ContentNodeProviderDraft instance)
 		{
-			treeNodeRepository.Delete(instance.TreeNodeId);
+			dataModelDataContext.Delete(instance);
 		}
 
 		public void Update(ContentNodeProviderDraft instance)

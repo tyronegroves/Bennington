@@ -10,6 +10,7 @@ using SimpleCqrs.Eventing;
 namespace Paragon.ContentTree.ContentNodeProvider.Denormalizers
 {
 	public class ContentNodeProviderDraftDenormalizer : IHandleDomainEvents<PageCreatedEvent>,
+														IHandleDomainEvents<PageDeletedEvent>,
 														IHandleDomainEvents<PageNameSetEvent>,
 														IHandleDomainEvents<PageActionSetEvent>,
 														IHandleDomainEvents<MetaTitleSetEvent>,
@@ -93,6 +94,13 @@ namespace Paragon.ContentTree.ContentNodeProvider.Denormalizers
 			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
 			contentNodeProviderDraft.Sequence = domainEvent.PageSequence;
 			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+		}
+
+		public void Handle(PageDeletedEvent domainEvent)
+		{
+			var contentNodeProviderDraft = contentNodeProviderDraftRepository.GetAllContentNodeProviderDrafts().Where(a => a.TreeNodeId == domainEvent.TreeNodeId.ToString()).FirstOrDefault();
+			if (contentNodeProviderDraft != null)
+				contentNodeProviderDraftRepository.Delete(contentNodeProviderDraft);
 		}
 	}
 }

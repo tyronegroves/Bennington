@@ -202,5 +202,51 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
 				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.Sequence == -1 && b.TreeNodeId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
 		}
+
+		[TestMethod]
+		public void Calls_Delete_method_of_IContentNodeProviderDraftRepository_with_instance_of_ContentProviderDraft_by_TreeNodeId_when_handling_PageDeletedEvent()
+		{
+			var guid = new Guid();
+			mocker.GetMock<IContentNodeProviderDraftRepository>().Setup(a => a.GetAllContentNodeProviderDrafts())
+				.Returns(new ContentNodeProviderDraft[]
+				         	{
+				         		new ContentNodeProviderDraft()
+				         			{
+										TreeNodeId = guid.ToString(),
+				         				CreateBy = "CreateBy"
+				         			}, 
+							}.AsQueryable());
+
+			mocker.Resolve<ContentNodeProviderDraftDenormalizer>().Handle(new PageDeletedEvent()
+																				{
+																					TreeNodeId = guid
+																				});
+
+			mocker.GetMock<IContentNodeProviderDraftRepository>()
+				.Verify(a => a.Delete(It.Is<ContentNodeProviderDraft>(b => b.TreeNodeId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+		}
+
+		[TestMethod]
+		public void Does_not_call_repository_delete_method_when_handling_delete_event_for_a_page_that_does_not_exist()
+		{
+			var guid = Guid.NewGuid();
+			mocker.GetMock<IContentNodeProviderDraftRepository>().Setup(a => a.GetAllContentNodeProviderDrafts())
+				.Returns(new ContentNodeProviderDraft[]
+				         	{
+				         		new ContentNodeProviderDraft()
+				         			{
+										TreeNodeId = guid.ToString(),
+				         				CreateBy = "CreateBy"
+				         			}, 
+							}.AsQueryable());
+
+			mocker.Resolve<ContentNodeProviderDraftDenormalizer>().Handle(new PageDeletedEvent()
+			{
+				TreeNodeId = new Guid(),
+			});
+
+			mocker.GetMock<IContentNodeProviderDraftRepository>()
+				.Verify(a => a.Delete(It.IsAny<ContentNodeProviderDraft>()), Times.Never());
+		}
 	}
 }
