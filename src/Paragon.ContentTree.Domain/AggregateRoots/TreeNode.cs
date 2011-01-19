@@ -50,5 +50,14 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 		{
 			Apply(new TreeNodeTypeSetEvent(){Type = type});
 		}
+
+		public void Delete(Guid aggregateRootId)
+		{
+			Apply(new TreeNodeDeletedEvent()
+			      	{
+			      		AggregateRootId = aggregateRootId,
+						TreeNodeId = aggregateRootId,
+			      	});
+		}
 	}
 }

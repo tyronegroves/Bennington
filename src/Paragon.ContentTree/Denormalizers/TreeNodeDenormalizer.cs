@@ -8,7 +8,7 @@ using SimpleCqrs.Eventing;
 
 namespace Paragon.ContentTree.DeNormalizers
 {
-	public class TreeNodeDenormalizer : IHandleDomainEvents<PageDeletedEvent>,
+	public class TreeNodeDenormalizer : IHandleDomainEvents<TreeNodeDeletedEvent>,
 										IHandleDomainEvents<TreeNodeCreatedEvent>,
 										IHandleDomainEvents<TreeNodeTypeSetEvent>,
 										IHandleDomainEvents<TreeNodeParentTreeNodeIdSetEvent>
@@ -25,9 +25,9 @@ namespace Paragon.ContentTree.DeNormalizers
 			return treeNodeRepository.GetAll().Where(a => a.Id == domainEvent.AggregateRootId.ToString()).FirstOrDefault();
 		}
 
-		public void Handle(PageDeletedEvent domainEvent)
+		public void Handle(TreeNodeDeletedEvent treeNodeDeletedEvent)
 		{
-			treeNodeRepository.Delete(domainEvent.TreeNodeId.ToString());
+			treeNodeRepository.Delete(treeNodeDeletedEvent.TreeNodeId.ToString());
 		}
 
 		public void Handle(TreeNodeCreatedEvent domainEvent)

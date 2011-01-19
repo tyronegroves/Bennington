@@ -8,12 +8,13 @@ using Moq;
 using Paragon.ContentTree.Data;
 using Paragon.ContentTree.DeNormalizers;
 using Paragon.ContentTree.Domain.Events.Page;
+using Paragon.ContentTree.Domain.Events.TreeNode;
 using Paragon.ContentTree.Repositories;
 
 namespace Paragon.ContentTree.Tests.Denormalizers
 {
 	[TestClass]
-	public class TreeNodeDenormalizerTests_Handle_PageDeletedEvent
+	public class TreeNodeDenormalizerTests_Handle_TreeNodeDeletedEvent
 	{
 		private AutoMoqer mocker;
 
@@ -28,7 +29,7 @@ namespace Paragon.ContentTree.Tests.Denormalizers
 		{
 			var guid = new Guid();
 
-			mocker.Resolve<TreeNodeDenormalizer>().Handle(new PageDeletedEvent()
+			mocker.Resolve<TreeNodeDenormalizer>().Handle(new TreeNodeDeletedEvent()
 			                                              	{
 			                                              		AggregateRootId = guid,
 			                                              	});

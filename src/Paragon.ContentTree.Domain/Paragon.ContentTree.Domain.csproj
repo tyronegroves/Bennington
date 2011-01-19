@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AggregateRoots\TreeNode.cs" />
+    <Compile Include="CommandHandlers\DeleteTreeNodeCommandHandler.cs" />
     <Compile Include="CommandHandlers\CreateTreeNodeCommandHandler.cs" />
     <Compile Include="CommandHandlers\DeleteSectionCommandHandler.cs" />
     <Compile Include="CommandHandlers\DeletePageCommandHandler.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="CommandHandlers\CreateSectionCommandHandler.cs" />
     <Compile Include="CommandHandlers\CreatePageCommandHandler.cs" />
     <Compile Include="CommandHandlers\ModifyPageCommandHandler.cs" />
+    <Compile Include="Commands\DeleteTreeNodeCommand.cs" />
     <Compile Include="Commands\CreateTreeNodeCommand.cs" />
     <Compile Include="Commands\DeletePageCommand.cs" />
     <Compile Include="Commands\DeleteSectionCommand.cs" />
@@ -110,6 +112,7 @@
     <Compile Include="Events\Section\SectionSequenceSetEvent.cs" />
     <Compile Include="Events\Page\PageActionSetEvent.cs" />
     <Compile Include="Events\TreeNode\TreeNodeCreatedEvent.cs" />
+    <Compile Include="Events\TreeNode\TreeNodeDeletedEvent.cs" />
     <Compile Include="Events\TreeNode\TreeNodeIdSetEvent.cs" />
     <Compile Include="Events\TreeNode\TreeNodeIsActiveSetEvent.cs" />
     <Compile Include="Events\TreeNode\TreeNodeIsVisibleSetEvent.cs" />
