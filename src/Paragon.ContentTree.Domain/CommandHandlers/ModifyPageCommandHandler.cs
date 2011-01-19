@@ -12,8 +12,10 @@ namespace Paragon.ContentTree.Domain.CommandHandlers
 	{
 		public override void Handle(ModifyPageCommand command, Page page)
 		{
+			page.PageId = command.AggregateRootId;
 			page.SetBody(command.Body);
 			page.SetHeaderText(command.HeaderText);
+			page.SetSequence(command.Sequence);
 			page.SetUrlSegment(command.UrlSegment);
 			page.SetActionId(command.ActionId);
 		}

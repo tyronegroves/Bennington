@@ -44,7 +44,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Denormalizers
 		public void Handle(PageActionSetEvent domainEvent)
 		{
 			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
-			contentNodeProviderDraft.ContentItemId = domainEvent.Action;
+			contentNodeProviderDraft.Action = domainEvent.Action;
 			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
 		}
 

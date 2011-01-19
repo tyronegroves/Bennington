@@ -21,7 +21,6 @@ namespace Paragon.ContentTree.Domain.CommandHandlers
 		public override void Handle(CreatePageCommand command)
 		{
 			var page = new Page(command.PageId);
-			page.SetTreeNodeId(command.PageId);
 			page.SetActionId("Index");
 			page.SetParentTreeNodeId(new Guid(command.ParentId));
 			page.SetType(command.Type);
@@ -30,6 +29,7 @@ namespace Paragon.ContentTree.Domain.CommandHandlers
 			page.SetUrlSegment(command.UrlSegment);
 			page.SetMetaTitle(command.MetaTitle);
 			page.SetMetaDescription(command.MetaDescription);
+			page.SetMetaKeyword(command.MetaKeyword);
 			page.SetSequence(command.Sequence);
 			domainRepository.Save(page);
 		}

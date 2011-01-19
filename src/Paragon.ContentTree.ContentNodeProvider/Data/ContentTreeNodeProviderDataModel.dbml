@@ -26,12 +26,11 @@
       <Column Name="UrlSegment" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="Sequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Content" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ContentItemId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="MetaTitle" Type="System.String" CanBeNull="true" />
-      <Column Name="MetaDescription" Type="System.String" CanBeNull="true" />
-      <Column Name="HeaderText" Type="System.String" CanBeNull="true" />
-      <Column Name="Body" Type="System.String" CanBeNull="true" />
+      <Column Name="Action" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MetaTitle" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="MetaDescription" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="HeaderText" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Body" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
 </Database>

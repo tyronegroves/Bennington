@@ -122,16 +122,17 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 			if (ModelState.IsValid == false)
 				return View("Modify", new ContentTreeNodeViewModel() { Action = "Modify", ContentTreeNodeInputModel = contentTreeNodeInputModel });
 
-			commandBus.Send(new ModifyPageCommand()
-			                	{
+			var modifyPageComand = new ModifyPageCommand()
+								{
 									AggregateRootId = new Guid(contentTreeNodeInputModel.TreeNodeId),
-			                		HeaderText = contentTreeNodeInputModel.Name,
+									HeaderText = contentTreeNodeInputModel.Name,
 									Body = contentTreeNodeInputModel.Content,
 									ParentId = contentTreeNodeInputModel.ParentTreeNodeId,
 									Sequence = contentTreeNodeInputModel.Sequence,
 									UrlSegment = contentTreeNodeInputModel.UrlSegment,
 									ActionId = contentTreeNodeInputModel.ContentItemId,
-			                	});
+								};
+			commandBus.Send(modifyPageComand);
 
 			var contentTreeNodeFromRepository = contentTreeNodeRepository.GetAllContentTreeNodes().Where(a => a.TreeNodeId == contentTreeNodeInputModel.TreeNodeId && a.ContentItemId == contentTreeNodeInputModel.ContentItemId).FirstOrDefault();
 			

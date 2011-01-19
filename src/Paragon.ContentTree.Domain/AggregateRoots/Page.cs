@@ -17,7 +17,19 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 		{
 		}
 
-		protected void OnPagetCreated(PageCreatedEvent pageCreatedEvent)
+		public Guid PageId
+		{
+			get
+			{
+				return this.Id;
+			}
+			set
+			{
+				Id = value;
+			}
+		}
+
+		protected void OnPageCreated(PageCreatedEvent pageCreatedEvent)
 		{
 			Id = pageCreatedEvent.AggregateRootId;
 		}
@@ -93,7 +105,6 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 			      		Type = type
 			      	});
 		}
-
 
 		public void SetSequence(int? sequence)
 		{

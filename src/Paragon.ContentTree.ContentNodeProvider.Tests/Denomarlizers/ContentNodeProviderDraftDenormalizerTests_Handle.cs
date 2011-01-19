@@ -80,7 +80,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 			});
 
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
-				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.ContentItemId == "Action" && b.TreeNodeId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.Action == "Action" && b.TreeNodeId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
 		}
 
 		[TestMethod]

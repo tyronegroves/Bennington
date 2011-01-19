@@ -411,9 +411,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 		
 		private string _Name;
 		
-		private string _Content;
-		
-		private string _ContentItemId;
+		private string _Action;
 		
 		private string _MetaTitle;
 		
@@ -445,10 +443,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
     partial void OnSequenceChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
-    partial void OnContentChanging(string value);
-    partial void OnContentChanged();
-    partial void OnContentItemIdChanging(string value);
-    partial void OnContentItemIdChanged();
+    partial void OnActionChanging(string value);
+    partial void OnActionChanged();
     partial void OnMetaTitleChanging(string value);
     partial void OnMetaTitleChanged();
     partial void OnMetaDescriptionChanging(string value);
@@ -644,47 +640,27 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		public string Content
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Action", DbType="NVarChar(100)")]
+		public string Action
 		{
 			get
 			{
-				return this._Content;
+				return this._Action;
 			}
 			set
 			{
-				if ((this._Content != value))
+				if ((this._Action != value))
 				{
-					this.OnContentChanging(value);
+					this.OnActionChanging(value);
 					this.SendPropertyChanging();
-					this._Content = value;
-					this.SendPropertyChanged("Content");
-					this.OnContentChanged();
+					this._Action = value;
+					this.SendPropertyChanged("Action");
+					this.OnActionChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentItemId", DbType="NVarChar(100)")]
-		public string ContentItemId
-		{
-			get
-			{
-				return this._ContentItemId;
-			}
-			set
-			{
-				if ((this._ContentItemId != value))
-				{
-					this.OnContentItemIdChanging(value);
-					this.SendPropertyChanging();
-					this._ContentItemId = value;
-					this.SendPropertyChanged("ContentItemId");
-					this.OnContentItemIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MetaTitle")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MetaTitle", DbType="NVarChar(500)")]
 		public string MetaTitle
 		{
 			get
@@ -704,7 +680,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MetaDescription")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MetaDescription", DbType="NText", UpdateCheck=UpdateCheck.Never)]
 		public string MetaDescription
 		{
 			get
@@ -724,7 +700,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HeaderText")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HeaderText", DbType="NVarChar(500)")]
 		public string HeaderText
 		{
 			get
@@ -744,7 +720,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Body")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Body", DbType="NText", UpdateCheck=UpdateCheck.Never)]
 		public string Body
 		{
 			get
