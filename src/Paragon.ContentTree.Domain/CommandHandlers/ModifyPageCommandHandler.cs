@@ -14,6 +14,7 @@ namespace Paragon.ContentTree.Domain.CommandHandlers
 		{
 			page.PageId = command.AggregateRootId;
 			page.SetBody(command.Body);
+			page.SetName(command.Name);
 			page.SetHeaderText(command.HeaderText);
 			page.SetSequence(command.Sequence);
 			page.SetUrlSegment(command.UrlSegment);

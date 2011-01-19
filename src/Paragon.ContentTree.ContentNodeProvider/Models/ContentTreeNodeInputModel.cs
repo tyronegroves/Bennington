@@ -23,6 +23,9 @@ namespace Paragon.ContentTree.ContentNodeProvider.Models
 
 		public string Name { get; set; }
 
+		[DisplayName("Header Text")]
+		public string HeaderText { get; set; }
+
 		public int? Sequence { get; set; }
 
 		[DisplayName("Url Segment")]

@@ -25,6 +25,7 @@ namespace Paragon.ContentTree.Domain.CommandHandlers
 			page.SetParentTreeNodeId(new Guid(command.ParentId));
 			page.SetType(command.Type);
 			page.SetBody(command.Body);
+			page.SetName(command.Name);
 			page.SetHeaderText(command.HeaderText);
 			page.SetUrlSegment(command.UrlSegment);
 			page.SetMetaTitle(command.MetaTitle);

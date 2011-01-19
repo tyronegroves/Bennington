@@ -8,6 +8,7 @@ namespace Paragon.ContentTree.Domain.Commands
 {
 	public class ModifyPageCommand : CommandWithAggregateRootId
 	{
+		public string Name {get; set;}
 		public string ActionId { get; set; }
 		public string ParentId { get; set; }
 		public string HeaderText { get; set; }

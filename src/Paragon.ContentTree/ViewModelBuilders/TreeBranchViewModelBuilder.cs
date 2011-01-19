@@ -23,15 +23,17 @@ namespace Paragon.ContentTree.ViewModelBuilders
 
 		public TreeBranchViewModel BuildViewModel(string parentNodeId)
 		{
+			var listToReturn = new List<TreeNodeSummary>();
 			var treeNodeSummaries = treeNodeSummaryContext.GetChildren(parentNodeId).OrderBy(a => a.Sequence ?? 999999);
 			foreach (var treeNodeSummary in treeNodeSummaries)
 			{
 				if (string.IsNullOrEmpty(treeNodeSummary.Name))
 					treeNodeSummary.Name = "Unknown";
+				listToReturn.Add(treeNodeSummary);
 			}
 			return new TreeBranchViewModel()
 			       	{
-			       		TreeNodeSummaries = treeNodeSummaries,
+			       		TreeNodeSummaries = listToReturn,
 			       	};
 		}
 	}

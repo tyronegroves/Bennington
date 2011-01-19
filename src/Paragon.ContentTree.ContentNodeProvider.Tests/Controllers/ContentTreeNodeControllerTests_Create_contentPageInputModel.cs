@@ -150,13 +150,14 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 														{
 															ParentTreeNodeId = "2",
 															Content = "content",
-															Name = "header text",
+															HeaderText = "header text",
+															Name = "name",
 															Type = typeof(string).AssemblyQualifiedName
 														};
 
 			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
 
-			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.HeaderText == contentTreeNodeInputModel.Name)), Times.Once());
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.HeaderText == contentTreeNodeInputModel.HeaderText)), Times.Once());
 		}
 
 		[TestMethod]

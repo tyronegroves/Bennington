@@ -11,5 +11,6 @@ namespace Paragon.ContentTree.ContentNodeProvider.Models
 		public string Name { get; set; }
 		public string Content { get; set; }
 		public string ContentItemId { get; set; }
+		public string HeaderText { get; set; }
 	}
 }

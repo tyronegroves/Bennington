@@ -48,36 +48,36 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Context
 			Assert.AreEqual("newTreeNodeId", result);
 		}
 
-		[TestMethod]
-		public void Sets_TreeNodeId_property_of_input_model_to_newly_created_tree_node_id_returned_from_ITreeNodeSummaryContext_before_calling_mapper()
-		{
-			mocker.GetMock<ITreeNodeSummaryContext>().Setup(a => a.Create(It.Is<string>(b => b == "parentTreeNodeId"), It.IsAny<string>())).Returns("newTreeNodeId");
+		//[TestMethod]
+		//public void Sets_TreeNodeId_property_of_input_model_to_newly_created_tree_node_id_returned_from_ITreeNodeSummaryContext_before_calling_mapper()
+		//{
+		//    mocker.GetMock<ITreeNodeSummaryContext>().Setup(a => a.Create(It.Is<string>(b => b == "parentTreeNodeId"), It.IsAny<string>())).Returns("newTreeNodeId");
 
-			var ContentTreeNodeContext = mocker.Resolve<ContentTreeNodeContext>();
-			ContentTreeNodeContext.CreateTreeNodeAndReturnTreeNodeId(new ContentTreeNodeInputModel()
-			                                                                    	{
-			                                                                    		ParentTreeNodeId = "parentTreeNodeId",
-			                                                                    	});
+		//    var ContentTreeNodeContext = mocker.Resolve<ContentTreeNodeContext>();
+		//    ContentTreeNodeContext.CreateTreeNodeAndReturnTreeNodeId(new ContentTreeNodeInputModel()
+		//                                                                            {
+		//                                                                                ParentTreeNodeId = "parentTreeNodeId",
+		//                                                                            });
 
-			mocker.GetMock<IContentTreeNodeInputModelToContentTreeNodeMapper>().Verify(a => a.CreateInstance(It.Is<ContentTreeNodeInputModel>(b => b.TreeNodeId == "newTreeNodeId")), Times.Once());
-		}
+		//    mocker.GetMock<IContentTreeNodeInputModelToContentTreeNodeMapper>().Verify(a => a.CreateInstance(It.Is<ContentTreeNodeInputModel>(b => b.TreeNodeId == "newTreeNodeId")), Times.Once());
+		//}
 
-		[TestMethod]
-		public void Calls_CreateTreeNodeAndReturnTreeNodeId_method_of_IContentTreeNodeRepository_with_object_returned_from_mapper()
-		{
-			var ContentTreeNode = new ContentTreeNode()
-			                                 	{
-			                                 		Name = "Name",
-			                                 	};
+		//[TestMethod]
+		//public void Calls_CreateTreeNodeAndReturnTreeNodeId_method_of_IContentTreeNodeRepository_with_object_returned_from_mapper()
+		//{
+		//    var ContentTreeNode = new ContentTreeNode()
+		//                                        {
+		//                                            Name = "Name",
+		//                                        };
 
-			mocker.GetMock<IContentTreeNodeInputModelToContentTreeNodeMapper>().Setup(
-				a => a.CreateInstance(It.IsAny<ContentTreeNodeInputModel>()))
-				.Returns(ContentTreeNode);
+		//    mocker.GetMock<IContentTreeNodeInputModelToContentTreeNodeMapper>().Setup(
+		//        a => a.CreateInstance(It.IsAny<ContentTreeNodeInputModel>()))
+		//        .Returns(ContentTreeNode);
 
-			var ContentTreeNodeContext = mocker.Resolve<ContentTreeNodeContext>();
-			ContentTreeNodeContext.CreateTreeNodeAndReturnTreeNodeId(new ContentTreeNodeInputModel());
+		//    var ContentTreeNodeContext = mocker.Resolve<ContentTreeNodeContext>();
+		//    ContentTreeNodeContext.CreateTreeNodeAndReturnTreeNodeId(new ContentTreeNodeInputModel());
 
-			mocker.GetMock<IContentTreeNodeRepository>().Verify(a => a.Create(ContentTreeNode), Times.Once());
-		}
+		//    mocker.GetMock<IContentTreeNodeRepository>().Verify(a => a.Create(ContentTreeNode), Times.Once());
+		//}
 	}
 }

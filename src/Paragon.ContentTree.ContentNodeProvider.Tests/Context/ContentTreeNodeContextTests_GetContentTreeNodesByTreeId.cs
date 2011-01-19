@@ -10,7 +10,7 @@ using Paragon.ContentTree.Data;
 namespace Paragon.ContentTree.ContentNodeProvider.Tests.Context
 {
 	[TestClass]
-	public class ContentTreeNodeContextTests_GetContentTreeNodeByTreeId
+	public class ContentTreeNodeContextTests_GetContentTreeNodesByTreeId
 	{
 		private AutoMoqer mocker;
 

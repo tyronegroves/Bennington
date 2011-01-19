@@ -35,8 +35,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Context
 		{
 			var newTreeNodeId = treeNodeSummaryContext.Create(contentTreeNodeInputModel.ParentTreeNodeId, contentTreeNodeInputModel.Type);
 			contentTreeNodeInputModel.TreeNodeId = newTreeNodeId;
-			var node = contentTreeNodeInputModelToContentTreeNodeMapper.CreateInstance(contentTreeNodeInputModel);
-			contentTreeNodeRepository.Create(node);
+			//var node = contentTreeNodeInputModelToContentTreeNodeMapper.CreateInstance(contentTreeNodeInputModel);
+			//contentTreeNodeRepository.Create(node);
 			return contentTreeNodeInputModel.TreeNodeId;
 		}
 

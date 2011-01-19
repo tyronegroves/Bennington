@@ -90,6 +90,7 @@
       <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Denormalizers\ContentNodeProviderDraftDenormalizer.cs" />
+    <Compile Include="Mappers\ContentNodeProviderDraftToContentTreeNodeMapper.cs" />
     <Compile Include="Mappers\ContentTreeNodeInputModelToContentTreeNodeMapper.cs" />
     <Compile Include="Mappers\ContentTreeNodeToLandingPageInputModelMapper.cs" />
     <Compile Include="Models\ContentItemNavigationViewModel.cs" />
