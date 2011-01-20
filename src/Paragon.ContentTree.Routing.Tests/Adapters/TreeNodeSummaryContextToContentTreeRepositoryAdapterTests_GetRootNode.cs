@@ -33,7 +33,7 @@ namespace Paragon.ContentTree.Routing.Tests.Adapters
 				         			{
 				         				NodeId = "0",
 				         			});
-			mocker.GetMock<ITreeNodeSummaryContext>().Setup(a => a.GetChildren(TreeNodeSummaryContextToContentTreeRepositoryAdapter.RootNodeId))
+			mocker.GetMock<ITreeNodeSummaryContext>().Setup(a => a.GetChildren(TreeNodeSummaryContextToContentTreeRepositoryAdapter.RootNodeParentNodeId))
 				.Returns(new TreeNodeSummary[]
 				         	{
 				         		rootNode,

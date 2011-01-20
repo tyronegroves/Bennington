@@ -5,12 +5,13 @@ using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Routing.Content;
 using Paragon.ContentTree.Routing.Data;
 using Paragon.ContentTree.Routing.Mappers;
+using Paragon.ContentTree.Routing.Routing.Helpers;
 
 namespace Paragon.ContentTree.Routing.Adapters
 {
 	public class TreeNodeSummaryContextToContentTreeRepositoryAdapter : IContentTreeRepository
 	{
-		public const string RootNodeId = "";
+		public const string RootNodeParentNodeId = TreeNodeIdToUrl.RootNodeParentId;
 		private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
 		private readonly ITreeNodeSummaryToContentTreeNodeMapper treeNodeSummaryToContentTreeNodeMapper;
 
@@ -22,7 +23,7 @@ namespace Paragon.ContentTree.Routing.Adapters
 
 		public ContentTreeNode GetRootNode()
 		{
-			var children = treeNodeSummaryContext.GetChildren(RootNodeId);
+			var children = treeNodeSummaryContext.GetChildren(RootNodeParentNodeId);
 			var rootSummary = children.FirstOrDefault();
 			if (rootSummary == null) throw new Exception("Root node was not found.");
 
