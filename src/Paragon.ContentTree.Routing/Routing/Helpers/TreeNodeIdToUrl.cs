@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Repositories;
@@ -13,6 +14,7 @@ namespace Paragon.ContentTree.Routing.Routing.Helpers
 
 	public class TreeNodeIdToUrl : ITreeNodeIdToUrl
 	{
+		public const string RootNodeParentId = "";
 		private readonly ITreeNodeRepository treeNodeRepository;
 		private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
 		private readonly ITreeNodeSummaryToContentTreeNodeMapper treeNodeSummaryToContentTreeNodeMapper;
@@ -31,7 +33,7 @@ namespace Paragon.ContentTree.Routing.Routing.Helpers
 
 			var urlSegments = new List<string>();
 
-			while ((treeNode != null) && (treeNode.ParentTreeNodeId != "-1"))
+			while ((treeNode != null) && (treeNode.ParentTreeNodeId != RootNodeParentId))
 			{
 				var treeNodeSummary = treeNodeSummaryContext.GetChildren(treeNode.ParentTreeNodeId).Where(a => a.Id == treeNode.Id).FirstOrDefault();
 

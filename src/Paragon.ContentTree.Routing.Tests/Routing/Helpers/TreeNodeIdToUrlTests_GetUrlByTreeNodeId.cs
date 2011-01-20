@@ -16,6 +16,7 @@ namespace Paragon.ContentTree.Routing.Tests.Routing.Helpers
 	public class TreeNodeIdToUrlTests_GetUrlByTreeNodeId
 	{
 		private AutoMoqer mocker;
+		private string RootNodeParentId = TreeNodeIdToUrl.RootNodeParentId;
 
 		[TestInitialize]
 		public void Init()
@@ -32,7 +33,7 @@ namespace Paragon.ContentTree.Routing.Tests.Routing.Helpers
 				         		new TreeNode()
 				         			{
 				         				Id = "0",
-										ParentTreeNodeId = "-1",
+										ParentTreeNodeId = RootNodeParentId,
 				         			}, 
 				         		new TreeNode()
 				         			{
@@ -113,7 +114,7 @@ namespace Paragon.ContentTree.Routing.Tests.Routing.Helpers
 				         		new TreeNode()
 				         			{
 				         				Id = "0",
-										ParentTreeNodeId = "-1",
+										ParentTreeNodeId = RootNodeParentId,
 				         			}, 
 				         		new TreeNode()
 				         			{
@@ -173,7 +174,7 @@ namespace Paragon.ContentTree.Routing.Tests.Routing.Helpers
 				         		new TreeNode()
 				         			{
 				         				Id = "0",
-										ParentTreeNodeId = "-1",
+										ParentTreeNodeId = RootNodeParentId,
 				         			}, 
 				         		new TreeNode()
 				         			{
