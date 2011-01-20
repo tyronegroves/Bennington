@@ -20,7 +20,7 @@
 
 	<% using (Html.BeginForm(Model.Action, "ContentTreeNode", FormMethod.Post, new { Id = "form" })) { %>
 
-	<div class="crudFormContainer">
+	<div class="contentNodeProviderForm">
 
 		<%=Html.EditorFor(x => x.ContentTreeNodeInputModel)%>		
 

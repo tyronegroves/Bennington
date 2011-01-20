@@ -8,8 +8,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Validation
 	{
 		public ContentTreeInputModelValidator()
 		{
-			RuleFor(x => x.Name).IsRequired();
-			RuleFor(x => x.UrlSegment).IsRequired();
+			RuleFor(x => x.Name).IsRequired().When(a => a.Action == "Index" || a.Action == null);
+			RuleFor(x => x.UrlSegment).IsRequired().When(a => a.Action == "Index" || a.Action == null);
 		}
 	}
 }
