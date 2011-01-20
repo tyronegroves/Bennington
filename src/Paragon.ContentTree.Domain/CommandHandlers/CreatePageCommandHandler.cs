@@ -22,8 +22,7 @@ namespace Paragon.ContentTree.Domain.CommandHandlers
 		{
 			var page = new Page(command.PageId);
 			page.SetTreeNodeId(command.TreeNodeId);
-			page.SetActionId("Index");
-			page.SetParentTreeNodeId(new Guid(command.ParentId));
+			page.SetActionId(command.Action ?? "Index");
 			page.SetType(command.Type);
 			page.SetBody(command.Body);
 			page.SetName(command.Name);

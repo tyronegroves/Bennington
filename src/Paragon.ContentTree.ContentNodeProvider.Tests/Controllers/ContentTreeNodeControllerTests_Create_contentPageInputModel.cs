@@ -198,25 +198,6 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		}
 
 		[TestMethod]
-		public void Sends_CreatePageCommand_command_with_correct_ParentId_when_ModelState_is_valid()
-		{
-			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>())).Returns(new Guid().ToString());
-			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
-														{
-															ParentTreeNodeId = "2",
-															Content = "content",
-															Name = "header text",
-															Sequence = 100,
-															UrlSegment = "url segment",
-															Type = typeof(string).AssemblyQualifiedName
-														};
-
-			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
-
-			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.ParentId == contentTreeNodeInputModel.ParentTreeNodeId)), Times.Once());
-		}
-
-		[TestMethod]
 		public void Sends_CreatePageCommand_command_with_correct_Type_when_ModelState_is_valid()
 		{
 			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>())).Returns(new Guid().ToString());

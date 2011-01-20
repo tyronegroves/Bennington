@@ -14,5 +14,9 @@ namespace Paragon.ContentTree.ExampleEngineNodeProvider.Controllers
             return View();
         }
 
-    }
+		public ActionResult Confirmation2()
+		{
+			return View();
+		}
+	}
 }

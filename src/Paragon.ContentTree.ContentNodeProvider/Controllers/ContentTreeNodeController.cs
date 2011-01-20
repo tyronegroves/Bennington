@@ -93,7 +93,6 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 									Name = contentTreeNodeInputModel.Name,
 									Sequence = contentTreeNodeInputModel.Sequence,
 									UrlSegment = contentTreeNodeInputModel.UrlSegment,
-									ParentId = contentTreeNodeInputModel.ParentTreeNodeId,
 									Type = Type.GetType(contentTreeNodeInputModel.Type),
 			                	});
 
@@ -143,7 +142,19 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 					UrlSegment = contentTreeNodeInputModel.UrlSegment,
 					ActionId = contentTreeNodeInputModel.Action,
 				};
-				commandBus.Send(modifyPageComand);				
+				commandBus.Send(modifyPageComand);
+			} else
+			{
+				commandBus.Send(new CreatePageCommand()
+				                	{
+				                		TreeNodeId = new Guid(contentTreeNodeInputModel.TreeNodeId),
+										PageId = guidGetter.GetGuid(),
+										Body = contentTreeNodeInputModel.Content,
+										HeaderText = contentTreeNodeInputModel.HeaderText,
+										Name = contentTreeNodeInputModel.Name,
+										UrlSegment = contentTreeNodeInputModel.UrlSegment,
+										Action = contentTreeNodeInputModel.Action
+				                	});
 			}
 			
 			if (!string.IsNullOrEmpty(contentTreeNodeInputModel.FormAction))
