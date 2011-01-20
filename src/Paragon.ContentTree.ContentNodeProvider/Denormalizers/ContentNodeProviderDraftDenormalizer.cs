@@ -101,9 +101,10 @@ namespace Paragon.ContentTree.ContentNodeProvider.Denormalizers
 
 		public void Handle(PageDeletedEvent domainEvent)
 		{
-			var contentNodeProviderDraft = contentNodeProviderDraftRepository.GetAllContentNodeProviderDrafts().Where(a => a.TreeNodeId == domainEvent.TreeNodeId.ToString()).FirstOrDefault();
-			if (contentNodeProviderDraft != null)
+			foreach (var contentNodeProviderDraft in contentNodeProviderDraftRepository.GetAllContentNodeProviderDrafts().Where(a => a.TreeNodeId == domainEvent.TreeNodeId.ToString()))
+			{
 				contentNodeProviderDraftRepository.Delete(contentNodeProviderDraft);
+			}
 		}
 
 		public void Handle(PageTreeNodeIdSetEvent domainEvent)

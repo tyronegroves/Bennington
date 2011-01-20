@@ -230,26 +230,37 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 
 
 		[TestMethod]
-		public void Calls_Delete_method_of_IContentNodeProviderDraftRepository_with_instance_of_ContentProviderDraft_by_TreeNodeId_when_handling_PageDeletedEvent()
+		public void Calls_Delete_method_of_IContentNodeProviderDraftRepository_with_every_instance_of_ContentProviderDraft_matching_by_TreeNodeId_when_handling_PageDeletedEvent()
 		{
-			var guid = new Guid();
+			var treeNodeId = Guid.NewGuid();
+			var guid1 = Guid.NewGuid();
+			var guid2 = Guid.NewGuid();
 			mocker.GetMock<IContentNodeProviderDraftRepository>().Setup(a => a.GetAllContentNodeProviderDrafts())
 				.Returns(new ContentNodeProviderDraft[]
 				         	{
 				         		new ContentNodeProviderDraft()
 				         			{
-										TreeNodeId = guid.ToString(),
+										PageId = guid1.ToString(),
+										TreeNodeId = treeNodeId.ToString(),
 				         				CreateBy = "CreateBy"
+				         			}, 
+								new ContentNodeProviderDraft()
+				         			{
+										PageId = guid2.ToString(),
+										TreeNodeId = treeNodeId.ToString(),
+				         				CreateBy = "CreateBy2"
 				         			}, 
 							}.AsQueryable());
 
 			mocker.Resolve<ContentNodeProviderDraftDenormalizer>().Handle(new PageDeletedEvent()
 																				{
-																					TreeNodeId = guid
+																					TreeNodeId = treeNodeId
 																				});
 
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
-				.Verify(a => a.Delete(It.Is<ContentNodeProviderDraft>(b => b.TreeNodeId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+				.Verify(a => a.Delete(It.Is<ContentNodeProviderDraft>(b => b.TreeNodeId == treeNodeId.ToString() && b.PageId == guid1.ToString())), Times.Once());
+			mocker.GetMock<IContentNodeProviderDraftRepository>()
+				.Verify(a => a.Delete(It.Is<ContentNodeProviderDraft>(b => b.TreeNodeId == treeNodeId.ToString() && b.PageId == guid2.ToString())), Times.Once());
 		}
 
 		[TestMethod]
