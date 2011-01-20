@@ -56,5 +56,5 @@ CREATE TABLE [dbo].[ContentNodeProviderDraft](
 
 GO
 
-Insert Into dbo.[TreeNode] (Id, [Type], ParentTreeNodeId) Values ('00000000-0000-0000-0000-000000000000', 'Paragon.ContentTree.ContentNodeProvider.ContentNodeProvider, Paragon.ContentTree.ContentNodeProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null', '');
-INSERT INTO [dbo].[ContentNodeProviderDraft] ([TreeNodeId]) VALUES ('00000000-0000-0000-0000-000000000000')
+--Insert Into dbo.[TreeNode] (Id, [Type], ParentTreeNodeId) Values ('00000000-0000-0000-0000-000000000000', 'Paragon.ContentTree.ContentNodeProvider.ContentNodeProvider, Paragon.ContentTree.ContentNodeProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null', '');
+--INSERT INTO [dbo].[ContentNodeProviderDraft] ([TreeNodeId]) VALUES ('00000000-0000-0000-0000-000000000000')

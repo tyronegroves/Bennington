@@ -43,5 +43,17 @@ namespace Paragon.ContentTree.Routing.Tests.Adapters
 			
 			Assert.AreEqual("0", result.NodeId);
 		}
+
+		[TestMethod]
+		public void Returns_properly_setup_root_node_when_the_ITreeNodeSummaryContext_returns_empty_set()
+		{
+			mocker.GetMock<ITreeNodeSummaryContext>().Setup(a => a.GetChildren(TreeNodeSummaryContextToContentTreeRepositoryAdapter.RootNodeParentNodeId))
+				.Returns(new TreeNodeSummary[]{}.AsQueryable());
+
+			var result = mocker.Resolve<TreeNodeSummaryContextToContentTreeRepositoryAdapter>().GetRootNode();
+
+			Assert.AreEqual(Constants.RootNodeId, result.NodeId);
+			Assert.AreEqual(Constants.RootNodeParentId, result.Parent.NodeId);
+		}
 	}
 }

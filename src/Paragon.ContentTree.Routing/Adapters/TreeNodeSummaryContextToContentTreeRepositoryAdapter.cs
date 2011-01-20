@@ -25,7 +25,17 @@ namespace Paragon.ContentTree.Routing.Adapters
 		{
 			var children = treeNodeSummaryContext.GetChildren(RootNodeParentNodeId);
 			var rootSummary = children.FirstOrDefault();
-			if (rootSummary == null) throw new Exception("Root node was not found.");
+			if (rootSummary == null)
+			{
+				return new ContentTreeNode()
+				       	{
+							NodeId = Constants.RootNodeId,
+							Parent = new ContentTreeNode()
+							         	{
+							         		NodeId = string.Empty,
+							         	}
+				       	};
+			}
 
 			return treeNodeSummaryToContentTreeNodeMapper.CreateInstance(rootSummary);
 		}

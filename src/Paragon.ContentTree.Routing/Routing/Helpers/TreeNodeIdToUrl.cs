@@ -14,7 +14,7 @@ namespace Paragon.ContentTree.Routing.Routing.Helpers
 
 	public class TreeNodeIdToUrl : ITreeNodeIdToUrl
 	{
-		public const string RootNodeParentId = "";
+		public const string RootNodeParentId = Constants.RootNodeParentId;
 		private readonly ITreeNodeRepository treeNodeRepository;
 		private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
 		private readonly ITreeNodeSummaryToContentTreeNodeMapper treeNodeSummaryToContentTreeNodeMapper;

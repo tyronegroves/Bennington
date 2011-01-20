@@ -14,7 +14,6 @@ namespace Paragon.ContentTree.Routing.Routing
 		public RegisterDefaultRoutes(IContentTreeBuilder contentTreeBuilder, ITreeNodeProviderContext treeNodeProviderContext)
 		{
 			this.treeNodeProviderContext = treeNodeProviderContext;
-			//this.contentTreeRepository = contentTreeRepository;
     		this.contentTreeBuilder = contentTreeBuilder;
 		}
 
@@ -22,9 +21,8 @@ namespace Paragon.ContentTree.Routing.Routing
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            ////var contentTreeBuilder = new ContentTreeBuilder(new ContentTreeRepository());
 			var contentTree = contentTreeBuilder.GetContentTree();
-    		var contentTreeRouteBuilder = new ContentTreeRouteBuilder(); //treeNodeProviderContext);
+    		var contentTreeRouteBuilder = new ContentTreeRouteBuilder();
 			contentTreeRouteBuilder.MapRoutes(contentTree);
         }
     }

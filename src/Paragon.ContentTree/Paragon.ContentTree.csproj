@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Blades\RegisterAssemblyWithSimpleCqrsServiceLocatorBlade.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="ContentManagementMenuRegistration.cs" />
     <Compile Include="Contexts\VersionContext.cs" />
     <Compile Include="Controllers\ContentTreeController.cs" />
