@@ -36,7 +36,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			var contentTreeNodeController = mocker.Resolve<ContentTreeNodeController>();
 			contentTreeNodeController.Create(contentPageInputMOdel);
 
-			mocker.GetMock<IContentTreeNodeContext>().Verify(a => a.CreateTreeNodeAndReturnTreeNodeId(It.Is<ContentTreeNodeInputModel>(b => b.ContentItemId == "Index")), Times.Once());
+			mocker.GetMock<IContentTreeNodeContext>().Verify(a => a.CreateTreeNodeAndReturnTreeNodeId(It.Is<ContentTreeNodeInputModel>(b => b.Action == "Index")), Times.Once());
 		}
 
 		[TestMethod]

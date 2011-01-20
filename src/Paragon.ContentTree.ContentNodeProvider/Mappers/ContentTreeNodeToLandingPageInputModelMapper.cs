@@ -25,7 +25,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Mappers
 		public override void DefineMap(IConfiguration configuration)
 		{
 			configuration.CreateMap<ContentTreeNode, ContentTreeNodeInputModel>()
-				.ForMember(dest => dest.Action, opt => opt.Ignore())
+				.ForMember(dest => dest.FormAction, opt => opt.Ignore())
 				.ForMember(dest => dest.ParentTreeNodeId, opt => opt.Ignore());
 		}
 

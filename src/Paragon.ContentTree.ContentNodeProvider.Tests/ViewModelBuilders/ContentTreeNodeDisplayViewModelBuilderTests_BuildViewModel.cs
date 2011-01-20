@@ -42,7 +42,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 				         	{
 				         		new ContentTreeNode()
 				         			{
-				         				ContentItemId = "Index",
+				         				Action = "Index",
 										Content = "page content1",
 										Name = "test1"
 				         			}, 
@@ -73,7 +73,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 				         	{
 				         		new ContentTreeNode()
 				         			{
-				         				ContentItemId = "Index",
+				         				Action = "Index",
 										Content = "page content",
 										Name = "section1"
 				         			}, 
@@ -92,7 +92,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 				         	{
 				         		new ContentTreeNode()
 				         			{
-				         				ContentItemId = "Index",
+				         				Action = "Index",
 										Content = "page1 content",
 										Name = "page1"
 				         			}, 
@@ -122,7 +122,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 				         	{
 				         		new ContentTreeNode()
 				         			{
-				         				ContentItemId = "Index",
+				         				Action = "Index",
 										Content = "page content",
 										Name = "section1"
 				         			}, 
@@ -152,7 +152,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 				         	{
 				         		new ContentTreeNode()
 				         			{
-				         				ContentItemId = "Index",
+				         				Action = "Index",
 										Content = "page content",
 										Name = "section1"
 				         			}, 
@@ -182,7 +182,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 				         	{
 				         		new ContentTreeNode()
 				         			{
-				         				ContentItemId = "Index",
+				         				Action = "Index",
 										Content = "page content",
 				         			}, 
 							});
@@ -214,17 +214,17 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 		                    {
 		                        new ContentTreeNode()
 		                            {
-		                                ContentItemId = "Index",
+		                                Action = "Index",
 		                                Content = "page content",
 		                            }, 
 		                        new ContentTreeNode()
 		                            {
-		                                ContentItemId = "Index2",
+		                                Action = "Index2",
 		                                Content = "page content2",
 		                            },
 		                        new ContentTreeNode()
 		                            {
-		                                ContentItemId = "Index3",
+		                                Action = "Index3",
 		                                Content = "page content3",
 		                            },
 		                    });

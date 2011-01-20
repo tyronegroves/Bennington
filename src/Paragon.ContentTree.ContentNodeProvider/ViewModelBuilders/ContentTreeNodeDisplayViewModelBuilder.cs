@@ -41,7 +41,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders
 			var data = getParentRouteDataDictionaryFromChildActionRouteData.GetRouteValues(routeData);
 			var action = GetAction(data);
 
-			var contentTreeNodes = contentTreeNodeContext.GetContentTreeNodesByTreeId(workingTreeNodeId).Where(a => a.ContentItemId == action);
+			var contentTreeNodes = contentTreeNodeContext.GetContentTreeNodesByTreeId(workingTreeNodeId).Where(a => a.Action == action);
 			if (contentTreeNodes.Count() == 0) return viewModel;
 
 			return (from item in contentTreeNodes

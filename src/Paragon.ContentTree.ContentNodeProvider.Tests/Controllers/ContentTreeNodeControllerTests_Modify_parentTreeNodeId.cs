@@ -39,14 +39,14 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			{
 				Name = "some name",
 			};
-			mocker.GetMock<IContentTreeNodeToContentTreeNodeInputModelMapper>().Setup(a => a.CreateInstance(It.Is<ContentTreeNode>(b => b.TreeNodeId == "1" && b.ContentItemId == "Index")))
+			mocker.GetMock<IContentTreeNodeToContentTreeNodeInputModelMapper>().Setup(a => a.CreateInstance(It.Is<ContentTreeNode>(b => b.TreeNodeId == "1" && b.Action == "Index")))
 				.Returns(expectedInputModel);
 
 			var landingPageController = mocker.Resolve<ContentTreeNodeController>();
 			var result = landingPageController.Modify("1", null);
 
 			var viewModel = (ContentTreeNodeViewModel)((ViewResult)result).ViewData.Model;
-			Assert.AreEqual("Index", viewModel.ContentTreeNodeInputModel.ContentItemId);
+			Assert.AreEqual("Index", viewModel.ContentTreeNodeInputModel.Action);
 		}
 
 		[TestMethod]
@@ -55,13 +55,13 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			var expectedInputModel = new ContentTreeNodeInputModel()
 			{
 				Name = "some name",
-				ContentItemId = "contentItemId"
+				Action = "contentItemId"
 			};
 
 			var landingPageController = mocker.Resolve<ContentTreeNodeController>();
 			var result = landingPageController.Modify("1", "contentItemId");
 
-			Assert.AreEqual("contentItemId", ((ContentTreeNodeViewModel)((ViewResult)result).ViewData.Model).ContentTreeNodeInputModel.ContentItemId);
+			Assert.AreEqual("contentItemId", ((ContentTreeNodeViewModel)((ViewResult)result).ViewData.Model).ContentTreeNodeInputModel.Action);
 		}
 
 
@@ -78,17 +78,17 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 				         			{
 				         				TreeNodeId = "1",
 										Name = "zzz",
-										ContentItemId = "Index",
+										Action = "Index",
 				         			}, 
 							}.AsQueryable());
 
-			mocker.GetMock<IContentTreeNodeToContentTreeNodeInputModelMapper>().Setup(a => a.CreateInstance(It.Is<ContentTreeNode>(b => b.TreeNodeId == "1" && b.ContentItemId == "Index")))
+			mocker.GetMock<IContentTreeNodeToContentTreeNodeInputModelMapper>().Setup(a => a.CreateInstance(It.Is<ContentTreeNode>(b => b.TreeNodeId == "1" && b.Action == "Index")))
 				.Returns(expectedInputModel);
 
 			var contentTreeNodeController = mocker.Resolve<ContentTreeNodeController>();
 			var result = contentTreeNodeController.Modify("1", null);
 
-			mocker.GetMock<IContentTreeNodeToContentTreeNodeInputModelMapper>().Verify(a => a.CreateInstance(It.Is<ContentTreeNode>(b => b.ContentItemId == "Index")), Times.Once());
+			mocker.GetMock<IContentTreeNodeToContentTreeNodeInputModelMapper>().Verify(a => a.CreateInstance(It.Is<ContentTreeNode>(b => b.Action == "Index")), Times.Once());
 		}
 
 		[TestMethod]
@@ -105,16 +105,16 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 				         			{
 				         				TreeNodeId = "1",
 										Name = "zzz",
-										ContentItemId = "zzz",
+										Action = "zzz",
 				         			}, 
 				         		new ContentTreeNode()
 				         			{
 				         				TreeNodeId = "1",
 										Name = "some name",
-										ContentItemId = "Index",
+										Action = "Index",
 				         			}, 
 							}.AsQueryable());
-			mocker.GetMock<IContentTreeNodeToContentTreeNodeInputModelMapper>().Setup(a => a.CreateInstance(It.Is<ContentTreeNode>(b => b.TreeNodeId == "1" && b.ContentItemId == "Index")))
+			mocker.GetMock<IContentTreeNodeToContentTreeNodeInputModelMapper>().Setup(a => a.CreateInstance(It.Is<ContentTreeNode>(b => b.TreeNodeId == "1" && b.Action == "Index")))
 				.Returns(expectedInputModel);
 
 			var landingPageController = mocker.Resolve<ContentTreeNodeController>();

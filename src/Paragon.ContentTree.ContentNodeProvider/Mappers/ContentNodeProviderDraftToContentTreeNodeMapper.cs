@@ -18,7 +18,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Mappers
 		{
 			configuration.CreateMap<Data.ContentNodeProviderDraft, Models.ContentTreeNode>()
 					.ForMember(a => a.Content, opt => opt.MapFrom(c => c.Body))
-					.ForMember(a => a.ContentItemId, opt => opt.MapFrom(c => c.Action))
+					.ForMember(a => a.Action, opt => opt.MapFrom(c => c.Action))
 				;
 		}
 	}

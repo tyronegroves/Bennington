@@ -7,10 +7,10 @@ namespace Paragon.ContentTree.ContentNodeProvider.Models
 	public class ContentTreeNodeInputModel
 	{
 		[HiddenInput(DisplayValue = false)]
-		public string ContentItemId { get; set; }
+		public string Action { get; set; }
 
 		[HiddenInput(DisplayValue = false)]
-		public string Action { get; set; }
+		public string FormAction { get; set; }
 
 		[HiddenInput(DisplayValue = false)]
 		public string Type { get; set; }

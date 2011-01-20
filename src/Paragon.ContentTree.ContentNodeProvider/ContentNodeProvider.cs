@@ -19,7 +19,7 @@ namespace Paragon.ContentTree.ContentNodeProvider
 
 		public virtual IQueryable<IAmATreeNodeExtension> GetAll()
 		{
-			var query = from item in contentTreeNodeRepository.GetAllContentTreeNodes().Where(a => a.ContentItemId == "Index")
+			var query = from item in contentTreeNodeRepository.GetAllContentTreeNodes().Where(a => a.Action == "Index")
 						select item;
 			
 			return query;
