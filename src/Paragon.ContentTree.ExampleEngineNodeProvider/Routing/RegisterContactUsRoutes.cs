@@ -20,7 +20,7 @@ namespace Paragon.ContentTree.ExampleEngineNodeProvider.Routing
 
 		public void Register(RouteCollection routes)
 		{
-			foreach (var contactUsNode in treeNodeRepository.GetAll().Where(a => a.Type == typeof(ExampleEngineNodeProvider).FullName))
+			foreach (var contactUsNode in treeNodeRepository.GetAll().Where(a => a.Type == typeof(ExampleEngineNodeProvider).AssemblyQualifiedName))
 			{
 				var url = treeNodeIdToUrl.GetUrlByTreeNodeId(contactUsNode.Id);
 				if (url.StartsWith("/")) url = url.Substring(1);
