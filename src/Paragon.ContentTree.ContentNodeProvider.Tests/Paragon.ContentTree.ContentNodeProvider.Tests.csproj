@@ -60,7 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\ContentTreeNodeContextTests_CreateTreeNodeAndReturnTreeNodeId.cs" />
-    <Compile Include="Context\ContentTreeNodeContextTests_Delete.cs" />
     <Compile Include="Context\ContentTreeNodeContextTests_GetContentTreeNodesByTreeId.cs" />
     <Compile Include="Controllers\ContentTreeNodeControllerTests_Create_ContentPageInputModel.cs" />
     <Compile Include="Controllers\ContentTreeNodeControllerTests_Create_parentTreeNodeId_providerType.cs" />

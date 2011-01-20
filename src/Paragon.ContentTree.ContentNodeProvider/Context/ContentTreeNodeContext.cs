@@ -13,7 +13,6 @@ namespace Paragon.ContentTree.ContentNodeProvider.Context
 	public interface IContentTreeNodeContext
 	{
 		string CreateTreeNodeAndReturnTreeNodeId(ContentTreeNodeInputModel contentTreeNodeInputModel);
-		void Delete(string id);
 		IEnumerable<ContentTreeNode> GetContentTreeNodesByTreeId(string nodeId);
 	}
 
@@ -35,16 +34,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Context
 		{
 			var newTreeNodeId = treeNodeSummaryContext.Create(contentTreeNodeInputModel.ParentTreeNodeId, contentTreeNodeInputModel.Type);
 			contentTreeNodeInputModel.TreeNodeId = newTreeNodeId;
-			//var node = contentTreeNodeInputModelToContentTreeNodeMapper.CreateInstance(contentTreeNodeInputModel);
-			//contentTreeNodeRepository.Create(node);
 			return contentTreeNodeInputModel.TreeNodeId;
-		}
-
-		public void Delete(string id)
-		{
-			var node = contentTreeNodeRepository.GetAllContentTreeNodes().Where(a => a.TreeNodeId == id).FirstOrDefault();
-			if (node != null)
-				contentTreeNodeRepository.Delete(node);
 		}
 
 		public IEnumerable<ContentTreeNode> GetContentTreeNodesByTreeId(string treeNodeId)

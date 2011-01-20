@@ -35,6 +35,11 @@ namespace Paragon.ContentTree.ContentNodeProvider.Denormalizers
 			                                          	});
 		}
 
+		private ContentNodeProviderDraft GetContentNodeProviderDraft(DomainEvent domainEvent)
+		{
+			return contentNodeProviderDraftRepository.GetAllContentNodeProviderDrafts().Where(a => a.TreeNodeId == domainEvent.AggregateRootId.ToString()).FirstOrDefault();
+		}
+
 		public void Handle(PageNameSetEvent domainEvent)
 		{
 			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
@@ -47,11 +52,6 @@ namespace Paragon.ContentTree.ContentNodeProvider.Denormalizers
 			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
 			contentNodeProviderDraft.Action = domainEvent.Action;
 			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
-		}
-
-		private ContentNodeProviderDraft GetContentNodeProviderDraft(DomainEvent domainEvent)
-		{
-			return contentNodeProviderDraftRepository.GetAllContentNodeProviderDrafts().Where(a => a.TreeNodeId == domainEvent.AggregateRootId.ToString()).FirstOrDefault();
 		}
 
 		public void Handle(MetaTitleSetEvent domainEvent)

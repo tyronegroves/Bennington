@@ -103,26 +103,6 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		}
 
 		[TestMethod]
-		public void Does_not_call_Update_on_repository_with_mapped_object_from_ILandingPageInputModelToContentTreeNodeMapper_when_ModelState_is_invalid()
-		{
-			var landingPageInputModel = new ContentTreeNodeInputModel()
-			{
-				TreeNodeId = Guid.NewGuid().ToString(),
-				Name = "name",
-			};
-			mocker.GetMock<IContentTreeNodeInputModelToContentTreeNodeMapper>().Setup(a => a.CreateInstance(landingPageInputModel)).Returns(new ContentTreeNode()
-				{
-					Name = "name",
-				});
-
-			var contentTreeNodeController = mocker.Resolve<ContentTreeNodeController>();
-			contentTreeNodeController.ModelState.AddModelError("key", "error");
-			contentTreeNodeController.Modify(landingPageInputModel);
-
-			mocker.GetMock<IContentTreeNodeRepository>().Verify(a => a.Update(It.IsAny<ContentTreeNode>()), Times.Never());
-		}
-
-		[TestMethod]
 		public void Sends_ModifyPage_command_when_ModelState_is_valid()
 		{
 			var inputModel = new ContentTreeNodeInputModel()
