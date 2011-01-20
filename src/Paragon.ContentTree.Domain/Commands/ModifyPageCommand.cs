@@ -21,5 +21,6 @@ namespace Paragon.ContentTree.Domain.Commands
 			get { return AggregateRootId; }
 			set { AggregateRootId = value; }
 		}
+		public Guid TreeNodeId { get; set; }
 	}
 }

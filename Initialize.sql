@@ -37,6 +37,7 @@ CREATE TABLE [dbo].[ContentNodeProviderDraft](
 	[CreateBy] [nvarchar](500) NULL,
 	[LastModifyDate] [datetime] NULL,
 	[LastModifyBy] [nvarchar](500) NULL,
+	[PageId] [nvarchar](100) NULL,
 	[TreeNodeId] [nvarchar](100) NULL,
 	[UrlSegment] [nvarchar](500) NULL,
 	[Sequence] [int] NULL,

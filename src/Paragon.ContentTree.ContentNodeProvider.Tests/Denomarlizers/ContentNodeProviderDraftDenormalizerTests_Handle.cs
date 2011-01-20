@@ -32,11 +32,11 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 			                                                              		AggregateRootId = guid
 			                                                              	});
 
-			mocker.GetMock<IContentNodeProviderDraftRepository>().Verify(a => a.Create(It.Is<ContentNodeProviderDraft>(b => b.TreeNodeId == guid.ToString())), Times.Once());
+			mocker.GetMock<IContentNodeProviderDraftRepository>().Verify(a => a.Create(It.Is<ContentNodeProviderDraft>(b => b.PageId == guid.ToString())), Times.Once());
 		}
 
 		[TestMethod]
-		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_TreeNodeId_and_Name_set_for_PageNameSetEvent()
+		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_PageId_and_Name_set_for_PageNameSetEvent()
 		{
 			var guid = new Guid();
 			mocker.GetMock<IContentNodeProviderDraftRepository>().Setup(a => a.GetAllContentNodeProviderDrafts())
@@ -44,23 +44,23 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 				         	{
 				         		new ContentNodeProviderDraft()
 				         			{
-										TreeNodeId = guid.ToString(),
+										PageId = guid.ToString(),
 				         				CreateBy = "CreateBy"
 				         			}, 
 							}.AsQueryable());
 
 			mocker.Resolve<ContentNodeProviderDraftDenormalizer>().Handle(new PageNameSetEvent()
-			{
-				AggregateRootId = guid,
-				Name = "Name",
-			});
+																				{
+																					AggregateRootId = guid,
+																					Name = "Name",
+																				});
 
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
-				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.Name == "Name" && b.TreeNodeId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.Name == "Name" && b.PageId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
 		}
 
 		[TestMethod]
-		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_TreeNodeId_and_Action_set_for_PageActionSetEvent()
+		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_PageId_and_Action_set_for_PageActionSetEvent()
 		{
 			var guid = new Guid();
 			mocker.GetMock<IContentNodeProviderDraftRepository>().Setup(a => a.GetAllContentNodeProviderDrafts())
@@ -68,23 +68,23 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 				         	{
 				         		new ContentNodeProviderDraft()
 				         			{
-										TreeNodeId = guid.ToString(),
+										PageId = guid.ToString(),
 				         				CreateBy = "CreateBy"
 				         			}, 
 							}.AsQueryable());
 
 			mocker.Resolve<ContentNodeProviderDraftDenormalizer>().Handle(new PageActionSetEvent()
-			{
-				AggregateRootId = guid,
-				Action = "Action",
-			});
+																				{
+																					AggregateRootId = guid,
+																					Action = "Action",
+																				});
 
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
-				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.Action == "Action" && b.TreeNodeId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.Action == "Action" && b.PageId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
 		}
 
 		[TestMethod]
-		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_TreeNodeId_and_MetaTitle_set_for_PageMetaTitleSetEvent()
+		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_PageId_and_MetaTitle_set_for_PageMetaTitleSetEvent()
 		{
 			var guid = new Guid();
 			mocker.GetMock<IContentNodeProviderDraftRepository>().Setup(a => a.GetAllContentNodeProviderDrafts())
@@ -92,23 +92,23 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 				         	{
 				         		new ContentNodeProviderDraft()
 				         			{
-										TreeNodeId = guid.ToString(),
+										PageId = guid.ToString(),
 				         				CreateBy = "CreateBy"
 				         			}, 
 							}.AsQueryable());
 
 			mocker.Resolve<ContentNodeProviderDraftDenormalizer>().Handle(new MetaTitleSetEvent()
-			{
-				AggregateRootId = guid,
-				MetaTitle = "MetaTitle"
-			});
+																				{
+																					AggregateRootId = guid,
+																					MetaTitle = "MetaTitle"
+																				});
 
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
-				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.MetaTitle == "MetaTitle" && b.TreeNodeId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.MetaTitle == "MetaTitle" && b.PageId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
 		}
 
 		[TestMethod]
-		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_TreeNodeId_and_MetaDescription_set_for_PageMetaDescriptionSetEvent()
+		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_PageId_and_MetaDescription_set_for_PageMetaDescriptionSetEvent()
 		{
 			var guid = new Guid();
 			mocker.GetMock<IContentNodeProviderDraftRepository>().Setup(a => a.GetAllContentNodeProviderDrafts())
@@ -116,23 +116,23 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 				         	{
 				         		new ContentNodeProviderDraft()
 				         			{
-										TreeNodeId = guid.ToString(),
+										PageId = guid.ToString(),
 				         				CreateBy = "CreateBy"
 				         			}, 
 							}.AsQueryable());
 
 			mocker.Resolve<ContentNodeProviderDraftDenormalizer>().Handle(new MetaDescriptionSetEvent()
-			{
-				AggregateRootId = guid,
-				MetaDescription = "MetaDescription"
-			});
+																				{
+																					AggregateRootId = guid,
+																					MetaDescription = "MetaDescription"
+																				});
 
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
-				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.MetaDescription == "MetaDescription" && b.TreeNodeId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.MetaDescription == "MetaDescription" && b.PageId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
 		}
 
 		[TestMethod]
-		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_TreeNodeId_and_UrlSegment_set_for_PageUrlSegmentSetEvent()
+		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_PageId_and_UrlSegment_set_for_PageUrlSegmentSetEvent()
 		{
 			var guid = new Guid();
 			mocker.GetMock<IContentNodeProviderDraftRepository>().Setup(a => a.GetAllContentNodeProviderDrafts())
@@ -140,23 +140,23 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 				         	{
 				         		new ContentNodeProviderDraft()
 				         			{
-										TreeNodeId = guid.ToString(),
+										PageId = guid.ToString(),
 				         				CreateBy = "CreateBy"
 				         			}, 
 							}.AsQueryable());
 
 			mocker.Resolve<ContentNodeProviderDraftDenormalizer>().Handle(new PageUrlSegmentSetEvent()
-			{
-				AggregateRootId = guid,
-				UrlSegment = "UrlSegment"
-			});
+																				{
+																					AggregateRootId = guid,
+																					UrlSegment = "UrlSegment"
+																				});
 
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
-				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.UrlSegment == "UrlSegment" && b.TreeNodeId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.UrlSegment == "UrlSegment" && b.PageId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
 		}
 
 		[TestMethod]
-		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_TreeNodeId_and_HeaderText_set_for_PageHeaderTextSetEvent()
+		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_PageId_and_HeaderText_set_for_PageHeaderTextSetEvent()
 		{
 			var guid = new Guid();
 			mocker.GetMock<IContentNodeProviderDraftRepository>().Setup(a => a.GetAllContentNodeProviderDrafts())
@@ -164,23 +164,23 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 				         	{
 				         		new ContentNodeProviderDraft()
 				         			{
-										TreeNodeId = guid.ToString(),
+										PageId = guid.ToString(),
 				         				CreateBy = "CreateBy"
 				         			}, 
 							}.AsQueryable());
 
 			mocker.Resolve<ContentNodeProviderDraftDenormalizer>().Handle(new HeaderTextSetEvent()
-			{
-				AggregateRootId = guid,
-				HeaderText = "HeaderText"
-			});
+																				{
+																					AggregateRootId = guid,
+																					HeaderText = "HeaderText"
+																				});
 
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
-				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.HeaderText == "HeaderText" && b.TreeNodeId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.HeaderText == "HeaderText" && b.PageId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
 		}
 
 		[TestMethod]
-		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_TreeNodeId_and_Sequence_set_for_PageSequenceSetEvent()
+		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_PageId_and_Sequence_set_for_PageSequenceSetEvent()
 		{
 			var guid = new Guid();
 			mocker.GetMock<IContentNodeProviderDraftRepository>().Setup(a => a.GetAllContentNodeProviderDrafts())
@@ -188,20 +188,46 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 				         	{
 				         		new ContentNodeProviderDraft()
 				         			{
-										TreeNodeId = guid.ToString(),
+										PageId = guid.ToString(),
 				         				CreateBy = "CreateBy"
 				         			}, 
 							}.AsQueryable());
 
 			mocker.Resolve<ContentNodeProviderDraftDenormalizer>().Handle(new PageSequenceSetEvent()
-			{
-				AggregateRootId = guid,
-				PageSequence = -1
-			});
+																				{
+																					AggregateRootId = guid,
+																					PageSequence = -1
+																				});
 
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
-				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.Sequence == -1 && b.TreeNodeId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.Sequence == -1 && b.PageId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
 		}
+
+		[TestMethod]
+		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_PageId_and_TreeNodeId_set_for_PageTreeNodeIdSetEvent()
+		{
+			var pageId = Guid.NewGuid();
+			var treeNodeId = Guid.NewGuid();
+			mocker.GetMock<IContentNodeProviderDraftRepository>().Setup(a => a.GetAllContentNodeProviderDrafts())
+				.Returns(new ContentNodeProviderDraft[]
+				         	{
+				         		new ContentNodeProviderDraft()
+				         			{
+										PageId = pageId.ToString(),
+				         				CreateBy = "CreateBy"
+				         			}, 
+							}.AsQueryable());
+
+			mocker.Resolve<ContentNodeProviderDraftDenormalizer>().Handle(new PageTreeNodeIdSetEvent()
+																				{
+																					AggregateRootId = pageId,
+																					TreeNodeId = treeNodeId,
+																				});
+
+			mocker.GetMock<IContentNodeProviderDraftRepository>()
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.TreeNodeId == treeNodeId.ToString() && b.PageId == pageId.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+		}
+
 
 		[TestMethod]
 		public void Calls_Delete_method_of_IContentNodeProviderDraftRepository_with_instance_of_ContentProviderDraft_by_TreeNodeId_when_handling_PageDeletedEvent()

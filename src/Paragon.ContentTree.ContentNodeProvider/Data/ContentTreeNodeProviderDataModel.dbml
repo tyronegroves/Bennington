@@ -7,6 +7,7 @@
       <Column Name="CreateBy" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="LastModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="LastModifyBy" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PageId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="TreeNodeId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="UrlSegment" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="Sequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -16,6 +17,7 @@
       <Column Name="MetaDescription" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="HeaderText" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="Body" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MetaKeyword" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
 </Database>

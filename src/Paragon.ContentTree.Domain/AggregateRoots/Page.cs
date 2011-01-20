@@ -81,7 +81,7 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 
 		public void SetTreeNodeId(Guid treeNodeId)
 		{
-			Apply(new TreeNodeIdSetEvent() { TreeNodeId  = treeNodeId });
+			Apply(new PageTreeNodeIdSetEvent() { TreeNodeId  = treeNodeId });
 		}
 
 		public void Publish()

@@ -6,6 +6,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Models
 	{
 		public int Key { get; set; }
 		public string TreeNodeId { get; set; }
+		public string PageId { get; set; }
 		public string UrlSegment { get; set; }
 		public int? Sequence { get; set; }
 		public string Name { get; set; }

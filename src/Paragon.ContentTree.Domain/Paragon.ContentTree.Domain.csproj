@@ -88,6 +88,7 @@
     <Compile Include="Commands\CreatePageCommand.cs" />
     <Compile Include="Commands\ModifyPageCommand.cs" />
     <Compile Include="Events\Page\BodySetEvent.cs" />
+    <Compile Include="Events\Page\PageTreeNodeIdSetEvent.cs" />
     <Compile Include="Events\Page\PagesequenceSetEvent.cs" />
     <Compile Include="Events\Page\PageTypeSetEvent.cs" />
     <Compile Include="Events\Page\PageDeletedEvent.cs" />

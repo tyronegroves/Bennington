@@ -5,12 +5,14 @@ using System.Text;
 using Paragon.ContentTree.ContentNodeProvider.Data;
 using Paragon.ContentTree.ContentNodeProvider.Repositories;
 using Paragon.ContentTree.Domain.Events.Page;
+using Paragon.ContentTree.Domain.Events.TreeNode;
 using SimpleCqrs.Eventing;
 
 namespace Paragon.ContentTree.ContentNodeProvider.Denormalizers
 {
 	public class ContentNodeProviderDraftDenormalizer : IHandleDomainEvents<PageCreatedEvent>,
 														IHandleDomainEvents<PageDeletedEvent>,
+														IHandleDomainEvents<PageTreeNodeIdSetEvent>,
 														IHandleDomainEvents<PageNameSetEvent>,
 														IHandleDomainEvents<PageActionSetEvent>,
 														IHandleDomainEvents<MetaTitleSetEvent>,
@@ -31,13 +33,14 @@ namespace Paragon.ContentTree.ContentNodeProvider.Denormalizers
 		{
 			contentNodeProviderDraftRepository.Create(new ContentNodeProviderDraft()
 			                                          	{
-			                                          		TreeNodeId = domainEvent.AggregateRootId.ToString()
+			                                          		PageId = domainEvent.AggregateRootId.ToString()
 			                                          	});
 		}
 
 		private ContentNodeProviderDraft GetContentNodeProviderDraft(DomainEvent domainEvent)
 		{
-			return contentNodeProviderDraftRepository.GetAllContentNodeProviderDrafts().Where(a => a.TreeNodeId == domainEvent.AggregateRootId.ToString()).FirstOrDefault();
+			return contentNodeProviderDraftRepository
+						.GetAllContentNodeProviderDrafts().Where(a => a.PageId == domainEvent.AggregateRootId.ToString()).FirstOrDefault();
 		}
 
 		public void Handle(PageNameSetEvent domainEvent)
@@ -101,6 +104,13 @@ namespace Paragon.ContentTree.ContentNodeProvider.Denormalizers
 			var contentNodeProviderDraft = contentNodeProviderDraftRepository.GetAllContentNodeProviderDrafts().Where(a => a.TreeNodeId == domainEvent.TreeNodeId.ToString()).FirstOrDefault();
 			if (contentNodeProviderDraft != null)
 				contentNodeProviderDraftRepository.Delete(contentNodeProviderDraft);
+		}
+
+		public void Handle(PageTreeNodeIdSetEvent domainEvent)
+		{
+			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
+			contentNodeProviderDraft.TreeNodeId = domainEvent.TreeNodeId.ToString();
+			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
 		}
 	}
 }

@@ -19,6 +19,9 @@ namespace Paragon.ContentTree.ContentNodeProvider.Models
 		public string TreeNodeId { get; set; }
 
 		[HiddenInput(DisplayValue = false)]
+		public string PageId { get; set; }
+
+		[HiddenInput(DisplayValue = false)]
 		public string ParentTreeNodeId { get; set; }
 
 		public string Name { get; set; }

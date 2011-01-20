@@ -41,19 +41,21 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		[TestMethod]
 		public void Returns_redirect_result_to_content_tree_index_when_ModelState_is_valid_and_input_model_action_is_saveandexit()
 		{
-			var landingPageInputModel = new ContentTreeNodeInputModel()
-			{
-				TreeNodeId = Guid.NewGuid().ToString(),
-				Name = "name",
-				Action = "Save and Exit"
-			};
-			mocker.GetMock<IContentTreeNodeInputModelToContentTreeNodeMapper>().Setup(a => a.CreateInstance(landingPageInputModel)).Returns(new ContentTreeNode()
-			{
-				Name = "name",
-			});
+			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
+											{
+												TreeNodeId = Guid.NewGuid().ToString(),
+												PageId = Guid.NewGuid().ToString(),
+												Name = "name",
+												Action = "Save and Exit"
+											};
+			mocker.GetMock<IContentTreeNodeInputModelToContentTreeNodeMapper>()
+				.Setup(a => a.CreateInstance(contentTreeNodeInputModel)).Returns(new ContentTreeNode()
+																					{
+																						Name = "name",
+																					});
 
 			var contentTreeNodeController = mocker.Resolve<ContentTreeNodeController>();
-			var result = contentTreeNodeController.Modify(landingPageInputModel);
+			var result = contentTreeNodeController.Modify(contentTreeNodeInputModel);
 
 			Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));
 			//Assert.AreEqual("ContentTree", ((RedirectToRouteResult)result).RouteValues["controller"]);
@@ -63,18 +65,20 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		[TestMethod]
 		public void Returns_redirect_result_when_ModelState_is_valid()
 		{
-			var landingPageInputModel = new ContentTreeNodeInputModel()
-			{
-				TreeNodeId = Guid.NewGuid().ToString(),
-				Name = "name",
-			};
-			mocker.GetMock<IContentTreeNodeInputModelToContentTreeNodeMapper>().Setup(a => a.CreateInstance(landingPageInputModel)).Returns(new ContentTreeNode()
-			{
-				Name = "name",
-			});
+			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
+														{
+															PageId = Guid.NewGuid().ToString(),
+															TreeNodeId = Guid.NewGuid().ToString(),
+															Name = "name",
+														};
+			mocker.GetMock<IContentTreeNodeInputModelToContentTreeNodeMapper>()
+				.Setup(a => a.CreateInstance(contentTreeNodeInputModel)).Returns(new ContentTreeNode()
+																					{
+																						Name = "name",
+																					});
 
 			var contentTreeNodeController = mocker.Resolve<ContentTreeNodeController>();
-			var result = contentTreeNodeController.Modify(landingPageInputModel);
+			var result = contentTreeNodeController.Modify(contentTreeNodeInputModel);
 
 			Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));
 			//Assert.AreEqual("LandingPage", ((RedirectToRouteResult)result).RouteValues["controller"]);
@@ -89,10 +93,11 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 				TreeNodeId = Guid.NewGuid().ToString(),
 				Name = "name",
 			};
-			mocker.GetMock<IContentTreeNodeInputModelToContentTreeNodeMapper>().Setup(a => a.CreateInstance(landingPageInputModel)).Returns(new ContentTreeNode()
-			{
-				Name = "name",
-			});
+			mocker.GetMock<IContentTreeNodeInputModelToContentTreeNodeMapper>()
+				.Setup(a => a.CreateInstance(landingPageInputModel)).Returns(new ContentTreeNode()
+																					{
+																						Name = "name",
+																					});
 
 			var contentTreeNodeController = mocker.Resolve<ContentTreeNodeController>();
 			contentTreeNodeController.ModelState.AddModelError("key", "error");
@@ -108,6 +113,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			var inputModel = new ContentTreeNodeInputModel()
 										{
 											Name = "name",
+											PageId = Guid.NewGuid().ToString(),
 											TreeNodeId = Guid.NewGuid().ToString(),
 											ContentItemId = "Index"
 										};
@@ -121,11 +127,12 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		public void Sends_ModifyPage_command_with_correct_HeaderText_when_ModelState_is_valid()
 		{
 			var inputModel = new ContentTreeNodeInputModel()
-			{
-				TreeNodeId = Guid.NewGuid().ToString(),
-				Name = "name",
-				HeaderText = "header text"
-			};
+									{
+										PageId = Guid.NewGuid().ToString(),
+										TreeNodeId = Guid.NewGuid().ToString(),
+										Name = "name",
+										HeaderText = "header text"
+									};
 
 			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
 
@@ -136,10 +143,11 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		public void Sends_ModifyPage_command_with_correct_Body_when_ModelState_is_valid()
 		{
 			var inputModel = new ContentTreeNodeInputModel()
-			{
-				TreeNodeId = Guid.NewGuid().ToString(),
-				Content = "content",
-			};
+										{
+											PageId = Guid.NewGuid().ToString(),
+											TreeNodeId = Guid.NewGuid().ToString(),
+											Content = "content",
+										};
 
 			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
 
@@ -150,24 +158,26 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		public void Sends_ModifyPage_command_with_correct_AggregateRootId_when_ModelState_is_valid()
 		{
 			var inputModel = new ContentTreeNodeInputModel()
-			{
-				Content = "content",
-				TreeNodeId = Guid.NewGuid().ToString()
-			};
+									{
+										Content = "content",
+										PageId = Guid.NewGuid().ToString(),
+										TreeNodeId = Guid.NewGuid().ToString(),
+									};
 
 			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
 
-			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.AggregateRootId.ToString() == inputModel.TreeNodeId)), Times.Once());
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.AggregateRootId.ToString() == inputModel.PageId)), Times.Once());
 		}
 
 		[TestMethod]
 		public void Sends_ModifyPage_command_with_correct_ParentId_when_ModelState_is_valid()
 		{
 			var inputModel = new ContentTreeNodeInputModel()
-			{
-				TreeNodeId = Guid.NewGuid().ToString(),
-				ParentTreeNodeId = "123"
-			};
+									{
+										PageId = Guid.NewGuid().ToString(),
+										TreeNodeId = Guid.NewGuid().ToString(),
+										ParentTreeNodeId = "123"
+									};
 
 			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
 
@@ -178,10 +188,11 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		public void Sends_ModifyPage_command_with_correct_Sequence_when_ModelState_is_valid()
 		{
 			var inputModel = new ContentTreeNodeInputModel()
-			{
-				TreeNodeId = Guid.NewGuid().ToString(),
-				Sequence = 100,
-			};
+									{
+										PageId = Guid.NewGuid().ToString(),
+										TreeNodeId = Guid.NewGuid().ToString(),
+										Sequence = 100,
+									};
 
 			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
 
@@ -192,10 +203,11 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		public void Sends_ModifyPage_command_with_correct_UrlSegment_when_ModelState_is_valid()
 		{
 			var inputModel = new ContentTreeNodeInputModel()
-			{
-				TreeNodeId = Guid.NewGuid().ToString(),
-				UrlSegment = "test"
-			};
+									{
+										PageId = Guid.NewGuid().ToString(),
+										TreeNodeId = Guid.NewGuid().ToString(),
+										UrlSegment = "test"
+									};
 
 			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
 
@@ -206,14 +218,46 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		public void Sends_ModifyPage_command_with_correct_StepId_when_ModelState_is_valid()
 		{
 			var inputModel = new ContentTreeNodeInputModel()
-			{
-				TreeNodeId = Guid.NewGuid().ToString(),
-				ContentItemId = "Confirm"
-			};
+										{
+											PageId = Guid.NewGuid().ToString(),
+											TreeNodeId = Guid.NewGuid().ToString(),
+											ContentItemId = "Confirm"
+										};
 
 			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.ActionId == inputModel.ContentItemId)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_ModifyPage_command_with_correct_TreeNodeId_when_ModelState_is_valid()
+		{
+			var treeNodeId = Guid.NewGuid();
+			var inputModel = new ContentTreeNodeInputModel()
+									{
+										PageId = Guid.NewGuid().ToString(),
+										TreeNodeId = treeNodeId.ToString(),
+										ContentItemId = "Confirm"
+									};
+
+			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.TreeNodeId.ToString() == inputModel.TreeNodeId)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Only_sends_a_single_ModifyPage_command()
+		{
+			var inputModel = new ContentTreeNodeInputModel()
+									{
+										PageId = Guid.NewGuid().ToString(),
+										TreeNodeId = Guid.NewGuid().ToString(),
+										ContentItemId = "Confirm"
+									};
+
+			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.IsAny<ModifyPageCommand>()), Times.Once());
 		}
 
 		[TestMethod]

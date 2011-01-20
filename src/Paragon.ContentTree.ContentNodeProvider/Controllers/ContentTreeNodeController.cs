@@ -81,11 +81,13 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 				                      		ContentTreeNodeInputModel = contentTreeNodeInputModel,
 											Action = "Create",
 				                      	});
-			contentTreeNodeInputModel.TreeNodeId = contentTreeNodeContext.CreateTreeNodeAndReturnTreeNodeId(contentTreeNodeInputModel);
+			//contentTreeNodeInputModel.TreeNodeId = 
+			var treeNodeId = contentTreeNodeContext.CreateTreeNodeAndReturnTreeNodeId(contentTreeNodeInputModel);
 
 			commandBus.Send(new CreatePageCommand()
 			                	{
-									PageId = new Guid(contentTreeNodeInputModel.TreeNodeId),
+									PageId = guidGetter.GetGuid(),
+									TreeNodeId = new Guid(treeNodeId),
 			                		Body = contentTreeNodeInputModel.Content,
 									HeaderText = contentTreeNodeInputModel.HeaderText,
 									Name = contentTreeNodeInputModel.Name,
@@ -129,7 +131,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 
 			var modifyPageComand = new ModifyPageCommand()
 								{
-									AggregateRootId = new Guid(contentTreeNodeInputModel.TreeNodeId),
+									AggregateRootId = new Guid(contentTreeNodeInputModel.PageId),
+									TreeNodeId = new Guid(contentTreeNodeInputModel.TreeNodeId),
 									HeaderText = contentTreeNodeInputModel.HeaderText,
 									Name = contentTreeNodeInputModel.Name,
 									Body = contentTreeNodeInputModel.Content,
@@ -139,19 +142,6 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 									ActionId = contentTreeNodeInputModel.ContentItemId,
 								};
 			commandBus.Send(modifyPageComand);
-
-			//var contentTreeNodeFromRepository = contentTreeNodeRepository.GetAllContentTreeNodes().Where(a => a.TreeNodeId == contentTreeNodeInputModel.TreeNodeId && a.ContentItemId == contentTreeNodeInputModel.ContentItemId).FirstOrDefault();
-			
-			//if (contentTreeNodeFromRepository == null)
-			//{
-			//    contentTreeNodeFromRepository = contentTreeNodeInputModelToContentTreeNodeMapper.CreateInstance(contentTreeNodeInputModel);
-			//    contentTreeNodeRepository.Create(contentTreeNodeFromRepository);
-			//}
-			//else
-			//{
-			//    contentTreeNodeInputModelToContentTreeNodeMapper.LoadIntoInstance(contentTreeNodeInputModel, contentTreeNodeFromRepository);
-			//    contentTreeNodeRepository.Update(contentTreeNodeFromRepository);
-			//}
 			
 			if (contentTreeNodeInputModel.Action != null)
 			{

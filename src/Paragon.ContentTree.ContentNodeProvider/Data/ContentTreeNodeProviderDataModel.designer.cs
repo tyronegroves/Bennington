@@ -90,6 +90,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 		
 		private string _LastModifyBy;
 		
+		private string _PageId;
+		
 		private string _TreeNodeId;
 		
 		private string _UrlSegment;
@@ -108,6 +110,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 		
 		private string _Body;
 		
+		private string _MetaKeyword;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -122,6 +126,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
     partial void OnLastModifyDateChanged();
     partial void OnLastModifyByChanging(string value);
     partial void OnLastModifyByChanged();
+    partial void OnPageIdChanging(string value);
+    partial void OnPageIdChanged();
     partial void OnTreeNodeIdChanging(string value);
     partial void OnTreeNodeIdChanged();
     partial void OnUrlSegmentChanging(string value);
@@ -140,6 +146,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
     partial void OnHeaderTextChanged();
     partial void OnBodyChanging(string value);
     partial void OnBodyChanged();
+    partial void OnMetaKeywordChanging(string value);
+    partial void OnMetaKeywordChanged();
     #endregion
 		
 		public ContentNodeProviderDraft()
@@ -243,6 +251,26 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 					this._LastModifyBy = value;
 					this.SendPropertyChanged("LastModifyBy");
 					this.OnLastModifyByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PageId", DbType="NVarChar(100)")]
+		public string PageId
+		{
+			get
+			{
+				return this._PageId;
+			}
+			set
+			{
+				if ((this._PageId != value))
+				{
+					this.OnPageIdChanging(value);
+					this.SendPropertyChanging();
+					this._PageId = value;
+					this.SendPropertyChanged("PageId");
+					this.OnPageIdChanged();
 				}
 			}
 		}
@@ -423,6 +451,26 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 					this._Body = value;
 					this.SendPropertyChanged("Body");
 					this.OnBodyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MetaKeyword", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		public string MetaKeyword
+		{
+			get
+			{
+				return this._MetaKeyword;
+			}
+			set
+			{
+				if ((this._MetaKeyword != value))
+				{
+					this.OnMetaKeywordChanging(value);
+					this.SendPropertyChanging();
+					this._MetaKeyword = value;
+					this.SendPropertyChanged("MetaKeyword");
+					this.OnMetaKeywordChanged();
 				}
 			}
 		}
