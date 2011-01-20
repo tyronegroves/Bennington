@@ -96,9 +96,9 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 									Type = Type.GetType(contentTreeNodeInputModel.Type),
 			                	});
 
-			if (!string.IsNullOrEmpty(contentTreeNodeInputModel.Action))
+			if (!string.IsNullOrEmpty(contentTreeNodeInputModel.FormAction))
 			{
-				if (contentTreeNodeInputModel.Action.ToLower() == "save and exit")
+				if (contentTreeNodeInputModel.FormAction.ToLower() == "save and exit")
 					return new RedirectToRouteResult(new RouteValueDictionary()
 			                                 	{
 			                                 		{"controller", "ContentTree"},

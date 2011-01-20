@@ -7,12 +7,12 @@ using Paragon.ContentTree.Routing.Routing.Helpers;
 
 namespace Paragon.ContentTree.ExampleEngineNodeProvider.Routing
 {
-	public class RegisterContactUsRoutes : IRouteRegistrator
+	public class RegisterExampleEngineNodeProviderRoutes : IRouteRegistrator
 	{
 		private readonly ITreeNodeIdToUrl treeNodeIdToUrl;
 		private readonly ITreeNodeRepository treeNodeRepository;
 
-		public RegisterContactUsRoutes(ITreeNodeRepository treeNodeRepository, ITreeNodeIdToUrl treeNodeIdToUrl)
+		public RegisterExampleEngineNodeProviderRoutes(ITreeNodeRepository treeNodeRepository, ITreeNodeIdToUrl treeNodeIdToUrl)
 		{
 			this.treeNodeRepository = treeNodeRepository;
 			this.treeNodeIdToUrl = treeNodeIdToUrl;
@@ -20,9 +20,9 @@ namespace Paragon.ContentTree.ExampleEngineNodeProvider.Routing
 
 		public void Register(RouteCollection routes)
 		{
-			foreach (var contactUsNode in treeNodeRepository.GetAll().Where(a => a.Type == typeof(ExampleEngineNodeProvider).AssemblyQualifiedName))
+			foreach (var treeNode in treeNodeRepository.GetAll().Where(a => a.Type == typeof(ExampleEngineNodeProvider).AssemblyQualifiedName))
 			{
-				var url = treeNodeIdToUrl.GetUrlByTreeNodeId(contactUsNode.Id);
+				var url = treeNodeIdToUrl.GetUrlByTreeNodeId(treeNode.Id);
 				if (url.StartsWith("/")) url = url.Substring(1);
 				url = url + "/{action}";
 				routes.Add(new Route

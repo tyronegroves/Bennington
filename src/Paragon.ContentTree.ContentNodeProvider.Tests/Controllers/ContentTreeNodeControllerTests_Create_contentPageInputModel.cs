@@ -57,6 +57,24 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 		}
 
 		[TestMethod]
+		public void Returns_RedirectToRouteResult_when_ModelState_is_valid_and_FormAction_is_save_and_exit()
+		{
+			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
+			{
+				ParentTreeNodeId = "2",
+				Type = typeof(string).AssemblyQualifiedName,
+				FormAction = "save and exit",
+			};
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>()))
+				.Returns(new Guid().ToString());
+
+			var contentTreeNodeController = mocker.Resolve<ContentTreeNodeController>();
+			var result = contentTreeNodeController.Create(contentTreeNodeInputModel);
+
+			Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));
+		}
+
+		[TestMethod]
 		public void Returns_view_model_with_input_model_set_to_same_input_model_that_was_passed_in_when_ModelState_is_invalid()
 		{
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()

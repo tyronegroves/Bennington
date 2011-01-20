@@ -116,7 +116,7 @@
     <Compile Include="Repositories\ContentTreeContactUsNodeRepository.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Routing\RegisterContactUsRoutes.cs">
+    <Compile Include="Routing\RegisterExampleEngineNodeProviderRoutes.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Validation\ContentTreeContactUsNodeInputModelValidator.cs">
