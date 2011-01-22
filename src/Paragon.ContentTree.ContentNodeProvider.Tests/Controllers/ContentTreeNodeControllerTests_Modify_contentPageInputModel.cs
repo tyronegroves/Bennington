@@ -191,13 +191,13 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 										{
 											PageId = Guid.NewGuid().ToString(),
 											TreeNodeId = treeNodeId.ToString(),
-											Content = "content",
+											Body = "content",
 											Action = "Index",
 										};
 
 			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
 
-			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.Body == inputModel.Content)), Times.Once());
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.Body == inputModel.Body)), Times.Once());
 		}
 
 		[TestMethod]
@@ -215,7 +215,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 							});
 			var inputModel = new ContentTreeNodeInputModel()
 									{
-										Content = "content",
+										Body = "content",
 										PageId = Guid.NewGuid().ToString(),
 										TreeNodeId = treeNodeId.ToString(),
 										Action = "Index"
@@ -511,12 +511,12 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			{
 				TreeNodeId = treeNodeId.ToString(),
 				Action = "Confirmation",
-				Content = "content",
+				Body = "content",
 			};
 
 			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
 
-			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Body == inputModel.Content)), Times.Once());
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Body == inputModel.Body)), Times.Once());
 		}
 
 		[TestMethod]

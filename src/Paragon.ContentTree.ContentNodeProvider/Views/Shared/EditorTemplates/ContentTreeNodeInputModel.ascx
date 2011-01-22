@@ -50,10 +50,10 @@
     </div>
 
     <div class="editor-label">
-        <%: Html.LabelFor(model => model.Content) %>
+        <%: Html.LabelFor(model => model.Body) %>
     </div>
     <div class="editor-field">
-        <%: Html.TextAreaFor(model => model.Content) %>
-        <%: Html.ValidationMessageFor(model => model.Content) %>
+        <%: Html.TextAreaFor(model => model.Body)%>
+        <%: Html.ValidationMessageFor(model => model.Body)%>
     </div>
 

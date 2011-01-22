@@ -28,14 +28,14 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Context
 					{
 						new ContentTreeNode()
 							{
-								Content = "content",
+								Body = "content",
 								TreeNodeId = "id",
 							}, 
 					}.AsQueryable());
 
 			var result = mocker.Resolve<ContentTreeNodeContext>().GetContentTreeNodesByTreeId("id");
 
-			Assert.AreEqual("content", result.First().Content);
+			Assert.AreEqual("content", result.First().Body);
 		}
 	}
 }

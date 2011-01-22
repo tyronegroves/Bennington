@@ -151,13 +151,13 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 														{
 															ParentTreeNodeId = "2",
-															Content = "content",
+															Body = "content",
 															Type = typeof(string).AssemblyQualifiedName
 														};
 
 			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
 
-			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Body == contentTreeNodeInputModel.Content)), Times.Once());
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Body == contentTreeNodeInputModel.Body)), Times.Once());
 		}
 
 		[TestMethod]
@@ -167,7 +167,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 														{
 															ParentTreeNodeId = "2",
-															Content = "content",
+															Body = "content",
 															HeaderText = "header text",
 															Name = "name",
 															Type = typeof(string).AssemblyQualifiedName
@@ -185,7 +185,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 														{
 															ParentTreeNodeId = "2",
-															Content = "content",
+															Body = "content",
 															Name = "header text",
 															Sequence = 100,
 															Type = typeof(string).AssemblyQualifiedName
@@ -203,7 +203,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 														{
 															ParentTreeNodeId = "2",
-															Content = "content",
+															Body = "content",
 															Name = "header text",
 															Sequence = 100,
 															UrlSegment = "url segment",
@@ -222,7 +222,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 														{
 															ParentTreeNodeId = "2",
-															Content = "content",
+															Body = "content",
 															Name = "header text",
 															Sequence = 100,
 															UrlSegment = "url segment",
@@ -243,7 +243,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 														{
 															ParentTreeNodeId = "2",
-															Content = "content",
+															Body = "content",
 															Name = "header text",
 															Sequence = 100,
 															UrlSegment = "url segment",
@@ -264,7 +264,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
 														{
 															ParentTreeNodeId = "2",
-															Content = "content",
+															Body = "content",
 															Name = "header text",
 															Sequence = 100,
 															UrlSegment = "url segment",

@@ -47,7 +47,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders
 			return (from item in contentTreeNodes
 			       select new ContentTreeNodeDisplayViewModel
 			              	{
-								Body = item.Content,
+								Body = item.Body,
 								Header = item.Name,
 			              	}).FirstOrDefault();
 		}

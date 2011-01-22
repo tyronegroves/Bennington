@@ -35,6 +35,6 @@ namespace Paragon.ContentTree.ContentNodeProvider.Models
 		public string UrlSegment { get; set; }
 
 		[DataType(DataType.MultilineText)]
-		public string Content { get; set; }
+		public string Body { get; set; }
 	}
 }

@@ -88,7 +88,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 			                	{
 									PageId = guidGetter.GetGuid(),
 									TreeNodeId = new Guid(treeNodeId),
-			                		Body = contentTreeNodeInputModel.Content,
+			                		Body = contentTreeNodeInputModel.Body,
 									HeaderText = contentTreeNodeInputModel.HeaderText,
 									Name = contentTreeNodeInputModel.Name,
 									Sequence = contentTreeNodeInputModel.Sequence,
@@ -136,7 +136,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 					TreeNodeId = new Guid(contentTreeNodeInputModel.TreeNodeId),
 					HeaderText = contentTreeNodeInputModel.HeaderText,
 					Name = contentTreeNodeInputModel.Name,
-					Body = contentTreeNodeInputModel.Content,
+					Body = contentTreeNodeInputModel.Body,
 					ParentId = contentTreeNodeInputModel.ParentTreeNodeId,
 					Sequence = contentTreeNodeInputModel.Sequence,
 					UrlSegment = contentTreeNodeInputModel.UrlSegment,
@@ -149,7 +149,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 				                	{
 				                		TreeNodeId = new Guid(contentTreeNodeInputModel.TreeNodeId),
 										PageId = guidGetter.GetGuid(),
-										Body = contentTreeNodeInputModel.Content,
+										Body = contentTreeNodeInputModel.Body,
 										HeaderText = contentTreeNodeInputModel.HeaderText,
 										Name = contentTreeNodeInputModel.Name,
 										UrlSegment = contentTreeNodeInputModel.UrlSegment,

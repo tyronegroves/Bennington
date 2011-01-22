@@ -17,7 +17,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Mappers
 		public override void DefineMap(AutoMapper.IConfiguration configuration)
 		{
 			configuration.CreateMap<Data.ContentNodeProviderDraft, Models.ContentTreeNode>()
-					.ForMember(a => a.Content, opt => opt.MapFrom(c => c.Body))
+					.ForMember(a => a.Body, opt => opt.MapFrom(c => c.Body))
 					.ForMember(a => a.Action, opt => opt.MapFrom(c => c.Action))
 				;
 		}

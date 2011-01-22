@@ -43,7 +43,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 				         		new ContentTreeNode()
 				         			{
 				         				Action = "Index",
-										Content = "page content1",
+										Body = "page content1",
 										Name = "test1"
 				         			}, 
 							});
@@ -74,7 +74,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 				         		new ContentTreeNode()
 				         			{
 				         				Action = "Index",
-										Content = "page content",
+										Body = "page content",
 										Name = "section1"
 				         			}, 
 							});
@@ -93,7 +93,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 				         		new ContentTreeNode()
 				         			{
 				         				Action = "Index",
-										Content = "page1 content",
+										Body = "page1 content",
 										Name = "page1"
 				         			}, 
 							});
@@ -123,7 +123,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 				         		new ContentTreeNode()
 				         			{
 				         				Action = "Index",
-										Content = "page content",
+										Body = "page content",
 										Name = "section1"
 				         			}, 
 							});
@@ -153,7 +153,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 				         		new ContentTreeNode()
 				         			{
 				         				Action = "Index",
-										Content = "page content",
+										Body = "page content",
 										Name = "section1"
 				         			}, 
 							});
@@ -183,7 +183,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 				         		new ContentTreeNode()
 				         			{
 				         				Action = "Index",
-										Content = "page content",
+										Body = "page content",
 				         			}, 
 							});
 			var routeData = new RouteData();
@@ -215,17 +215,17 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 		                        new ContentTreeNode()
 		                            {
 		                                Action = "Index",
-		                                Content = "page content",
+		                                Body = "page content",
 		                            }, 
 		                        new ContentTreeNode()
 		                            {
 		                                Action = "Index2",
-		                                Content = "page content2",
+		                                Body = "page content2",
 		                            },
 		                        new ContentTreeNode()
 		                            {
 		                                Action = "Index3",
-		                                Content = "page content3",
+		                                Body = "page content3",
 		                            },
 		                    });
 			var routeData = new RouteData();
