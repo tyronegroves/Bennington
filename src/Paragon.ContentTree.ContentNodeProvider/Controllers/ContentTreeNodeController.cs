@@ -72,6 +72,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 		}
 
 		[HttpPost]
+		[ValidateInput(false)]
 		public ActionResult Create(ContentTreeNodeInputModel contentTreeNodeInputModel)
 		{
 			if (string.IsNullOrEmpty(contentTreeNodeInputModel.Action)) contentTreeNodeInputModel.Action = "Index";
@@ -123,6 +124,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 		}
 
 		[HttpPost]
+		[ValidateInput(false)]
 		public ActionResult Modify(ContentTreeNodeInputModel contentTreeNodeInputModel)
 		{
 			if (ModelState.IsValid == false)

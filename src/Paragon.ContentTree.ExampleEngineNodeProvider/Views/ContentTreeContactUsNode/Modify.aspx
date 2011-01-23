@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<ContentTreeContactUsNodeProvider.Models.ContentTreeContactUsNodeInputModel>" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Paragon.ContentTree.ExampleEngineNodeProvider.Models.ContentTreeContactUsNodeInputModel>" %>
 
 <%@ Import Namespace="System.Web.Mvc" %>
 

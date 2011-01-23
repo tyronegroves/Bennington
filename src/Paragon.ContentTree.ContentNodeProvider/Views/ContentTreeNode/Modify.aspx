@@ -7,14 +7,6 @@
 <%@ Import Namespace="System.Security.Policy" %>
 
 <asp:Content ID="aboutContent" ContentPlaceHolderID="MainContent" runat="server">
-<%--
-<script type="text/javascript" src="/Scripts/tiny_mce/tiny_mce.js"></script>
-<script type="text/javascript">
-	tinyMCE.init({
-		mode: "textareas",
-		theme: "simple"
-	});
-</script>--%>
 
 <% Html.RenderAction("ContentItemNavigation", "ContentTreeNode", new { TreeNodeId = Model.ContentTreeNodeInputModel.TreeNodeId }); %>
 
