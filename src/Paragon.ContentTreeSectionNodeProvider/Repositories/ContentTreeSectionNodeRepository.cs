@@ -1,14 +1,15 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Paragon.ContentTree.Repositories;
 using Paragon.ContentTree.SectionNodeProvider.Data;
+using Paragon.ContentTree.SectionNodeProvider.Mappers;
+using Paragon.ContentTree.SectionNodeProvider.Models;
 
 namespace Paragon.ContentTree.SectionNodeProvider.Repositories
 {
 	public interface IContentTreeSectionNodeRepository
 	{
 		IQueryable<ContentTreeSectionNode> GetAllContentTreeSectionNodes();
-		void Update(ContentTreeSectionNode instance);
-		void Create(ContentTreeSectionNode instance);
 		void Delete(ContentTreeSectionNode instance);
 	}
 
@@ -16,33 +17,25 @@ namespace Paragon.ContentTree.SectionNodeProvider.Repositories
 	{
 		private readonly IDataModelDataContext dataModelDataContext;
 		private readonly ITreeNodeRepository treeNodeRepository;
+		private readonly ISectionNodeProviderDraftToContentTreeSectionNodeMapper sectionNodeProviderDraftToContentTreeSectionNodeMapper;
 
-		public ContentTreeSectionNodeRepository(IDataModelDataContext dataModelDataContext, ITreeNodeRepository treeNodeRepository)
+		public ContentTreeSectionNodeRepository(IDataModelDataContext dataModelDataContext, ITreeNodeRepository treeNodeRepository, ISectionNodeProviderDraftToContentTreeSectionNodeMapper sectionNodeProviderDraftToContentTreeSectionNodeMapper)
 		{
+			this.sectionNodeProviderDraftToContentTreeSectionNodeMapper = sectionNodeProviderDraftToContentTreeSectionNodeMapper;
 			this.treeNodeRepository = treeNodeRepository;
 			this.dataModelDataContext = dataModelDataContext;
 		}
 
 		public IQueryable<ContentTreeSectionNode> GetAllContentTreeSectionNodes()
 		{
-			return dataModelDataContext.ContentTreeSectionNodes;
+			return sectionNodeProviderDraftToContentTreeSectionNodeMapper.CreateSet(dataModelDataContext.GetAllSectionNodeProviderDrafts()).AsQueryable();
+			//return dataModelDataContext.ContentTreeSectionNodes;
 		}
 
 		public void Delete(ContentTreeSectionNode instance)
 		{
-			
 			// dataModelDataContext.Delete(instance);
 			treeNodeRepository.Delete(instance.TreeNodeId);
-		}
-
-		public void Update(ContentTreeSectionNode instance)
-		{
-			dataModelDataContext.Update(instance);
-		}
-
-		public void Create(ContentTreeSectionNode instance)
-		{
-			dataModelDataContext.Create(instance);
 		}
 	}
 }

@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapperAssist, Version=1.0.0.155, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="AutoMoq">
       <HintPath>..\..\lib\AutoMoq\AutoMoq.dll</HintPath>
     </Reference>
@@ -59,6 +60,7 @@
     <Compile Include="Denormalizers\SectionNodeProviderDraftDenormalizerTests_Handle.cs" />
     <Compile Include="Denormalizers\SectionNodeProviderDraftDenormalizerTests_Handle_SectionDeletedEvent.cs" />
     <Compile Include="Denormalizers\SectionNodeProviderDraftDenormalizerTests_Handle_SectionCreatedEvent.cs" />
+    <Compile Include="Mappers\SectionNodeProviderDraftToContentTreeSectionNodeMapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

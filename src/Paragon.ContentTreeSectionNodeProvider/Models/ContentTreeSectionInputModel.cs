@@ -7,6 +7,9 @@ namespace Paragon.ContentTree.SectionNodeProvider.Models
 	public class ContentTreeSectionInputModel
 	{
 		[HiddenInput(DisplayValue = false)]
+		public string SectionId { get; set; }
+
+		[HiddenInput(DisplayValue = false)]
 		public string Action { get; set; }
 
 		[HiddenInput(DisplayValue = false)]

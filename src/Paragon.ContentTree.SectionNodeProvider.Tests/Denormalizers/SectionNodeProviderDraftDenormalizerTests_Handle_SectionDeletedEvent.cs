@@ -26,13 +26,22 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Denormalizers
 		public void Calls_Delete_method_of_IDataModelDataContext_with_SectionNodeProvider_instance()
 		{
 			var id = Guid.NewGuid();
+			mocker.GetMock<IDataModelDataContext>().Setup(a => a.GetAllSectionNodeProviderDrafts())
+				.Returns(new SectionNodeProviderDraft[]
+				         	{
+				         		new SectionNodeProviderDraft()
+				         			{
+				         				Name = "x",
+										TreeNodeId = id.ToString(),
+				         			}, 
+						});
 			
 			mocker.Resolve<SectionNodeProviderDraftDenormalizer>().Handle(new SectionDeletedEvent()
 			                                                              	{
 			                                                              		AggregateRootId = id
 			                                                              	});
 
-			mocker.GetMock<IDataModelDataContext>().Verify(a => a.Delete(It.Is<SectionNodeProviderDraft>(b => b.SectionId == id.ToString())), Times.Once());
+			mocker.GetMock<IDataModelDataContext>().Verify(a => a.Delete(It.Is<SectionNodeProviderDraft>(b => b.Name =="x" && b.TreeNodeId == id.ToString())), Times.Once());
 		}
 	}
 }

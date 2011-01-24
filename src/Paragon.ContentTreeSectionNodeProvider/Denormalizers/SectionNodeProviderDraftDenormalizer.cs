@@ -10,7 +10,11 @@ namespace Paragon.ContentTree.SectionNodeProvider.Denormalizers
 {
 	public class SectionNodeProviderDraftDenormalizer : IHandleDomainEvents<SectionCreatedEvent>,
 														IHandleDomainEvents<SectionDeletedEvent>,
-														IHandleDomainEvents<SectionNameSetEvent>
+														IHandleDomainEvents<SectionNameSetEvent>,
+														IHandleDomainEvents<SectionTreeNodeIdSetEvent>,
+														IHandleDomainEvents<SectionUrlSegmentSetEvent>,
+														IHandleDomainEvents<SectionSequenceSetEvent>,
+														IHandleDomainEvents<SectionDefaultTreeNodeIdSetEvent>
 	{
 		private readonly IDataModelDataContext dataModelDataContext;
 
@@ -29,10 +33,8 @@ namespace Paragon.ContentTree.SectionNodeProvider.Denormalizers
 
 		public void Handle(SectionDeletedEvent domainEvent)
 		{
-			dataModelDataContext.Delete(new SectionNodeProviderDraft()
-			                            	{
-			                            		SectionId = domainEvent.AggregateRootId.ToString(),
-			                            	});
+			var sectionNodeProviderDraft = dataModelDataContext.GetAllSectionNodeProviderDrafts().Where(a => a.TreeNodeId == domainEvent.AggregateRootId.ToString()).FirstOrDefault();
+			dataModelDataContext.Delete(sectionNodeProviderDraft);
 		}
 
 		public void Handle(SectionNameSetEvent domainEvent)
@@ -65,6 +67,13 @@ namespace Paragon.ContentTree.SectionNodeProvider.Denormalizers
 		{
 			var sectionNodeProviderDraft = GetSectionNodeProviderDraftFromDomainEvent(domainEvent);
 			sectionNodeProviderDraft.DefaultTreeNodeId = domainEvent.DefaultTreeNodeId.ToString();
+			dataModelDataContext.Update(sectionNodeProviderDraft);
+		}
+
+		public void Handle(SectionTreeNodeIdSetEvent domainEvent)
+		{
+			var sectionNodeProviderDraft = GetSectionNodeProviderDraftFromDomainEvent(domainEvent);
+			sectionNodeProviderDraft.TreeNodeId = domainEvent.TreeNodeId.ToString();
 			dataModelDataContext.Update(sectionNodeProviderDraft);
 		}
 	}

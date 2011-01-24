@@ -11,23 +11,25 @@ CREATE TABLE TreeNode
 
 GO
 
-CREATE TABLE [dbo].[ContentTreeSectionNode](
-	[Key] [int] IDENTITY(1,1) NOT NULL,
-	[CreateDate] [datetime] NULL,
-	[CreateBy] [nvarchar](500) NULL,
-	[LastModifyDate] [datetime] NULL,
-	[LastModifyBy] [nvarchar](500) NULL,
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[SectionNodeProviderDraft](
+	[SectionId] [nvarchar](100) NOT NULL,
 	[TreeNodeId] [nvarchar](100) NULL,
 	[Sequence] [int] NULL,
 	[Name] [nvarchar](500) NULL,
 	[UrlSegment] [nvarchar](500) NULL,
-	[Title] [nvarchar](100) NULL,
 	[DefaultTreeNodeId] [nvarchar](100) NULL,
- CONSTRAINT [PK_ContentTreeSectionNode] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_SectionNodeProviderDraft_1] PRIMARY KEY CLUSTERED 
 (
-	[Key] ASC
+	[SectionId] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+
 
 GO
 

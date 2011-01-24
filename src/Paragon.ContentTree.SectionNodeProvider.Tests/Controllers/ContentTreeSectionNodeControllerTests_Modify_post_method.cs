@@ -26,7 +26,10 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers
 		[TestMethod]
 		public void Sends_ModifySectionCommand_when_model_state_is_valid()
 		{
-			mocker.Resolve<ContentTreeSectionNodeController>().Modify(new ContentTreeSectionInputModel());
+			mocker.Resolve<ContentTreeSectionNodeController>().Modify(new ContentTreeSectionInputModel()
+			                                                          	{
+			                                                          		SectionId = Guid.NewGuid().ToString()
+			                                                          	});
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.IsAny<ModifySectionCommand>()), Times.Once());
 		}
@@ -37,7 +40,10 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers
 			var controller = mocker.Resolve<ContentTreeSectionNodeController>();
 			controller.ModelState.AddModelError("key", "error");
 
-			controller.Modify(new ContentTreeSectionInputModel());
+			controller.Modify(new ContentTreeSectionInputModel()
+			                  	{
+									SectionId = Guid.NewGuid().ToString()
+			                  	});
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.IsAny<ModifySectionCommand>()), Times.Never());
 		}
@@ -50,6 +56,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers
 			{
 				Action = "action",
 				DefaultTreeNodeId = defaultTreeNodeId,
+				SectionId = Guid.NewGuid().ToString()
 			});
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifySectionCommand>(b => b.DefaultTreeNodeId == defaultTreeNodeId)), Times.Once());
@@ -62,7 +69,8 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers
 			mocker.Resolve<ContentTreeSectionNodeController>().Modify(new ContentTreeSectionInputModel()
 			{
 				Action = "action",
-				Name = "name"
+				Name = "name",
+				SectionId = Guid.NewGuid().ToString()
 			});
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifySectionCommand>(b => b.Name == "name")), Times.Once());
@@ -75,7 +83,8 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers
 			mocker.Resolve<ContentTreeSectionNodeController>().Modify(new ContentTreeSectionInputModel()
 			{
 				Action = "action",
-				ParentTreeNodeId = "parentId"
+				ParentTreeNodeId = "parentId",
+				SectionId = Guid.NewGuid().ToString()
 			});
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifySectionCommand>(b => b.ParentTreeNodeId == "parentId")), Times.Once());
@@ -89,6 +98,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers
 			{
 				Action = "action",
 				Sequence = 1000,
+				SectionId = Guid.NewGuid().ToString()
 			});
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifySectionCommand>(b => b.Sequence == 1000)), Times.Once());
@@ -102,6 +112,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers
 			{
 				Action = "action",
 				UrlSegment = "urlSegment",
+				SectionId = Guid.NewGuid().ToString()
 			});
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifySectionCommand>(b => b.UrlSegment == "urlSegment")), Times.Once());
@@ -116,6 +127,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers
 				TreeNodeId = treeNodeId.ToString(),
 				Action = "action",
 				UrlSegment = "urlSegment",
+				SectionId = Guid.NewGuid().ToString()
 			});
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifySectionCommand>(b => b.TreeNodeId == treeNodeId.ToString())), Times.Once());

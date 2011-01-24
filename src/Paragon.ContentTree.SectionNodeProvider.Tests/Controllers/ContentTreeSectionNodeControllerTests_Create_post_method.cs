@@ -131,6 +131,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers
 		[TestMethod]
 		public void Sends_CreateSectionCommand_with_tree_node_id_returned_by_ITreeNodeSummaryContext()
 		{
+			mocker.GetMock<IGuidGetter>().Setup(a => a.GetGuid()).Returns(Guid.NewGuid());
 			var treeNodeId = new Guid().ToString();
 			mocker.GetMock<ITreeNodeSummaryContext>().Setup(a => a.Create(It.IsAny<string>(), It.IsAny<string>()))
 				.Returns(treeNodeId.ToString());
@@ -138,6 +139,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers
 			{
 				Action = "action",
 				UrlSegment = "urlSegment",
+				SectionId = Guid.NewGuid().ToString()
 			});
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreateSectionCommand>(b => b.TreeNodeId == treeNodeId)), Times.Once());

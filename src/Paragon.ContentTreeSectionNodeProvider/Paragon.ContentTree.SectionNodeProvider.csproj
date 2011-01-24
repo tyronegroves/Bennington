@@ -93,7 +93,9 @@
     <Compile Include="Denormalizers\SectionNodeProviderDraftDenormalizer.cs" />
     <Compile Include="Mappers\ContentTreeSectionNodeInputModelToContentTreeSectionNodeMapper.cs" />
     <Compile Include="Mappers\ContentTreeSectionNodeToContentTreeSectionInputModelMapper.cs" />
+    <Compile Include="Mappers\SectionNodeProviderDraftToContentTreeSectionNodeMapper.cs" />
     <Compile Include="Models\ContentTreeSectionInputModel.cs" />
+    <Compile Include="Models\ContentTreeSectionNode.cs" />
     <Compile Include="Models\ContentTreeSectionNodeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

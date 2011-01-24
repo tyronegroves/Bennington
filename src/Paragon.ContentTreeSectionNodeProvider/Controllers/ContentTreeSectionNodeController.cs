@@ -43,8 +43,11 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 
 		public ActionResult Delete(string treeNodeId)
 		{
+			commandBus.Send(new DeleteTreeNodeCommand()
+			{
+				AggregateRootId = new Guid(treeNodeId)
+			});
 			commandBus.Send(new DeleteSectionCommand(){ AggregateRootId = new Guid(treeNodeId) });
-			contentTreeSectionNodeContext.Delete(treeNodeId);
 			return new RedirectToRouteResult(new RouteValueDictionary { { "controller", "ContentTree" }, { "action", "Index" } });
 		}
 
@@ -58,12 +61,12 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 											Action = "Create",
 				                      	});
 
-			var treeNodeId = treeNodeSummaryContext.Create(contentTreeSectionInputModel.ParentTreeNodeId, typeof(SectionNodeProvider).AssemblyQualifiedName);
+			var treeNodeIdString = treeNodeSummaryContext.Create(contentTreeSectionInputModel.ParentTreeNodeId, typeof(SectionNodeProvider).AssemblyQualifiedName);
 			
 			commandBus.Send(new CreateSectionCommand()
 			                	{
 									SectionId = guidGetter.GetGuid().ToString(),
-									TreeNodeId = treeNodeId,
+									TreeNodeId = treeNodeIdString,
 			                		DefaultTreeNodeId = contentTreeSectionInputModel.DefaultTreeNodeId,
 									Name = contentTreeSectionInputModel.Name,
 									ParentTreeNodeId = contentTreeSectionInputModel.ParentTreeNodeId,
@@ -78,6 +81,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 													{"action", "Index"},
 			                                 	});
 
+			contentTreeSectionInputModel.TreeNodeId = treeNodeIdString;
 			return new RedirectResult(GetRedirectUrlToModifyMethod(contentTreeSectionInputModel));
 		}
 
@@ -101,6 +105,8 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 
 			commandBus.Send(new ModifySectionCommand()
 			                	{
+									AggregateRootId = new Guid(contentTreeSectionInputModel.SectionId),
+									SectionId = contentTreeSectionInputModel.SectionId,
 									TreeNodeId = contentTreeSectionInputModel.TreeNodeId,
 			                		DefaultTreeNodeId = contentTreeSectionInputModel.DefaultTreeNodeId,
 									ParentTreeNodeId = contentTreeSectionInputModel.ParentTreeNodeId,

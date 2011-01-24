@@ -12,6 +12,7 @@ namespace Paragon.ContentTree.Domain.CommandHandlers
 	{
 		public override void Handle(DeleteSectionCommand command, Section aggregateRoot)
 		{
+			aggregateRoot.SectionId = command.AggregateRootId;
 			aggregateRoot.Delete();
 		}
 	}

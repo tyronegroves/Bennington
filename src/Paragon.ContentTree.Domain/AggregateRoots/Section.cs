@@ -17,6 +17,12 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 			Apply(new SectionCreatedEvent(){ AggregateRootId = sectionId, SectionId =  sectionId });
 		}
 
+		public Guid SectionId
+		{
+			get { return Id; }
+			set { Id = value; }
+		}
+
 		public void OnSectionCreatedEvent(SectionCreatedEvent sectionCreatedEvent)
 		{
 			Id = sectionCreatedEvent.AggregateRootId;
@@ -60,6 +66,15 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 		public void Delete()
 		{
 			Apply(new SectionDeletedEvent() { AggregateRootId = Id });
+		}
+
+		public void SetTreeNodeId(Guid guid)
+		{
+			Apply(new SectionTreeNodeIdSetEvent()
+			      	{
+			      		AggregateRootId = Id,
+						TreeNodeId = guid,
+			      	});
 		}
 	}
 }

@@ -112,6 +112,7 @@
     <Compile Include="Events\Section\SectionCreatedEvent.cs" />
     <Compile Include="Events\Section\SectionSequenceSetEvent.cs" />
     <Compile Include="Events\Page\PageActionSetEvent.cs" />
+    <Compile Include="Events\Section\SectionTreeNodeIdSetEvent.cs" />
     <Compile Include="Events\TreeNode\TreeNodeCreatedEvent.cs" />
     <Compile Include="Events\TreeNode\TreeNodeDeletedEvent.cs" />
     <Compile Include="Events\TreeNode\TreeNodeIdSetEvent.cs" />

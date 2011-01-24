@@ -23,6 +23,16 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers
 		}
 
 		[TestMethod]
+		public void Sends_DeleteTreeNodeCommand()
+		{
+			var guid = new Guid();
+
+			mocker.Resolve<ContentTreeSectionNodeController>().Delete(guid.ToString());
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<DeleteTreeNodeCommand>(b => b.AggregateRootId == guid)), Times.Once());
+		}
+
+		[TestMethod]
 		public void Sends_DeleteSectionCommand()
 		{
 			var guid = new Guid();

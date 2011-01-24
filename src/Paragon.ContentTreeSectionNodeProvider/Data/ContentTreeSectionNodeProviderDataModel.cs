@@ -10,19 +10,19 @@ namespace Paragon.ContentTree.SectionNodeProvider.Data
 {
 	public interface IDataModelDataContext
 	{
-		Table<ContentTreeSectionNode> ContentTreeSectionNodes { get; }
-		void Create(ContentTreeSectionNode instance);
-		void Update(ContentTreeSectionNode instance);
-		void Delete(ContentTreeSectionNode instance);
+		//IEnumerable<ContentTreeSectionNode> ContentTreeSectionNodes { get; }
+		//void Create(ContentTreeSectionNode instance);
+		//void Update(ContentTreeSectionNode instance);
+		//void Delete(ContentTreeSectionNode instance);
 		IEnumerable<SectionNodeProviderDraft> GetAllSectionNodeProviderDrafts();
 		void Create(SectionNodeProviderDraft instance);
 		void Update(SectionNodeProviderDraft instance);
 		void Delete(SectionNodeProviderDraft instance);
 	}
 
-	partial class ContentTreeSectionNode : IAmATreeNodeExtension
-	{
-	}
+	//partial class ContentTreeSectionNode : IAmATreeNodeExtension
+	//{
+	//}
 
 
 	partial class ContentTreeSectionNodeProviderDataModelDataContext : IDataModelDataContext
@@ -32,31 +32,31 @@ namespace Paragon.ContentTree.SectionNodeProvider.Data
 			Connection.ConnectionString = ConfigurationManager.ConnectionStrings["Paragon.ContentTreeNodeProvider"].ConnectionString;
 		}
 
-		public void Create(ContentTreeSectionNode instance)
-		{
-			using (new TransactionScope(TransactionScopeOption.Suppress))
-			{
-				ContentTreeSectionNodes.InsertOnSubmit(instance);
-				SubmitChanges();
-			}
-		}
+		//public void Create(ContentTreeSectionNode instance)
+		//{
+		//    using (new TransactionScope(TransactionScopeOption.Suppress))
+		//    {
+		//        ContentTreeSectionNodes.InsertOnSubmit(instance);
+		//        SubmitChanges();
+		//    }
+		//}
 
-		public void Update(ContentTreeSectionNode instance)
-		{
-			using (new TransactionScope(TransactionScopeOption.Suppress))
-			{
-				SubmitChanges();
-			}
-		}
+		//public void Update(ContentTreeSectionNode instance)
+		//{
+		//    using (new TransactionScope(TransactionScopeOption.Suppress))
+		//    {
+		//        SubmitChanges();
+		//    }
+		//}
 
-		public void Delete(ContentTreeSectionNode instance)
-		{
-			using (new TransactionScope(TransactionScopeOption.Suppress))
-			{
-				ContentTreeSectionNodes.DeleteAllOnSubmit(new[] { instance });
-				SubmitChanges();
-			}
-		}
+		//public void Delete(ContentTreeSectionNode instance)
+		//{
+		//    using (new TransactionScope(TransactionScopeOption.Suppress))
+		//    {
+		//        ContentTreeSectionNodes.DeleteAllOnSubmit(new[] { instance });
+		//        SubmitChanges();
+		//    }
+		//}
 
 		public IEnumerable<SectionNodeProviderDraft> GetAllSectionNodeProviderDrafts()
 		{

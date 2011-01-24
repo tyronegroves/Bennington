@@ -10,15 +10,17 @@ namespace Paragon.ContentTree.Domain.CommandHandlers
 {
 	public class ModifySectionCommandHandler : AggregateRootCommandHandler<ModifySectionCommand, Section>
 	{
-		public override void Handle(ModifySectionCommand command, Section page)
+		public override void Handle(ModifySectionCommand command, Section section)
 		{
+			section.SectionId = command.AggregateRootId;
+			section.SetTreeNodeId(new Guid(command.TreeNodeId));
 			if (!string.IsNullOrEmpty(command.ParentTreeNodeId))
-				page.SetParentTreeNodeId(new Guid(command.ParentTreeNodeId));
-			page.SetName(command.Name);
+				section.SetParentTreeNodeId(new Guid(command.ParentTreeNodeId));
+			section.SetName(command.Name);
 			if (!string.IsNullOrEmpty(command.DefaultTreeNodeId))
-				page.SetDefaultTreeNodeId(new Guid(command.DefaultTreeNodeId));
-			page.SetSequence(command.Sequence);
-			page.SetUrlSegment(command.UrlSegment);
+				section.SetDefaultTreeNodeId(new Guid(command.DefaultTreeNodeId));
+			section.SetSequence(command.Sequence);
+			section.SetUrlSegment(command.UrlSegment);
 		}
 	}
 }

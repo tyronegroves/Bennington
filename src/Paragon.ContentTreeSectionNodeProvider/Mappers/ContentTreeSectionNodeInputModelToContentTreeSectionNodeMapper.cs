@@ -16,11 +16,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Mappers
 		public override void DefineMap(IConfiguration configuration)
 		{
 			configuration.CreateMap<ContentTreeSectionInputModel, ContentTreeSectionNode>()
-				.ForMember(dest => dest.Key, opt => opt.Ignore())
-				.ForMember(dest => dest.CreateBy, opt => opt.Ignore())
-				.ForMember(dest => dest.CreateDate, opt => opt.Ignore())
-				.ForMember(dest => dest.LastModifyBy, opt => opt.Ignore())
-				.ForMember(dest => dest.LastModifyDate, opt => opt.Ignore());
+					;
 		}
 	}
 }

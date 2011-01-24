@@ -127,5 +127,32 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Denormalizers
 				&& b.Name == "x"
 				&& b.SectionId == id.ToString())), Times.Once());
 		}
+
+		[TestMethod]
+		public void Calls_Update_method_of_IDataModelDataContext_with_correct_TreeNodeId_property_value_set_on_SectionNodeProvider_instance()
+		{
+			var id = Guid.NewGuid();
+			var defaultTreeNodeId = Guid.NewGuid();
+			mocker.GetMock<IDataModelDataContext>().Setup(a => a.GetAllSectionNodeProviderDrafts())
+				.Returns(new SectionNodeProviderDraft[]
+								{
+									new SectionNodeProviderDraft()
+										{
+											SectionId = id.ToString(),
+											Name = "x"
+										}, 
+								});
+
+			mocker.Resolve<SectionNodeProviderDraftDenormalizer>().Handle(new SectionTreeNodeIdSetEvent()
+			{
+				AggregateRootId = id,
+				TreeNodeId = defaultTreeNodeId
+			});
+
+			mocker.GetMock<IDataModelDataContext>().Verify(a => a.Update(It.Is<SectionNodeProviderDraft>(b =>
+				b.TreeNodeId == defaultTreeNodeId.ToString()
+				&& b.Name == "x"
+				&& b.SectionId == id.ToString())), Times.Once());
+		}
 	}
 }

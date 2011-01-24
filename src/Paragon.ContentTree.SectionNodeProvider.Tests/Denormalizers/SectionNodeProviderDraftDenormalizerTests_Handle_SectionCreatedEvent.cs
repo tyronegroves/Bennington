@@ -29,7 +29,8 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Denormalizers
 			
 			mocker.Resolve<SectionNodeProviderDraftDenormalizer>().Handle(new SectionCreatedEvent()
 			                                                              	{
-			                                                              		AggregateRootId = id
+			                                                              		AggregateRootId = id,
+																				SectionId = id
 			                                                              	});
 
 			mocker.GetMock<IDataModelDataContext>().Verify(a => a.Create(It.Is<SectionNodeProviderDraft>(b => b.SectionId == id.ToString())), Times.Once());

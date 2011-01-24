@@ -10,6 +10,7 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 	{
 		public Page(Guid pageId)
 		{
+			Id = pageId;
 			Apply(new PageCreatedEvent(){ AggregateRootId = pageId });
 		}
 
@@ -36,7 +37,7 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 
 		public void SetName(string name)
 		{
-			Apply(new PageNameSetEvent() { Name = name });
+			Apply(new PageNameSetEvent() { AggregateRootId = Id, Name = name });
 		}
 
 		public void SetActionId(string stepId)
@@ -46,7 +47,7 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 
 		public void SetParentTreeNodeId(Guid parentTreeNodeId)
 		{
-			Apply(new PageParentTreeNodeIdSetEvent() { ParentTreeNodeId = parentTreeNodeId });
+			Apply(new PageParentTreeNodeIdSetEvent() { AggregateRootId = Id, ParentTreeNodeId = parentTreeNodeId });
 		}
 
 		public void SetMetaTitle(string metaTitle)
@@ -56,44 +57,44 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 
 		public void SetMetaDescription(string metaDescription)
 		{
-			Apply(new MetaDescriptionSetEvent() { MetaDescription = metaDescription });
+			Apply(new MetaDescriptionSetEvent() { AggregateRootId = Id, MetaDescription = metaDescription });
 		}
 
 		public void SetMetaKeyword(string metaKeyword)
 		{
-			Apply(new MetaKeywordSetEvent() { MetaKeyword = metaKeyword });
+			Apply(new MetaKeywordSetEvent() { AggregateRootId = Id, MetaKeyword = metaKeyword });
 		}
 
 		public void SetHeaderText(string headerText)
 		{
-			Apply(new HeaderTextSetEvent() { HeaderText = headerText });
+			Apply(new HeaderTextSetEvent() { AggregateRootId = Id, HeaderText = headerText });
 		}
 
 		public void SetBody(string body)
 		{
-			Apply(new BodySetEvent() { Body = body });
+			Apply(new BodySetEvent() { AggregateRootId = Id, Body = body });
 		}
 
 		public void SetUrlSegment(string urlSegment)
 		{
-			Apply(new PageUrlSegmentSetEvent() { UrlSegment = urlSegment });
+			Apply(new PageUrlSegmentSetEvent() { AggregateRootId = Id, UrlSegment = urlSegment });
 		}
 
 		public void SetTreeNodeId(Guid treeNodeId)
 		{
-			Apply(new PageTreeNodeIdSetEvent() { TreeNodeId  = treeNodeId });
+			Apply(new PageTreeNodeIdSetEvent() { AggregateRootId = Id, TreeNodeId = treeNodeId });
 		}
 
 		public void Publish()
 		{
-			Apply(new PagePublishedEvent(){ Id = Id });
+			Apply(new PagePublishedEvent() { AggregateRootId = Id, Id = Id });
 		}
 
 		public void Delete(Guid treeNodeId)
 		{
 			Apply(new PageDeletedEvent()
 			      	{
-			      		AggregateRootId = treeNodeId,
+			      		AggregateRootId = Id,
 						TreeNodeId = treeNodeId,
 			      	});
 		}
@@ -102,6 +103,7 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 		{
 			Apply(new PageTypeSetEvent()
 			      	{
+						AggregateRootId = Id,
 			      		Type = type
 			      	});
 		}
@@ -110,6 +112,7 @@ namespace Paragon.ContentTree.Domain.AggregateRoots
 		{
 			Apply(new PageSequenceSetEvent()
 			{
+				AggregateRootId = Id,
 				PageSequence = sequence
 			});
 		}
