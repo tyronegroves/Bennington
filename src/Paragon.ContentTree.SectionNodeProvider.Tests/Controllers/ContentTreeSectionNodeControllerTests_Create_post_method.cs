@@ -5,9 +5,11 @@ using System.Linq;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Domain.Commands;
 using Paragon.ContentTree.SectionNodeProvider.Controllers;
 using Paragon.ContentTree.SectionNodeProvider.Models;
+using Paragon.Core.Helpers;
 using SimpleCqrs.Commanding;
 
 namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers
@@ -111,6 +113,47 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers
 			});
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreateSectionCommand>(b => b.UrlSegment == "urlSegment")), Times.Once());
+		}
+
+		[TestMethod]
+		public void Calls_Create_method_of_ITreeNodeSummaryContext_with_proper_args_when_input_model_is_valid()
+		{
+			var parentNodeId = Guid.NewGuid();
+			mocker.Resolve<ContentTreeSectionNodeController>().Create(new ContentTreeSectionInputModel()
+																			{
+																				Action = "action",
+																				ParentTreeNodeId = parentNodeId.ToString(),
+																			});
+
+			mocker.GetMock<ITreeNodeSummaryContext>().Verify(a => a.Create(parentNodeId.ToString(), typeof(SectionNodeProvider).AssemblyQualifiedName), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_CreateSectionCommand_with_tree_node_id_returned_by_ITreeNodeSummaryContext()
+		{
+			var treeNodeId = new Guid().ToString();
+			mocker.GetMock<ITreeNodeSummaryContext>().Setup(a => a.Create(It.IsAny<string>(), It.IsAny<string>()))
+				.Returns(treeNodeId.ToString());
+			mocker.Resolve<ContentTreeSectionNodeController>().Create(new ContentTreeSectionInputModel()
+			{
+				Action = "action",
+				UrlSegment = "urlSegment",
+			});
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreateSectionCommand>(b => b.TreeNodeId == treeNodeId)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_CreateSectionCommand_with_section_id_returned_by_IGuidGetter()
+		{
+			var id = new Guid();
+			mocker.GetMock<IGuidGetter>().Setup(a => a.GetGuid()).Returns(id);
+			mocker.Resolve<ContentTreeSectionNodeController>().Create(new ContentTreeSectionInputModel()
+			{
+				Action = "action",
+			});
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreateSectionCommand>(b => b.SectionId == id.ToString())), Times.Once());
 		}
 	}
 }

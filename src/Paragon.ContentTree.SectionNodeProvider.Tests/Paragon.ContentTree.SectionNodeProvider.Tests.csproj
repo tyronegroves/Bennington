@@ -66,6 +66,14 @@
       <Project>{F5B06173-0873-4E7E-BBD5-9F58D69E077F}</Project>
       <Name>Paragon.ContentTree.SectionNodeProvider</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Paragon.ContentTree\Paragon.ContentTree.csproj">
+      <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
+      <Name>Paragon.ContentTree</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Paragon.Core\Paragon.Core.csproj">
+      <Project>{3DE65C2E-791C-4B05-815F-986782A5153A}</Project>
+      <Name>Paragon.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

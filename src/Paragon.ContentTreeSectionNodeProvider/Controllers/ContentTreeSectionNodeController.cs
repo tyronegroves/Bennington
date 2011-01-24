@@ -2,11 +2,13 @@
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Domain.Commands;
 using Paragon.ContentTree.SectionNodeProvider.Context;
 using Paragon.ContentTree.SectionNodeProvider.Mappers;
 using Paragon.ContentTree.SectionNodeProvider.Models;
 using Paragon.ContentTree.SectionNodeProvider.Repositories;
+using Paragon.Core.Helpers;
 using SimpleCqrs.Commanding;
 
 namespace Paragon.ContentTree.SectionNodeProvider.Controllers
@@ -18,13 +20,19 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 		private readonly IContentTreeSectionInputModelToContentTreeSectionNodeMapper contentTreeSectionInputModelToContentTreeSectionNodeMapper;
 		private readonly IContentTreeSectionNodeContext contentTreeSectionNodeContext;
 		private readonly ICommandBus commandBus;
+		private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
+		private readonly IGuidGetter guidGetter;
 
 		public ContentTreeSectionNodeController(IContentTreeSectionNodeRepository contentTreeSectionNodeRepository, 
 												IContentTreeSectionNodeToContentTreeSectionInputModelMapper contentTreeSectionNodeToContentTreeSectionInputModelMapper, 
 												IContentTreeSectionInputModelToContentTreeSectionNodeMapper contentTreeSectionInputModelToContentTreeSectionNodeMapper, 
 												IContentTreeSectionNodeContext contentTreeSectionNodeContext,
-												ICommandBus commandBus)
+												ICommandBus commandBus,
+												ITreeNodeSummaryContext treeNodeSummaryContext,
+												IGuidGetter guidGetter)
 		{
+			this.guidGetter = guidGetter;
+			this.treeNodeSummaryContext = treeNodeSummaryContext;
 			this.commandBus = commandBus;
 			this.contentTreeSectionNodeContext = contentTreeSectionNodeContext;
 			this.contentTreeSectionInputModelToContentTreeSectionNodeMapper = contentTreeSectionInputModelToContentTreeSectionNodeMapper;
@@ -48,17 +56,19 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 				                      		ContentTreeSectionInputModel = contentTreeSectionInputModel,
 											Action = "Create",
 				                      	});
-			
-			contentTreeSectionInputModel.TreeNodeId = contentTreeSectionNodeContext.CreateTreeNodeAndReturnTreeNodeId(contentTreeSectionInputModel);
 
+			var treeNodeId = treeNodeSummaryContext.Create(contentTreeSectionInputModel.ParentTreeNodeId, typeof(SectionNodeProvider).AssemblyQualifiedName);
+			
 			commandBus.Send(new CreateSectionCommand()
 			                	{
+									SectionId = guidGetter.GetGuid().ToString(),
+									TreeNodeId = treeNodeId,
 			                		DefaultTreeNodeId = contentTreeSectionInputModel.DefaultTreeNodeId,
 									Name = contentTreeSectionInputModel.Name,
 									ParentTreeNodeId = contentTreeSectionInputModel.ParentTreeNodeId,
 									Sequence = contentTreeSectionInputModel.Sequence,
 									UrlSegment = contentTreeSectionInputModel.UrlSegment,
-			                	});	
+			                	});
 
 			if (contentTreeSectionInputModel.Action.ToLower() == "save and exit")
 				return new RedirectToRouteResult(new RouteValueDictionary()
@@ -88,12 +98,9 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 			if (ModelState.IsValid == false)
 				return View("Modify", new ContentTreeSectionNodeViewModel() { Action = "Modify", ContentTreeSectionInputModel = contentTreeSectionInputModel });
 
-			var contentTreeSectionNodeFromRepository = contentTreeSectionNodeRepository.GetAllContentTreeSectionNodes().Where(a => a.TreeNodeId == contentTreeSectionInputModel.TreeNodeId).FirstOrDefault();
-			contentTreeSectionInputModelToContentTreeSectionNodeMapper.LoadIntoInstance(contentTreeSectionInputModel, contentTreeSectionNodeFromRepository);
-			contentTreeSectionNodeRepository.Update(contentTreeSectionNodeFromRepository);
-
 			commandBus.Send(new ModifySectionCommand()
 			                	{
+									TreeNodeId = contentTreeSectionInputModel.TreeNodeId,
 			                		DefaultTreeNodeId = contentTreeSectionInputModel.DefaultTreeNodeId,
 									ParentTreeNodeId = contentTreeSectionInputModel.ParentTreeNodeId,
 									UrlSegment = contentTreeSectionInputModel.UrlSegment,

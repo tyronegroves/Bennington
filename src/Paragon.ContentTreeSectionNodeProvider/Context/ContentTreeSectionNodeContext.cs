@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.SectionNodeProvider.Mappers;
 using Paragon.ContentTree.SectionNodeProvider.Models;
@@ -8,29 +9,26 @@ namespace Paragon.ContentTree.SectionNodeProvider.Context
 {
 	public interface IContentTreeSectionNodeContext
 	{
-		string CreateTreeNodeAndReturnTreeNodeId(ContentTreeSectionInputModel contentTreeSectionInputModel);
+		string CreateAndReturnTreeNodeId(ContentTreeSectionInputModel contentTreeSectionInputModel);
 		void Delete(string id);
 	}
 
 	public class ContentTreeSectionNodeContext : IContentTreeSectionNodeContext
 	{
 		private readonly IContentTreeSectionNodeRepository contentTreeSectionNodeRepository;
-		private readonly IContentTreeSectionInputModelToContentTreeSectionNodeMapper contentTreeSectionInputModelToContentTreeSectionNodeMapper;
 		private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
 
-		public ContentTreeSectionNodeContext(IContentTreeSectionNodeRepository contentTreeSectionNodeRepository, IContentTreeSectionInputModelToContentTreeSectionNodeMapper ContentTreeSectionInputModelToContentTreeSectionNodeMapper, ITreeNodeSummaryContext treeNodeSummaryContext)
+		public ContentTreeSectionNodeContext(IContentTreeSectionNodeRepository contentTreeSectionNodeRepository, ITreeNodeSummaryContext treeNodeSummaryContext)
 		{
 			this.treeNodeSummaryContext = treeNodeSummaryContext;
-			this.contentTreeSectionInputModelToContentTreeSectionNodeMapper = ContentTreeSectionInputModelToContentTreeSectionNodeMapper;
 			this.contentTreeSectionNodeRepository = contentTreeSectionNodeRepository;
 		}
 
-		public string CreateTreeNodeAndReturnTreeNodeId(ContentTreeSectionInputModel contentTreeSectionInputModel)
+		public string CreateAndReturnTreeNodeId(ContentTreeSectionInputModel contentTreeSectionInputModel)
 		{
+			throw new NotImplementedException();
 			var newTreeNodeId = treeNodeSummaryContext.Create(contentTreeSectionInputModel.ParentTreeNodeId, typeof(SectionNodeProvider).AssemblyQualifiedName);
 			contentTreeSectionInputModel.TreeNodeId = newTreeNodeId;
-			var node = contentTreeSectionInputModelToContentTreeSectionNodeMapper.CreateInstance(contentTreeSectionInputModel);
-			contentTreeSectionNodeRepository.Create(node);
 			return contentTreeSectionInputModel.TreeNodeId;
 		}
 

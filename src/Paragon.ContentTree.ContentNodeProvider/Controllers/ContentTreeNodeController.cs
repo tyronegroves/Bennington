@@ -82,7 +82,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 				                      		ContentTreeNodeInputModel = contentTreeNodeInputModel,
 											Action = "Create",
 				                      	});
-			//contentTreeNodeInputModel.TreeNodeId = 
+
 			var treeNodeId = contentTreeNodeContext.CreateTreeNodeAndReturnTreeNodeId(contentTreeNodeInputModel);
 
 			commandBus.Send(new CreatePageCommand()

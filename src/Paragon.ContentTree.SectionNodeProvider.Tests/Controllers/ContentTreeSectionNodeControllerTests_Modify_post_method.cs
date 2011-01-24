@@ -106,5 +106,19 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifySectionCommand>(b => b.UrlSegment == "urlSegment")), Times.Once());
 		}
+
+		[TestMethod]
+		public void Sends_ModifySectionCommand_with_correct_TreeNodeId_set_when_input_model_is_valid()
+		{
+			var treeNodeId = new Guid();
+			mocker.Resolve<ContentTreeSectionNodeController>().Modify(new ContentTreeSectionInputModel()
+			{
+				TreeNodeId = treeNodeId.ToString(),
+				Action = "action",
+				UrlSegment = "urlSegment",
+			});
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifySectionCommand>(b => b.TreeNodeId == treeNodeId.ToString())), Times.Once());
+		}
 	}
 }
