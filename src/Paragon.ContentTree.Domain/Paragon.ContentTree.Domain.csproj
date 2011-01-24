@@ -92,11 +92,11 @@
     <Compile Include="Events\Page\PagesequenceSetEvent.cs" />
     <Compile Include="Events\Page\PageTypeSetEvent.cs" />
     <Compile Include="Events\Page\PageDeletedEvent.cs" />
-    <Compile Include="Events\Section\DefaultPageSetEvent.cs" />
     <Compile Include="Events\Page\HeaderTextSetEvent.cs" />
     <Compile Include="Events\Page\PageNameSetEvent.cs" />
     <Compile Include="Events\Page\PageParentTreeNodeIdSetEvent.cs" />
     <Compile Include="Events\Page\PageUrlSegmentSetEvent.cs" />
+    <Compile Include="Events\Section\SectionDefaultTreeNodeIdSetEvent.cs" />
     <Compile Include="Events\Section\SectionDeletedEvent.cs" />
     <Compile Include="Events\Section\SectionIsActiveSetEvent.cs" />
     <Compile Include="Events\Section\SectionIsVisibleSetEvent.cs" />

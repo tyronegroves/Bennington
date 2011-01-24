@@ -1,6 +1,8 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl" %>
 <%@ Import Namespace="MvcTurbine.ComponentModel" %>
 <%@ Import Namespace="Paragon.ContentTree.Contexts" %>
+<%@ Import Namespace="System.Web.Mvc" %>
+<%@ Import Namespace="System.Web.Mvc.Html" %>
 <%= Html.DropDownListFor(x => x, 
 	(new SelectListItem[] {
 			new SelectListItem()

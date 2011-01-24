@@ -44,6 +44,7 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
@@ -55,6 +56,9 @@
     <Compile Include="Controllers\ContentTreeSectionNodeControllerTests_Create_post_method.cs" />
     <Compile Include="Controllers\ContentTreeSectionNodeControllerTests_Delete.cs" />
     <Compile Include="Controllers\ContentTreeSectionNodeControllerTests_Modify_post_method.cs" />
+    <Compile Include="Denormalizers\SectionNodeProviderDraftDenormalizerTests_Handle.cs" />
+    <Compile Include="Denormalizers\SectionNodeProviderDraftDenormalizerTests_Handle_SectionDeletedEvent.cs" />
+    <Compile Include="Denormalizers\SectionNodeProviderDraftDenormalizerTests_Handle_SectionCreatedEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

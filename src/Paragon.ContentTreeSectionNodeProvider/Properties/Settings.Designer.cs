@@ -33,5 +33,15 @@ namespace Paragon.ContentTree.SectionNodeProvider.Properties {
                 return ((string)(this["ParagonConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\sqlexpress;Initial Catalog=Paragon;Integrated Security=True")]
+        public string ParagonConnectionString1 {
+            get {
+                return ((string)(this["ParagonConnectionString1"]));
+            }
+        }
     }
 }

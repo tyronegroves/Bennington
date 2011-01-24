@@ -33,10 +33,13 @@ namespace Paragon.ContentTree.SectionNodeProvider.Data
     partial void InsertContentTreeSectionNode(ContentTreeSectionNode instance);
     partial void UpdateContentTreeSectionNode(ContentTreeSectionNode instance);
     partial void DeleteContentTreeSectionNode(ContentTreeSectionNode instance);
+    partial void InsertSectionNodeProviderDraft(SectionNodeProviderDraft instance);
+    partial void UpdateSectionNodeProviderDraft(SectionNodeProviderDraft instance);
+    partial void DeleteSectionNodeProviderDraft(SectionNodeProviderDraft instance);
     #endregion
 		
 		public ContentTreeSectionNodeProviderDataModelDataContext() : 
-				base(global::Paragon.ContentTree.SectionNodeProvider.Properties.Settings.Default.ParagonConnectionString, mappingSource)
+				base(global::Paragon.ContentTree.SectionNodeProvider.Properties.Settings.Default.ParagonConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -70,6 +73,14 @@ namespace Paragon.ContentTree.SectionNodeProvider.Data
 			get
 			{
 				return this.GetTable<ContentTreeSectionNode>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SectionNodeProviderDraft> SectionNodeProviderDrafts
+		{
+			get
+			{
+				return this.GetTable<SectionNodeProviderDraft>();
 			}
 		}
 	}
@@ -312,6 +323,212 @@ namespace Paragon.ContentTree.SectionNodeProvider.Data
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DefaultTreeNodeId", DbType="nvarchar(100)")]
+		public string DefaultTreeNodeId
+		{
+			get
+			{
+				return this._DefaultTreeNodeId;
+			}
+			set
+			{
+				if ((this._DefaultTreeNodeId != value))
+				{
+					this.OnDefaultTreeNodeIdChanging(value);
+					this.SendPropertyChanging();
+					this._DefaultTreeNodeId = value;
+					this.SendPropertyChanged("DefaultTreeNodeId");
+					this.OnDefaultTreeNodeIdChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SectionNodeProviderDraft")]
+	public partial class SectionNodeProviderDraft : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _SectionId;
+		
+		private string _TreeNodeId;
+		
+		private System.Nullable<int> _Sequence;
+		
+		private string _Name;
+		
+		private string _UrlSegment;
+		
+		private string _Title;
+		
+		private string _DefaultTreeNodeId;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSectionIdChanging(string value);
+    partial void OnSectionIdChanged();
+    partial void OnTreeNodeIdChanging(string value);
+    partial void OnTreeNodeIdChanged();
+    partial void OnSequenceChanging(System.Nullable<int> value);
+    partial void OnSequenceChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnUrlSegmentChanging(string value);
+    partial void OnUrlSegmentChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnDefaultTreeNodeIdChanging(string value);
+    partial void OnDefaultTreeNodeIdChanged();
+    #endregion
+		
+		public SectionNodeProviderDraft()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SectionId", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string SectionId
+		{
+			get
+			{
+				return this._SectionId;
+			}
+			set
+			{
+				if ((this._SectionId != value))
+				{
+					this.OnSectionIdChanging(value);
+					this.SendPropertyChanging();
+					this._SectionId = value;
+					this.SendPropertyChanged("SectionId");
+					this.OnSectionIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TreeNodeId", DbType="NVarChar(100)")]
+		public string TreeNodeId
+		{
+			get
+			{
+				return this._TreeNodeId;
+			}
+			set
+			{
+				if ((this._TreeNodeId != value))
+				{
+					this.OnTreeNodeIdChanging(value);
+					this.SendPropertyChanging();
+					this._TreeNodeId = value;
+					this.SendPropertyChanged("TreeNodeId");
+					this.OnTreeNodeIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sequence", DbType="Int")]
+		public System.Nullable<int> Sequence
+		{
+			get
+			{
+				return this._Sequence;
+			}
+			set
+			{
+				if ((this._Sequence != value))
+				{
+					this.OnSequenceChanging(value);
+					this.SendPropertyChanging();
+					this._Sequence = value;
+					this.SendPropertyChanged("Sequence");
+					this.OnSequenceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(500)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UrlSegment", DbType="NVarChar(500)")]
+		public string UrlSegment
+		{
+			get
+			{
+				return this._UrlSegment;
+			}
+			set
+			{
+				if ((this._UrlSegment != value))
+				{
+					this.OnUrlSegmentChanging(value);
+					this.SendPropertyChanging();
+					this._UrlSegment = value;
+					this.SendPropertyChanged("UrlSegment");
+					this.OnUrlSegmentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(100)")]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DefaultTreeNodeId", DbType="NVarChar(100)")]
 		public string DefaultTreeNodeId
 		{
 			get

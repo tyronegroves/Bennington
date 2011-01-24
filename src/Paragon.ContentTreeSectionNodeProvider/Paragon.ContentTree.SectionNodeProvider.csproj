@@ -77,6 +77,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Blades\RegisterAssemblyWithSimpleCqrsServiceLocatorBlade.cs" />
     <Compile Include="Context\ContentTreeSectionNodeContext.cs" />
     <Compile Include="Controllers\ContentTreeSectionNodeController.cs" />
     <Compile Include="Controllers\ContentTreeSectionController.cs" />
@@ -89,6 +90,7 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Include="Denormalizers\SectionNodeProviderDraftDenormalizer.cs" />
     <Compile Include="Mappers\ContentTreeSectionNodeInputModelToContentTreeSectionNodeMapper.cs" />
     <Compile Include="Mappers\ContentTreeSectionNodeToContentTreeSectionInputModelMapper.cs" />
     <Compile Include="Models\ContentTreeSectionInputModel.cs" />
@@ -148,7 +150,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Shared\EditorTemplates\DefaultTreeNodeId.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\DefaultTreeNodeId.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

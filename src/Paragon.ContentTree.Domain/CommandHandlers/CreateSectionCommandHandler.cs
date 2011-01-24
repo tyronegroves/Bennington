@@ -20,11 +20,11 @@ namespace Paragon.ContentTree.Domain.CommandHandlers
 
 		public override void Handle(CreateSectionCommand command)
 		{
-			var page = new Section(command.AggregateRootId);
+			var page = new Section(new Guid(command.SectionId));
 			page.SetName(command.Name);
 			page.SetParentTreeNodeId(new Guid(command.ParentTreeNodeId));
 			if (!string.IsNullOrEmpty(command.DefaultTreeNodeId))
-				page.SetDefaultPage(new Guid(command.DefaultTreeNodeId));
+				page.SetDefaultTreeNodeId(new Guid(command.DefaultTreeNodeId));
 			page.SetSequence(command.Sequence);
 			page.SetUrlSegment(command.UrlSegment);
 
