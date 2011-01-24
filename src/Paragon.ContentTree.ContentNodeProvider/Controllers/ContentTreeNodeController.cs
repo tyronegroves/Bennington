@@ -145,8 +145,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 					ActionId = contentTreeNodeInputModel.Action,
 				};
 				commandBus.Send(modifyPageComand);
-			} else
-			{
+			} else {
 				commandBus.Send(new CreatePageCommand()
 				                	{
 				                		TreeNodeId = new Guid(contentTreeNodeInputModel.TreeNodeId),
