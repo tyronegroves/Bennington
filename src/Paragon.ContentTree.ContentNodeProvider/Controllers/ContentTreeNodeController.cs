@@ -157,7 +157,13 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 										Action = contentTreeNodeInputModel.Action
 				                	});
 			}
-			
+
+			if ((!string.IsNullOrEmpty(contentTreeNodeInputModel.FormAction)) && (contentTreeNodeInputModel.FormAction.StartsWith("Publish")))
+				commandBus.Send(new PublishPageCommand()
+				{
+					PageId = new Guid(contentTreeNodeInputModel.PageId)
+				});
+
 			if (!string.IsNullOrEmpty(contentTreeNodeInputModel.FormAction))
 			{
 				if (contentTreeNodeInputModel.FormAction.ToLower() == "save and exit")

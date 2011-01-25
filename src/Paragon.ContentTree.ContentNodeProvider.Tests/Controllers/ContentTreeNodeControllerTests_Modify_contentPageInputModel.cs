@@ -28,8 +28,6 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			mocker = new AutoMoqer();
 		}
 
-
-
 		[TestMethod]
 		public void Sets_view_model_action_to_Modify_when_ModelState_when_ModelState_is_not_valid()
 		{
@@ -617,6 +615,60 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Action == inputModel.Action)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_PagePublishedCommand_with_correct_PageId_set_when_input_model_FormAction_property_begins_with_Publish()
+		{
+			var treeNodeId = Guid.NewGuid();
+			var pageId = Guid.NewGuid();
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.GetContentTreeNodesByTreeId(treeNodeId.ToString()))
+				.Returns(new ContentTreeNode[]
+				         	{
+				         		new ContentTreeNode()
+				         			{
+				         				TreeNodeId = treeNodeId.ToString(),
+										Action = "Index",
+				         			}, 
+							});
+			var inputModel = new ContentTreeNodeInputModel()
+			{
+				PageId = pageId.ToString(),
+				TreeNodeId = treeNodeId.ToString(),
+				Action = "Index",
+				FormAction = "Publish and Exit"
+			};
+
+			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<PublishPageCommand>(b => b.PageId == pageId)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Does_not_send_PagePublishedCommand_with_correct_PageId_set_when_input_model_FormAction_property_does_not_begin_with_Publish()
+		{
+			var treeNodeId = Guid.NewGuid();
+			var pageId = Guid.NewGuid();
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.GetContentTreeNodesByTreeId(treeNodeId.ToString()))
+				.Returns(new ContentTreeNode[]
+				         	{
+				         		new ContentTreeNode()
+				         			{
+				         				TreeNodeId = treeNodeId.ToString(),
+										Action = "Index",
+				         			}, 
+							});
+			var inputModel = new ContentTreeNodeInputModel()
+			{
+				PageId = pageId.ToString(),
+				TreeNodeId = treeNodeId.ToString(),
+				Action = "Index",
+				FormAction = "Exit"
+			};
+
+			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<PublishPageCommand>(b => b.PageId == pageId)), Times.Never());
 		}
 	}
 }
