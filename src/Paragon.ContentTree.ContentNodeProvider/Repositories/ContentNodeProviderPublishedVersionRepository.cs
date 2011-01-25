@@ -29,17 +29,17 @@ namespace Paragon.ContentTree.ContentNodeProvider.Repositories
 
 		public void Update(ContentNodeProviderPublishedVersion instance)
 		{
-			throw new NotImplementedException();
+			dataModelDataContext.Update(instance);
 		}
 
 		public void Create(ContentNodeProviderPublishedVersion instance)
 		{
-			throw new NotImplementedException();
+			dataModelDataContext.Create(instance);
 		}
 
 		public void Delete(ContentNodeProviderPublishedVersion instance)
 		{
-			throw new NotImplementedException();
+			dataModelDataContext.Delete(instance);
 		}
 	}
 }

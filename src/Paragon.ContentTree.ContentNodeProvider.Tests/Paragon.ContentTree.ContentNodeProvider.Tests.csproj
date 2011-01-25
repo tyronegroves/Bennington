@@ -69,6 +69,9 @@
     <Compile Include="Controllers\ContentTreeNodeControllerTests_Modify_parentTreeNodeId.cs" />
     <Compile Include="Controllers\ContentTreeNodeController_ContentItemNavigation.cs" />
     <Compile Include="Denomarlizers\ContentNodeProviderDraftDenormalizerTests_Handle.cs" />
+    <Compile Include="Denomarlizers\ContentNodeProviderPublishDenormalizerTests_Handle_PageDeletedEvent.cs" />
+    <Compile Include="Denomarlizers\ContentNodeProviderPublishDenormalizerTests_Handle_PagePublishedEvent.cs" />
+    <Compile Include="Mappers\ContentNodeProviderDraftToContentNodeProviderPublishedVersionMapperTests.cs" />
     <Compile Include="Mappers\ContentNodeProviderDraftToContentTreeNodeMapperTests.cs" />
     <Compile Include="Mappers\ContentTreeNodeToContentTreeNodeInputModelMapperTest.cs" />
     <Compile Include="Mappers\ContentTreeNodeInputModelToLandingPageContentTreeNodeMapperTests.cs" />

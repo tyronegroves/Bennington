@@ -66,6 +66,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 			                	});
 			commandBus.Send(new DeletePageCommand()
 			                	{
+									TreeNodeId = treeNodeGuidId,
 									AggregateRootId = treeNodeGuidId,
 			                	});
 			return new RedirectToRouteResult(new RouteValueDictionary { { "controller", "ContentTree" }, { "action", "Index" }});

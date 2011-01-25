@@ -8,5 +8,6 @@ namespace Paragon.ContentTree.Domain.Commands
 {
 	public class DeletePageCommand : CommandWithAggregateRootId
 	{
+		public Guid TreeNodeId {get; set;}
 	}
 }

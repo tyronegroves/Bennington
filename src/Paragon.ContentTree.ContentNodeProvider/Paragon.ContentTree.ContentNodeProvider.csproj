@@ -91,6 +91,7 @@
     </Compile>
     <Compile Include="Denormalizers\ContentNodeProviderDraftDenormalizer.cs" />
     <Compile Include="Denormalizers\ContentNodeProviderPublishDenormalizer.cs" />
+    <Compile Include="Mappers\ContentNodeProviderDraftToContentNodeProviderPublishedVersionMapper.cs" />
     <Compile Include="Mappers\ContentNodeProviderDraftToContentTreeNodeMapper.cs" />
     <Compile Include="Mappers\ContentTreeNodeInputModelToContentTreeNodeMapper.cs" />
     <Compile Include="Mappers\ContentTreeNodeToContentTreeNodeInputModelMapper.cs" />

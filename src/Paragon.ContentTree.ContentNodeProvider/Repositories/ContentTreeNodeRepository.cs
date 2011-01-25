@@ -27,7 +27,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Repositories
 
 		public IQueryable<ContentTreeNode> GetAllContentTreeNodes()
 		{
-			return contentNodeProviderDraftToContentTreeNodeMapper.CreateSet(contentNodeProviderDraftRepository.GetAllContentNodeProviderDrafts()).AsQueryable();	
+			return contentNodeProviderDraftToContentTreeNodeMapper
+				.CreateSet(contentNodeProviderDraftRepository.GetAllContentNodeProviderDrafts()).AsQueryable();
 		}
 	}
 }
