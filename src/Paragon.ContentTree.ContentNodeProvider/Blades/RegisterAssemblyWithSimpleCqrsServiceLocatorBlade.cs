@@ -1,5 +1,6 @@
 ﻿using MvcTurbine;
 using MvcTurbine.Blades;
+using Paragon.ContentTree.ContentNodeProvider.Denormalizers;
 using Paragon.ContentTree.ContentNodeProvider.Repositories;
 using Paragon.ContentTree.Repositories;
 using SimpleCqrs;
@@ -26,6 +27,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Blades
 		public void Spin(IRotorContext context)
 		{
 			simpleCqrsServiceLocator.Register(context.ServiceLocator.Resolve<IContentNodeProviderDraftRepository>());
+			simpleCqrsServiceLocator.Register(context.ServiceLocator.Resolve<ContentNodeProviderPublishDenormalizer>());
 		}
 	}
 }

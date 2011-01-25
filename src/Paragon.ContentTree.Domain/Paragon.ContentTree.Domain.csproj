@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AggregateRoots\TreeNode.cs" />
+    <Compile Include="CommandHandlers\PublishPageCommandHandler.cs" />
     <Compile Include="CommandHandlers\DeleteTreeNodeCommandHandler.cs" />
     <Compile Include="CommandHandlers\CreateTreeNodeCommandHandler.cs" />
     <Compile Include="CommandHandlers\DeleteSectionCommandHandler.cs" />

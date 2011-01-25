@@ -90,9 +90,10 @@
       <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Denormalizers\ContentNodeProviderDraftDenormalizer.cs" />
+    <Compile Include="Denormalizers\ContentNodeProviderPublishDenormalizer.cs" />
     <Compile Include="Mappers\ContentNodeProviderDraftToContentTreeNodeMapper.cs" />
     <Compile Include="Mappers\ContentTreeNodeInputModelToContentTreeNodeMapper.cs" />
-    <Compile Include="Mappers\ContentTreeNodeToLandingPageInputModelMapper.cs" />
+    <Compile Include="Mappers\ContentTreeNodeToContentTreeNodeInputModelMapper.cs" />
     <Compile Include="Models\ContentItemNavigationViewModel.cs" />
     <Compile Include="Models\ContentTreeNode.cs" />
     <Compile Include="Models\ContentTreeNodeDisplayViewModel.cs" />
@@ -105,6 +106,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
+    <Compile Include="Repositories\ContentNodeProviderPublishedVersionRepository.cs" />
     <Compile Include="Repositories\ContentNodeProviderDraftRepository.cs" />
     <Compile Include="Routing\RegisterDefaultRoutes.cs" />
     <Compile Include="TreeNodeExtensionProviderRegistration.cs" />
