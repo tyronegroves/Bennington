@@ -112,7 +112,7 @@
     <Compile Include="Routing\RegisterDefaultRoutes.cs" />
     <Compile Include="TreeNodeExtensionProviderRegistration.cs" />
     <Compile Include="ContentNodeProvider.cs" />
-    <Compile Include="Repositories\ContentTreeNodeVersionContext.cs" />
+    <Compile Include="Context\ContentTreeNodeVersionContext.cs" />
     <Compile Include="Validation\ContentTreeInputModelValidator.cs" />
     <Compile Include="ViewModelBuilders\ContentTreeNodeDisplayViewModelBuilder.cs" />
     <Compile Include="ViewModelBuilders\Helpers\RawUrlGetter.cs" />

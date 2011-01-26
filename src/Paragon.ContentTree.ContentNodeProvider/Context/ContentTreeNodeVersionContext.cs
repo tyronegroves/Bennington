@@ -1,12 +1,9 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Paragon.ContentTree.ContentNodeProvider.Mappers;
 using Paragon.ContentTree.ContentNodeProvider.Models;
-using Paragon.ContentTree.Data;
-using Paragon.ContentTree.Repositories;
-using IDataModelDataContext = Paragon.ContentTree.ContentNodeProvider.Data.IDataModelDataContext;
+using Paragon.ContentTree.ContentNodeProvider.Repositories;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Repositories
+namespace Paragon.ContentTree.ContentNodeProvider.Context
 {
 	public interface IContentTreeNodeVersionContext
 	{
