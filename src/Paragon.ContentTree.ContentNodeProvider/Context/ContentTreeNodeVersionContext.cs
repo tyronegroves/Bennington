@@ -36,7 +36,10 @@ namespace Paragon.ContentTree.ContentNodeProvider.Context
 		public IQueryable<ContentTreeNode> GetAllContentTreeNodes()
 		{
 			if (versionContext.GetCurrentVersionId() == VersionContext.Publish)
+			{
 				return contentNodeProviderPublishedVersionToContentTreeNodeMapper.CreateSet(contentNodeProviderPublishedVersionRepository.GetAllContentNodeProviderPublishedVersions()).AsQueryable();
+			}
+				
 
 			return contentNodeProviderDraftToContentTreeNodeMapper
 					.CreateSet(contentNodeProviderDraftRepository.GetAllContentNodeProviderDrafts()).AsQueryable();
