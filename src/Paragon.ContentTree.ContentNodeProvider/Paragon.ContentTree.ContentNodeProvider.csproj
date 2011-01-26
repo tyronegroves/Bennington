@@ -93,6 +93,7 @@
     <Compile Include="Denormalizers\ContentNodeProviderPublishDenormalizer.cs" />
     <Compile Include="Mappers\ContentNodeProviderDraftToContentNodeProviderPublishedVersionMapper.cs" />
     <Compile Include="Mappers\ContentNodeProviderDraftToContentTreeNodeMapper.cs" />
+    <Compile Include="Mappers\ContentNodeProviderPublishedVersionToContentTreeNodeMapper.cs" />
     <Compile Include="Mappers\ContentTreeNodeInputModelToContentTreeNodeMapper.cs" />
     <Compile Include="Mappers\ContentTreeNodeToContentTreeNodeInputModelMapper.cs" />
     <Compile Include="Models\ContentItemNavigationViewModel.cs" />

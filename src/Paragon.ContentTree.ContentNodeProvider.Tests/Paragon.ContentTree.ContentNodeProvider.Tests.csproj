@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Context\ContentTreeNodeContextTests_CreateTreeNodeAndReturnTreeNodeId.cs" />
     <Compile Include="Context\ContentTreeNodeContextTests_GetContentTreeNodesByTreeId.cs" />
+    <Compile Include="Context\ContentTreeNodeVersionContextTests_GetAllContentTreeNodes.cs" />
     <Compile Include="Controllers\ContentTreeNodeControllerTests_Create_ContentPageInputModel.cs" />
     <Compile Include="Controllers\ContentTreeNodeControllerTests_Create_parentTreeNodeId_providerType.cs" />
     <Compile Include="Controllers\ContentTreeNodeControllerTests_Delete.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Denomarlizers\ContentNodeProviderPublishDenormalizerTests_Handle_PagePublishedEvent.cs" />
     <Compile Include="Mappers\ContentNodeProviderDraftToContentNodeProviderPublishedVersionMapperTests.cs" />
     <Compile Include="Mappers\ContentNodeProviderDraftToContentTreeNodeMapperTests.cs" />
+    <Compile Include="Mappers\ContentNodeProviderPublishedVersionToContentTreeNodeMapperTests.cs" />
     <Compile Include="Mappers\ContentTreeNodeToContentTreeNodeInputModelMapperTest.cs" />
     <Compile Include="Mappers\ContentTreeNodeInputModelToLandingPageContentTreeNodeMapperTests.cs" />
     <Compile Include="Validation\ContentTreeInputModelValidatorTests.cs" />

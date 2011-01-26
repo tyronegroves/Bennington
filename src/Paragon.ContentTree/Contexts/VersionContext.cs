@@ -12,9 +12,14 @@ namespace Paragon.ContentTree.Contexts
 
 	public class VersionContext : IVersionContext
 	{
+		public const string Draft = "Draft";
+		public const string Publish =  "Publish";
+
 		public string GetCurrentVersionId()
 		{
-			return "Draft";
+			if (HttpContext.Current.Request.RawUrl.StartsWith("/Manage")) return Draft;
+
+			return Publish;
 		}
 	}
 }
