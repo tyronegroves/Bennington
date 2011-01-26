@@ -1,3 +1,4 @@
+using System;
 using System.Configuration;
 using System.Transactions;
 
@@ -17,6 +18,10 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 
 	partial class ContentTreeNodeProviderDataModelDataContext : IDataModelDataContext
 	{
+		public ContentTreeNodeProviderDataModelDataContext(HttpStyleUriParser a, HttpStyleUriParser b, HttpStyleUriParser  c)
+			: this()
+		{ }
+
 		partial void OnCreated()
 		{
 			Connection.ConnectionString = ConfigurationManager.ConnectionStrings["Paragon.ContentTreeNodeProvider"].ConnectionString;
@@ -52,8 +57,9 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 		{
 			using (new TransactionScope(TransactionScopeOption.Suppress))
 			{
-				ContentNodeProviderPublishedVersions.InsertOnSubmit(instance);
-				SubmitChanges();
+				//ContentNodeProviderPublishedVersions.InsertOnSubmit(instance);
+				//SubmitChanges();
+				CreateContentNodeProviderPublishedVersion(instance.Key, instance.PageId, instance.TreeNodeId, instance.UrlSegment, instance.Sequence, instance.Name, instance.Action, instance.MetaTitle, instance.MetaDescription, instance.HeaderText, instance.Body, instance.MetaKeyword);
 			}
 		}
 
@@ -61,7 +67,9 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 		{
 			using (new TransactionScope(TransactionScopeOption.Suppress))
 			{
-				SubmitChanges();
+				UpdateContentNodeProviderPublishedVersion(instance.Key, instance.PageId, instance.TreeNodeId, instance.UrlSegment, instance.Sequence, instance.Name, instance.Action, instance.MetaTitle, instance.MetaDescription, instance.HeaderText, instance.Body, instance.MetaKeyword);
+				//ContentNodeProviderPublishedVersions.Attach(instance, true);
+				//SubmitChanges();
 			}
 		}
 

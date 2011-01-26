@@ -37,7 +37,10 @@ namespace Paragon.ContentTree.ContentNodeProvider.Denormalizers
 				contentNodeProviderPublishedVersionRepository
 					.Create(contentNodeProviderDraftToContentNodeProviderPublishedVersionMapper.CreateInstance(draftVersion));
 			else
-				contentNodeProviderPublishedVersionRepository.Update(contentNodeProviderDraftToContentNodeProviderPublishedVersionMapper.CreateInstance(draftVersion));
+			{
+				var mappedInstance = contentNodeProviderDraftToContentNodeProviderPublishedVersionMapper.CreateInstance(draftVersion);
+				contentNodeProviderPublishedVersionRepository.Update(mappedInstance);
+			}
 		}
 
 		public void Handle(PageDeletedEvent domainEvent)

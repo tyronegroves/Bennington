@@ -23,7 +23,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Repositories
 
 		public IQueryable<ContentNodeProviderDraft> GetAllContentNodeProviderDrafts()
 		{
-			return dataModelDataContext.ContentNodeProviderDrafts;
+			var x = dataModelDataContext.ContentNodeProviderDrafts.ToArray();
+			return x.AsQueryable();
 		}
 
 		public void Delete(ContentNodeProviderDraft instance)

@@ -2,38 +2,68 @@
   <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=Paragon;Integrated Security=True" SettingsObjectName="Paragon.ContentTree.ContentNodeProvider.Properties.Settings" SettingsPropertyName="ParagonConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ContentNodeProviderDraft" Member="ContentNodeProviderDrafts">
     <Type Name="ContentNodeProviderDraft">
-      <Column Name="[Key]" Member="Key" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="LastModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="LastModifyBy" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="PageId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="TreeNodeId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="UrlSegment" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="Sequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Action" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="MetaTitle" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="[Key]" Member="Key" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LastModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LastModifyBy" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PageId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TreeNodeId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UrlSegment" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Sequence" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Action" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MetaTitle" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MetaDescription" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="HeaderText" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="HeaderText" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="Body" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MetaKeyword" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
   <Table Name="dbo.ContentNodeProviderPublishedVersion" Member="ContentNodeProviderPublishedVersions">
     <Type Name="ContentNodeProviderPublishedVersion">
-      <Column Name="[Key]" Member="Key" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PageId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="TreeNodeId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="UrlSegment" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="Sequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Action" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="MetaTitle" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="[Key]" Member="Key" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PageId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TreeNodeId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UrlSegment" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Sequence" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Action" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MetaTitle" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MetaDescription" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="HeaderText" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="HeaderText" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="Body" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MetaKeyword" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
+  <Function Name="dbo.UpdateContentNodeProviderPublishedVersion" Method="UpdateContentNodeProviderPublishedVersion">
+    <Parameter Name="Key" Parameter="key" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageId" Parameter="pageId" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="TreeNodeId" Parameter="treeNodeId" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="UrlSegment" Parameter="urlSegment" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Sequence" Parameter="sequence" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Action" Parameter="action" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="MetaTitle" Parameter="metaTitle" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="MetaDescription" Parameter="metaDescription" Type="System.String" DbType="NText" />
+    <Parameter Name="HeaderText" Parameter="headerText" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Body" Parameter="body" Type="System.String" DbType="NText" />
+    <Parameter Name="MetaKeyword" Parameter="metaKeyword" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CreateContentNodeProviderPublishedVersion" Method="CreateContentNodeProviderPublishedVersion">
+    <Parameter Name="Key" Parameter="key" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageId" Parameter="pageId" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="TreeNodeId" Parameter="treeNodeId" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="UrlSegment" Parameter="urlSegment" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Sequence" Parameter="sequence" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Action" Parameter="action" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="MetaTitle" Parameter="metaTitle" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="MetaDescription" Parameter="metaDescription" Type="System.String" DbType="NText" />
+    <Parameter Name="HeaderText" Parameter="headerText" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Body" Parameter="body" Type="System.String" DbType="NText" />
+    <Parameter Name="MetaKeyword" Parameter="metaKeyword" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>
