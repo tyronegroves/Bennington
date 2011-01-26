@@ -33,6 +33,24 @@ CREATE TABLE [dbo].[SectionNodeProviderDraft](
 
 GO
 
+
+CREATE TABLE [dbo].[ContentNodeProviderPublishedVersion](
+	[Key] [int] NULL,
+	[PageId] [nvarchar](100) NULL,
+	[TreeNodeId] [nvarchar](100) NULL,
+	[UrlSegment] [nvarchar](500) NULL,
+	[Sequence] [int] NULL,
+	[Name] [nvarchar](100) NULL,
+	[Action] [nvarchar](100) NULL,
+	[MetaTitle] [nvarchar](500) NULL,
+	[MetaDescription] [ntext] NULL,
+	[HeaderText] [nvarchar](500) NULL,
+	[Body] [ntext] NULL,
+	[MetaKeyword] [ntext] NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
 CREATE TABLE [dbo].[ContentNodeProviderDraft](
 	[Key] [int] IDENTITY(1,1) NOT NULL,
 	[CreateDate] [datetime] NULL,
@@ -58,5 +76,107 @@ CREATE TABLE [dbo].[ContentNodeProviderDraft](
 
 GO
 
---Insert Into dbo.[TreeNode] (Id, [Type], ParentTreeNodeId) Values ('00000000-0000-0000-0000-000000000000', 'Paragon.ContentTree.ContentNodeProvider.ContentNodeProvider, Paragon.ContentTree.ContentNodeProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null', '');
---INSERT INTO [dbo].[ContentNodeProviderDraft] ([TreeNodeId]) VALUES ('00000000-0000-0000-0000-000000000000')
+/****** Object:  StoredProcedure [dbo].[CreateContentNodeProviderPublishedVersion]    Script Date: 01/26/2011 01:35:55 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE PROCEDURE [dbo].[CreateContentNodeProviderPublishedVersion]
+	-- Add the parameters for the stored procedure here
+	@Key int, 
+	@PageId nvarchar(300),
+	@TreeNodeId nvarchar(300),
+	@UrlSegment nvarchar(300),
+	@Sequence int,
+	@Name nvarchar(300),
+	@Action nvarchar(300),
+	@MetaTitle nvarchar(300),
+	@MetaDescription ntext,
+	@HeaderText nvarchar(300),
+	@Body ntext,
+	@MetaKeyword ntext
+	--<@Param2, sysname, @p2> <Datatype_For_Param2, , int> = <Default_Value_For_Param2, , 0>
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	-- SELECT <@Param1, sysname, @p1>, <@Param2, sysname, @p2>
+	Insert Into dbo.ContentNodeProviderPublishedVersion
+	(
+		[Key],
+			PageId,
+			TreeNodeId,
+			UrlSegment,
+			Name,
+			[Action],
+			MetaTitle,
+			MetaDescription,
+			HeaderText,
+			Body,
+			MetaKeyword
+	) VALUES (
+		@Key,
+		@PageId,
+		@TreeNodeId,
+		@UrlSegment,
+			@Name,
+			@Action,
+			@MetaTitle,
+			 @MetaDescription,
+			@HeaderText,
+			@Body,
+			@MetaKeyword
+		);
+END
+
+
+GO
+
+
+CREATE PROCEDURE [dbo].[UpdateContentNodeProviderPublishedVersion]
+	-- Add the parameters for the stored procedure here
+	@Key int, 
+	@PageId nvarchar(300),
+	@TreeNodeId nvarchar(300),
+	@UrlSegment nvarchar(300),
+	@Sequence int,
+	@Name nvarchar(300),
+	@Action nvarchar(300),
+	@MetaTitle nvarchar(300),
+	@MetaDescription ntext,
+	@HeaderText nvarchar(300),
+	@Body ntext,
+	@MetaKeyword ntext
+	--<@Param2, sysname, @p2> <Datatype_For_Param2, , int> = <Default_Value_For_Param2, , 0>
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	-- SELECT <@Param1, sysname, @p1>, <@Param2, sysname, @p2>
+	Update dbo.ContentNodeProviderPublishedVersion
+		Set [Key] = @Key,
+			PageId = @PageId,
+			TreeNodeId = @TreeNodeId,
+			UrlSegment = @UrlSegment,
+			Name = @Name,
+			[Action] = @Action,
+			MetaTitle = @MetaTitle,
+			MetaDescription = @MetaDescription,
+			HeaderText = @HeaderText,
+			Body = @Body,
+			MetaKeyword = @MetaKeyword
+	From dbo.ContentNodeProviderPublishedVersion
+		Where (ContentNodeProviderPublishedVersion.PageId Like @PageId)
+END
+
+GO
+
