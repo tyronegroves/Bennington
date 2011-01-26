@@ -8,17 +8,17 @@ using IDataModelDataContext = Paragon.ContentTree.ContentNodeProvider.Data.IData
 
 namespace Paragon.ContentTree.ContentNodeProvider.Repositories
 {
-	public interface IContentTreeNodeRepository
+	public interface IContentTreeNodeVersionContext
 	{
 		IQueryable<ContentTreeNode> GetAllContentTreeNodes();
 	}
 
-	public class ContentTreeNodeRepository : IContentTreeNodeRepository
+	public class ContentTreeNodeVersionContext : IContentTreeNodeVersionContext
 	{
 		private readonly IContentNodeProviderDraftRepository contentNodeProviderDraftRepository;
 		private readonly IContentNodeProviderDraftToContentTreeNodeMapper contentNodeProviderDraftToContentTreeNodeMapper;
 
-		public ContentTreeNodeRepository(IContentNodeProviderDraftRepository contentNodeProviderDraftRepository,
+		public ContentTreeNodeVersionContext(IContentNodeProviderDraftRepository contentNodeProviderDraftRepository,
 										IContentNodeProviderDraftToContentTreeNodeMapper contentNodeProviderDraftToContentTreeNodeMapper)
 		{
 			this.contentNodeProviderDraftToContentTreeNodeMapper = contentNodeProviderDraftToContentTreeNodeMapper;

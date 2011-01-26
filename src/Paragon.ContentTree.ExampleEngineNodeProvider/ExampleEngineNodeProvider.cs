@@ -12,8 +12,8 @@ namespace Paragon.ContentTree.ExampleEngineNodeProvider
 	{
 		private readonly ITreeNodeIdToUrl treeNodeIdToUrl;
 
-		public ExampleEngineNodeProvider(IContentTreeNodeRepository contentTreeNodeRepository, ITreeNodeRepository treeNodeRepository)
-			: base(contentTreeNodeRepository)
+		public ExampleEngineNodeProvider(IContentTreeNodeVersionContext contentTreeNodeVersionContext, ITreeNodeRepository treeNodeRepository)
+			: base(contentTreeNodeVersionContext)
 		{
 			this.treeNodeIdToUrl = treeNodeIdToUrl;
 		}

@@ -72,7 +72,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			{
 				Name = "some name",
 			};
-			mocker.GetMock<IContentTreeNodeRepository>().Setup(a => a.GetAllContentTreeNodes()).Returns(new ContentTreeNode[]
+			mocker.GetMock<IContentTreeNodeVersionContext>().Setup(a => a.GetAllContentTreeNodes()).Returns(new ContentTreeNode[]
 				         	{
 				         		new ContentTreeNode()
 				         			{
@@ -98,7 +98,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 			                         	{
 											Name = "some name",
 			                         	};
-			mocker.GetMock<IContentTreeNodeRepository>().Setup(a => a.GetAllContentTreeNodes())
+			mocker.GetMock<IContentTreeNodeVersionContext>().Setup(a => a.GetAllContentTreeNodes())
 				.Returns(new ContentTreeNode[]
 				         	{
 				         		new ContentTreeNode()

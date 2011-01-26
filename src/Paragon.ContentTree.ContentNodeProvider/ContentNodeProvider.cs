@@ -10,16 +10,16 @@ namespace Paragon.ContentTree.ContentNodeProvider
 {
 	public class ContentNodeProvider : IAmATreeNodeExtensionProvider
 	{
-		private readonly IContentTreeNodeRepository contentTreeNodeRepository;
+		private readonly IContentTreeNodeVersionContext contentTreeNodeVersionContext;
 
-		public ContentNodeProvider(IContentTreeNodeRepository contentTreeNodeRepository)
+		public ContentNodeProvider(IContentTreeNodeVersionContext contentTreeNodeVersionContext)
 		{
-			this.contentTreeNodeRepository = contentTreeNodeRepository;
+			this.contentTreeNodeVersionContext = contentTreeNodeVersionContext;
 		}
 
 		public virtual IQueryable<IAmATreeNodeExtension> GetAll()
 		{
-			var query = from item in contentTreeNodeRepository.GetAllContentTreeNodes().Where(a => a.Action == "Index")
+			var query = from item in contentTreeNodeVersionContext.GetAllContentTreeNodes().Where(a => a.Action == "Index")
 						select item;
 			
 			return query;

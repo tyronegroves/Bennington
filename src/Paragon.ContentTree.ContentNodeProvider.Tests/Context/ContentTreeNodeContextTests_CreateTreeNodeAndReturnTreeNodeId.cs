@@ -77,7 +77,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Context
 		//    var ContentTreeNodeContext = mocker.Resolve<ContentTreeNodeContext>();
 		//    ContentTreeNodeContext.CreateTreeNodeAndReturnTreeNodeId(new ContentTreeNodeInputModel());
 
-		//    mocker.GetMock<IContentTreeNodeRepository>().Verify(a => a.Create(ContentTreeNode), Times.Once());
+		//    mocker.GetMock<IContentTreeNodeVersionContext>().Verify(a => a.Create(ContentTreeNode), Times.Once());
 		//}
 	}
 }

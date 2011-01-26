@@ -23,7 +23,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Context
 		[TestMethod]
 		public void Returns_ContentTreeNode_from_IContentTreeNodeRepository()
 		{
-			mocker.GetMock<IContentTreeNodeRepository>().Setup(a => a.GetAllContentTreeNodes()).Returns(
+			mocker.GetMock<IContentTreeNodeVersionContext>().Setup(a => a.GetAllContentTreeNodes()).Returns(
 				new ContentTreeNode[]
 					{
 						new ContentTreeNode()

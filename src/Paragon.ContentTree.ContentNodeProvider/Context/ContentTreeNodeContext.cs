@@ -19,15 +19,15 @@ namespace Paragon.ContentTree.ContentNodeProvider.Context
 	public class ContentTreeNodeContext : IContentTreeNodeContext
 	{
 		public const string RootNodeId = Constants.RootNodeId;
-		private readonly IContentTreeNodeRepository contentTreeNodeRepository;
+		private readonly IContentTreeNodeVersionContext contentTreeNodeVersionContext;
 		private readonly IContentTreeNodeInputModelToContentTreeNodeMapper contentTreeNodeInputModelToContentTreeNodeMapper;
 		private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
 
-		public ContentTreeNodeContext(IContentTreeNodeRepository contentTreeNodeRepository, IContentTreeNodeInputModelToContentTreeNodeMapper contentTreeNodeInputModelToContentTreeNodeMapper, ITreeNodeSummaryContext treeNodeSummaryContext)
+		public ContentTreeNodeContext(IContentTreeNodeVersionContext contentTreeNodeVersionContext, IContentTreeNodeInputModelToContentTreeNodeMapper contentTreeNodeInputModelToContentTreeNodeMapper, ITreeNodeSummaryContext treeNodeSummaryContext)
 		{
 			this.treeNodeSummaryContext = treeNodeSummaryContext;
 			this.contentTreeNodeInputModelToContentTreeNodeMapper = contentTreeNodeInputModelToContentTreeNodeMapper;
-			this.contentTreeNodeRepository = contentTreeNodeRepository;
+			this.contentTreeNodeVersionContext = contentTreeNodeVersionContext;
 		}
 
 		public string CreateTreeNodeAndReturnTreeNodeId(ContentTreeNodeInputModel contentTreeNodeInputModel)
@@ -39,7 +39,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Context
 
 		public IEnumerable<ContentTreeNode> GetContentTreeNodesByTreeId(string treeNodeId)
 		{
-			var contentTreeNodes = contentTreeNodeRepository.GetAllContentTreeNodes().Where(a => a.TreeNodeId == treeNodeId);
+			var contentTreeNodes = contentTreeNodeVersionContext.GetAllContentTreeNodes().Where(a => a.TreeNodeId == treeNodeId);
 			return contentTreeNodes.ToArray();
 		}
 	}

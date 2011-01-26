@@ -18,7 +18,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 {
 	public class ContentTreeNodeController : Controller
 	{
-		private readonly IContentTreeNodeRepository contentTreeNodeRepository;
+		private readonly IContentTreeNodeVersionContext contentTreeNodeVersionContext;
 		private readonly IContentTreeNodeToContentTreeNodeInputModelMapper contentTreeNodeToContentTreeNodeInputModelMapper;
 		private readonly IContentTreeNodeInputModelToContentTreeNodeMapper contentTreeNodeInputModelToContentTreeNodeMapper;
 		private readonly IContentTreeNodeContext contentTreeNodeContext;
@@ -29,7 +29,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 		private readonly ICommandBus commandBus;
 		private readonly IGuidGetter guidGetter;
 
-		public ContentTreeNodeController(IContentTreeNodeRepository contentTreeNodeRepository, 
+		public ContentTreeNodeController(IContentTreeNodeVersionContext contentTreeNodeVersionContext, 
 											IContentTreeNodeToContentTreeNodeInputModelMapper contentTreeNodeToContentTreeNodeInputModelMapper, 
 											IContentTreeNodeInputModelToContentTreeNodeMapper contentTreeNodeInputModelToContentTreeNodeMapper, 
 											IContentTreeNodeContext contentTreeNodeContext, 
@@ -49,7 +49,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 			this.contentTreeNodeContext = contentTreeNodeContext;
 			this.contentTreeNodeInputModelToContentTreeNodeMapper = contentTreeNodeInputModelToContentTreeNodeMapper;
 			this.contentTreeNodeToContentTreeNodeInputModelMapper = contentTreeNodeToContentTreeNodeInputModelMapper;
-			this.contentTreeNodeRepository = contentTreeNodeRepository;
+			this.contentTreeNodeVersionContext = contentTreeNodeVersionContext;
 		}
 
 		public ActionResult Index()
@@ -187,7 +187,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 		public ActionResult Modify(string treeNodeId, string contentItemId)
 		{
 			if (string.IsNullOrEmpty(contentItemId)) contentItemId = "Index";
-			var contentTreeNode = contentTreeNodeRepository.GetAllContentTreeNodes().Where(a => a.TreeNodeId == treeNodeId && a.Action == contentItemId).FirstOrDefault();
+			var contentTreeNode = contentTreeNodeVersionContext.GetAllContentTreeNodes().Where(a => a.TreeNodeId == treeNodeId && a.Action == contentItemId).FirstOrDefault();
 			var contentTreeNodeInputModel = contentTreeNode == null ? new ContentTreeNodeInputModel()
 			                		                        	{
 			                		                        		TreeNodeId = treeNodeId,
