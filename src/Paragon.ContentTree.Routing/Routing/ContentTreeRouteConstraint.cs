@@ -1,49 +1,48 @@
 ﻿using System.Linq;
 using System.Web;
 using System.Web.Routing;
+using MvcTurbine.ComponentModel;
+using Paragon.ContentTree.Contexts;
+using Paragon.ContentTree.Models;
 
 namespace Paragon.ContentTree.Routing.Routing
 {
     public class ContentTreeRouteConstraint : IRouteConstraint
     {
-		private readonly Content.ContentTree contentTree;
-		//private readonly ITreeNodeProviderContext treeNodeProviderContext;
+    	private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
 
-		public ContentTreeRouteConstraint(Content.ContentTree contentTree/*, ITreeNodeProviderContext treeNodeProviderContext*/)
-		{
-			//this.treeNodeProviderContext = treeNodeProviderContext;
-			this.contentTree = contentTree;
-		}
+    	public ContentTreeRouteConstraint(ITreeNodeSummaryContext treeNodeSummaryContext)
+    	{
+    		this.treeNodeSummaryContext = treeNodeSummaryContext;
+    	}
 
     	public bool Match(HttpContextBase httpContext, Route route, string parameterName, RouteValueDictionary values, RouteDirection routeDirection)
         {
-			//foreach (var treeNodeProvider in treeNodeProviderContext.GetAllTreeNodeProviders())
-			//{
-			//    if (treeNodeProvider.IgnoreConstraint == null) continue;
-			//    if (treeNodeProvider.IgnoreConstraint.Match(httpContext, route, parameterName, values, routeDirection))
-			//    {
-			//        return false;
-			//    }
-			//}
-			
-			var segments = from value in values
+			var urlSegments = from value in values
                            where value.Key.StartsWith("nodesegment")
                            where value.Value is string
                            orderby value.Key.Split('-')[1]
                            select (string)value.Value;
 
-            if (segments.Count() == 0) return false;
+            if (urlSegments.Count() == 0) return false;
 
-            var rootNode = contentTree.RootNode;
-            var childNodes = rootNode.ChildNodes;
-
-            foreach (var currentNode in segments.Select(segment => childNodes.FindByUrlSegment(segment)))
-            {
-                if (currentNode == null) return false;
-                childNodes = currentNode.ChildNodes;
-            }
+			var treeNodeSummary = new TreeNodeSummary()
+			                                  	{
+			                                  		Id = Constants.RootNodeId,
+			                                  	};
+			foreach (var urlSegment in urlSegments)
+			{
+				treeNodeSummary = FindByUrlSegment(urlSegment, treeNodeSummary.Id);
+				if (treeNodeSummary == null) return false;
+			}
 
             return true;
         }
+
+		private TreeNodeSummary FindByUrlSegment(string urlSegment, string parentTreeNodeId)
+		{
+			var children = treeNodeSummaryContext.GetChildren(parentTreeNodeId);
+			return children.Where(a => a.UrlSegment == urlSegment).FirstOrDefault();
+		}
     }
 }

@@ -4,6 +4,7 @@ using System.Text;
 using System.Web.Mvc;
 using System.Web.Routing;
 using MvcTurbine;
+using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Routing.Content;
 
 namespace Paragon.ContentTree.Routing.Routing
@@ -15,9 +16,16 @@ namespace Paragon.ContentTree.Routing.Routing
 
 	public class ContentTreeRouteBuilder : IContentTreeRouteBuilder
 	{
+		private ITreeNodeSummaryContext treeNodeSummaryContext;
+
+		public ContentTreeRouteBuilder(ITreeNodeSummaryContext treeNodeSummaryContext)
+		{
+			this.treeNodeSummaryContext = treeNodeSummaryContext;
+		}
+
 		public void MapRoutes(Content.ContentTree contentTree)
         {
-            var maxDepth = contentTree.MaxDepth;
+			var maxDepth = 20; // contentTree.MaxDepth;
             var urlPattern = GetUrlPatternForDepth(maxDepth);
             var defaults = GetRouteDefaults(maxDepth);
             var constraints = GetRouteConstraints(contentTree);
@@ -42,9 +50,9 @@ namespace Paragon.ContentTree.Routing.Routing
             }
         }
 
-		private static RouteValueDictionary GetRouteConstraints(Content.ContentTree contentTree)
+		private RouteValueDictionary GetRouteConstraints(Content.ContentTree contentTree)
         {
-            return new RouteValueDictionary(new {nodeSegmentConstraint = new ContentTreeRouteConstraint(contentTree/*, treeNodeProviderContext*/)});
+			return new RouteValueDictionary(new { nodeSegmentConstraint = new ContentTreeRouteConstraint(treeNodeSummaryContext) });
         }
 
         private static RouteValueDictionary GetRouteDefaults(int maxDepth)
