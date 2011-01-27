@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Paragon.ContentTree.ContentNodeProvider.Context;
 using Paragon.ContentTree.ContentNodeProvider.Repositories;
 using Paragon.ContentTree.ExampleEngineNodeProvider.Controllers;
+using Paragon.ContentTree.Helpers;
 using Paragon.ContentTree.Models;
 using Paragon.ContentTree.Repositories;
-using Paragon.ContentTree.Routing.Routing.Helpers;
 
 namespace Paragon.ContentTree.ExampleEngineNodeProvider
 {

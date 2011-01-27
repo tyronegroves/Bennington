@@ -78,41 +78,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adapters\NodeSegmentEnumerableToTreeNodeAdapter.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Adapters\TreeNodeSummaryContextToContentTreeRepositoryAdapter.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Binders\ContentTreeModelBinder.cs" />
-    <Compile Include="Blades\ContentTreeBlade.cs" />
-    <Compile Include="Content\ContentTree.cs" />
-    <Compile Include="Content\ContentTreeBuilder.cs" />
-    <Compile Include="Content\ContentTreeNode.cs" />
-    <Compile Include="Content\IContentTreeBuilder.cs" />
-    <Compile Include="Content\Json\JsTreeNode.cs" />
-    <Compile Include="Content\Json\JsTreeNodeData.cs" />
-    <Compile Include="Data\IContentTreeRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Mappers\ContentTreeNodeToTreeNodeMapper.cs" />
-    <Compile Include="Mappers\TreeNodeSummaryToContentTreeNodeMapper.cs" />
-    <Compile Include="Models\TestInputModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
-    <Compile Include="Registration\TreeNodeSummaryContextToContentTreeRepositoryAdapterServiceRegistration.cs" />
-    <Compile Include="Routing\ContentTreeRoute.cs" />
-    <Compile Include="Routing\ContentTreeRouteBuilder.cs" />
     <Compile Include="Routing\ContentTreeRouteConstraint.cs" />
-    <Compile Include="Routing\Helpers\TreeNodeIdToUrl.cs" />
-    <Compile Include="Routing\IWantCustomRouting.cs" />
     <Compile Include="Routing\RegisterDefaultRoutes.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <EmbeddedResource Include="Scripts\jquery.jstree.min.js" />
-    <EmbeddedResource Include="Scripts\jquery.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -120,11 +95,8 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Shared\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Paragon.ContentTree\Paragon.ContentTree.csproj">
       <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>

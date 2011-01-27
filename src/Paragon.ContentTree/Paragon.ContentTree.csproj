@@ -87,6 +87,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\TreeNodeIdToUrl.cs" />
     <Compile Include="Models\ContentTreeNodeContentItem.cs" />
     <Compile Include="Models\IAmATreeNodeExtension.cs" />
     <Compile Include="Models\TreeBranchViewModel.cs" />

@@ -54,18 +54,8 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adapters\NodeSegmentEnumerableToTreeNodeAdapterTests.cs" />
-    <Compile Include="Adapters\TreeNodeSummaryContextToContentTreeRepositoryAdapterTests_GetChildNodesForNode.cs" />
-    <Compile Include="Adapters\TreeNodeSummaryContextToContentTreeRepositoryAdapterTests_GetRootNode.cs" />
-    <Compile Include="ContentTreeBuilderTests.cs" />
-    <Compile Include="ContentTreeNodeTests.cs" />
-    <Compile Include="Mappers\ContentTreeNodeToTreeNodeMapperTests.cs" />
-    <Compile Include="Mappers\TreeNodeSummaryToContentTreeNodeMapperTests.cs" />
-    <Compile Include="Routing\ContentTreeRouteBuilderTests.cs" />
     <Compile Include="Routing\ContentTreeRouteConstraintTests.cs" />
-    <Compile Include="MockContentTreeNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Routing\Helpers\TreeNodeIdToUrlTests_GetUrlByTreeNodeId.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Paragon.ContentTree.Routing\Paragon.ContentTree.Routing.csproj">
