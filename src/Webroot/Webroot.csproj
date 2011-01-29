@@ -462,6 +462,14 @@
       <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
       <Name>Paragon.ContentTree.ContentNodeProvider</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Paragon.ContentTree.Engines.ContactUs\Paragon.ContentTree.Engines.ContactUs.csproj">
+      <Project>{DB5F2BBF-B1AF-401C-A38B-ABBA2DDC8916}</Project>
+      <Name>Paragon.ContentTree.Engines.ContactUs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Paragon.ContentTree.Engines.Faq\Paragon.ContentTree.Engines.Faq.csproj">
+      <Project>{4924DADD-FF87-4044-991E-1127C336C150}</Project>
+      <Name>Paragon.ContentTree.Engines.Faq</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Paragon.ContentTreeSectionNodeProvider\Paragon.ContentTree.SectionNodeProvider.csproj">
       <Project>{F5B06173-0873-4E7E-BBD5-9F58D69E077F}</Project>
       <Name>Paragon.ContentTree.SectionNodeProvider</Name>
@@ -473,14 +481,6 @@
     <ProjectReference Include="..\Paragon.Core\Paragon.Core.csproj">
       <Project>{3DE65C2E-791C-4B05-815F-986782A5153A}</Project>
       <Name>Paragon.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Paragon.Engines.ContactUs\Paragon.Engines.ContactUs.csproj">
-      <Project>{DB5F2BBF-B1AF-401C-A38B-ABBA2DDC8916}</Project>
-      <Name>Paragon.Engines.ContactUs</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Paragon.Engines.Faq\Paragon.Engines.Faq.csproj">
-      <Project>{4924DADD-FF87-4044-991E-1127C336C150}</Project>
-      <Name>Paragon.Engines.Faq</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

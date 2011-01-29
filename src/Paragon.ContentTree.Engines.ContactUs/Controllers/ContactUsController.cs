@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Paragon.ContentTree.ContentNodeProvider.Context;
+﻿using System.Web.Mvc;
 using Paragon.ContentTree.ContentNodeProvider.Controllers;
-using Paragon.ContentTree.Helpers;
-using Paragon.ContentTree.Repositories;
 
-namespace Paragon.Engines.ContactUs.Controllers
+namespace Paragon.ContentTree.Engines.ContactUs.Controllers
 {
 	[HandleError]
 	public class ContactUsController : EngineController

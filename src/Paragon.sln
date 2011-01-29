@@ -34,9 +34,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.Engines.ContactUs", "Paragon.Engines.ContactUs\Paragon.Engines.ContactUs.csproj", "{DB5F2BBF-B1AF-401C-A38B-ABBA2DDC8916}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.Engines.ContactUs", "Paragon.ContentTree.Engines.ContactUs\Paragon.ContentTree.Engines.ContactUs.csproj", "{DB5F2BBF-B1AF-401C-A38B-ABBA2DDC8916}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.Engines.Faq", "Paragon.Engines.Faq\Paragon.Engines.Faq.csproj", "{4924DADD-FF87-4044-991E-1127C336C150}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.Engines.Faq", "Paragon.ContentTree.Engines.Faq\Paragon.ContentTree.Engines.Faq.csproj", "{4924DADD-FF87-4044-991E-1127C336C150}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution

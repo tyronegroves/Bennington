@@ -33,6 +33,9 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
     partial void InsertContentNodeProviderDraft(ContentNodeProviderDraft instance);
     partial void UpdateContentNodeProviderDraft(ContentNodeProviderDraft instance);
     partial void DeleteContentNodeProviderDraft(ContentNodeProviderDraft instance);
+    partial void InsertContentNodeProviderPublishedVersion(ContentNodeProviderPublishedVersion instance);
+    partial void UpdateContentNodeProviderPublishedVersion(ContentNodeProviderPublishedVersion instance);
+    partial void DeleteContentNodeProviderPublishedVersion(ContentNodeProviderPublishedVersion instance);
     #endregion
 		
 		public ContentTreeNodeProviderDataModelDataContext() : 
@@ -519,10 +522,12 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ContentNodeProviderPublishedVersion")]
-	public partial class ContentNodeProviderPublishedVersion
+	public partial class ContentNodeProviderPublishedVersion : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private System.Nullable<int> _Key;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Key;
 		
 		private string _PageId;
 		
@@ -546,12 +551,43 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 		
 		private string _MetaKeyword;
 		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnKeyChanging(int value);
+    partial void OnKeyChanged();
+    partial void OnPageIdChanging(string value);
+    partial void OnPageIdChanged();
+    partial void OnTreeNodeIdChanging(string value);
+    partial void OnTreeNodeIdChanged();
+    partial void OnUrlSegmentChanging(string value);
+    partial void OnUrlSegmentChanged();
+    partial void OnSequenceChanging(System.Nullable<int> value);
+    partial void OnSequenceChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnActionChanging(string value);
+    partial void OnActionChanged();
+    partial void OnMetaTitleChanging(string value);
+    partial void OnMetaTitleChanged();
+    partial void OnMetaDescriptionChanging(string value);
+    partial void OnMetaDescriptionChanged();
+    partial void OnHeaderTextChanging(string value);
+    partial void OnHeaderTextChanged();
+    partial void OnBodyChanging(string value);
+    partial void OnBodyChanged();
+    partial void OnMetaKeywordChanging(string value);
+    partial void OnMetaKeywordChanged();
+    #endregion
+		
 		public ContentNodeProviderPublishedVersion()
 		{
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Key]", Storage="_Key", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> Key
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Key]", Storage="_Key", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Key
 		{
 			get
 			{
@@ -561,12 +597,16 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 			{
 				if ((this._Key != value))
 				{
+					this.OnKeyChanging(value);
+					this.SendPropertyChanging();
 					this._Key = value;
+					this.SendPropertyChanged("Key");
+					this.OnKeyChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PageId", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PageId", DbType="NVarChar(100)")]
 		public string PageId
 		{
 			get
@@ -577,12 +617,16 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 			{
 				if ((this._PageId != value))
 				{
+					this.OnPageIdChanging(value);
+					this.SendPropertyChanging();
 					this._PageId = value;
+					this.SendPropertyChanged("PageId");
+					this.OnPageIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TreeNodeId", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TreeNodeId", DbType="NVarChar(100)")]
 		public string TreeNodeId
 		{
 			get
@@ -593,12 +637,16 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 			{
 				if ((this._TreeNodeId != value))
 				{
+					this.OnTreeNodeIdChanging(value);
+					this.SendPropertyChanging();
 					this._TreeNodeId = value;
+					this.SendPropertyChanged("TreeNodeId");
+					this.OnTreeNodeIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UrlSegment", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UrlSegment", DbType="NVarChar(500)")]
 		public string UrlSegment
 		{
 			get
@@ -609,12 +657,16 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 			{
 				if ((this._UrlSegment != value))
 				{
+					this.OnUrlSegmentChanging(value);
+					this.SendPropertyChanging();
 					this._UrlSegment = value;
+					this.SendPropertyChanged("UrlSegment");
+					this.OnUrlSegmentChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sequence", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sequence", DbType="Int")]
 		public System.Nullable<int> Sequence
 		{
 			get
@@ -625,12 +677,16 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 			{
 				if ((this._Sequence != value))
 				{
+					this.OnSequenceChanging(value);
+					this.SendPropertyChanging();
 					this._Sequence = value;
+					this.SendPropertyChanged("Sequence");
+					this.OnSequenceChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100)")]
 		public string Name
 		{
 			get
@@ -641,12 +697,16 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 			{
 				if ((this._Name != value))
 				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
 					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Action", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Action", DbType="NVarChar(100)")]
 		public string Action
 		{
 			get
@@ -657,12 +717,16 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 			{
 				if ((this._Action != value))
 				{
+					this.OnActionChanging(value);
+					this.SendPropertyChanging();
 					this._Action = value;
+					this.SendPropertyChanged("Action");
+					this.OnActionChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MetaTitle", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MetaTitle", DbType="NVarChar(500)")]
 		public string MetaTitle
 		{
 			get
@@ -673,7 +737,11 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 			{
 				if ((this._MetaTitle != value))
 				{
+					this.OnMetaTitleChanging(value);
+					this.SendPropertyChanging();
 					this._MetaTitle = value;
+					this.SendPropertyChanged("MetaTitle");
+					this.OnMetaTitleChanged();
 				}
 			}
 		}
@@ -689,12 +757,16 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 			{
 				if ((this._MetaDescription != value))
 				{
+					this.OnMetaDescriptionChanging(value);
+					this.SendPropertyChanging();
 					this._MetaDescription = value;
+					this.SendPropertyChanged("MetaDescription");
+					this.OnMetaDescriptionChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HeaderText", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HeaderText", DbType="NVarChar(500)")]
 		public string HeaderText
 		{
 			get
@@ -705,7 +777,11 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 			{
 				if ((this._HeaderText != value))
 				{
+					this.OnHeaderTextChanging(value);
+					this.SendPropertyChanging();
 					this._HeaderText = value;
+					this.SendPropertyChanged("HeaderText");
+					this.OnHeaderTextChanged();
 				}
 			}
 		}
@@ -721,7 +797,11 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 			{
 				if ((this._Body != value))
 				{
+					this.OnBodyChanging(value);
+					this.SendPropertyChanging();
 					this._Body = value;
+					this.SendPropertyChanged("Body");
+					this.OnBodyChanged();
 				}
 			}
 		}
@@ -737,8 +817,32 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 			{
 				if ((this._MetaKeyword != value))
 				{
+					this.OnMetaKeywordChanging(value);
+					this.SendPropertyChanging();
 					this._MetaKeyword = value;
+					this.SendPropertyChanged("MetaKeyword");
+					this.OnMetaKeywordChanged();
 				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
