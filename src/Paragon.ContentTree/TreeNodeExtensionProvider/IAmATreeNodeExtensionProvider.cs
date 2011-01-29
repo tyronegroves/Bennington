@@ -15,7 +15,7 @@ namespace Paragon.ContentTree.TreeNodeExtensionProvider
 		string ActionToUseForModification { get; set; }
 		string ControllerToUseForCreation { get; set; }
 		string ActionToUseForCreation { get; set; }
-		IRouteConstraint IgnoreConstraint { get; }
+		//IRouteConstraint IgnoreConstraint { get; }
 		IEnumerable<ContentTreeNodeContentItem> ContentTreeNodeContentItems { get; set; }
 	}
 }

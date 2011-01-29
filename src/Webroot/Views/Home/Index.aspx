@@ -5,5 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-   Home page
+   This is the homepage.
+
+   <%=Html.ActionLink("contact us", "Index", "ContactUs") %>
 </asp:Content>

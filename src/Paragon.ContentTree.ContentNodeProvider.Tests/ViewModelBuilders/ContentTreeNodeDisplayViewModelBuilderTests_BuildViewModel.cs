@@ -44,7 +44,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 				         			{
 				         				Action = "Index",
 										Body = "page content1",
-										Name = "test1"
+										HeaderText = "test1"
 				         			}, 
 							});
 			var routeData = new RouteData();
@@ -75,7 +75,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 				         			{
 				         				Action = "Index",
 										Body = "page content",
-										Name = "section1"
+										HeaderText = "section1"
 				         			}, 
 							});
 			mocker.GetMock<ITreeNodeSummaryContext>().Setup(a => a.GetChildren("1"))
@@ -94,7 +94,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 				         			{
 				         				Action = "Index",
 										Body = "page1 content",
-										Name = "page1"
+										HeaderText = "page1"
 				         			}, 
 							});
 			var routeData = new RouteData();
@@ -124,7 +124,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 				         			{
 				         				Action = "Index",
 										Body = "page content",
-										Name = "section1"
+										HeaderText = "section1"
 				         			}, 
 							});
 			var routeData = new RouteData();
@@ -154,7 +154,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 				         			{
 				         				Action = "Index",
 										Body = "page content",
-										Name = "section1"
+										HeaderText = "section1"
 				         			}, 
 							});
 			var routeData = new RouteData();

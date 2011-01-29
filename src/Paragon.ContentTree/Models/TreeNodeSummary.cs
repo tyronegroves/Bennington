@@ -19,5 +19,6 @@ namespace Paragon.ContentTree.Models
 		public object RouteValuesForModification { get; set; }
 		public object RouteValuesForCreation { get; set; }
 		public int? Sequence { get; set; }
+		public string Type { get; set; }
 	}
 }

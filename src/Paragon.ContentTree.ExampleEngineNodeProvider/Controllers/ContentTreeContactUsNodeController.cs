@@ -8,14 +8,14 @@ using Paragon.ContentTree.ExampleEngineNodeProvider.Repositories;
 
 namespace Paragon.ContentTree.ExampleEngineNodeProvider.Controllers
 {
-	public class ContentTreeContactUsNodeController : Controller
+	public class ContentTreeExampleEngineNodeController : Controller
 	{
 		private readonly IContentTreeContactUsNodeRepository contentTreeContactUsNodeRepository;
 		private readonly IContentTreeContactUsNodeToContentTreeContactUsInputModelMapper contentTreeContactUsNodeToContentTreeContactUsInputModelMapper;
 		private readonly IContentTreeContactUsInputModelToContentTreeContactUsNodeMapper contentTreeContactUsInputModelToContentTreeContactUsNodeMapper;
 		private readonly IContentTreeContactUsNodeContext contentTreeContactUsNodeContext;
 
-		public ContentTreeContactUsNodeController(IContentTreeContactUsNodeRepository contentTreeContactUsNodeRepository, IContentTreeContactUsNodeToContentTreeContactUsInputModelMapper ContentTreeContactUsNodeToContentTreeContactUsInputModelMapper, IContentTreeContactUsInputModelToContentTreeContactUsNodeMapper ContentTreeContactUsInputModelToContentTreeContactUsNodeMapper, IContentTreeContactUsNodeContext ContentTreeContactUsNodeContext)
+		public ContentTreeExampleEngineNodeController(IContentTreeContactUsNodeRepository contentTreeContactUsNodeRepository, IContentTreeContactUsNodeToContentTreeContactUsInputModelMapper ContentTreeContactUsNodeToContentTreeContactUsInputModelMapper, IContentTreeContactUsInputModelToContentTreeContactUsNodeMapper ContentTreeContactUsInputModelToContentTreeContactUsNodeMapper, IContentTreeContactUsNodeContext ContentTreeContactUsNodeContext)
 		{
 			this.contentTreeContactUsNodeContext = ContentTreeContactUsNodeContext;
 			this.contentTreeContactUsInputModelToContentTreeContactUsNodeMapper = ContentTreeContactUsInputModelToContentTreeContactUsNodeMapper;
@@ -107,7 +107,7 @@ namespace Paragon.ContentTree.ExampleEngineNodeProvider.Controllers
 		private string GetRedirectUrlToModifyMethod(ContentTreeContactUsNodeInputModel contentTreeContactUsInputModel)
 		{
 			if (Url == null) return "/";
-			return Url.Action("Modify", "ContentTreeContactUsNode", new { treeNodeId = contentTreeContactUsInputModel == null ? "0" : contentTreeContactUsInputModel.TreeNodeId });
+			return Url.Action("Modify", "ContentTreeExampleEngineNode", new { treeNodeId = contentTreeContactUsInputModel == null ? "0" : contentTreeContactUsInputModel.TreeNodeId });
 		}
 	}
 }

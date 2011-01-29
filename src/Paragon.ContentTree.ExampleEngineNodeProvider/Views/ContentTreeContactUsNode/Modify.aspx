@@ -12,7 +12,7 @@
 	});
 </script>--%>
 
-	<% using (Html.BeginForm(Model.Action, "ContentTreeContactUsNode", FormMethod.Post, new { Id = "form" })) { %>
+	<% using (Html.BeginForm(Model.Action, "ContentTreeExampleEngineNode", FormMethod.Post, new { Id = "form" })) { %>
 
 	<div class="crudFormContainer">
 
@@ -22,7 +22,7 @@
 			<input type="button" class="button" value="Cancel" onclick="window.location='<%=Url.Action("Index", "ContentTree") %>';" />
 			<input type="button" class="button" value="Save" onclick="$('#ContentTreeContactUsNodeInputModel_Action').val(this.value);/*tinyMCE.triggerSave();*/$('#form').submit();" />
 			<input type="button" class="button" value="Save And Exit" onclick="$('#ContentTreeContactUsNodeInputModel_Action').val(this.value);/*tinyMCE.triggerSave();*/$('#form').submit();" />
-			<input type="button" class="button important" value="Delete" onclick="if (confirm('Are you sure you want to delete this item?')) { window.location='<%=Url.Action("Delete", "ContentTreeContactUsNode", new { treeNodeId = Model.TreeNodeId }) %>'; }" />
+			<input type="button" class="button important" value="Delete" onclick="if (confirm('Are you sure you want to delete this item?')) { window.location='<%=Url.Action("Delete", "ContentTreeExampleEngineNode", new { treeNodeId = Model.TreeNodeId }) %>'; }" />
 		</div>
 	</div>
 	<% } %>

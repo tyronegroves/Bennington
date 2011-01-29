@@ -54,13 +54,12 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Routing\ContentTreeRouteConstraintTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Paragon.ContentTree.Routing\Paragon.ContentTree.Routing.csproj">
-      <Project>{19D2FC38-0EA3-4501-8297-A48C3923ED77}</Project>
-      <Name>Paragon.ContentTree.Routing</Name>
+    <ProjectReference Include="..\Paragon.ContentTree.ContentNodeProvider\Paragon.ContentTree.ContentNodeProvider.csproj">
+      <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
+      <Name>Paragon.ContentTree.ContentNodeProvider</Name>
     </ProjectReference>
     <ProjectReference Include="..\Paragon.ContentTree\Paragon.ContentTree.csproj">
       <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>

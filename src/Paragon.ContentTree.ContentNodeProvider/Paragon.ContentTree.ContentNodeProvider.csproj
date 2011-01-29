@@ -101,6 +101,7 @@
     <Compile Include="Models\ContentTreeNodeDisplayViewModel.cs" />
     <Compile Include="Models\ContentTreeNodeInputModel.cs" />
     <Compile Include="Models\ContentTreeNodeViewModel.cs" />
+    <Compile Include="Controllers\EngineController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -110,6 +111,8 @@
     <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
     <Compile Include="Repositories\ContentNodeProviderPublishedVersionRepository.cs" />
     <Compile Include="Repositories\ContentNodeProviderDraftRepository.cs" />
+    <Compile Include="Routing\ContentTreeRouteConstraint.cs" />
+    <Compile Include="Routing\ContentTreeRouteRegistrator.cs" />
     <Compile Include="Routing\RegisterDefaultRoutes.cs" />
     <Compile Include="Registration\TreeNodeExtensionProviderRegistration.cs" />
     <Compile Include="ContentNodeProvider.cs" />

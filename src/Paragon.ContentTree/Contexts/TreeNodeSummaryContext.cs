@@ -14,6 +14,7 @@ namespace Paragon.ContentTree.Contexts
 {
 	public interface ITreeNodeSummaryContext
 	{
+		TreeNodeSummary GetTreeNodeSummaryByTreeNodeId(string nodeId);
 		IEnumerable<TreeNodeSummary> GetChildren(string parentNodeId);
 		string Create(string parentNodeId, string providerTypeAssemblyQualifiedName);
 		void Delete(string nodeId);
@@ -80,19 +81,28 @@ namespace Paragon.ContentTree.Contexts
 			return childNodes;
 		}
 
+		public TreeNodeSummary GetTreeNodeSummaryByTreeNodeId(string nodeId)
+		{
+			var treeNode = treeNodeRepository.GetAll().Where(a => a.Id == nodeId).FirstOrDefault();
+			if (treeNode == null) return null;
+			if (treeNode.Id == Constants.RootNodeId) return null;
+			
+			return GetTreeNodeSummaryForTreeNode(treeNode);
+		}
+
 		private TreeNodeSummary GetTreeNodeSummaryForTreeNode(TreeNode treeNode)
 		{
 			var provider = treeNodeProviderContext.GetProviderByTypeName(treeNode.Type);
 			if (provider == null) throw new Exception(string.Format("Content tree node provider for type: {0} not found.", treeNode.Type));
 
-			var node = provider.GetAll().Where(a => a.TreeNodeId == treeNode.Id).FirstOrDefault();
-			if (node == null) throw new Exception(string.Format("Node with id \"{0}\" was not found by provider type \"{1}\".", treeNode.Id, provider.GetType().AssemblyQualifiedName));
+			var treeNodeExtension = provider.GetAll().Where(a => a.TreeNodeId == treeNode.Id).FirstOrDefault();
+			if (treeNodeExtension == null) throw new Exception(string.Format("Node with id \"{0}\" was not found by provider type \"{1}\".", treeNode.Id, provider.GetType().AssemblyQualifiedName));
 
 			var treeNodeSummary = new TreeNodeSummary()
 			       	{
-						Name = node.Name,
+						Name = treeNodeExtension.Name,
 						Id = treeNode.Id,
-						UrlSegment = node.UrlSegment,
+						UrlSegment = treeNodeExtension.UrlSegment,
 						HasChildren = treeNodeRepository.GetAll().Where(a => a.ParentTreeNodeId == treeNode.Id).Any(),
 						ControllerToUseForModification = provider.ControllerToUseForModification,
 						ActionToUseForModification = provider.ActionToUseForModification,
@@ -100,8 +110,9 @@ namespace Paragon.ContentTree.Contexts
 						ActionToUseForCreation = provider.ActionToUseForCreation,
 						RouteValuesForModification = new { TreeNodeId = treeNode.Id },
 						RouteValuesForCreation = new { ParentTreeNodeId = treeNode.Id },
-						ParentTreeNodeId = treeNode.Id,
-						Sequence = node.Sequence,
+						ParentTreeNodeId = treeNode.ParentTreeNodeId,
+						Sequence = treeNodeExtension.Sequence,
+						Type = treeNode.Type,
 			       	};
 			return treeNodeSummary;
 		}

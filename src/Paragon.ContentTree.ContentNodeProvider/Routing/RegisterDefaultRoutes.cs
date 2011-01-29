@@ -8,11 +8,11 @@ namespace Paragon.ContentTree.ContentNodeProvider.Routing
     {
         public void Register(RouteCollection routes)
         {
-			routes.MapRoute(
-				"ContentTreeNodeDisplayRoute",
-				"DisplayContentTreeNode____",
-				new { controller = "ContentTreeNode", action = "Index" }
-				);
+			//routes.MapRoute(
+			//    "ContentTreeNodeDisplayRoute",
+			//    "DisplayContentTreeNode____",
+			//    new { controller = "ContentTreeNode", action = "Index" }
+			//    );
         }
     }
 }

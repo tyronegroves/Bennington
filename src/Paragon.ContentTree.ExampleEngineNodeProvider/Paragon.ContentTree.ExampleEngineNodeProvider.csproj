@@ -93,7 +93,7 @@
     <Compile Include="Context\ContentTreeContactUsNodeContext.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controllers\ContactUsController.cs">
+    <Compile Include="Controllers\ExampleEngineController.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\ContentTreeContactUsNodeController.cs">
@@ -127,8 +127,8 @@
     <EmbeddedResource Include="Views\ContentTreeContactUsNode\Modify.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ContactUs\Index.aspx" />
-    <EmbeddedResource Include="Views\ContactUs\Confirmation.aspx" />
+    <EmbeddedResource Include="Views\ExampleEngine\Index.aspx" />
+    <EmbeddedResource Include="Views\ExampleEngine\Confirmation.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

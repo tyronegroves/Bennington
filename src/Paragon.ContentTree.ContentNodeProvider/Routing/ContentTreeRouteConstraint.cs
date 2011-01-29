@@ -1,11 +1,10 @@
 ﻿using System.Linq;
 using System.Web;
 using System.Web.Routing;
-using MvcTurbine.ComponentModel;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Models;
 
-namespace Paragon.ContentTree.Routing.Routing
+namespace Paragon.ContentTree.ContentNodeProvider.Routing
 {
     public class ContentTreeRouteConstraint : IRouteConstraint
     {
@@ -41,7 +40,7 @@ namespace Paragon.ContentTree.Routing.Routing
 
 		private TreeNodeSummary FindByUrlSegment(string urlSegment, string parentTreeNodeId)
 		{
-			var children = treeNodeSummaryContext.GetChildren(parentTreeNodeId);
+			var children = treeNodeSummaryContext.GetChildren(parentTreeNodeId).Where(a => a.Type == typeof(Paragon.ContentTree.ContentNodeProvider.ContentNodeProvider).AssemblyQualifiedName);
 			return children.Where(a => a.UrlSegment == urlSegment).FirstOrDefault();
 		}
     }

@@ -2,7 +2,7 @@
 
 namespace Paragon.ContentTree.ExampleEngineNodeProvider.Controllers
 {
-    public class ContactUsController : Controller
+    public class ExampleEngineController : Controller
     {
 		public ActionResult Index()
 		{

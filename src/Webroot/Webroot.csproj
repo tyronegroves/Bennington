@@ -124,7 +124,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ParagonPageController.cs" />
+    <Compile Include="Controllers\ParagonPageController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -133,6 +135,7 @@
       <DependentUpon>Routes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Routing\HomepageRouteRegistrator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Canvas\Body-Bg.gif" />
@@ -413,11 +416,11 @@
     <Content Include="Scripts\tiny_mce\utils\mctabs.js" />
     <Content Include="Scripts\tiny_mce\utils\validate.js" />
     <Content Include="Views\Home\Index.aspx" />
-    <EmbeddedResource Include="Views\Home\About.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Registration\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Target_\Active\ConnectionStrings.config">
@@ -429,7 +432,7 @@
     <Content Include="Target_\Active\CommandBusConfig.config">
       <SubType>Designer</SubType>
     </Content>
-    <None Include="Views\ParagonPage\Index.aspx" />
+    <Content Include="Views\ParagonPage\Index.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -459,14 +462,6 @@
       <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
       <Name>Paragon.ContentTree.ContentNodeProvider</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Paragon.ContentTree.ExampleEngineNodeProvider\Paragon.ContentTree.ExampleEngineNodeProvider.csproj">
-      <Project>{41C30A0E-6C5E-48F1-9DCC-998456ED21CD}</Project>
-      <Name>Paragon.ContentTree.ExampleEngineNodeProvider</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Paragon.ContentTree.Routing\Paragon.ContentTree.Routing.csproj">
-      <Project>{19D2FC38-0EA3-4501-8297-A48C3923ED77}</Project>
-      <Name>Paragon.ContentTree.Routing</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Paragon.ContentTreeSectionNodeProvider\Paragon.ContentTree.SectionNodeProvider.csproj">
       <Project>{F5B06173-0873-4E7E-BBD5-9F58D69E077F}</Project>
       <Name>Paragon.ContentTree.SectionNodeProvider</Name>
@@ -478,6 +473,14 @@
     <ProjectReference Include="..\Paragon.Core\Paragon.Core.csproj">
       <Project>{3DE65C2E-791C-4B05-815F-986782A5153A}</Project>
       <Name>Paragon.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Paragon.Engines.ContactUs\Paragon.Engines.ContactUs.csproj">
+      <Project>{DB5F2BBF-B1AF-401C-A38B-ABBA2DDC8916}</Project>
+      <Name>Paragon.Engines.ContactUs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Paragon.Engines.Faq\Paragon.Engines.Faq.csproj">
+      <Project>{4924DADD-FF87-4044-991E-1127C336C150}</Project>
+      <Name>Paragon.Engines.Faq</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

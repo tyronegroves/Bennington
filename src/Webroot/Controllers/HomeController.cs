@@ -1,16 +1,18 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
+using Paragon.ContentTree.ContentNodeProvider.Context;
+using Paragon.ContentTree.ContentNodeProvider.Controllers;
+using Paragon.ContentTree.Controllers;
+using Paragon.ContentTree.Helpers;
+using Paragon.ContentTree.Repositories;
 
-namespace WEBMODEL.Controllers
+namespace Webroot.Controllers
 {
     [HandleError]
-    public class HomeController : Controller
+	public class HomeController : Controller
     {
-        public ActionResult Index()
-        {
-            return View();
-        }
 
-        public ActionResult About()
+    	public ActionResult Index()
         {
             return View();
         }

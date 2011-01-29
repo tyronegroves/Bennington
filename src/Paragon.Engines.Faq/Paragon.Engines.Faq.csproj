@@ -6,12 +6,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</ProjectGuid>
+    <ProjectGuid>{4924DADD-FF87-4044-991E-1127C336C150}</ProjectGuid>
     <ProjectTypeGuids>{F85E285D-A4E0-4152-9332-AB1D724D3325};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Paragon.ContentTree</RootNamespace>
-    <AssemblyName>Paragon.ContentTree</AssemblyName>
+    <RootNamespace>Paragon.Engines.Faq</RootNamespace>
+    <AssemblyName>Paragon.Engines.Faq</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <TargetFrameworkProfile />
@@ -34,80 +34,37 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="MvcTurbine">
       <HintPath>..\..\lib\Turbine\MvcTurbine.dll</HintPath>
     </Reference>
-    <Reference Include="Paragon.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Paragon.Core\bin\Debug\Paragon.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="SimpleCqrs">
-      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Activities" />
-    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
     <Reference Include="System.ComponentModel.DataAnnotations">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Blades\RegisterAssemblyWithSimpleCqrsServiceLocatorBlade.cs" />
-    <Compile Include="Constants.cs" />
-    <Compile Include="Contexts\VersionContext.cs" />
-    <Compile Include="Controllers\ContentTreeController.cs" />
-    <Compile Include="Data\DataModel.cs">
-      <DependentUpon>DataModel.dbml</DependentUpon>
-    </Compile>
-    <Compile Include="Data\DataModel.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.dbml</DependentUpon>
-    </Compile>
-    <Compile Include="Denormalizers\TreeNodeDenormalizer.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Helpers\TreeNodeIdToUrl.cs" />
-    <Compile Include="Models\ContentTreeNodeContentItem.cs" />
-    <Compile Include="Models\IAmATreeNodeExtension.cs" />
-    <Compile Include="Models\TreeBranchViewModel.cs" />
-    <Compile Include="Models\TreeNodeCreationInputModel.cs" />
-    <Compile Include="Models\TreeNodeSummary.cs" />
+    <Compile Include="Controllers\FaqController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
-    <Compile Include="Contexts\TreeNodeSummaryContext.cs" />
-    <Compile Include="Repositories\TreeNodeRepository.cs" />
-    <Compile Include="Contexts\TreeNodeProviderContext.cs" />
-    <Compile Include="Routing\RegisterDefaultRoutes.cs" />
-    <Compile Include="Routing\RegisterRoutesForAllProviders.cs" />
-    <Compile Include="TreeNodeExtensionProvider\IAmATreeNodeExtensionProvider.cs" />
-    <Compile Include="ViewModelBuilders\Helpers\GetParentRouteDataDictionaryFromChildActionRouteData.cs" />
-    <Compile Include="ViewModelBuilders\TreeBranchViewModelBuilder.cs" />
+    <Compile Include="Registration\FaqEngineServiceRegistration.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\ContentTree\Branch.aspx" />
-    <EmbeddedResource Include="Views\ContentTree\Index.aspx" />
-    <Content Include="Global.asax" />
-    <EmbeddedResource Include="Views\Shared\EditorTemplates\ProviderTypes.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -115,26 +72,21 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <EmbeddedResource Include="Views\Faq\About.aspx" />
+    <EmbeddedResource Include="Views\Faq\Index.aspx" />
+    <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\DataModel.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DataModel.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Data\DataModel.dbml.layout">
-      <DependentUpon>DataModel.dbml</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Paragon.ContentTree.Domain\Paragon.ContentTree.Domain.csproj">
-      <Project>{9F36EE92-6F9A-4C57-AA4B-81328423D0DA}</Project>
-      <Name>Paragon.ContentTree.Domain</Name>
+    <ProjectReference Include="..\Paragon.ContentTree.ContentNodeProvider\Paragon.ContentTree.ContentNodeProvider.csproj">
+      <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
+      <Name>Paragon.ContentTree.ContentNodeProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Paragon.ContentTree\Paragon.ContentTree.csproj">
+      <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
+      <Name>Paragon.ContentTree</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -152,7 +104,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>52287</DevelopmentServerPort>
+          <DevelopmentServerPort>50726</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

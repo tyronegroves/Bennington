@@ -29,9 +29,9 @@ namespace Paragon.ContentTree.ExampleEngineNodeProvider
 			get
 			{
 				var contentTreeNodeContentItems = new List<ContentTreeNodeContentItem>();
-				foreach (var method in typeof(ContactUsController).GetMethods())
+				foreach (var method in typeof(ExampleEngineController).GetMethods())
 				{
-					if (method.DeclaringType == typeof(ContactUsController))
+					if (method.DeclaringType == typeof(ExampleEngineController))
 					{
 						contentTreeNodeContentItems.Add(new ContentTreeNodeContentItem()
 						{
