@@ -2,11 +2,12 @@
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.Cms.Controllers;
-using Paragon.Cms.ViewModelBuilders;
 using Paragon.ContentTree.Models;
+using Paragon.ContentTree.TreeManager.Controllers;
+using Paragon.ContentTree.TreeManager.Models;
+using Paragon.ContentTree.TreeManager.ViewModelBuilders;
 
-namespace Paragon.Cms.Tests.Controllers
+namespace Paragon.ContentTree.TreeManager.Tests.Controllers
 {
 	[TestClass]
 	public class ContentTreeControllerTests_Branch
@@ -26,7 +27,7 @@ namespace Paragon.Cms.Tests.Controllers
 			mocker.GetMock<ITreeBranchViewModelBuilder>().Setup(a => a.BuildViewModel(It.IsAny<string>()))
 				.Returns(viewModel);
 
-			var contentTreeController = mocker.Resolve<ContentTreeController>();
+			var contentTreeController = mocker.Resolve<TreeManagerController>();
 			var result = contentTreeController.Branch(null);
 
 			Assert.AreSame(viewModel, ((ViewResult)result).ViewData.Model);

@@ -1,6 +1,7 @@
 ﻿<%@ Import Namespace="Paragon.ContentTree.Models" %>
 <%@ Page Language="C#" MasterPageFile="~/Views/Shared/ManageSite.Master" Inherits="System.Web.Mvc.ViewPage<Paragon.ContentTree.Models.TreeNodeCreationInputModel>" %>
 <%@ Import Namespace="System.Security.Policy" %>
+<%@ Import Namespace="System.Web.Mvc" %>
 
 <asp:Content ID="aboutTitle" ContentPlaceHolderID="TitleContent" runat="server">
     Content Tree
@@ -13,7 +14,7 @@
 			$(".contentTree").jstree({
 				"html_data": {
 					"ajax": {
-						"url": "<%=Url.Action("Branch", "ContentTree") %>",
+						"url": "<%=Url.Action("Branch", "TreeManager") %>",
 						"data": function (n) {
 							return { id: n.attr ? n.attr("id") : '00000000-0000-0000-0000-000000000000' };
 						}

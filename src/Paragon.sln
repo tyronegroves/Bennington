@@ -38,6 +38,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.Engines
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.Engines.Faq", "Paragon.ContentTree.Engines.Faq\Paragon.ContentTree.Engines.Faq.csproj", "{4924DADD-FF87-4044-991E-1127C336C150}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.TreeManager", "Paragon.ContentTree.TreeManager\Paragon.ContentTree.TreeManager.csproj", "{5440F3E1-26AD-4355-875B-50ABF7484181}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.TreeManager.Tests", "Paragon.ContentTree.TreeManager.Tests\Paragon.ContentTree.TreeManager.Tests.csproj", "{EA7FC590-DDE5-47E6-B906-D5E6666F8F1F}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Paragon.vsmdi
@@ -103,6 +107,14 @@ Global
 		{4924DADD-FF87-4044-991E-1127C336C150}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4924DADD-FF87-4044-991E-1127C336C150}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4924DADD-FF87-4044-991E-1127C336C150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5440F3E1-26AD-4355-875B-50ABF7484181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5440F3E1-26AD-4355-875B-50ABF7484181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5440F3E1-26AD-4355-875B-50ABF7484181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5440F3E1-26AD-4355-875B-50ABF7484181}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA7FC590-DDE5-47E6-B906-D5E6666F8F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA7FC590-DDE5-47E6-B906-D5E6666F8F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA7FC590-DDE5-47E6-B906-D5E6666F8F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA7FC590-DDE5-47E6-B906-D5E6666F8F1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,5 +126,6 @@ Global
 		{06B21D4A-7480-4AD3-8112-B09B73B80573} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
 		{1C063A2E-BFF8-4D6F-B213-DE61DF65B133} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
 		{DFC14331-BCBC-42B9-8EE8-E781D24CEACF} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
+		{EA7FC590-DDE5-47E6-B906-D5E6666F8F1F} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
 	EndGlobalSection
 EndGlobal

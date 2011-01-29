@@ -77,8 +77,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContentManagementMenuRegistration.cs" />
-    <Compile Include="Controllers\ContentTreeController.cs" />
     <Compile Include="Controllers\MenuSystemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -86,11 +84,8 @@
     <Compile Include="Models\SectionMenuViewModel.cs" />
     <Compile Include="Models\IconMenuViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registration\RegisterContentTreeSmsRoutes.cs" />
     <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
     <Compile Include="Routing\RegisterMenuSystemRoutes.cs" />
-    <Compile Include="Routing\RegisterSmsRoutesForAllProviders.cs" />
-    <Compile Include="ViewModelBuilders\TreeBranchViewModelBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Content\Canvas\Body-Bg.gif" />
@@ -357,9 +352,6 @@
     <Content Include="Scripts\tiny_mce\utils\validate.js" />
     <EmbeddedResource Include="Views\MenuSystem\GetSectionMenuViewModel.aspx" />
     <EmbeddedResource Include="Views\MenuSystem\GetIconMenuViewModel.aspx" />
-    <EmbeddedResource Include="Views\ContentTree\Branch.aspx" />
-    <EmbeddedResource Include="Views\ContentTree\Index.aspx" />
-    <EmbeddedResource Include="Views\Shared\EditorTemplates\ProviderTypes.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -380,10 +372,6 @@
     <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
-    <Content Include="Views\Account\ChangePassword.aspx" />
-    <Content Include="Views\Account\ChangePasswordSuccess.aspx" />
-    <Content Include="Views\Account\LogOn.aspx" />
-    <Content Include="Views\Account\Register.aspx" />
     <EmbeddedResource Include="Views\Shared\Error.aspx" />
     <EmbeddedResource Include="Views\Shared\LogOnUserControl.ascx" />
     <Content Include="Views\Web.config" />
@@ -395,10 +383,6 @@
     <Folder Include="Scripts\tiny_mce\plugins\spellchecker\includes\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Paragon.ContentTree\Paragon.ContentTree.csproj">
-      <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
-      <Name>Paragon.ContentTree</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Paragon.Core\Paragon.Core.csproj">
       <Project>{3DE65C2E-791C-4B05-815F-986782A5153A}</Project>
       <Name>Paragon.Core</Name>

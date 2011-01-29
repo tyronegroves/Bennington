@@ -1,14 +1,11 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Paragon.Cms.ViewModelBuilders;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Models;
+using Paragon.ContentTree.TreeManager.ViewModelBuilders;
 
-namespace Paragon.ContentTree.Tests.ViewModelBuilders
+namespace Paragon.ContentTree.TreeManager.Tests.ViewModelBuilders
 {
 	[TestClass]
 	public class TreeBranchViewModelBuilderTests_BuildViewModel

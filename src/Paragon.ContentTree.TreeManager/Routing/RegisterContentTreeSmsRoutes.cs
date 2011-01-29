@@ -2,7 +2,7 @@
 using System.Web.Routing;
 using MvcTurbine.Routing;
 
-namespace Paragon.Cms.Registration
+namespace Paragon.ContentTree.TreeManager.Routing
 {
 	public class RegisterContentTreeSmsRoutes : IRouteRegistrator
 	{
@@ -11,7 +11,7 @@ namespace Paragon.Cms.Registration
 			routes.MapRoute(
 				null,
 				"Manage/ContentTree/{action}",
-				new { controller = "ContentTree", action = "Index" }
+				new { controller = "TreeManager", action = "Index" }
 				);
 		}
 	}

@@ -18,7 +18,7 @@ namespace Paragon.Cms
 		
 		public string Controller
 		{
-			get { return "ContentTree"; }
+			get { return "TreeManager"; }
 		}
 		
 		public string Action 

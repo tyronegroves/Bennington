@@ -1,10 +1,7 @@
 ﻿using System;
-using System.IO;
-using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 using System.Web.Routing;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -13,7 +10,7 @@ using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Models;
 using Paragon.ContentTree.TreeNodeExtensionProvider;
 
-namespace Paragon.ContentTree.Tests.Routing
+namespace Paragon.ContentTree.TreeManager.Tests.Routing
 {
 	[TestClass]
 	public class RegisterRoutesForAllProvidersTests_Register

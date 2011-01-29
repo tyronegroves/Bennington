@@ -470,6 +470,10 @@
       <Project>{4924DADD-FF87-4044-991E-1127C336C150}</Project>
       <Name>Paragon.ContentTree.Engines.Faq</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Paragon.ContentTree.TreeManager\Paragon.ContentTree.TreeManager.csproj">
+      <Project>{5440F3E1-26AD-4355-875B-50ABF7484181}</Project>
+      <Name>Paragon.ContentTree.TreeManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Paragon.ContentTreeSectionNodeProvider\Paragon.ContentTree.SectionNodeProvider.csproj">
       <Project>{F5B06173-0873-4E7E-BBD5-9F58D69E077F}</Project>
       <Name>Paragon.ContentTree.SectionNodeProvider</Name>

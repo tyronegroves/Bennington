@@ -1,13 +1,13 @@
 ﻿using System.Web.Mvc;
-using Paragon.Cms.ViewModelBuilders;
+using Paragon.ContentTree.TreeManager.ViewModelBuilders;
 
-namespace Paragon.Cms.Controllers
+namespace Paragon.ContentTree.TreeManager.Controllers
 {
-	public class ContentTreeController : Controller
+	public class TreeManagerController : Controller
 	{
 		private readonly ITreeBranchViewModelBuilder treeBranchViewModelBuilder;
 
-		public ContentTreeController(ITreeBranchViewModelBuilder treeBranchViewModelBuilder)
+		public TreeManagerController(ITreeBranchViewModelBuilder treeBranchViewModelBuilder)
 		{
 			this.treeBranchViewModelBuilder = treeBranchViewModelBuilder;
 		}

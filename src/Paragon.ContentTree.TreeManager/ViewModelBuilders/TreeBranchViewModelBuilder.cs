@@ -2,8 +2,9 @@
 using System.Linq;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Models;
+using Paragon.ContentTree.TreeManager.Models;
 
-namespace Paragon.Cms.ViewModelBuilders
+namespace Paragon.ContentTree.TreeManager.ViewModelBuilders
 {
 	public interface ITreeBranchViewModelBuilder
 	{
