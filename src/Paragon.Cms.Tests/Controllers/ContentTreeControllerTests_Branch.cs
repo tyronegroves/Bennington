@@ -1,16 +1,12 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.ContentTree.Controllers;
+using Paragon.Cms.Controllers;
+using Paragon.Cms.ViewModelBuilders;
 using Paragon.ContentTree.Models;
-using Paragon.ContentTree.ViewModelBuilders;
 
-namespace Paragon.ContentTree.Tests.Controllers
+namespace Paragon.Cms.Tests.Controllers
 {
 	[TestClass]
 	public class ContentTreeControllerTests_Branch
@@ -18,7 +14,7 @@ namespace Paragon.ContentTree.Tests.Controllers
 		private AutoMoqer mocker;
 
 		[TestInitialize]
-		public void INit()
+		public void Init()
 		{
 			mocker= new AutoMoqer();
 		}

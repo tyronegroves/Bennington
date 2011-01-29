@@ -2,7 +2,6 @@
 using System.Web.Mvc;
 using Paragon.ContentTree.ContentNodeProvider.Context;
 using Paragon.ContentTree.ContentNodeProvider.Controllers;
-using Paragon.ContentTree.Controllers;
 using Paragon.ContentTree.Helpers;
 using Paragon.ContentTree.Repositories;
 

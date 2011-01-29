@@ -9,7 +9,7 @@ using Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Data;
 using Paragon.ContentTree.Models;
-using Paragon.ContentTree.ViewModelBuilders.Helpers;
+using Paragon.Core.Helpers;
 
 namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 {

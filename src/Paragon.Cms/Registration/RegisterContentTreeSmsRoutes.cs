@@ -2,9 +2,9 @@
 using System.Web.Routing;
 using MvcTurbine.Routing;
 
-namespace Paragon.ContentTree.Routing
+namespace Paragon.Cms.Registration
 {
-	public class RegisterDefaultRoutes : IRouteRegistrator
+	public class RegisterContentTreeSmsRoutes : IRouteRegistrator
 	{
 		public void Register(RouteCollection routes)
 		{

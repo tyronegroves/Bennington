@@ -4,7 +4,7 @@ using MvcTurbine.Routing;
 
 namespace Paragon.Cms.Routing
 {
-	public class RegisterDefaultRoutes : IRouteRegistrator
+	public class RegisterMenuSystemRoutes : IRouteRegistrator
 	{
 		public void Register(RouteCollection routes)
 		{

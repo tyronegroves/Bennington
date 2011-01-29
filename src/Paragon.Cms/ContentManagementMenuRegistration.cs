@@ -2,7 +2,7 @@
 using MvcTurbine.ComponentModel;
 using Paragon.Core.MenuSystem;
 
-namespace Paragon.ContentTree
+namespace Paragon.Cms
 {
 	public class ContentManagementMenuRegistration : IAmAnIconMenuItem, IAmASectionMenuItem, IServiceRegistration
 	{

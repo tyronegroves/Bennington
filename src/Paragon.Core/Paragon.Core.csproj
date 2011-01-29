@@ -41,10 +41,14 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\EntityConnectionInformation.cs" />
     <Compile Include="Helpers\GetCurrentDateTime.cs" />
+    <Compile Include="Helpers\GetParentRouteDataDictionaryFromChildActionRouteData.cs" />
     <Compile Include="Helpers\GuidGetter.cs" />
     <Compile Include="MenuSystem\IAmASectionMenuItem.cs" />
     <Compile Include="MenuSystem\IAmAnIconMenuItem.cs" />

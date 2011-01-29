@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 using MvcTurbine.Routing;
 using Paragon.ContentTree.Contexts;
 
-namespace Paragon.ContentTree.Routing
+namespace Paragon.Cms.Routing
 {
-	public class RegisterRoutesForAllProviders : IRouteRegistrator
+	public class RegisterSmsRoutesForAllProviders : IRouteRegistrator
 	{
 		private readonly ITreeNodeProviderContext treeNodeProviderContext;
 
-		public RegisterRoutesForAllProviders(ITreeNodeProviderContext treeNodeProviderContext)
+		public RegisterSmsRoutesForAllProviders(ITreeNodeProviderContext treeNodeProviderContext)
 		{
 			this.treeNodeProviderContext = treeNodeProviderContext;
 		}

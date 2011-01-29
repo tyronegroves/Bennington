@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Paragon.Cms.ViewModelBuilders;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Models;
-using Paragon.ContentTree.ViewModelBuilders;
 
 namespace Paragon.ContentTree.Tests.ViewModelBuilders
 {

@@ -1,17 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Paragon.ContentTree.ViewModelBuilders.Helpers
+namespace Paragon.Core.Helpers
 {
+	///<summary>
+	///</summary>
 	public interface IGetParentRouteDataDictionaryFromChildActionRouteData
 	{
+		///<summary>
+		///</summary>
+		///<param name="childActionRouteData"></param>
+		///<returns></returns>
 		RouteData GetRouteValues(RouteData childActionRouteData);
 	}
 
+	///<summary>
+	///</summary>
 	public class GetParentRouteDataDictionaryFromChildActionRouteData : IGetParentRouteDataDictionaryFromChildActionRouteData
 	{
 		public RouteData GetRouteValues(RouteData childActionRouteData)
@@ -25,8 +33,8 @@ namespace Paragon.ContentTree.ViewModelBuilders.Helpers
 					return parentActionViewContext.RouteData;
 				}
 			}
-			//var action = ((ViewContext)childActionRouteData.DataTokens["ParentActionViewContext"]).RouteData.Values["action"];
 			return null;
 		}
 	}
+
 }

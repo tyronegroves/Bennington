@@ -1,8 +1,7 @@
 ﻿using System.Web.Mvc;
-using Paragon.ContentTree.Models;
-using Paragon.ContentTree.ViewModelBuilders;
+using Paragon.Cms.ViewModelBuilders;
 
-namespace Paragon.ContentTree.Controllers
+namespace Paragon.Cms.Controllers
 {
 	public class ContentTreeController : Controller
 	{

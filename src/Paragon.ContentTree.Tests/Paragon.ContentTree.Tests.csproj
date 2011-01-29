@@ -62,7 +62,6 @@
     <Compile Include="Contexts\TreeNodeProviderContextTests_GetAllTreeNodeProviders.cs" />
     <Compile Include="Contexts\TreeNodeSummarContextTests_GetChildren.cs" />
     <Compile Include="Contexts\TreeNodeSummaryContextTests_Create.cs" />
-    <Compile Include="Controllers\ContentTreeControllerTests_Branch.cs" />
     <Compile Include="Denormalizers\TreeNodeDenormalizerTests_Handle_TreeParentNodeIdSetEvent.cs" />
     <Compile Include="Denormalizers\TreeNodeDenormalizerTests_Handle_TreeNodeCreatedEvent.cs" />
     <Compile Include="Denormalizers\TreeNodeDenormalizerTests_Handle_TreeNodeTypeSetEvent.cs" />
@@ -70,9 +69,7 @@
     <Compile Include="Helpers\TreeNodeIdToUrlTests_GetUrlByTreeNodeId.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routing\ContentTreeRouteConstraintTests.cs" />
-    <Compile Include="Routing\RegisterRoutesForAllProvidersTests_Register.cs" />
     <Compile Include="TreeNodeExtensionProvider\GetAllContentTreeNodeProvidersTests_GetAll.cs" />
-    <Compile Include="ViewModelBuilders\TreeBranchViewModelBuilderTests_BuildViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Paragon.ContentTree.ContentNodeProvider\Paragon.ContentTree.ContentNodeProvider.csproj">

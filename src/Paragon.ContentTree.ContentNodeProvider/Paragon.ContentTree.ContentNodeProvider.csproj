@@ -47,18 +47,6 @@
     <Reference Include="SimpleCqrs">
       <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleCqrs.Commanding">
-      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.Commanding.dll</HintPath>
-    </Reference>
-    <Reference Include="SimpleCqrs.Core">
-      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="SimpleCqrs.Domain">
-      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.Domain.dll</HintPath>
-    </Reference>
-    <Reference Include="SimpleCqrs.Eventing">
-      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.Eventing.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Activities" />
     <Reference Include="System.ComponentModel.DataAnnotations" />

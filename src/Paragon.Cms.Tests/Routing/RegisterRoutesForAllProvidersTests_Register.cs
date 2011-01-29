@@ -8,9 +8,9 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using AutoMoq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Paragon.Cms.Routing;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Models;
-using Paragon.ContentTree.Routing;
 using Paragon.ContentTree.TreeNodeExtensionProvider;
 
 namespace Paragon.ContentTree.Tests.Routing
@@ -38,7 +38,7 @@ namespace Paragon.ContentTree.Tests.Routing
 			var httpContext = new Moq.Mock<HttpContextBase>();
 
 
-			mocker.Resolve<RegisterRoutesForAllProviders>().Register(routes);
+			mocker.Resolve<RegisterSmsRoutesForAllProviders>().Register(routes);
 			
 			var query = from item in routes
 						where (((System.Web.Routing.Route)item).Url == "Manage/ControllerToUseForCreation/{action}")
@@ -59,7 +59,7 @@ namespace Paragon.ContentTree.Tests.Routing
 			var httpContext = new Moq.Mock<HttpContextBase>();
 
 
-			mocker.Resolve<RegisterRoutesForAllProviders>().Register(routes);
+			mocker.Resolve<RegisterSmsRoutesForAllProviders>().Register(routes);
 
 			var query = from item in routes
 						where (((System.Web.Routing.Route)item).Url == "Manage/ControllerToUseForModification/{action}")
@@ -80,7 +80,7 @@ namespace Paragon.ContentTree.Tests.Routing
 			var httpContext = new Moq.Mock<HttpContextBase>();
 
 
-			mocker.Resolve<RegisterRoutesForAllProviders>().Register(routes);
+			mocker.Resolve<RegisterSmsRoutesForAllProviders>().Register(routes);
 
 			var query = from item in routes
 						where (((Route)item).Defaults["controller"].ToString() == "ControllerToUseForModification")
@@ -102,7 +102,7 @@ namespace Paragon.ContentTree.Tests.Routing
 			var httpContext = new Moq.Mock<HttpContextBase>();
 
 
-			mocker.Resolve<RegisterRoutesForAllProviders>().Register(routes);
+			mocker.Resolve<RegisterSmsRoutesForAllProviders>().Register(routes);
 
 			var query = from item in routes
 						where (((Route)item).Defaults["controller"].ToString() == "ControllerToUseForCreation")

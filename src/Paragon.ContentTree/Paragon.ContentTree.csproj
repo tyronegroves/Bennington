@@ -73,7 +73,6 @@
     <Compile Include="Blades\RegisterAssemblyWithSimpleCqrsServiceLocatorBlade.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Contexts\VersionContext.cs" />
-    <Compile Include="Controllers\ContentTreeController.cs" />
     <Compile Include="Data\DataModel.cs">
       <DependentUpon>DataModel.dbml</DependentUpon>
     </Compile>
@@ -97,17 +96,10 @@
     <Compile Include="Contexts\TreeNodeSummaryContext.cs" />
     <Compile Include="Repositories\TreeNodeRepository.cs" />
     <Compile Include="Contexts\TreeNodeProviderContext.cs" />
-    <Compile Include="Routing\RegisterDefaultRoutes.cs" />
-    <Compile Include="Routing\RegisterRoutesForAllProviders.cs" />
     <Compile Include="TreeNodeExtensionProvider\IAmATreeNodeExtensionProvider.cs" />
-    <Compile Include="ViewModelBuilders\Helpers\GetParentRouteDataDictionaryFromChildActionRouteData.cs" />
-    <Compile Include="ViewModelBuilders\TreeBranchViewModelBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\ContentTree\Branch.aspx" />
-    <EmbeddedResource Include="Views\ContentTree\Index.aspx" />
     <Content Include="Global.asax" />
-    <EmbeddedResource Include="Views\Shared\EditorTemplates\ProviderTypes.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

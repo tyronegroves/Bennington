@@ -37,10 +37,16 @@
       <HintPath>..\..\..\lib\AutoMoq\AutoMoq.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MvcTurbine, Version=2.1.0.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Turbine\MvcTurbine.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
@@ -48,12 +54,19 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ContentTreeControllerTests_Branch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Routing\RegisterRoutesForAllProvidersTests_Register.cs" />
+    <Compile Include="ViewModelBuilders\TreeBranchViewModelBuilderTests_BuildViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Paragon.Cms\Paragon.Cms.csproj">
       <Project>{7516E4A6-54D1-437B-B14A-5EAA25D84730}</Project>
       <Name>Paragon.Cms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Paragon.ContentTree\Paragon.ContentTree.csproj">
+      <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
+      <Name>Paragon.ContentTree</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

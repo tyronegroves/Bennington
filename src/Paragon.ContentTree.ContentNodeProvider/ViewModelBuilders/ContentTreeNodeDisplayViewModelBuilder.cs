@@ -3,7 +3,7 @@ using System.Web.Routing;
 using Paragon.ContentTree.ContentNodeProvider.Context;
 using Paragon.ContentTree.ContentNodeProvider.Models;
 using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.ViewModelBuilders.Helpers;
+using Paragon.Core.Helpers;
 
 namespace Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders
 {
