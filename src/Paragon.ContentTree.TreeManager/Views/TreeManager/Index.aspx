@@ -1,5 +1,5 @@
 ﻿<%@ Import Namespace="Paragon.ContentTree.Models" %>
-<%@ Page Language="C#" MasterPageFile="~/Views/Shared/ManageSite.Master" Inherits="System.Web.Mvc.ViewPage<Paragon.ContentTree.Models.TreeNodeCreationInputModel>" %>
+<%@ Page Language="C#" MasterPageFile="~/Views/Shared/ManageSite.Master" Inherits="System.Web.Mvc.ViewPage<Paragon.ContentTree.TreeManager.Models.TreeNodeCreationInputModel>" %>
 <%@ Import Namespace="System.Security.Policy" %>
 <%@ Import Namespace="System.Web.Mvc" %>
 

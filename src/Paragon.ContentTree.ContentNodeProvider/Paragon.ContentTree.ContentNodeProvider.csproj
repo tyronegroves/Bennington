@@ -101,7 +101,6 @@
     <Compile Include="Repositories\ContentNodeProviderDraftRepository.cs" />
     <Compile Include="Routing\ContentTreeRouteConstraint.cs" />
     <Compile Include="Routing\ContentTreeRouteRegistrator.cs" />
-    <Compile Include="Routing\RegisterDefaultRoutes.cs" />
     <Compile Include="Registration\TreeNodeExtensionProviderRegistration.cs" />
     <Compile Include="ContentNodeProvider.cs" />
     <Compile Include="Context\ContentTreeNodeVersionContext.cs" />

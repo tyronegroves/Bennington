@@ -102,13 +102,6 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 					url,
 					new { controller = controllerName, action = "Index" }
 				);
-
-				//routes.Add(new Route
-				//                (
-				//                    url,
-				//                    new RouteValueDictionary(new { controller = controllerName, action = "Index" }),
-				//                    new MvcRouteHandler()
-				//                ));
 			}
 		}
     }

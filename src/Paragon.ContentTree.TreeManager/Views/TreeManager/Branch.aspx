@@ -1,5 +1,5 @@
 ﻿<%@ Import Namespace="Paragon.ContentTree.Models" %>
-<%@ Page Title="" Language="C#" Inherits="System.Web.Mvc.ViewPage<TreeBranchViewModel>" %>
+<%@ Page Title="" Language="C#" Inherits="System.Web.Mvc.ViewPage<Paragon.ContentTree.TreeManager.Models.TreeBranchViewModel>" %>
 <%--<ul class="menu">--%>
 	<% foreach (var treeNode in Model.TreeNodeSummaries) { %>
 		<li id="<%=treeNode.Id %>" class="<% if (treeNode.HasChildren) { %>jstree-closed<% } %>">
