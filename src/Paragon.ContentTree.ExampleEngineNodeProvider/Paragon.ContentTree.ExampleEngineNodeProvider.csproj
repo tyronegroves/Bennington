@@ -87,7 +87,7 @@
     <Compile Include="ExampleEngineNodeProvider.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ContentTreeContactUsTreeNodeExtensionProviderRegistration.cs">
+    <Compile Include="Registration\ContentTreeContactUsTreeNodeExtensionProviderRegistration.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Context\ContentTreeContactUsNodeContext.cs">

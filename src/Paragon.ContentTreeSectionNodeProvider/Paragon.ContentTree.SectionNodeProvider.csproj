@@ -105,7 +105,7 @@
     </Compile>
     <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
     <Compile Include="Routing\RegisterSectionRoutes.cs" />
-    <Compile Include="TreeNodeExtensionProviderRegistration.cs" />
+    <Compile Include="Registration\TreeNodeExtensionProviderRegistration.cs" />
     <Compile Include="SectionNodeProvider.cs" />
     <Compile Include="Repositories\ContentTreeSectionNodeRepository.cs" />
     <Compile Include="Validation\ContentTreeInputModelValidator.cs" />
