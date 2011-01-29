@@ -5,12 +5,12 @@ using MvcTurbine.Routing;
 
 namespace Paragon.ContentTree.Routing.Routing
 {
-    public class RegisterDefaultRoutes : IRouteRegistrator
+    public class ContentTreeRouteRegistrator : IRouteRegistrator
     {
 		private const int MaxDepthForContentTreeUrlSegments = 25;
     	private readonly ContentTreeRouteConstraint contentTreeRouteConstraint;
 
-    	public RegisterDefaultRoutes(ContentTreeRouteConstraint contentTreeRouteConstraint)
+    	public ContentTreeRouteRegistrator(ContentTreeRouteConstraint contentTreeRouteConstraint)
 		{
     		this.contentTreeRouteConstraint = contentTreeRouteConstraint;
 		}
@@ -20,7 +20,7 @@ namespace Paragon.ContentTree.Routing.Routing
 			var contentTreeRoute = new Route
 						(
 							GetUrlPatternForDepth(MaxDepthForContentTreeUrlSegments),
-							GetRouteDefaults(MaxDepthForContentTreeUrlSegments),
+							GetDefaultRouteValues(MaxDepthForContentTreeUrlSegments),
 							new MvcRouteHandler()
 						);
 			contentTreeRoute.Constraints = new RouteValueDictionary();
@@ -28,7 +28,7 @@ namespace Paragon.ContentTree.Routing.Routing
 			routes.Add(contentTreeRoute);
         }
 
-		private static RouteValueDictionary GetRouteDefaults(int maxDepth)
+		private static RouteValueDictionary GetDefaultRouteValues(int maxDepth)
 		{
 			var defaults = new RouteValueDictionary();
 
