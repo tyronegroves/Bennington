@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Controllers\TreeManagerController.cs" />
     <Compile Include="Models\TreeBranchViewModel.cs" />
+    <Compile Include="Models\TreeManagerIndexViewModel.cs" />
     <Compile Include="Models\TreeNodeCreationInputModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\ContentManagementMenuRegistration.cs" />

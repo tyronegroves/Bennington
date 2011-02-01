@@ -1,5 +1,5 @@
 ﻿<%@ Import Namespace="Paragon.ContentTree.Models" %>
-<%@ Page Language="C#" MasterPageFile="~/Views/Shared/ManageSite.Master" Inherits="System.Web.Mvc.ViewPage<Paragon.ContentTree.TreeManager.Models.TreeNodeCreationInputModel>" %>
+<%@ Page Language="C#" MasterPageFile="~/Views/Shared/ManageSite.Master" Inherits="System.Web.Mvc.ViewPage<Paragon.ContentTree.TreeManager.Models.TreeManagerIndexViewModel>" %>
 <%@ Import Namespace="System.Security.Policy" %>
 <%@ Import Namespace="System.Web.Mvc" %>
 
@@ -23,11 +23,11 @@
 				"plugins": ["themes", "html_data"/*, 'ui', 'checkbox'*/]
 			});
 
-			$("#ProviderType").change(function () {
-				var selected = $("#ProviderType option:selected");
+			$("#TreeNodeCreationInputModel_ProviderType").change(function () {
+				var selected = $("#TreeNodeCreationInputModel_ProviderType option:selected");
 				var output = "";
 				if (selected.val() != "") {
-					document.forms[0].action = $("#ProviderType").val();
+					document.forms[0].action = $("#TreeNodeCreationInputModel_ProviderType").val();
 				}
 			});
 		});
@@ -41,10 +41,10 @@
 
     <div id="tab1" class="tabContent">
         <div class="section">
-            <div class="createFormContainer">
+            <div class="createFormContainer" id="createFormContainer" style="display:none">
 				<% using (Html.BeginForm("Index", "ContentTree", FormMethod.Get, new {  })) { %>
-					<%=Html.EditorForModel() %>
-					<input type="button" class="button" value="Create" onclick="window.location=$('#ProviderType').val() + '&parentTreeNodeId=' + $('#ParentTreeNodeId').val();" />
+					<%=Html.EditorFor(a => a.TreeNodeCreationInputModel)%>
+					<input type="button" class="button" value="Create" onclick="window.location=$('#TreeNodeCreationInputModel_ProviderType').val() + '&parentTreeNodeId=' + $('#TreeNodeCreationInputModel_ParentTreeNodeId').val();" />
 				<% } %>
 			</div>
 			<div class="contentTreeContainer clearfix">
@@ -60,9 +60,12 @@
                     </div>
                 </div>--%>
             </div>
-			<a href="#" class="noicon" onclick="$('#ParentTreeNodeId').val('00000000-0000-0000-0000-000000000000');return(false);">[Create in Root]</a>
+			<%--<a href="#" class="noicon" onclick="$('#TreeNodeCreationInputModel_ParentTreeNodeId').val('00000000-0000-0000-0000-000000000000');return(false);">[Create in Root]</a>--%>
         </div>
 
+		<br />
+		<a id="createInRootLink" href="#TB_inline?height=155&width=300&inlineId=createFormContainer&modal=false" class="thickbox" title="Create a Node:" >[Create a parent page]</a>
+		
     </div>
 
     <div id="tab2" class="tabContent">
