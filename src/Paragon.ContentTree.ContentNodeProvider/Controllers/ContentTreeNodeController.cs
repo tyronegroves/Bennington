@@ -69,7 +69,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 									TreeNodeId = treeNodeGuidId,
 									AggregateRootId = treeNodeGuidId,
 			                	});
-			return new RedirectToRouteResult(new RouteValueDictionary { { "controller", "ContentTree" }, { "action", "Index" }});
+			return new RedirectToRouteResult(new RouteValueDictionary { { "controller", "TreeManager" }, { "action", "Index" }});
 		}
 
 		[HttpPost]

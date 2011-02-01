@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Paragon.ContentTree.TreeManager.Models;
 using Paragon.ContentTree.TreeManager.ViewModelBuilders;
 
 namespace Paragon.ContentTree.TreeManager.Controllers
@@ -14,7 +15,13 @@ namespace Paragon.ContentTree.TreeManager.Controllers
 
 		public ActionResult Index()
 		{
-			return View("Index");
+			return View("Index", new Models.TreeManagerIndexViewModel()
+			                     	{
+			                     		TreeNodeCreationInputModel = new TreeNodeCreationInputModel()
+			                     		                             	{
+			                     		                             		ParentTreeNodeId = Constants.RootNodeId,
+			                     		                             	}
+			                     	});
 		}
 
 		public ActionResult Branch(string id)
