@@ -1,54 +1,10 @@
-CREATE TABLE TreeNode
-(
-	CreateDate DATETIME,
-	CreateBy nvarchar(500),
-	LastModifyDate DATETIME,
-	LastModifyBy nvarchar(500),
-	Id nvarchar(100) PRIMARY KEY,
-	Type nvarchar(500),
-	ParentTreeNodeId nvarchar(100)
-);
-
 GO
 
+/****** Object:  Table [dbo].[ContentNodeProviderDraft]    Script Date: 01/31/2011 20:07:44 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
-GO
-
-CREATE TABLE [dbo].[SectionNodeProviderDraft](
-	[SectionId] [nvarchar](100) NOT NULL,
-	[TreeNodeId] [nvarchar](100) NULL,
-	[Sequence] [int] NULL,
-	[Name] [nvarchar](500) NULL,
-	[UrlSegment] [nvarchar](500) NULL,
-	[DefaultTreeNodeId] [nvarchar](100) NULL,
- CONSTRAINT [PK_SectionNodeProviderDraft_1] PRIMARY KEY CLUSTERED 
-(
-	[SectionId] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-
-GO
-
-
-CREATE TABLE [dbo].[ContentNodeProviderPublishedVersion](
-	[Key] [int] NULL,
-	[PageId] [nvarchar](100) NULL,
-	[TreeNodeId] [nvarchar](100) NULL,
-	[UrlSegment] [nvarchar](500) NULL,
-	[Sequence] [int] NULL,
-	[Name] [nvarchar](100) NULL,
-	[Action] [nvarchar](100) NULL,
-	[MetaTitle] [nvarchar](500) NULL,
-	[MetaDescription] [ntext] NULL,
-	[HeaderText] [nvarchar](500) NULL,
-	[Body] [ntext] NULL,
-	[MetaKeyword] [ntext] NULL
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
 GO
 
 CREATE TABLE [dbo].[ContentNodeProviderDraft](
@@ -73,6 +29,87 @@ CREATE TABLE [dbo].[ContentNodeProviderDraft](
 	[Key] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+GO
+
+/****** Object:  Table [dbo].[ContentNodeProviderPublishedVersion]    Script Date: 01/31/2011 20:07:44 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ContentNodeProviderPublishedVersion](
+	[Key] [int] NOT NULL,
+	[PageId] [nvarchar](100) NULL,
+	[TreeNodeId] [nvarchar](100) NULL,
+	[UrlSegment] [nvarchar](500) NULL,
+	[Sequence] [int] NULL,
+	[Name] [nvarchar](100) NULL,
+	[Action] [nvarchar](100) NULL,
+	[MetaTitle] [nvarchar](500) NULL,
+	[MetaDescription] [ntext] NULL,
+	[HeaderText] [nvarchar](500) NULL,
+	[Body] [ntext] NULL,
+	[MetaKeyword] [ntext] NULL,
+ CONSTRAINT [PK_ContentNodeProviderPublishedVersion] PRIMARY KEY CLUSTERED 
+(
+	[Key] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+GO
+
+/****** Object:  Table [dbo].[SectionNodeProviderDraft]    Script Date: 01/31/2011 20:07:44 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[SectionNodeProviderDraft](
+	[SectionId] [nvarchar](100) NOT NULL,
+	[TreeNodeId] [nvarchar](100) NULL,
+	[Sequence] [int] NULL,
+	[Name] [nvarchar](500) NULL,
+	[UrlSegment] [nvarchar](500) NULL,
+	[DefaultTreeNodeId] [nvarchar](100) NULL,
+ CONSTRAINT [PK_SectionNodeProviderDraft_1] PRIMARY KEY CLUSTERED 
+(
+	[SectionId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+GO
+
+/****** Object:  Table [dbo].[TreeNode]    Script Date: 01/31/2011 20:07:44 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TreeNode](
+	[CreateDate] [datetime] NULL,
+	[CreateBy] [nvarchar](500) NULL,
+	[LastModifyDate] [datetime] NULL,
+	[LastModifyBy] [nvarchar](500) NULL,
+	[Id] [nvarchar](100) NOT NULL,
+	[Type] [nvarchar](500) NULL,
+	[ParentTreeNodeId] [nvarchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
 
 GO
 
