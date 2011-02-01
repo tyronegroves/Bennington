@@ -42,6 +42,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.TreeMan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.TreeManager.Tests", "Paragon.ContentTree.TreeManager.Tests\Paragon.ContentTree.TreeManager.Tests.csproj", "{EA7FC590-DDE5-47E6-B906-D5E6666F8F1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paragon.ContentTree.Engines.Homepage", "Paragon.ContentTree.Engines.Homepage\Paragon.ContentTree.Engines.Homepage.csproj", "{54C47F60-7C15-45DE-8927-EF4BFB8491A4}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Paragon.vsmdi
@@ -115,6 +117,10 @@ Global
 		{EA7FC590-DDE5-47E6-B906-D5E6666F8F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA7FC590-DDE5-47E6-B906-D5E6666F8F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA7FC590-DDE5-47E6-B906-D5E6666F8F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54C47F60-7C15-45DE-8927-EF4BFB8491A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54C47F60-7C15-45DE-8927-EF4BFB8491A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54C47F60-7C15-45DE-8927-EF4BFB8491A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54C47F60-7C15-45DE-8927-EF4BFB8491A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -54,7 +54,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 
 		public ActionResult Index()
 		{
-			return View("Index", contentTreeNodeDisplayViewModelBuilder.BuildViewModel(rawUrlGetter.GetRawUrl(), RouteData));
+			return View("Index", contentTreeNodeDisplayViewModelBuilder
+										.BuildViewModel(rawUrlGetter.GetRawUrl(), RouteData));
 		}
 
 		public ActionResult Delete(string treeNodeId)
