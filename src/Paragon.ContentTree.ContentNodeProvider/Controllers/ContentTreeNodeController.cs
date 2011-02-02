@@ -20,7 +20,6 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 	{
 		private readonly IContentTreeNodeVersionContext contentTreeNodeVersionContext;
 		private readonly IContentTreeNodeToContentTreeNodeInputModelMapper contentTreeNodeToContentTreeNodeInputModelMapper;
-		private readonly IContentTreeNodeInputModelToContentTreeNodeMapper contentTreeNodeInputModelToContentTreeNodeMapper;
 		private readonly IContentTreeNodeContext contentTreeNodeContext;
 		private readonly ITreeNodeRepository treeNodeRepository;
 		private readonly ITreeNodeProviderContext treeNodeProviderContext;
@@ -47,7 +46,6 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 			this.treeNodeProviderContext = treeNodeProviderContext;
 			this.treeNodeRepository = treeNodeRepository;
 			this.contentTreeNodeContext = contentTreeNodeContext;
-			this.contentTreeNodeInputModelToContentTreeNodeMapper = contentTreeNodeInputModelToContentTreeNodeMapper;
 			this.contentTreeNodeToContentTreeNodeInputModelMapper = contentTreeNodeToContentTreeNodeInputModelMapper;
 			this.contentTreeNodeVersionContext = contentTreeNodeVersionContext;
 		}

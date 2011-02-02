@@ -35,6 +35,10 @@
     <Reference Include="MvcTurbine">
       <HintPath>..\..\lib\Turbine\MvcTurbine.dll</HintPath>
     </Reference>
+    <Reference Include="SimpleCqrs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -46,11 +50,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\HomepageController.cs" />
+    <Compile Include="Controllers\HomepageController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\HomepageIndexViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registration\HomepageServiceRegistration.cs" />
-    <Compile Include="Routing\HomepageRouteConstraint.cs" />
-    <Compile Include="Routing\HomepageRouteRegistrator.cs" />
+    <Compile Include="Registration\HomepageServiceRegistration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
+    <Compile Include="Routing\HomepageRouteConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Routing\HomepageRouteRegistrator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModelBuilder\HomepageIndexViewModelBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Paragon.ContentTree.ContentNodeProvider\Paragon.ContentTree.ContentNodeProvider.csproj">
@@ -61,13 +76,22 @@
       <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
       <Name>Paragon.ContentTree</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Paragon.Core\Paragon.Core.csproj">
+      <Project>{3DE65C2E-791C-4B05-815F-986782A5153A}</Project>
+      <Name>Paragon.Core</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Shared\Homepage.Master">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Homepage\Index.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

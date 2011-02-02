@@ -86,6 +86,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\TreeNodeIdToUrl.cs" />
+    <Compile Include="Helpers\UrlToTreeNodeSummaryMapper.cs" />
     <Compile Include="Models\ContentTreeNodeContentItem.cs" />
     <Compile Include="Models\IAmATreeNodeExtension.cs" />
     <Compile Include="Models\TreeNodeSummary.cs" />

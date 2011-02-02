@@ -67,6 +67,7 @@
     <Compile Include="Denormalizers\TreeNodeDenormalizerTests_Handle_TreeNodeTypeSetEvent.cs" />
     <Compile Include="Denormalizers\TreeNodeDenormalizerTests_Handle_TreeNodeDeletedEvent.cs" />
     <Compile Include="Helpers\TreeNodeIdToUrlTests_GetUrlByTreeNodeId.cs" />
+    <Compile Include="Helpers\UrlToTreeNodeSummaryMapperTests_CreateInstance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routing\ContentTreeRouteConstraintTests.cs" />
     <Compile Include="TreeNodeExtensionProvider\GetAllContentTreeNodeProvidersTests_GetAll.cs" />
