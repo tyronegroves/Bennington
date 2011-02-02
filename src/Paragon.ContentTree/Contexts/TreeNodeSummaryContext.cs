@@ -42,13 +42,6 @@ namespace Paragon.ContentTree.Contexts
 		{
 			ThrowExceptionIfTheProviderTypeDoesNotImplementIAmATreeNodeExtensionProvider(Type.GetType(providerTypeAssemblyQualifiedName));
 
-			//var newTreeNode = treeNodeRepository.Create(new TreeNode()
-			//                                                    {
-			//                                                        Id = Guid.NewGuid().ToString(),
-			//                                                        Type = providerTypeAssemblyQualifiedName,
-			//                                                        ParentTreeNodeId = parentNodeId,
-			//                                                    });
-
 			var guid = guidGetter.GetGuid();
 			commandBus.Send(new CreateTreeNodeCommand()
 			                	{

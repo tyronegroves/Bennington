@@ -10,6 +10,35 @@ namespace Paragon.ContentTree.Engines.Homepage.Controllers
 	{
 		private readonly IHomepageIndexViewModelBuilder homepageIndexViewModelBuilder;
 
+		public override string Name
+		{
+			get { return "Homepage"; }
+		}
+
+		public override string ControllerToUseForModification
+		{
+			get
+			{
+				return "HomepageContentTreeNode";
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		public override string ControllerToUseForCreation
+		{
+			get
+			{
+				return "HomepageContentTreeNode";
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
 		public HomepageController(IHomepageIndexViewModelBuilder homepageIndexViewModelBuilder)
 		{
 			this.homepageIndexViewModelBuilder = homepageIndexViewModelBuilder;
@@ -19,22 +48,5 @@ namespace Paragon.ContentTree.Engines.Homepage.Controllers
 		{
 			return View("Index", homepageIndexViewModelBuilder.BuildViewModel());
 		}
-
-		public override string Name
-		{
-			get { return "Homepage"; }
-		}
-
-		//public override string ActionToUseForModification
-		//{
-		//    get
-		//    {
-		//        return string.Empty;
-		//    }
-		//    set
-		//    {
-		//        throw new NotImplementedException();
-		//    }
-		//}
 	}
 }

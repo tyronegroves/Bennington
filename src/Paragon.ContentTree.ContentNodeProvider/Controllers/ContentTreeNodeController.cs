@@ -50,13 +50,13 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 			this.contentTreeNodeVersionContext = contentTreeNodeVersionContext;
 		}
 
-		public ActionResult Index()
+		public virtual ActionResult Index()
 		{
 			return View("Index", contentTreeNodeDisplayViewModelBuilder
 										.BuildViewModel(rawUrlGetter.GetRawUrl(), RouteData));
 		}
 
-		public ActionResult Delete(string treeNodeId)
+		public virtual ActionResult Delete(string treeNodeId)
 		{
 			var treeNodeGuidId = new Guid(treeNodeId);
 			commandBus.Send(new DeleteTreeNodeCommand()
@@ -73,7 +73,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 
 		[HttpPost]
 		[ValidateInput(false)]
-		public ActionResult Create(ContentTreeNodeInputModel contentTreeNodeInputModel)
+		public virtual ActionResult Create(ContentTreeNodeInputModel contentTreeNodeInputModel)
 		{
 			if (string.IsNullOrEmpty(contentTreeNodeInputModel.Action)) contentTreeNodeInputModel.Action = "Index";
 			if (ModelState.IsValid == false)
@@ -110,7 +110,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 			return new RedirectResult(GetRedirectUrlToModifyMethod(contentTreeNodeInputModel));
 		}
 
-		public ActionResult Create(string parentTreeNodeId, string providerType)
+		public virtual ActionResult Create(string parentTreeNodeId, string providerType)
 		{
 			return View("Modify", new ContentTreeNodeViewModel()
 			                      	{
@@ -125,7 +125,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 
 		[HttpPost]
 		[ValidateInput(false)]
-		public ActionResult Modify(ContentTreeNodeInputModel contentTreeNodeInputModel)
+		public virtual ActionResult Modify(ContentTreeNodeInputModel contentTreeNodeInputModel)
 		{
 			if (ModelState.IsValid == false)
 				return View("Modify", new ContentTreeNodeViewModel() { Action = "Modify", ContentTreeNodeInputModel = contentTreeNodeInputModel });
@@ -183,7 +183,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 			                                 	});
 		}
 
-		public ActionResult Modify(string treeNodeId, string contentItemId)
+		public virtual ActionResult Modify(string treeNodeId, string contentItemId)
 		{
 			if (string.IsNullOrEmpty(contentItemId)) contentItemId = "Index";
 			var contentTreeNode = contentTreeNodeVersionContext.GetAllContentTreeNodes().Where(a => a.TreeNodeId == treeNodeId && a.Action == contentItemId).FirstOrDefault();
@@ -205,7 +205,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 			return View("Modify", viewModel);
 		}
 
-		public ActionResult ContentItemNavigation(string treeNodeId)
+		public virtual ActionResult ContentItemNavigation(string treeNodeId)
 		{
 			var viewModel = new ContentItemNavigationViewModel()
 			                	{

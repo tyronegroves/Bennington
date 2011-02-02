@@ -14,7 +14,7 @@
 
 	<div class="contentNodeProviderForm">
 
-		<%=Html.EditorFor(x => x.ContentTreeNodeInputModel)%>		
+		<%=Html.EditorFor(x => x.ContentTreeNodeInputModel)%>
 
 		<div class="commandButtonContainer">
 			<input type="button" class="button" value="Cancel" onclick="window.location='<%=Url.Action("Index", "ContentTree") %>';" />
