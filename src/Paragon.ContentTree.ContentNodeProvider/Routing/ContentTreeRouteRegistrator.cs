@@ -7,7 +7,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Routing
 {
     public class ContentTreeRouteRegistrator : IRouteRegistrator
     {
-		private const int MaxDepthForContentTreeUrlSegments = 25;
+		public const int MaxDepthForContentTreeUrlSegments = 25;
     	private readonly ContentTreeRouteConstraint contentTreeRouteConstraint;
 
     	public ContentTreeRouteRegistrator(ContentTreeRouteConstraint contentTreeRouteConstraint)
