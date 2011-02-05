@@ -61,6 +61,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Turbine\MvcTurbine.dll</HintPath>
     </Reference>
+    <Reference Include="MvcTurbine.EmbeddedViews, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Turbine\MvcTurbine.EmbeddedViews.dll</HintPath>
+    </Reference>
     <Reference Include="MvcTurbine.FluentValidation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\FluentValidation\MvcTurbine.FluentValidation.dll</HintPath>
@@ -419,13 +423,13 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Target_\Active\ConnectionStrings.config">
+    <Content Include="Target_\test\ConnectionStrings.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Target_\Active\System.Web.CustomErrors.config" />
+    <Content Include="Target_\test\System.Web.CustomErrors.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Target_\Active\CommandBusConfig.config">
+    <Content Include="Target_\test\CommandBusConfig.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\ParagonPage\Index.aspx" />
@@ -486,6 +490,19 @@
       <Project>{3DE65C2E-791C-4B05-815F-986782A5153A}</Project>
       <Name>Paragon.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Target_\Active\CommandBusConfig.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Target_\Active\ConnectionStrings.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Target_\Active\System.Web.CustomErrors.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
