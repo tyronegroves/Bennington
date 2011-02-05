@@ -1,14 +1,10 @@
-﻿using System.Configuration;
-using Microsoft.Practices.Unity;
+﻿using Microsoft.Practices.Unity;
 using MvcTurbine.ComponentModel;
-using MvcTurbine.Unity;
 using MvcTurbine.Web;
-using Paragon.ContentTree.ContentNodeProvider.Data;
-//using Paragon.ContentTree.SectionNodeProvider.Data;
 using Paragon.ContentTree.SectionNodeProvider.Data;
 using UnityServiceLocator = MvcTurbine.Unity.UnityServiceLocator;
 
-namespace WEBMODEL
+namespace Webroot
 {
 	public class MvcApplication : TurbineApplication
 	{
@@ -20,8 +16,6 @@ namespace WEBMODEL
 
 			var injectedConnectionString = new InjectionConstructor(string.Empty);
 			((IUnityContainer)locator.Container).RegisterType<ContentTreeSectionNodeProviderDataModelDataContext>(injectedConnectionString);
-
-			//((IUnityContainer)locator.Container).RegisterType<ContentTreeNodeProviderDataModelDataContext>(injectedConnectionString);
 
 			ServiceLocatorManager.SetLocatorProvider(() => locator);
 		}
