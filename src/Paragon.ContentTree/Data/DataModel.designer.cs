@@ -35,8 +35,8 @@ namespace Paragon.ContentTree.Data
     partial void DeleteTreeNode(TreeNode instance);
     #endregion
 		
-		public DataModelDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ParagonConnectionString"].ConnectionString, mappingSource)
+		public DataModelDataContext() :
+		base(global::System.Configuration.ConfigurationManager.ConnectionStrings["Paragon.ContentTree"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

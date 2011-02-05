@@ -27,6 +27,9 @@ namespace Paragon.ContentTree.SectionNodeProvider.Data
 
 	partial class ContentTreeSectionNodeProviderDataModelDataContext : IDataModelDataContext
 	{
+		public ContentTreeSectionNodeProviderDataModelDataContext(HttpStyleUriParser a1, HttpStyleUriParser a2, HttpStyleUriParser a3) : this()
+		{}
+
 		partial void OnCreated()
 		{
 			Connection.ConnectionString = ConfigurationManager.ConnectionStrings["Paragon.ContentTreeNodeProvider"].ConnectionString;

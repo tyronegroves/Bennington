@@ -15,6 +15,15 @@ namespace Paragon.ContentTree.Data
 
 	partial class DataModelDataContext : IDataModelDataContext
 	{
+		public DataModelDataContext(HttpStyleUriParser guid1, HttpStyleUriParser guid2, HttpStyleUriParser guid3)
+			: this()
+		{ }
+
+		partial void OnCreated()
+		{
+			Connection.ConnectionString = ConfigurationManager.ConnectionStrings["Paragon.ContentTree"].ConnectionString;
+		}
+
 		public TreeNode Create(TreeNode instance)
 		{
 			using (new TransactionScope(TransactionScopeOption.Suppress))
@@ -31,11 +40,6 @@ namespace Paragon.ContentTree.Data
 			{
 				SubmitChanges();
 			}
-		}
-
-		partial void OnCreated()
-		{
-			Connection.ConnectionString = ConfigurationManager.ConnectionStrings["Paragon.ContentTree"].ConnectionString;
 		}
 
 		public void Delete(string id)
