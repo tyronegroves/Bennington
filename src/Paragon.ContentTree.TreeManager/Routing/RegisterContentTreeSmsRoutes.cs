@@ -13,6 +13,12 @@ namespace Paragon.ContentTree.TreeManager.Routing
 				"Manage/ContentTree/{action}",
 				new { controller = "TreeManager", action = "Index" }
 				);
+
+			routes.MapRoute(
+				null,
+				"Manage",
+				new { controller = "TreeManager", action = "Index" }
+				);
 		}
 	}
 }
