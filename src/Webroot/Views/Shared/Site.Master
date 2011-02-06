@@ -11,10 +11,10 @@
         <div class="page">
 
             <div id="header" class="clearfix">
-                <div id="title">
-                    <a href="/"><img src="/Content/Canvas/Logo.gif" alt="Digital Evolution Group - Site Management System 4.0" width="450" height="34" /></a>
+<%--                <div id="title">
+                    <a href="/">Home</a>
                 </div>
-              
+--%>              
               
                 <div id="menucontainer" class="clearfix">
 					<%--<% Html.RenderAction("GetSectionMenuViewModel", "MenuSystem"); %>--%>

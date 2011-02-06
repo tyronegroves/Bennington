@@ -11,8 +11,4 @@
 
    <div><%=Model.Body %></div>
 
-   <hr />
-
-   <%=Html.ActionLink("contact us", "Index", "ContactUs") %>
-
 </asp:Content>
