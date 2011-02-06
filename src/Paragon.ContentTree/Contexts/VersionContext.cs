@@ -17,7 +17,10 @@ namespace Paragon.ContentTree.Contexts
 
 		public string GetCurrentVersionId()
 		{
-			if (HttpContext.Current.Request.RawUrl.StartsWith("/Manage")) return Draft;
+			try
+			{
+				if (HttpContext.Current.Request.RawUrl.StartsWith("/Manage")) return Draft;
+			}catch(Exception) {}
 
 			return Publish;
 		}
