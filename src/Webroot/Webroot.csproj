@@ -451,7 +451,7 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Views\Shared\Site.Master" />
+    <Content Include="Views\Shared\Site.Master" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Paragon.Cms\Paragon.Cms.csproj">
