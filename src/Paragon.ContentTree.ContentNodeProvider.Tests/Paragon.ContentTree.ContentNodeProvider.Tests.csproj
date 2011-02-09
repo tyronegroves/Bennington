@@ -78,6 +78,7 @@
     <Compile Include="Mappers\ContentNodeProviderPublishedVersionToContentTreeNodeMapperTests.cs" />
     <Compile Include="Mappers\ContentTreeNodeToContentTreeNodeInputModelMapperTest.cs" />
     <Compile Include="Mappers\ContentTreeNodeInputModelToLandingPageContentTreeNodeMapperTests.cs" />
+    <Compile Include="Routing\ContentTreeRouteConstraintTests.cs" />
     <Compile Include="Validation\ContentTreeInputModelValidatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModelBuilders\ContentTreeNodeDisplayViewModelBuilderTests_BuildViewModel.cs" />

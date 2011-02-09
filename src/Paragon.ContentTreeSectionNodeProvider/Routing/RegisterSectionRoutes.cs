@@ -20,6 +20,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Routing
 
 		public void Register(RouteCollection routes)
 		{
+			return;
 			foreach (var treeNode in treeNodeRepository.GetAll().Where(a => a.Type == typeof(SectionNodeProvider).AssemblyQualifiedName))
 			{
 				var url = treeNodeIdToUrl.GetUrlByTreeNodeId(treeNode.Id);

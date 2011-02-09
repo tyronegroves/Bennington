@@ -11,21 +11,27 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 	{
 		private readonly ITreeNodeIdToUrl treeNodeIdToUrl;
 		private readonly IContentTreeSectionNodeRepository contentTreeSectionNodeRepository;
+		private readonly IUrlToTreeNodeSummaryMapper urlToTreeNodeSummaryMapper;
 
-		public ContentTreeSectionController(ITreeNodeIdToUrl treeNodeIdToUrl, IContentTreeSectionNodeRepository contentTreeSectionNodeRepository)
+		public ContentTreeSectionController(ITreeNodeIdToUrl treeNodeIdToUrl, 
+											IContentTreeSectionNodeRepository contentTreeSectionNodeRepository,
+											IUrlToTreeNodeSummaryMapper	urlToTreeNodeSummaryMapper)
 		{
+			this.urlToTreeNodeSummaryMapper = urlToTreeNodeSummaryMapper;
 			this.contentTreeSectionNodeRepository = contentTreeSectionNodeRepository;
 			this.treeNodeIdToUrl = treeNodeIdToUrl;
 		}
 
-		public ActionResult Index(string treeNodeId)
+		public ActionResult Index()
 		{
-			var sectionNode = contentTreeSectionNodeRepository.GetAllContentTreeSectionNodes().Where(a => a.TreeNodeId == treeNodeId).FirstOrDefault();
+			var treeNodeSummary = urlToTreeNodeSummaryMapper.CreateInstance(System.Web.HttpContext.Current.Request.RawUrl);
+			var sectionNode = contentTreeSectionNodeRepository.GetAllContentTreeSectionNodes().Where(a => a.TreeNodeId == treeNodeSummary.Id).FirstOrDefault();
 			if (sectionNode == null) return null;
 			
 			var url = treeNodeIdToUrl.GetUrlByTreeNodeId(sectionNode.DefaultTreeNodeId);
 
-			return new TransferResult(url);
+			return new RedirectResult(url);
+			//return new TransferResult(url);
 		}
 	}
 
@@ -40,7 +46,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 		{
 			var httpContext = HttpContext.Current;
 
-			httpContext.RewritePath(Url, false);
+			httpContext.RewritePath(Url, true);
 
 			IHttpHandler httpHandler = new MvcHttpHandler();
 			httpHandler.ProcessRequest(HttpContext.Current);

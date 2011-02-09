@@ -46,6 +46,7 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +63,7 @@
     <Compile Include="Denormalizers\SectionNodeProviderDraftDenormalizerTests_Handle_SectionCreatedEvent.cs" />
     <Compile Include="Mappers\SectionNodeProviderDraftToContentTreeSectionNodeMapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Routing\ContentTreeSectionRouteConstraintTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Paragon.ContentTree.Domain\Paragon.ContentTree.Domain.csproj">
@@ -81,6 +83,7 @@
       <Name>Paragon.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
