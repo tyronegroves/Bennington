@@ -91,6 +91,7 @@
       <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Denormalizers\SectionNodeProviderDraftDenormalizer.cs" />
+    <Compile Include="HttpModules\ContentTreeSectionHttpModule.cs" />
     <Compile Include="Mappers\ContentTreeSectionNodeInputModelToContentTreeSectionNodeMapper.cs" />
     <Compile Include="Mappers\ContentTreeSectionNodeToContentTreeSectionInputModelMapper.cs" />
     <Compile Include="Mappers\SectionNodeProviderDraftToContentTreeSectionNodeMapper.cs" />
