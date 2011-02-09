@@ -133,6 +133,12 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
 				}; }
 				set { throw new NotImplementedException(); }
 			}
+
+			public bool MayHaveChildNodes
+			{
+				get { return true; }
+				set { throw new NotImplementedException(); }
+			}
 		}
 
 		[TestMethod]

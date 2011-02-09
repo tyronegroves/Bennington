@@ -6,7 +6,7 @@ using Paragon.ContentTree.Models;
 
 namespace Paragon.ContentTree.SectionNodeProvider.Routing
 {
-    public class ContentTreeSectionRouteConstraint : IRouteConstraint
+    public class ContentTreeSectionRouteConstraint //: IRouteConstraint
     {
     	private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
 

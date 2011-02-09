@@ -16,5 +16,6 @@ namespace Paragon.ContentTree.TreeNodeExtensionProvider
 		string ControllerToUseForCreation { get; set; }
 		string ActionToUseForCreation { get; set; }
 		IEnumerable<ContentTreeNodeContentItem> ContentTreeNodeContentItems { get; set; }
+		bool MayHaveChildNodes { get; set; }
 	}
 }

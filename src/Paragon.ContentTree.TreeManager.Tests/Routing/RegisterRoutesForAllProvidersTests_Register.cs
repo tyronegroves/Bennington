@@ -155,6 +155,12 @@ namespace Paragon.ContentTree.TreeManager.Tests.Routing
 				get { throw new NotImplementedException(); }
 				set { throw new NotImplementedException(); }
 			}
+
+			public bool MayHaveChildNodes
+			{
+				get { return false; }
+				set { throw new NotImplementedException(); }
+			}
 		}
 	}
 }

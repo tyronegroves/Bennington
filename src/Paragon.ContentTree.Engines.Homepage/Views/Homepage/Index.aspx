@@ -7,8 +7,12 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
+<div style="border:solid 1px #696969">
+
    <h1><%=Model.Header %></h1>
 
    <div><%=Model.Body %></div>
+
+</div>
 
 </asp:Content>

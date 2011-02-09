@@ -25,18 +25,21 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Routing
 										Id = "1",
 				         				UrlSegment = "rootsegment1",
 										Type = typeof(ContentNodeProvider).AssemblyQualifiedName,
+										MayHaveChildNodes = true,
 				         			},
  								new TreeNodeSummary()
 				         			{
 										Id = "2",
 				         				UrlSegment = "rootsegment2",
 										Type = typeof(ContentNodeProvider).AssemblyQualifiedName,
+										MayHaveChildNodes = true,
 				         			},
 								new TreeNodeSummary()
 				         			{
 										Id = "6",
 				         				UrlSegment = "rootsegment3",
 										Type = typeof(ContentNodeProvider).AssemblyQualifiedName,
+										MayHaveChildNodes = true,
 				         			}, 
 							});
 
@@ -50,6 +53,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Routing
 				         			UrlSegment = "nestLevel1Segment1",
 									ParentTreeNodeId = "2",
 									Type = typeof(ContentNodeProvider).AssemblyQualifiedName,
+									MayHaveChildNodes = true,
 				         		},
 								new TreeNodeSummary()
 				         		{
@@ -57,6 +61,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Routing
 				         			UrlSegment = "nestLevel1Segment2",
 									ParentTreeNodeId = "2",
 									Type = typeof(ContentNodeProvider).AssemblyQualifiedName,
+									MayHaveChildNodes = true,
 				         		},
 								new TreeNodeSummary()
 				         		{
@@ -64,6 +69,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Routing
 				         			UrlSegment = "nestLevel1Segment3",
 									ParentTreeNodeId = "2",
 									Type = typeof(ContentNodeProvider).AssemblyQualifiedName,
+									MayHaveChildNodes = true,
 				         		},
 							});
 
@@ -76,6 +82,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Routing
 				         			UrlSegment = "nestLevel2Segment1",
 									ParentTreeNodeId = "4",
 									Type = typeof(ContentNodeProvider).AssemblyQualifiedName,
+									MayHaveChildNodes = true,
 				         		},
 								new TreeNodeSummary()
 				         		{
@@ -83,6 +90,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Routing
 				         			UrlSegment = "nestLevel2Segment2",
 									ParentTreeNodeId = "4",
 									Type = typeof(ContentNodeProvider).AssemblyQualifiedName,
+									MayHaveChildNodes = true,
 				         		},
 							});
         }

@@ -5,7 +5,7 @@ using MvcTurbine.Routing;
 
 namespace Paragon.ContentTree.SectionNodeProvider.Routing
 {
-    public class ContentTreeSectionRouteRegistrator : IRouteRegistrator
+    public class ContentTreeSectionRouteRegistrator //: IRouteRegistrator
     {
 		public const int MaxDepthForContentTreeUrlSegments = 25;
     	private readonly ContentTreeSectionRouteConstraint contentTreeRouteConstraint;

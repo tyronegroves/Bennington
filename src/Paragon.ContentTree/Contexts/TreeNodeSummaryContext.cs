@@ -106,6 +106,7 @@ namespace Paragon.ContentTree.Contexts
 						ParentTreeNodeId = treeNode.ParentTreeNodeId,
 						Sequence = treeNodeExtension.Sequence,
 						Type = treeNode.Type,
+						MayHaveChildNodes = provider.MayHaveChildNodes
 			       	};
 			return treeNodeSummary;
 		}

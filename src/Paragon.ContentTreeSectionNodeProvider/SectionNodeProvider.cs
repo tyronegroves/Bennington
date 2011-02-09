@@ -53,6 +53,12 @@ namespace Paragon.ContentTree.SectionNodeProvider
 			set { throw new NotImplementedException(); }
 		}
 
+		public bool MayHaveChildNodes
+		{
+			get { return true; }
+			set { throw new NotImplementedException(); }
+		}
+
 		public string ControllerToUseForModification
 		{
 			get { return "ContentTreeSectionNode"; }

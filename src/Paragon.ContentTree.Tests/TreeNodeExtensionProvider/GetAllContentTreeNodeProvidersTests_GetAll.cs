@@ -97,6 +97,12 @@ namespace Paragon.ContentTree.Tests.TreeNodeExtensionProvider
 				get { throw new NotImplementedException(); }
 				set { throw new NotImplementedException(); }
 			}
+
+			public bool MayHaveChildNodes
+			{
+				get { return false; }
+				set { throw new NotImplementedException(); }
+			}
 		}
 
 		private class IamATreeNodeExtensionProvider1 : IAmATreeNodeExtensionProvider
@@ -154,6 +160,12 @@ namespace Paragon.ContentTree.Tests.TreeNodeExtensionProvider
 			public IEnumerable<ContentTreeNodeContentItem> ContentTreeNodeContentItems
 			{
 				get { throw new NotImplementedException(); }
+				set { throw new NotImplementedException(); }
+			}
+
+			public bool MayHaveChildNodes
+			{
+				get { return false; }
 				set { throw new NotImplementedException(); }
 			}
 		}

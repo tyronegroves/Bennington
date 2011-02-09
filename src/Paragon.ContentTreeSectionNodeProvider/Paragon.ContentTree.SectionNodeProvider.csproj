@@ -105,8 +105,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
-    <Compile Include="Routing\ContentTreeSectionRouteConstraint.cs" />
-    <Compile Include="Routing\ContentTreeSectionRouteRegistrator.cs" />
+    <Compile Include="Routing\ContentTreeSectionRouteConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Routing\ContentTreeSectionRouteRegistrator.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Routing\RegisterSectionRoutes.cs" />
     <Compile Include="Registration\TreeNodeExtensionProviderRegistration.cs" />
     <Compile Include="SectionNodeProvider.cs" />

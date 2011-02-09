@@ -40,7 +40,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Routing
 
 		private TreeNodeSummary FindByUrlSegment(string urlSegment, string parentTreeNodeId)
 		{
-			var children = treeNodeSummaryContext.GetChildren(parentTreeNodeId).Where(a => a.Type == typeof(ContentNodeProvider).AssemblyQualifiedName);
+			var children = treeNodeSummaryContext.GetChildren(parentTreeNodeId).Where(a => a.MayHaveChildNodes); //.Where(a => a.Type == typeof(ContentNodeProvider).AssemblyQualifiedName);)
 			return children.Where(a => a.UrlSegment == urlSegment).FirstOrDefault();
 		}
     }

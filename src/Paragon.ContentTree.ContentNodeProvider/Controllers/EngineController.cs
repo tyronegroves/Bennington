@@ -81,6 +81,12 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 			set { throw new NotImplementedException(); }
 		}
 
+		public bool MayHaveChildNodes
+		{
+			get { return false; }
+			set { throw new NotImplementedException(); }
+		}
+
 		public virtual string ControllerToUseForModification
 		{
 			get { return "ContentTreeNode"; }
@@ -140,14 +146,15 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 			}
 		}
 
-		private static RouteValueDictionary GetDefaultRouteValues(int maxDepth)
+		private RouteValueDictionary GetDefaultRouteValues(int maxDepth)
 		{
 			var defaults = new RouteValueDictionary();
 
 			for (var i = 0; i < maxDepth; i++)
 				defaults.Add(string.Format("nodesegment-{0}", i), UrlParameter.Optional);
 
-			defaults.Add("Controller", "ParagonPage");
+			var controller = GetType().Name.Replace("Controller", string.Empty);
+			defaults.Add("Controller", controller);
 			defaults.Add("Action", "Index");
 
 			return defaults;

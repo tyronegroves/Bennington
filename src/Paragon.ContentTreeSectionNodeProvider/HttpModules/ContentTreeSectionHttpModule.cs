@@ -33,10 +33,14 @@ namespace Paragon.ContentTree.SectionNodeProvider.HttpModules
 			if (httpApplication.Request.RawUrl.Split('/').Count() == 2)
 			{
 				var treeNodeSummary = serviceLocator.Resolve<IUrlToTreeNodeSummaryMapper>().CreateInstance(httpApplication.Request.RawUrl);
+				if (treeNodeSummary == null) return;
+				
 				var section = serviceLocator.Resolve<IContentTreeSectionNodeRepository>().GetAllContentTreeSectionNodes()
 							.Where(a => a.TreeNodeId == treeNodeSummary.Id).FirstOrDefault();
-				var childPage = serviceLocator.Resolve<ITreeNodeSummaryContext>().GetTreeNodeSummaryByTreeNodeId(section.DefaultTreeNodeId);
+				if (section == null) return;
 
+				var childPage = serviceLocator.Resolve<ITreeNodeSummaryContext>().GetTreeNodeSummaryByTreeNodeId(section.DefaultTreeNodeId);
+				
 				if (childPage != null)
 					httpApplication.Response.Redirect(serviceLocator.Resolve<ITreeNodeIdToUrl>().GetUrlByTreeNodeId(childPage.Id));
 			}

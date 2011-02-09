@@ -115,6 +115,12 @@ namespace Paragon.ContentTree.Tests.Contexts
 				get { throw new NotImplementedException(); }
 				set { throw new NotImplementedException(); }
 			}
+
+			public bool MayHaveChildNodes
+			{
+				get { return false; }
+				set { throw new NotImplementedException(); }
+			}
 		}
 
 		[TestMethod]
@@ -181,6 +187,12 @@ namespace Paragon.ContentTree.Tests.Contexts
 			public IEnumerable<ContentTreeNodeContentItem> ContentTreeNodeContentItems
 			{
 				get { throw new NotImplementedException(); }
+				set { throw new NotImplementedException(); }
+			}
+
+			public bool MayHaveChildNodes
+			{
+				get { return false; }
 				set { throw new NotImplementedException(); }
 			}
 		}

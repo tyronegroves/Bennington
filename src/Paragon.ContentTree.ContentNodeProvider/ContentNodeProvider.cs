@@ -61,6 +61,12 @@ namespace Paragon.ContentTree.ContentNodeProvider
 			set { throw new NotImplementedException(); }
 		}
 
+		public bool MayHaveChildNodes
+		{
+			get { return true; }
+			set { throw new NotImplementedException(); }
+		}
+
 		public virtual string ControllerToUseForModification
 		{
 			get { return "ContentTreeNode"; }
