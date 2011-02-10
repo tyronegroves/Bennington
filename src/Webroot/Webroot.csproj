@@ -474,6 +474,10 @@
       <Project>{54C47F60-7C15-45DE-8927-EF4BFB8491A4}</Project>
       <Name>Paragon.ContentTree.Engines.Homepage</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Paragon.ContentTree.ToolLinkNodeProvider\Paragon.ContentTree.ToolLinkNodeProvider.csproj">
+      <Project>{BD01E5D0-D160-4E39-B18B-61D2B375977B}</Project>
+      <Name>Paragon.ContentTree.ToolLinkNodeProvider</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Paragon.ContentTree.TreeManager\Paragon.ContentTree.TreeManager.csproj">
       <Project>{5440F3E1-26AD-4355-875B-50ABF7484181}</Project>
       <Name>Paragon.ContentTree.TreeManager</Name>

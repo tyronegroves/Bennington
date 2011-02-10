@@ -7,8 +7,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Registration
 	{
 		public void Register(IServiceLocator locator)
 		{
-			var typeName = typeof(SectionNodeProvider).Name;
-			locator.Register<IAmATreeNodeExtensionProvider, SectionNodeProvider>(typeName);
+			locator.Register<IAmATreeNodeExtensionProvider, SectionNodeProvider>(typeof(SectionNodeProvider).Name);
 		}
 	}
 }

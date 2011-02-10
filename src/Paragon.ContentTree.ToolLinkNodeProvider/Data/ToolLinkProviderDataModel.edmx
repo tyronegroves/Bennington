@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Paragon.ContentTree.ToolLinkNodeProvider.Data.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ParagonContentTreeToolLinkNodeProviderDataStoreContainer">
+          <EntitySet Name="ToolLinkProviderDraft" EntityType="Paragon.ContentTree.ToolLinkNodeProvider.Data.Store.ToolLinkProviderDraft" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="ToolLinkProviderDraft">
+          <Key>
+            <PropertyRef Name="ToolLinkId" />
+          </Key>
+          <Property Name="ToolLinkId" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="TreeNodeId" Type="nvarchar" MaxLength="100" />
+          <Property Name="Sequence" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="UrlSegment" Type="nvarchar" MaxLength="500" />
+          <Property Name="Url" Type="nvarchar" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Paragon.ContentTree.ToolLinkNodeProvider.Data" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ToolLinkProviderDataModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ToolLinkProviderDrafts" EntityType="Paragon.ContentTree.ToolLinkNodeProvider.Data.ToolLinkProviderDraft" />
+        </EntityContainer>
+        <EntityType Name="ToolLinkProviderDraft">
+          <Key>
+            <PropertyRef Name="ToolLinkId" />
+          </Key>
+          <Property Name="ToolLinkId" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="TreeNodeId" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Sequence" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="UrlSegment" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Url" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ParagonContentTreeToolLinkNodeProviderDataStoreContainer" CdmEntityContainer="ToolLinkProviderDataModel">
+          <EntitySetMapping Name="ToolLinkProviderDrafts"><EntityTypeMapping TypeName="Paragon.ContentTree.ToolLinkNodeProvider.Data.ToolLinkProviderDraft"><MappingFragment StoreEntitySet="ToolLinkProviderDraft">
+            <ScalarProperty Name="ToolLinkId" ColumnName="ToolLinkId" />
+            <ScalarProperty Name="TreeNodeId" ColumnName="TreeNodeId" />
+            <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="UrlSegment" ColumnName="UrlSegment" />
+            <ScalarProperty Name="Url" ColumnName="Url" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ToolLinkProviderDataModel">
+        <EntityTypeShape EntityType="Paragon.ContentTree.ToolLinkNodeProvider.Data.ToolLinkProviderDraft" Width="3.75" PointX="0.75" PointY="0.75" Height="2.172587890625" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
