@@ -61,8 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ToolLinkProviderNodeControllerTests_Modify_post_method.cs" />
     <Compile Include="Controllers\ToolLinkProviderNodeControllerTests_Create_post_method.cs" />
     <Compile Include="Controllers\ToolLinkProviderNodeControllerTests_Create.cs" />
+    <Compile Include="Controllers\ToolLinkProviderNodeControllerTests_Modify.cs" />
     <Compile Include="Mappers\ToolLinkProviderDraftToToolLinkMapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Contexts\ToolLinkContextTests_GetAllToolLinks.cs" />

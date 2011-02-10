@@ -35,6 +35,24 @@ namespace Paragon.ContentTree.ToolLinkNodeProvider.Controllers
 			return new RedirectResult(GetRedirectUrlToModifyMethod(toolLinkInputModel));
 		}
 
+		public ActionResult Modify(string treeNodeId)
+		{
+			return View("Modify", modifyViewModelBuilder.BuildViewModel(new ToolLinkInputModel()
+			                                                            	{
+																				Action = "Modify",
+			                                                            		TreeNodeId = treeNodeId,
+			                                                            	}));
+		}
+
+		[HttpPost]
+		public ActionResult Modify(ToolLinkInputModel toolLinkInputModel)
+		{
+			if (!ModelState.IsValid)
+				return View("Modify", modifyViewModelBuilder.BuildViewModel(toolLinkInputModel));
+
+			return new RedirectResult(GetRedirectUrlToModifyMethod(toolLinkInputModel));
+		}
+
 		private string GetRedirectUrlToModifyMethod(ToolLinkInputModel toolLinkInputModel)
 		{
 			if (Url == null) return "/";
