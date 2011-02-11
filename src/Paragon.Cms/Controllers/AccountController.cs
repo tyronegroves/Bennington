@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Web.Mvc;
 using MvcTurbine.MembershipProvider;
+using MvcTurbine.MembershipProvider.Contexts;
+using MvcTurbine.MembershipProvider.PrincipalHelpers;
 using SampleApplication.Models;
 
 namespace Paragon.Cms.Controllers
@@ -9,17 +11,21 @@ namespace Paragon.Cms.Controllers
     [HandleError]
     public class AccountController : Controller
     {
-        public IMembershipService MembershipService { get; set; }
+    	private IPrincipalCreator principalCreator;
+    	private IPrincipalContext principalContext;
+    	public IMembershipService MembershipService { get; set; }
         // **************************************
         // URL: /Account/LogOn
         // **************************************
 
-        public AccountController(IMembershipService membershipService)
+        public AccountController(IMembershipService membershipService, IPrincipalCreator principalCreator, IPrincipalContext principalContext)
         {
-            MembershipService = membershipService;
+        	this.principalContext = principalContext;
+        	this.principalCreator = principalCreator;
+        	MembershipService = membershipService;
         }
 
-        public ActionResult LogOn()
+    	public ActionResult LogOn()
         {
             return View();
         }
@@ -38,7 +44,7 @@ namespace Paragon.Cms.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+						return new RedirectResult("/Manage");
                     }
                 }
                 else
@@ -57,7 +63,9 @@ namespace Paragon.Cms.Controllers
 
         public ActionResult LogOff()
         {
-            return RedirectToAction("Index", "Home");
+
+			principalContext.SetPricipal(principalCreator.CreateUnauthenticatedPrincipal());
+			return new RedirectResult("/Manage");
         }
 
         // **************************************
