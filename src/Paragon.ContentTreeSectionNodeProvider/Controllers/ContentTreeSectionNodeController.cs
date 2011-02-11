@@ -41,6 +41,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 			this.contentTreeSectionNodeRepository = contentTreeSectionNodeRepository;
 		}
 
+		[Authorize]
 		public ActionResult Delete(string treeNodeId)
 		{
 			commandBus.Send(new DeleteTreeNodeCommand()
@@ -51,6 +52,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 			return new RedirectToRouteResult(new RouteValueDictionary { { "controller", "ContentTree" }, { "action", "Index" } });
 		}
 
+		[Authorize]
 		[HttpPost]
 		public ActionResult Create(ContentTreeSectionInputModel contentTreeSectionInputModel)
 		{
@@ -85,6 +87,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 			return new RedirectResult(GetRedirectUrlToModifyMethod(contentTreeSectionInputModel));
 		}
 
+		[Authorize]
 		public ActionResult Create(string parentTreeNodeId)
 		{
 			return View("Modify", new ContentTreeSectionNodeViewModel()
@@ -97,6 +100,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 			                      	});
 		}
 
+		[Authorize]
 		[HttpPost]
 		public ActionResult Modify(ContentTreeSectionInputModel contentTreeSectionInputModel)
 		{
@@ -133,6 +137,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Controllers
 			                                 	});
 		}
 
+		[Authorize]
 		public ActionResult Modify(string treeNodeId)
 		{
 			var viewData = ViewData;

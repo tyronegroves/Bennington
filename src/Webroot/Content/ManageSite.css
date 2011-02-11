@@ -280,3 +280,7 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
   margin-top:1px;
   _margin-bottom:1px;
 }
+#footer
+{
+	margin-top:30px;
+}

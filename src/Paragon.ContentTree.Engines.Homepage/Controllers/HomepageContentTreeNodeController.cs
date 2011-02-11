@@ -37,6 +37,7 @@ namespace Paragon.ContentTree.Engines.Homepage.Controllers
 			});
 		}
 
+		[Authorize]
 		[HttpPost]
 		[ValidateInput(false)]
 		public override ActionResult Create(ContentNodeProvider.Models.ContentTreeNodeInputModel contentTreeNodeInputModel)
@@ -54,6 +55,7 @@ namespace Paragon.ContentTree.Engines.Homepage.Controllers
 
 		}
 
+		[Authorize]
 		[HttpPost]
 		[ValidateInput(false)]
 		public override ActionResult Modify(ContentNodeProvider.Models.ContentTreeNodeInputModel contentTreeNodeInputModel)

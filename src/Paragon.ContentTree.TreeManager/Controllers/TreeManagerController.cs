@@ -13,6 +13,7 @@ namespace Paragon.ContentTree.TreeManager.Controllers
 			this.treeBranchViewModelBuilder = treeBranchViewModelBuilder;
 		}
 
+		[Authorize]
 		public ActionResult Index()
 		{
 			return View("Index", new Models.TreeManagerIndexViewModel()
@@ -24,6 +25,7 @@ namespace Paragon.ContentTree.TreeManager.Controllers
 			                     	});
 		}
 
+		[Authorize]
 		public ActionResult Branch(string id)
 		{
 			return View("Branch", treeBranchViewModelBuilder.BuildViewModel(id));

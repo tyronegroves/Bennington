@@ -69,6 +69,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\FluentValidation\MvcTurbine.FluentValidation.dll</HintPath>
     </Reference>
+    <Reference Include="MvcTurbine.MembershipProvider">
+      <HintPath>..\..\lib\MvcTurbine.MembershipProvider\MvcTurbine.MembershipProvider.dll</HintPath>
+    </Reference>
     <Reference Include="MvcTurbine.Unity">
       <HintPath>..\..\lib\Turbine\MvcTurbine.Unity.dll</HintPath>
     </Reference>

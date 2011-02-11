@@ -21,23 +21,33 @@
                     <a href="/Manage"><img src="/Content/Canvas/Logo.gif" alt="Digital Evolution Group - Site Management System 4.0" width="450" height="34" /></a>
                 </div>
               
+				<% if (Request.IsAuthenticated) { %>
                 <div id="topmenucontainer">
 					<% Html.RenderAction("GetIconMenuViewModel", "MenuSystem"); %>
                 </div>
+				<% } %>
 
                 <%--<div id="logindisplay">
                     Welcome Kip, SMS Admin | KU School of Business Website | <% Html.RenderPartial("LogOnUserControl"); %>
                 </div> --%>
 
+				
                 <div id="menucontainer" class="clearfix">
+					<% if (Request.IsAuthenticated) { %>
 					<% Html.RenderAction("GetSectionMenuViewModel", "MenuSystem"); %>
+					<% } %>
                 </div>
+
             </div>
 
             <div id="main">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server" />
 
                 <div id="footer">
+					<% if (Request.IsAuthenticated) { %>
+						Welcome <b><%= Page.User.Identity.Name %></b>!
+						[ <%= Html.ActionLink("Log Off", "LogOff", "Account") %> ]
+					<% } %> 
                 </div>
             </div>
         </div>
