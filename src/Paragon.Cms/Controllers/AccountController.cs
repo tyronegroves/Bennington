@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
+using System.Web.Security;
 using MvcTurbine.MembershipProvider;
 using MvcTurbine.MembershipProvider.Contexts;
 using MvcTurbine.MembershipProvider.PrincipalHelpers;
@@ -11,17 +12,13 @@ namespace Paragon.Cms.Controllers
     [HandleError]
     public class AccountController : Controller
     {
-    	private IPrincipalCreator principalCreator;
-    	private IPrincipalContext principalContext;
     	public IMembershipService MembershipService { get; set; }
         // **************************************
         // URL: /Account/LogOn
         // **************************************
 
-        public AccountController(IMembershipService membershipService, IPrincipalCreator principalCreator, IPrincipalContext principalContext)
+        public AccountController(IMembershipService membershipService)
         {
-        	this.principalContext = principalContext;
-        	this.principalCreator = principalCreator;
         	MembershipService = membershipService;
         }
 
@@ -63,8 +60,7 @@ namespace Paragon.Cms.Controllers
 
         public ActionResult LogOff()
         {
-
-			principalContext.SetPricipal(principalCreator.CreateUnauthenticatedPrincipal());
+			FormsAuthentication.SignOut();
 			return new RedirectResult("/Manage");
         }
 
