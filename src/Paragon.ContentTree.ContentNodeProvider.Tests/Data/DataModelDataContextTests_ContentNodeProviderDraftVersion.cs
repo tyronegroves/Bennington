@@ -35,9 +35,9 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Data
 		[TestMethod]
 		public void ContentNodeProviderDrafts_property_returns_ContentNodeProviderDrafts_from_xml_list()
 		{
-			var ContentNodeProviderDrafts = mocker.Resolve<DataModelDataContext>().ContentNodeProviderDrafts;
+			var contentNodeProviderDrafts = mocker.Resolve<DataModelDataContext>().ContentNodeProviderDrafts;
 
-			Assert.AreEqual("1", ContentNodeProviderDrafts.First().PageId);
+			Assert.AreEqual("1", contentNodeProviderDrafts.First().PageId);
 		}
 
 		[TestMethod]

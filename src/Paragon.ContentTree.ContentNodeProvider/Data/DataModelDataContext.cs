@@ -37,41 +37,49 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 			var contentNodeProviderPublishedVersions = GetContentNodeProviderPublishedVersionsFromXmlFile();
 			contentNodeProviderPublishedVersions.Remove(contentNodeProviderPublishedVersions.Where(a => a.PageId == instance.PageId).FirstOrDefault());
 			contentNodeProviderPublishedVersions.Add(instance);
-			xmlFileSerializationHelper.SerializeListToPath(contentNodeProviderPublishedVersions, GetPathToXmlFile());
+			xmlFileSerializationHelper.SerializeListToPath(contentNodeProviderPublishedVersions, GetPathToPublishedVersionXmlFile());
 		}
 
 		public void Update(ContentNodeProviderDraft instance)
 		{
-			throw new NotImplementedException();
+			var contentNodeProviderDrafts = xmlFileSerializationHelper.DeserializeListFromPath<ContentNodeProviderDraft>(GetPathToDraftVersionXmlFile());
+			contentNodeProviderDrafts.Remove(contentNodeProviderDrafts.Where(a => a.PageId == instance.PageId).FirstOrDefault());
+			contentNodeProviderDrafts.Add(instance);
+			xmlFileSerializationHelper.SerializeListToPath(contentNodeProviderDrafts, GetPathToDraftVersionXmlFile());
+
 		}
 
 		public void Delete(ContentNodeProviderDraft instance)
 		{
-			throw new NotImplementedException();
+			var contentNodeProviderDrafts = xmlFileSerializationHelper.DeserializeListFromPath<ContentNodeProviderDraft>(GetPathToDraftVersionXmlFile());
+			contentNodeProviderDrafts.Remove(contentNodeProviderDrafts.Where(a => a.PageId == instance.PageId).FirstOrDefault());
+			xmlFileSerializationHelper.SerializeListToPath(contentNodeProviderDrafts, GetPathToDraftVersionXmlFile());
 		}
 
 		public void Delete(ContentNodeProviderPublishedVersion instance)
 		{
 			var contentNodeProviderPublishedVersions = GetContentNodeProviderPublishedVersionsFromXmlFile();
 			contentNodeProviderPublishedVersions.Remove(contentNodeProviderPublishedVersions.Where(a => a.PageId == instance.PageId).FirstOrDefault());
-			xmlFileSerializationHelper.SerializeListToPath(contentNodeProviderPublishedVersions, GetPathToXmlFile());
+			xmlFileSerializationHelper.SerializeListToPath(contentNodeProviderPublishedVersions, GetPathToPublishedVersionXmlFile());
 		}
 
 		public void Create(ContentNodeProviderPublishedVersion instance)
 		{
 			var contentNodeProviderPublishedVersions = GetContentNodeProviderPublishedVersionsFromXmlFile();
 			contentNodeProviderPublishedVersions.Add(instance);
-			xmlFileSerializationHelper.SerializeListToPath(contentNodeProviderPublishedVersions, GetPathToXmlFile());
+			xmlFileSerializationHelper.SerializeListToPath(contentNodeProviderPublishedVersions, GetPathToPublishedVersionXmlFile());
 		}
 
 		private List<ContentNodeProviderPublishedVersion> GetContentNodeProviderPublishedVersionsFromXmlFile()
 		{
-			return xmlFileSerializationHelper.DeserializeListFromPath<ContentNodeProviderPublishedVersion>(GetPathToXmlFile());
+			return xmlFileSerializationHelper.DeserializeListFromPath<ContentNodeProviderPublishedVersion>(GetPathToPublishedVersionXmlFile());
 		}
 
 		public void Create(ContentNodeProviderDraft instance)
 		{
-			throw new NotImplementedException();
+			var contentNodeProviderDrafts = xmlFileSerializationHelper.DeserializeListFromPath<ContentNodeProviderDraft>(GetPathToDraftVersionXmlFile());
+			contentNodeProviderDrafts.Add(instance);
+			xmlFileSerializationHelper.SerializeListToPath(contentNodeProviderDrafts, GetPathToDraftVersionXmlFile());
 		}
 
 		public IQueryable<ContentNodeProviderPublishedVersion> ContentNodeProviderPublishedVersions
@@ -79,20 +87,26 @@ namespace Paragon.ContentTree.ContentNodeProvider.Data
 			get
 			{
 				return xmlFileSerializationHelper
-							.DeserializeListFromPath<ContentNodeProviderPublishedVersion>(GetPathToXmlFile()).AsQueryable();
+							.DeserializeListFromPath<ContentNodeProviderPublishedVersion>(GetPathToPublishedVersionXmlFile()).AsQueryable();
 			}
 		}
 
-		private string GetPathToXmlFile()
+		private string GetPathToPublishedVersionXmlFile()
 		{
 			return applicationSettingsValueGetter.GetValue(PathToContentNodeProviderPublishedVersionXmlFileAppSettingsKey);
+		}
+
+		private string GetPathToDraftVersionXmlFile()
+		{
+			return applicationSettingsValueGetter.GetValue(PathToContentNodeProviderDraftXmlFileAppSettingsKey);
 		}
 
 		public IQueryable<ContentNodeProviderDraft> ContentNodeProviderDrafts
 		{
 			get 
 			{
-				throw new NotImplementedException();
+				return xmlFileSerializationHelper
+						.DeserializeListFromPath<ContentNodeProviderDraft>(GetPathToDraftVersionXmlFile()).AsQueryable();
 			}
 		}
 	}

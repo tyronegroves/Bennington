@@ -41,7 +41,7 @@ namespace Paragon.Core.Helpers
 		{
 			if (!File.Exists(path))
 			{
-				File.Create(path);
+				using (System.IO.File.Create(path)){}
 
 				var serializer = new XmlSerializer(typeof(List<T>));
 				TextWriter textWriter = new StreamWriter(path);
