@@ -4,7 +4,6 @@ namespace Paragon.ContentTree.ContentNodeProvider.Models
 {
 	public class ContentTreeNode : IAmATreeNodeExtension
 	{
-		public int Key { get; set; }
 		public string TreeNodeId { get; set; }
 		public string PageId { get; set; }
 		public string UrlSegment { get; set; }
