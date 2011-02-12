@@ -45,7 +45,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 				         		new ContentNodeProviderDraft()
 				         			{
 										PageId = guid.ToString(),
-				         				CreateBy = "CreateBy"
+				         				Body = "Body"
 				         			}, 
 							}.AsQueryable());
 
@@ -56,7 +56,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 																				});
 
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
-				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.Name == "Name" && b.PageId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.Name == "Name" && b.PageId == guid.ToString() && b.Body == "Body")), Times.Once());
 		}
 
 		[TestMethod]
@@ -69,7 +69,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 				         		new ContentNodeProviderDraft()
 				         			{
 										PageId = guid.ToString(),
-				         				CreateBy = "CreateBy"
+				         				Body = "Body"
 				         			}, 
 							}.AsQueryable());
 
@@ -80,7 +80,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 																				});
 
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
-				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.Action == "Action" && b.PageId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.Action == "Action" && b.PageId == guid.ToString() && b.Body == "Body")), Times.Once());
 		}
 
 		[TestMethod]
@@ -93,7 +93,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 				         		new ContentNodeProviderDraft()
 				         			{
 										PageId = guid.ToString(),
-				         				CreateBy = "CreateBy"
+				         				Body = "Body"
 				         			}, 
 							}.AsQueryable());
 
@@ -104,7 +104,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 																				});
 
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
-				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.MetaTitle == "MetaTitle" && b.PageId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.MetaTitle == "MetaTitle" && b.PageId == guid.ToString() && b.Body == "Body")), Times.Once());
 		}
 
 		[TestMethod]
@@ -117,7 +117,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 				         		new ContentNodeProviderDraft()
 				         			{
 										PageId = guid.ToString(),
-				         				CreateBy = "CreateBy"
+				         				Body = "Body"
 				         			}, 
 							}.AsQueryable());
 
@@ -128,7 +128,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 																				});
 
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
-				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.MetaDescription == "MetaDescription" && b.PageId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.MetaDescription == "MetaDescription" && b.PageId == guid.ToString() && b.Body == "Body")), Times.Once());
 		}
 
 		[TestMethod]
@@ -141,7 +141,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 				         		new ContentNodeProviderDraft()
 				         			{
 										PageId = guid.ToString(),
-				         				CreateBy = "CreateBy"
+				         				Body = "Body"
 				         			}, 
 							}.AsQueryable());
 
@@ -152,7 +152,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 																				});
 
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
-				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.UrlSegment == "UrlSegment" && b.PageId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.UrlSegment == "UrlSegment" && b.PageId == guid.ToString() && b.Body == "Body")), Times.Once());
 		}
 
 		[TestMethod]
@@ -165,7 +165,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 				         		new ContentNodeProviderDraft()
 				         			{
 										PageId = guid.ToString(),
-				         				CreateBy = "CreateBy"
+				         				Body = "Body"
 				         			}, 
 							}.AsQueryable());
 
@@ -176,7 +176,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 																				});
 
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
-				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.HeaderText == "HeaderText" && b.PageId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.HeaderText == "HeaderText" && b.PageId == guid.ToString() && b.Body == "Body")), Times.Once());
 		}
 
 		[TestMethod]
@@ -189,7 +189,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 				         		new ContentNodeProviderDraft()
 				         			{
 										PageId = guid.ToString(),
-				         				CreateBy = "CreateBy"
+				         				Body = "Body"
 				         			}, 
 							}.AsQueryable());
 
@@ -200,7 +200,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 																				});
 
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
-				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.Sequence == -1 && b.PageId == guid.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.Sequence == -1 && b.PageId == guid.ToString() && b.Body == "Body")), Times.Once());
 		}
 
 		[TestMethod]
@@ -214,7 +214,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 				         		new ContentNodeProviderDraft()
 				         			{
 										PageId = pageId.ToString(),
-				         				CreateBy = "CreateBy"
+				         				Body = "Body"
 				         			}, 
 							}.AsQueryable());
 
@@ -225,7 +225,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 																				});
 
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
-				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.TreeNodeId == treeNodeId.ToString() && b.PageId == pageId.ToString() && b.CreateBy == "CreateBy")), Times.Once());
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.TreeNodeId == treeNodeId.ToString() && b.PageId == pageId.ToString() && b.Body == "Body")), Times.Once());
 		}
 
 
@@ -242,13 +242,13 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 				         			{
 										PageId = guid1.ToString(),
 										TreeNodeId = treeNodeId.ToString(),
-				         				CreateBy = "CreateBy"
+				         				Body = "Body"
 				         			}, 
 								new ContentNodeProviderDraft()
 				         			{
 										PageId = guid2.ToString(),
 										TreeNodeId = treeNodeId.ToString(),
-				         				CreateBy = "CreateBy2"
+				         				Body = "Body2"
 				         			}, 
 							}.AsQueryable());
 
@@ -273,7 +273,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Tests.Denomarlizers
 				         		new ContentNodeProviderDraft()
 				         			{
 										TreeNodeId = guid.ToString(),
-				         				CreateBy = "CreateBy"
+				         				Body = "Body"
 				         			}, 
 							}.AsQueryable());
 
