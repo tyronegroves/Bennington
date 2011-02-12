@@ -8,6 +8,8 @@
     <title></title>
 </head>
 <body>
+	<h1><%=Server.MapPath("/") %></h1>
+
     <form id="form1" runat="server">
     <div>
         <%foreach (Route route in RouteTable.Routes)%>
