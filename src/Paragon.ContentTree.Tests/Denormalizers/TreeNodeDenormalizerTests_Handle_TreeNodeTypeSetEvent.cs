@@ -34,7 +34,7 @@ namespace Paragon.ContentTree.Tests.Denormalizers
 				         		new TreeNode()
 				         			{
 				         				Id = guid.ToString(),
-										CreateBy = "test",
+										ParentTreeNodeId = "test",
 				         			}, 
 							}.AsQueryable());
 
@@ -44,7 +44,7 @@ namespace Paragon.ContentTree.Tests.Denormalizers
 																Type = typeof(string)
 			                                              	});
 
-			mocker.GetMock<ITreeNodeRepository>().Verify(a => a.Update(It.Is<TreeNode>(b => b.CreateBy == "test" && b.Type == typeof(string).AssemblyQualifiedName && b.Id == guid.ToString())), Times.Once());
+			mocker.GetMock<ITreeNodeRepository>().Verify(a => a.Update(It.Is<TreeNode>(b => b.ParentTreeNodeId == "test" && b.Type == typeof(string).AssemblyQualifiedName && b.Id == guid.ToString())), Times.Once());
 		}
 	}
 }
