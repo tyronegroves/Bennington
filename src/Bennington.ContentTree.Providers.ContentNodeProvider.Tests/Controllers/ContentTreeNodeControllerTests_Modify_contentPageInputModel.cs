@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using AutoMoq;
+using Bennington.Core.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Paragon.ContentTree.ContentNodeProvider.Context;
@@ -12,7 +13,6 @@ using Paragon.ContentTree.ContentNodeProvider.Models;
 using Paragon.ContentTree.ContentNodeProvider.Repositories;
 using Paragon.ContentTree.Data;
 using Paragon.ContentTree.Domain.Commands;
-using Paragon.Core.Helpers;
 using SimpleCqrs.Commanding;
 
 namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers

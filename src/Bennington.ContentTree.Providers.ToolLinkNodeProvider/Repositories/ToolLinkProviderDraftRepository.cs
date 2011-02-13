@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Bennington.Core.EntityFramework;
 using Paragon.ContentTree.ToolLinkNodeProvider.Data;
-using Paragon.Core.EntityFramework;
 
 namespace Paragon.ContentTree.ToolLinkNodeProvider.Repositories
 {

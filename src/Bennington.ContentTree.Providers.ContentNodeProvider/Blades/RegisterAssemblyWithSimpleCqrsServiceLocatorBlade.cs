@@ -1,11 +1,11 @@
-﻿using MvcTurbine;
+﻿using Bennington.Core.Helpers;
+using MvcTurbine;
 using MvcTurbine.Blades;
 using Paragon.ContentTree.ContentNodeProvider.Denormalizers;
 using Paragon.ContentTree.ContentNodeProvider.Mappers;
 using Paragon.ContentTree.ContentNodeProvider.Repositories;
 using Paragon.ContentTree.Data;
 using Paragon.ContentTree.Repositories;
-using Paragon.Core.Helpers;
 using SimpleCqrs;
 
 namespace Paragon.ContentTree.ContentNodeProvider.Blades

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Bennington.Core.MenuSystem;
 using MvcTurbine.ComponentModel;
 using Paragon.Cms.Models;
-using Paragon.Core.MenuSystem;
 
 namespace Paragon.Cms.Controllers
 {

@@ -1,4 +1,4 @@
-﻿namespace Paragon.Core.MenuSystem
+﻿namespace Bennington.Core.MenuSystem
 {
 	public interface IAmASectionMenuItem
 	{

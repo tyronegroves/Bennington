@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Reflection;
-using Paragon.Core;
-using Paragon.Core.Registration;
+using Bennington.Core.Registration;
 
 namespace Paragon.Cms.Registration
 {

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Bennington.Core.Helpers;
 using Paragon.ContentTree.ContentNodeProvider.Context;
 using Paragon.ContentTree.ContentNodeProvider.Mappers;
 using Paragon.ContentTree.ContentNodeProvider.Models;
@@ -11,7 +12,6 @@ using Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders.Helpers;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Domain.Commands;
 using Paragon.ContentTree.Repositories;
-using Paragon.Core.Helpers;
 using SimpleCqrs.Commanding;
 
 namespace Paragon.ContentTree.ContentNodeProvider.Controllers

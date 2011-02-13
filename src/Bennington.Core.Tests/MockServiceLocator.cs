@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using MvcTurbine.ComponentModel;
 
-namespace Paragon.Core.Tests
+namespace Bennington.Core.Tests
 {
     public class MockServiceLocator : IServiceLocator
     {

@@ -1,4 +1,4 @@
-﻿namespace Paragon.Core.Tests.Fakes
+﻿namespace Bennington.Core.Tests.Fakes
 {
     public interface InterfaceWithOneInterfaceImplementer
     {    

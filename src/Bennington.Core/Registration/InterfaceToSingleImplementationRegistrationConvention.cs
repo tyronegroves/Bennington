@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using MvcTurbine.ComponentModel;
 
-namespace Paragon.Core.Registration
+namespace Bennington.Core.Registration
 {
     /// <summary>
     ///   Provides derived classes the functionality to register concrete types of interfaces in a <see cref = "IServiceLocator" />.

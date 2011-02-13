@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Web.Routing;
+using Bennington.Core.Helpers;
 using Paragon.ContentTree.ContentNodeProvider.Context;
 using Paragon.ContentTree.ContentNodeProvider.Models;
 using Paragon.ContentTree.Contexts;
-using Paragon.Core.Helpers;
 
 namespace Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders
 {

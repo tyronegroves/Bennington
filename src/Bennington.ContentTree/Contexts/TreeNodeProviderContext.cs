@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Bennington.Core;
 using Paragon.ContentTree.TreeNodeExtensionProvider;
-using Paragon.Core;
 
 namespace Paragon.ContentTree.Contexts
 {

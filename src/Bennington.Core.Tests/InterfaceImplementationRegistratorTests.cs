@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Reflection;
+using Bennington.Core.Registration;
+using Bennington.Core.Tests.Fakes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.Core.Registration;
-using Paragon.Core.Tests.Fakes;
 
-namespace Paragon.Core.Tests
+namespace Bennington.Core.Tests
 {
     [TestClass]
     public class InterfaceImplementationRegistratorTests

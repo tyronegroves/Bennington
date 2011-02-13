@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Paragon.Core.Helpers;
+using Bennington.Core.Helpers;
 
 namespace Paragon.ContentTree.Data
 {

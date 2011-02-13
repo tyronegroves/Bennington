@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Routing;
 using AutoMoq;
+using Bennington.Core.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Paragon.ContentTree.Contexts;
@@ -12,7 +13,6 @@ using Paragon.ContentTree.Domain.Commands;
 using Paragon.ContentTree.Models;
 using Paragon.ContentTree.Repositories;
 using Paragon.ContentTree.TreeNodeExtensionProvider;
-using Paragon.Core.Helpers;
 using SimpleCqrs.Commanding;
 
 namespace Paragon.ContentTree.Tests.Contexts

@@ -3,10 +3,10 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMoq;
+using Bennington.Core.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Paragon.ContentTree.ContentNodeProvider.Data;
-using Paragon.Core.Helpers;
 
 namespace Paragon.ContentTree.ContentNodeProvider.Tests.Data
 {

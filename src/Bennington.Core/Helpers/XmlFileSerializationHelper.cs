@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Xml.Serialization;
 
-namespace Paragon.Core.Helpers
+namespace Bennington.Core.Helpers
 {
 	public interface IXmlFileSerializationHelper
 	{

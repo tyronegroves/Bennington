@@ -1,5 +1,6 @@
 ﻿using System.Web.Routing;
 using AutoMoq;
+using Bennington.Core.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Paragon.ContentTree.ContentNodeProvider.Context;
@@ -9,7 +10,6 @@ using Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Data;
 using Paragon.ContentTree.Models;
-using Paragon.Core.Helpers;
 
 namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
 {

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Reflection;
-using Paragon.Core.Registration;
+using Bennington.Core.Registration;
 
 namespace Paragon.ContentTree.Engines.Homepage.Registration
 {

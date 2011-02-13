@@ -3,13 +3,13 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMoq;
+using Bennington.Core.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Domain.Commands;
 using Paragon.ContentTree.SectionNodeProvider.Controllers;
 using Paragon.ContentTree.SectionNodeProvider.Models;
-using Paragon.Core.Helpers;
 using SimpleCqrs.Commanding;
 
 namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers

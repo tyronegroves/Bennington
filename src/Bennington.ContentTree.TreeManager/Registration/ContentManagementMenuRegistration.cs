@@ -1,6 +1,6 @@
 ﻿using System;
+using Bennington.Core.MenuSystem;
 using MvcTurbine.ComponentModel;
-using Paragon.Core.MenuSystem;
 
 namespace Paragon.Cms
 {

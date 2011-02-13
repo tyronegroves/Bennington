@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MvcTurbine.ComponentModel;
+﻿using MvcTurbine.ComponentModel;
 
-namespace Paragon.Core
+namespace Bennington.Core
 {
 	public interface IServiceLocatorWrapper
 	{
