@@ -14,7 +14,7 @@ using Paragon.ContentTree.TreeNodeExtensionProvider;
 namespace Paragon.ContentTree.Tests.Contexts
 {
 	[TestClass]
-	public class TreeNodeSummarContextTests_GetChildren
+	public class TreeNodeSummaryContextTests_GetChildren
 	{
 		private AutoMoqer mocker;
 
@@ -436,6 +436,43 @@ namespace Paragon.ContentTree.Tests.Contexts
 			var result = treeNodeSummarContext.GetChildren(null);
 
 			Assert.AreEqual(0, result.Count());
+		}
+
+		[TestMethod]
+		public void Returns_1_result_when_the_specified_parent_node_has_2_child_nodes_but_only_1_is_found_by_provider()
+		{
+			var fakeTreeNodeExtensionProvider = new Mock<IAmATreeNodeExtensionProvider>();
+			fakeTreeNodeExtensionProvider.Setup(a => a.GetAll())
+				.Returns(new FakeTreeNode[]
+				         	{
+								new FakeTreeNode()
+									{
+										TreeNodeId = "1",
+									}, 
+				         	}.AsQueryable());
+			mocker.GetMock<ITreeNodeProviderContext>().Setup(a => a.GetProviderByTypeName("FakeTreeNodeExtensionProvider"))
+				.Returns(fakeTreeNodeExtensionProvider.Object);
+			mocker.GetMock<ITreeNodeRepository>().Setup(a => a.GetAll())
+				.Returns(new TreeNode[]
+				         	{
+				         		new TreeNode()
+				         			{
+										Id = "1",
+										ParentTreeNodeId = "1",
+										Type = "FakeTreeNodeExtensionProvider",
+				         			}, 
+				         		new TreeNode()
+				         			{
+										Id = "2",
+										ParentTreeNodeId = "1",
+										Type = "FakeTreeNodeExtensionProvider",
+				         			}, 
+							}.AsQueryable());
+
+			var treeNodeSummarContext = mocker.Resolve<TreeNodeSummaryContext>();
+			var result = treeNodeSummarContext.GetChildren("1");
+
+			Assert.AreEqual(1, result.Count());
 		}
 	}
 
