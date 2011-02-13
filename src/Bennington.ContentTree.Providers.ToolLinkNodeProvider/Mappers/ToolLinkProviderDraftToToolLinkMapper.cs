@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using AutoMapperAssist;
-using Paragon.ContentTree.ToolLinkNodeProvider.Data;
-using Paragon.ContentTree.ToolLinkNodeProvider.Models;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Data;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models;
 
-namespace Paragon.ContentTree.ToolLinkNodeProvider.Mappers
+namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Mappers
 {
 	public interface IToolLinkProviderDraftToToolLinkMapper
 	{

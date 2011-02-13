@@ -1,13 +1,10 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using AutoMoq;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Contexts;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Paragon.ContentTree.ToolLinkNodeProvider.Contexts;
-using Paragon.ContentTree.ToolLinkNodeProvider.Models;
 
-namespace Paragon.ContentTree.ToolLinkNodeProvider.Tests
+namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Tests
 {
 	[TestClass]
 	public class ToolLinkNodeProviderTests_GetAll
@@ -32,7 +29,7 @@ namespace Paragon.ContentTree.ToolLinkNodeProvider.Tests
 				         			}, 
 							});
 
-			var results = mocker.Resolve<ToolLinkNodeProvider>().GetAll();
+			var results = mocker.Resolve<Bennington.ContentTree.Providers.ToolLinkNodeProvider.ToolLinkNodeProvider>().GetAll();
 
 			Assert.AreEqual(1, results.Count());
 			Assert.AreEqual("test", results.First().Name);

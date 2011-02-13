@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel;
 using System.Web.Mvc;
 
-namespace Paragon.ContentTree.ToolLinkNodeProvider.Models
+namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models
 {
 	public class ToolLinkInputModel
 	{

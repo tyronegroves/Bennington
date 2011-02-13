@@ -1,17 +1,15 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using AutoMoq;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Contexts;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Data;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Mappers;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.ContentTree.ToolLinkNodeProvider.Contexts;
-using Paragon.ContentTree.ToolLinkNodeProvider.Data;
-using Paragon.ContentTree.ToolLinkNodeProvider.Mappers;
-using Paragon.ContentTree.ToolLinkNodeProvider.Models;
-using Paragon.ContentTree.ToolLinkNodeProvider.Repositories;
 
-namespace Paragon.ContentTree.ToolLinkNodeProvider.Tests
+namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Tests.Contexts
 {
 	[TestClass]
 	public class ToolLinkProviderTests_GetAllToolLinks
@@ -56,7 +54,7 @@ namespace Paragon.ContentTree.ToolLinkNodeProvider.Tests
 
 			mocker.Resolve<ToolLinkContext>().GetAllToolLinks();
 
-			mocker.GetMock<IToolLinkProviderDraftToToolLinkMapper>().Verify(a => a.CreateSet(It.Is<IEnumerable<Data.ToolLinkProviderDraft>>(b => b.First().Name == "test")), Times.Once());
+			mocker.GetMock<IToolLinkProviderDraftToToolLinkMapper>().Verify(a => a.CreateSet(It.Is<IEnumerable<ToolLinkProviderDraft>>(b => b.First().Name == "test")), Times.Once());
 		}
 	}
 }

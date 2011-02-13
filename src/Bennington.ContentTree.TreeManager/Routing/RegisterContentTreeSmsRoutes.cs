@@ -2,7 +2,7 @@
 using System.Web.Routing;
 using MvcTurbine.Routing;
 
-namespace Paragon.ContentTree.TreeManager.Routing
+namespace Bennington.ContentTree.TreeManager.Routing
 {
 	public class RegisterContentTreeSmsRoutes : IRouteRegistrator
 	{

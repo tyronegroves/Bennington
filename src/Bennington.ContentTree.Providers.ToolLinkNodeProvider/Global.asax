@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Paragon.ContentTree.ToolLinkNodeProvider.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Bennington.ContentTree.Providers.ToolLinkNodeProvider.MvcApplication" Language="C#" %>

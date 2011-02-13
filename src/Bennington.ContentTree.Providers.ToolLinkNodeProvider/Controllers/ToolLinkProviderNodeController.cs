@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Paragon.ContentTree.ToolLinkNodeProvider.Models;
-using Paragon.ContentTree.ToolLinkNodeProvider.ViewModelBuilders;
+﻿using System.Web.Mvc;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.ViewModelBuilders;
 
-namespace Paragon.ContentTree.ToolLinkNodeProvider.Controllers
+namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
 {
     public class ToolLinkProviderNodeController : Controller
     {

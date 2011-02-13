@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Paragon.ContentTree.Models;
+﻿using Paragon.ContentTree.Models;
 
-namespace Paragon.ContentTree.ToolLinkNodeProvider.Models
+namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models
 {
 	public class ToolLink : IAmATreeNodeExtension
 	{

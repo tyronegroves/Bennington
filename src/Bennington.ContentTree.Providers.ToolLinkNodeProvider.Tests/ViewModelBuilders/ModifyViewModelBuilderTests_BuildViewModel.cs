@@ -1,13 +1,9 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMoq;
+﻿using AutoMoq;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.ViewModelBuilders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Paragon.ContentTree.ToolLinkNodeProvider.Models;
-using Paragon.ContentTree.ToolLinkNodeProvider.ViewModelBuilders;
 
-namespace Paragon.ContentTree.ToolLinkNodeProvider.Tests.ViewModelBuilders
+namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Tests.ViewModelBuilders
 {
 	[TestClass]
 	public class ModifyViewModelBuilderTests_BuildViewModel

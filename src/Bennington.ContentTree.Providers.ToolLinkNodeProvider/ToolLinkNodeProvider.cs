@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Contexts;
 using Paragon.ContentTree.Models;
-using Paragon.ContentTree.ToolLinkNodeProvider.Contexts;
 using Paragon.ContentTree.TreeNodeExtensionProvider;
 
-namespace Paragon.ContentTree.ToolLinkNodeProvider
+namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider
 {
 	public class ToolLinkNodeProvider : IAmATreeNodeExtensionProvider
 	{

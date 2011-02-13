@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Bennington.ContentTree.TreeManager.Models;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Models;
-using Paragon.ContentTree.TreeManager.Models;
 
-namespace Paragon.ContentTree.TreeManager.ViewModelBuilders
+namespace Bennington.ContentTree.TreeManager.ViewModelBuilders
 {
 	public interface ITreeBranchViewModelBuilder
 	{

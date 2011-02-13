@@ -4,13 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Routing;
 using AutoMoq;
+using Bennington.ContentTree.TreeManager.Routing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Paragon.ContentTree.Contexts;
 using Paragon.ContentTree.Models;
-using Paragon.ContentTree.TreeManager.Routing;
 using Paragon.ContentTree.TreeNodeExtensionProvider;
 
-namespace Paragon.ContentTree.TreeManager.Tests.Routing
+namespace Bennington.ContentTree.TreeManager.Tests.Routing
 {
 	[TestClass]
 	public class RegisterRoutesForAllProvidersTests_Register

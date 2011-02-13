@@ -1,8 +1,9 @@
 ﻿using System.Web.Mvc;
-using Paragon.ContentTree.TreeManager.Models;
-using Paragon.ContentTree.TreeManager.ViewModelBuilders;
+using Bennington.ContentTree.TreeManager.Models;
+using Bennington.ContentTree.TreeManager.ViewModelBuilders;
+using Paragon.ContentTree;
 
-namespace Paragon.ContentTree.TreeManager.Controllers
+namespace Bennington.ContentTree.TreeManager.Controllers
 {
 	public class TreeManagerController : Controller
 	{

@@ -1,7 +1,7 @@
 ﻿using MvcTurbine.ComponentModel;
 using Paragon.ContentTree.TreeNodeExtensionProvider;
 
-namespace Paragon.ContentTree.ToolLinkNodeProvider.Registration
+namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Registration
 {
 	public class ToolLinkNodeProviderServiceRegistrations : IServiceRegistration
 	{

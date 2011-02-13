@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Paragon.ContentTree.ToolLinkNodeProvider.Mappers;
-using Paragon.ContentTree.ToolLinkNodeProvider.Models;
-using Paragon.ContentTree.ToolLinkNodeProvider.Repositories;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Mappers;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Repositories;
 
-namespace Paragon.ContentTree.ToolLinkNodeProvider.Contexts
+namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Contexts
 {
 	public interface IToolLinkContext
 	{

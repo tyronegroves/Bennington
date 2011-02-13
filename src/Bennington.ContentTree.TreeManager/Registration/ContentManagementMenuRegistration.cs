@@ -2,7 +2,7 @@
 using Bennington.Core.MenuSystem;
 using MvcTurbine.ComponentModel;
 
-namespace Paragon.Cms
+namespace Bennington.ContentTree.TreeManager.Registration
 {
 	public class ContentManagementMenuRegistration : IAmAnIconMenuItem, IAmASectionMenuItem, IServiceRegistration
 	{

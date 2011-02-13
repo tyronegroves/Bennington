@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
-namespace Paragon.ContentTree.TreeManager.Models
+namespace Bennington.ContentTree.TreeManager.Models
 {
 	public class TreeNodeCreationInputModel
 	{

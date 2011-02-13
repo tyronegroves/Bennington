@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using Bennington.Core.EntityFramework;
-using Paragon.ContentTree.ToolLinkNodeProvider.Data;
 
-namespace Paragon.ContentTree.ToolLinkNodeProvider.Repositories
+namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Repositories
 {
 	public interface IToolLinkProviderDraftRepository
 	{

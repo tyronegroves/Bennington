@@ -1,13 +1,9 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMapperAssist;
+﻿using AutoMapperAssist;
 using AutoMoq;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Mappers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Paragon.ContentTree.ToolLinkNodeProvider.Mappers;
 
-namespace Paragon.ContentTree.ToolLinkNodeProvider.Tests.Mappers
+namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Tests.Mappers
 {
 	[TestClass]
 	public class ToolLinkProviderDraftToToolLinkMapperTests

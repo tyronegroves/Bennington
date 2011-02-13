@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Paragon.ContentTree.ToolLinkNodeProvider.Models;
+﻿using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models;
 
-namespace Paragon.ContentTree.ToolLinkNodeProvider.ViewModelBuilders
+namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.ViewModelBuilders
 {
 	public interface IModifyViewModelBuilder
 	{

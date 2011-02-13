@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Paragon.ContentTree.Models;
 
-namespace Paragon.ContentTree.TreeManager.Models
+namespace Bennington.ContentTree.TreeManager.Models
 {
 	public class TreeBranchViewModel
 	{

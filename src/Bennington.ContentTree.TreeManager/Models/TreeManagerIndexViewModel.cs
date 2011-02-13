@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Paragon.ContentTree.TreeManager.Models
+﻿namespace Bennington.ContentTree.TreeManager.Models
 {
 	public class TreeManagerIndexViewModel
 	{

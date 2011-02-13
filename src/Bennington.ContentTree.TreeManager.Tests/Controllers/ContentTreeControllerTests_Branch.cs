@@ -1,13 +1,12 @@
 ﻿using System.Web.Mvc;
 using AutoMoq;
+using Bennington.ContentTree.TreeManager.Controllers;
+using Bennington.ContentTree.TreeManager.Models;
+using Bennington.ContentTree.TreeManager.ViewModelBuilders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.ContentTree.Models;
-using Paragon.ContentTree.TreeManager.Controllers;
-using Paragon.ContentTree.TreeManager.Models;
-using Paragon.ContentTree.TreeManager.ViewModelBuilders;
 
-namespace Paragon.ContentTree.TreeManager.Tests.Controllers
+namespace Bennington.ContentTree.TreeManager.Tests.Controllers
 {
 	[TestClass]
 	public class ContentTreeControllerTests_Branch

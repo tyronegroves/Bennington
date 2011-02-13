@@ -1,16 +1,12 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using AutoMoq;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.ViewModelBuilders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.ContentTree.ToolLinkNodeProvider.Controllers;
-using Paragon.ContentTree.ToolLinkNodeProvider.Models;
-using Paragon.ContentTree.ToolLinkNodeProvider.ViewModelBuilders;
 
-namespace Paragon.ContentTree.ToolLinkNodeProvider.Tests.Controllers
+namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Tests.Controllers
 {
 	[TestClass]
 	public class ToolLinkProviderNodeControllerTests_Create
