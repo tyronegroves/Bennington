@@ -3,7 +3,7 @@ using System.Web.Routing;
 using MvcTurbine.Routing;
 using Paragon.ContentTree.Contexts;
 
-namespace Paragon.Cms.Routing
+namespace Paragon.ContentTree.TreeManager.Routing
 {
 	public class RegisterSmsRoutesForAllProviders : IRouteRegistrator
 	{

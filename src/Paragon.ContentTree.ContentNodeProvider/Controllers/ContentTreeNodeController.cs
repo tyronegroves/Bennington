@@ -56,6 +56,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 										.BuildViewModel(rawUrlGetter.GetRawUrl(), RouteData));
 		}
 
+		[Authorize]
 		public virtual ActionResult Delete(string treeNodeId)
 		{
 			var treeNodeGuidId = new Guid(treeNodeId);
@@ -70,7 +71,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 			                	});
 			return new RedirectToRouteResult(new RouteValueDictionary { { "controller", "TreeManager" }, { "action", "Index" }});
 		}
-
+		
+		[Authorize]
 		[HttpPost]
 		[ValidateInput(false)]
 		public virtual ActionResult Create(ContentTreeNodeInputModel contentTreeNodeInputModel)
@@ -110,6 +112,8 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 			return new RedirectResult(GetRedirectUrlToModifyMethod(contentTreeNodeInputModel));
 		}
 
+
+		[Authorize]
 		public virtual ActionResult Create(string parentTreeNodeId, string providerType)
 		{
 			return View("Modify", new ContentTreeNodeViewModel()
@@ -123,6 +127,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 			                      	});
 		}
 
+		[Authorize]
 		[HttpPost]
 		[ValidateInput(false)]
 		public virtual ActionResult Modify(ContentTreeNodeInputModel contentTreeNodeInputModel)
@@ -183,6 +188,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 			                                 	});
 		}
 
+		[Authorize]
 		public virtual ActionResult Modify(string treeNodeId, string contentItemId)
 		{
 			if (string.IsNullOrEmpty(contentItemId)) contentItemId = "Index";
@@ -205,6 +211,7 @@ namespace Paragon.ContentTree.ContentNodeProvider.Controllers
 			return View("Modify", viewModel);
 		}
 
+		[Authorize]
 		public virtual ActionResult ContentItemNavigation(string treeNodeId)
 		{
 			var viewModel = new ContentItemNavigationViewModel()

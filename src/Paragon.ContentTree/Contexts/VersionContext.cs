@@ -20,6 +20,8 @@ namespace Paragon.ContentTree.Contexts
 			try
 			{
 				if (HttpContext.Current.Request.RawUrl.StartsWith("/Manage")) return Draft;
+
+				if (HttpContext.Current.Request.QueryString["Version"] == Draft) return Draft;
 			}catch(Exception) {}
 
 			return Publish;

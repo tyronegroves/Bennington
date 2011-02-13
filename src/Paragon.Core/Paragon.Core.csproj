@@ -44,12 +44,15 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\EntityConnectionInformation.cs" />
     <Compile Include="Helpers\GetCurrentDateTime.cs" />
     <Compile Include="Helpers\GetParentRouteDataDictionaryFromChildActionRouteData.cs" />
     <Compile Include="Helpers\GuidGetter.cs" />
+    <Compile Include="Helpers\ApplicationSettingsValueGetter.cs" />
+    <Compile Include="Helpers\XmlFileSerializationHelper.cs" />
     <Compile Include="MenuSystem\IAmASectionMenuItem.cs" />
     <Compile Include="MenuSystem\IAmAnIconMenuItem.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

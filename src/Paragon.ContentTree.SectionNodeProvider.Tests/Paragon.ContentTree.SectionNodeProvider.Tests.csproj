@@ -58,6 +58,7 @@
     <Compile Include="Controllers\ContentTreeSectionNodeControllerTests_Create_post_method.cs" />
     <Compile Include="Controllers\ContentTreeSectionNodeControllerTests_Delete.cs" />
     <Compile Include="Controllers\ContentTreeSectionNodeControllerTests_Modify_post_method.cs" />
+    <Compile Include="Data\DataModelDataContextTests.cs" />
     <Compile Include="Denormalizers\SectionNodeProviderDraftDenormalizerTests_Handle.cs" />
     <Compile Include="Denormalizers\SectionNodeProviderDraftDenormalizerTests_Handle_SectionDeletedEvent.cs" />
     <Compile Include="Denormalizers\SectionNodeProviderDraftDenormalizerTests_Handle_SectionCreatedEvent.cs" />

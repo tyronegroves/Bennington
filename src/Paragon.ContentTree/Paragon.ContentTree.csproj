@@ -73,14 +73,8 @@
     <Compile Include="Blades\RegisterAssemblyWithSimpleCqrsServiceLocatorBlade.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Contexts\VersionContext.cs" />
-    <Compile Include="Data\DataModel.cs">
-      <DependentUpon>DataModel.dbml</DependentUpon>
-    </Compile>
-    <Compile Include="Data\DataModel.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.dbml</DependentUpon>
-    </Compile>
+    <Compile Include="Data\DataModelDataContext.cs" />
+    <Compile Include="Data\TreeNode.cs" />
     <Compile Include="Denormalizers\TreeNodeDenormalizer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -108,19 +102,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\DataModel.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DataModel.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Data\DataModel.dbml.layout">
-      <DependentUpon>DataModel.dbml</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Paragon.ContentTree.Domain\Paragon.ContentTree.Domain.csproj">

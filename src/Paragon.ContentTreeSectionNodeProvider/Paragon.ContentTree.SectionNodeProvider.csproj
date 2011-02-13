@@ -81,15 +81,8 @@
     <Compile Include="Context\ContentTreeSectionNodeContext.cs" />
     <Compile Include="Controllers\ContentTreeSectionNodeController.cs" />
     <Compile Include="Controllers\ContentTreeSectionController.cs" />
-    <Compile Include="Data\ContentTreeSectionNodeProviderDataModel.cs">
-      <DependentUpon>ContentTreeSectionNodeProviderDataModel.dbml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Data\ContentTreeSectionNodeProviderDataModel.designer.cs">
-      <DependentUpon>ContentTreeSectionNodeProviderDataModel.dbml</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
+    <Compile Include="Data\DataModelDataContext.cs" />
+    <Compile Include="Data\SectionNodeProviderDraft.cs" />
     <Compile Include="Denormalizers\SectionNodeProviderDraftDenormalizer.cs" />
     <Compile Include="HttpModules\ContentTreeSectionHttpModule.cs" />
     <Compile Include="Mappers\ContentTreeSectionNodeInputModelToContentTreeSectionNodeMapper.cs" />
@@ -112,14 +105,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Data\ContentTreeSectionNodeProviderDataModel.dbml">
-      <SubType>Designer</SubType>
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>ContentTreeSectionNodeProviderDataModel.designer.cs</LastGenOutput>
-    </None>
-    <None Include="Data\ContentTreeSectionNodeProviderDataModel.dbml.layout">
-      <DependentUpon>ContentTreeSectionNodeProviderDataModel.dbml</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
