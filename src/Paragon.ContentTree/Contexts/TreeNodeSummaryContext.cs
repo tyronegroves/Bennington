@@ -17,7 +17,6 @@ namespace Paragon.ContentTree.Contexts
 		TreeNodeSummary GetTreeNodeSummaryByTreeNodeId(string nodeId);
 		IEnumerable<TreeNodeSummary> GetChildren(string parentNodeId);
 		string Create(string parentNodeId, string providerTypeAssemblyQualifiedName);
-		void Delete(string nodeId);
 	}
 
 	public class TreeNodeSummaryContext : ITreeNodeSummaryContext
@@ -52,11 +51,6 @@ namespace Paragon.ContentTree.Contexts
 			                	});
 
 			return guid.ToString();
-		}
-
-		public void Delete(string nodeId)
-		{
-			throw new NotImplementedException();
 		}
 
 		private static void ThrowExceptionIfTheProviderTypeDoesNotImplementIAmATreeNodeExtensionProvider(Type providerType)
