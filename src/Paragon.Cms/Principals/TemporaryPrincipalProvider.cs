@@ -23,7 +23,7 @@ namespace Paragon.Cms.Principals
             return new TicketData
                        {
                            IsPersistent = true,
-                           NumberOfMinutesUntilExpiration = 5,
+                           NumberOfMinutesUntilExpiration = 15,
                            UserData = "admin",
                            Username = "admin"
                        };
