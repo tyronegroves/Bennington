@@ -23,9 +23,7 @@ namespace Paragon.ContentTree.ToolLinkNodeProvider.Repositories
 
 		public IQueryable<Data.ToolLinkProviderDraft> GetAll()
 		{
-			var toolLinkProviderDataModel = new ToolLinkProviderDataModel(entityConnectionInformation.GetEntityConnectionString("Data.ToolLinkProviderDataModel"));
-
-			return toolLinkProviderDataModel.ToolLinkProviderDrafts;
+			throw new NotImplementedException();
 		}
 	}
 }
