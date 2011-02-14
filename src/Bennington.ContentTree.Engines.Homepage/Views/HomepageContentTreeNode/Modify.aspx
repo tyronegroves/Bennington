@@ -1,6 +1,6 @@
-﻿<%@ Import Namespace="Paragon.ContentTree.ContentNodeProvider.Models" %>
+﻿<%@ Import Namespace="Bennington.ContentTree.Providers.ContentNodeProvider.Models" %>
 
-<%@ Page Language="C#" MasterPageFile="~/Views/Shared/ManageSite.Master" Inherits="System.Web.Mvc.ViewPage<Paragon.ContentTree.ContentNodeProvider.Models.ContentTreeNodeViewModel>" %>
+<%@ Page Language="C#" MasterPageFile="~/Views/Shared/ManageSite.Master" Inherits="System.Web.Mvc.ViewPage<Bennington.ContentTree.Providers.ContentNodeProvider.Models.ContentTreeNodeViewModel>" %>
 
 <%@ Import Namespace="System.Web.Mvc" %>
 

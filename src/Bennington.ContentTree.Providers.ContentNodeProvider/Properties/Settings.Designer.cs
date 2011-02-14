@@ -26,21 +26,21 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DEGWLUCASF1\\sqlexpress;Initial Catalog=Paragon;Integrated Security=Tr" +
-            "ue")]
-        public string ParagonConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DEGWLUCASF1\\sqlexpress;Initial Catalog=Bennington;Integrated Security" +
+            "=True")]
+        public string BenningtonConnectionString {
             get {
-                return ((string)(this["ParagonConnectionString"]));
+                return ((string)(this["BenningtonConnectionString"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\sqlexpress;Initial Catalog=Paragon;Integrated Security=True")]
-        public string ParagonConnectionString1 {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\sqlexpress;Initial Catalog=Bennington;Integrated Security=True")]
+        public string BenningtonConnectionString1 {
             get {
-                return ((string)(this["ParagonConnectionString1"]));
+                return ((string)(this["BenningtonConnectionString1"]));
             }
         }
     }

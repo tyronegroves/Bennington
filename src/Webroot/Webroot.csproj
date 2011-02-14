@@ -435,7 +435,7 @@
     <Content Include="Target_\test\CommandBusConfig.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Views\ParagonPage\Index.aspx" />
+    <Content Include="Views\BenningtonPage\Index.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -457,6 +457,10 @@
     <Content Include="Views\Shared\Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bennington.Cms\Bennington.Cms.csproj">
+      <Project>{7516E4A6-54D1-437B-B14A-5EAA25D84730}</Project>
+      <Name>Bennington.Cms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bennington.ContentTree.Engines.ContactUs\Bennington.ContentTree.Engines.ContactUs.csproj">
       <Project>{DB5F2BBF-B1AF-401C-A38B-ABBA2DDC8916}</Project>
       <Name>Bennington.ContentTree.Engines.ContactUs</Name>
@@ -480,6 +484,14 @@
     <ProjectReference Include="..\Bennington.ContentTree.Providers.ToolLinkNodeProvider\Bennington.ContentTree.Providers.ToolLinkNodeProvider.csproj">
       <Project>{BD01E5D0-D160-4E39-B18B-61D2B375977B}</Project>
       <Name>Bennington.ContentTree.Providers.ToolLinkNodeProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bennington.ContentTree.TreeManager\Bennington.ContentTree.TreeManager.csproj">
+      <Project>{5440F3E1-26AD-4355-875B-50ABF7484181}</Project>
+      <Name>Bennington.ContentTree.TreeManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bennington.ContentTree\Bennington.ContentTree.csproj">
+      <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
+      <Name>Bennington.ContentTree</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

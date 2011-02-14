@@ -35,7 +35,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Routing
 			for (var i = 0; i < maxDepth; i++)
 				defaults.Add(string.Format("nodesegment-{0}", i), UrlParameter.Optional);
 
-			defaults.Add("Controller", "ParagonPage");
+			defaults.Add("Controller", "BenningtonPage");
 			defaults.Add("Action", "Index");
 
 			return defaults;

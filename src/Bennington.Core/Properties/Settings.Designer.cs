@@ -26,11 +26,11 @@ namespace Bennington.Core.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DEGWLUCASF1\\sqlexpress;Initial Catalog=Paragon;Integrated Security=Tr" +
-            "ue")]
-        public string ParagonConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DEGWLUCASF1\\sqlexpress;Initial Catalog=Bennington;Integrated Security" +
+            "=True")]
+        public string BenningtonConnectionString {
             get {
-                return ((string)(this["ParagonConnectionString"]));
+                return ((string)(this["BenningtonConnectionString"]));
             }
         }
     }

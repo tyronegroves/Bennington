@@ -2,7 +2,7 @@
 
 namespace Webroot.Controllers
 {
-    public class ParagonPageController : Controller
+    public class BenningtonPageController : Controller
     {
 		public ActionResult Index()
 		{

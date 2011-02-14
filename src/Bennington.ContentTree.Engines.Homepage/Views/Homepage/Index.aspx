@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Homepage.Master" Inherits="System.Web.Mvc.ViewPage<Paragon.ContentTree.Engines.Homepage.Models.HomepageIndexViewModel>" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Homepage.Master" Inherits="System.Web.Mvc.ViewPage<Bennington.ContentTree.Engines.Homepage.Models.HomepageIndexViewModel>" %>
 <%@ Import Namespace="System.Web.Mvc.Html" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">

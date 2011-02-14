@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Paragon.ContentTreeSectionNodeProvider")]
+[assembly: AssemblyTitle("Bennington.ContentTreeSectionNodeProvider")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("DEG")]
-[assembly: AssemblyProduct("Paragon.ContentTreeSectionNodeProvider")]
+[assembly: AssemblyProduct("Bennington.ContentTreeSectionNodeProvider")]
 [assembly: AssemblyCopyright("Copyright © DEG 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

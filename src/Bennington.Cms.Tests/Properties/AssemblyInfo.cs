@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Paragon.Cms.Tests")]
+[assembly: AssemblyTitle("Bennington.Cms.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("DEG")]
-[assembly: AssemblyProduct("Paragon.Cms.Tests")]
+[assembly: AssemblyProduct("Bennington.Cms.Tests")]
 [assembly: AssemblyCopyright("Copyright © DEG 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

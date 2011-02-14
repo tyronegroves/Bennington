@@ -1,5 +1,5 @@
-﻿<%@ Import Namespace="Paragon.ContentTree.Models" %>
-<%@ Page Language="C#" MasterPageFile="~/Views/Shared/ManageSite.Master" Inherits="System.Web.Mvc.ViewPage<Paragon.ContentTree.TreeManager.Models.TreeManagerIndexViewModel>" %>
+﻿<%@ Import Namespace="Bennington.ContentTree.Models" %>
+<%@ Page Language="C#" MasterPageFile="~/Views/Shared/ManageSite.Master" Inherits="System.Web.Mvc.ViewPage<Bennington.ContentTree.TreeManager.Models.TreeManagerIndexViewModel>" %>
 <%@ Import Namespace="System.Security.Policy" %>
 <%@ Import Namespace="System.Web.Mvc" %>
 

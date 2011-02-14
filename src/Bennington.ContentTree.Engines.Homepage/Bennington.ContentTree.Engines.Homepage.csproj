@@ -88,9 +88,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Homepage\Index.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Homepage\Index.aspx" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\HomepageContentTreeNode\Modify.aspx">

@@ -1,6 +1,6 @@
-﻿<%@ Import Namespace="Paragon.ContentTree.ContentNodeProvider.Models" %>
+﻿<%@ Import Namespace="Bennington.ContentTree.Providers.ContentNodeProvider.Models" %>
 <%@ Import Namespace="System.Linq" %>
-<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<Paragon.ContentTree.ContentNodeProvider.Models.ContentItemNavigationViewModel>" %>
+<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<Bennington.ContentTree.Providers.ContentNodeProvider.Models.ContentItemNavigationViewModel>" %>
 
 <% if (Model.ContentTreeNodeContentItems.Count() > 1) { %>
 	<ul>

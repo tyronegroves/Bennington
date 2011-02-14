@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<Paragon.ContentTree.ContentNodeProvider.Models.ContentTreeNodeInputModel>" %>
+﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<Bennington.ContentTree.Providers.ContentNodeProvider.Models.ContentTreeNodeInputModel>" %>
 
 <script type="text/javascript" src="/Scripts/tiny_mce/tiny_mce.js"></script>
 
