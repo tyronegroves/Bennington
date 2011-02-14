@@ -1,14 +1,11 @@
-﻿using Bennington.Core.Helpers;
+﻿using Bennington.ContentTree.Providers.ContentNodeProvider.Mappers;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Repositories;
+using Bennington.Core.Helpers;
 using MvcTurbine;
 using MvcTurbine.Blades;
-using Paragon.ContentTree.ContentNodeProvider.Denormalizers;
-using Paragon.ContentTree.ContentNodeProvider.Mappers;
-using Paragon.ContentTree.ContentNodeProvider.Repositories;
-using Paragon.ContentTree.Data;
-using Paragon.ContentTree.Repositories;
 using SimpleCqrs;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Blades
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Blades
 {
 	public class RegisterAssemblyWithSimpleCqrsServiceLocatorBlade : IBlade
 	{

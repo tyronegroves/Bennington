@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
 using AutoMoq;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Domain.Commands;
+using Bennington.ContentTree.Providers.SectionNodeProvider.Controllers;
+using Bennington.ContentTree.Providers.SectionNodeProvider.Models;
 using Bennington.Core.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Domain.Commands;
-using Paragon.ContentTree.SectionNodeProvider.Controllers;
-using Paragon.ContentTree.SectionNodeProvider.Models;
 using SimpleCqrs.Commanding;
 
-namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers
+namespace Bennington.ContentTree.Providers.SectionNodeProvider.Tests.Controllers
 {
 	[TestClass]
 	public class ContentTreeSectionNodeControllerTests_Create_post_method
@@ -125,7 +122,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers
 																				ParentTreeNodeId = parentNodeId.ToString(),
 																			});
 
-			mocker.GetMock<ITreeNodeSummaryContext>().Verify(a => a.Create(parentNodeId.ToString(), typeof(SectionNodeProvider).AssemblyQualifiedName), Times.Once());
+			mocker.GetMock<ITreeNodeSummaryContext>().Verify(a => a.Create(parentNodeId.ToString(), typeof(Bennington.ContentTree.Providers.SectionNodeProvider.SectionNodeProvider).AssemblyQualifiedName), Times.Once());
 		}
 
 		[TestMethod]

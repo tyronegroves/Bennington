@@ -1,5 +1,5 @@
-﻿using MvcTurbine.ComponentModel;
-using Paragon.ContentTree.TreeNodeExtensionProvider;
+﻿using Bennington.ContentTree.TreeNodeExtensionProvider;
+using MvcTurbine.ComponentModel;
 
 namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Registration
 {

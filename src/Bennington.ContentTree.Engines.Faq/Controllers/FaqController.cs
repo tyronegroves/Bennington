@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
-using Paragon.ContentTree.ContentNodeProvider.Controllers;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Controllers;
 
-namespace Paragon.ContentTree.Engines.Faq.Controllers
+namespace Bennington.ContentTree.Engines.Faq.Controllers
 {
 	[HandleError]
 	public class FaqController : EngineController

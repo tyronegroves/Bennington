@@ -1,14 +1,10 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMoq;
+﻿using AutoMoq;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Helpers;
+using Bennington.ContentTree.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Helpers;
-using Paragon.ContentTree.Models;
 
-namespace Paragon.ContentTree.Tests.Helpers
+namespace Bennington.ContentTree.Tests.Helpers
 {
 	[TestClass]
 	public class TreeNodeIdToUrlTests_GetUrlByTreeNodeId

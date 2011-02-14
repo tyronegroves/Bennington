@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Bennington.ContentTree.Models;
 using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Contexts;
-using Paragon.ContentTree.Models;
-using Paragon.ContentTree.TreeNodeExtensionProvider;
+using Bennington.ContentTree.TreeNodeExtensionProvider;
 
 namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider
 {

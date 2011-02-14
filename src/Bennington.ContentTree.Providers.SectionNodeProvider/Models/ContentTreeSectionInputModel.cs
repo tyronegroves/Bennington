@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
-namespace Paragon.ContentTree.SectionNodeProvider.Models
+namespace Bennington.ContentTree.Providers.SectionNodeProvider.Models
 {
 	public class ContentTreeSectionInputModel
 	{

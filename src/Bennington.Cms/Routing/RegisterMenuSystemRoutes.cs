@@ -2,7 +2,7 @@
 using System.Web.Routing;
 using MvcTurbine.Routing;
 
-namespace Paragon.Cms.Routing
+namespace Bennington.Cms.Routing
 {
 	public class RegisterMenuSystemRoutes : IRouteRegistrator
 	{

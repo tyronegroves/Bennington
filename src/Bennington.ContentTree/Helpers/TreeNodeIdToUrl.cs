@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Web;
-using Paragon.ContentTree.Contexts;
+using Bennington.ContentTree.Contexts;
 
-namespace Paragon.ContentTree.Helpers
+namespace Bennington.ContentTree.Helpers
 {
 	public interface ITreeNodeIdToUrl
 	{

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Linq;
-using Paragon.ContentTree.ContentNodeProvider.Data;
-using Paragon.ContentTree.Repositories;
+﻿using System.Linq;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Data;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Repositories
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Repositories
 {
 	public interface IContentNodeProviderPublishedVersionRepository
 	{

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Web;
 using System.Web.Routing;
-using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Engines.Homepage.Controllers;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Engines.Homepage.Controllers;
 
-namespace Paragon.ContentTree.Engines.Homepage.Routing
+namespace Bennington.ContentTree.Engines.Homepage.Routing
 {
 	public class HomepageRouteConstraint : IRouteConstraint
 	{

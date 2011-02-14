@@ -1,7 +1,6 @@
-﻿using System;
-using SimpleCqrs.Eventing;
+﻿using SimpleCqrs.Eventing;
 
-namespace Paragon.ContentTree.Domain.Events.Page
+namespace Bennington.ContentTree.Domain.Events.Page
 {
 	public class PageCreatedEvent : DomainEvent
 	{

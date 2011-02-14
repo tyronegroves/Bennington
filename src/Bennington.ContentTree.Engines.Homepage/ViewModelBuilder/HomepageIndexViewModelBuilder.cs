@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Paragon.ContentTree.ContentNodeProvider.Context;
-using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Engines.Homepage.Controllers;
-using Paragon.ContentTree.Engines.Homepage.Models;
-using Paragon.ContentTree.Helpers;
-using Paragon.ContentTree.Repositories;
+﻿using System.Linq;
+using Bennington.ContentTree.Engines.Homepage.Controllers;
+using Bennington.ContentTree.Engines.Homepage.Models;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Context;
+using Bennington.ContentTree.Repositories;
 
-namespace Paragon.ContentTree.Engines.Homepage.ViewModelBuilder
+namespace Bennington.ContentTree.Engines.Homepage.ViewModelBuilder
 {
 	public interface IHomepageIndexViewModelBuilder
 	{

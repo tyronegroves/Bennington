@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Bennington.Core.Helpers;
 
-namespace Paragon.ContentTree.SectionNodeProvider.Data
+namespace Bennington.ContentTree.Providers.SectionNodeProvider.Data
 {
 	public interface IDataModelDataContext
 	{

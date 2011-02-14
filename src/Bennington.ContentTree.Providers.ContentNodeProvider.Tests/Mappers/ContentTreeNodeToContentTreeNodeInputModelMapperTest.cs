@@ -1,14 +1,13 @@
 ﻿using System.Linq;
 using AutoMapperAssist;
 using AutoMoq;
+using Bennington.ContentTree.Data;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Mappers;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
+using Bennington.ContentTree.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Paragon.ContentTree.ContentNodeProvider.Data;
-using Paragon.ContentTree.ContentNodeProvider.Mappers;
-using Paragon.ContentTree.ContentNodeProvider.Models;
-using Paragon.ContentTree.Data;
-using Paragon.ContentTree.Repositories;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Tests.Mappers
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Mappers
 {
 	[TestClass]
 	public class ContentTreeNodeToContentTreeNodeInputModelMapperTest

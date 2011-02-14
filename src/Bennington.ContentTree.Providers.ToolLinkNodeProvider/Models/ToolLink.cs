@@ -1,4 +1,4 @@
-﻿using Paragon.ContentTree.Models;
+﻿using Bennington.ContentTree.Models;
 
 namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models
 {

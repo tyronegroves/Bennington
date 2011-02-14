@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Web.Mvc;
 using AutoMoq;
+using Bennington.ContentTree.Domain.Commands;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Context;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Controllers;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
 using Bennington.Core.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.ContentTree.ContentNodeProvider.Context;
-using Paragon.ContentTree.ContentNodeProvider.Controllers;
-using Paragon.ContentTree.ContentNodeProvider.Models;
-using Paragon.ContentTree.Domain.Commands;
 using SimpleCqrs.Commanding;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 {
 	[TestClass]
 	public class ContentTreeNodeControllerTests_Create_ContentPageInputModel

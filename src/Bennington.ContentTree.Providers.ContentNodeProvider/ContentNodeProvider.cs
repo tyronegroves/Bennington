@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Routing;
-using Paragon.ContentTree.ContentNodeProvider.Context;
-using Paragon.ContentTree.ContentNodeProvider.Repositories;
-using Paragon.ContentTree.Models;
-using Paragon.ContentTree.TreeNodeExtensionProvider;
+using Bennington.ContentTree.Models;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Context;
+using Bennington.ContentTree.TreeNodeExtensionProvider;
 
-namespace Paragon.ContentTree.ContentNodeProvider
+namespace Bennington.ContentTree.Providers.ContentNodeProvider
 {
 	public class ContentNodeProvider : IAmATreeNodeExtensionProvider
 	{

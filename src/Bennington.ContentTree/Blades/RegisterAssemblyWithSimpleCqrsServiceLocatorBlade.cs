@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Bennington.ContentTree.Repositories;
 using MvcTurbine;
 using MvcTurbine.Blades;
-using Paragon.ContentTree.Registration;
-using Paragon.ContentTree.Repositories;
 using SimpleCqrs;
 
-namespace Paragon.ContentTree.Blades
+namespace Bennington.ContentTree.Blades
 {
 	public class RegisterAssemblyWithSimpleCqrsServiceLocatorBlade : IBlade
 	{

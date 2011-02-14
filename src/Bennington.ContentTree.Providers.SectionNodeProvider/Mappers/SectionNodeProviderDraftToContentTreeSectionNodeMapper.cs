@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using AutoMapper;
+﻿using System.Collections.Generic;
 using AutoMapperAssist;
-using Paragon.ContentTree.SectionNodeProvider.Data;
-using Paragon.ContentTree.SectionNodeProvider.Models;
+using Bennington.ContentTree.Providers.SectionNodeProvider.Data;
+using Bennington.ContentTree.Providers.SectionNodeProvider.Models;
 
-namespace Paragon.ContentTree.SectionNodeProvider.Mappers
+namespace Bennington.ContentTree.Providers.SectionNodeProvider.Mappers
 {
 	public interface ISectionNodeProviderDraftToContentTreeSectionNodeMapper
 	{

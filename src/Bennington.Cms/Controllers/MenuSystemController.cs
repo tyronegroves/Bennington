@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Bennington.Cms.Models;
 using Bennington.Core.MenuSystem;
 using MvcTurbine.ComponentModel;
-using Paragon.Cms.Models;
 
-namespace Paragon.Cms.Controllers
+namespace Bennington.Cms.Controllers
 {
     public class MenuSystemController : Controller
     {

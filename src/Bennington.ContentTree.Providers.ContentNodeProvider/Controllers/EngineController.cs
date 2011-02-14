@@ -5,17 +5,17 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Helpers;
+using Bennington.ContentTree.Models;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Context;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Routing;
+using Bennington.ContentTree.Repositories;
+using Bennington.ContentTree.TreeNodeExtensionProvider;
 using MvcTurbine.ComponentModel;
 using MvcTurbine.Routing;
-using Paragon.ContentTree.ContentNodeProvider.Context;
-using Paragon.ContentTree.ContentNodeProvider.Routing;
-using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Helpers;
-using Paragon.ContentTree.Models;
-using Paragon.ContentTree.Repositories;
-using Paragon.ContentTree.TreeNodeExtensionProvider;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Controllers
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 {
 	public abstract class EngineController : Controller, IAmATreeNodeExtensionProvider, IRouteRegistrator, IRouteConstraint
     {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Paragon.ContentTree.ContentNodeProvider.Data
+﻿namespace Bennington.ContentTree.Providers.ContentNodeProvider.Data
 {
 	public class ContentNodeProviderPublishedVersion
 	{

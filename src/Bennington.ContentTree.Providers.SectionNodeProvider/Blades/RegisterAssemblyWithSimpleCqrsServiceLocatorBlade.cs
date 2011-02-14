@@ -1,9 +1,8 @@
 ﻿using MvcTurbine;
 using MvcTurbine.Blades;
-using Paragon.ContentTree.Data;
 using SimpleCqrs;
 
-namespace Paragon.ContentTree.SectionNodeProvider.Blades
+namespace Bennington.ContentTree.Providers.SectionNodeProvider.Blades
 {
 	public class RegisterAssemblyWithSimpleCqrsServiceLocatorBlade : IBlade
 	{

@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using System.Web;
 using System.Web.Routing;
-using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Models;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Models;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Routing
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Routing
 {
     public class ContentTreeRouteConstraint : IRouteConstraint
     {

@@ -1,17 +1,15 @@
 ﻿using System.Web.Routing;
 using AutoMoq;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Models;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Context;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
+using Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders;
 using Bennington.Core.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.ContentTree.ContentNodeProvider.Context;
-using Paragon.ContentTree.ContentNodeProvider.Data;
-using Paragon.ContentTree.ContentNodeProvider.Models;
-using Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders;
-using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Data;
-using Paragon.ContentTree.Models;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Tests.ViewModelBuilders
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.ViewModelBuilders
 {
 	[TestClass]
 	public class ContentTreeNodeDisplayViewModelBuilderTests_BuildViewModel

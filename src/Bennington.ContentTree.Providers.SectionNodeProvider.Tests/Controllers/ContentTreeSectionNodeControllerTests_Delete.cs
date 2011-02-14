@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
 using AutoMoq;
+using Bennington.ContentTree.Domain.Commands;
+using Bennington.ContentTree.Providers.SectionNodeProvider.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.ContentTree.Domain.Commands;
-using Paragon.ContentTree.SectionNodeProvider.Controllers;
 using SimpleCqrs.Commanding;
 
-namespace Paragon.ContentTree.SectionNodeProvider.Tests.Controllers
+namespace Bennington.ContentTree.Providers.SectionNodeProvider.Tests.Controllers
 {
 	[TestClass]
 	public class ContentTreeSectionNodeControllerTests_Delete

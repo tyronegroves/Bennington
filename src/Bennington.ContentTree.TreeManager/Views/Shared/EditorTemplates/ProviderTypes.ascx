@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl" %>
+<%@ Import Namespace="Bennington.ContentTree.Contexts" %>
 <%@ Import Namespace="MvcTurbine.ComponentModel" %>
 <%@ Import Namespace="Paragon.ContentTree.Contexts" %>
 <%= Html.DropDownListFor(x => x, 

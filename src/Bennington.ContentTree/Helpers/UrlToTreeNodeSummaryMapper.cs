@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Models;
+﻿using System.Linq;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Models;
 
-namespace Paragon.ContentTree.Helpers
+namespace Bennington.ContentTree.Helpers
 {
 	public interface IUrlToTreeNodeSummaryMapper
 	{

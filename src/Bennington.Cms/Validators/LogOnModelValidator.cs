@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Bennington.Cms.Models;
 using FluentValidation;
-using SampleApplication.Models;
 
-namespace Paragon.Cms.Validators
+namespace Bennington.Cms.Validators
 {
 	public class LogOnModelValidator : AbstractValidator<LogOnModel>
 	{

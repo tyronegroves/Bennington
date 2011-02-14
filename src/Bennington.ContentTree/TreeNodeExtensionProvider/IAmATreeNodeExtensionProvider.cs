@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web.Mvc;
-using System.Web.Routing;
-using Paragon.ContentTree.Models;
+using Bennington.ContentTree.Models;
 
-namespace Paragon.ContentTree.TreeNodeExtensionProvider
+namespace Bennington.ContentTree.TreeNodeExtensionProvider
 {
 	public interface IAmATreeNodeExtensionProvider
 	{

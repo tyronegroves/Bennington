@@ -1,9 +1,9 @@
 ﻿using System;
+using Bennington.ContentTree.Engines.ContactUs.Controllers;
+using Bennington.ContentTree.TreeNodeExtensionProvider;
 using MvcTurbine.ComponentModel;
-using Paragon.ContentTree.Engines.ContactUs.Controllers;
-using Paragon.ContentTree.TreeNodeExtensionProvider;
 
-namespace Paragon.ContentTree.Engines.ContactUs.Registration
+namespace Bennington.ContentTree.Engines.ContactUs.Registration
 {
 	public class ContactUsEngineServiceRegistration : IServiceRegistration
 	{

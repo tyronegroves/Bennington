@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.Routing;
+using Bennington.ContentTree.Data;
+using Bennington.ContentTree.Domain.Commands;
+using Bennington.ContentTree.Models;
+using Bennington.ContentTree.Repositories;
+using Bennington.ContentTree.TreeNodeExtensionProvider;
 using Bennington.Core.Helpers;
-using Paragon.ContentTree.Data;
-using Paragon.ContentTree.Domain.Commands;
-using Paragon.ContentTree.Models;
-using Paragon.ContentTree.Repositories;
-using Paragon.ContentTree.TreeNodeExtensionProvider;
 using SimpleCqrs.Commanding;
 
-namespace Paragon.ContentTree.Contexts
+namespace Bennington.ContentTree.Contexts
 {
 	public interface ITreeNodeSummaryContext
 	{

@@ -1,14 +1,14 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 using AutoMoq;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Controllers;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
+using Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders;
+using Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.ContentTree.ContentNodeProvider.Controllers;
-using Paragon.ContentTree.ContentNodeProvider.Models;
-using Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders;
-using Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders.Helpers;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 {
 	[TestClass]
 	public class ContentTreeNodeControllerTests_Display

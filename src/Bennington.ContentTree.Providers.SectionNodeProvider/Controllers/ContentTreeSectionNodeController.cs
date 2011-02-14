@@ -2,17 +2,16 @@
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Domain.Commands;
+using Bennington.ContentTree.Providers.SectionNodeProvider.Context;
+using Bennington.ContentTree.Providers.SectionNodeProvider.Mappers;
+using Bennington.ContentTree.Providers.SectionNodeProvider.Models;
+using Bennington.ContentTree.Providers.SectionNodeProvider.Repositories;
 using Bennington.Core.Helpers;
-using MvcTurbine.ComponentModel;
-using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Domain.Commands;
-using Paragon.ContentTree.SectionNodeProvider.Context;
-using Paragon.ContentTree.SectionNodeProvider.Mappers;
-using Paragon.ContentTree.SectionNodeProvider.Models;
-using Paragon.ContentTree.SectionNodeProvider.Repositories;
 using SimpleCqrs.Commanding;
 
-namespace Paragon.ContentTree.SectionNodeProvider.Controllers
+namespace Bennington.ContentTree.Providers.SectionNodeProvider.Controllers
 {
 	public class ContentTreeSectionNodeController : Controller
 	{

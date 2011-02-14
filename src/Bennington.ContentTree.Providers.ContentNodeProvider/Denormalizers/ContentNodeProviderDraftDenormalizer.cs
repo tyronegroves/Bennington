@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Paragon.ContentTree.ContentNodeProvider.Data;
-using Paragon.ContentTree.ContentNodeProvider.Repositories;
-using Paragon.ContentTree.Domain.Events.Page;
-using Paragon.ContentTree.Domain.Events.TreeNode;
+﻿using System.Linq;
+using Bennington.ContentTree.Domain.Events.Page;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Data;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Repositories;
 using SimpleCqrs.Eventing;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Denormalizers
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
 {
 	public class ContentNodeProviderDraftDenormalizer : IHandleDomainEvents<PageCreatedEvent>,
 														IHandleDomainEvents<PageDeletedEvent>,

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Bennington.Core.Registration;
 
-namespace Paragon.Cms.Registration
+namespace Bennington.Cms.Registration
 {
     public class RegisterInterfaceToSingleImplementations : InterfaceToSingleImplementationRegistrationConvention
     {

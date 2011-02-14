@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMoq;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Data;
+using Bennington.ContentTree.Models;
+using Bennington.ContentTree.Repositories;
+using Bennington.ContentTree.TreeNodeExtensionProvider;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Data;
-using Paragon.ContentTree.Models;
-using Paragon.ContentTree.Repositories;
-using Paragon.ContentTree.TreeNodeExtensionProvider;
 
-namespace Paragon.ContentTree.Tests.Contexts
+namespace Bennington.ContentTree.Tests.Contexts
 {
 	[TestClass]
 	public class TreeNodeSummaryContextTests_GetChildren

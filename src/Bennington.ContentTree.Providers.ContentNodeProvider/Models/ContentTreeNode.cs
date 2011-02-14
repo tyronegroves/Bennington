@@ -1,6 +1,6 @@
-﻿using Paragon.ContentTree.Models;
+﻿using Bennington.ContentTree.Models;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Models
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Models
 {
 	public class ContentTreeNode : IAmATreeNodeExtension
 	{

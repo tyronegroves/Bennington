@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Paragon.ContentTree.SectionNodeProvider.Data
+﻿namespace Bennington.ContentTree.Providers.SectionNodeProvider.Data
 {
 	public class SectionNodeProviderDraft
 	{

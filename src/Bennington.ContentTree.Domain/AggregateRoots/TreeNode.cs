@@ -1,9 +1,7 @@
 using System;
-using Paragon.ContentTree.Domain.Events;
-using Paragon.ContentTree.Domain.Events.TreeNode;
-using SimpleCqrs.Eventing;
+using Bennington.ContentTree.Domain.Events.TreeNode;
 
-namespace Paragon.ContentTree.Domain.AggregateRoots
+namespace Bennington.ContentTree.Domain.AggregateRoots
 {
 	public class TreeNode : SimpleCqrs.Domain.AggregateRoot
 	{

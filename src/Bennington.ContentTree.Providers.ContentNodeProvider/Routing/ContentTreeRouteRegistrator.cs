@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using MvcTurbine.Routing;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Routing
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Routing
 {
     public class ContentTreeRouteRegistrator : IRouteRegistrator
     {

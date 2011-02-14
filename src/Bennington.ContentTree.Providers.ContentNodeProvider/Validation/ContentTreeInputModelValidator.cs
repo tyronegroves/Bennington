@@ -1,8 +1,8 @@
-﻿using Deg.Alt.FluentValidation;
+﻿using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
+using Deg.Alt.FluentValidation;
 using FluentValidation;
-using Paragon.ContentTree.ContentNodeProvider.Models;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Validation
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Validation
 {
 	public class ContentTreeInputModelValidator : AbstractValidator<ContentTreeNodeInputModel>
 	{

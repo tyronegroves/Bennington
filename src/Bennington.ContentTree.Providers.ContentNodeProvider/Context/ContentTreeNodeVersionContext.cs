@@ -1,11 +1,10 @@
-﻿using System;
-using System.Linq;
-using Paragon.ContentTree.ContentNodeProvider.Mappers;
-using Paragon.ContentTree.ContentNodeProvider.Models;
-using Paragon.ContentTree.ContentNodeProvider.Repositories;
-using Paragon.ContentTree.Contexts;
+﻿using System.Linq;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Mappers;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Repositories;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Context
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Context
 {
 	public interface IContentTreeNodeVersionContext
 	{

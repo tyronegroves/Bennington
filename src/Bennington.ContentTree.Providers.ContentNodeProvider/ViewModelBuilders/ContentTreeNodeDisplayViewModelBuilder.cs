@@ -1,11 +1,11 @@
 ﻿using System.Linq;
 using System.Web.Routing;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Context;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
 using Bennington.Core.Helpers;
-using Paragon.ContentTree.ContentNodeProvider.Context;
-using Paragon.ContentTree.ContentNodeProvider.Models;
-using Paragon.ContentTree.Contexts;
 
-namespace Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders
 {
 	public interface IContentTreeNodeDisplayViewModelBuilder
 	{

@@ -1,14 +1,12 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using AutoMoq;
+using Bennington.ContentTree.Data;
 using Bennington.Core.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.ContentTree.Data;
 
-namespace Paragon.ContentTree.Tests.Data
+namespace Bennington.ContentTree.Tests.Data
 {
 	[TestClass]
 	public class DataModelDataContextTests

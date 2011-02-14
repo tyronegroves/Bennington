@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Web;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Helpers;
+using Bennington.ContentTree.Providers.SectionNodeProvider.Repositories;
 using MvcTurbine.ComponentModel;
-using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Helpers;
-using Paragon.ContentTree.SectionNodeProvider.Context;
-using Paragon.ContentTree.SectionNodeProvider.Repositories;
 
-namespace Paragon.ContentTree.SectionNodeProvider.HttpModules
+namespace Bennington.ContentTree.Providers.SectionNodeProvider.HttpModules
 {
 	public class ContentTreeSectionHttpModule : IHttpModule
 	{

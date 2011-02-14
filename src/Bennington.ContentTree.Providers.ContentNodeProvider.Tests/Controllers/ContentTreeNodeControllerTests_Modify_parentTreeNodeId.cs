@@ -1,17 +1,14 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using AutoMoq;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Context;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Controllers;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Mappers;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.ContentTree.ContentNodeProvider.Context;
-using Paragon.ContentTree.ContentNodeProvider.Controllers;
-using Paragon.ContentTree.ContentNodeProvider.Data;
-using Paragon.ContentTree.ContentNodeProvider.Mappers;
-using Paragon.ContentTree.ContentNodeProvider.Models;
-using Paragon.ContentTree.ContentNodeProvider.Repositories;
-using Paragon.ContentTree.Data;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 {
 	[TestClass]
 	public class ContentTreeNodeControllerControllerTests_Modify_parentTreeNodeId_contentItemId

@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Linq;
-using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.SectionNodeProvider.Mappers;
-using Paragon.ContentTree.SectionNodeProvider.Models;
-using Paragon.ContentTree.SectionNodeProvider.Repositories;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Providers.SectionNodeProvider.Models;
+using Bennington.ContentTree.Providers.SectionNodeProvider.Repositories;
 
-namespace Paragon.ContentTree.SectionNodeProvider.Context
+namespace Bennington.ContentTree.Providers.SectionNodeProvider.Context
 {
 	public interface IContentTreeSectionNodeContext
 	{

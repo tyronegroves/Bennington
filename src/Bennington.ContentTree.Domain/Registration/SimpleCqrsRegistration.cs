@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MvcTurbine.ComponentModel;
+﻿using MvcTurbine.ComponentModel;
 using NServiceBus;
 using SimpleCqrs.Commanding;
 using SimpleCqrs.NServiceBus;
 
-namespace Paragon.ContentTree.Domain.Registration
+namespace Bennington.ContentTree.Domain.Registration
 {
 	public class SimpleCqrsRegistration : IServiceRegistration
 	{

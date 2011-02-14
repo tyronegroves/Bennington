@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Transactions;
-using System.Web;
-using Paragon.ContentTree.Data;
+﻿using System.Linq;
+using Bennington.ContentTree.Data;
 
-namespace Paragon.ContentTree.Repositories
+namespace Bennington.ContentTree.Repositories
 {
 	public interface ITreeNodeRepository
 	{

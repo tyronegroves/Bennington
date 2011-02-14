@@ -1,11 +1,11 @@
 ﻿using System.Web.Routing;
 using AutoMoq;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Models;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Routing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Paragon.ContentTree.ContentNodeProvider.Routing;
-using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Models;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Tests.Routing
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Routing
 {
     [TestClass]
     public class ContentTreeRouteConstraintTests

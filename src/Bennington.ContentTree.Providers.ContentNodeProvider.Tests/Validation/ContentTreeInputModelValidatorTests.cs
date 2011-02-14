@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using AutoMoq;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Validation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Paragon.ContentTree.ContentNodeProvider.Models;
-using Paragon.ContentTree.ContentNodeProvider.Validation;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Tests.Validation
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Validation
 {
 	[TestClass]
 	public class ContentTreeInputModelValidatorTests

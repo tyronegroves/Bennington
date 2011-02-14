@@ -1,7 +1,7 @@
-﻿using MvcTurbine.ComponentModel;
-using Paragon.ContentTree.TreeNodeExtensionProvider;
+﻿using Bennington.ContentTree.TreeNodeExtensionProvider;
+using MvcTurbine.ComponentModel;
 
-namespace Paragon.ContentTree.SectionNodeProvider.Registration
+namespace Bennington.ContentTree.Providers.SectionNodeProvider.Registration
 {
 	public class TreeNodeExtensionProviderRegistration : IServiceRegistration
 	{

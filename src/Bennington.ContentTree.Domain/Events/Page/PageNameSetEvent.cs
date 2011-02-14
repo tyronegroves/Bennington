@@ -1,6 +1,6 @@
 ﻿using SimpleCqrs.Eventing;
 
-namespace Paragon.ContentTree.Domain.Events.Page
+namespace Bennington.ContentTree.Domain.Events.Page
 {
 	public class PageNameSetEvent : DomainEvent
 	{

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Models
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Models
 {
 	public class ContentTreeNodeInputModel
 	{

@@ -1,6 +1,6 @@
 ﻿using SimpleCqrs.Eventing;
 
-namespace Paragon.ContentTree.Domain.Events.TreeNode
+namespace Bennington.ContentTree.Domain.Events.TreeNode
 {
 	public class TreeNodeSequenceSetEvent : DomainEvent
 	{

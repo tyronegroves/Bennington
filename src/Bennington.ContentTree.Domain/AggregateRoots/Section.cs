@@ -1,9 +1,7 @@
 using System;
-using Paragon.ContentTree.Domain.Events;
-using Paragon.ContentTree.Domain.Events.Section;
-using SimpleCqrs.Eventing;
+using Bennington.ContentTree.Domain.Events.Section;
 
-namespace Paragon.ContentTree.Domain.AggregateRoots
+namespace Bennington.ContentTree.Domain.AggregateRoots
 {
 	public class Section : SimpleCqrs.Domain.AggregateRoot
 	{

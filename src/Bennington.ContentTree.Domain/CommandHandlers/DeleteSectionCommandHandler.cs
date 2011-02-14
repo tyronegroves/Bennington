@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Paragon.ContentTree.Domain.AggregateRoots;
-using Paragon.ContentTree.Domain.Commands;
+﻿using Bennington.ContentTree.Domain.AggregateRoots;
+using Bennington.ContentTree.Domain.Commands;
 using SimpleCqrs.Commanding;
 
-namespace Paragon.ContentTree.Domain.CommandHandlers
+namespace Bennington.ContentTree.Domain.CommandHandlers
 {
 	public class DeleteSectionCommandHandler : AggregateRootCommandHandler<DeleteSectionCommand, Section>
 	{

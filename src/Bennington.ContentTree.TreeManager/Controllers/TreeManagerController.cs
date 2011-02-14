@@ -1,7 +1,6 @@
 ﻿using System.Web.Mvc;
 using Bennington.ContentTree.TreeManager.Models;
 using Bennington.ContentTree.TreeManager.ViewModelBuilders;
-using Paragon.ContentTree;
 
 namespace Bennington.ContentTree.TreeManager.Controllers
 {

@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Web.Mvc;
 using System.Web.Security;
+using Bennington.Cms.Models;
 using MvcTurbine.MembershipProvider;
-using MvcTurbine.MembershipProvider.Contexts;
-using MvcTurbine.MembershipProvider.PrincipalHelpers;
-using SampleApplication.Models;
 
-namespace Paragon.Cms.Controllers
+namespace Bennington.Cms.Controllers
 {
 
     [HandleError]

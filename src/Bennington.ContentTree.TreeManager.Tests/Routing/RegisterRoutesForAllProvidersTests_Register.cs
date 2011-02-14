@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Routing;
 using AutoMoq;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Models;
 using Bennington.ContentTree.TreeManager.Routing;
+using Bennington.ContentTree.TreeNodeExtensionProvider;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Models;
-using Paragon.ContentTree.TreeNodeExtensionProvider;
 
 namespace Bennington.ContentTree.TreeManager.Tests.Routing
 {

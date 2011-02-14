@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Paragon.ContentTree.Models
+﻿namespace Bennington.ContentTree.Models
 {
 	public interface IAmATreeNodeExtension
 	{

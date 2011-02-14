@@ -4,16 +4,16 @@ using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
 using AutoMoq;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Data;
+using Bennington.ContentTree.Models;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Controllers;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
+using Bennington.ContentTree.Repositories;
+using Bennington.ContentTree.TreeNodeExtensionProvider;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Paragon.ContentTree.ContentNodeProvider.Controllers;
-using Paragon.ContentTree.ContentNodeProvider.Models;
-using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Data;
-using Paragon.ContentTree.Models;
-using Paragon.ContentTree.Repositories;
-using Paragon.ContentTree.TreeNodeExtensionProvider;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 {
 	[TestClass]
 	public class ContentTreeNodeController_ContentItemNavigation

@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Context;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Controllers;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Mappers;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
+using Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders;
+using Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders.Helpers;
+using Bennington.ContentTree.Repositories;
 using Bennington.Core.Helpers;
-using Paragon.ContentTree.ContentNodeProvider.Context;
-using Paragon.ContentTree.ContentNodeProvider.Controllers;
-using Paragon.ContentTree.ContentNodeProvider.Mappers;
-using Paragon.ContentTree.ContentNodeProvider.Models;
-using Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders;
-using Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders.Helpers;
-using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Repositories;
 using SimpleCqrs.Commanding;
 
-namespace Paragon.ContentTree.Engines.Homepage.Controllers
+namespace Bennington.ContentTree.Engines.Homepage.Controllers
 {
 	public class HomepageContentTreeNodeController : ContentTreeNodeController
 	{
@@ -40,7 +36,7 @@ namespace Paragon.ContentTree.Engines.Homepage.Controllers
 		[Authorize]
 		[HttpPost]
 		[ValidateInput(false)]
-		public override ActionResult Create(ContentNodeProvider.Models.ContentTreeNodeInputModel contentTreeNodeInputModel)
+		public override ActionResult Create(ContentTreeNodeInputModel contentTreeNodeInputModel)
 		{
 			var result = base.Create(contentTreeNodeInputModel);
 			if ((result as RedirectResult) == null) return result;
@@ -58,7 +54,7 @@ namespace Paragon.ContentTree.Engines.Homepage.Controllers
 		[Authorize]
 		[HttpPost]
 		[ValidateInput(false)]
-		public override ActionResult Modify(ContentNodeProvider.Models.ContentTreeNodeInputModel contentTreeNodeInputModel)
+		public override ActionResult Modify(ContentTreeNodeInputModel contentTreeNodeInputModel)
 		{
 			var result = base.Modify(contentTreeNodeInputModel);
 			if ((result as RedirectToRouteResult) == null) return result;

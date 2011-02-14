@@ -1,11 +1,12 @@
 ﻿using System.Web.Routing;
 using AutoMoq;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Models;
+using Bennington.ContentTree.Providers.ContentNodeProvider;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Routing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Paragon.ContentTree.ContentNodeProvider.Routing;
-using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Models;
 
-namespace Paragon.ContentTree.Tests.Routing
+namespace Bennington.ContentTree.Tests.Routing
 {
     [TestClass]
     public class ContentTreeRouteConstraintTests
@@ -24,21 +25,21 @@ namespace Paragon.ContentTree.Tests.Routing
 				         			{
 										Id = "1",
 				         				UrlSegment = "rootsegment1",
-										Type = typeof(ContentNodeProvider.ContentNodeProvider).AssemblyQualifiedName,
+										Type = typeof(ContentNodeProvider).AssemblyQualifiedName,
 										MayHaveChildNodes = true,
 				         			},
  								new TreeNodeSummary()
 				         			{
 										Id = "2",
 				         				UrlSegment = "rootsegment2",
-										Type = typeof(ContentNodeProvider.ContentNodeProvider).AssemblyQualifiedName,
+										Type = typeof(ContentNodeProvider).AssemblyQualifiedName,
 										MayHaveChildNodes = true,
 				         			},
 								new TreeNodeSummary()
 				         			{
 										Id = "6",
 				         				UrlSegment = "rootsegment3",
-										Type = typeof(ContentNodeProvider.ContentNodeProvider).AssemblyQualifiedName,
+										Type = typeof(ContentNodeProvider).AssemblyQualifiedName,
 										MayHaveChildNodes = true,
 				         			}, 
 							});
@@ -52,7 +53,7 @@ namespace Paragon.ContentTree.Tests.Routing
 									Id = "3",
 				         			UrlSegment = "nestLevel1Segment1",
 									ParentTreeNodeId = "2",
-									Type = typeof(ContentNodeProvider.ContentNodeProvider).AssemblyQualifiedName,
+									Type = typeof(ContentNodeProvider).AssemblyQualifiedName,
 									MayHaveChildNodes = true,
 				         		},
 								new TreeNodeSummary()
@@ -60,7 +61,7 @@ namespace Paragon.ContentTree.Tests.Routing
 									Id = "4",
 				         			UrlSegment = "nestLevel1Segment2",
 									ParentTreeNodeId = "2",
-									Type = typeof(ContentNodeProvider.ContentNodeProvider).AssemblyQualifiedName,
+									Type = typeof(ContentNodeProvider).AssemblyQualifiedName,
 									MayHaveChildNodes = true,
 				         		},
 								new TreeNodeSummary()
@@ -68,7 +69,7 @@ namespace Paragon.ContentTree.Tests.Routing
 									Id = "5",
 				         			UrlSegment = "nestLevel1Segment3",
 									ParentTreeNodeId = "2",
-									Type = typeof(ContentNodeProvider.ContentNodeProvider).AssemblyQualifiedName,
+									Type = typeof(ContentNodeProvider).AssemblyQualifiedName,
 									MayHaveChildNodes = true,
 				         		},
 							});
@@ -81,7 +82,7 @@ namespace Paragon.ContentTree.Tests.Routing
 									Id = "7",
 				         			UrlSegment = "nestLevel2Segment1",
 									ParentTreeNodeId = "4",
-									Type = typeof(ContentNodeProvider.ContentNodeProvider).AssemblyQualifiedName,
+									Type = typeof(ContentNodeProvider).AssemblyQualifiedName,
 									MayHaveChildNodes = true,
 				         		},
 								new TreeNodeSummary()
@@ -89,7 +90,7 @@ namespace Paragon.ContentTree.Tests.Routing
 									Id = "8",
 				         			UrlSegment = "nestLevel2Segment2",
 									ParentTreeNodeId = "4",
-									Type = typeof(ContentNodeProvider.ContentNodeProvider).AssemblyQualifiedName,
+									Type = typeof(ContentNodeProvider).AssemblyQualifiedName,
 									MayHaveChildNodes = true,
 				         		},
 							});

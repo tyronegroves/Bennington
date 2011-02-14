@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Models;
 using Bennington.ContentTree.TreeManager.Models;
-using Paragon.ContentTree.Contexts;
-using Paragon.ContentTree.Models;
 
 namespace Bennington.ContentTree.TreeManager.ViewModelBuilders
 {

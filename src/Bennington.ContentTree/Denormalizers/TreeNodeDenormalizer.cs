@@ -1,12 +1,10 @@
-﻿using System;
-using System.Linq;
-using Paragon.ContentTree.Data;
-using Paragon.ContentTree.Domain.Events.Page;
-using Paragon.ContentTree.Domain.Events.TreeNode;
-using Paragon.ContentTree.Repositories;
+﻿using System.Linq;
+using Bennington.ContentTree.Data;
+using Bennington.ContentTree.Domain.Events.TreeNode;
+using Bennington.ContentTree.Repositories;
 using SimpleCqrs.Eventing;
 
-namespace Paragon.ContentTree.DeNormalizers
+namespace Bennington.ContentTree.Denormalizers
 {
 	public class TreeNodeDenormalizer : IHandleDomainEvents<TreeNodeDeletedEvent>,
 										IHandleDomainEvents<TreeNodeCreatedEvent>,

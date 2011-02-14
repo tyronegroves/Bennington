@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
-using Paragon.ContentTree.ContentNodeProvider.Controllers;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Controllers;
 
-namespace Paragon.ContentTree.Engines.ContactUs.Controllers
+namespace Bennington.ContentTree.Engines.ContactUs.Controllers
 {
 	[HandleError]
 	public class ContactUsController : EngineController

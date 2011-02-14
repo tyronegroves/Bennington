@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Data.Linq;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
 using AutoMoq;
+using Bennington.ContentTree.Domain.Events.Section;
+using Bennington.ContentTree.Providers.SectionNodeProvider.Data;
+using Bennington.ContentTree.Providers.SectionNodeProvider.Denormalizers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.ContentTree.Domain.Events.Section;
-using Paragon.ContentTree.SectionNodeProvider.Data;
-using Paragon.ContentTree.SectionNodeProvider.Denormalizers;
 
-namespace Paragon.ContentTree.SectionNodeProvider.Tests.Denormalizers
+namespace Bennington.ContentTree.Providers.SectionNodeProvider.Tests.Denormalizers
 {
 	[TestClass]
 	public class SectionNodeProviderDraftDenormalizerTests_Handle

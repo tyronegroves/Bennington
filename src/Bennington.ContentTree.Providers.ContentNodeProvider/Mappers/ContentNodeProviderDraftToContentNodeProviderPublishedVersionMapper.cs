@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using AutoMapperAssist;
-using Paragon.ContentTree.ContentNodeProvider.Data;
+﻿using AutoMapperAssist;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Data;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Mappers
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Mappers
 {
 	public interface IContentNodeProviderDraftToContentNodeProviderPublishedVersionMapper
 	{

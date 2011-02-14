@@ -1,9 +1,9 @@
 ﻿using System;
+using Bennington.ContentTree.Engines.Homepage.Controllers;
+using Bennington.ContentTree.TreeNodeExtensionProvider;
 using MvcTurbine.ComponentModel;
-using Paragon.ContentTree.Engines.Homepage.Controllers;
-using Paragon.ContentTree.TreeNodeExtensionProvider;
 
-namespace Paragon.ContentTree.Engines.Homepage.Registration
+namespace Bennington.ContentTree.Engines.Homepage.Registration
 {
 	public class HomepageServiceRegistration : IServiceRegistration
 	{

@@ -1,4 +1,4 @@
-﻿namespace Paragon.ContentTree.SectionNodeProvider.Models
+﻿namespace Bennington.ContentTree.Providers.SectionNodeProvider.Models
 {
 	public class ContentTreeSectionNodeViewModel
 	{

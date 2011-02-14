@@ -1,11 +1,10 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Paragon.ContentTree.Helpers;
-using Paragon.ContentTree.SectionNodeProvider.Repositories;
+using Bennington.ContentTree.Helpers;
+using Bennington.ContentTree.Providers.SectionNodeProvider.Repositories;
 
-namespace Paragon.ContentTree.SectionNodeProvider.Controllers
+namespace Bennington.ContentTree.Providers.SectionNodeProvider.Controllers
 {
 	public class ContentTreeSectionController : Controller
 	{

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Web.Mvc;
-using Paragon.ContentTree.ContentNodeProvider.Controllers;
-using Paragon.ContentTree.Engines.Homepage.ViewModelBuilder;
+using Bennington.ContentTree.Engines.Homepage.ViewModelBuilder;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Controllers;
 
-namespace Paragon.ContentTree.Engines.Homepage.Controllers
+namespace Bennington.ContentTree.Engines.Homepage.Controllers
 {
 	[HandleError]
 	public class HomepageController : EngineController

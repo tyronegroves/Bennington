@@ -1,9 +1,9 @@
 ﻿using System;
+using Bennington.ContentTree.Engines.Faq.Controllers;
+using Bennington.ContentTree.TreeNodeExtensionProvider;
 using MvcTurbine.ComponentModel;
-using Paragon.ContentTree.Engines.Faq.Controllers;
-using Paragon.ContentTree.TreeNodeExtensionProvider;
 
-namespace Paragon.ContentTree.Engines.Faq.Registration
+namespace Bennington.ContentTree.Engines.Faq.Registration
 {
 	public class FaqEngineServiceRegistration : IServiceRegistration
 	{

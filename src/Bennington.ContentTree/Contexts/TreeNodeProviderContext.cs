@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Bennington.ContentTree.TreeNodeExtensionProvider;
 using Bennington.Core;
-using Paragon.ContentTree.TreeNodeExtensionProvider;
 
-namespace Paragon.ContentTree.Contexts
+namespace Bennington.ContentTree.Contexts
 {
 	public interface ITreeNodeProviderContext
 	{

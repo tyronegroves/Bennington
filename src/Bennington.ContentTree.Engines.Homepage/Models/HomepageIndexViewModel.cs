@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Paragon.ContentTree.Engines.Homepage.Models
+﻿namespace Bennington.ContentTree.Engines.Homepage.Models
 {
 	public class HomepageIndexViewModel
 	{

@@ -1,4 +1,4 @@
-﻿namespace Paragon.ContentTree.ContentNodeProvider.Models
+﻿namespace Bennington.ContentTree.Providers.ContentNodeProvider.Models
 {
 	public class ContentTreeNodeViewModel
 	{

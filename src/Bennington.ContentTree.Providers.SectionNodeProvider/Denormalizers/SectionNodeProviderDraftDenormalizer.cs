@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Paragon.ContentTree.Domain.Events.Section;
-using Paragon.ContentTree.SectionNodeProvider.Data;
+﻿using System.Linq;
+using Bennington.ContentTree.Domain.Events.Section;
+using Bennington.ContentTree.Providers.SectionNodeProvider.Data;
 using SimpleCqrs.Eventing;
 
-namespace Paragon.ContentTree.SectionNodeProvider.Denormalizers
+namespace Bennington.ContentTree.Providers.SectionNodeProvider.Denormalizers
 {
 	public class SectionNodeProviderDraftDenormalizer : IHandleDomainEvents<SectionCreatedEvent>,
 														IHandleDomainEvents<SectionDeletedEvent>,

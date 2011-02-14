@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Web.Mvc;
 using AutoMoq;
+using Bennington.ContentTree.Domain.Commands;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.ContentTree.ContentNodeProvider.Context;
-using Paragon.ContentTree.ContentNodeProvider.Controllers;
-using Paragon.ContentTree.Domain.Commands;
 using SimpleCqrs.Commanding;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Tests.Controllers
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 {
 	[TestClass]
 	public class contentTreeNodeControllerTests_Delete

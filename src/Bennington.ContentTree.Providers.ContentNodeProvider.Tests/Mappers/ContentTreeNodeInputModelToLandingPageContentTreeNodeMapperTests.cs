@@ -1,9 +1,9 @@
 ﻿using AutoMapperAssist;
 using AutoMoq;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Mappers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Paragon.ContentTree.ContentNodeProvider.Mappers;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Tests.Mappers
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Mappers
 {
 	[TestClass]
 	public class ContentTreeInputModelToContentTreeNodeMapperTests

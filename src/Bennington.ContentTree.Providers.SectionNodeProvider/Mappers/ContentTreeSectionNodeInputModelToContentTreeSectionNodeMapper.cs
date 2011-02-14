@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
 using AutoMapperAssist;
-using Paragon.ContentTree.SectionNodeProvider.Data;
-using Paragon.ContentTree.SectionNodeProvider.Models;
+using Bennington.ContentTree.Providers.SectionNodeProvider.Models;
 
-namespace Paragon.ContentTree.SectionNodeProvider.Mappers
+namespace Bennington.ContentTree.Providers.SectionNodeProvider.Mappers
 {
 	public interface IContentTreeSectionInputModelToContentTreeSectionNodeMapper
 	{

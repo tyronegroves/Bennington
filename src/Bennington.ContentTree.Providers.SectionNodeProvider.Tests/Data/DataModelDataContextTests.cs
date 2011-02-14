@@ -1,14 +1,12 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using AutoMoq;
+using Bennington.ContentTree.Providers.SectionNodeProvider.Data;
 using Bennington.Core.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Paragon.ContentTree.SectionNodeProvider.Data;
 
-namespace Paragon.ContentTree.SectionNodeProvider.Tests.Data
+namespace Bennington.ContentTree.Providers.SectionNodeProvider.Tests.Data
 {
 	[TestClass]
 	public class DataModelDataContextTests
@@ -19,7 +17,7 @@ namespace Paragon.ContentTree.SectionNodeProvider.Tests.Data
 		public void Init()
 		{
 			mocker = new AutoMoqer();
-			mocker.GetMock<IApplicationSettingsValueGetter>().Setup(a => a.GetValue(Paragon.ContentTree.SectionNodeProvider.Data.DataModelDataContext.PathToSectionNodeProviderXmlFileAppSettingsKey))
+			mocker.GetMock<IApplicationSettingsValueGetter>().Setup(a => a.GetValue(DataModelDataContext.PathToSectionNodeProviderXmlFileAppSettingsKey))
 				.Returns("/path");
 			mocker.GetMock<IXmlFileSerializationHelper>().Setup(a => a.DeserializeListFromPath<SectionNodeProviderDraft>("/path"))
 				.Returns(new List<SectionNodeProviderDraft>()

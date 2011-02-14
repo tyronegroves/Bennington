@@ -1,6 +1,6 @@
 ﻿using System.Web;
 
-namespace Paragon.ContentTree.ContentNodeProvider.ViewModelBuilders.Helpers
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders.Helpers
 {
 	public interface IRawUrlGetter
 	{

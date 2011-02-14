@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 using MvcTurbine.Routing;
 
-namespace Paragon.ContentTree.Engines.Homepage.Routing
+namespace Bennington.ContentTree.Engines.Homepage.Routing
 {
 	public class HomepageRouteRegistrator : IRouteRegistrator
 	{

@@ -1,12 +1,10 @@
 ﻿using System.Linq;
 using AutoMapper;
 using AutoMapperAssist;
-using Paragon.ContentTree.ContentNodeProvider.Data;
-using Paragon.ContentTree.ContentNodeProvider.Models;
-using Paragon.ContentTree.Data;
-using Paragon.ContentTree.Repositories;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
+using Bennington.ContentTree.Repositories;
 
-namespace Paragon.ContentTree.ContentNodeProvider.Mappers
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Mappers
 {
 	public interface IContentTreeNodeToContentTreeNodeInputModelMapper
 	{

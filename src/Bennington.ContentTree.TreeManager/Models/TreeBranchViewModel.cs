@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Paragon.ContentTree.Models;
+using Bennington.ContentTree.Models;
 
 namespace Bennington.ContentTree.TreeManager.Models
 {
