@@ -23,6 +23,8 @@
 			
 			<% if (ViewContext.RouteData.Values["Action"].ToString() == "Modify") { %>
 			<input type="button" class="button important" value="Delete" onclick="if (confirm('Are you sure you want to delete this item?')) { window.location='<%=Url.Action("Delete", "ContentTreeNode", new { treeNodeId = Model.ContentTreeNodeInputModel.TreeNodeId }) %>'; }" />
+			<% } %>
+			<% if ((ViewContext.RouteData.Values["Action"].ToString() == "Modify") && (!string.IsNullOrEmpty(Model.ContentTreeNodeInputModel.PageId))) { %>
 			<input type="button" class="button" value="Publish" onclick="$('#ContentTreeNodeInputModel_FormAction').val(this.value);$('#form').submit();" />
 			<% } %>
 		</div>
