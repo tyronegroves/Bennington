@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Bennington.ContentTree.Contexts;
 using Bennington.ContentTree.Domain.Events.Page;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Data;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Repositories;
@@ -19,9 +20,15 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
 														IHandleDomainEvents<PageSequenceSetEvent>
 	{
 		private readonly IContentNodeProviderDraftRepository contentNodeProviderDraftRepository;
+		private readonly ITreeNodeProviderContext treeNodeProviderContext;
+		private ITreeNodeSummaryContext treeNodeSummaryContext;
 
-		public ContentNodeProviderDraftDenormalizer(IContentNodeProviderDraftRepository contentNodeProviderDraftRepository)
+		public ContentNodeProviderDraftDenormalizer(IContentNodeProviderDraftRepository contentNodeProviderDraftRepository,
+													ITreeNodeProviderContext treeNodeProviderContext,
+													ITreeNodeSummaryContext treeNodeSummaryContext)
 		{
+			this.treeNodeSummaryContext = treeNodeSummaryContext;
+			this.treeNodeProviderContext = treeNodeProviderContext;
 			this.contentNodeProviderDraftRepository = contentNodeProviderDraftRepository;
 		}
 
@@ -70,8 +77,19 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
 		public void Handle(PageUrlSegmentSetEvent domainEvent)
 		{
 			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
+			var treeNodeSummary = treeNodeSummaryContext.GetTreeNodeSummaryByTreeNodeId(contentNodeProviderDraft.TreeNodeId);
+			
 			contentNodeProviderDraft.UrlSegment = domainEvent.UrlSegment;
 			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+
+			if (treeNodeSummary != null)
+			{
+				if (treeNodeSummary.UrlSegment != domainEvent.UrlSegment)
+				{
+					var provider = treeNodeProviderContext.GetProviderByTypeName(treeNodeSummary.Type);
+					provider.RegisterRouteForTreeNodeId(treeNodeSummary.Id);
+				}
+			}
 		}
 
 		public void Handle(HeaderTextSetEvent domainEvent)

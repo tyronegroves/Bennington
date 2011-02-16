@@ -1,5 +1,8 @@
-﻿using Bennington.ContentTree.Providers.ContentNodeProvider.Mappers;
+﻿using System;
+using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Mappers;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Repositories;
+using Bennington.Core;
 using Bennington.Core.Helpers;
 using MvcTurbine;
 using MvcTurbine.Blades;
@@ -32,6 +35,10 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Blades
 			SimpleCqrs.ServiceLocator.Current.Register<IXmlFileSerializationHelper, XmlFileSerializationHelper>();
 			SimpleCqrs.ServiceLocator.Current.Register<IApplicationSettingsValueGetter, ApplicationSettingsValueGetter>();
 			SimpleCqrs.ServiceLocator.Current.Register<IContentNodeProviderDraftToContentNodeProviderPublishedVersionMapper, ContentNodeProviderDraftToContentNodeProviderPublishedVersionMapper>();
+			SimpleCqrs.ServiceLocator.Current.Register<ITreeNodeProviderContext, TreeNodeProviderContext>();
+			SimpleCqrs.ServiceLocator.Current.Register<IServiceLocatorWrapper, ServiceLocatorWrapper>();
+			simpleCqrsServiceLocator.Register(context.ServiceLocator.Resolve<ITreeNodeSummaryContext>());
+			simpleCqrsServiceLocator.Register(context.ServiceLocator.Resolve<ITreeNodeProviderContext>());
 		}
 	}
 }
