@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
+using Bennington.ContentTree.Helpers;
 using Bennington.Core.Helpers;
 
 namespace Bennington.ContentTree.Data
@@ -15,21 +17,22 @@ namespace Bennington.ContentTree.Data
 	public class DataModelDataContext : IDataModelDataContext
 	{
 		private static readonly object _lockObject = "lock";
-		private const string PathToContentTreeXmlFileAppSettingsKey = "PathToContentTreeXmlFile";
 
 		private readonly IApplicationSettingsValueGetter applicationSettingsValueGetter;
 		private readonly IXmlFileSerializationHelper xmlFileSerializationHelper;
+		private readonly IGetPathToDataDirectoryService getPathToDataDirectoryService;
 
-		public DataModelDataContext(IApplicationSettingsValueGetter applicationSettingsValueGetter,
-									IXmlFileSerializationHelper xmlFileSerializationHelper)
+		public DataModelDataContext(IXmlFileSerializationHelper xmlFileSerializationHelper,
+									IGetPathToDataDirectoryService getPathToDataDirectoryService)
 		{
+			this.getPathToDataDirectoryService = getPathToDataDirectoryService;
 			this.xmlFileSerializationHelper = xmlFileSerializationHelper;
 			this.applicationSettingsValueGetter = applicationSettingsValueGetter;
 		}
 
 		public IQueryable<TreeNode> TreeNodes
 		{
-			get { return xmlFileSerializationHelper.DeserializeListFromPath<TreeNode>(applicationSettingsValueGetter.GetValue(PathToContentTreeXmlFileAppSettingsKey)).AsQueryable(); }
+			get { return xmlFileSerializationHelper.DeserializeListFromPath<TreeNode>(GetXmlFilePath()).AsQueryable(); }
 			set { throw new NotImplementedException(); }
 		}
 
@@ -66,7 +69,7 @@ namespace Bennington.ContentTree.Data
 
 		private string GetXmlFilePath()
 		{
-			return applicationSettingsValueGetter.GetValue(PathToContentTreeXmlFileAppSettingsKey);
+			return getPathToDataDirectoryService.GetPathToDirectory() + Path.DirectorySeparatorChar + "TreeNodes.xml";
 		}
 	}
 }

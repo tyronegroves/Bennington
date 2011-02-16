@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using Bennington.ContentTree.Helpers;
 using Bennington.Core.Helpers;
 
 namespace Bennington.ContentTree.Providers.SectionNodeProvider.Data
@@ -18,11 +20,12 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Data
 		private static readonly object _lockObject = "lock";
 		private readonly IXmlFileSerializationHelper xmlFileSerializationHelper;
 		private readonly IApplicationSettingsValueGetter applicationSettingsValueGetter;
+		private IGetPathToDataDirectoryService getPathToDataDirectoryService;
 
 		public DataModelDataContext(IXmlFileSerializationHelper xmlFileSerializationHelper, 
-									IApplicationSettingsValueGetter applicationSettingsValueGetter)
+									IGetPathToDataDirectoryService getPathToDataDirectoryService)
 		{
-			this.applicationSettingsValueGetter = applicationSettingsValueGetter;
+			this.getPathToDataDirectoryService = getPathToDataDirectoryService;
 			this.xmlFileSerializationHelper = xmlFileSerializationHelper;
 		}
 
@@ -68,7 +71,7 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Data
 
 		private string GetPathToSectionNodeXmlFile()
 		{
-			return applicationSettingsValueGetter.GetValue(PathToSectionNodeProviderXmlFileAppSettingsKey);
+			return getPathToDataDirectoryService.GetPathToDirectory() + Path.DirectorySeparatorChar + "SectionNodeProviderDrafts.xml";
 		}
 	}
 }

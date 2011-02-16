@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using Bennington.ContentTree.Helpers;
 using Bennington.Core.Helpers;
 
 namespace Bennington.ContentTree.Providers.ContentNodeProvider.Data
@@ -22,12 +24,12 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Data
 		public const string PathToContentNodeProviderPublishedVersionXmlFileAppSettingsKey = "PathToContentNodeProviderPublishedVersionXmlFile";
 		private static readonly object _lockObject = "lock";
 		private readonly IXmlFileSerializationHelper xmlFileSerializationHelper;
-		private readonly IApplicationSettingsValueGetter applicationSettingsValueGetter;
+		private readonly IGetPathToDataDirectoryService getPathToDataDirectoryService;
 
 		public DataModelDataContext(IXmlFileSerializationHelper xmlFileSerializationHelper,
-									IApplicationSettingsValueGetter applicationSettingsValueGetter)
+									IGetPathToDataDirectoryService getPathToDataDirectoryService)
 		{
-			this.applicationSettingsValueGetter = applicationSettingsValueGetter;
+			this.getPathToDataDirectoryService = getPathToDataDirectoryService;
 			this.xmlFileSerializationHelper = xmlFileSerializationHelper;
 		}
 
@@ -112,7 +114,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Data
 				lock(_lockObject)
 				{
 					return xmlFileSerializationHelper
-								.DeserializeListFromPath<ContentNodeProviderPublishedVersion>(GetPathToPublishedVersionXmlFile()).AsQueryable();					
+								.DeserializeListFromPath<ContentNodeProviderPublishedVersion>(GetPathToPublishedVersionXmlFile()).AsQueryable();
 				}
 			}
 		}
@@ -124,12 +126,12 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Data
 
 		private string GetPathToPublishedVersionXmlFile()
 		{
-			return applicationSettingsValueGetter.GetValue(PathToContentNodeProviderPublishedVersionXmlFileAppSettingsKey);
+			return getPathToDataDirectoryService.GetPathToDirectory() + Path.DirectorySeparatorChar + "ContentNodeProviderPublishedVersions.xml";
 		}
 
 		private string GetPathToDraftVersionXmlFile()
 		{
-			return applicationSettingsValueGetter.GetValue(PathToContentNodeProviderDraftXmlFileAppSettingsKey);
+			return getPathToDataDirectoryService.GetPathToDirectory() + Path.DirectorySeparatorChar + "ContentNodeProviderDrafts.xml";
 		}
 	}
 }

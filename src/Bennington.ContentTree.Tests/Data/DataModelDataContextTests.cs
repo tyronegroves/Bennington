@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using AutoMoq;
 using Bennington.ContentTree.Data;
+using Bennington.ContentTree.Helpers;
 using Bennington.Core.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -17,9 +19,9 @@ namespace Bennington.ContentTree.Tests.Data
 		public void Init()
 		{
 			mocker = new AutoMoqer();
-			mocker.GetMock<IApplicationSettingsValueGetter>().Setup(a => a.GetValue("PathToContentTreeXmlFile"))
-				.Returns("/path");
-			mocker.GetMock<IXmlFileSerializationHelper>().Setup(a => a.DeserializeListFromPath<TreeNode>("/path"))
+			mocker.GetMock<IGetPathToDataDirectoryService>().Setup(a => a.GetPathToDirectory())
+				.Returns("path");
+			mocker.GetMock<IXmlFileSerializationHelper>().Setup(a => a.DeserializeListFromPath<TreeNode>("path" + Path.DirectorySeparatorChar + "TreeNodes.xml"))
 				.Returns(new List<TreeNode>()
 				         	{
 				         		new TreeNode()

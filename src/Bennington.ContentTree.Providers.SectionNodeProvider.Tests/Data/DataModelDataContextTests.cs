@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using AutoMoq;
+using Bennington.ContentTree.Helpers;
 using Bennington.ContentTree.Providers.SectionNodeProvider.Data;
 using Bennington.Core.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -17,9 +19,9 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Tests.Data
 		public void Init()
 		{
 			mocker = new AutoMoqer();
-			mocker.GetMock<IApplicationSettingsValueGetter>().Setup(a => a.GetValue(DataModelDataContext.PathToSectionNodeProviderXmlFileAppSettingsKey))
-				.Returns("/path");
-			mocker.GetMock<IXmlFileSerializationHelper>().Setup(a => a.DeserializeListFromPath<SectionNodeProviderDraft>("/path"))
+			mocker.GetMock<IGetPathToDataDirectoryService>().Setup(a => a.GetPathToDirectory())
+				.Returns("path");
+			mocker.GetMock<IXmlFileSerializationHelper>().Setup(a => a.DeserializeListFromPath<SectionNodeProviderDraft>("path" + Path.DirectorySeparatorChar + "SectionNodeProviderDrafts.xml"))
 				.Returns(new List<SectionNodeProviderDraft>()
 				         	{
 				         		new SectionNodeProviderDraft()

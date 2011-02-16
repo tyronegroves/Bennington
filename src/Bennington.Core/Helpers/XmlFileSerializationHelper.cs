@@ -38,6 +38,13 @@ namespace Bennington.Core.Helpers
 		{
 			if (!File.Exists(path))
 			{
+				if (!Directory.Exists(path))
+				{
+					var split = path.Split(Path.DirectorySeparatorChar);
+					var s = path.Replace(split[split.Length - 1], string.Empty);
+					Directory.CreateDirectory(s);
+				}
+
 				using (System.IO.File.Create(path)){}
 
 				var serializer = new XmlSerializer(typeof(List<T>));
