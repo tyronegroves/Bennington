@@ -12,10 +12,14 @@
 
     <form id="form1" runat="server">
     <div>
+		<table border="1" width="10000px">
         <%foreach (Route route in RouteTable.Routes)%>
         <%{%>
-            <%=route.Url %><br />
+		<tr>
+            <td><%=route.Url %></td>
+		</tr>
         <%}%>
+		</table>
     </div>
     </form>
 </body>

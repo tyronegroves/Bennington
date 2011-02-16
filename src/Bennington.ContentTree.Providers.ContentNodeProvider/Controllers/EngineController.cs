@@ -99,23 +99,6 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 			set { throw new NotImplementedException(); }
 		}
 
-		//public void Register(RouteCollection routes)
-		//{
-		//    foreach (var treeNode in treeNodeRepository.GetAll().Where(a => a.Type == this.GetType().AssemblyQualifiedName))
-		//    {
-		//        var url = treeNodeIdToUrl.GetUrlByTreeNodeId(treeNode.Id);
-		//        if (url.StartsWith("/")) url = url.Substring(1);
-		//        url = url + "/{action}";
-				
-		//        var controllerName = (this.GetType().Name ?? string.Empty).Replace("Controller", string.Empty);
-
-		//        routes.MapRoute(
-		//            null,
-		//            url,
-		//            new { controller = controllerName, action = "Index" }
-		//        );
-		//    }
-		//}
 		public void Register(RouteCollection routes)
 		{
 			// add catch-all route 
@@ -160,7 +143,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 			return defaults;
 		}
 
-		private static string GetUrlPatternForDepth(int maxDepth)
+		private string GetUrlPatternForDepth(int maxDepth)
 		{
 			var builder = new StringBuilder("{nodesegment-0}");
 
