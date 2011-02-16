@@ -29,6 +29,7 @@ namespace Bennington.ContentTree.Helpers
 			{
 				treeNodeSummary = treeNodeSummaryContext.GetChildren(workingTreeNodeId).Where(a => a.UrlSegment == nodeSegment).FirstOrDefault();
 				if (treeNodeSummary == null) return null;
+				if (treeNodeSummary.MayHaveChildNodes == false) return treeNodeSummary;
 				workingTreeNodeId = treeNodeSummary.Id;
 			}
 

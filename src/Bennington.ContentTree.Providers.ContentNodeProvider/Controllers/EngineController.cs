@@ -10,6 +10,7 @@ using Bennington.ContentTree.Helpers;
 using Bennington.ContentTree.Models;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Context;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Routing;
+using Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders.Helpers;
 using Bennington.ContentTree.Repositories;
 using Bennington.ContentTree.TreeNodeExtensionProvider;
 using MvcTurbine.ComponentModel;
@@ -23,6 +24,8 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
 		private readonly ITreeNodeRepository treeNodeRepository;
 		private readonly ITreeNodeIdToUrl treeNodeIdToUrl;
+		private readonly IUrlToTreeNodeSummaryMapper urlToTreeNodeSummaryMapper;
+		private IRawUrlGetter rawUrlGetter;
 
 		public EngineController()
 		{
@@ -30,6 +33,8 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 			this.treeNodeSummaryContext = ServiceLocatorManager.Current.Resolve<ITreeNodeSummaryContext>();
 			this.treeNodeRepository = ServiceLocatorManager.Current.Resolve<ITreeNodeRepository>();
 			this.treeNodeIdToUrl = ServiceLocatorManager.Current.Resolve<ITreeNodeIdToUrl>();
+			this.urlToTreeNodeSummaryMapper = ServiceLocatorManager.Current.Resolve<IUrlToTreeNodeSummaryMapper>();
+			this.rawUrlGetter = ServiceLocatorManager.Current.Resolve<IRawUrlGetter>();
 		}
 
 		public virtual IQueryable<IAmATreeNodeExtension> GetAll()
@@ -119,15 +124,15 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		public void Register(RouteCollection routes)
 		{
 			// add catch-all route 
-			var contentTreeRoute = new Route
-						(
-							GetUrlPatternForDepth(ContentTreeRouteRegistrator.MaxDepthForContentTreeUrlSegments),
-							GetDefaultRouteValues(ContentTreeRouteRegistrator.MaxDepthForContentTreeUrlSegments),
-							new MvcRouteHandler()
-						);
-			contentTreeRoute.Constraints = new RouteValueDictionary();
-			contentTreeRoute.Constraints.Add(GetType().AssemblyQualifiedName ?? "Unkown content tree route contraint", this);
-			routes.Add(contentTreeRoute);
+			//var contentTreeRoute = new Route
+			//            (
+			//                GetUrlPatternForDepth(ContentTreeRouteRegistrator.MaxDepthForContentTreeUrlSegments),
+			//                GetDefaultRouteValues(ContentTreeRouteRegistrator.MaxDepthForContentTreeUrlSegments),
+			//                new MvcRouteHandler()
+			//            );
+			//contentTreeRoute.Constraints = new RouteValueDictionary();
+			//contentTreeRoute.Constraints.Add(GetType().AssemblyQualifiedName ?? "Unkown content tree route contraint", this);
+			//routes.Add(contentTreeRoute);
 
 			// add hard coded routes for all instances of this engine type
 			foreach (var treeNode in treeNodeRepository.GetAll().Where(a => a.Type == this.GetType().AssemblyQualifiedName))
@@ -176,25 +181,11 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 
 		public bool Match(HttpContextBase httpContext, Route route, string parameterName, RouteValueDictionary values, RouteDirection routeDirection)
 		{
-			var urlSegments = from value in values
-							  where value.Key.StartsWith("nodesegment")
-							  where value.Value is string
-							  orderby value.Key.Split('-')[1]
-							  select (string)value.Value;
+			var treeNodeSummary = urlToTreeNodeSummaryMapper.CreateInstance(rawUrlGetter.GetRawUrl());
 
-			if (urlSegments.Count() == 0) return false;
+			if (treeNodeSummary == null) return false;
 
-			var treeNodeSummary = new TreeNodeSummary()
-			{
-				Id = Constants.RootNodeId,
-			};
-			foreach (var urlSegment in urlSegments)
-			{
-				treeNodeSummary = FindByUrlSegment(urlSegment, treeNodeSummary.Id);
-				if (treeNodeSummary == null) return false;
-			}
-
-			return true;
+			return (treeNodeSummary.Type == GetType().AssemblyQualifiedName);
 		}
 
 		private TreeNodeSummary FindByUrlSegment(string urlSegment, string parentTreeNodeId)

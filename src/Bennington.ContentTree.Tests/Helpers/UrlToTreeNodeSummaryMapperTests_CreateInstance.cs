@@ -91,12 +91,14 @@ namespace Bennington.ContentTree.Tests.Helpers
 										ParentTreeNodeId = Constants.RootNodeId,
 				         				Id = page1Id,
 										UrlSegment = "testpage",
+										MayHaveChildNodes = true
 				         			},
 								new TreeNodeSummary()
 				         			{
 										ParentTreeNodeId = Constants.RootNodeId,
 				         				Id = Guid.NewGuid().ToString(),
 										UrlSegment = "testSubPage",
+										MayHaveChildNodes = true
 				         			},
 							});
 			mocker.GetMock<ITreeNodeSummaryContext>().Setup(a => a.GetChildren(page1Id))
@@ -107,11 +109,13 @@ namespace Bennington.ContentTree.Tests.Helpers
 										ParentTreeNodeId = page1Id,
 				         				Id = page2Id,
 										UrlSegment = "testSubPage",
+										MayHaveChildNodes = true
 				         			},
 								new TreeNodeSummary()
 				         			{
 										ParentTreeNodeId = page1Id,
 										UrlSegment = "testSubPage2",
+										MayHaveChildNodes = true
 				         			},
 							});
 
@@ -133,12 +137,14 @@ namespace Bennington.ContentTree.Tests.Helpers
 										ParentTreeNodeId = Constants.RootNodeId,
 				         				Id = page1Id,
 										UrlSegment = "testpage",
+										MayHaveChildNodes = true
 				         			},
 								new TreeNodeSummary()
 				         			{
 										ParentTreeNodeId = Constants.RootNodeId,
 				         				Id = Guid.NewGuid().ToString(),
 										UrlSegment = "testSubPage",
+										MayHaveChildNodes = true
 				         			},
 							});
 			mocker.GetMock<ITreeNodeSummaryContext>().Setup(a => a.GetChildren(page1Id))
@@ -149,15 +155,63 @@ namespace Bennington.ContentTree.Tests.Helpers
 										ParentTreeNodeId = page1Id,
 				         				Id = page2Id,
 										UrlSegment = "testSubPage",
+										MayHaveChildNodes = true
 				         			},
 								new TreeNodeSummary()
 				         			{
 										ParentTreeNodeId = page1Id,
 										UrlSegment = "testSubPage2",
+										MayHaveChildNodes = true
 				         			},
 							});
 
 			var result = mocker.Resolve<UrlToTreeNodeSummaryMapper>().CreateInstance("/testpage/testSubPage?2q34sda=sdf&asasd;f");
+
+			Assert.AreEqual(page2Id, result.Id);
+		}
+
+		[TestMethod]
+		public void Returns_correct_tree_node_summary_when_passed_a_url_to_a_controller_action()
+		{
+			var page1Id = "page1Id";
+			var page2Id = "page2Id";
+			mocker.GetMock<ITreeNodeSummaryContext>().Setup(a => a.GetChildren(Constants.RootNodeId))
+				.Returns(new TreeNodeSummary[]
+				         	{
+				         		new TreeNodeSummary()
+				         			{
+										ParentTreeNodeId = Constants.RootNodeId,
+				         				Id = page1Id,
+										UrlSegment = "testpage",
+										MayHaveChildNodes = true
+				         			},
+								new TreeNodeSummary()
+				         			{
+										ParentTreeNodeId = Constants.RootNodeId,
+				         				Id = Guid.NewGuid().ToString(),
+										UrlSegment = "testSubPage",
+										MayHaveChildNodes = false
+				         			},
+							});
+			mocker.GetMock<ITreeNodeSummaryContext>().Setup(a => a.GetChildren(page1Id))
+				.Returns(new TreeNodeSummary[]
+				         	{
+								new TreeNodeSummary()
+				         			{
+										ParentTreeNodeId = page1Id,
+				         				Id = page2Id,
+										UrlSegment = "testSubPage",
+										MayHaveChildNodes = false
+				         			},
+								new TreeNodeSummary()
+				         			{
+										ParentTreeNodeId = page1Id,
+										UrlSegment = "testSubPage2",
+										MayHaveChildNodes = true
+				         			},
+							});
+
+			var result = mocker.Resolve<UrlToTreeNodeSummaryMapper>().CreateInstance("/testpage/testSubPage/actionName");
 
 			Assert.AreEqual(page2Id, result.Id);
 		}
