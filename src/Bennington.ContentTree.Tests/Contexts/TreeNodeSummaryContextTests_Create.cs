@@ -120,6 +120,11 @@ namespace Bennington.ContentTree.Tests.Contexts
 				get { return false; }
 				set { throw new NotImplementedException(); }
 			}
+
+			public void RegisterRouteForTreeNodeId(string treeNodeId)
+			{
+				throw new NotImplementedException();
+			}
 		}
 
 		[TestMethod]
@@ -193,6 +198,11 @@ namespace Bennington.ContentTree.Tests.Contexts
 			{
 				get { return false; }
 				set { throw new NotImplementedException(); }
+			}
+
+			public void RegisterRouteForTreeNodeId(string treeNodeId)
+			{
+				throw new NotImplementedException();
 			}
 		}
 	}

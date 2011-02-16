@@ -139,6 +139,11 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 				get { return true; }
 				set { throw new NotImplementedException(); }
 			}
+
+			public void RegisterRouteForTreeNodeId(string treeNodeId)
+			{
+				throw new NotImplementedException();
+			}
 		}
 
 		[TestMethod]

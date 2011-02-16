@@ -61,5 +61,9 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider
 			get { return false; }
 			set { throw new NotImplementedException(); }
 		}
+
+		public void RegisterRouteForTreeNodeId(string treeNodeId)
+		{
+		}
 	}
 }

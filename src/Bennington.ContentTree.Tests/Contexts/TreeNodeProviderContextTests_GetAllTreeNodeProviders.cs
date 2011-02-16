@@ -101,6 +101,11 @@ namespace Bennington.ContentTree.Tests.Contexts
 			get { return false; }
 			set { throw new NotImplementedException(); }
 		}
+
+		public void RegisterRouteForTreeNodeId(string treeNodeId)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	public class Fake1IAmATreeNodeExtensionProvider : IAmATreeNodeExtensionProvider
@@ -160,6 +165,11 @@ namespace Bennington.ContentTree.Tests.Contexts
 		{
 			get { return false; }
 			set { throw new NotImplementedException(); }
+		}
+
+		public void RegisterRouteForTreeNodeId(string treeNodeId)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

@@ -82,7 +82,6 @@ namespace Bennington.ContentTree.Contexts
 			if (provider == null) throw new Exception(string.Format("Content tree node provider for type: {0} not found.", treeNode.Type));
 
 			var treeNodeExtension = provider.GetAll().Where(a => a.TreeNodeId == treeNode.Id).FirstOrDefault();
-			//if (treeNodeExtension == null) throw new Exception(string.Format("Node with id \"{0}\" was not found by provider type \"{1}\".", treeNode.Id, provider.GetType().AssemblyQualifiedName));
 			if (treeNodeExtension == null) return null;
 
 			var treeNodeSummary = new TreeNodeSummary()

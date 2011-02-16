@@ -87,6 +87,23 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 			set { throw new NotImplementedException(); }
 		}
 
+		public void RegisterRouteForTreeNodeId(string treeNodeId)
+		{
+			var routeValueDictionary = new RouteValueDictionary();
+			routeValueDictionary.Add("Controller", GetControllerNameFromThisType());
+			routeValueDictionary.Add("Action", "Index");
+			var url = treeNodeIdToUrl.GetUrlByTreeNodeId(treeNodeId);
+			var contentTreeRoute = new Route
+						(
+							url.Substring(1, url.Length - 1) + "/{action}",
+							routeValueDictionary,
+							new MvcRouteHandler()
+						);
+			contentTreeRoute.Constraints = new RouteValueDictionary();
+			contentTreeRoute.Constraints.Add(GetType().AssemblyQualifiedName ?? "Unkown content tree route contraint", this);
+			RouteTable.Routes.Add(contentTreeRoute);
+		}
+
 		public virtual string ControllerToUseForModification
 		{
 			get { return "ContentTreeNode"; }
@@ -136,11 +153,15 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 			for (var i = 0; i < maxDepth; i++)
 				defaults.Add(string.Format("nodesegment-{0}", i), UrlParameter.Optional);
 
-			var controller = GetType().Name.Replace("Controller", string.Empty);
-			defaults.Add("Controller", controller);
+			defaults.Add("Controller", GetControllerNameFromThisType());
 			defaults.Add("Action", "Index");
 
 			return defaults;
+		}
+
+		private string GetControllerNameFromThisType()
+		{
+			return GetType().Name.Replace("Controller", string.Empty);
 		}
 
 		private string GetUrlPatternForDepth(int maxDepth)

@@ -107,6 +107,8 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 													{"action", "Index"},
 			                                 	});
 			}
+			var provider = treeNodeProviderContext.GetProviderByTypeName(contentTreeNodeInputModel.Type);
+			provider.RegisterRouteForTreeNodeId(treeNodeId);
 
 			return new RedirectResult(GetRedirectUrlToModifyMethod(contentTreeNodeInputModel));
 		}
