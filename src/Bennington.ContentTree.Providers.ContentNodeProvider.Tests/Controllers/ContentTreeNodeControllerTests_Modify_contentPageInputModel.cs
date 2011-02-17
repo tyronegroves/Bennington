@@ -55,8 +55,6 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			var result = contentTreeNodeController.Modify(contentTreeNodeInputModel);
 
 			Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));
-			//Assert.AreEqual("ContentTree", ((RedirectToRouteResult)result).RouteValues["controller"]);
-			//Assert.AreEqual("Index", ((RedirectToRouteResult)result).RouteValues["action"]);
 		}
 
 		[TestMethod]
@@ -78,8 +76,6 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			var result = contentTreeNodeController.Modify(contentTreeNodeInputModel);
 
 			Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));
-			//Assert.AreEqual("LandingPage", ((RedirectToRouteResult)result).RouteValues["controller"]);
-			//Assert.AreEqual("Modify", ((RedirectToRouteResult)result).RouteValues["action"]);
 		}
 
 		[TestMethod]
@@ -166,6 +162,60 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.HeaderText == inputModel.HeaderText)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_ModifyPage_command_with_correct_Hidden_property_value_when_ModelState_is_valid()
+		{
+			var treeNodeId = Guid.NewGuid();
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.GetContentTreeNodesByTreeId(treeNodeId.ToString()))
+				.Returns(new ContentTreeNode[]
+				         	{
+				         		new ContentTreeNode()
+				         			{
+				         				TreeNodeId = treeNodeId.ToString(),
+										Action = "Index",
+				         			}, 
+							});
+			var inputModel = new ContentTreeNodeInputModel()
+			{
+				PageId = Guid.NewGuid().ToString(),
+				TreeNodeId = treeNodeId.ToString(),
+				Name = "name",
+				Hidden = true,
+				Action = "Index",
+			};
+
+			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.Hidden == inputModel.Hidden)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_ModifyPage_command_with_correct_Active_property_value_when_ModelState_is_valid()
+		{
+			var treeNodeId = Guid.NewGuid();
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.GetContentTreeNodesByTreeId(treeNodeId.ToString()))
+				.Returns(new ContentTreeNode[]
+				         	{
+				         		new ContentTreeNode()
+				         			{
+				         				TreeNodeId = treeNodeId.ToString(),
+										Action = "Index",
+				         			}, 
+							});
+			var inputModel = new ContentTreeNodeInputModel()
+			{
+				PageId = Guid.NewGuid().ToString(),
+				TreeNodeId = treeNodeId.ToString(),
+				Name = "name",
+				Active = true,
+				Action = "Index",
+			};
+
+			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.Active == inputModel.Active)), Times.Once());
 		}
 
 		[TestMethod]
@@ -511,6 +561,56 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Body == inputModel.Body)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_CreatePageCommand_with_correct_Hidden_property_value_when_attempting_to_modify_a_page_that_does_not_exist()
+		{
+			var treeNodeId = Guid.NewGuid();
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.GetContentTreeNodesByTreeId(treeNodeId.ToString()))
+				.Returns(new ContentTreeNode[]
+				         	{
+				         		new ContentTreeNode()
+				         			{
+				         				TreeNodeId = treeNodeId.ToString(),
+										Action = "Index",
+				         			}, 
+							});
+			var inputModel = new ContentTreeNodeInputModel()
+			{
+				TreeNodeId = treeNodeId.ToString(),
+				Action = "Confirmation",
+				Hidden = true,
+			};
+
+			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Hidden == inputModel.Hidden)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_CreatePageCommand_with_correct_Active_property_value_when_attempting_to_modify_a_page_that_does_not_exist()
+		{
+			var treeNodeId = Guid.NewGuid();
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.GetContentTreeNodesByTreeId(treeNodeId.ToString()))
+				.Returns(new ContentTreeNode[]
+				         	{
+				         		new ContentTreeNode()
+				         			{
+				         				TreeNodeId = treeNodeId.ToString(),
+										Action = "Index",
+				         			}, 
+							});
+			var inputModel = new ContentTreeNodeInputModel()
+			{
+				TreeNodeId = treeNodeId.ToString(),
+				Action = "Confirmation",
+				Active = true,
+			};
+
+			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Active == inputModel.Active)), Times.Once());
 		}
 
 		[TestMethod]

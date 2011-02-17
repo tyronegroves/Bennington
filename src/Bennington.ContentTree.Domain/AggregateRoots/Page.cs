@@ -37,6 +37,16 @@ namespace Bennington.ContentTree.Domain.AggregateRoots
 			Apply(new PageNameSetEvent() { AggregateRootId = Id, Name = name });
 		}
 
+		public void SetHidden(bool hidden)
+		{
+			Apply(new PageHiddenSetEvent() { Hidden = hidden });
+		}
+
+		public void SetActive(bool active)
+		{
+			Apply(new PageActiveSetEvent(){ Active = active });
+		}
+
 		public void SetActionId(string stepId)
 		{
 			Apply(new PageActionSetEvent() { Action = stepId });

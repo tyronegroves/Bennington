@@ -36,5 +36,11 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Models
 
 		[DataType(DataType.MultilineText)]
 		public string Body { get; set; }
+
+		[DisplayName("Hidden?")]
+		public bool Hidden { get; set; }
+
+		[DisplayName("Active?")]
+		public bool Active { get; set; }
 	}
 }

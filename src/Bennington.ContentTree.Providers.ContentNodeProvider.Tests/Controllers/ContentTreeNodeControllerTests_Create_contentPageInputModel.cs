@@ -277,6 +277,38 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 		}
 
 		[TestMethod]
+		public void Sends_CreatePageCommand_command_with_correct_Hidden_property_value_when_ModelState_is_valid()
+		{
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>())).Returns(new Guid().ToString());
+			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
+			{
+				ParentTreeNodeId = "2",
+				Type = typeof(string).AssemblyQualifiedName,
+				Hidden = true,
+			};
+
+			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Hidden == contentTreeNodeInputModel.Hidden)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_CreatePageCommand_command_with_correct_Active_property_value_when_ModelState_is_valid()
+		{
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>())).Returns(new Guid().ToString());
+			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
+			{
+				ParentTreeNodeId = "2",
+				Type = typeof(string).AssemblyQualifiedName,
+				Active = true,
+			};
+
+			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Active == contentTreeNodeInputModel.Active)), Times.Once());
+		}
+
+		[TestMethod]
 		public void Does_not_send_CreatePageCommand_command_when_ModelState_is_not_valid()
 		{
 			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()

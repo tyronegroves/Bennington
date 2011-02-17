@@ -90,6 +90,8 @@
     <Compile Include="Commands\ModifyPageCommand.cs" />
     <Compile Include="Commands\PagePublishedCommand.cs" />
     <Compile Include="Events\Page\BodySetEvent.cs" />
+    <Compile Include="Events\Page\PageActiveSetEvent.cs" />
+    <Compile Include="Events\Page\PageHiddenSetEvent.cs" />
     <Compile Include="Events\Page\PageTreeNodeIdSetEvent.cs" />
     <Compile Include="Events\Page\PagesequenceSetEvent.cs" />
     <Compile Include="Events\Page\PageTypeSetEvent.cs" />
