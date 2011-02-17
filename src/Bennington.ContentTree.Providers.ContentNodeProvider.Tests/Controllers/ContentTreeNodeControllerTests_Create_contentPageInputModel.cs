@@ -300,12 +300,12 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			{
 				ParentTreeNodeId = "2",
 				Type = typeof(string).AssemblyQualifiedName,
-				Active = true,
+				Inactive = true,
 			};
 
 			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
 
-			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Active == contentTreeNodeInputModel.Active)), Times.Once());
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Inactive == contentTreeNodeInputModel.Inactive)), Times.Once());
 		}
 
 		[TestMethod]

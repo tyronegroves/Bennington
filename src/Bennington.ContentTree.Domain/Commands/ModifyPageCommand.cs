@@ -7,7 +7,7 @@ namespace Bennington.ContentTree.Domain.Commands
 	{
 		public string Name {get; set;}
 		public bool Hidden { get; set; }
-		public bool Active { get; set; }
+		public bool Inactive { get; set; }
 		public string ActionId { get; set; }
 		public string ParentId { get; set; }
 		public string HeaderText { get; set; }

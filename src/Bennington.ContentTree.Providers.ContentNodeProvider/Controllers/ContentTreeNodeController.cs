@@ -96,7 +96,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 									Sequence = contentTreeNodeInputModel.Sequence,
 									UrlSegment = contentTreeNodeInputModel.UrlSegment,
 									Type = Type.GetType(contentTreeNodeInputModel.Type),
-									Active = contentTreeNodeInputModel.Active,
+									Inactive = contentTreeNodeInputModel.Inactive,
 									Hidden = contentTreeNodeInputModel.Hidden,
 			                	});
 
@@ -149,7 +149,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 					UrlSegment = contentTreeNodeInputModel.UrlSegment,
 					ActionId = contentTreeNodeInputModel.Action,
 					Hidden = contentTreeNodeInputModel.Hidden,
-					Active = contentTreeNodeInputModel.Active
+					Inactive = contentTreeNodeInputModel.Inactive
 				};
 				commandBus.Send(modifyPageComand);
 			} else {
@@ -163,7 +163,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 										UrlSegment = contentTreeNodeInputModel.UrlSegment,
 										Action = contentTreeNodeInputModel.Action,
 										Hidden = contentTreeNodeInputModel.Hidden,
-										Active = contentTreeNodeInputModel.Active,
+										Inactive = contentTreeNodeInputModel.Inactive,
 				                	});
 			}
 

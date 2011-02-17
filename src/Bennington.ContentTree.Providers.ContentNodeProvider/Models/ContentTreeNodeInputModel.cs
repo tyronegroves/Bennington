@@ -40,7 +40,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Models
 		[DisplayName("Hidden?")]
 		public bool Hidden { get; set; }
 
-		[DisplayName("Active?")]
-		public bool Active { get; set; }
+		[DisplayName("Inactive?")]
+		public bool Inactive { get; set; }
 	}
 }

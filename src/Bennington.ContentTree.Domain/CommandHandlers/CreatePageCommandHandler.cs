@@ -19,7 +19,7 @@ namespace Bennington.ContentTree.Domain.CommandHandlers
 			var page = new Page(command.PageId);
 			page.SetTreeNodeId(command.TreeNodeId);
 			page.SetActionId(command.Action ?? "Index");
-			page.SetActive(command.Active);
+			page.SetInactive(command.Inactive);
 			page.SetHidden(command.Hidden);
 			page.SetType(command.Type);
 			page.SetBody(command.Body);

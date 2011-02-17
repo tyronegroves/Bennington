@@ -9,7 +9,7 @@ namespace Bennington.ContentTree.Domain.Commands
 		public string MetaKeyword {get;set;}
 		public string MetaDescription {get; set; }
 		public bool Hidden { get; set; }
-		public bool Active { get; set; }
+		public bool Inactive { get; set; }
 		public Type Type { get; set; }
 		public string HeaderText { get; set; }
 		public string UrlSegment { get; set; }

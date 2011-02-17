@@ -53,6 +53,22 @@
 <% if ((Model.Action ?? "Index") == "Index") { %>
 
     <div class="editor-label">
+        <%: Html.CheckBoxFor(model => model.Inactive) %>
+		<%: Html.LabelFor(model => model.Inactive) %>
+    </div>
+    <div class="editor-field">
+        <%: Html.ValidationMessageFor(model => model.Inactive)%>
+    </div>
+
+    <div class="editor-label">
+        <%: Html.CheckBoxFor(model => model.Hidden) %>
+		<%: Html.LabelFor(model => model.Hidden) %>
+    </div>
+    <div class="editor-field">
+        <%: Html.ValidationMessageFor(model => model.Hidden) %>
+    </div>
+
+    <div class="editor-label">
         <%: Html.LabelFor(model => model.Name) %>
     </div>
     <div class="editor-field">

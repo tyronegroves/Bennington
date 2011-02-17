@@ -42,9 +42,9 @@ namespace Bennington.ContentTree.Domain.AggregateRoots
 			Apply(new PageHiddenSetEvent() { Hidden = hidden });
 		}
 
-		public void SetActive(bool active)
+		public void SetInactive(bool inactive)
 		{
-			Apply(new PageActiveSetEvent(){ Active = active });
+			Apply(new PageInactiveSetEvent(){ Active = inactive });
 		}
 
 		public void SetActionId(string stepId)

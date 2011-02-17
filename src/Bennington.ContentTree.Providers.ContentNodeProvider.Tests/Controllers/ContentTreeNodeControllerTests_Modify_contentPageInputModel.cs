@@ -209,13 +209,13 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 				PageId = Guid.NewGuid().ToString(),
 				TreeNodeId = treeNodeId.ToString(),
 				Name = "name",
-				Active = true,
+				Inactive = true,
 				Action = "Index",
 			};
 
 			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
 
-			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.Active == inputModel.Active)), Times.Once());
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.Inactive == inputModel.Inactive)), Times.Once());
 		}
 
 		[TestMethod]
@@ -605,12 +605,12 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			{
 				TreeNodeId = treeNodeId.ToString(),
 				Action = "Confirmation",
-				Active = true,
+				Inactive = true,
 			};
 
 			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
 
-			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Active == inputModel.Active)), Times.Once());
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Inactive == inputModel.Inactive)), Times.Once());
 		}
 
 		[TestMethod]

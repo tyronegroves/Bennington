@@ -6,7 +6,7 @@ using SimpleCqrs.Eventing;
 
 namespace Bennington.ContentTree.Domain.Events.Page
 {
-	public class PageActiveSetEvent : DomainEvent
+	public class PageInactiveSetEvent : DomainEvent
 	{
 		public bool Active { get; set; }
 	}

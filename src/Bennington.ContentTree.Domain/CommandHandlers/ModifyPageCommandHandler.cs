@@ -15,7 +15,7 @@ namespace Bennington.ContentTree.Domain.CommandHandlers
 			page.SetSequence(command.Sequence);
 			page.SetUrlSegment(command.UrlSegment);
 			page.SetActionId(command.ActionId);
-			page.SetActive(command.Active);
+			page.SetInactive(command.Inactive);
 			page.SetHidden(command.Hidden);
 		}
 	}
