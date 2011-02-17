@@ -73,6 +73,8 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Controllers
 									ParentTreeNodeId = contentTreeSectionInputModel.ParentTreeNodeId,
 									Sequence = contentTreeSectionInputModel.Sequence,
 									UrlSegment = contentTreeSectionInputModel.UrlSegment,
+									Hidden = contentTreeSectionInputModel.Hidden,
+									Inactive = contentTreeSectionInputModel.Inactive,
 			                	});
 
 			if (contentTreeSectionInputModel.Action.ToLower() == "save and exit")
@@ -116,6 +118,8 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Controllers
 									UrlSegment = contentTreeSectionInputModel.UrlSegment,
 									Sequence = contentTreeSectionInputModel.Sequence,
 									Name = contentTreeSectionInputModel.Name,
+									Hidden = contentTreeSectionInputModel.Hidden,
+									Inactive = contentTreeSectionInputModel.Inactive,
 			                	});
 
 			if (contentTreeSectionInputModel.Action != null)

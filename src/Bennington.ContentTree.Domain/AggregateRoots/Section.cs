@@ -41,14 +41,14 @@ namespace Bennington.ContentTree.Domain.AggregateRoots
 			Apply(new SectionUrlSegmentSetEvent() { AggregateRootId = Id, UrlSegment = urlSegment });
 		}
 
-		public void SetIsActive(bool isActive)
+		public void SetInactive(bool inactive)
 		{
-			Apply(new SectionIsActiveSetEvent() { AggregateRootId = Id, IsActive = isActive });
+			Apply(new SectionInactiveSetEvent() { AggregateRootId = Id, Inactive = inactive });
 		}
 
-		public void SetIsVisible(bool isVisible)
+		public void SetHidden(bool hidden)
 		{
-			Apply(new SectionIsVisibleSetEvent() { AggregateRootId = Id, IsVisible = isVisible });
+			Apply(new SectionHiddenSetEvent() { AggregateRootId = Id, Hidden = hidden });
 		}
 
 		public void SetParentTreeNodeId(Guid parentTreeNodeId)

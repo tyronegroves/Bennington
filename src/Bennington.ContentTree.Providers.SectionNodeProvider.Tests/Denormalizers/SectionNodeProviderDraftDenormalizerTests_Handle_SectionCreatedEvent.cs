@@ -20,7 +20,7 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Tests.Denormalize
 		}
 
 		[TestMethod]
-		public void Calls_Create_ethod_of_IDataModelDataContext_with_SectionNodeProvider_instance()
+		public void Calls_Create_method_of_IDataModelDataContext_with_SectionNodeProvider_instance()
 		{
 			var id = Guid.NewGuid();
 			

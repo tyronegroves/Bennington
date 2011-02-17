@@ -150,5 +150,61 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Tests.Denormalize
 				&& b.Name == "x"
 				&& b.SectionId == id.ToString())), Times.Once());
 		}
+
+		[TestMethod]
+		public void Calls_Update_method_of_IDataModelDataContext_with_correct_Hidden_property_value_set_on_SectionNodeProvider_instance()
+		{
+			var id = Guid.NewGuid();
+			var defaultTreeNodeId = Guid.NewGuid();
+			mocker.GetMock<IDataModelDataContext>().Setup(a => a.GetAllSectionNodeProviderDrafts())
+				.Returns(new SectionNodeProviderDraft[]
+								{
+									new SectionNodeProviderDraft()
+										{
+											SectionId = id.ToString(),
+											Name = "x"
+										}, 
+								});
+
+			mocker.Resolve<SectionNodeProviderDraftDenormalizer>().Handle(new SectionHiddenSetEvent()
+			{
+				AggregateRootId = id,
+				Hidden = true
+			});
+
+			mocker.GetMock<IDataModelDataContext>().Verify(a => a.Update(It.Is<SectionNodeProviderDraft>(b =>
+				b.Name == "x"
+				&& b.SectionId == id.ToString()
+				&& b.Hidden == true
+				)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Calls_Update_method_of_IDataModelDataContext_with_correct_Inactive_property_value_set_on_SectionNodeProvider_instance()
+		{
+			var id = Guid.NewGuid();
+			var defaultTreeNodeId = Guid.NewGuid();
+			mocker.GetMock<IDataModelDataContext>().Setup(a => a.GetAllSectionNodeProviderDrafts())
+				.Returns(new SectionNodeProviderDraft[]
+								{
+									new SectionNodeProviderDraft()
+										{
+											SectionId = id.ToString(),
+											Name = "x"
+										}, 
+								});
+
+			mocker.Resolve<SectionNodeProviderDraftDenormalizer>().Handle(new SectionInactiveSetEvent()
+			{
+				AggregateRootId = id,
+				Inactive = true
+			});
+
+			mocker.GetMock<IDataModelDataContext>().Verify(a => a.Update(It.Is<SectionNodeProviderDraft>(b =>
+				b.Name == "x"
+				&& b.SectionId == id.ToString()
+				&& b.Inactive == true
+				)), Times.Once());
+		}
 	}
 }

@@ -178,6 +178,54 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Denomarlize
 		}
 
 		[TestMethod]
+		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_PageId_and_Hidden_set_for_PageHiddenSetEvent()
+		{
+			var guid = new Guid();
+			mocker.GetMock<IContentNodeProviderDraftRepository>().Setup(a => a.GetAllContentNodeProviderDrafts())
+				.Returns(new ContentNodeProviderDraft[]
+				         	{
+				         		new ContentNodeProviderDraft()
+				         			{
+										PageId = guid.ToString(),
+				         				Body = "Body"
+				         			}, 
+							}.AsQueryable());
+
+			mocker.Resolve<ContentNodeProviderDraftDenormalizer>().Handle(new PageHiddenSetEvent()
+			{
+				AggregateRootId = guid,
+				Hidden = true,
+			});
+
+			mocker.GetMock<IContentNodeProviderDraftRepository>()
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.Hidden && b.PageId == guid.ToString() && b.Body == "Body")), Times.Once());
+		}
+
+		[TestMethod]
+		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_PageId_and_Inactive_set_for_PageHiddenSetEvent()
+		{
+			var guid = new Guid();
+			mocker.GetMock<IContentNodeProviderDraftRepository>().Setup(a => a.GetAllContentNodeProviderDrafts())
+				.Returns(new ContentNodeProviderDraft[]
+				         	{
+				         		new ContentNodeProviderDraft()
+				         			{
+										PageId = guid.ToString(),
+				         				Body = "Body"
+				         			}, 
+							}.AsQueryable());
+
+			mocker.Resolve<ContentNodeProviderDraftDenormalizer>().Handle(new PageInactiveSetEvent()
+			{
+				AggregateRootId = guid,
+				Inactive = true
+			});
+
+			mocker.GetMock<IContentNodeProviderDraftRepository>()
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.Inactive && b.PageId == guid.ToString() && b.Body == "Body")), Times.Once());
+		}
+
+		[TestMethod]
 		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_PageId_and_Sequence_set_for_PageSequenceSetEvent()
 		{
 			var guid = new Guid();
@@ -225,7 +273,6 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Denomarlize
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
 				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.TreeNodeId == treeNodeId.ToString() && b.PageId == pageId.ToString() && b.Body == "Body")), Times.Once());
 		}
-
 
 		[TestMethod]
 		public void Calls_Delete_method_of_IContentNodeProviderDraftRepository_with_every_instance_of_ContentProviderDraft_matching_by_TreeNodeId_when_handling_PageDeletedEvent()

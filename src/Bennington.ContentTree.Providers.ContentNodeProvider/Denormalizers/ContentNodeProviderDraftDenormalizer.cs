@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Bennington.ContentTree.Contexts;
 using Bennington.ContentTree.Domain.Events.Page;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Data;
@@ -17,11 +18,13 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
 														IHandleDomainEvents<HeaderTextSetEvent>,
 														IHandleDomainEvents<BodySetEvent>,
 														IHandleDomainEvents<PageUrlSegmentSetEvent>,
-														IHandleDomainEvents<PageSequenceSetEvent>
+														IHandleDomainEvents<PageSequenceSetEvent>,
+														IHandleDomainEvents<PageHiddenSetEvent>,
+														IHandleDomainEvents<PageInactiveSetEvent>
 	{
 		private readonly IContentNodeProviderDraftRepository contentNodeProviderDraftRepository;
 		private readonly ITreeNodeProviderContext treeNodeProviderContext;
-		private ITreeNodeSummaryContext treeNodeSummaryContext;
+		private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
 
 		public ContentNodeProviderDraftDenormalizer(IContentNodeProviderDraftRepository contentNodeProviderDraftRepository,
 													ITreeNodeProviderContext treeNodeProviderContext,
@@ -125,6 +128,20 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
 		{
 			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
 			contentNodeProviderDraft.TreeNodeId = domainEvent.TreeNodeId.ToString();
+			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+		}
+
+		public void Handle(PageHiddenSetEvent domainEvent)
+		{
+			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
+			contentNodeProviderDraft.Hidden = domainEvent.Hidden;
+			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+		}
+
+		public void Handle(PageInactiveSetEvent domainEvent)
+		{
+			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
+			contentNodeProviderDraft.Inactive = domainEvent.Inactive;
 			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
 		}
 	}

@@ -2,8 +2,8 @@
 
 namespace Bennington.ContentTree.Domain.Events.Section
 {
-	public class SectionIsActiveSetEvent : DomainEvent
+	public class SectionHiddenSetEvent : DomainEvent
 	{
-		public bool IsActive { get; set; }
+		public bool Hidden { get; set; }
 	}
 }

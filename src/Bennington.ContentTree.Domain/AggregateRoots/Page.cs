@@ -44,7 +44,7 @@ namespace Bennington.ContentTree.Domain.AggregateRoots
 
 		public void SetInactive(bool inactive)
 		{
-			Apply(new PageInactiveSetEvent(){ Active = inactive });
+			Apply(new PageInactiveSetEvent(){ Inactive = inactive });
 		}
 
 		public void SetActionId(string stepId)

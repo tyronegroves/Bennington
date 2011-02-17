@@ -154,5 +154,39 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Tests.Controllers
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreateSectionCommand>(b => b.SectionId == id.ToString())), Times.Once());
 		}
+
+		[TestMethod]
+		public void Sends_CreateSectionCommand_with_mapped_value_from_input_model_Hidden_property()
+		{
+			mocker.GetMock<IGuidGetter>().Setup(a => a.GetGuid()).Returns(Guid.NewGuid());
+			var treeNodeId = new Guid().ToString();
+			mocker.GetMock<ITreeNodeSummaryContext>().Setup(a => a.Create(It.IsAny<string>(), It.IsAny<string>()))
+				.Returns(treeNodeId.ToString());
+			mocker.Resolve<ContentTreeSectionNodeController>().Create(new ContentTreeSectionInputModel()
+			{
+				Action = "action",
+				SectionId = Guid.NewGuid().ToString(),
+				Hidden = true
+			});
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreateSectionCommand>(b => b.Hidden == true)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_CreateSectionCommand_with_mapped_value_from_input_model_Inactive_property()
+		{
+			mocker.GetMock<IGuidGetter>().Setup(a => a.GetGuid()).Returns(Guid.NewGuid());
+			var treeNodeId = new Guid().ToString();
+			mocker.GetMock<ITreeNodeSummaryContext>().Setup(a => a.Create(It.IsAny<string>(), It.IsAny<string>()))
+				.Returns(treeNodeId.ToString());
+			mocker.Resolve<ContentTreeSectionNodeController>().Create(new ContentTreeSectionInputModel()
+			{
+				Action = "action",
+				SectionId = Guid.NewGuid().ToString(),
+				Inactive = true
+			});
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreateSectionCommand>(b => b.Inactive == true)), Times.Once());
+		}
 	}
 }

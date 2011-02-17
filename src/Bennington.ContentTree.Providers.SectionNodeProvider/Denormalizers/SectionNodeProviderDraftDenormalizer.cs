@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Bennington.ContentTree.Domain.Events.Section;
 using Bennington.ContentTree.Providers.SectionNodeProvider.Data;
 using SimpleCqrs.Eventing;
@@ -11,7 +12,9 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Denormalizers
 														IHandleDomainEvents<SectionTreeNodeIdSetEvent>,
 														IHandleDomainEvents<SectionUrlSegmentSetEvent>,
 														IHandleDomainEvents<SectionSequenceSetEvent>,
-														IHandleDomainEvents<SectionDefaultTreeNodeIdSetEvent>
+														IHandleDomainEvents<SectionDefaultTreeNodeIdSetEvent>,
+														IHandleDomainEvents<SectionHiddenSetEvent>,
+														IHandleDomainEvents<SectionInactiveSetEvent>
 	{
 		private readonly IDataModelDataContext dataModelDataContext;
 
@@ -71,6 +74,21 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Denormalizers
 		{
 			var sectionNodeProviderDraft = GetSectionNodeProviderDraftFromDomainEvent(domainEvent);
 			sectionNodeProviderDraft.TreeNodeId = domainEvent.TreeNodeId.ToString();
+			dataModelDataContext.Update(sectionNodeProviderDraft);
+		}
+
+
+		public void Handle(SectionInactiveSetEvent domainEvent)
+		{
+			var sectionNodeProviderDraft = GetSectionNodeProviderDraftFromDomainEvent(domainEvent);
+			sectionNodeProviderDraft.Inactive = domainEvent.Inactive;
+			dataModelDataContext.Update(sectionNodeProviderDraft);
+		}
+
+		public void Handle(SectionHiddenSetEvent domainEvent)
+		{
+			var sectionNodeProviderDraft = GetSectionNodeProviderDraftFromDomainEvent(domainEvent);
+			sectionNodeProviderDraft.Hidden = domainEvent.Hidden;
 			dataModelDataContext.Update(sectionNodeProviderDraft);
 		}
 	}

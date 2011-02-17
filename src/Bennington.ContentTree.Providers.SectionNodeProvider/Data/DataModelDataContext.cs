@@ -20,7 +20,7 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Data
 		private static readonly object _lockObject = "lock";
 		private readonly IXmlFileSerializationHelper xmlFileSerializationHelper;
 		private readonly IApplicationSettingsValueGetter applicationSettingsValueGetter;
-		private IGetPathToDataDirectoryService getPathToDataDirectoryService;
+		private readonly IGetPathToDataDirectoryService getPathToDataDirectoryService;
 
 		public DataModelDataContext(IXmlFileSerializationHelper xmlFileSerializationHelper, 
 									IGetPathToDataDirectoryService getPathToDataDirectoryService)

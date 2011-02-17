@@ -10,5 +10,7 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Models
 		public string UrlSegment { get; set; }
 		public string DefaultTreeNodeId { get; set; }
 		public int? Sequence { get; set; }
+		public bool Inactive { get; set; }
+		public bool Hidden { get; set; }
 	}
 }

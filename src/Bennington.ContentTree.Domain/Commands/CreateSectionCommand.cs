@@ -11,5 +11,7 @@ namespace Bennington.ContentTree.Domain.Commands
 		public int? Sequence { get; set; }
 		public string DefaultTreeNodeId { get; set; }
 		public string Name { get; set; }
+		public bool Hidden { get; set; }
+		public bool Inactive { get; set; }
 	}
 }

@@ -129,5 +129,35 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Tests.Controllers
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifySectionCommand>(b => b.TreeNodeId == treeNodeId.ToString())), Times.Once());
 		}
+
+		[TestMethod]
+		public void Sends_ModifySectionCommand_with_correct_Hidden_property_set_when_input_model_is_valid()
+		{
+			var defaultTreeNodeId = new Guid().ToString();
+			mocker.Resolve<ContentTreeSectionNodeController>().Modify(new ContentTreeSectionInputModel()
+			{
+				Action = "action",
+				Name = "name",
+				SectionId = Guid.NewGuid().ToString(),
+				Hidden = true,
+			});
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifySectionCommand>(b => b.Hidden == true)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_ModifySectionCommand_with_correct_Inactive_property_set_when_input_model_is_valid()
+		{
+			var defaultTreeNodeId = new Guid().ToString();
+			mocker.Resolve<ContentTreeSectionNodeController>().Modify(new ContentTreeSectionInputModel()
+			{
+				Action = "action",
+				Name = "name",
+				SectionId = Guid.NewGuid().ToString(),
+				Inactive= true,
+			});
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifySectionCommand>(b => b.Inactive == true)), Times.Once());
+		}
 	}
 }

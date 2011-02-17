@@ -18,6 +18,8 @@ namespace Bennington.ContentTree.Domain.CommandHandlers
 				section.SetDefaultTreeNodeId(new Guid(command.DefaultTreeNodeId));
 			section.SetSequence(command.Sequence);
 			section.SetUrlSegment(command.UrlSegment);
+			section.SetInactive(command.Inactive);
+			section.SetHidden(command.Hidden);
 		}
 	}
 }

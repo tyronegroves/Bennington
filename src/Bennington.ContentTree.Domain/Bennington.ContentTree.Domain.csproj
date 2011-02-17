@@ -102,8 +102,8 @@
     <Compile Include="Events\Page\PageUrlSegmentSetEvent.cs" />
     <Compile Include="Events\Section\SectionDefaultTreeNodeIdSetEvent.cs" />
     <Compile Include="Events\Section\SectionDeletedEvent.cs" />
-    <Compile Include="Events\Section\SectionIsActiveSetEvent.cs" />
-    <Compile Include="Events\Section\SectionIsVisibleSetEvent.cs" />
+    <Compile Include="Events\Section\SectionInactiveSetEvent.cs" />
+    <Compile Include="Events\Section\SectionHiddenSetEvent.cs" />
     <Compile Include="Events\Page\MetaDescriptionSetEvent.cs" />
     <Compile Include="Events\Page\MetaKeywordSetEvent.cs" />
     <Compile Include="Events\Page\MetaTitleSetEvent.cs" />

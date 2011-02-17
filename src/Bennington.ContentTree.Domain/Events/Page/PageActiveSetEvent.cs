@@ -8,6 +8,6 @@ namespace Bennington.ContentTree.Domain.Events.Page
 {
 	public class PageInactiveSetEvent : DomainEvent
 	{
-		public bool Active { get; set; }
+		public bool Inactive { get; set; }
 	}
 }
