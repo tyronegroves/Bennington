@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Routing;
+using Bennington.ContentTree.Contexts;
 using Bennington.ContentTree.Models;
 using Bennington.ContentTree.Providers.SectionNodeProvider.Repositories;
 using Bennington.ContentTree.TreeNodeExtensionProvider;
@@ -11,15 +12,18 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider
 	public class SectionNodeProvider : IAmATreeNodeExtensionProvider
 	{
 		private readonly IContentTreeSectionNodeRepository contentTreeSectionNodeRepository;
+		private IVersionContext versionContext;
 
-		public SectionNodeProvider(IContentTreeSectionNodeRepository contentTreeSectionNodeRepository)
+		public SectionNodeProvider(IContentTreeSectionNodeRepository contentTreeSectionNodeRepository,
+									IVersionContext versionContext)
 		{
+			this.versionContext = versionContext;
 			this.contentTreeSectionNodeRepository = contentTreeSectionNodeRepository;
 		}
 
 		public IQueryable<IAmATreeNodeExtension> GetAll()
 		{
-			var query = from item in contentTreeSectionNodeRepository.GetAllContentTreeSectionNodes()
+			var query = from item in contentTreeSectionNodeRepository.GetAllContentTreeSectionNodes().Where(a => a.Inactive == false || versionContext.GetCurrentVersionId() == VersionContext.Manage)
 						select item;
 			
 			return query;
