@@ -1,7 +1,7 @@
 ﻿using System.Security.Principal;
 using MvcTurbine.MembershipProvider;
 
-namespace Bennington.Cms.Principals
+namespace Webroot.Principals
 {
     public class TemporaryPrincipalProvider : IPrincipalProvider
     {
