@@ -25,7 +25,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		private readonly ITreeNodeRepository treeNodeRepository;
 		private readonly ITreeNodeIdToUrl treeNodeIdToUrl;
 		private readonly IUrlToTreeNodeSummaryMapper urlToTreeNodeSummaryMapper;
-		private IRawUrlGetter rawUrlGetter;
+		private readonly IRawUrlGetter rawUrlGetter;
 
 		public EngineController()
 		{
