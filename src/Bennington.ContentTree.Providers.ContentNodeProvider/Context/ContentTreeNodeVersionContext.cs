@@ -36,12 +36,17 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Context
 		{
 			if (versionContext.GetCurrentVersionId() == VersionContext.Publish)
 			{
-				return contentNodeProviderPublishedVersionToContentTreeNodeMapper.CreateSet(contentNodeProviderPublishedVersionRepository.GetAllContentNodeProviderPublishedVersions()).AsQueryable();
+				return contentNodeProviderPublishedVersionToContentTreeNodeMapper.CreateSet(contentNodeProviderPublishedVersionRepository.GetAllContentNodeProviderPublishedVersions().Where(a => a.Inactive == false)).AsQueryable();
 			}
 				
+			if (versionContext.GetCurrentVersionId() == VersionContext.Manage)
+			{
+				return contentNodeProviderDraftToContentTreeNodeMapper
+						.CreateSet(contentNodeProviderDraftRepository.GetAllContentNodeProviderDrafts()).AsQueryable();
+			}
 
 			return contentNodeProviderDraftToContentTreeNodeMapper
-					.CreateSet(contentNodeProviderDraftRepository.GetAllContentNodeProviderDrafts()).AsQueryable();
+					.CreateSet(contentNodeProviderDraftRepository.GetAllContentNodeProviderDrafts().Where(a => a.Inactive == false)).AsQueryable();
 		}
 	}
 }

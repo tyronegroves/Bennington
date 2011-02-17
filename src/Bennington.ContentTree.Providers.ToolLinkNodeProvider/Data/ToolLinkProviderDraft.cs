@@ -8,5 +8,7 @@
 		public string Name { get; set; }
 		public string UrlSegment { get; set; }
 		public string Url { get; set; }
+		public bool Inactive { get; set; }
+		public bool Hidden { get; set; }
 	}
 }

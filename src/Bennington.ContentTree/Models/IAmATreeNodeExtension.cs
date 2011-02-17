@@ -6,5 +6,7 @@
 		int? Sequence { get; set; }
 		string UrlSegment { get; set; }
 		string Name { get; set; }
+		bool Hidden { get; set; }
+		bool Inactive { get; set; }
 	}
 }

@@ -12,12 +12,13 @@ namespace Bennington.ContentTree.Contexts
 	{
 		public const string Draft = "Draft";
 		public const string Publish =  "Publish";
+		public const string Manage = "Manage";
 
 		public string GetCurrentVersionId()
 		{
 			try
 			{
-				if (HttpContext.Current.Request.RawUrl.StartsWith("/Manage")) return Draft;
+				if (HttpContext.Current.Request.RawUrl.StartsWith("/Manage")) return Manage;
 
 				if (HttpContext.Current.Request.QueryString["Version"] == Draft) return Draft;
 			}catch(Exception) {}

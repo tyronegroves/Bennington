@@ -16,5 +16,6 @@
 		public int? Sequence { get; set; }
 		public string Type { get; set; }
 		public bool MayHaveChildNodes { get; set; }
+		public bool Hidden { get; set; }
 	}
 }

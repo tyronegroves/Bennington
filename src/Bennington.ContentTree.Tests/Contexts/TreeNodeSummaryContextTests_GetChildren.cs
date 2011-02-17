@@ -328,6 +328,57 @@ namespace Bennington.ContentTree.Tests.Contexts
 		}
 
 		[TestMethod]
+		public void Returns_1_result_with_correct_Hidden_set_from_node_found_by_provider()
+		{
+			var fakeTreeNodeExtensionProvider = new Mock<IAmATreeNodeExtensionProvider>();
+			fakeTreeNodeExtensionProvider.Setup(a => a.GetAll())
+				.Returns(new FakeTreeNode[]
+				         	{
+								new FakeTreeNode()
+									{
+										TreeNodeId = "1",
+									}, 
+								new FakeTreeNode()
+									{
+										TreeNodeId = "2",
+										Name = "fake tree node name",
+										Hidden = true
+									}, 
+								new FakeTreeNode()
+									{
+										TreeNodeId = "3",
+									}, 
+				         	}.AsQueryable());
+			mocker.GetMock<ITreeNodeProviderContext>().Setup(a => a.GetProviderByTypeName("FakeTreeNodeExtensionProvider"))
+				.Returns(fakeTreeNodeExtensionProvider.Object);
+			mocker.GetMock<ITreeNodeRepository>().Setup(a => a.GetAll())
+				.Returns(new TreeNode[]
+				         	{
+				         		new TreeNode()
+				         			{
+										Id = "1",
+				         			}, 
+				         		new TreeNode()
+				         			{
+				         				ParentTreeNodeId = "1",
+										Id = "2",
+										Type = "FakeTreeNodeExtensionProvider",
+				         			}, 
+				         		new TreeNode()
+				         			{
+										Id = "3",
+				         				ParentTreeNodeId = "2",
+				         			}, 
+							}.AsQueryable());
+
+			var treeNodeSummarContext = mocker.Resolve<TreeNodeSummaryContext>();
+			var result = treeNodeSummarContext.GetChildren("1");
+
+			Assert.AreEqual(1, result.Count());
+			Assert.IsTrue(result.First().Hidden);
+		}
+
+		[TestMethod]
 		public void Returns_1_result_with_correct_name_set_from_node_found_by_provider()
 		{
 			var fakeTreeNodeExtensionProvider = new Mock<IAmATreeNodeExtensionProvider>();
@@ -481,6 +532,18 @@ namespace Bennington.ContentTree.Tests.Contexts
 		public int? Sequence { get; set; }
 		public string UrlSegment { get; set; }
 		public string Name { get; set; }
+
+		public bool Hidden
+		{
+			get;
+			set;
+		}
+
+		public bool Inactive
+		{
+			get { throw new NotImplementedException(); }
+			set { throw new NotImplementedException(); }
+		}
 
 		public IEnumerable<ContentTreeNodeContentItem> ContentTreeNodeContentItems
 		{

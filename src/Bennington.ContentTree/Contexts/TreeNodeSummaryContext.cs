@@ -99,7 +99,8 @@ namespace Bennington.ContentTree.Contexts
 						ParentTreeNodeId = treeNode.ParentTreeNodeId,
 						Sequence = treeNodeExtension.Sequence,
 						Type = treeNode.Type,
-						MayHaveChildNodes = provider.MayHaveChildNodes
+						MayHaveChildNodes = provider.MayHaveChildNodes,
+						Hidden = treeNodeExtension.Hidden,
 			       	};
 			return treeNodeSummary;
 		}
