@@ -73,6 +73,8 @@
     <Compile Include="Data\DataModelDataContext.cs" />
     <Compile Include="Denormalizers\ContentNodeProviderDraftDenormalizer.cs" />
     <Compile Include="Denormalizers\ContentNodeProviderPublishDenormalizer.cs" />
+    <Compile Include="Helpers\ContentTreeNodeFileUploadPersister.cs" />
+    <Compile Include="Helpers\GetPathToContentTreeNodeProviderFileUploads.cs" />
     <Compile Include="Mappers\ContentNodeProviderDraftToContentNodeProviderPublishedVersionMapper.cs" />
     <Compile Include="Mappers\ContentNodeProviderDraftToContentTreeNodeMapper.cs" />
     <Compile Include="Mappers\ContentNodeProviderPublishedVersionToContentTreeNodeMapper.cs" />
@@ -146,6 +148,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

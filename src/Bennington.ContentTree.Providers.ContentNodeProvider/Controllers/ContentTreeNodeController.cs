@@ -5,6 +5,7 @@ using System.Web.Routing;
 using Bennington.ContentTree.Contexts;
 using Bennington.ContentTree.Domain.Commands;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Context;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Helpers;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Mappers;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
 using Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders;
@@ -26,6 +27,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		private readonly IRawUrlGetter rawUrlGetter;
 		private readonly ICommandBus commandBus;
 		private readonly IGuidGetter guidGetter;
+		private readonly IContentTreeNodeFileUploadPersister contentTreeNodeFileUploadPersister;
 
 		public ContentTreeNodeController(IContentTreeNodeVersionContext contentTreeNodeVersionContext, 
 											IContentTreeNodeToContentTreeNodeInputModelMapper contentTreeNodeToContentTreeNodeInputModelMapper, 
@@ -36,8 +38,10 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 											IContentTreeNodeDisplayViewModelBuilder contentTreeNodeDisplayViewModelBuilder, 
 											IRawUrlGetter rawUrlGetter,
 											ICommandBus commandBus,
-											IGuidGetter guidGetter)
+											IGuidGetter guidGetter,
+											IContentTreeNodeFileUploadPersister contentTreeNodeFileUploadPersister)
 		{
+			this.contentTreeNodeFileUploadPersister = contentTreeNodeFileUploadPersister;
 			this.guidGetter = guidGetter;
 			this.commandBus = commandBus;
 			this.rawUrlGetter = rawUrlGetter;
@@ -85,6 +89,9 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 				                      	});
 
 			var treeNodeId = contentTreeNodeContext.CreateTreeNodeAndReturnTreeNodeId(contentTreeNodeInputModel);
+			contentTreeNodeFileUploadPersister.SaveFilesByTreeNodeIdAndAction(treeNodeId, contentTreeNodeInputModel.Action);
+			
+			SetAppropriateInputModelPropertiesFromFilesCollection(contentTreeNodeInputModel);
 
 			commandBus.Send(new CreatePageCommand()
 			                	{
@@ -113,6 +120,16 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 			return new RedirectResult(GetRedirectUrlToModifyMethod(contentTreeNodeInputModel));
 		}
 
+		private void SetAppropriateInputModelPropertiesFromFilesCollection(ContentTreeNodeInputModel contentTreeNodeInputModel)
+		{
+			if (HttpContext == null) return;
+
+			if (HttpContext.Request.Files.AllKeys.Where(a => a == "ContentTreeNodeInputModel_HeaderImage").Any())
+			{
+				contentTreeNodeInputModel.HeaderImage = HttpContext.Request.Files["ContentTreeNodeInputModel_HeaderImage"].FileName;
+			}
+		}
+
 
 		[Authorize]
 		public virtual ActionResult Create(string parentTreeNodeId, string providerType)
@@ -133,6 +150,8 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		[ValidateInput(false)]
 		public virtual ActionResult Modify(ContentTreeNodeInputModel contentTreeNodeInputModel)
 		{
+			SetAppropriateInputModelPropertiesFromFilesCollection(contentTreeNodeInputModel);
+			contentTreeNodeFileUploadPersister.SaveFilesByTreeNodeIdAndAction(contentTreeNodeInputModel.TreeNodeId, contentTreeNodeInputModel.Action);
 			if (ModelState.IsValid == false)
 				return View("Modify", new ModifyViewModel() { Action = "Modify", ContentTreeNodeInputModel = contentTreeNodeInputModel });
 

@@ -5,6 +5,7 @@ using Bennington.ContentTree.Domain.Events.Page;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Data;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Repositories;
+using Bennington.Core.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -272,6 +273,54 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Denomarlize
 
 			mocker.GetMock<IContentNodeProviderDraftRepository>()
 				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.TreeNodeId == treeNodeId.ToString() && b.PageId == pageId.ToString() && b.Body == "Body")), Times.Once());
+		}
+
+		[TestMethod]
+		public void Calls_Update_method_of_IContentNodeProviderDraftRepository_with_HeaderImage_and_TreeNodeId_set_for_PageTreeNodeIdSetEvent()
+		{
+			var pageId = Guid.NewGuid();
+			var treeNodeId = Guid.NewGuid();
+			mocker.GetMock<IContentNodeProviderDraftRepository>().Setup(a => a.GetAllContentNodeProviderDrafts())
+				.Returns(new ContentNodeProviderDraft[]
+				         	{
+				         		new ContentNodeProviderDraft()
+				         			{
+										PageId = pageId.ToString(),
+				         				Body = "Body"
+				         			}, 
+							}.AsQueryable());
+
+			mocker.Resolve<ContentNodeProviderDraftDenormalizer>().Handle(new PageHeaderImageSetEvent()
+			{
+				AggregateRootId = pageId,
+				HeaderImage = "test"
+			});
+
+			mocker.GetMock<IContentNodeProviderDraftRepository>()
+				.Verify(a => a.Update(It.Is<ContentNodeProviderDraft>(b => b.HeaderImage == "test" && b.PageId == pageId.ToString() && b.Body == "Body")), Times.Once());
+		}
+
+		[TestMethod]
+		public void Copies_header_image_to_folder_for_header_images()
+		{
+			var pageId = Guid.NewGuid();
+			var treeNodeId = Guid.NewGuid();
+			mocker.GetMock<IContentNodeProviderDraftRepository>().Setup(a => a.GetAllContentNodeProviderDrafts())
+				.Returns(new ContentNodeProviderDraft[]
+				         	{
+				         		new ContentNodeProviderDraft()
+				         			{
+										PageId = pageId.ToString(),
+				         				Body = "Body"
+				         			}, 
+							}.AsQueryable());
+
+			mocker.Resolve<ContentNodeProviderDraftDenormalizer>().Handle(new PageHeaderImageSetEvent()
+			{
+				AggregateRootId = pageId,
+				HeaderImage = "test.jpg"
+			});
+			throw new NotImplementedException();
 		}
 
 		[TestMethod]

@@ -10,7 +10,8 @@
 
 <% Html.RenderAction("ContentItemNavigation", "ContentTreeNode", new { TreeNodeId = Model.ContentTreeNodeInputModel.TreeNodeId }); %>
 
-	<% using (Html.BeginForm(Model.Action, "ContentTreeNode", FormMethod.Post, new { Id = "form" })) { %>
+	<%--<% using (Html.BeginForm(Model.Action, "ContentTreeNode", FormMethod.Post, new { Id = "form" })) { %>--%>
+	<form Id="form" action="/Manage/ContentTreeNode/<%=Model.Action %>" method="post" enctype="multipart/form-data">
 
 	<div class="contentNodeProviderForm">
 
@@ -29,5 +30,7 @@
 			<% } %>
 		</div>
 	</div>
-	<% } %>
+
+	</form>
+	<%--<% } %>--%>
 </asp:Content>

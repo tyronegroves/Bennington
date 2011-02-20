@@ -16,6 +16,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
 														IHandleDomainEvents<MetaTitleSetEvent>,
 														IHandleDomainEvents<MetaDescriptionSetEvent>,
 														IHandleDomainEvents<HeaderTextSetEvent>,
+														IHandleDomainEvents<PageHeaderImageSetEvent>,
 														IHandleDomainEvents<BodySetEvent>,
 														IHandleDomainEvents<PageUrlSegmentSetEvent>,
 														IHandleDomainEvents<PageSequenceSetEvent>,
@@ -142,6 +143,13 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
 		{
 			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
 			contentNodeProviderDraft.Inactive = domainEvent.Inactive;
+			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+		}
+
+		public void Handle(PageHeaderImageSetEvent domainEvent)
+		{
+			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
+			contentNodeProviderDraft.HeaderImage = domainEvent.HeaderImage;
 			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
 		}
 	}
