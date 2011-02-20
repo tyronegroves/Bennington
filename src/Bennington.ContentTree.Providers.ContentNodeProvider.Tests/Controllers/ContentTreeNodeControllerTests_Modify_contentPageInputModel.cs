@@ -139,6 +139,119 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 		}
 
 		[TestMethod]
+		public void Sends_ModifyPage_command_with_HeaderImage_property_set_to_null_when_RemoveHeaderImage_checkbox_is_checked_and_ModelState_is_valid()
+		{
+			var treeNodeId = Guid.NewGuid();
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.GetContentTreeNodesByTreeId(treeNodeId.ToString()))
+				.Returns(new ContentTreeNode[]
+				         	{
+				         		new ContentTreeNode()
+				         			{
+				         				TreeNodeId = treeNodeId.ToString(),
+										Action = "Index",
+				         			}, 
+							});
+			var inputModel = new ContentTreeNodeInputModel()
+			{
+				Name = "name",
+				PageId = Guid.NewGuid().ToString(),
+				TreeNodeId = treeNodeId.ToString(),
+				Action = "Index",
+				RemoveHeaderImage = true,
+			};
+
+			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
+
+			mocker.GetMock<ICommandBus>()
+				.Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.HeaderImage == null)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_ModifyPage_command_with_HeaderImage_property_set_from_input_model_when_RemoveHeaderImage_is_false_and_ModelState_is_valid()
+		{
+			var treeNodeId = Guid.NewGuid();
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.GetContentTreeNodesByTreeId(treeNodeId.ToString()))
+				.Returns(new ContentTreeNode[]
+				         	{
+				         		new ContentTreeNode()
+				         			{
+				         				TreeNodeId = treeNodeId.ToString(),
+										Action = "Index",
+				         			}, 
+							});
+			var inputModel = new ContentTreeNodeInputModel()
+			{
+				Name = "name",
+				PageId = Guid.NewGuid().ToString(),
+				TreeNodeId = treeNodeId.ToString(),
+				Action = "Index",
+				HeaderImage = "headerImage.jpg",
+			};
+
+			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
+
+			mocker.GetMock<ICommandBus>()
+				.Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.HeaderImage == "headerImage.jpg")), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_ModifyPage_command_with_HeaderImage_property_set_from_draft_header_image_when_RemoveHeaderImage_is_false_and_the_input_model_HeaderImage_property_is_null_and_ModelState_is_valid()
+		{
+			var treeNodeId = Guid.NewGuid();
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.GetContentTreeNodesByTreeId(treeNodeId.ToString()))
+				.Returns(new ContentTreeNode[]
+				         	{
+				         		new ContentTreeNode()
+				         			{
+				         				TreeNodeId = treeNodeId.ToString(),
+										Action = "Index",
+										HeaderImage = "headerImage.jpg"
+				         			}, 
+							});
+			var inputModel = new ContentTreeNodeInputModel()
+			{
+				Name = "name",
+				PageId = Guid.NewGuid().ToString(),
+				TreeNodeId = treeNodeId.ToString(),
+				Action = "Index",
+			};
+
+			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
+
+			mocker.GetMock<ICommandBus>()
+				.Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.HeaderImage == "headerImage.jpg")), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_ModifyPage_command_with_HeaderImage_property_set_from_draft_header_image_when_RemoveHeaderImage_is_false_and_the_input_model_HeaderImage_property_is_empty_and_ModelState_is_valid()
+		{
+			var treeNodeId = Guid.NewGuid();
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.GetContentTreeNodesByTreeId(treeNodeId.ToString()))
+				.Returns(new ContentTreeNode[]
+				         	{
+				         		new ContentTreeNode()
+				         			{
+				         				TreeNodeId = treeNodeId.ToString(),
+										Action = "Index",
+										HeaderImage = "headerImage.jpg"
+				         			}, 
+							});
+			var inputModel = new ContentTreeNodeInputModel()
+			{
+				Name = "name",
+				PageId = Guid.NewGuid().ToString(),
+				TreeNodeId = treeNodeId.ToString(),
+				Action = "Index",
+				HeaderImage = string.Empty
+			};
+
+			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
+
+			mocker.GetMock<ICommandBus>()
+				.Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.HeaderImage == "headerImage.jpg")), Times.Once());
+		}
+
+		[TestMethod]
 		public void Sends_ModifyPage_command_with_correct_HeaderText_when_ModelState_is_valid()
 		{
 			var treeNodeId = Guid.NewGuid();

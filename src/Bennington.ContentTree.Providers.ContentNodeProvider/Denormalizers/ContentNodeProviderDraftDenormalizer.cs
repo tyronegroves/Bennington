@@ -4,6 +4,7 @@ using Bennington.ContentTree.Contexts;
 using Bennington.ContentTree.Domain.Events.Page;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Data;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Repositories;
+using Bennington.Core.Helpers;
 using SimpleCqrs.Eventing;
 
 namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
@@ -26,11 +27,17 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
 		private readonly IContentNodeProviderDraftRepository contentNodeProviderDraftRepository;
 		private readonly ITreeNodeProviderContext treeNodeProviderContext;
 		private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
+		private readonly IApplicationSettingsValueGetter applicationSettingsValueGetter;
+		private IFileSystem fileSystem;
 
 		public ContentNodeProviderDraftDenormalizer(IContentNodeProviderDraftRepository contentNodeProviderDraftRepository,
 													ITreeNodeProviderContext treeNodeProviderContext,
-													ITreeNodeSummaryContext treeNodeSummaryContext)
+													ITreeNodeSummaryContext treeNodeSummaryContext,
+													IApplicationSettingsValueGetter applicationSettingsValueGetter,
+													IFileSystem fileSystem)
 		{
+			this.fileSystem = fileSystem;
+			this.applicationSettingsValueGetter = applicationSettingsValueGetter;
 			this.treeNodeSummaryContext = treeNodeSummaryContext;
 			this.treeNodeProviderContext = treeNodeProviderContext;
 			this.contentNodeProviderDraftRepository = contentNodeProviderDraftRepository;
@@ -148,9 +155,27 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
 
 		public void Handle(PageHeaderImageSetEvent domainEvent)
 		{
+
+			var providerUploadPath = applicationSettingsValueGetter.GetValue("Bennington.ContentTree.Providers.ContentNodeProvider.FileUploadPath");
+			var draftFileUploadPath = applicationSettingsValueGetter.GetValue("Bennington.ContentTree.Providers.ContentNodeProvider.DraftFileUploadPath");
+			var headerImageUploadPath = string.Format(@"{0}{1}\HeaderImage", draftFileUploadPath, domainEvent.AggregateRootId);
+			if (!fileSystem.DirectoryExists(headerImageUploadPath))
+			{
+				fileSystem.CreateFolder(headerImageUploadPath);
+			}
+
 			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
+			try
+			{
+				fileSystem.DeleteFile(string.Format(@"{0}{1}\HeaderImage\{2}", draftFileUploadPath, domainEvent.AggregateRootId, contentNodeProviderDraft.HeaderImage));
+			}
+			catch (Exception) { }
 			contentNodeProviderDraft.HeaderImage = domainEvent.HeaderImage;
 			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+
+			if (string.IsNullOrEmpty(domainEvent.HeaderImage)) return;
+			fileSystem.Copy(string.Format(@"{0}{1}\{3}\HeaderImage\{2}", providerUploadPath, contentNodeProviderDraft.TreeNodeId, domainEvent.HeaderImage, contentNodeProviderDraft.Action), 
+							string.Format(@"{0}{1}\HeaderImage\{2}", draftFileUploadPath, domainEvent.AggregateRootId, domainEvent.HeaderImage));
 		}
 	}
 }

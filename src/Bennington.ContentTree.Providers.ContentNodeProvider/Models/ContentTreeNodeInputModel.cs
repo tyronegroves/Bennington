@@ -45,5 +45,8 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Models
 
 		[DisplayName("Header Image")]
 		public string HeaderImage { get; set; }
+
+		[DisplayName("Remove?")]
+		public bool RemoveHeaderImage { get; set; }
 	}
 }

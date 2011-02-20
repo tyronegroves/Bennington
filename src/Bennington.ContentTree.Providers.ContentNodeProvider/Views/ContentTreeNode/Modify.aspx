@@ -20,7 +20,7 @@
 		<div class="commandButtonContainer">
 			<input type="button" class="button" value="Cancel" onclick="window.location='<%=Url.Action("Index", "ContentTree") %>';" />
 			<input type="button" class="button" value="Save" onclick="$('#ContentTreeNodeInputModel_FormAction').val(this.value);/*tinyMCE.triggerSave();*/$('#form').submit();" />
-			<input type="button" class="button" value="Save And Exit" onclick="$('#ContentTreeNodeInputModel_FormAction').val(this.value);/*tinyMCE.triggerSave();*/$('#form').submit();" />
+			<%--<input type="button" class="button" value="Save And Exit" onclick="$('#ContentTreeNodeInputModel_FormAction').val(this.value);/*tinyMCE.triggerSave();*/$('#form').submit();" />--%>
 			
 			<% if (ViewContext.RouteData.Values["Action"].ToString() == "Modify") { %>
 			<input type="button" class="button important" value="Delete" onclick="if (confirm('Are you sure you want to delete this item?')) { window.location='<%=Url.Action("Delete", "ContentTreeNode", new { treeNodeId = Model.ContentTreeNodeInputModel.TreeNodeId }) %>'; }" />

@@ -39,6 +39,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Blades
 			SimpleCqrs.ServiceLocator.Current.Register<IServiceLocatorWrapper, ServiceLocatorWrapper>();
 			simpleCqrsServiceLocator.Register(context.ServiceLocator.Resolve<ITreeNodeSummaryContext>());
 			simpleCqrsServiceLocator.Register(context.ServiceLocator.Resolve<ITreeNodeProviderContext>());
+			simpleCqrsServiceLocator.Register(context.ServiceLocator.Resolve<IFileSystem>());
 		}
 	}
 }

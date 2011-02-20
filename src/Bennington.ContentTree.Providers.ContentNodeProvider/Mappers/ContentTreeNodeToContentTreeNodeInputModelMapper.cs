@@ -24,6 +24,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Mappers
 		{
 			configuration.CreateMap<ContentTreeNode, ContentTreeNodeInputModel>()
 				.ForMember(dest => dest.FormAction, opt => opt.Ignore())
+				.ForMember(dest => dest.RemoveHeaderImage, opt => opt.Ignore())
 				.ForMember(dest => dest.ParentTreeNodeId, opt => opt.Ignore());
 		}
 

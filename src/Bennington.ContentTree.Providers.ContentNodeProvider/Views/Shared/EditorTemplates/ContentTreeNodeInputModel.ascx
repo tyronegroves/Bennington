@@ -103,7 +103,10 @@
     </div>
 
 	<div class="editor-label">
-        <%: Html.LabelFor(model => model.HeaderImage) %><% if (!string.IsNullOrEmpty(Model.HeaderImage)) { %>: <i><%=Model.HeaderImage %></i><% } %>
+        <%: Html.LabelFor(model => model.HeaderImage) %><% if (!string.IsNullOrEmpty(Model.HeaderImage)) { %>: <i><%=Model.HeaderImage %></i>
+		&nbsp;<%: Html.CheckBoxFor(model => model.RemoveHeaderImage)%> <%: Html.LabelFor(model => model.RemoveHeaderImage) %>
+		<% } %>
+		
     </div>
     <div class="editor-field">
 		<input type="file" name="ContentTreeNodeInputModel_HeaderImage" id="ContentTreeNodeInputModel_HeaderImage" />

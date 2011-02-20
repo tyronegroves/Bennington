@@ -17,6 +17,8 @@ namespace Bennington.Core.Helpers
 		string GetFileContents(string path);
 		void Move(string sourcePath, string destinationPath);
 		FileInformation GetFileInformation(string path);
+		bool FileExists(string path);
+		bool DirectoryExists(string path);
 	}
 
 	public class FileInformation
@@ -27,6 +29,16 @@ namespace Bennington.Core.Helpers
 
 	public class FileSystem : IFileSystem
 	{
+		public bool DirectoryExists(string path)
+		{
+			return Directory.Exists(path);
+		}
+
+		public bool FileExists(string path)
+		{
+			return File.Exists(path);
+		}
+
 		public Stream OpenWrite(string filePath)
 		{
 			return File.OpenWrite(filePath);

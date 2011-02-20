@@ -26,7 +26,10 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Helpers
 		{
 			if (HttpContext.Current.Request.Files.AllKeys.Where(a => a == "ContentTreeNodeInputModel_HeaderImage").Any())
 			{
-				var path = string.Format(@"{0}{1}\{2}\", 
+				if (string.IsNullOrEmpty(HttpContext.Current.Request.Files["ContentTreeNodeInputModel_HeaderImage"].FileName))
+					return;
+
+				var path = string.Format(@"{0}{1}\{2}\HeaderImage\", 
 									getPathToContentTreeNodeProviderFileUploads.GetPath(),
 									treeNodeId, 
 									action);

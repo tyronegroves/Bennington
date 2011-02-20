@@ -155,14 +155,15 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 			if (ModelState.IsValid == false)
 				return View("Modify", new ModifyViewModel() { Action = "Modify", ContentTreeNodeInputModel = contentTreeNodeInputModel });
 
-			if (contentTreeNodeContext.GetContentTreeNodesByTreeId(contentTreeNodeInputModel.TreeNodeId).Where(a => a.Action == contentTreeNodeInputModel.Action).Any())
+			var contentTreeNode = contentTreeNodeContext.GetContentTreeNodesByTreeId(contentTreeNodeInputModel.TreeNodeId).Where(a => a.Action == contentTreeNodeInputModel.Action).FirstOrDefault();
+			if (contentTreeNode != null)
 			{
 				var modifyPageComand = new ModifyPageCommand()
 				{
 					AggregateRootId = new Guid(contentTreeNodeInputModel.PageId),
 					TreeNodeId = new Guid(contentTreeNodeInputModel.TreeNodeId),
 					HeaderText = contentTreeNodeInputModel.HeaderText,
-					HeaderImage = contentTreeNodeInputModel.HeaderImage,
+					HeaderImage = contentTreeNodeInputModel.RemoveHeaderImage ? null : (string.IsNullOrEmpty(contentTreeNodeInputModel.HeaderImage) ? contentTreeNode.HeaderImage : contentTreeNodeInputModel.HeaderImage),
 					Name = contentTreeNodeInputModel.Name,
 					Body = contentTreeNodeInputModel.Body,
 					ParentId = contentTreeNodeInputModel.ParentTreeNodeId,
