@@ -86,7 +86,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			contentTreeNodeController.ModelState.AddModelError("key", "error");
 			var result = contentTreeNodeController.Create(contentTreeNodeInputModel);
 
-			Assert.AreEqual(contentTreeNodeInputModel, ((ContentTreeNodeViewModel)((ViewResult)result).ViewData.Model).ContentTreeNodeInputModel);
+			Assert.AreEqual(contentTreeNodeInputModel, ((ModifyViewModel)((ViewResult)result).ViewData.Model).ContentTreeNodeInputModel);
 		}
 
 		[TestMethod]
@@ -126,7 +126,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			contentTreeNodeController.ModelState.AddModelError("key", "error");
 			var result = contentTreeNodeController.Create(new ContentTreeNodeInputModel());
 
-			Assert.AreEqual("Create", ((ContentTreeNodeViewModel)((ViewResult)result).ViewData.Model).Action);
+			Assert.AreEqual("Create", ((ModifyViewModel)((ViewResult)result).ViewData.Model).Action);
 		}
 
 		[TestMethod]
@@ -306,6 +306,22 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Inactive == contentTreeNodeInputModel.Inactive)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_CreatePageCommand_command_with_correct_HeaderImage_property_value_when_ModelState_is_valid()
+		{
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>())).Returns(new Guid().ToString());
+			var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
+			{
+				ParentTreeNodeId = "2",
+				Type = typeof(string).AssemblyQualifiedName,
+				HeaderImage = "test"
+			};
+
+			mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.HeaderImage == contentTreeNodeInputModel.HeaderImage)), Times.Once());
 		}
 
 		[TestMethod]

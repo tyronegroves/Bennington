@@ -78,7 +78,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		{
 			if (string.IsNullOrEmpty(contentTreeNodeInputModel.Action)) contentTreeNodeInputModel.Action = "Index";
 			if (ModelState.IsValid == false)
-				return View("Modify", new ContentTreeNodeViewModel()
+				return View("Modify", new ModifyViewModel()
 				                      	{
 				                      		ContentTreeNodeInputModel = contentTreeNodeInputModel,
 											Action = "Create",
@@ -92,6 +92,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 									TreeNodeId = new Guid(treeNodeId),
 			                		Body = contentTreeNodeInputModel.Body,
 									HeaderText = contentTreeNodeInputModel.HeaderText,
+									HeaderImage = contentTreeNodeInputModel.HeaderImage,
 									Name = contentTreeNodeInputModel.Name,
 									Sequence = contentTreeNodeInputModel.Sequence,
 									UrlSegment = contentTreeNodeInputModel.UrlSegment,
@@ -116,7 +117,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		[Authorize]
 		public virtual ActionResult Create(string parentTreeNodeId, string providerType)
 		{
-			return View("Modify", new ContentTreeNodeViewModel()
+			return View("Modify", new ModifyViewModel()
 			                      	{
 										Action = "Create",
 			                      		ContentTreeNodeInputModel = new ContentTreeNodeInputModel()
@@ -133,7 +134,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		public virtual ActionResult Modify(ContentTreeNodeInputModel contentTreeNodeInputModel)
 		{
 			if (ModelState.IsValid == false)
-				return View("Modify", new ContentTreeNodeViewModel() { Action = "Modify", ContentTreeNodeInputModel = contentTreeNodeInputModel });
+				return View("Modify", new ModifyViewModel() { Action = "Modify", ContentTreeNodeInputModel = contentTreeNodeInputModel });
 
 			if (contentTreeNodeContext.GetContentTreeNodesByTreeId(contentTreeNodeInputModel.TreeNodeId).Where(a => a.Action == contentTreeNodeInputModel.Action).Any())
 			{
@@ -142,6 +143,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 					AggregateRootId = new Guid(contentTreeNodeInputModel.PageId),
 					TreeNodeId = new Guid(contentTreeNodeInputModel.TreeNodeId),
 					HeaderText = contentTreeNodeInputModel.HeaderText,
+					HeaderImage = contentTreeNodeInputModel.HeaderImage,
 					Name = contentTreeNodeInputModel.Name,
 					Body = contentTreeNodeInputModel.Body,
 					ParentId = contentTreeNodeInputModel.ParentTreeNodeId,
@@ -159,6 +161,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 										PageId = guidGetter.GetGuid(),
 										Body = contentTreeNodeInputModel.Body,
 										HeaderText = contentTreeNodeInputModel.HeaderText,
+										HeaderImage = contentTreeNodeInputModel.HeaderImage,
 										Name = contentTreeNodeInputModel.Name,
 										UrlSegment = contentTreeNodeInputModel.UrlSegment,
 										Action = contentTreeNodeInputModel.Action,
@@ -204,7 +207,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 			                		                        	} 
 										: contentTreeNodeToContentTreeNodeInputModelMapper.CreateInstance(contentTreeNode);
 
-			var viewModel = new ContentTreeNodeViewModel()
+			var viewModel = new ModifyViewModel()
 			                	{
 									Action = "Modify",
 			                		ContentTreeNodeInputModel = contentTreeNodeInputModel,

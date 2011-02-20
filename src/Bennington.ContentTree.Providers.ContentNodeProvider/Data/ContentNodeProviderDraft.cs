@@ -12,6 +12,7 @@
 		public string MetaDescription { get; set; }
 		public string MetaKeyword { get; set; }
 		public string HeaderText { get; set; }
+		public string HeaderImage { get; set; }
 		public string Body { get; set; }
 		public bool Inactive { get; set; }
 		public bool Hidden { get; set; }

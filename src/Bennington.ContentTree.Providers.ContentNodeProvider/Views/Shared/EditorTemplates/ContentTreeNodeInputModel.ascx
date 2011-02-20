@@ -102,6 +102,18 @@
         <%: Html.ValidationMessageFor(model => model.HeaderText) %>
     </div>
 
+	<div class="editor-label">
+        <%: Html.LabelFor(model => model.HeaderImage) %>
+		
+		<% if (!string.IsNullOrEmpty(Model.HeaderImage)) { %>
+		<a href="<%=Model.HeaderImage %>"><%=Model.HeaderImage %></a>
+		<% } %>
+    </div>
+    <div class="editor-field">
+		<input type="file" name="ContentTreeNodeInputModel_HeaderImage" id="ContentTreeNodeInputModel_HeaderImage" />
+        <%: Html.ValidationMessageFor(model => model.HeaderImage)%>
+    </div>
+
     <div class="editor-label">
         <%: Html.LabelFor(model => model.Body) %>
     </div>

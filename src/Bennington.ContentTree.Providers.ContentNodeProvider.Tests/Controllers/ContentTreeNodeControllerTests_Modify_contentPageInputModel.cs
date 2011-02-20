@@ -31,7 +31,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			contentTreeNodeController.ModelState.AddModelError("key", "error");
 			var result = contentTreeNodeController.Modify(new ContentTreeNodeInputModel());
 
-			Assert.AreEqual("Modify", ((ContentTreeNodeViewModel)((ViewResult)result).ViewData.Model).Action);
+			Assert.AreEqual("Modify", ((ModifyViewModel)((ViewResult)result).ViewData.Model).Action);
 		}
 
 		[TestMethod]
@@ -107,7 +107,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			contentTreeNodeController.ModelState.AddModelError("key", "error");
 			var result = contentTreeNodeController.Modify(contentTreeNodeInputModel);
 
-			var contentTreeNodeViewModel = (ContentTreeNodeViewModel)((ViewResult) result).ViewData.Model;
+			var contentTreeNodeViewModel = (ModifyViewModel)((ViewResult) result).ViewData.Model;
 			Assert.AreEqual(contentTreeNodeInputModel, contentTreeNodeViewModel.ContentTreeNodeInputModel);
 		}
 
@@ -349,7 +349,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 		}
 
 		[TestMethod]
-		public void Sends_ModifyPage_command_with_correct_StepId_when_ModelState_is_valid()
+		public void Sends_ModifyPage_command_with_correct_ActionId_when_ModelState_is_valid()
 		{
 			var treeNodeId = Guid.NewGuid();
 			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.GetContentTreeNodesByTreeId(treeNodeId.ToString()))
@@ -371,6 +371,32 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.ActionId == inputModel.Action)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_ModifyPage_command_with_correct_HeaderImage_when_ModelState_is_valid()
+		{
+			var treeNodeId = Guid.NewGuid();
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.GetContentTreeNodesByTreeId(treeNodeId.ToString()))
+				.Returns(new ContentTreeNode[]
+				         	{
+				         		new ContentTreeNode()
+				         			{
+				         				TreeNodeId = treeNodeId.ToString(),
+										Action = "Index",
+				         			}, 
+							});
+			var inputModel = new ContentTreeNodeInputModel()
+			{
+				PageId = Guid.NewGuid().ToString(),
+				TreeNodeId = treeNodeId.ToString(),
+				Action = "Index",
+				HeaderImage = "test"
+			};
+
+			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifyPageCommand>(b => b.HeaderImage == inputModel.HeaderImage)), Times.Once());
 		}
 
 		[TestMethod]
@@ -686,6 +712,31 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.UrlSegment == inputModel.UrlSegment)), Times.Once());
+		}
+
+		[TestMethod]
+		public void Sends_CreatePageCommand_with_correct_HeaderImage_when_attempting_to_modify_a_page_that_does_not_exist()
+		{
+			var treeNodeId = Guid.NewGuid();
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.GetContentTreeNodesByTreeId(treeNodeId.ToString()))
+				.Returns(new ContentTreeNode[]
+				         	{
+				         		new ContentTreeNode()
+				         			{
+				         				TreeNodeId = treeNodeId.ToString(),
+										Action = "Index",
+				         			}, 
+							});
+			var inputModel = new ContentTreeNodeInputModel()
+			{
+				TreeNodeId = treeNodeId.ToString(),
+				Action = "Confirmation",
+				HeaderImage = "test"
+			};
+
+			mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
+
+			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.HeaderImage == inputModel.HeaderImage)), Times.Once());
 		}
 
 		[TestMethod]

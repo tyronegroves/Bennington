@@ -25,6 +25,7 @@ namespace Bennington.ContentTree.Domain.CommandHandlers
 			page.SetBody(command.Body);
 			page.SetName(command.Name);
 			page.SetHeaderText(command.HeaderText);
+			page.SetHeaderImage(command.HeaderImage);
 			page.SetUrlSegment(command.UrlSegment);
 			page.SetMetaTitle(command.MetaTitle);
 			page.SetMetaDescription(command.MetaDescription);

@@ -23,7 +23,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			var contentTreeNodeController = mocker.Resolve<ContentTreeNodeController>();
 			var result = contentTreeNodeController.Create("2", null);
 
-			Assert.AreEqual("2", ((ContentTreeNodeViewModel)((ViewResult)result).ViewData.Model).ContentTreeNodeInputModel.ParentTreeNodeId);
+			Assert.AreEqual("2", ((ModifyViewModel)((ViewResult)result).ViewData.Model).ContentTreeNodeInputModel.ParentTreeNodeId);
 		}
 
 		[TestMethod]
@@ -32,7 +32,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			var contentTreeNodeController = mocker.Resolve<ContentTreeNodeController>();
 			var result = contentTreeNodeController.Create("", null);
 
-			Assert.AreEqual("Create", ((ContentTreeNodeViewModel)((ViewResult)result).ViewData.Model).Action);
+			Assert.AreEqual("Create", ((ModifyViewModel)((ViewResult)result).ViewData.Model).Action);
 		}
 
 		[TestMethod]
@@ -41,7 +41,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			var contentTreeNodeController = mocker.Resolve<ContentTreeNodeController>();
 			var result = contentTreeNodeController.Create("", "provider type");
 
-			Assert.AreEqual("provider type", ((ContentTreeNodeViewModel)((ViewResult)result).ViewData.Model).ContentTreeNodeInputModel.Type);
+			Assert.AreEqual("provider type", ((ModifyViewModel)((ViewResult)result).ViewData.Model).ContentTreeNodeInputModel.Type);
 		}
 	}
 }

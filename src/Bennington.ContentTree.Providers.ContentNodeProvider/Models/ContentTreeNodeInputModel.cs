@@ -42,5 +42,8 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Models
 
 		[DisplayName("Inactive?")]
 		public bool Inactive { get; set; }
+
+		[DisplayName("Header Image")]
+		public string HeaderImage { get; set; }
 	}
 }

@@ -12,6 +12,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Models
 		public string Body { get; set; }
 		public string Action { get; set; }
 		public string HeaderText { get; set; }
+		public string HeaderImage { get; set; }
 		public bool Inactive { get; set; }
 		public bool Hidden { get; set; }
 	}

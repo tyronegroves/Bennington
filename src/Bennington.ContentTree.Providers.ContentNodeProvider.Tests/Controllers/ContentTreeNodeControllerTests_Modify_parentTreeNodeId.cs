@@ -27,7 +27,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			var landingPageController = mocker.Resolve<ContentTreeNodeController>();
 			var result = landingPageController.Modify("", null);
 
-			Assert.AreEqual("Modify", ((ContentTreeNodeViewModel)((ViewResult)result).ViewData.Model).Action);
+			Assert.AreEqual("Modify", ((ModifyViewModel)((ViewResult)result).ViewData.Model).Action);
 		}
 
 		[TestMethod]
@@ -43,7 +43,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			var landingPageController = mocker.Resolve<ContentTreeNodeController>();
 			var result = landingPageController.Modify("1", null);
 
-			var viewModel = (ContentTreeNodeViewModel)((ViewResult)result).ViewData.Model;
+			var viewModel = (ModifyViewModel)((ViewResult)result).ViewData.Model;
 			Assert.AreEqual("Index", viewModel.ContentTreeNodeInputModel.Action);
 		}
 
@@ -59,7 +59,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			var landingPageController = mocker.Resolve<ContentTreeNodeController>();
 			var result = landingPageController.Modify("1", "contentItemId");
 
-			Assert.AreEqual("contentItemId", ((ContentTreeNodeViewModel)((ViewResult)result).ViewData.Model).ContentTreeNodeInputModel.Action);
+			Assert.AreEqual("contentItemId", ((ModifyViewModel)((ViewResult)result).ViewData.Model).ContentTreeNodeInputModel.Action);
 		}
 
 
@@ -118,7 +118,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			var landingPageController = mocker.Resolve<ContentTreeNodeController>();
 			var result = landingPageController.Modify("1", "Index");
 
-			var viewModel = (ContentTreeNodeViewModel)((ViewResult)result).ViewData.Model;
+			var viewModel = (ModifyViewModel)((ViewResult)result).ViewData.Model;
 			Assert.AreEqual("some name", viewModel.ContentTreeNodeInputModel.Name);
 		}
 
@@ -128,7 +128,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			var landingPageController = mocker.Resolve<ContentTreeNodeController>();
 			var result = landingPageController.Modify("0", null);
 
-			var viewModel = (ContentTreeNodeViewModel)((ViewResult)result).ViewData.Model;
+			var viewModel = (ModifyViewModel)((ViewResult)result).ViewData.Model;
 			Assert.AreEqual("0", viewModel.ContentTreeNodeInputModel.TreeNodeId);
 		}
 
@@ -138,7 +138,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			var landingPageController = mocker.Resolve<ContentTreeNodeController>();
 			var result = landingPageController.Modify("0", null);
 
-			var viewModel = (ContentTreeNodeViewModel) ((ViewResult) result).ViewData.Model;
+			var viewModel = (ModifyViewModel) ((ViewResult) result).ViewData.Model;
 			Assert.IsNotNull(viewModel.ContentTreeNodeInputModel);
 		}
 
@@ -148,7 +148,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			var landingPageController = mocker.Resolve<ContentTreeNodeController>();
 			var result = landingPageController.Modify("0", null);
 
-			Assert.IsInstanceOfType(((ViewResult)result).ViewData.Model, typeof(ContentTreeNodeViewModel));
+			Assert.IsInstanceOfType(((ViewResult)result).ViewData.Model, typeof(ModifyViewModel));
 		}
 	}
 }

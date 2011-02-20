@@ -21,7 +21,7 @@ namespace Bennington.ContentTree.Engines.Homepage.Controllers
 
 		public override ActionResult Create(string parentTreeNodeId, string providerType)
 		{
-			return View("Modify", new ContentTreeNodeViewModel()
+			return View("Modify", new ModifyViewModel()
 			{
 				Action = "Create",
 				ContentTreeNodeInputModel = new ContentTreeNodeInputModel()

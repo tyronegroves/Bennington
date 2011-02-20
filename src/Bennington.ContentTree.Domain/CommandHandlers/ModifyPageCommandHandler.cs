@@ -12,6 +12,7 @@ namespace Bennington.ContentTree.Domain.CommandHandlers
 			page.SetBody(command.Body);
 			page.SetName(command.Name);
 			page.SetHeaderText(command.HeaderText);
+			page.SetHeaderImage(command.HeaderImage);
 			page.SetSequence(command.Sequence);
 			page.SetUrlSegment(command.UrlSegment);
 			page.SetActionId(command.ActionId);

@@ -77,6 +77,15 @@ namespace Bennington.ContentTree.Domain.AggregateRoots
 			Apply(new HeaderTextSetEvent() { AggregateRootId = Id, HeaderText = headerText });
 		}
 
+		public void SetHeaderImage(string headerImage)
+		{
+			Apply(new PageHeaderImageSetEvent()
+			      	{
+						AggregateRootId = Id,
+			      		HeaderImage = headerImage,
+			      	});
+		}
+
 		public void SetBody(string body)
 		{
 			Apply(new BodySetEvent() { AggregateRootId = Id, Body = body });
