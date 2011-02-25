@@ -433,9 +433,6 @@
     <Content Include="Target_\test\System.Web.CustomErrors.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Target_\test\CommandBusConfig.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Views\BenningtonPage\Index.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -494,11 +491,6 @@
       <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
       <Name>Bennington.ContentTree</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Target_\Active\CommandBusConfig.config">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Target_\Active\ConnectionStrings.config">
