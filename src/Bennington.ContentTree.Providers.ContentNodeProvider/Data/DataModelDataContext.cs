@@ -20,8 +20,6 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Data
 
 	public class DataModelDataContext : IDataModelDataContext
 	{
-		public const string PathToContentNodeProviderDraftXmlFileAppSettingsKey = "PathToContentNodeProviderDraftXmlFile";
-		public const string PathToContentNodeProviderPublishedVersionXmlFileAppSettingsKey = "PathToContentNodeProviderPublishedVersionXmlFile";
 		private static readonly object _lockObject = "lock";
 		private readonly IXmlFileSerializationHelper xmlFileSerializationHelper;
 		private readonly IGetPathToDataDirectoryService getPathToDataDirectoryService;
