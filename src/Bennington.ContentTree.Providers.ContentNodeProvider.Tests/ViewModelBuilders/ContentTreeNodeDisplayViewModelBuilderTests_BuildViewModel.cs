@@ -54,6 +54,38 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.ViewModelBu
 		}
 
 		[TestMethod]
+		public void Returns_correct_HeaderImage_for_tree_node_url()
+		{
+			mocker.GetMock<ITreeNodeSummaryContext>().Setup(a => a.GetChildren(ContentTreeNodeContext.RootNodeId))
+				.Returns(new TreeNodeSummary[]
+				         	{
+				         		new TreeNodeSummary()
+				         			{
+				         				Id = "1",
+										UrlSegment = "test",
+										ParentTreeNodeId = ContentTreeNodeContext.RootNodeId,
+				         			}, 
+							});
+			mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.GetContentTreeNodesByTreeId("1"))
+				.Returns(new ContentTreeNode[]
+				         	{
+				         		new ContentTreeNode()
+				         			{
+				         				Action = "Index",
+										Body = "page content1",
+										HeaderText = "test1",
+										HeaderImage = "test.jpg"
+				         			}, 
+							});
+			var routeData = new RouteData();
+			routeData.Values.Add("Action", "Index");
+
+			var result = mocker.Resolve<ContentTreeNodeDisplayViewModelBuilder>().BuildViewModel("test", routeData);
+
+			Assert.AreEqual("test.jpg", result.Header);
+		}
+
+		[TestMethod]
 		public void Returns_correct_Header_value_for_second_level_tree_node_url_when_url_case_does_not_match()
 		{
 			mocker.GetMock<ITreeNodeSummaryContext>().Setup(a => a.GetChildren(ContentTreeNodeContext.RootNodeId))

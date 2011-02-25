@@ -49,6 +49,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders
 			              	{
 								Body = item.Body,
 								Header = item.HeaderText,
+								HeaderImage = item.HeaderImage,
 			              	}).FirstOrDefault();
 		}
 

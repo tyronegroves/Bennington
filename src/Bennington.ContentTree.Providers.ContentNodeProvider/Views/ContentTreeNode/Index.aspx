@@ -4,4 +4,6 @@
 
 <h1><%=Model.Header %></h1>
 
+<%=Model.HeaderImage %>
+
 <div><%=Model.Body %></div>
