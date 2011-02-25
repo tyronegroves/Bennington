@@ -82,7 +82,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.ViewModelBu
 
 			var result = mocker.Resolve<ContentTreeNodeDisplayViewModelBuilder>().BuildViewModel("test", routeData);
 
-			Assert.AreEqual("test.jpg", result.Header);
+			Assert.AreEqual("test.jpg", result.HeaderImage);
 		}
 
 		[TestMethod]
