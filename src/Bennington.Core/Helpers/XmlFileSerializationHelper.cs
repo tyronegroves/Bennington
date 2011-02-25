@@ -8,10 +8,34 @@ namespace Bennington.Core.Helpers
 	{
 		void SerializeListToPath<T>(List<T> data, string path);
 		List<T> DeserializeListFromPath<T>(string path);
+		void SerializeToPath<T>(T data, string path);
+		T DeserializeFromPath<T>(string path);
 	}
 
 	public class XmlFileSerializationHelper : IXmlFileSerializationHelper
 	{
+		public void SerializeToPath<T>(T data, string path)
+		{
+			CreateEmptyFileIfItDoesntExist<T>(path);
+
+			var serializer = new XmlSerializer(typeof(T));
+			TextWriter textWriter = new StreamWriter(path);
+			serializer.Serialize(textWriter, data);
+			textWriter.Close();
+		}
+
+		public T DeserializeFromPath<T>(string path)
+		{
+			CreateEmptyFileIfItDoesntExist<T>(path);
+
+			var deserializer = new XmlSerializer(typeof(T));
+			TextReader textReader = new StreamReader(path);
+			var data = (T)deserializer.Deserialize(textReader);
+			textReader.Close();
+
+			return data;
+		}
+
 		public void SerializeListToPath<T>(List<T> data, string path)
 		{
 			CreateEmptyFileIfItDoesntExist<T>(path);

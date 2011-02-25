@@ -48,6 +48,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.ContentTree.Engi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.ContentTree.Engines.Homepage", "Bennington.ContentTree.Engines.Homepage\Bennington.ContentTree.Engines.Homepage.csproj", "{54C47F60-7C15-45DE-8927-EF4BFB8491A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Repository", "Bennington.Repository\Bennington.Repository.csproj", "{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Repository.Tests", "Bennington.Repository.Tests\Bennington.Repository.Tests.csproj", "{267D9740-A5A4-4CDE-98CC-93653DA67982}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Paragon.vsmdi
@@ -133,6 +137,14 @@ Global
 		{54C47F60-7C15-45DE-8927-EF4BFB8491A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54C47F60-7C15-45DE-8927-EF4BFB8491A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54C47F60-7C15-45DE-8927-EF4BFB8491A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{267D9740-A5A4-4CDE-98CC-93653DA67982}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{267D9740-A5A4-4CDE-98CC-93653DA67982}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{267D9740-A5A4-4CDE-98CC-93653DA67982}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{267D9740-A5A4-4CDE-98CC-93653DA67982}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -146,5 +158,6 @@ Global
 		{1C063A2E-BFF8-4D6F-B213-DE61DF65B133} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
 		{EA7FC590-DDE5-47E6-B906-D5E6666F8F1F} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
 		{004B9AE0-CDE2-43B3-8BC2-BD5C6346F0DE} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
+		{267D9740-A5A4-4CDE-98CC-93653DA67982} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
 	EndGlobalSection
 EndGlobal
