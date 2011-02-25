@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Web;
-using Bennington.Core.Helpers;
 
-namespace Bennington.ContentTree.Helpers
+namespace Bennington.Core.Helpers
 {
 	public interface IGetPathToDataDirectoryService
 	{

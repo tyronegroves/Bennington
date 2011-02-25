@@ -51,6 +51,7 @@
     <Compile Include="Helpers\FileSystem.cs" />
     <Compile Include="Helpers\GetCurrentDateTime.cs" />
     <Compile Include="Helpers\GetParentRouteDataDictionaryFromChildActionRouteData.cs" />
+    <Compile Include="Helpers\GetPathToDataDirectoryService.cs" />
     <Compile Include="Helpers\GuidGetter.cs" />
     <Compile Include="Helpers\ApplicationSettingsValueGetter.cs" />
     <Compile Include="Helpers\XmlFileSerializationHelper.cs" />
