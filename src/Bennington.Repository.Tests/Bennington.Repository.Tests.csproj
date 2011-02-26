@@ -48,7 +48,12 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\GetDataPathForTypeTests.cs" />
+    <Compile Include="Helpers\GetNameOfIdPropertyForTypeTests_GetNameOfIdProperty.cs" />
+    <Compile Include="Helpers\GetValueOfIdPropertyForInstanceTests_GetId.cs" />
     <Compile Include="ObjectStoreTests.cs" />
+    <Compile Include="ObjectStoreTests_Delete.cs" />
+    <Compile Include="ObjectStoreTests_GetAll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -40,8 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\GetDataPathForType.cs" />
+    <Compile Include="Helpers\GetNameOfIdPropertyForType.cs" />
     <Compile Include="Helpers\GetValueOfIdPropertyForInstance.cs" />
-    <Compile Include="Helpers\GetRootPathToSerializeObjectTo.cs" />
     <Compile Include="ObjectStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
