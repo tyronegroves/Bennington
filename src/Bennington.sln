@@ -52,6 +52,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Repository", "Be
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Repository.Tests", "Bennington.Repository.Tests\Bennington.Repository.Tests.csproj", "{267D9740-A5A4-4CDE-98CC-93653DA67982}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Cms.PrincipalProvider", "Bennington.Cms.PrincipalProvider\Bennington.Cms.PrincipalProvider.csproj", "{BE0B07EB-DEA9-4CA0-9D0D-E6892A1453B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Cms.PrincipalProvider.Tests", "Bennington.Cms.PrincipalProvider.Tests\Bennington.Cms.PrincipalProvider.Tests.csproj", "{13111C4F-BEC5-431F-802E-B1286E5EE348}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Paragon.vsmdi
@@ -145,6 +149,14 @@ Global
 		{267D9740-A5A4-4CDE-98CC-93653DA67982}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{267D9740-A5A4-4CDE-98CC-93653DA67982}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{267D9740-A5A4-4CDE-98CC-93653DA67982}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE0B07EB-DEA9-4CA0-9D0D-E6892A1453B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE0B07EB-DEA9-4CA0-9D0D-E6892A1453B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE0B07EB-DEA9-4CA0-9D0D-E6892A1453B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE0B07EB-DEA9-4CA0-9D0D-E6892A1453B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13111C4F-BEC5-431F-802E-B1286E5EE348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13111C4F-BEC5-431F-802E-B1286E5EE348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13111C4F-BEC5-431F-802E-B1286E5EE348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13111C4F-BEC5-431F-802E-B1286E5EE348}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -37,10 +37,6 @@
     <Reference Include="FluentValidation">
       <HintPath>..\..\lib\FluentValidation\FluentValidation.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.ObjectBuilder2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lib\Unity\Microsoft.Practices.ObjectBuilder2.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\lib\Unity\Microsoft.Practices.Unity.dll</HintPath>
@@ -52,17 +48,8 @@
     <Reference Include="MvcTurbine">
       <HintPath>..\..\..\lib\Turbine\MvcTurbine.dll</HintPath>
     </Reference>
-    <Reference Include="MvcTurbine.EmbeddedViews">
-      <HintPath>..\..\..\lib\Turbine\MvcTurbine.EmbeddedViews.dll</HintPath>
-    </Reference>
     <Reference Include="MvcTurbine.MembershipProvider">
       <HintPath>..\..\lib\MvcTurbine.MembershipProvider\MvcTurbine.MembershipProvider.dll</HintPath>
-    </Reference>
-    <Reference Include="MvcTurbine.Unity">
-      <HintPath>..\..\..\lib\Turbine\MvcTurbine.Unity.dll</HintPath>
-    </Reference>
-    <Reference Include="MvcTurbine.Web">
-      <HintPath>..\..\..\lib\Turbine\MvcTurbine.Web.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations">
