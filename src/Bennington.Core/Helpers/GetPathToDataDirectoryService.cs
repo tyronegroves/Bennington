@@ -29,10 +29,10 @@ namespace Bennington.Core.Helpers
 			{
 				var z = Directory.GetParent(HttpContext.Current.Server.MapPath("/"));
 				z = Directory.GetParent(z.Parent.FullName);
-				return z.FullName + Path.DirectorySeparatorChar + "localWorkingFolder" + Path.DirectorySeparatorChar + BenningtonContentTreeDataFolderName;
+				return z.FullName + Path.DirectorySeparatorChar + "localWorkingFolder" + Path.DirectorySeparatorChar + BenningtonContentTreeDataFolderName + Path.DirectorySeparatorChar;
 			}
 
-			return System.IO.Directory.GetParent(HttpContext.Current.Server.MapPath("/")).Parent.FullName + System.IO.Path.DirectorySeparatorChar + BenningtonContentTreeDataFolderName;
+			return System.IO.Directory.GetParent(HttpContext.Current.Server.MapPath("/")).Parent.FullName + System.IO.Path.DirectorySeparatorChar + BenningtonContentTreeDataFolderName + Path.DirectorySeparatorChar;
 		}
 	}
 }

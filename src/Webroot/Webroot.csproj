@@ -455,6 +455,10 @@
     <Content Include="Views\Shared\Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bennington.Cms.PrincipalProvider\Bennington.Cms.PrincipalProvider.csproj">
+      <Project>{BE0B07EB-DEA9-4CA0-9D0D-E6892A1453B3}</Project>
+      <Name>Bennington.Cms.PrincipalProvider</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bennington.Cms\Bennington.Cms.csproj">
       <Project>{7516E4A6-54D1-437B-B14A-5EAA25D84730}</Project>
       <Name>Bennington.Cms</Name>

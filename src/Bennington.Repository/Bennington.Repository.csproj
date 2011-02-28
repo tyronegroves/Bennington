@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MvcTurbine, Version=2.1.0.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,6 +45,7 @@
     <Compile Include="Helpers\GetValueOfIdPropertyForInstance.cs" />
     <Compile Include="ObjectStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bennington.Core\Bennington.Core.csproj">

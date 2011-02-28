@@ -36,8 +36,11 @@ namespace Bennington.Repository
 
 		public IEnumerable<T> GetAll()
 		{
+			var path = getDataPathForType.GetPathForDataByType(typeof(T));
+			if (!fileSystem.DirectoryExists(path)) return new T[] { };
+
 			var set = new List<T>();
-			var filePaths = fileSystem.GetFiles(getDataPathForType.GetPathForDataByType(typeof(T)), "*.xml");
+			var filePaths = fileSystem.GetFiles(path, "*.xml");
 			foreach (var filePath in filePaths)
 			{
 				set.Add(xmlFileSerializationHelper.DeserializeFromPath<T>(filePath));

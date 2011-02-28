@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace Bennington.Repository.Tests.Helpers
 
 			var result = mocker.Resolve<GetDataPathForType>().GetPathForDataByType(typeof(string));
 
-			Assert.AreEqual("/path/" + typeof(string).FullName + "/", result);
+			Assert.AreEqual("/path/" + typeof(string).FullName + Path.DirectorySeparatorChar, result);
 		}
 	}
 }

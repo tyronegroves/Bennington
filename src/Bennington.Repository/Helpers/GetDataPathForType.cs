@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Bennington.Core.Helpers;
@@ -22,7 +23,7 @@ namespace Bennington.Repository.Helpers
 
 		public string GetPathForDataByType(Type t)
 		{
-			return getPathToDataDirectoryService.GetPathToDirectory() + t + "/";
+			return getPathToDataDirectoryService.GetPathToDirectory() + t + Path.DirectorySeparatorChar;
 		}
 	}
 }

@@ -6,6 +6,7 @@ using AutoMoq;
 using Bennington.Core.Helpers;
 using Bennington.Repository.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
 namespace Bennington.Repository.Tests
 {
@@ -18,6 +19,8 @@ namespace Bennington.Repository.Tests
 		public void Init()
 		{
 			mocker = new AutoMoqer();
+			mocker.GetMock<IFileSystem>().Setup(a => a.DirectoryExists(It.IsAny<string>()))
+				.Returns(true);
 		}
 
 		[TestMethod]
@@ -51,6 +54,34 @@ namespace Bennington.Repository.Tests
 			Assert.AreEqual(2, results.Count());
 			Assert.AreEqual(1, results.Where(a => a.Id == "1").Count());
 			Assert.AreEqual(1, results.Where(a => a.Id == "2").Count());
+		}
+
+		[TestMethod]
+		public void Returns_empty_set_when_repository_directory_is_not_on_filesystem()
+		{
+			mocker.GetMock<IGetDataPathForType>()
+				.Setup(a => a.GetPathForDataByType(typeof(DataClass)))
+				.Returns("/path/");
+			mocker.GetMock<IFileSystem>().Setup(a => a.DirectoryExists("/path"))
+				.Returns(false);
+
+			var results = mocker.Resolve<ObjectStore<DataClass>>().GetAll();
+
+			Assert.AreEqual(0, results.Count());
+		}
+
+		[TestMethod]
+		public void Does_not_attempt_to_enumerate_files_when_the_folder_does_not_exist_on_the_file_system()
+		{
+			mocker.GetMock<IGetDataPathForType>()
+				.Setup(a => a.GetPathForDataByType(typeof(DataClass)))
+				.Returns("/path/");
+			mocker.GetMock<IFileSystem>().Setup(a => a.DirectoryExists("/path/"))
+				.Returns(false);
+
+			mocker.Resolve<ObjectStore<DataClass>>().GetAll();
+
+			mocker.GetMock<IFileSystem>().Verify(a => a.GetFiles(It.IsAny<string>(), It.IsAny<string>()), Times.Never());
 		}
 	}
 }
