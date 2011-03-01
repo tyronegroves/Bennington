@@ -77,6 +77,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mappers\UserInputModelToUserMapper.cs" />
+    <Compile Include="Mappers\UserToUserInputModelMapper.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\IndexViewModel.cs" />
     <Compile Include="Models\ModifyViewModel.cs" />

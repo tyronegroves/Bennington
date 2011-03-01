@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Bennington.Cms.PrincipalProvider.Models
 {
 	public class UserInputModel
 	{
-		[DisplayName("Username")]
+		[HiddenInput(DisplayValue = false)]
 		public string Id { get; set; }
+
+		[DisplayName("Username")]
+		public string Username { get; set; }
 
 		[DisplayName("First Name")]
 		public string FirstName { get; set; }

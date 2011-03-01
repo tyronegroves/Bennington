@@ -60,9 +60,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\UserControllerTests_Modify.cs" />
+    <Compile Include="Controllers\UserControllerTests_Create.cs" />
+    <Compile Include="Controllers\UserControllerTests_Delete.cs" />
+    <Compile Include="Controllers\UserControllerTests_Modify_post_method.cs" />
     <Compile Include="Controllers\UserControllerTests_Index.cs" />
+    <Compile Include="Controllers\UserControlTests_Modify.cs" />
     <Compile Include="Mappers\UserInputModelToUserMapperTests.cs" />
+    <Compile Include="Mappers\UserToUserInputModelMapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ProcessUserInputModelServiceTests_ProcessAndReturnId.cs" />
     <Compile Include="ViewModelBuilders\IndexViewModelBuilderTests_BuildViewModel.cs" />
@@ -75,6 +79,10 @@
     <ProjectReference Include="..\Bennington.Cms.PrincipalProvider\Bennington.Cms.PrincipalProvider.csproj">
       <Project>{BE0B07EB-DEA9-4CA0-9D0D-E6892A1453B3}</Project>
       <Name>Bennington.Cms.PrincipalProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bennington.Core\Bennington.Core.csproj">
+      <Project>{3DE65C2E-791C-4B05-815F-986782A5153A}</Project>
+      <Name>Bennington.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bennington.Repository\Bennington.Repository.csproj">
       <Project>{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}</Project>

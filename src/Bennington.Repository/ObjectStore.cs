@@ -69,7 +69,7 @@ namespace Bennington.Repository
 
 		public void Delete(string id)
 		{
-			var path = getDataPathForType.GetPathForDataByType(typeof(T)) + "id.xml";
+			var path = getDataPathForType.GetPathForDataByType(typeof(T)) + id + ".xml";
 			if (fileSystem.FileExists(path))
 				fileSystem.DeleteFile(path);
 		}

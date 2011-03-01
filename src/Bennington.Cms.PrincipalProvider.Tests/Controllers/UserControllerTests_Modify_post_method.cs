@@ -14,7 +14,7 @@ using Moq;
 namespace Bennington.Cms.PrincipalProvider.Tests.Controllers
 {
 	[TestClass]
-	public class UserControllerTests_Modify
+	public class UserControllerTests_Modify_post_method
 	{
 		private AutoMoqer mocker;
 
@@ -25,33 +25,40 @@ namespace Bennington.Cms.PrincipalProvider.Tests.Controllers
 		}
 
 		[TestMethod]
-		public void Returns_correct_view_name()
+		public void Returns_correct_view_name_when_model_state_is_not_valid()
 		{
-			var result = mocker.Resolve<UserController>().Modify(null) as ViewResult;
+			var controller = mocker.Resolve<UserController>();
+			controller.ModelState.AddModelError("key", "error");
+
+			var result = controller.Modify(new UserInputModel()) as ViewResult;
 
 			Assert.AreEqual("Modify", result.ViewName);
 		}
 
 		[TestMethod]
-		public void Returns_view_from_view_model_builder()
+		public void Returns_view_from_view_model_builder_when_model_state_is_not_valid()
 		{
 			mocker.GetMock<IModifyViewModelBuilder>()
 				.Setup(a => a.BuildViewModel(It.IsAny<UserInputModel>()))
 				.Returns(new ModifyViewModel());
+			var controller = mocker.Resolve<UserController>();
+			controller.ModelState.AddModelError("key", "error");
 
-			var result = mocker.Resolve<UserController>().Modify(null) as ViewResult;
+			var result = controller.Modify((UserInputModel) null) as ViewResult;
 
 			Assert.IsNotNull(result.ViewData.Model as ModifyViewModel);
 		}
 
 		[TestMethod]
-		public void Passes_input_model_into_view_model_builder()
+		public void Passes_input_model_into_view_model_builder_when_model_state_is_not_valid()
 		{
 			mocker.GetMock<IModifyViewModelBuilder>()
 				.Setup(a => a.BuildViewModel(It.IsAny<UserInputModel>()))
 				.Returns(new ModifyViewModel());
+			var controller = mocker.Resolve<UserController>();
+			controller.ModelState.AddModelError("key", "error");
 
-			mocker.Resolve<UserController>().Modify(new UserInputModel()
+			controller.Modify(new UserInputModel()
 			                                        	{
 			                                        		FirstName = "test",
 			                                        	});
@@ -74,6 +81,18 @@ namespace Bennington.Cms.PrincipalProvider.Tests.Controllers
 
 			mocker.GetMock<IProcessUserInputModelService>()
 				.Verify(a => a.ProcessAndReturnId(It.Is<UserInputModel>(b => b.Id == "test")), Times.Once());
+		}
+
+		[TestMethod]
+		public void Returns_redirect_to_Modify_action_when_model_state_is_valid()
+		{
+			mocker.GetMock<IModifyViewModelBuilder>()
+				.Setup(a => a.BuildViewModel(It.IsAny<UserInputModel>()))
+				.Returns(new ModifyViewModel());
+
+			var result = mocker.Resolve<UserController>().Modify(new UserInputModel()) as RedirectToRouteResult;
+
+			Assert.IsNotNull(result);
 		}
 
 		[TestMethod]

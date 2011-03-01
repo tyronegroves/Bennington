@@ -7,7 +7,7 @@
 		<ul>
 		<% foreach(var user in Model.Users) { %>
 	
-			<li><%=Html.ActionLink(user.Id, "Modify", user, null) %></li>
+			<li><%=Html.ActionLink(user.Username, "Modify", new { Id = user.Id }, null) %></li>
 
 		<% } %>
 		</ul>
@@ -19,7 +19,7 @@
 	<% } %>
 
 	<p>
-		<%=Html.ActionLink("Create", "Modify") %>
+		<%=Html.ActionLink("Create", "Create") %>
 	</p>
 
 </div>
