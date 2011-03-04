@@ -14,7 +14,18 @@ namespace Bennington.Cms.PrincipalProvider.Encryption
 	{
 		public string Encrypt(string s)
 		{
-			throw new NotImplementedException();
+			return HashString(s);
+		}
+
+		private string HashString(string Value)
+		{
+			var md5CryptoServiceProvider = new System.Security.Cryptography.MD5CryptoServiceProvider();
+			var data = System.Text.Encoding.ASCII.GetBytes(Value);
+			data = md5CryptoServiceProvider.ComputeHash(data);
+			var ret = "";
+			for (var i = 0; i < data.Length; i++)
+				ret += data[i].ToString("x2").ToLower();
+			return ret;
 		}
 	}
 }

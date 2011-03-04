@@ -22,7 +22,7 @@ namespace Bennington.Cms.PrincipalProvider
 			var user = userRepository.GetAll().Where(a => a.Username == userId).FirstOrDefault();
 			if (user != null)
 			{
-				if (encryptionService.Encrypt(user.Password) == password)
+				if (user.Password == encryptionService.Encrypt(password))
 					return new PrincipalProviderResult
 					{
 						Principal = new GenericPrincipal(new GenericIdentity(user.Username), new string[] { })

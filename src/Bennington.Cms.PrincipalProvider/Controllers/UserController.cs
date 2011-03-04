@@ -21,7 +21,7 @@ namespace Bennington.Cms.PrincipalProvider.Controllers
     	private readonly IProcessUserInputModelService processUserInputModelService;
     	private readonly IUserRepository userRepository;
     	private readonly IUserToUserInputModelMapper userToUserInputModelMapper;
-    	private IGuidGetter guidGetter;
+    	private readonly IGuidGetter guidGetter;
 
     	public UserController(IIndexViewModelBuilder indexViewModelBuilder,
 								IModifyViewModelBuilder modifyViewModelBuilder,

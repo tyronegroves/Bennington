@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/ManageSite.Master" Inherits="System.Web.Mvc.ViewPage<Bennington.Cms.Models.LogOnModel>" %>
 
 <asp:Content ID="loginTitle" ContentPlaceHolderID="TitleContent" runat="server">
-    Log On
+    Login
 </asp:Content>
 
 <asp:Content ID="loginContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -26,11 +26,6 @@
                     <%= Html.PasswordFor(m => m.Password) %>
                     <%= Html.ValidationMessageFor(m => m.Password) %>
                 </div>
-                
-                <%--<div class="editor-label">
-                    <%= Html.CheckBoxFor(m => m.RememberMe) %>
-                    <%= Html.LabelFor(m => m.RememberMe) %>
-                </div>--%>
                 
                 <p>
                     <input type="submit" value="Login" />

@@ -54,6 +54,7 @@ namespace Bennington.Cms.PrincipalProvider.Tests
 		[TestMethod]
 		public void Returns_null_principal_when_user_id_matches_but_password_doesnt()
 		{
+			mocker.GetMock<IEncryptionService>().Setup(a => a.Encrypt("z")).Returns("z");
 			mocker.GetMock<IUserRepository>().Setup(a => a.GetAll())
 				.Returns(new User[]
 				         	{
@@ -64,9 +65,27 @@ namespace Bennington.Cms.PrincipalProvider.Tests
 				         			}, 
 							});
 
-			var result = mocker.Resolve<PrincipalProvider>().GetPrincipal("user", "test");
+			var result = mocker.Resolve<PrincipalProvider>().GetPrincipal("user", "z");
 
 			Assert.IsNull(result.Principal);
+		}
+
+		[TestMethod]
+		public void Passes_password_passed_into_method_into_IEncryptionService()
+		{
+			mocker.GetMock<IUserRepository>().Setup(a => a.GetAll())
+				.Returns(new User[]
+				         	{
+				         		new User()
+				         			{
+				         				Username = "user",
+										Password = "password",
+				         			}, 
+							});
+
+			mocker.Resolve<PrincipalProvider>().GetPrincipal("user", "passwordtest");
+
+			mocker.GetMock<IEncryptionService>().Verify(a => a.Encrypt("passwordtest"), Times.Once());
 		}
 
 	}
