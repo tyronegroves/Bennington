@@ -33,7 +33,7 @@
 		});
 	</script>
 
-    <div id="pageheader" class="clearfix">
+    <div id="pageheader" class="clearfix" style="padding-top:50px;">
                 
         <%--<h1>Content Tree</h1>--%>
 

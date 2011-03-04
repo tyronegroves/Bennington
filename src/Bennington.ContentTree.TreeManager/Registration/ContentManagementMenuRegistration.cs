@@ -4,7 +4,7 @@ using MvcTurbine.ComponentModel;
 
 namespace Bennington.ContentTree.TreeManager.Registration
 {
-	public class ContentManagementMenuRegistration : IAmAnIconMenuItem, IAmASectionMenuItem, IServiceRegistration
+	public class ContentManagementMenuRegistration : IAmAnIconMenuItem, IServiceRegistration
 	{
 		public string Name 
 		{ 
@@ -12,8 +12,8 @@ namespace Bennington.ContentTree.TreeManager.Registration
 		}
 		
 		public string IconUrl 
-		{ 
-			get { return "/Canvas/Top-Menu-Bg.gif"; }
+		{
+			get { return "/Content/Canvas/ContentTreeManagementIcon.gif"; }
 		}
 		
 		public string Controller
@@ -34,7 +34,6 @@ namespace Bennington.ContentTree.TreeManager.Registration
 		public void Register(IServiceLocator locator)
 		{
 			locator.Register<IAmAnIconMenuItem, ContentManagementMenuRegistration>(Guid.NewGuid().ToString());
-			locator.Register<IAmASectionMenuItem, ContentManagementMenuRegistration>(Guid.NewGuid().ToString());
 		}
 	}
 }

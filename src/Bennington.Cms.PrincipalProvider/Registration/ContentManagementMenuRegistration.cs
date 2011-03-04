@@ -4,13 +4,18 @@ using MvcTurbine.ComponentModel;
 
 namespace Bennington.Cms.PrincipalProvider.Registration
 {
-	public class ContentManagementMenuRegistration : IAmASectionMenuItem, IServiceRegistration
+	public class ContentManagementMenuRegistration : IAmAnIconMenuItem, IServiceRegistration
 	{
 		public string Name 
 		{ 
 			get { return "User Management"; }
 		}
-		
+
+		public string IconUrl
+		{
+			get { return "/Content/Canvas/UserManagementIcon.gif"; }
+		}
+
 		public string Controller
 		{
 			get { return "User"; }
@@ -28,7 +33,7 @@ namespace Bennington.Cms.PrincipalProvider.Registration
 
 		public void Register(IServiceLocator locator)
 		{
-			locator.Register<IAmASectionMenuItem, ContentManagementMenuRegistration>(Guid.NewGuid().ToString());
+			locator.Register<IAmAnIconMenuItem, ContentManagementMenuRegistration>(Guid.NewGuid().ToString());
 		}
 	}
 }

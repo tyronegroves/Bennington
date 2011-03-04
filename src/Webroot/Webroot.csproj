@@ -146,12 +146,14 @@
   <ItemGroup>
     <Content Include="Content\Canvas\Body-Bg.gif" />
     <Content Include="Content\Canvas\Button-Highlight.gif" />
+    <Content Include="Content\Canvas\ContentTreeManagementIcon.gif" />
     <Content Include="Content\Canvas\Divider.gif" />
     <Content Include="Content\Canvas\Highlight-Content.gif" />
     <Content Include="Content\Canvas\Logo.gif" />
     <Content Include="Content\Canvas\Tabs-Bg.gif" />
     <Content Include="Content\Canvas\Top-Menu-Bg.gif" />
     <Content Include="Content\Canvas\Top-Menu-Icons.gif" />
+    <Content Include="Content\Canvas\UserManagementIcon.gif" />
     <Content Include="Content\JSTree\Content-Tree-Bg.gif" />
     <Content Include="Content\JSTree\d.png" />
     <Content Include="Content\JSTree\dot_for_ie.gif" />
