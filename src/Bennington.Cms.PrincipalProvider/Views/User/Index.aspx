@@ -3,7 +3,23 @@
 <%@ Import Namespace="MvcContrib.UI.Grid" %>
 <%@ Import Namespace="Bennington.Cms.PrincipalProvider.Models" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<div style="padding-top:40px;">
+
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function () {
+		$('#gridView').dataTable();
+	});
+</script>
+
+<style>
+#gridView { width: 100%; clear:both; margin-top:10px; }
+#gridView th { text-align: left; }
+#gridView_filter { float:left; clear:none; }
+#gridView_length { clear:none; float:right; }
+#container { width: 600px; }
+</style>
+
+
+<div id="gridContainer" style="padding-top:40px;">
 
 	<% if (Model.Users.Count() > 0) { %>
 
@@ -14,7 +30,7 @@
 			   column.For(c => c.FirstName);
 			   column.For(c => c.LastName);
 			   column.For(c => c.Email);
-		   }).Attributes(id => Model.Users.GetType().FullName + "Grid").Render();
+		   }).Attributes(id => "gridView").Render();
 		%>
 
 	<% } %>
@@ -23,7 +39,7 @@
 	No items found.
 	<% } %>
 
-	<p>
+	<p style="padding-top:20px;">
 		<input type="button" onclick="window.location='<%=Url.Action("Create") %>';" value="Create" class="button">
 	</p>
 
