@@ -21,6 +21,8 @@ namespace Bennington.Cms.PrincipalProvider.Models
 		[DisplayName("Last Name")]
 		public string LastName { get; set; }
 
+		public string Email { get; set; }
+
 		public string Password { get; set; }
 
 		[DisplayName("Confirm Password")]
