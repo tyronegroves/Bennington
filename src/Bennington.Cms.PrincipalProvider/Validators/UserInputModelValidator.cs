@@ -12,7 +12,7 @@ namespace Bennington.Cms.PrincipalProvider.Validators
 	{
 		public UserInputModelValidator()
 		{
-			RuleFor(a => a.Id).Must(b => !string.IsNullOrEmpty(b));
+			RuleFor(a => a.Username).Must(b => !string.IsNullOrEmpty(b));
 			RuleFor(a => a.Password).Must(b => !string.IsNullOrEmpty(b));
 		}
 

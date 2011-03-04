@@ -39,6 +39,7 @@
     <Reference Include="AutoMoq">
       <HintPath>..\..\lib\AutoMoq\AutoMoq.dll</HintPath>
     </Reference>
+    <Reference Include="FluentValidation, Version=1.2.0.0, Culture=neutral, PublicKeyToken=a82054b837897c66, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MvcTurbine.MembershipProvider, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -74,6 +75,7 @@
     <Compile Include="PrincipalProviderTests_GetPrincipal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ProcessUserInputModelServiceTests_ProcessAndReturnId.cs" />
+    <Compile Include="Validators\UserInputModelValidatorTests.cs" />
     <Compile Include="ViewModelBuilders\IndexViewModelBuilderTests_BuildViewModel.cs" />
     <Compile Include="ViewModelBuilders\ModifyViewModelBuilderTests_BuildViewModel.cs" />
   </ItemGroup>
