@@ -11,7 +11,7 @@ namespace Bennington.Core.Helpers
 	public class GetPathToDataDirectoryService : IGetPathToDataDirectoryService
 	{
 		private readonly IApplicationSettingsValueGetter applicationSettingsValueGetter;
-		private const string BenningtonContentTreeDataFolderName = "BenningtonContentTreeData";
+		private const string BenningtonContentTreeDataFolderName = "BenningtonData";
 
 		public GetPathToDataDirectoryService(IApplicationSettingsValueGetter applicationSettingsValueGetter)
 		{
