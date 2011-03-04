@@ -4,11 +4,11 @@ body {
     background: #c9d7de url(Canvas/Body-Bg.gif) top repeat-x;
 }
 #canvas { width: 915px; margin: 0 auto; }
-
+.contentNodeProviderForm { margin-top:60px;}
 #header { margin: 0 0 15px; }
 #header #title { padding: 15px 0 10px 0; float: left; }
 #header a { color: #fff; }
-#header ul, #header ul li { margin: 0; padding: 0; list-style-type: none; }
+#header ul, #header ul li { margin: 0; padding: 0 0 0 3px; list-style-type: none;  }
 #header ul li, #header ul li a { float: left; }
 #header #topmenucontainer { float: right; height: 40px; }
 #header #logindisplay { color: #bdd6e4; float: right; clear: right; font-size: .9em; width: 450px; text-align: right; }
@@ -24,6 +24,7 @@ body {
     height: 24px;
     margin: 0 0 8px;
     overflow: hidden;
+    padding-top:3px;
     /*background: url(Canvas/Top-Menu-Icons.gif) 5px 3px no-repeat;*/
     /*text-indent: -9999px;*/
 }
