@@ -16,14 +16,13 @@
 
 	<% using (Html.BeginForm(Model.Action, "ContentTreeSectionNode", FormMethod.Post, new { Id = "form" })) { %>
 
-	<div class="crudFormContainer">
+	<div class="contentNodeProviderForm">
 
 		<%=Html.EditorFor(x => x.ContentTreeSectionInputModel) %>		
 
 		<div class="commandButtonContainer">
 			<input type="button" class="button" value="Cancel" onclick="window.location='<%=Url.Action("Index", "ContentTree") %>';" />
 			<input type="button" class="button" value="Save" onclick="$('#ContentTreeSectionInputModel_Action').val(this.value);/*tinyMCE.triggerSave();*/$('#form').submit();" />
-			<input type="button" class="button" value="Save And Exit" onclick="$('#ContentTreeSectionInputModel_Action').val(this.value);/*tinyMCE.triggerSave();*/$('#form').submit();" />
 			<input type="button" class="button important" value="Delete" onclick="if (confirm('Are you sure you want to delete this item?')) { window.location='<%=Url.Action("Delete", "ContentTreeSectionNode", new { treeNodeId = Model.ContentTreeSectionInputModel.TreeNodeId }) %>'; }" />
 		</div>
 	</div>

@@ -34,12 +34,8 @@
     <Reference Include="AutoMapperAssist">
       <HintPath>..\..\lib\AutoMapperAssist\AutoMapperAssist.dll</HintPath>
     </Reference>
-    <Reference Include="Deg.Alt.FluentValidation">
-      <HintPath>..\..\lib\Deg.Alt.FluentValidation\Deg.Alt.FluentValidation.dll</HintPath>
-    </Reference>
-    <Reference Include="FluentValidation, Version=1.2.0.0, Culture=neutral, PublicKeyToken=a82054b837897c66, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\Deg.Alt.FluentValidation\FluentValidation.dll</HintPath>
+    <Reference Include="FluentValidation">
+      <HintPath>..\..\lib\FluentValidation\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Build.Engine" />
     <Reference Include="MvcTurbine">

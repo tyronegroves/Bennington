@@ -34,9 +34,6 @@
     <Reference Include="AutoMapperAssist">
       <HintPath>..\..\lib\AutoMapperAssist\AutoMapperAssist.dll</HintPath>
     </Reference>
-    <Reference Include="Deg.Alt.FluentValidation">
-      <HintPath>..\..\lib\Deg.Alt.FluentValidation\Deg.Alt.FluentValidation.dll</HintPath>
-    </Reference>
     <Reference Include="FluentValidation">
       <HintPath>..\..\lib\Deg.Alt.FluentValidation\FluentValidation.dll</HintPath>
     </Reference>
