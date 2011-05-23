@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Bennington.Core")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("DEG")]
+[assembly: AssemblyCompany("Microsoft")]
 [assembly: AssemblyProduct("Bennington.Core")]
-[assembly: AssemblyCopyright("Copyright © DEG 2010")]
+[assembly: AssemblyCopyright("Copyright © Microsoft 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("cd8a64f3-daea-40a6-8629-eaf0a8d6aae1")]
+[assembly: Guid("7c513556-18e9-473d-9206-ecbb89201b44")]
 
 // Version information for an assembly consists of the following four values:
 //

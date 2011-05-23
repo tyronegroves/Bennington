@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8EEFC35E-7566-4D96-93A7-87CD90AEA666}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webroot", "Webroot\Webroot.csproj", "{1DDF21A7-EEBA-492F-98A4-57D7C4D88A99}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DFC14331-BCBC-42B9-8EE8-E781D24CEACF}"
 	ProjectSection(SolutionItems) = preProject
 		Local.testsettings = Local.testsettings
@@ -12,17 +10,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Core", "Bennington.Core\Bennington.Core.csproj", "{3DE65C2E-791C-4B05-815F-986782A5153A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Core.Tests", "Bennington.Core.Tests\Bennington.Core.Tests.csproj", "{39B12768-97F9-4521-BD44-25C261CA3FFB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Cms", "Bennington.Cms\Bennington.Cms.csproj", "{7516E4A6-54D1-437B-B14A-5EAA25D84730}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Cms.Tests", "Bennington.Cms.Tests\Bennington.Cms.Tests.csproj", "{474349E9-716F-4336-8BBC-4D62346731A7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Repository", "Bennington.Repository\Bennington.Repository.csproj", "{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Repository.Tests", "Bennington.Repository.Tests\Bennington.Repository.Tests.csproj", "{267D9740-A5A4-4CDE-98CC-93653DA67982}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Cms", "Bennington.Cms\Bennington.Cms.csproj", "{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Core", "Bennington.Core\Bennington.Core.csproj", "{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -33,42 +25,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1DDF21A7-EEBA-492F-98A4-57D7C4D88A99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DDF21A7-EEBA-492F-98A4-57D7C4D88A99}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1DDF21A7-EEBA-492F-98A4-57D7C4D88A99}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1DDF21A7-EEBA-492F-98A4-57D7C4D88A99}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3DE65C2E-791C-4B05-815F-986782A5153A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3DE65C2E-791C-4B05-815F-986782A5153A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3DE65C2E-791C-4B05-815F-986782A5153A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3DE65C2E-791C-4B05-815F-986782A5153A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7516E4A6-54D1-437B-B14A-5EAA25D84730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7516E4A6-54D1-437B-B14A-5EAA25D84730}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7516E4A6-54D1-437B-B14A-5EAA25D84730}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7516E4A6-54D1-437B-B14A-5EAA25D84730}.Release|Any CPU.Build.0 = Release|Any CPU
-		{474349E9-716F-4336-8BBC-4D62346731A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{474349E9-716F-4336-8BBC-4D62346731A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{474349E9-716F-4336-8BBC-4D62346731A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{474349E9-716F-4336-8BBC-4D62346731A7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{267D9740-A5A4-4CDE-98CC-93653DA67982}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{267D9740-A5A4-4CDE-98CC-93653DA67982}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{267D9740-A5A4-4CDE-98CC-93653DA67982}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{267D9740-A5A4-4CDE-98CC-93653DA67982}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DFC14331-BCBC-42B9-8EE8-E781D24CEACF} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
-		{39B12768-97F9-4521-BD44-25C261CA3FFB} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
-		{474349E9-716F-4336-8BBC-4D62346731A7} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
-		{267D9740-A5A4-4CDE-98CC-93653DA67982} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
 	EndGlobalSection
 EndGlobal

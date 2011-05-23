@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Bennington.Repository</RootNamespace>
     <AssemblyName>Bennington.Repository</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,7 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MvcTurbine, Version=2.1.0.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL" />
+    <Reference Include="MvcTurbine, Version=3.2.0.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MVCTurbine.3.2\lib\MvcTurbine.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcTurbine.Web">
+      <HintPath>..\packages\MVCTurbine.3.2\lib\MvcTurbine.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,9 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bennington.Core\Bennington.Core.csproj">
-      <Project>{3DE65C2E-791C-4B05-815F-986782A5153A}</Project>
+      <Project>{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}</Project>
       <Name>Bennington.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

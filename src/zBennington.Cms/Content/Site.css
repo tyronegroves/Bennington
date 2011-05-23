@@ -1,0 +1,131 @@
+﻿@import url(Reset.css);
+
+body {
+    background: #c9d7de url(Canvas/Body-Bg.gif) top repeat-x;
+}
+#canvas { width: 915px; margin: 0 auto; }
+
+#header { margin: 0 0 15px; }
+#header #title { padding: 15px 0 10px 0; float: left; }
+#header a { color: #fff; }
+#header ul, #header ul li { margin: 0; padding: 0; list-style-type: none; }
+#header ul li, #header ul li a { float: left; }
+#header #topmenucontainer { float: right; height: 40px; }
+#header #logindisplay { color: #bdd6e4; float: right; clear: right; font-size: .9em; width: 450px; text-align: right; }
+
+#header #topmenucontainer li {
+    width: 36px;
+    background: url(Canvas/Top-Menu-Bg.gif) bottom left no-repeat;
+}
+#header #topmenucontainer li a { 
+    display: block; 
+    float: none;
+    width: 28px;
+    height: 24px;
+    margin: 0 0 8px;
+    overflow: hidden;
+    background: url(Canvas/Top-Menu-Icons.gif) 5px 3px no-repeat;
+    text-indent: -9999px;
+}
+#header #topmenucontainer li a:hover { margin-top: 4px; }
+#header #topmenucontainer li.menuItem1 a { background-position: 7px 3px; }
+#header #topmenucontainer li.menuItem2 a { background-position: -31px 3px; }
+#header #topmenucontainer li.menuItem3 a { background-position: -68px 3px; }
+#header #topmenucontainer li.menuItem4 a { background-position: -106px 3px; }
+#header #topmenucontainer li.menuItem5 a { background-position: -142px 3px; }
+#header #topmenucontainer li.menuItem6 a { background-position: -180px 3px; }
+#header #topmenucontainer li.menuItem7 a { background-position: -217px 3px; }
+
+
+#header #menucontainer { clear: both; }
+#header #menucontainer ul { position: relative; left: -10px; }
+#header #menucontainer ul li a { 
+    font-size: 1.2em; text-decoration: none; display: block; 
+    padding: 14px 10px;
+    border-top: 2px solid #3489BA;
+}
+#header #menucontainer ul li a:hover { background: #4b96c1; border-color: #529bc4; }
+#header #menucontainer ul li.selected a { font-weight: bold; background: #5ca0c8; border-color: #63a4ca; }
+
+#header #submenucontainer { clear: both; padding: 15px 0; background: url(Canvas/Divider.gif) bottom left repeat-x; }
+#header #submenucontainer li { margin: 0 20px 0 0; }
+#header #submenucontainer li a { color: #dc7316; }
+#header #submenucontainer li.selected a { color: #85bc65; font-weight: bold; }
+
+#main { clear: both; }
+
+#pageheader { padding-bottom: 15px; margin-bottom: 2px; }
+#pageheader p { margin: 0; }
+#pageheader h1 { margin: 0 0 .5em; }
+#pageheader h1, #pageheader .meta { float: left; }
+#pageheader .meta { clear: left; }
+#pageheader .search { float: right; }
+
+div.section:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+div.section { background: #fff url(Canvas/Divider.gif) top left repeat-x; padding-top: 2px; zoom: 1; }
+div.section .content { padding: 15px; }
+div.section h2 { background: #e3e9ec; margin: 0; font-size: 13px; color: #848484; padding: 6px 10px; border-top: 2px solid #ecf0f2; }
+div.highlight {
+    background-image: url(Canvas/Highlight-Content.gif);
+    background-repeat: repeat-x;
+    background-position: bottom;
+}
+div.section .contentTree { float: left; width: 100%; /*550px;*/ }
+div.section .contentTreePreview { 
+    float: right; width: 363px;  
+}
+.contentTreeContainer { background: url(Canvas/Divider.gif) 550px 0 repeat-y; }
+
+input.button {
+    padding: 0;
+    margin: 0;
+    border: 1px solid #818181;
+    color: #fff;
+    background: #266fa2 url(Canvas/Button-Highlight.gif) top repeat-x;
+    font-size: 12px;
+    line-height: 13px;
+    padding: 3px 5px;
+    font-family: Arial, Verdana;
+    overflow: visible;
+    cursor: pointer;
+}
+input.important { background-color: #dc6d00; background-position: 0 -198px; }
+
+ul.tabs:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+ul.tabs, ul.tabs li { margin: 0; list-style-type: none; padding: 0; }
+ul.tabs { zoom: 1; background: url(Canvas/Tabs-Bg.gif) top repeat-x; padding: 5px 5px 0; }
+ul.tabs li { float: left; }
+ul.tabs li a { display: block; padding: 10px; color: #747474; }
+ul.tabs li.active a { background: #fff; color: #85bc65; font-weight: bold; }
+
+.jstree-default a.noicon .jstree-icon
+{
+	background-image:none;
+}
+
+/* form elements */
+.inputGroupContainer 
+{
+	width:auto;
+	clear:both;
+	margin-bottom:25px;
+}
+.inputLabelContainer
+{
+}
+.inputEditorContainer
+{
+	float:right;
+}
+.validationMessageContainer
+{
+	clear:right;
+}
+.crudFormContainer
+{
+	width:100%;
+}
+.commandButtonContainer
+{
+	clear:both;
+}

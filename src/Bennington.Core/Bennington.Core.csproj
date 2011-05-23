@@ -5,14 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3DE65C2E-791C-4B05-815F-986782A5153A}</ProjectGuid>
+    <ProjectGuid>{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Bennington.Core</RootNamespace>
     <AssemblyName>Bennington.Core</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Bennington.Core.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,53 +31,41 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MvcTurbine">
-      <HintPath>..\..\lib\Turbine\MvcTurbine.dll</HintPath>
+    <Reference Include="MvcTurbine, Version=3.2.0.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
+      <HintPath>..\packages\MVCTurbine.3.2\lib\MvcTurbine.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcTurbine.Web, Version=3.2.0.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
+      <HintPath>..\packages\MVCTurbine.3.2\lib\MvcTurbine.Web.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\EntityConnectionInformation.cs" />
+    <Compile Include="Helpers\ApplicationSettingsValueGetter.cs" />
     <Compile Include="Helpers\FileSystem.cs" />
     <Compile Include="Helpers\GetCurrentDateTime.cs" />
     <Compile Include="Helpers\GetParentRouteDataDictionaryFromChildActionRouteData.cs" />
     <Compile Include="Helpers\GetPathToDataDirectoryService.cs" />
     <Compile Include="Helpers\GuidGetter.cs" />
-    <Compile Include="Helpers\ApplicationSettingsValueGetter.cs" />
     <Compile Include="Helpers\XmlFileSerializationHelper.cs" />
-    <Compile Include="MenuSystem\IAmASectionMenuItem.cs" />
     <Compile Include="MenuSystem\IAmAnIconMenuItem.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Registration\InterfaceToSingleImplementationRegistrationConvention.cs" />
+    <Compile Include="MenuSystem\IAmASectionMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration\InterfaceToSingleImplementationRegistrationConvention.cs" />
     <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
     <Compile Include="ServiceLocatorWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,11 +1,13 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<System.Web.Mvc.HandleErrorInfo>" %>
+﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 
-<asp:Content ID="errorTitle" ContentPlaceHolderID="TitleContent" runat="server">
-    Error
-</asp:Content>
-
-<asp:Content ID="errorContent" ContentPlaceHolderID="MainContent" runat="server">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error</title>
+</head>
+<body>
     <h2>
         Sorry, an error occurred while processing your request.
     </h2>
-</asp:Content>
+</body>
+</html>

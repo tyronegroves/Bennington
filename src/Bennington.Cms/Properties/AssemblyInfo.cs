@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Bennington.Cms")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("DEG")]
+[assembly: AssemblyCompany("Microsoft")]
 [assembly: AssemblyProduct("Bennington.Cms")]
-[assembly: AssemblyCopyright("Copyright © DEG 2010")]
+[assembly: AssemblyCopyright("Copyright © Microsoft 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4f687ca7-f377-472a-93d4-213d7c8b5b84")]
+[assembly: Guid("a22cdd5d-89c6-48f3-84e6-53d288cb96a9")]
 
 // Version information for an assembly consists of the following four values:
 //
