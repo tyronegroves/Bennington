@@ -11,7 +11,7 @@ namespace Bennington.Cms.Routing
             routes.MapRoute(
                 null,
                 "Manage",
-                new {controller = "TreeManager", action = "Index"}
+                new {controller = "EmptyDashboard", action = "Index"}
                 );
         }
     }

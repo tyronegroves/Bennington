@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EmptyDashboardController.cs" />
     <Compile Include="Controllers\MenuSystemController.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\SectionMenuViewModel.cs" />
@@ -350,6 +351,7 @@
     <EmbeddedResource Include="Views\Account\ChangePasswordSuccess.aspx" />
     <EmbeddedResource Include="Views\Account\LogOn.aspx" />
     <EmbeddedResource Include="Views\Account\Register.aspx" />
+    <EmbeddedResource Include="Views\EmptyDashboard\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
