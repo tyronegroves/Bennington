@@ -6,12 +6,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}</ProjectGuid>
+    <ProjectGuid>{796D8BB9-A4C1-4AB8-A877-605860129243}</ProjectGuid>
     <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bennington.Cms</RootNamespace>
-    <AssemblyName>Bennington.Cms</AssemblyName>
+    <RootNamespace>SampleApp</RootNamespace>
+    <AssemblyName>SampleApp</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
   </PropertyGroup>
@@ -33,11 +33,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\Unity.2.0\lib\20\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\packages\Unity.2.0\lib\20\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.2.0\lib\20\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\packages\Unity.2.0\lib\20\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\packages\Unity.2.0\lib\20\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="MvcTurbine">
       <HintPath>..\packages\MVCTurbine.3.2\lib\MvcTurbine.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcTurbine.Unity">
+      <HintPath>..\packages\MvcTurbine.Unity.3.2\lib\MvcTurbine.Unity.dll</HintPath>
     </Reference>
     <Reference Include="MvcTurbine.Web">
       <HintPath>..\packages\MVCTurbine.3.2\lib\MvcTurbine.Web.dll</HintPath>
@@ -67,35 +82,38 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\EmptyDashboardController.cs" />
-    <Compile Include="Controllers\MenuSystemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\IconMenuViewModel.cs" />
-    <Compile Include="Models\SectionMenuViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
-    <Compile Include="Routing\AccountRouteRegistrator.cs" />
-    <Compile Include="Routing\DefaultRouting.cs" />
-    <Compile Include="Routing\RegisterMenuSystemRoutes.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Canvas\Body-Bg.gif" />
     <Content Include="Content\Canvas\Button-Highlight.gif" />
+    <Content Include="Content\Canvas\ContentTreeManagementIcon.gif" />
     <Content Include="Content\Canvas\Divider.gif" />
     <Content Include="Content\Canvas\Highlight-Content.gif" />
     <Content Include="Content\Canvas\Logo.gif" />
     <Content Include="Content\Canvas\Tabs-Bg.gif" />
     <Content Include="Content\Canvas\Top-Menu-Bg.gif" />
     <Content Include="Content\Canvas\Top-Menu-Icons.gif" />
+    <Content Include="Content\Canvas\UserManagementIcon.gif" />
+    <Content Include="Content\dataTable\back_disabled.jpg" />
+    <Content Include="Content\dataTable\back_enabled.jpg" />
+    <Content Include="Content\dataTable\forward_disabled.jpg" />
+    <Content Include="Content\dataTable\forward_enabled.jpg" />
+    <Content Include="Content\dataTable\sort_asc.png" />
+    <Content Include="Content\dataTable\sort_asc_disabled.png" />
+    <Content Include="Content\dataTable\sort_both.png" />
+    <Content Include="Content\dataTable\sort_desc.png" />
+    <Content Include="Content\dataTable\sort_desc_disabled.png" />
     <Content Include="Content\JSTree\Content-Tree-Bg.gif" />
     <Content Include="Content\JSTree\d.png" />
     <Content Include="Content\JSTree\dot_for_ie.gif" />
     <Content Include="Content\JSTree\Style.css" />
     <Content Include="Content\JSTree\throbber.gif" />
+    <Content Include="Content\ManageSite.css" />
     <Content Include="Content\Reset.css" />
-    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
@@ -107,13 +125,13 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
-    <Content Include="Views\Account\ChangePassword.aspx" />
-    <Content Include="Views\Account\ChangePasswordSuccess.aspx" />
-    <Content Include="Views\Account\LogOn.aspx" />
-    <Content Include="Views\Account\Register.aspx" />
-    <EmbeddedResource Include="Views\EmptyDashboard\Index.aspx" />
-    <EmbeddedResource Include="Views\MenuSystem\GetIconMenuViewModel.aspx" />
-    <EmbeddedResource Include="Views\MenuSystem\GetSectionMenuViewModel.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -128,16 +146,28 @@
     <Content Include="Views\Shared\Error.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bennington.Core\Bennington.Core.csproj">
-      <Project>{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}</Project>
-      <Name>Bennington.Core</Name>
-    </ProjectReference>
+    <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Shared\ManageSite.Master" />
+    <None Include="Content\dataTable\Sorting icons.psd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bennington.Cms\Bennington.Cms.csproj">
+      <Project>{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}</Project>
+      <Name>Bennington.Cms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bennington.Core\Bennington.Core.csproj">
+      <Project>{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}</Project>
+      <Name>Bennington.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bennington.Repository\Bennington.Repository.csproj">
+      <Project>{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}</Project>
+      <Name>Bennington.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -156,7 +186,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50443</DevelopmentServerPort>
+          <DevelopmentServerPort>53411</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

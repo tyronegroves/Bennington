@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Cms", "Benningto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Core", "Bennington.Core\Bennington.Core.csproj", "{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "SampleApp\SampleApp.csproj", "{796D8BB9-A4C1-4AB8-A877-605860129243}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Paragon.vsmdi
@@ -37,6 +39,10 @@ Global
 		{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}.Release|Any CPU.Build.0 = Release|Any CPU
+		{796D8BB9-A4C1-4AB8-A877-605860129243}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{796D8BB9-A4C1-4AB8-A877-605860129243}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{796D8BB9-A4C1-4AB8-A877-605860129243}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{796D8BB9-A4C1-4AB8-A877-605860129243}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
