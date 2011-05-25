@@ -94,8 +94,8 @@ input.important { background-color: #dc6d00; background-position: 0 -198px; }
 
 ul.tabs:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 ul.tabs, ul.tabs li { margin: 0; list-style-type: none; padding: 0; }
-ul.tabs { zoom: 1; background: url(Canvas/Tabs-Bg.gif) top repeat-x; padding: 5px 5px 0; }
-ul.tabs li { float: left; }
+ul.tabs { zoom: 1; background: url(Canvas/Tabs-Bg.gif) top repeat-x; padding:0px 15px 0px 10px;height:45px;line-height:45px;}
+ul.tabs li input{margin:9px 0 0 0;}
 ul.tabs li a { display: block; padding: 10px; color: #747474; }
 ul.tabs li.active a { background: #fff; color: #85bc65; font-weight: bold; }
 
@@ -137,6 +137,15 @@ ul.tabs li.active a { background: #fff; color: #85bc65; font-weight: bold; }
 {
 	clear:both;
 }
+
+
+.data_table{width:100%;margin-bottom:0em !important;}
+.data_table thead th{background:none repeat scroll 0 0 #E3E9EC;border-top:2px solid #ECF0F2;color:#848484;padding:8px;text-align:left;}
+.data_table tfoot td{background:none repeat scroll 0 0 #BFCCD4;border-top:2px solid #ECF0F2;padding:8px;text-align:right;}
+.data_table tbody td {padding:8px;}
+.data_table tr.even{}
+.data_table tr.odd{background:#F7F7F7;}
+.data_table td.actions{width:185px;text-align:right;}
 
 
 /* thickbox: */
