@@ -1,15 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8EEFC35E-7566-4D96-93A7-87CD90AEA666}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DFC14331-BCBC-42B9-8EE8-E781D24CEACF}"
-	ProjectSection(SolutionItems) = preProject
-		Local.testsettings = Local.testsettings
-		Paragon.vsmdi = Paragon.vsmdi
-		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Repository", "Bennington.Repository\Bennington.Repository.csproj", "{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Cms", "Bennington.Cms\Bennington.Cms.csproj", "{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}"
@@ -52,8 +43,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{DFC14331-BCBC-42B9-8EE8-E781D24CEACF} = {8EEFC35E-7566-4D96-93A7-87CD90AEA666}
 	EndGlobalSection
 EndGlobal
