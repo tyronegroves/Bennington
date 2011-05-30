@@ -33,15 +33,8 @@
 					<% } %> 
                 </div> 
 
-				
-                <div id="menucontainer" class="clearfix">
-                    <ul class="menu clearfix">
-                        <li id="dashboard" onclick="selected(this);"><a href="#v/dashboard">Dashboard</a></li>
-                    </ul>
-					<% if (Request.IsAuthenticated) { %>
-					<%--<% Html.RenderAction("GetSectionMenuViewModel", "MenuSystem"); %>--%>
-					<% } %>
-                </div>
+                <%
+                       Html.RenderAction("SectionMenu", "MenuSystem");%>				
 
                 <div class="clearfix" id="submenucontainer">
 <%--                    <ul class="menu clearfix file_subnav">

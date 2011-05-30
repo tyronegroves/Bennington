@@ -121,6 +121,9 @@
     <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SectionMenu.ascx" />
+    <EmbeddedResource Include="Views\MenuSystem\SectionMenu.ascx" />
+    <Content Include="Views\MenuSystem\DisplayTemplates\SectionMenuItem.ascx" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\Error.aspx" />
   </ItemGroup>
@@ -135,6 +138,21 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Shared\ManageSite.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
