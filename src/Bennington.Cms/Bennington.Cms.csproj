@@ -67,7 +67,6 @@
     <Compile Include="Models\EmptySectionMenuItemRegistry.cs" />
     <Compile Include="Models\IconMenuViewModel.cs" />
     <Compile Include="Models\ISectionMenuItemRegistry.cs" />
-    <Compile Include="Models\ISectionMenuRetriever.cs" />
     <Compile Include="Models\SectionMenu.cs" />
     <Compile Include="Models\SectionMenuRetriever.cs" />
     <Compile Include="Models\SectionMenuViewModel.cs" />
