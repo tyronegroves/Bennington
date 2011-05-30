@@ -71,8 +71,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CastingHelpers.cs" />
+    <Compile Include="EmptySectionMenuItemRegistryTests.cs" />
     <Compile Include="MenuSystemControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SectionMenuRetrieverTests.cs" />
     <Compile Include="with_automoqer.cs" />
   </ItemGroup>
   <ItemGroup>
