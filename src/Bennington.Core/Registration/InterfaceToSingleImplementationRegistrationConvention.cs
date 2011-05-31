@@ -14,6 +14,8 @@ namespace Bennington.Core.Registration
     /// </remarks>
     public abstract class InterfaceToSingleImplementationRegistrationConvention : IServiceRegistration
     {
+        protected IList<Type> InterfacesToIgnore = new List<Type>();
+
         /// <summary>
         ///   Registers the types in the <see cref = "IServiceLocator" />.
         /// </summary>
@@ -25,7 +27,7 @@ namespace Bennington.Core.Registration
                 RegisterEveryInterfaceWithTheImplementerWhenOnlyOneImplementerExistsInTheAssembly(assembly, locator);
         }
 
-        private static void RegisterEveryInterfaceWithTheImplementerWhenOnlyOneImplementerExistsInTheAssembly(Assembly assembly, IServiceLocator locator)
+        private void RegisterEveryInterfaceWithTheImplementerWhenOnlyOneImplementerExistsInTheAssembly(Assembly assembly, IServiceLocator locator)
         {
             var interfaceTypes = GetAllInterfacesInThisAssembly(assembly);
 
@@ -55,9 +57,16 @@ namespace Bennington.Core.Registration
                 .Where(type => TypeImplementsInterface(type, interfaceType));
         }
 
-        private static IEnumerable<Type> GetAllInterfacesInThisAssembly(Assembly assembly)
+        private IEnumerable<Type> GetAllInterfacesInThisAssembly(Assembly assembly)
         {
-            return assembly.GetTypes().Where(TypeIsAnInterface);
+            return assembly.GetTypes()
+                .Where(TypeIsAnInterface)
+                .Where(ThisInterfaceIsNotIgnored());
+        }
+
+        private Func<Type, bool> ThisInterfaceIsNotIgnored()
+        {
+            return x=>InterfacesToIgnore.Contains(x) == false;
         }
 
         /// <summary>
