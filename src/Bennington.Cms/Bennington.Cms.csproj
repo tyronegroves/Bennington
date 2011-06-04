@@ -69,6 +69,7 @@
     <Compile Include="Models\IconMenuViewModel.cs" />
     <Compile Include="Models\ISectionMenuItemRegistry.cs" />
     <Compile Include="Models\SectionMenu.cs" />
+    <Compile Include="Models\SectionMenuItem.cs" />
     <Compile Include="Models\SectionMenuRetriever.cs" />
     <Compile Include="Models\SectionMenuViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

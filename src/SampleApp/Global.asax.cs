@@ -6,7 +6,7 @@ using MvcTurbine.Web;
 
 namespace SampleApp
 {
-    public class TestingRegistry : Bennington.Cms.Models.ISectionMenuItemRegistry
+    public class TestingRegistry : ISectionMenuItemRegistry
     {
         public IEnumerable<SectionMenuItem> GetItems()
         {

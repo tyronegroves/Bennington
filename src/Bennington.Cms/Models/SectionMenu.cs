@@ -6,8 +6,4 @@ namespace Bennington.Cms.Models
     {
         public IEnumerable<SectionMenuItem> Items;
     }
-
-    public class SectionMenuItem
-    {
-    }
 }
