@@ -75,7 +75,7 @@
     <Compile Include="MenuSystemControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SectionMenuRetrieverTests.cs" />
-    <Compile Include="SubMenuRetriever.cs" />
+    <Compile Include="SubMenuRetrieverTests.cs" />
     <Compile Include="with_automoqer.cs" />
   </ItemGroup>
   <ItemGroup>

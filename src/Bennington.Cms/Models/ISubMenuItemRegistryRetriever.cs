@@ -4,6 +4,6 @@ namespace Bennington.Cms.Models
 {
     public interface ISubMenuItemRegistryRetriever
     {
-        IEnumerable<SubMenuItemRegistry> GetTheRegistries();
+        IEnumerable<ISubMenuItemRegistry> GetTheRegistries();
     }
 }

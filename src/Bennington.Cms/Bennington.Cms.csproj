@@ -73,6 +73,8 @@
     <Compile Include="EmbeddedResources\EmbeddedResourceResolver.cs" />
     <Compile Include="EmbeddedResources\EmbeddedResourceTable.cs" />
     <Compile Include="EmbeddedResources\EmbeddedResourceVirtualPathProvider.cs" />
+    <Compile Include="Filters\LoadRouteDataToBeRetrievedLater.cs" />
+    <Compile Include="Models\CurrentSituation.cs" />
     <Compile Include="Models\EmptySectionMenuItemRegistry.cs" />
     <Compile Include="Models\IconMenuViewModel.cs" />
     <Compile Include="Models\ISectionMenuItemRegistry.cs" />
@@ -84,7 +86,8 @@
     <Compile Include="Models\SectionMenuViewModel.cs" />
     <Compile Include="Models\SubMenu.cs" />
     <Compile Include="Models\SubMenuItem.cs" />
-    <Compile Include="Models\SubMenuItemRegistry.cs" />
+    <Compile Include="Models\ISubMenuItemRegistry.cs" />
+    <Compile Include="Models\SubMenuItemRegistryRetriever.cs" />
     <Compile Include="Models\SubMenuRetriever.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />

@@ -4,9 +4,22 @@ using System.Linq;
 using Bennington.Cms.Models;
 using MvcTurbine;
 using MvcTurbine.Blades;
+using MvcTurbine.ComponentModel;
 
 namespace Bennington.Cms.Blades
 {
+    public class SubMenuItemRegistryBlade : Blade, ISupportAutoRegistration
+    {
+        public override void Spin(IRotorContext context)
+        {
+        }
+
+        public void AddRegistrations(AutoRegistrationList registrationList)
+        {
+            registrationList.Add(MvcTurbine.ComponentModel.Registration.Simple<ISubMenuItemRegistry>());
+        }
+    }
+
     public class SectionMenuRegistrationBlade : Blade
     {
         public override void Spin(IRotorContext context)
