@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using Bennington.Cms.Models;
 
 namespace Bennington.Cms.Controllers
@@ -6,10 +7,13 @@ namespace Bennington.Cms.Controllers
     public class MenuSystemController : Controller
     {
         private readonly ISectionMenuRetriever sectionMenuRetriever;
+        private readonly ISubMenuRetriever subMenuRetriever;
 
-        public MenuSystemController(ISectionMenuRetriever sectionMenuRetriever)
+        public MenuSystemController(ISectionMenuRetriever sectionMenuRetriever,
+            ISubMenuRetriever subMenuRetriever)
         {
             this.sectionMenuRetriever = sectionMenuRetriever;
+            this.subMenuRetriever = subMenuRetriever;
         }
 
         public ActionResult GetSectionMenuViewModel()
@@ -35,6 +39,11 @@ namespace Bennington.Cms.Controllers
         public ActionResult SectionMenu()
         {
             return View("SectionMenu", sectionMenuRetriever.GetTheSectionMenu());
+        }
+
+        public ActionResult SubMenu()
+        {
+            return View("SubMenu", subMenuRetriever.GetTheSubMenu());
         }
     }
 }
