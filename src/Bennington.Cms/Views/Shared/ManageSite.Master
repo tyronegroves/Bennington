@@ -38,12 +38,6 @@
                        Html.RenderAction("SubMenu", "MenuSystem", new { callingController = ViewContext.RouteData.Values["controller"], callingAction = ViewContext.RouteData.Values["action"] });
 %>				
 
-                       
-
-
-
-
-
             </div>
 
             <div id="main">
