@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using SampleApp.Models;
 
 namespace SampleApp.Controllers
 {
@@ -6,7 +7,16 @@ namespace SampleApp.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View("Index", new[]
+                                     {
+                                         new LocationViewModel
+                                             {
+                                                 City = "Olathe",
+                                                 Country = "USA",
+                                                 Description = "The description",
+                                                 State = "MO"
+                                             }
+                                     });
         }
     }
 }
