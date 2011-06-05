@@ -1,8 +1,5 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Bennington.Cms.Models;
-using Bennington.Core.MenuSystem;
-using MvcTurbine.ComponentModel;
 
 namespace Bennington.Cms.Controllers
 {
@@ -11,19 +8,19 @@ namespace Bennington.Cms.Controllers
         private readonly ISectionMenuRetriever sectionMenuRetriever;
 
         public MenuSystemController(ISectionMenuRetriever sectionMenuRetriever)
-		{
-		    this.sectionMenuRetriever = sectionMenuRetriever;
-		}
+        {
+            this.sectionMenuRetriever = sectionMenuRetriever;
+        }
 
         public ActionResult GetSectionMenuViewModel()
-		{
+        {
             //var menuItems = serviceLocator.ResolveServices<IAmASectionMenuItem>();
             //return View("GetSectionMenuViewModel", new SectionMenuViewModel()
             //                                        {
             //                                            MenuItems = menuItems,
             //                                        });
-		    return null;
-		}
+            return null;
+        }
 
         public ActionResult GetIconMenuViewModel()
         {
