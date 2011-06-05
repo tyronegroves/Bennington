@@ -7,15 +7,16 @@ namespace SampleApp.Controllers
     {
         public ActionResult Index()
         {
-            return View("Index", new[]
+            return View("Index", new ListPageViewModel
                                      {
+                                         Items = new []{
                                          new LocationViewModel
                                              {
                                                  City = "Olathe",
                                                  Country = "USA",
                                                  Description = "The description",
                                                  State = "MO"
-                                             }
+                                             }}
                                      });
         }
     }

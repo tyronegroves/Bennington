@@ -136,6 +136,7 @@
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Scripts\Site.js" />
     <Content Include="Views\Location\Index.aspx" />
+    <Content Include="Views\Shared\DisplayTemplates\LocationViewModel.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
