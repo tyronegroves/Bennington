@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<Bennington.Cms.Models.SectionMenuItemForAControllerAction>" %>
+<li><%:Html.RouteLink(Model.Name, new {controller = Model.Controller, action = Model.Action}) %>"</li>

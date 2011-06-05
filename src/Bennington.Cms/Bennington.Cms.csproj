@@ -73,9 +73,6 @@
     <Compile Include="EmbeddedResources\EmbeddedResourceResolver.cs" />
     <Compile Include="EmbeddedResources\EmbeddedResourceTable.cs" />
     <Compile Include="EmbeddedResources\EmbeddedResourceVirtualPathProvider.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Models\EmptySectionMenuItemRegistry.cs" />
     <Compile Include="Models\IconMenuViewModel.cs" />
     <Compile Include="Models\ISectionMenuItemRegistry.cs" />
@@ -88,6 +85,7 @@
     <Compile Include="Routing\AccountRouteRegistrator.cs" />
     <Compile Include="Routing\DefaultRouting.cs" />
     <Compile Include="Routing\RegisterMenuSystemRoutes.cs" />
+    <Compile Include="Filters\DefaultTheMasterPageToTheManageSite.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Content\Canvas\Body-Bg.gif" />
@@ -116,7 +114,6 @@
     <EmbeddedResource Include="Content\JSTree\throbber.gif" />
     <EmbeddedResource Include="Content\ManageSite.css" />
     <EmbeddedResource Include="Content\Reset.css" />
-    <Content Include="Global.asax" />
     <EmbeddedResource Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <EmbeddedResource Include="Scripts\jquery-1.5.1.js" />
     <EmbeddedResource Include="Scripts\jquery-1.5.1.min.js" />
@@ -148,6 +145,7 @@
     <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SectionMenu.ascx" />
     <EmbeddedResource Include="Views\MenuSystem\SectionMenu.ascx" />
     <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SectionMenuItem.ascx" />
+    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SectionMenuItemForAControllerAction.ascx" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\Error.aspx" />
   </ItemGroup>
