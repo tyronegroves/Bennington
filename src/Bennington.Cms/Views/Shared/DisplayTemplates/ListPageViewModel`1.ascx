@@ -32,7 +32,7 @@
                 <tbody>
                 <%foreach(var item in Model.Items)
                   {
-                      Html.RenderPartial("DisplayForObject", item as object);
+                      Html.RenderPartial("SingleRowForListPage", item as object);
                   }%>
                 </tbody>
                 </table>
