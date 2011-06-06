@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Bennington.Cms.Models
 {
-    public class ListPageViewModel
+    public class ListPageViewModel<T>
     {
-        public IEnumerable<object> Items { get; set; }
+        public IEnumerable<T> Items { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<Bennington.Cms.Models.ListPageViewModel>" %>
+﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
 
 <div id="content_container" style="display: block; ">
    <div id="pageheader" class="clearfix">
@@ -17,7 +17,8 @@
                 <thead>
                 <tr>
                     <%
-                        var metadata = ModelMetadataProviders.Current.GetMetadataForType(() => null, Model.GetType().GetProperties().Single(x=>x.Name == "Items").PropertyType.GetGenericArguments()[0]);
+                        var model = (object)Model;
+                        var metadata = ModelMetadataProviders.Current.GetMetadataForType(() => null, model.GetType().GetProperties().Single(x=>x.Name == "Items").PropertyType.GetGenericArguments()[0]);
                         foreach(var property in metadata.Properties)
                         {
                             %>
@@ -29,12 +30,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                <%foreach(var item in Model.Items.Select(x=>(object)x))
-                {%>
-                <%
-                    Html.RenderPartial("DisplayForObject", item);%>
-                <%
-                }%>
+                <%foreach(var item in Model.Items)
+                  {
+                      Html.RenderPartial("DisplayForObject", item as object);
+                  }%>
                 </tbody>
                 </table>
                 </div>
