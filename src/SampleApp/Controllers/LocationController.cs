@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Bennington.Cms.Models;
 using SampleApp.Models;
 
 namespace SampleApp.Controllers

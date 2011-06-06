@@ -1,12 +1,5 @@
-﻿using System.Collections.Generic;
-
-namespace SampleApp.Models
+﻿namespace SampleApp.Models
 {
-    public class ListPageViewModel<T>
-    {
-        public IEnumerable<T> Items { get; set; }
-    }
-
     public class LocationViewModel
     {
         public string State { get; set; }
