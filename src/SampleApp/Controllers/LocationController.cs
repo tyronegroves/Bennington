@@ -7,7 +7,7 @@ namespace SampleApp.Controllers
     {
         public ActionResult Index()
         {
-            return View("Index", new ListPageViewModel
+            return View("Index", new ListPageViewModel<LocationViewModel>
                                      {
                                          Items = new []{
                                          new LocationViewModel

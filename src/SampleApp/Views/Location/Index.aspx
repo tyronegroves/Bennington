@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" Inherits="System.Web.Mvc.ViewPage<SampleApp.Models.ListPageViewModel>" MasterPageFile="~/Views/Shared/ManageSite.Master" %>
+<%@ Page Title="" Language="C#" Inherits="System.Web.Mvc.ViewPage<SampleApp.Models.ListPageViewModel<SampleApp.Models.LocationViewModel>>" MasterPageFile="~/Views/Shared/ManageSite.Master" %>
 
 <asp:Content runat="server" ID="Title" ContentPlaceHolderID="TitleContent"></asp:Content>
 <asp:Content runat="server" ID="Main" ContentPlaceHolderID="MainContent">
@@ -19,7 +19,19 @@
                   <div class="content">
                      <table cellpadding="0" cellspacing="0" class="data_table" id="data_table">
                      <thead>
-                     <tr><th class="header">State</th><th class="header">City</th><th class="header">Country</th><th class="header">Description</th><th></th></tr>
+
+                     <tr>
+                       <%
+                           var metadata = ModelMetadataProviders.Current.GetMetadataForType(() => null, Model.GetType().GetGenericArguments()[0]);
+                           foreach(var property in metadata.Properties)
+                           {
+                               %>
+                               <th><%:property.DisplayName ?? property.PropertyName %></th>
+                               <%
+                           }
+                       %>
+                       <th></th>
+                                          </tr>
                      </thead>
                      <tbody>
                      <%foreach(var item in Model.Items)

@@ -2,9 +2,9 @@
 
 namespace SampleApp.Models
 {
-    public class ListPageViewModel
+    public class ListPageViewModel<T>
     {
-        public IEnumerable<object> Items { get; set; }
+        public IEnumerable<T> Items { get; set; }
     }
 
     public class LocationViewModel
