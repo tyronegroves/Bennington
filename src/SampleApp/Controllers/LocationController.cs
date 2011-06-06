@@ -8,8 +8,7 @@ namespace SampleApp.Controllers
     {
         public ActionResult Index()
         {
-            return View("Index", new ListPageViewModel<LocationViewModel>
-                                     {
+            return View("Index", new ListPageViewModel                                     {
                                          Items = new []{
                                          new LocationViewModel
                                              {
