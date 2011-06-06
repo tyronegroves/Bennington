@@ -1,12 +1,26 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
 
+<%
+
+    var model = (object)Model;
+    var metadata = ModelMetadataProviders.Current.GetMetadataForType(() => null, model.GetType().GetProperties().Single(x => x.Name == "Items").PropertyType.GetGenericArguments()[0]);
+
+    var additionalValues = new RouteValueDictionary(metadata.AdditionalValues);
+
+    var sectionHeader = additionalValues["SectionHeader"] as string;
+    var gridHeader = additionalValues["GridHeader"] as string;
+
+        %>
+
 <div id="content_container" style="display: block; ">
    <div id="pageheader" class="clearfix">
-      <h1>Locations</h1>
+      <h1><%:sectionHeader %></h1>
    </div>
    <div class="section">
       <ul class="tabs">
-         <li>Displaying All Locations<input type="button" class="button" style="float:right;" onclick="getFile('core/process.php?v=add_locations');location.replace('#v/add_locations');" value="Add A New Location"></li>
+         <li><%:gridHeader %> <input type="button" class="button" style="float:right;" onclick="getFile('core/process.php?v=add_locations');location.replace('#v/add_locations');" value="Add A New Location">
+         <input type="button" class="button" style="float:right;" onclick="getFile('core/process.php?v=add_locations');location.replace('#v/add_locations');" value="Add A New Location">
+         </li>
       </ul>
     </div>
     <div id="tab1" class="tabContent">
@@ -17,8 +31,8 @@
                 <thead>
                 <tr>
                     <%
-                        var model = (object)Model;
-                        var metadata = ModelMetadataProviders.Current.GetMetadataForType(() => null, model.GetType().GetProperties().Single(x=>x.Name == "Items").PropertyType.GetGenericArguments()[0]);
+
+
                         foreach(var property in metadata.Properties)
                         {
                             %>

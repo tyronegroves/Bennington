@@ -74,6 +74,8 @@
     <Compile Include="EmbeddedResources\EmbeddedResourceTable.cs" />
     <Compile Include="EmbeddedResources\EmbeddedResourceVirtualPathProvider.cs" />
     <Compile Include="Filters\LoadRouteDataToBeRetrievedLater.cs" />
+    <Compile Include="Metadata\SetGridHeaderOnListPageToAttribute.cs" />
+    <Compile Include="Metadata\SetSectionHeaderOnListPageToAttribute.cs" />
     <Compile Include="Models\CurrentSituation.cs" />
     <Compile Include="Models\EmptySectionMenuItemRegistry.cs" />
     <Compile Include="Models\IconMenuViewModel.cs" />
