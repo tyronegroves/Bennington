@@ -53,15 +53,15 @@ namespace Bennington.Cms.Models
         public IEnumerable<Button> GetButtonsForTopRightOfListPage(Type modelType)
         {
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
-                foreach (var type in assembly.GetTypes())
+                foreach (var type in assembly.GetTypes().Where(x=>x.IsInterface == false && x.IsAbstract == false))
                 {
                     var interfaces = type.GetInterfaces()
-                        .FirstOrDefault(y=>y.Name.StartsWith("IButtonRegistryForTopRightButtons"));
+                        .FirstOrDefault(y => y.Name.StartsWith("IListPageListPageButtonRegistry`"));
 
                     if (interfaces == null) continue;
                     var genericArguments = interfaces.GetGenericArguments();
                     if (genericArguments.Any() && genericArguments[0] == modelType)
-                        return ((IButtonRegistry) serviceLocator.Resolve(type)).GetTheButtons();
+                        return ((IListPageButtonRegistry) serviceLocator.Resolve(type)).GetTheTopRightButtons();
                 }
             return new Button[] {};
         }

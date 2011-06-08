@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using Bennington.Cms.Buttons;
 using Bennington.Cms.Metadata;
+using Bennington.Cms.Models;
 
 namespace SampleApp.Models
 {
@@ -16,9 +15,9 @@ namespace SampleApp.Models
         public string Description { get; set; }
     }
 
-    public class Testing : IButtonRegistryForTopRightButtons<LocationViewModel>
+    public class Testing : IListPageListPageButtonRegistry<LocationViewModel>
     {
-        public IEnumerable<Button> GetTheButtons()
+        public IEnumerable<Button> GetTheTopRightButtons()
         {
             return new[] {new Button()};
         }

@@ -10,7 +10,8 @@
     var sectionHeader = additionalValues["SectionHeader"] as string;
     var gridHeader = additionalValues["GridHeader"] as string;
 
-    var topRightButtons = additionalValues["TopRightButtons"] as IEnumerable<Button> ?? new Button[] {};
+    var topRightButtons = ViewData.ModelMetadata.AdditionalValues["TopRightButtons"];
+    if (topRightButtons == null) topRightButtons = new Button[] {};
     
         %>
 
@@ -21,7 +22,11 @@
    <div class="section">
       <ul class="tabs">
          <li><%:gridHeader %> 
-<%Html.RenderPartial("DisplayForObject", topRightButtons); %>
+            <%foreach(var button in topRightButtons)
+              {%>
+                <input type="button" class="button" style="float">
+<%
+              }%>
 <%--             <input type="button" class="button" style="float:right;" onclick="getFile('core/process.php?v=add_locations');location.replace('#v/add_locations');" value="Add A New Location">
              <input type="button" class="button" style="float:right;" onclick="getFile('core/process.php?v=add_locations');location.replace('#v/add_locations');" value="Add A New Location">
 --%>         </li>

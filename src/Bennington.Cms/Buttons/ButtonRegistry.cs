@@ -2,16 +2,12 @@
 
 namespace Bennington.Cms.Buttons
 {
-    public interface IButtonRegistry
+    public interface IListPageButtonRegistry
     {
-        IEnumerable<Button> GetTheButtons();
+        IEnumerable<Button> GetTheTopRightButtons();
     }
 
-    public interface IButtonRegistry<T> : IButtonRegistry
-    {
-    }
-
-    public interface IButtonRegistryForTopRightButtons<T> : IButtonRegistry<T>
+    public interface IListPageListPageButtonRegistry<T> : IListPageButtonRegistry
     {
     }
 }
