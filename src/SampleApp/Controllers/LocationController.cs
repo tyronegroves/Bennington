@@ -6,7 +6,7 @@ namespace SampleApp.Controllers
 {
     public class LocationController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             return View("Index", new ListPageViewModel<LocationViewModel>
                                      {
@@ -18,6 +18,13 @@ namespace SampleApp.Controllers
                                                                  Country = "USA",
                                                                  Description = "The description",
                                                                  State = "MO"
+                                                             },
+                                                         new LocationViewModel
+                                                             {
+                                                                 City = "Kansas City",
+                                                                 Country = "USA",
+                                                                 Description = "Okie dokie",
+                                                                 State = "KS"
                                                              }
                                                      }
                                      });

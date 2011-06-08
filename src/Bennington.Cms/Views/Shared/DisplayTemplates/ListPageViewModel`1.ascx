@@ -10,6 +10,8 @@
     var sectionHeader = additionalValues["SectionHeader"] as string;
     var gridHeader = additionalValues["GridHeader"] as string;
 
+    var topRightButtons = additionalValues["TopRightButtons"] as IEnumerable<Button> ?? new Button[] {};
+    
         %>
 
 <div id="content_container" style="display: block; ">
@@ -18,9 +20,11 @@
    </div>
    <div class="section">
       <ul class="tabs">
-         <li><%:gridHeader %> <input type="button" class="button" style="float:right;" onclick="getFile('core/process.php?v=add_locations');location.replace('#v/add_locations');" value="Add A New Location">
-         <input type="button" class="button" style="float:right;" onclick="getFile('core/process.php?v=add_locations');location.replace('#v/add_locations');" value="Add A New Location">
-         </li>
+         <li><%:gridHeader %> 
+<%Html.RenderPartial("DisplayForObject", topRightButtons); %>
+<%--             <input type="button" class="button" style="float:right;" onclick="getFile('core/process.php?v=add_locations');location.replace('#v/add_locations');" value="Add A New Location">
+             <input type="button" class="button" style="float:right;" onclick="getFile('core/process.php?v=add_locations');location.replace('#v/add_locations');" value="Add A New Location">
+--%>         </li>
       </ul>
     </div>
     <div id="tab1" class="tabContent">
