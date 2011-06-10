@@ -32,7 +32,7 @@ namespace Bennington.Cms.Models
         {
             var type = args.ModelType.GetGenericArguments()[0];
 
-            metadata.AdditionalValues["TopRightButtons"] = buttonRetriever.GetButtonsForTopRightOfListPage(type);
+            metadata.AdditionalValues["TopRightButtons"] = buttonRetriever.GetButtonsForTopRightOfListPage(type) as IEnumerable<Button>;
         }
     }
 

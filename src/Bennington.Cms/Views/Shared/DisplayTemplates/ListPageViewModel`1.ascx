@@ -10,8 +10,8 @@
     var sectionHeader = additionalValues["SectionHeader"] as string;
     var gridHeader = additionalValues["GridHeader"] as string;
 
-    var topRightButtons = ViewData.ModelMetadata.AdditionalValues["TopRightButtons"];
-    if (topRightButtons == null) topRightButtons = new Button[] {};
+    var topRightButtons = ViewData.ModelMetadata.AdditionalValues["TopRightButtons"] as IEnumerable<Bennington.Cms.Buttons.Button>;
+    if (topRightButtons == null) topRightButtons = new Bennington.Cms.Buttons.Button[] { };
     
         %>
 
@@ -22,14 +22,11 @@
    <div class="section">
       <ul class="tabs">
          <li><%:gridHeader %> 
-            <%foreach(var button in topRightButtons)
-              {%>
-                <input type="button" class="button" style="float">
-<%
-              }%>
-<%--             <input type="button" class="button" style="float:right;" onclick="getFile('core/process.php?v=add_locations');location.replace('#v/add_locations');" value="Add A New Location">
-             <input type="button" class="button" style="float:right;" onclick="getFile('core/process.php?v=add_locations');location.replace('#v/add_locations');" value="Add A New Location">
---%>         </li>
+            <div style="float:right">
+                <% Html.RenderPartial("DisplayForObject", topRightButtons); %>
+             </div>
+          </li>
+            
       </ul>
     </div>
     <div id="tab1" class="tabContent">
@@ -40,8 +37,6 @@
                 <thead>
                 <tr>
                     <%
-
-
                         foreach(var property in metadata.Properties)
                         {
                             %>

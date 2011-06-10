@@ -19,7 +19,7 @@ namespace SampleApp.Models
     {
         public IEnumerable<Button> GetTheTopRightButtons()
         {
-            return new[] {new Button()};
+            return new[] {new Button{Id = "CreateButton", Text="Create"}};
         }
     }
 }
