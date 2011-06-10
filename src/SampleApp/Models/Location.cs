@@ -22,16 +22,8 @@ namespace SampleApp.Models
     {
     }
 
-    public class TestingIndividualLinesHandler : LoadTheseButtonsForEachRow, IMetadataAttributeHandler<TestingIndividualLines>
+    public class TestingIndividualLinesHandler : LoadTheseButtonsForEachRow<LocationViewModel>, IMetadataAttributeHandler<TestingIndividualLines>
     {
-        public TestingIndividualLinesHandler(IButtonRetriever buttonRetriever) : base(buttonRetriever)
-        {
-        }
-
-        public override IEnumerable<Button> GetButtons()
-        {
-            return base.GetButtons();
-        }
     }
 
     public class Testing : IListPageListPageButtonRegistry<LocationViewModel>
