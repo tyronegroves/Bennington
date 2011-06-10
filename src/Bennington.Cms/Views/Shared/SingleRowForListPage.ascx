@@ -1,15 +1,15 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<object>" %>
 <%
-    var routeValueDictionary = new RouteValueDictionary(Model);
+    var modelProperties = new RouteValueDictionary(Model);
  %>
 
  <tr>
- <%foreach (var key in routeValueDictionary.Keys)
+ <%foreach (var key in modelProperties.Keys)
    {%>
 
    <td>
     <%
-       Html.RenderPartial("DisplayForObject", routeValueDictionary[key]);%>
+       Html.RenderPartial("DisplayForObject", modelProperties[key]);%>
    </td>
    
  <%
