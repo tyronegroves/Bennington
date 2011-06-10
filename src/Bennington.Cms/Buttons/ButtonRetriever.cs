@@ -23,11 +23,6 @@ namespace Bennington.Cms.Buttons
                        : CreateTheButtonRegistry(buttonRegistryType).GetTheTopRightButtons();
         }
 
-        public IEnumerable<Button> GetButtonsForIndividualRow(Type type, object model)
-        {
-            return new[] {new Button {Id = "test", Text = "testing"}};
-        }
-
         public IEnumerable<Button> GetButtonsForBottomLeftOfListPage(Type modelType)
         {
             var buttonRegistryType = GetTheButtonRegistryForThisType(modelType);
