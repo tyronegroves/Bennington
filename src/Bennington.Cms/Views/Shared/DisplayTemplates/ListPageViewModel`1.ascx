@@ -50,7 +50,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <%foreach(var item in Model.Items)
+                <%foreach(var item in Model.PagedItems)
                   {
                       Html.RenderPartial("SingleRowForListPage", item as object);
                   }%>
