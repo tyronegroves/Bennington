@@ -28,6 +28,15 @@ namespace Bennington.Cms.Buttons
             return new[] {new Button {Id = "test", Text = "testing"}};
         }
 
+        public IEnumerable<Button> GetButtonsForBottomLeftOfListPage(Type modelType)
+        {
+            var buttonRegistryType = GetTheButtonRegistryForThisType(modelType);
+
+            return ThisIsNotAValidButtonRegistryType(buttonRegistryType)
+                       ? AnEmptySet()
+                       : CreateTheButtonRegistry(buttonRegistryType).GetTheBottomRightButtons();
+        }
+
         private IListPageButtonRegistry CreateTheButtonRegistry(Type buttonRegistryType)
         {
             return ((IListPageButtonRegistry) serviceLocator.Resolve(buttonRegistryType));

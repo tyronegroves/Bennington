@@ -18,7 +18,7 @@ namespace Bennington.Cms.Metadata
             var type = args.ModelType.GetGenericArguments()[0];
 
             metadata.AdditionalValues["TopRightButtons"] = buttonRetriever.GetButtonsForTopRightOfListPage(type);
-
+            metadata.AdditionalValues["BottomLeftButtons"] = buttonRetriever.GetButtonsForBottomLeftOfListPage(type);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Bennington.Cms.Buttons;
 using Bennington.Cms.Metadata;
 using Bennington.Cms.Models;
@@ -38,6 +39,11 @@ namespace SampleApp.Models
         public IEnumerable<Button> GetTheTopRightButtons()
         {
             return new[] {new Button{Id = "CreateButton", Text="Create"}};
+        }
+
+        public IEnumerable<Button> GetTheBottomRightButtons()
+        {
+            return new[] { new Button { Id = "DeleteButton", Text = "Delete" } };
         }
     }
 }

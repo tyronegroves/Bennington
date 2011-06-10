@@ -9,6 +9,11 @@
 
     var topRightButtons = ViewData.ModelMetadata.AdditionalValues["TopRightButtons"] as IEnumerable<Bennington.Cms.Buttons.Button>;
     if (topRightButtons == null) topRightButtons = new Bennington.Cms.Buttons.Button[] { };
+
+    var bottomLeftButtons = ViewData.ModelMetadata.AdditionalValues["BottomLeftButtons"] as IEnumerable<Bennington.Cms.Buttons.Button>;
+    if (bottomLeftButtons == null) bottomLeftButtons = new Bennington.Cms.Buttons.Button[] { };
+    
+    
     
         %>
 
@@ -55,7 +60,10 @@
             </div>
          </div>
          <div class="section">
-             <div class="content actions"><input type="button" class="button" onclick="getFile('core/process.php?v=add_locations');location.replace('#v/add_locations');" value="Add A New Location"></div>
+             <div class="content actions">
+                <%--<input type="button" class="button" onclick="getFile('core/process.php?v=add_locations');location.replace('#v/add_locations');" value="Add A New Location">--%>
+                <% Html.RenderPartial("DisplayForObject", bottomLeftButtons); %>
+             </div>
          </div>
     </div>
 </div>
