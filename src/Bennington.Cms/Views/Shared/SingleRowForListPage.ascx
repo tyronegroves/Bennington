@@ -1,6 +1,4 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<object>" %>
-
-
 <%
 
     var routeValueDictionary = new RouteValueDictionary(Model);
