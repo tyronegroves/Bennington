@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using Bennington.Cms.Models;
 using SampleApp.Models;
 
@@ -26,7 +27,7 @@ namespace SampleApp.Controllers
                                                                  Description = "Okie dokie",
                                                                  State = "KS"
                                                              }
-                                                     }
+                                                     }.AsQueryable()
                                      });
         }
     }
