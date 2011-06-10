@@ -19,9 +19,7 @@
    }%>
        <td class="actions">
           <%
-   Html.RenderPartial("DisplayForObject", buttons);%>
-<%--           <input type="button" onclick="getFile('core/process.php?v=edit_locations&amp;id=34');location.replace('#v/edit_locations&amp;id/34');" class="button" value="Edit"> 
-           <input type="button" onclick="getFile('core/process.php?v=delete_locations&amp;id=34');" class="button important" value="Delete">--%>
+           Html.RenderPartial("DisplayForObject", buttons);%>
         </td>
    </tr>
 
