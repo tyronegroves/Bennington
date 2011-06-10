@@ -67,6 +67,8 @@
     <Compile Include="Blades\SectionMenuRegistrationBlade.cs" />
     <Compile Include="Buttons\Button.cs" />
     <Compile Include="Buttons\ButtonRegistry.cs" />
+    <Compile Include="Buttons\ButtonRetriever.cs" />
+    <Compile Include="Buttons\IButtonRetriever.cs" />
     <Compile Include="Controllers\EmptyDashboardController.cs" />
     <Compile Include="Controllers\MenuSystemController.cs" />
     <Compile Include="EmbeddedResources\AssemblyResourceFile.cs" />
@@ -76,6 +78,9 @@
     <Compile Include="EmbeddedResources\EmbeddedResourceTable.cs" />
     <Compile Include="EmbeddedResources\EmbeddedResourceVirtualPathProvider.cs" />
     <Compile Include="Filters\LoadRouteDataToBeRetrievedLater.cs" />
+    <Compile Include="Metadata\LoadButtonsFromRegistryAttribute.cs" />
+    <Compile Include="Metadata\LoadButtonsFromRegistryAttributeHandler.cs" />
+    <Compile Include="Metadata\LoadTheseButtonsForEachRow.cs" />
     <Compile Include="Metadata\SetGridHeaderOnListPageToAttribute.cs" />
     <Compile Include="Metadata\SetSectionHeaderOnListPageToAttribute.cs" />
     <Compile Include="Models\CurrentSituation.cs" />
