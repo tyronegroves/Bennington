@@ -1,14 +1,11 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
 
 <%
-
-    var model = (object)Model;
-    var metadata = ModelMetadataProviders.Current.GetMetadataForType(() => null, model.GetType().GetProperties().Single(x => x.Name == "Items").PropertyType.GetGenericArguments()[0]);
-
-    var additionalValues = new RouteValueDictionary(metadata.AdditionalValues);
-
-    var sectionHeader = additionalValues["SectionHeader"] as string;
-    var gridHeader = additionalValues["GridHeader"] as string;
+    object model = Model;
+    var metadataForTheGenericType = ModelMetadataProviders.Current.GetMetadataForType(() => null, model.GetType().GetProperties().Single(x => x.Name == "Items").PropertyType.GetGenericArguments()[0]);
+    var additionalValuesForTheGenericType = new RouteValueDictionary(metadataForTheGenericType.AdditionalValues);
+    var sectionHeader = additionalValuesForTheGenericType["SectionHeader"] as string;
+    var gridHeader = additionalValuesForTheGenericType["GridHeader"] as string;
 
     var topRightButtons = ViewData.ModelMetadata.AdditionalValues["TopRightButtons"] as IEnumerable<Bennington.Cms.Buttons.Button>;
     if (topRightButtons == null) topRightButtons = new Bennington.Cms.Buttons.Button[] { };
@@ -37,7 +34,7 @@
                 <thead>
                 <tr>
                     <%
-                        foreach(var property in metadata.Properties)
+                        foreach(var property in metadataForTheGenericType.Properties)
                         {
                             %>
                             <th><%:property.DisplayName ?? property.PropertyName %></th>
