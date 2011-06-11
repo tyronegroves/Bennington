@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 
 namespace Bennington.Cms.Sorting
 {
@@ -13,7 +14,7 @@ namespace Bennington.Cms.Sorting
         {
             return new PaginationState
                        {
-                           SortBy = "City",
+                           SortBy = HttpContext.Current.Request.QueryString["sortBy"],
                            PageSize = 25,
                            CurrentPage = 0,
                        };

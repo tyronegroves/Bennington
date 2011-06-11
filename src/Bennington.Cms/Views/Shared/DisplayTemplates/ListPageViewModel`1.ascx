@@ -44,15 +44,16 @@
                         foreach(var property in metadataForTheGenericType.Properties)
                         {
                             var columnHeader = property.DisplayName ?? property.PropertyName;
+                            var sortUrl = "?sortBy=" + property.PropertyName;
                             %>
                             <%if (property.PropertyName == paginationState.SortBy)
                               {%>
-                              <th class="headerSortUp"><%:columnHeader%></th>
+                              <th class="headerSortUp"><a href="<%:sortUrl%>"><%:columnHeader%></a></th>
                             <%
                               }
                               else
 {%>
-                            <th><%:columnHeader%></th>
+                            <th><a href="<%:sortUrl%>"><%:columnHeader%></a></th>
                             <%
 }
                         }

@@ -15,7 +15,7 @@ namespace SampleApp.Controllers
                                                      {
                                                          new LocationViewModel
                                                              {
-                                                                 City = "Olathe",
+                                                                 City = "ZOlathe",
                                                                  Country = "USA",
                                                                  Description = "The description",
                                                                  State = "MO"
