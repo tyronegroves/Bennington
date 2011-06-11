@@ -42,7 +42,7 @@
                         foreach(var property in metadataForTheGenericType.Properties)
                         {
                             %>
-                            <th><%:property.DisplayName ?? property.PropertyName %></th>
+                            <th class="headerSortDown"><%:property.DisplayName ?? property.PropertyName %></th>
                             <%
                         }
                     %>

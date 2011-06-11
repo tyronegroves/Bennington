@@ -140,13 +140,18 @@ ul.tabs li.active a { background: #fff; color: #85bc65; font-weight: bold; }
 
 
 .data_table{width:100%;margin-bottom:0em !important;}
-.data_table thead th{background:none repeat scroll 0 0 #E3E9EC;border-top:2px solid #ECF0F2;color:#848484;padding:8px;text-align:left;}
-.data_table tfoot td{background:none repeat scroll 0 0 #BFCCD4;border-top:2px solid #ECF0F2;padding:8px;text-align:right;}
+.data_table thead th{background:none no-repeat scroll 0 0 #E3E9EC;border-top:2px solid #ECF0F2;color:#848484;padding:8px;text-align:left;}
+.data_table tfoot td{background:none no-repeat scroll 0 0 #BFCCD4;border-top:2px solid #ECF0F2;padding:8px;text-align:right;}
+
 .data_table tbody td {padding:8px;}
 .data_table tr.even{}
 .data_table tr.odd{background:#F7F7F7;}
 .data_table td.actions{width:185px;text-align:right;}
 
+.data_table thead tr {background-image: url();background-repeat: no-repeat;background-position: center right;cursor: pointer;}
+.data_table thead tr .headerSortUp {background-position: center right;background-image: url(/Content/Canvas/asc.gif);background-color: #BDCBD2 !important;color:#636363 !important;}
+.data_table thead tr .headerSortDown {background-position: center right;background-image: url(/Content/Canvas/desc.gif);background-color: #BDCBD2 !important;color:#636363 !important;}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {background-color: #F2F2F2;}
 
 /* thickbox: */
 /* ----------------------------------------------------------------------------------------------------------------*/
