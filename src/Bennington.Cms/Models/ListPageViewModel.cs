@@ -17,11 +17,16 @@ namespace Bennington.Cms.Models
         {
             get
             {
-                var expression = Pagination.CreateLambdaExpression("Name", typeof(T));
+                try
+                {
+                    var expression = Pagination.CreateLambdaExpression("Name", typeof (T));
 
-                Pagination.ApplyOrderBy(Items, expression);
-
-                return Items.ToPagedList(0, 5);
+                    return Pagination.ApplyOrderBy(Items, expression)
+                        .ToPagedList(0, 5);
+                } catch
+                {
+                    return Items.ToPagedList(0, 5);
+                }
             }
         }
 
