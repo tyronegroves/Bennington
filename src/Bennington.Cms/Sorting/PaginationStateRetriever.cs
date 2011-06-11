@@ -15,7 +15,8 @@ namespace Bennington.Cms.Sorting
             return new PaginationState
                        {
                            SortBy = HttpContext.Current.Request.QueryString["sortBy"],
-                           PageSize = 25,
+                           SortOrder = HttpContext.Current.Request.QueryString["sortOrder"] == "desc" ? "desc" : "asc",
+                           PageSize = 2,
                            CurrentPage = 0,
                        };
         }
@@ -28,5 +29,7 @@ namespace Bennington.Cms.Sorting
         public int PageSize { get; set; }
 
         public int CurrentPage { get; set; }
+
+        public string SortOrder { get; set; }
     }
 }

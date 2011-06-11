@@ -40,6 +40,10 @@ namespace Bennington.Cms.Models
 
                     var expression = Pagination.CreateLambdaExpression(sortBy, typeof (T));
 
+                    if (paginationState.SortOrder == "desc")
+                        return Pagination.ApplyOrderByDescending(Items, expression)
+                            .ToPagedList(paginationState.CurrentPage, paginationState.PageSize);
+
                     return Pagination.ApplyOrderBy(Items, expression)
                         .ToPagedList(paginationState.CurrentPage, paginationState.PageSize);
                 } catch
@@ -55,14 +59,14 @@ namespace Bennington.Cms.Models
     {
 
         private static MethodInfo orderByMethod;
-        //private static MethodInfo orderByDescendingMethod;
+        private static MethodInfo orderByDescendingMethod;
         //private static MethodInfo thenByMethod;
         //private static MethodInfo thenByDescendingMethod;
 
         static Pagination()
         {
             orderByMethod = FindEnumerableMethod("OrderBy");
-            //orderByDescendingMethod = FindEnumerableMethod("OrderByDescending");
+            orderByDescendingMethod = FindEnumerableMethod("OrderByDescending");
             //thenByMethod = FindEnumerableMethod("ThenBy");
             //thenByDescendingMethod = FindEnumerableMethod("ThenByDescending");
         }
@@ -70,6 +74,12 @@ namespace Bennington.Cms.Models
         public static IEnumerable<T> ApplyOrderBy<T>(IEnumerable<T> entities, LambdaExpression expression)
         {
             return (IEnumerable<T>)orderByMethod.MakeGenericMethod(typeof(T), expression.Type.GetGenericArguments()[1])
+                .Invoke(null, new object[] { entities, expression.Compile() });
+        }
+
+        public static IEnumerable<T> ApplyOrderByDescending<T>(IEnumerable<T> entities, LambdaExpression expression)
+        {
+            return (IEnumerable<T>)orderByDescendingMethod.MakeGenericMethod(typeof(T), expression.Type.GetGenericArguments()[1])
                 .Invoke(null, new object[] { entities, expression.Compile() });
         }
 

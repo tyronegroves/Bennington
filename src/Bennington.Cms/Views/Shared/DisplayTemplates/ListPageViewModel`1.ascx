@@ -48,7 +48,7 @@
                             %>
                             <%if (property.PropertyName == paginationState.SortBy)
                               {%>
-                              <th class="headerSortUp"><a href="<%:sortUrl%>"><%:columnHeader%></a></th>
+                              <th class="<%:paginationState.SortOrder == "asc" ? "headerSortUp" : "headerSortDown" %>"><a href="<%:sortUrl%>&sortOrder=<%:paginationState.SortOrder == "asc" ? "desc" : "asc" %>"><%:columnHeader%></a></th>
                             <%
                               }
                               else
