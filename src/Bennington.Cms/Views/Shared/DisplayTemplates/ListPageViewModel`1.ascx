@@ -43,15 +43,16 @@
                         PaginationState paginationState = Model.PaginationState;
                         foreach(var property in metadataForTheGenericType.Properties)
                         {
+                            var columnHeader = property.DisplayName ?? property.PropertyName;
                             %>
                             <%if (property.PropertyName == paginationState.SortBy)
                               {%>
-                              <th class="headerSortUp"><%:property.DisplayName ?? property.PropertyName%></th>
+                              <th class="headerSortUp"><%:columnHeader%></th>
                             <%
                               }
                               else
 {%>
-                            <th><%:property.DisplayName ?? property.PropertyName%></th>
+                            <th><%:columnHeader%></th>
                             <%
 }
                         }
