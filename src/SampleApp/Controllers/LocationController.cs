@@ -7,6 +7,11 @@ namespace SampleApp.Controllers
 {
     public class LocationController : Controller
     {
+        public ActionResult Edit(string id)
+        {
+            return View();
+        }
+
         public ActionResult Index(int? page)
         {
             return View("Index", new ListPageViewModel<LocationViewModel>
@@ -15,6 +20,7 @@ namespace SampleApp.Controllers
                                                      {
                                                          new LocationViewModel
                                                              {
+                                                                 Id = "test1",
                                                                  City = "ZOlathe",
                                                                  Country = "USA",
                                                                  Description = "The description",
@@ -22,6 +28,7 @@ namespace SampleApp.Controllers
                                                              },
                                                          new LocationViewModel
                                                              {
+                                                                 Id = "test2",
                                                                  City = "Kansas City",
                                                                  Country = "USA",
                                                                  Description = "Okie dokie",

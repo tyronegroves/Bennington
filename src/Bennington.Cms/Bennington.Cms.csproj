@@ -72,6 +72,7 @@
     <Compile Include="Buttons\ButtonRegistry.cs" />
     <Compile Include="Buttons\ButtonRetriever.cs" />
     <Compile Include="Buttons\IButtonRetriever.cs" />
+    <Compile Include="Buttons\RoutesButton.cs" />
     <Compile Include="Controllers\EmptyDashboardController.cs" />
     <Compile Include="Controllers\MenuSystemController.cs" />
     <Compile Include="EmbeddedResources\AssemblyResourceFile.cs" />
@@ -182,6 +183,7 @@
     <EmbeddedResource Include="Views\Shared\ListPageViewModel_PagerHeaders.ascx" />
     <EmbeddedResource Include="Views\Shared\ListPageViewModel_Header.ascx" />
     <EmbeddedResource Include="Views\Shared\ListPageViewModel_Footer.ascx" />
+    <EmbeddedResource Include="Views\Shared\DisplayTemplates\RoutesButton.ascx" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\Error.aspx" />
   </ItemGroup>

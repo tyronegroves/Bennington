@@ -10,8 +10,8 @@ namespace SampleApp.Routing
         {
             routes.MapRoute(
                 null,
-                "Manage/Location/{action}",
-                new { controller = "Location", action = "Index" }
+                "Manage/Location/{action}/{id}",
+                new { controller = "Location", action = "Index", id = UrlParameter.Optional }
                 );
         }
     }
