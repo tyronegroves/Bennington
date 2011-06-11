@@ -108,6 +108,7 @@
     <Compile Include="Routing\DefaultRouting.cs" />
     <Compile Include="Routing\RegisterMenuSystemRoutes.cs" />
     <Compile Include="Filters\DefaultTheMasterPageToTheManageSite.cs" />
+    <Compile Include="Sorting\PaginationStateRetriever.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Scripts\jquery-1.5.1-vsdoc.js" />
@@ -141,8 +142,8 @@
     <EmbeddedResource Include="Content\Canvas\Top-Menu-Bg.gif" />
     <EmbeddedResource Include="Content\Canvas\Top-Menu-Icons.gif" />
     <EmbeddedResource Include="Content\Canvas\UserManagementIcon.gif" />
-    <EmbeddedResource Include="Content\Canvas\asc.gif" />
     <EmbeddedResource Include="Content\Canvas\desc.gif" />
+    <EmbeddedResource Include="Content\Canvas\asc.gif" />
     <Content Include="Content\dataTable\back_disabled.jpg" />
     <Content Include="Content\dataTable\back_enabled.jpg" />
     <Content Include="Content\dataTable\forward_disabled.jpg" />

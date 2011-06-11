@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
+<%@ Import Namespace="Bennington.Cms.Sorting" %>
 
 <%
     object model = Model;
@@ -39,11 +40,20 @@
                 <thead>
                 <tr>
                     <%
+                        PaginationState paginationState = Model.PaginationState;
                         foreach(var property in metadataForTheGenericType.Properties)
                         {
                             %>
-                            <th class="headerSortDown"><%:property.DisplayName ?? property.PropertyName %></th>
+                            <%if (property.PropertyName == paginationState.SortBy)
+                              {%>
+                              <th class="headerSortUp"><%:property.DisplayName ?? property.PropertyName%></th>
                             <%
+                              }
+                              else
+{%>
+                            <th><%:property.DisplayName ?? property.PropertyName%></th>
+                            <%
+}
                         }
                     %>
                     <th></th>

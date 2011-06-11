@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Web;
 using Bennington.Cms.Metadata;
+using Bennington.Cms.Sorting;
+using MvcTurbine.ComponentModel;
 using PagedList;
 
 namespace Bennington.Cms.Models
@@ -11,21 +14,37 @@ namespace Bennington.Cms.Models
     [LoadButtonsFromRegistry]
     public class ListPageViewModel<T>
     {
+        private IPaginationStateRetriever paginationStateRetriever;
+
+        public ListPageViewModel()
+        {
+            paginationStateRetriever = ServiceLocatorManager.Current.Resolve<IPaginationStateRetriever>();
+        }
+
         public IQueryable<T> Items { get; set; }
 
-        public IPagedList<T> PagedItems
+        public virtual PaginationState PaginationState
+        {
+            get { return paginationStateRetriever.GetTheCurrentPaginationState(typeof(T)); }
+
+        }
+
+        public virtual IPagedList<T> PagedItems
         {
             get
             {
+                var paginationState = paginationStateRetriever.GetTheCurrentPaginationState(typeof(T));
                 try
                 {
-                    var expression = Pagination.CreateLambdaExpression("Name", typeof (T));
+                    var sortBy = paginationState.SortBy;
+
+                    var expression = Pagination.CreateLambdaExpression(sortBy, typeof (T));
 
                     return Pagination.ApplyOrderBy(Items, expression)
-                        .ToPagedList(0, 5);
+                        .ToPagedList(paginationState.CurrentPage, paginationState.PageSize);
                 } catch
                 {
-                    return Items.ToPagedList(0, 5);
+                    return Items.ToPagedList(paginationState.CurrentPage, paginationState.PageSize);
                 }
             }
         }
