@@ -4,8 +4,7 @@ namespace Bennington.Cms.Buttons
 {
     public interface IEditPageButtonRegistry
     {
-        IEnumerable<Button> GetTheTopRightButtons();
-        IEnumerable<Button> GetTheBottomRightButtons();
+        IEnumerable<Button> GetTheActionButtons();
     }
 
     public interface IEditPageButtonRegistry<T> : IEditPageButtonRegistry

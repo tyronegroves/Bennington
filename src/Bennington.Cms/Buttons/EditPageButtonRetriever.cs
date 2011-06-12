@@ -7,8 +7,7 @@ namespace Bennington.Cms.Buttons
 {
     public interface IEditPageButtonRetriever
     {
-        IEnumerable<Button> GetButtonsForTopRightOfEditPage(Type modelType);
-        IEnumerable<Button> GetButtonsForBottomLeftOfEditPage(Type modelType);
+        IEnumerable<Button> GetActionButtons<T>(T @object);
     }
 
     public class EditPageButtonRetriever : IEditPageButtonRetriever
@@ -20,22 +19,16 @@ namespace Bennington.Cms.Buttons
             this.serviceLocator = serviceLocator;
         }
 
-        public IEnumerable<Button> GetButtonsForTopRightOfEditPage(Type modelType)
+        public IEnumerable<Button> GetActionButtons<T>(T @object)
         {
+            if (@object == null) return new Button[] {};
+
+            var modelType = typeof(T);
             var buttonRegistryType = GetTheButtonRegistryForThisType(modelType);
 
             return ThisIsNotAValidButtonRegistryType(buttonRegistryType)
                        ? AnEmptySet()
-                       : CreateTheButtonRegistry(buttonRegistryType).GetTheTopRightButtons();
-        }
-
-        public IEnumerable<Button> GetButtonsForBottomLeftOfEditPage(Type modelType)
-        {
-            var buttonRegistryType = GetTheButtonRegistryForThisType(modelType);
-
-            return ThisIsNotAValidButtonRegistryType(buttonRegistryType)
-                       ? AnEmptySet()
-                       : CreateTheButtonRegistry(buttonRegistryType).GetTheBottomRightButtons();
+                       : CreateTheButtonRegistry(buttonRegistryType).GetTheActionButtons();
         }
 
         private IEditPageButtonRegistry CreateTheButtonRegistry(Type buttonRegistryType)
