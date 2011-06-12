@@ -19,9 +19,11 @@ namespace Bennington.Cms.Metadata
 
         public void AlterMetadata(ModelMetadata metadata, CreateMetadataArguments args)
         {
-            var type = args.ModelType.GetGenericArguments()[0];
+            //var type = args.ModelType.GetGenericArguments()[0];
+            var type = args.ModelType;
+            var @object = args.ModelAccessor();
 
-            metadata.AdditionalValues["ActionButtons"] = editPageButtonRetriever.GetActionButtons(type);
+            metadata.AdditionalValues["ActionButtons"] = editPageButtonRetriever.GetActionButtons(type, @object);
         }
     }
 }

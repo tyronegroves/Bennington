@@ -7,7 +7,7 @@ namespace Bennington.Cms.Buttons
 {
     public interface IEditPageButtonRetriever
     {
-        IEnumerable<Button> GetActionButtons<T>(T @object);
+        IEnumerable<Button> GetActionButtons(Type type, object @object);
     }
 
     public class EditPageButtonRetriever : IEditPageButtonRetriever
@@ -19,11 +19,11 @@ namespace Bennington.Cms.Buttons
             this.serviceLocator = serviceLocator;
         }
 
-        public IEnumerable<Button> GetActionButtons<T>(T @object)
+        public IEnumerable<Button> GetActionButtons(Type type, object @object)
         {
             if (@object == null) return new Button[] {};
 
-            var modelType = typeof(T);
+            var modelType = type;
             var buttonRegistryType = GetTheButtonRegistryForThisType(modelType);
 
             return ThisIsNotAValidButtonRegistryType(buttonRegistryType)

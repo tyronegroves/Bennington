@@ -89,6 +89,7 @@
     <Compile Include="Metadata\SetGridHeaderOnListPageTo.cs" />
     <Compile Include="Metadata\SetSectionHeaderOnListPageTo.cs" />
     <Compile Include="Models\CurrentSituation.cs" />
+    <Compile Include="Models\EditForm.cs" />
     <Compile Include="Models\EmptySectionMenuItemRegistry.cs" />
     <Compile Include="Models\IconMenuViewModel.cs" />
     <Compile Include="Models\ISectionMenuItemRegistry.cs" />

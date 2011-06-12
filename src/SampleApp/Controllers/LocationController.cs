@@ -1,15 +1,29 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
+using Bennington.Cms.Buttons;
 using Bennington.Cms.Models;
 using SampleApp.Models;
 
 namespace SampleApp.Controllers
 {
+    public class LocationForm : EditForm
+    {
+    }
+
+    public class LocationFormButtons : IEditPageButtonRegistry<LocationForm>
+    {
+        public IEnumerable<Button> GetTheActionButtons()
+        {
+            return new[] {new Button {Id = "Save", Text = "Save"}};
+        }
+    }
+
     public class LocationController : Controller
     {
         public ActionResult Edit(string id)
         {
-            return View();
+            return View("Edit", new LocationForm());
         }
 
         public ActionResult Index(int? page)
