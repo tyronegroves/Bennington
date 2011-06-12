@@ -30,7 +30,7 @@ namespace SampleApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(LocationForm locactionForm)
+        public ActionResult Edit(LocationForm locationForm)
         {
             return View("Edit", locationForm);
         }
