@@ -5,6 +5,12 @@ using MvcTurbine.ComponentModel;
 
 namespace Bennington.Cms.Buttons
 {
+    public interface IListPageButtonRetriever
+    {
+        IEnumerable<Button> GetButtonsForTopRightOfListPage(Type modelType);
+        IEnumerable<Button> GetButtonsForBottomLeftOfListPage(Type modelType);
+    }
+
     public class ListPageButtonRetriever : IListPageButtonRetriever
     {
         private readonly IServiceLocator serviceLocator;
