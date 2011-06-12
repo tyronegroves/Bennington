@@ -9,6 +9,9 @@ namespace SampleApp.Controllers
 {
     public class LocationForm : EditForm
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string MiddleName { get; set; }
     }
 
     public class LocationFormButtons : IEditPageButtonRegistry<LocationForm>
@@ -23,7 +26,13 @@ namespace SampleApp.Controllers
     {
         public ActionResult Edit(string id)
         {
-            return View("Edit", new LocationForm());
+            return View("Edit", new LocationForm{FirstName ="Darren"});
+        }
+
+        [HttpPost]
+        public ActionResult Edit(LocationForm locactionForm)
+        {
+            return View("Edit", locationForm);
         }
 
         public ActionResult Index(int? page)
