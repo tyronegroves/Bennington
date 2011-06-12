@@ -69,6 +69,8 @@
   <ItemGroup>
     <Compile Include="Blades\SectionMenuRegistrationBlade.cs" />
     <Compile Include="Buttons\Button.cs" />
+    <Compile Include="Buttons\EditPageButtonRegistry.cs" />
+    <Compile Include="Buttons\EditPageButtonRetriever.cs" />
     <Compile Include="Buttons\ListPageButtonRegistry.cs" />
     <Compile Include="Buttons\ListPageButtonRetriever.cs" />
     <Compile Include="Buttons\RoutesButton.cs" />
@@ -82,10 +84,9 @@
     <Compile Include="EmbeddedResources\EmbeddedResourceVirtualPathProvider.cs" />
     <Compile Include="Filters\LoadRouteDataToBeRetrievedLater.cs" />
     <Compile Include="Metadata\LoadListPageButtons.cs" />
-    <Compile Include="Metadata\LoadListPageButtonsAttributeHandler.cs" />
     <Compile Include="Metadata\LoadTheseButtonsForEachRow.cs" />
-    <Compile Include="Metadata\SetGridHeaderOnListPageToAttribute.cs" />
-    <Compile Include="Metadata\SetSectionHeaderOnListPageToAttribute.cs" />
+    <Compile Include="Metadata\SetGridHeaderOnListPageTo.cs" />
+    <Compile Include="Metadata\SetSectionHeaderOnListPageTo.cs" />
     <Compile Include="Models\CurrentSituation.cs" />
     <Compile Include="Models\EmptySectionMenuItemRegistry.cs" />
     <Compile Include="Models\IconMenuViewModel.cs" />
