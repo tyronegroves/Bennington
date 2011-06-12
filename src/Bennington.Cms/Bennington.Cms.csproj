@@ -69,7 +69,7 @@
   <ItemGroup>
     <Compile Include="Blades\SectionMenuRegistrationBlade.cs" />
     <Compile Include="Buttons\Button.cs" />
-    <Compile Include="Buttons\ButtonRegistry.cs" />
+    <Compile Include="Buttons\ListPageButtonRegistry.cs" />
     <Compile Include="Buttons\ListPageButtonRetriever.cs" />
     <Compile Include="Buttons\IListPageButtonRetriever.cs" />
     <Compile Include="Buttons\RoutesButton.cs" />
