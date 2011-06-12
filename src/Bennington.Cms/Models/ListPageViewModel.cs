@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Web;
 using Bennington.Cms.Metadata;
 using Bennington.Cms.Sorting;
 using MvcTurbine.ComponentModel;
@@ -11,10 +10,10 @@ using PagedList;
 
 namespace Bennington.Cms.Models
 {
-    [LoadButtonsFromRegistry]
+    [LoadListPageButtons]
     public class ListPageViewModel<T>
     {
-        private IPaginationStateRetriever paginationStateRetriever;
+        private readonly IPaginationStateRetriever paginationStateRetriever;
 
         public ListPageViewModel()
         {
@@ -25,15 +24,14 @@ namespace Bennington.Cms.Models
 
         public virtual PaginationState PaginationState
         {
-            get { return paginationStateRetriever.GetTheCurrentPaginationState(typeof(T)); }
-
+            get { return paginationStateRetriever.GetTheCurrentPaginationState(typeof (T)); }
         }
 
         public virtual IPagedList<T> PagedItems
         {
             get
             {
-                var paginationState = paginationStateRetriever.GetTheCurrentPaginationState(typeof(T));
+                var paginationState = paginationStateRetriever.GetTheCurrentPaginationState(typeof (T));
                 try
                 {
                     var sortBy = paginationState.SortBy;
@@ -46,20 +44,19 @@ namespace Bennington.Cms.Models
 
                     return Pagination.ApplyOrderBy(Items, expression)
                         .ToPagedList(paginationState.CurrentPage, paginationState.PageSize);
-                } catch
+                }
+                catch
                 {
                     return Items.ToPagedList(paginationState.CurrentPage, paginationState.PageSize);
                 }
             }
         }
-
     }
 
     public static class Pagination
     {
-
-        private static MethodInfo orderByMethod;
-        private static MethodInfo orderByDescendingMethod;
+        private static readonly MethodInfo orderByMethod;
+        private static readonly MethodInfo orderByDescendingMethod;
         //private static MethodInfo thenByMethod;
         //private static MethodInfo thenByDescendingMethod;
 
@@ -73,38 +70,39 @@ namespace Bennington.Cms.Models
 
         public static IEnumerable<T> ApplyOrderBy<T>(IEnumerable<T> entities, LambdaExpression expression)
         {
-            return (IEnumerable<T>)orderByMethod.MakeGenericMethod(typeof(T), expression.Type.GetGenericArguments()[1])
-                .Invoke(null, new object[] { entities, expression.Compile() });
+            return (IEnumerable<T>) orderByMethod.MakeGenericMethod(typeof (T), expression.Type.GetGenericArguments()[1])
+                                        .Invoke(null, new object[] {entities, expression.Compile()});
         }
 
         public static IEnumerable<T> ApplyOrderByDescending<T>(IEnumerable<T> entities, LambdaExpression expression)
         {
-            return (IEnumerable<T>)orderByDescendingMethod.MakeGenericMethod(typeof(T), expression.Type.GetGenericArguments()[1])
-                .Invoke(null, new object[] { entities, expression.Compile() });
+            return (IEnumerable<T>) orderByDescendingMethod.MakeGenericMethod(typeof (T), expression.Type.GetGenericArguments()[1])
+                                        .Invoke(null, new object[] {entities, expression.Compile()});
         }
 
         private static MethodInfo FindEnumerableMethod(string name)
         {
-            return (MethodInfo)typeof(Enumerable).FindMembers(MemberTypes.Method, BindingFlags.Public | BindingFlags.Static,
-                delegate(MemberInfo m, object o)
-                {
-                    if (m.Name != name)
-                        return false;
+            return (MethodInfo) typeof (Enumerable).FindMembers(MemberTypes.Method, BindingFlags.Public | BindingFlags.Static,
+                                                                delegate(MemberInfo m, object o)
+                                                                    {
+                                                                        if (m.Name != name)
+                                                                            return false;
 
-                    ParameterInfo[] parameters = ((MethodInfo)m).GetParameters();
+                                                                        var parameters = ((MethodInfo) m).GetParameters();
 
-                    return parameters.Length == 2 && parameters[0].Name == "source" && parameters[1].Name == "keySelector";
-                }, null).Single();
+                                                                        return parameters.Length == 2 && parameters[0].Name == "source" &&
+                                                                               parameters[1].Name == "keySelector";
+                                                                    }, null).Single();
         }
 
         public static LambdaExpression CreateLambdaExpression(string propertyName, Type entityType)
         {
-            ParameterExpression parameterExpression = Expression.Parameter(entityType, "it");
-            MemberExpression memberExpression = Expression.PropertyOrField(parameterExpression, propertyName);
+            var parameterExpression = Expression.Parameter(entityType, "it");
+            var memberExpression = Expression.PropertyOrField(parameterExpression, propertyName);
 
             // We need to create a type for the delegate which will be always take
             // a single argument and return a single value so its a Func<T,TResult> type
-            Type delegateType = typeof(Func<,>).MakeGenericType(entityType, memberExpression.Type);
+            var delegateType = typeof (Func<,>).MakeGenericType(entityType, memberExpression.Type);
 
             return Expression.Lambda(delegateType, memberExpression, parameterExpression);
         }

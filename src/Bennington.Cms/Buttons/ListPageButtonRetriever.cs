@@ -5,11 +5,11 @@ using MvcTurbine.ComponentModel;
 
 namespace Bennington.Cms.Buttons
 {
-    public class ButtonRetriever : IButtonRetriever
+    public class ListPageButtonRetriever : IListPageButtonRetriever
     {
         private readonly IServiceLocator serviceLocator;
 
-        public ButtonRetriever(IServiceLocator serviceLocator)
+        public ListPageButtonRetriever(IServiceLocator serviceLocator)
         {
             this.serviceLocator = serviceLocator;
         }
@@ -54,7 +54,7 @@ namespace Bennington.Cms.Buttons
                 foreach (var type in assembly.GetTypes().Where(x => x.IsInterface == false && x.IsAbstract == false))
                 {
                     var interfaces = type.GetInterfaces()
-                        .FirstOrDefault(y => y.Name.StartsWith("IListPageListPageButtonRegistry`"));
+                        .FirstOrDefault(y => y.Name.StartsWith("IListPageButtonRegistry`"));
 
                     if (interfaces == null) continue;
                     var genericArguments = interfaces.GetGenericArguments();

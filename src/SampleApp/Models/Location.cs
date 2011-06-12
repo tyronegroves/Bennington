@@ -39,7 +39,7 @@ namespace SampleApp.Models
         }
     }
 
-    public class Testing : IListPageListPageButtonRegistry<LocationViewModel>
+    public class Testing : IListPageButtonRegistry<LocationViewModel>
     {
         public IEnumerable<Button> GetTheTopRightButtons()
         {

@@ -8,7 +8,7 @@ namespace Bennington.Cms.Buttons
         IEnumerable<Button> GetTheBottomRightButtons();
     }
 
-    public interface IListPageListPageButtonRegistry<T> : IListPageButtonRegistry
+    public interface IListPageButtonRegistry<T> : IListPageButtonRegistry
     {
     }
 }
