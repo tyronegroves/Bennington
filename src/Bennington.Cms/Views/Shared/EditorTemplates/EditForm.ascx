@@ -1,4 +1,7 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<Bennington.Cms.Models.EditForm>" %>
+<%@ Import Namespace="Bennington.Cms.Helpers" %>
+
+<%:Html.ValidationSummaryForForm()%>
 
 <%using (Html.BeginForm()){ %>
 <table>

@@ -83,6 +83,7 @@
     <Compile Include="EmbeddedResources\EmbeddedResourceTable.cs" />
     <Compile Include="EmbeddedResources\EmbeddedResourceVirtualPathProvider.cs" />
     <Compile Include="Filters\LoadRouteDataToBeRetrievedLater.cs" />
+    <Compile Include="Helpers\ValidationHelpers.cs" />
     <Compile Include="Metadata\LoadEditPageButtons.cs" />
     <Compile Include="Metadata\LoadListPageButtons.cs" />
     <Compile Include="Metadata\LoadTheseButtonsForEachRow.cs" />

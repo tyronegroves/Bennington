@@ -24,7 +24,7 @@ namespace Bennington.Cms.Buttons
             if (@object == null) return new Button[] {};
 
             var modelType = type;
-            var buttonRegistryType = GetTheButtonRegistryForThisType(modelType);
+            var buttonRegistryType = GetTheButtonRegistryForThisType_OrBust(modelType);
 
             return ThisIsNotAValidButtonRegistryType(buttonRegistryType)
                        ? AnEmptySet()
@@ -44,6 +44,17 @@ namespace Bennington.Cms.Buttons
         private static bool ThisIsNotAValidButtonRegistryType(Type buttonRegistryType)
         {
             return buttonRegistryType == null;
+        }
+
+        private static Type GetTheButtonRegistryForThisType_OrBust(Type modelType)
+        {
+            try
+            {
+                return GetTheButtonRegistryForThisType(modelType);
+            } catch
+            {
+                return null;
+            }
         }
 
         private static Type GetTheButtonRegistryForThisType(Type modelType)

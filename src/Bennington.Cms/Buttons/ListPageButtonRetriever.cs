@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using MvcTurbine.ComponentModel;
 
 namespace Bennington.Cms.Buttons
@@ -55,19 +56,39 @@ namespace Bennington.Cms.Buttons
 
         private static Type GetTheButtonRegistryForThisType(Type modelType)
         {
-            Type buttonRegistryType = null;
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
-                foreach (var type in assembly.GetTypes().Where(x => x.IsInterface == false && x.IsAbstract == false))
-                {
-                    var interfaces = type.GetInterfaces()
-                        .FirstOrDefault(y => y.Name.StartsWith("IListPageButtonRegistry`"));
+            {
+                var buttonRegistryType = GetButtonRegistryType_OrBust(assembly, modelType);
+                if (buttonRegistryType != null) return buttonRegistryType;
+            }
+            return null;
+        }
 
-                    if (interfaces == null) continue;
-                    var genericArguments = interfaces.GetGenericArguments();
-                    if (genericArguments.Any() && genericArguments[0] == modelType)
-                        buttonRegistryType = type;
-                }
-            return buttonRegistryType;
+        private static Type GetButtonRegistryType_OrBust(Assembly assembly, Type modelType)
+        {
+            try
+            {
+                return GetButtonRegistryType(assembly, modelType);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private static Type GetButtonRegistryType(Assembly assembly, Type modelType)
+        {
+            foreach (var type in assembly.GetTypes().Where(x => x.IsInterface == false && x.IsAbstract == false))
+            {
+                var interfaces = type.GetInterfaces()
+                    .FirstOrDefault(y => y.Name.StartsWith("IListPageButtonRegistry`"));
+
+                if (interfaces == null) continue;
+                var genericArguments = interfaces.GetGenericArguments();
+                if (genericArguments.Any() && genericArguments[0] == modelType)
+                    return type;
+            }
+            return null;
         }
     }
 }
