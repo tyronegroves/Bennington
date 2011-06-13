@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Bennington.Cms.Buttons;
 using Bennington.Cms.Models;
+using FluentValidation;
 using SampleApp.Models;
 
 namespace SampleApp.Controllers
@@ -10,8 +11,18 @@ namespace SampleApp.Controllers
     public class LocationForm : EditForm
     {
         public string FirstName { get; set; }
-        public string LastName { get; set; }
         public string MiddleName { get; set; }
+        public string LastName { get; set; }
+    }
+
+    public class LocationFormValidator : AbstractValidator<LocationForm>
+    {
+        public LocationFormValidator()
+        {
+            RuleFor(x => x.LastName)
+                .NotEmpty()
+                .WithMessage("This field is required.");
+        }
     }
 
     public class LocationFormButtons : IEditPageButtonRegistry<LocationForm>
