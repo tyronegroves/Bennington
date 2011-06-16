@@ -46,7 +46,7 @@ namespace SampleApp.Controllers
             return View("Edit", locationForm);
         }
 
-        public ActionResult Index(int? page)
+        public ActionResult Index()
         {
             return View("Index", new ListPageViewModel<LocationViewModel>
                                      {

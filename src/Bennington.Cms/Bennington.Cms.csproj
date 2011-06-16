@@ -44,6 +44,9 @@
     <Reference Include="PagedList">
       <HintPath>..\..\..\AGCEVENTREG\src\sms\packages\PagedList.1.2.1.0\lib\40\PagedList.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.3.0.1.0\lib\40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -166,6 +169,7 @@
     <EmbeddedResource Include="Content\JSTree\throbber.gif" />
     <EmbeddedResource Include="Content\ManageSite.css" />
     <EmbeddedResource Include="Content\Reset.css" />
+    <EmbeddedResource Include="Content\PagedList.css" />
     <Content Include="Views\Account\ChangePassword.aspx" />
     <Content Include="Views\Account\ChangePasswordSuccess.aspx" />
     <Content Include="Views\Account\LogOn.aspx" />
@@ -241,7 +245,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>54831</DevelopmentServerPort>
+          <DevelopmentServerPort>54543</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -1,5 +1,6 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
-
+<%@ Import Namespace="PagedList" %>
+<%@ Import Namespace="PagedList.Mvc" %>
 <%object model = Model;%>
 
 <div id="content_container" style="display: block; ">
@@ -22,7 +23,9 @@
                 </div>
             </div>
          </div>
+
              <%
     Html.RenderPartial("ListPageViewModel_Footer", model); %>
+    
     </div>
 </div>

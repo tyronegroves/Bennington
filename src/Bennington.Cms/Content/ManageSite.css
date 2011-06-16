@@ -299,3 +299,23 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
 {
 	margin-top:30px;
 }
+
+.pagination 
+{
+    float: right;
+}
+.PagedList-pager > ul{
+	display: block;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.PagedList-pager > ul > li {
+	margin: .25em;
+	display: inline-block;
+}
+.PagedList-disabled.PagedList-skipToFirst { display: none !important; }
+.PagedList-disabled.PagedList-skipToPrevious { display: none !important; }
+.PagedList-disabled.PagedList-skipToLast { display: none !important; }
+.PagedList-disabled.PagedList-skipToNext { display: none !important; }
+
