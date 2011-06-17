@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CastingHelpers.cs" />
+    <Compile Include="CheckboxListAttributeHandlerTests.cs" />
     <Compile Include="DropdownListAttributeHandlerTests.cs" />
     <Compile Include="RadioButtonListAttributeHandlerTests.cs" />
     <Compile Include="EmptySectionMenuItemRegistryTests.cs" />

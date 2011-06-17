@@ -91,6 +91,7 @@
     <Compile Include="Filters\LoadRouteDataToBeRetrievedLater.cs" />
     <Compile Include="Helpers\EditorTemplateHElpers.cs" />
     <Compile Include="Helpers\ValidationHelpers.cs" />
+    <Compile Include="Metadata\CheckboxListAttributeHandler.cs" />
     <Compile Include="Metadata\DoNotShowThisProperty.cs" />
     <Compile Include="Metadata\DropdownListAttributeHandler.cs" />
     <Compile Include="Metadata\Hidden.cs" />
@@ -201,7 +202,8 @@
     <EmbeddedResource Include="Views\Shared\EditorTemplates\Hidden.ascx" />
     <EmbeddedResource Include="Views\Shared\DisplayTemplates\SubmitButton.ascx" />
     <EmbeddedResource Include="Views\Shared\EditorTemplates\RadioButtonList.ascx" />
-    <Content Include="Views\Shared\EditorTemplates\Dropdown.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\CheckboxList.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\Dropdown.ascx" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\Error.aspx" />
   </ItemGroup>
