@@ -89,6 +89,7 @@
     <Compile Include="EmbeddedResources\EmbeddedResourceVirtualPathProvider.cs" />
     <Compile Include="Filters\LoadRouteDataToBeRetrievedLater.cs" />
     <Compile Include="Helpers\ValidationHelpers.cs" />
+    <Compile Include="Metadata\DoNotShowThisProperty.cs" />
     <Compile Include="Metadata\LoadEditPageButtons.cs" />
     <Compile Include="Metadata\LoadListPageButtons.cs" />
     <Compile Include="Metadata\LoadTheseButtonsForEachRow.cs" />
@@ -195,6 +196,7 @@
     <EmbeddedResource Include="Views\Shared\DisplayTemplates\RoutesButton.ascx" />
     <EmbeddedResource Include="Views\Shared\EditorForObject.ascx" />
     <EmbeddedResource Include="Views\Shared\EditorTemplates\EditForm.ascx" />
+    <EmbeddedResource Include="Views\Shared\DisplayTemplates\DoNotShowThisProperty.ascx" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\Error.aspx" />
   </ItemGroup>

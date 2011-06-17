@@ -16,7 +16,7 @@ namespace Bennington.Cms.Sorting
                        {
                            SortBy = GetSortBy(),
                            SortOrder = GetSortOrder(),
-                           PageSize = 20,
+                           PageSize = 10,
                            CurrentPage = GetThePage(),
                        };
         }

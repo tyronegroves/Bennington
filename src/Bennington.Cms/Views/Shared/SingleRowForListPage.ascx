@@ -1,5 +1,8 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<object>" %>
+<%@ Import Namespace="Bennington.Cms.Metadata" %>
 <%
+
+    
     var modelProperties = new RouteValueDictionary(Model);
     var buttons = ViewData.ModelMetadata.AdditionalValues.ContainsKey("IndividualRowButtons")
                       ? ViewData.ModelMetadata.AdditionalValues["IndividualRowButtons"] as IEnumerable<Bennington.Cms.Buttons.Button>
@@ -10,13 +13,18 @@
  <tr>
  <%
     foreach (var key in modelProperties.Keys)
-    {%>
-
-   <td>
-    <%
+    {
+        if (Model.GetType().GetProperties()
+            .Single(x => x.Name == key)
+            .GetCustomAttributes(false)
+            .Any(x => x.GetType() == typeof(DoNotShowThisPropertyAttribute)))
+        {
+            continue;
+        }
+        %><td>
+<%
         if (modelProperties[key] != null)
-            Html.RenderPartial("DisplayForObject", modelProperties[key]);%>
-   </td>
+            Html.RenderPartial("DisplayForObject", modelProperties[key]);%></td>
    
  <%
     }%>
