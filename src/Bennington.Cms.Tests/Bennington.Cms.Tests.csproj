@@ -57,6 +57,19 @@
     <Reference Include="Moq">
       <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
     </Reference>
+    <Reference Include="MvcTurbine.Web, Version=3.2.1.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.5.10.11092\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.mocks">
+      <HintPath>..\packages\NUnit.2.5.10.11092\lib\nunit.mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="pnunit.framework">
+      <HintPath>..\packages\NUnit.2.5.10.11092\lib\pnunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Should">
+      <HintPath>..\packages\Should.1.1.12.0\lib\Should.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -71,8 +84,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CastingHelpers.cs" />
+    <Compile Include="RadioButtonListAttributeHandlerTests.cs" />
     <Compile Include="EmptySectionMenuItemRegistryTests.cs" />
     <Compile Include="MenuSystemControllerTests.cs" />
+    <Compile Include="MetadataTestHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SectionMenuRetrieverTests.cs" />
     <Compile Include="SubMenuRetrieverTests.cs" />

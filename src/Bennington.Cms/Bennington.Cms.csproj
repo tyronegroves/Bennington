@@ -89,12 +89,14 @@
     <Compile Include="EmbeddedResources\EmbeddedResourceTable.cs" />
     <Compile Include="EmbeddedResources\EmbeddedResourceVirtualPathProvider.cs" />
     <Compile Include="Filters\LoadRouteDataToBeRetrievedLater.cs" />
+    <Compile Include="Helpers\EditorTemplateHElpers.cs" />
     <Compile Include="Helpers\ValidationHelpers.cs" />
     <Compile Include="Metadata\DoNotShowThisProperty.cs" />
     <Compile Include="Metadata\Hidden.cs" />
     <Compile Include="Metadata\LoadEditPageButtons.cs" />
     <Compile Include="Metadata\LoadListPageButtons.cs" />
     <Compile Include="Metadata\LoadTheseButtonsForEachRow.cs" />
+    <Compile Include="Metadata\RadioButtonListAttributeHandler.cs" />
     <Compile Include="Metadata\SetGridHeaderOnListPageTo.cs" />
     <Compile Include="Metadata\SetSectionHeaderOnListPageTo.cs" />
     <Compile Include="Models\CurrentSituation.cs" />
@@ -197,6 +199,7 @@
     <EmbeddedResource Include="Views\Shared\DisplayTemplates\DoNotShowThisProperty.ascx" />
     <EmbeddedResource Include="Views\Shared\EditorTemplates\Hidden.ascx" />
     <EmbeddedResource Include="Views\Shared\DisplayTemplates\SubmitButton.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\RadioButtonList.ascx" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\Error.aspx" />
   </ItemGroup>

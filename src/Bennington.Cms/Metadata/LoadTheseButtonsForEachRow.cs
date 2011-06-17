@@ -15,6 +15,7 @@ namespace Bennington.Cms.Metadata
         public void AlterMetadata(ModelMetadata metadata, CreateMetadataArguments args)
         {
             var model = args.ModelAccessor();
+            if (model == null) return;
             metadata.AdditionalValues["IndividualRowButtons"] = GetButtons(model as T);
         }
     }
