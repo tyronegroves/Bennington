@@ -11,7 +11,7 @@
     {
         if (property.GetCustomAttributes(false).Any(x=>x.GetType() == typeof(HiddenAttribute)))
         {
-            %><%:Html.Editor(property.Name)%><%
+%><%:Html.Editor(property.Name)%><%
         }else{
         %>
         <tr>

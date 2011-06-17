@@ -204,6 +204,7 @@
     <EmbeddedResource Include="Views\Shared\EditorTemplates\RadioButtonList.ascx" />
     <EmbeddedResource Include="Views\Shared\EditorTemplates\CheckboxList.ascx" />
     <EmbeddedResource Include="Views\Shared\EditorTemplates\Dropdown.ascx" />
+    <Content Include="Views\Shared\EditorTemplates\Boolean.ascx" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\Error.aspx" />
   </ItemGroup>
