@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Blades\SectionMenuRegistrationBlade.cs" />
     <Compile Include="Buttons\Button.cs" />
+    <Compile Include="Buttons\SubmitButton.cs" />
     <Compile Include="Buttons\EditPageButtonRegistry.cs" />
     <Compile Include="Buttons\EditPageButtonRetriever.cs" />
     <Compile Include="Buttons\ListPageButtonRegistry.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Filters\LoadRouteDataToBeRetrievedLater.cs" />
     <Compile Include="Helpers\ValidationHelpers.cs" />
     <Compile Include="Metadata\DoNotShowThisProperty.cs" />
+    <Compile Include="Metadata\Hidden.cs" />
     <Compile Include="Metadata\LoadEditPageButtons.cs" />
     <Compile Include="Metadata\LoadListPageButtons.cs" />
     <Compile Include="Metadata\LoadTheseButtonsForEachRow.cs" />
@@ -171,10 +173,6 @@
     <EmbeddedResource Include="Content\ManageSite.css" />
     <EmbeddedResource Include="Content\Reset.css" />
     <EmbeddedResource Include="Content\PagedList.css" />
-    <Content Include="Views\Account\ChangePassword.aspx" />
-    <Content Include="Views\Account\ChangePasswordSuccess.aspx" />
-    <Content Include="Views\Account\LogOn.aspx" />
-    <Content Include="Views\Account\Register.aspx" />
     <EmbeddedResource Include="Views\EmptyDashboard\Index.aspx" />
     <EmbeddedResource Include="Views\MenuSystem\GetIconMenuViewModel.aspx" />
     <EmbeddedResource Include="Views\MenuSystem\GetSectionMenuViewModel.aspx" />
@@ -197,6 +195,8 @@
     <EmbeddedResource Include="Views\Shared\EditorForObject.ascx" />
     <EmbeddedResource Include="Views\Shared\EditorTemplates\EditForm.ascx" />
     <EmbeddedResource Include="Views\Shared\DisplayTemplates\DoNotShowThisProperty.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\Hidden.ascx" />
+    <EmbeddedResource Include="Views\Shared\DisplayTemplates\SubmitButton.ascx" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\Error.aspx" />
   </ItemGroup>
