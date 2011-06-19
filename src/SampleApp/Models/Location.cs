@@ -17,7 +17,7 @@ namespace SampleApp.Models
         public string Country { get; set; }
         public string Description { get; set; }
         public string Id { get; set; }
-        public DateTime FoundedOn { get; set;  }
+        public DateTime? FoundedOn { get; set;  }
     }
 
     public class TestingIndividualLines : MetadataAttribute

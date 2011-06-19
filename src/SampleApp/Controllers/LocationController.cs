@@ -14,7 +14,7 @@ namespace SampleApp.Controllers
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
-        public DateTime FoundedOn { get; set; }
+        public DateTime? FoundedOn { get; set; }
     }
 
     public class LocationFormValidator : AbstractValidator<LocationForm>
@@ -39,7 +39,7 @@ namespace SampleApp.Controllers
     {
         public ActionResult Edit(string id)
         {
-            return View("Edit", new LocationForm{FirstName ="Darren", FoundedOn = DateTime.Parse("1/1/2011")});
+            return View("Edit", new LocationForm{FirstName ="Darren", FoundedOn = null});
         }
 
         [HttpPost]
