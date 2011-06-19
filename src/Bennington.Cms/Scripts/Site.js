@@ -11,4 +11,10 @@
 
     });
 
+    $(document).ready(function () {
+        $(function () {
+            $(".is_a_date").datepicker();
+        });
+    });
+
 } (jQuery));

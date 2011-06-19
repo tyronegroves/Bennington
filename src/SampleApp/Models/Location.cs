@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Routing;
 using Bennington.Cms.Buttons;
 using Bennington.Cms.Metadata;
@@ -16,6 +17,7 @@ namespace SampleApp.Models
         public string Country { get; set; }
         public string Description { get; set; }
         public string Id { get; set; }
+        public DateTime FoundedOn { get; set;  }
     }
 
     public class TestingIndividualLines : MetadataAttribute
