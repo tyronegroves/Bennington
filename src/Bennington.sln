@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "SampleApp\Samp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Cms.Tests", "Bennington.Cms.Tests\Bennington.Cms.Tests.csproj", "{474349E9-716F-4336-8BBC-4D62346731A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.AdminAccounts.Specs", "Bennington.AdminAccounts.Specs\Bennington.AdminAccounts.Specs.csproj", "{1E89D92C-7887-4ECA-8A06-F64F392F57C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.AdminAccounts", "Bennington.AdminAccounts\Bennington.AdminAccounts.csproj", "{3CB562CE-264D-4883-8DB6-DE4782E2324E}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Paragon.vsmdi
@@ -40,6 +44,14 @@ Global
 		{474349E9-716F-4336-8BBC-4D62346731A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{474349E9-716F-4336-8BBC-4D62346731A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{474349E9-716F-4336-8BBC-4D62346731A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E89D92C-7887-4ECA-8A06-F64F392F57C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E89D92C-7887-4ECA-8A06-F64F392F57C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E89D92C-7887-4ECA-8A06-F64F392F57C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E89D92C-7887-4ECA-8A06-F64F392F57C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CB562CE-264D-4883-8DB6-DE4782E2324E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CB562CE-264D-4883-8DB6-DE4782E2324E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CB562CE-264D-4883-8DB6-DE4782E2324E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CB562CE-264D-4883-8DB6-DE4782E2324E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
