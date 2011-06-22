@@ -6,8 +6,8 @@
 
     var currentlySelectedOptions = Model ?? new string[] {};
 
-    var leftLabel = "Assigned " + (string.IsNullOrEmpty(ViewData.ModelMetadata.DisplayName) ? propertyName : ViewData.ModelMetadata.DisplayName);
-    var rightLabel = "Assigned " + (string.IsNullOrEmpty(ViewData.ModelMetadata.DisplayName) ? propertyName : ViewData.ModelMetadata.DisplayName); 
+    var leftLabel = ViewData.ModelMetadata.AdditionalValues["OverrideLeftLabel"] ?? "Assigned " + (string.IsNullOrEmpty(ViewData.ModelMetadata.DisplayName) ? propertyName : ViewData.ModelMetadata.DisplayName);
+    var rightLabel = ViewData.ModelMetadata.AdditionalValues["OverrideRightLabel"] ?? "Assigned " + (string.IsNullOrEmpty(ViewData.ModelMetadata.DisplayName) ? propertyName : ViewData.ModelMetadata.DisplayName); 
 %>
 <table class="console">
 <tr>

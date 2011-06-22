@@ -26,6 +26,12 @@ namespace SampleApp.Controllers
 
     public class ConsoleOptionsAttributeHandler : ConsoleAttributeHandler<ConsoleOptions>
     {
+        public ConsoleOptionsAttributeHandler()
+        {
+            LeftLabel = "Applesauce";
+            RightLabel = "Carrots";
+        }
+
         public override IEnumerable<SelectListItem> GetItems()
         {
             return new[] { "one", "two", "three", "four" }

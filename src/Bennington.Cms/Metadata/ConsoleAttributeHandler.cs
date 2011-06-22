@@ -11,25 +11,22 @@ namespace Bennington.Cms.Metadata
     {
         public abstract IEnumerable<SelectListItem> GetItems();
 
-        protected ConsoleAttributeHandler()
-        {
-            PrependItemsWithSelector = true;
-        }
-
-        public bool PrependItemsWithSelector { get; set; }
+        public string LeftLabel { get; set; }
+        public string RightLabel { get; set; }
 
         public virtual void AlterMetadata(ModelMetadata metadata, CreateMetadataArguments args)
         {
             metadata.TemplateHint = "Console";
 
             metadata.AdditionalValues["SelectList"] = GetItemsForTheSelectList();
+
+            metadata.AdditionalValues["OverrideLeftLabel"] = LeftLabel;
+            metadata.AdditionalValues["OverrideRightLabel"] = RightLabel;
         }
 
         protected virtual List<SelectListItem> GetItemsForTheSelectList()
         {
             var items = GetItems().ToList();
-            //if (PrependItemsWithSelector)
-            //    items.Insert(0, new SelectListItem {Text = SelectorText, Value = ""});
             return items;
         }
     }
