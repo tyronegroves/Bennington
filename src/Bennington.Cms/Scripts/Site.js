@@ -17,4 +17,23 @@
         });
     });
 
+    $(document).ready(function () {
+
+        $('.console .addbutton').click(function () {
+            $(this).parent().parent().find('.exclude option:selected').remove().appendTo('.include');
+        });
+        $('.console .removebutton').click(function () {
+            $(this).parent().parent().find('.include option:selected').remove().appendTo('.exclude');
+        });
+
+        $('form').submit(function () {
+            $('.include option').each(function (i) {
+                $(this).attr("selected", "selected");
+            });
+        }); 
+    });
+
+
+
+
 } (jQuery));
