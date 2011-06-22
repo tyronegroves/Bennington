@@ -47,6 +47,11 @@ namespace SampleApp.Controllers
             RuleFor(x => x.LastName)
                 .NotEmpty()
                 .WithMessage("This field is required.");
+
+            RuleFor(x => x.Options)
+                .Must(x => false)
+                .When(x => x.Options == null || x.Options.Count() == 0)
+                .WithMessage("UH OH!");
         }
     }
 
