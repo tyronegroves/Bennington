@@ -112,6 +112,11 @@ ul.tabs li.active a { background: #fff; color: #85bc65; font-weight: bold; }
 }
 
 /* form elements */
+form td 
+{
+    padding: 3px;
+    margin: 3px;
+}
 .inputGroupContainer 
 {
 	width:auto;
