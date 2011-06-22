@@ -37,7 +37,7 @@
         $(function () {
             $('textarea.tinymce').tinymce({
                 // Location of TinyMCE script
-                script_url: '/Scripts/tiny_mce/tiny_mce.js',
+                script_url: '/MANAGE/Scripts/tiny_mce/tiny_mce.js',
 
                 // General options
                 theme: "advanced",

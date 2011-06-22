@@ -10,7 +10,7 @@ namespace Bennington.Cms.Routing
 		{
 			routes.MapRoute(
 					null,
-					"Manage/Account/{action}",
+					"Account/{action}",
 					new { controller = "Account", action = "Index" }
 					);
 		}
