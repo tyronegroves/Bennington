@@ -14,6 +14,7 @@ namespace SampleApp.Controllers
     public class LocationForm : EditForm
     {
         public string FirstName { get; set; }
+        [HtmlEditor]
         public string MiddleName { get; set; }
         public string LastName { get; set; }
         public DateTime? FoundedOn { get; set; }
