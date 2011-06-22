@@ -93,6 +93,7 @@
     <Compile Include="Helpers\ValidationHelpers.cs" />
     <Compile Include="Metadata\CheckboxListAttributeHandler.cs" />
     <Compile Include="Metadata\ConsoleAttributeHandler.cs" />
+    <Compile Include="Metadata\DoNotShowALabel.cs" />
     <Compile Include="Metadata\HtmlEditorAttributeHandler.cs" />
     <Compile Include="Metadata\DoNotShowThisProperty.cs" />
     <Compile Include="Metadata\DropdownListAttributeHandler.cs" />
@@ -475,10 +476,12 @@
     <EmbeddedResource Include="Scripts\tiny_mce\utils\form_utils.js" />
     <EmbeddedResource Include="Scripts\tiny_mce\utils\mctabs.js" />
     <EmbeddedResource Include="Scripts\tiny_mce\utils\validate.js" />
+    <EmbeddedResource Include="Views\Shared\ButtonsForEditForm.ascx" />
     <Content Include="Views\Shared\EditorTemplates\Boolean.ascx" />
     <EmbeddedResource Include="Views\Shared\EditorTemplates\DateTime.ascx" />
     <EmbeddedResource Include="Views\Shared\EditorTemplates\Console.ascx" />
     <EmbeddedResource Include="Views\Shared\EditorTemplates\HtmlEditor.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\String.ascx" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\Error.aspx" />
   </ItemGroup>

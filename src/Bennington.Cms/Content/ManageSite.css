@@ -116,6 +116,7 @@ form td
 {
     padding: 3px;
     margin: 3px;
+    vertical-align: top;
 }
 .inputGroupContainer 
 {
@@ -333,3 +334,12 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
     padding: 3px;
 }
 
+input.textfield 
+{
+    width: 150px;
+}
+
+input.datefield
+{
+    width: 75px;
+}

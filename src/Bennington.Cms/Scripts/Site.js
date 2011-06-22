@@ -20,10 +20,10 @@
     $(document).ready(function () {
 
         $('.console .addbutton').click(function () {
-            $(this).parent().parent().find('.exclude option:selected').remove().appendTo('.include');
+            $(this).parent().parent().find('.exclude option:selected').remove().appendTo($(this).parent().parent().find('.include'));
         });
         $('.console .removebutton').click(function () {
-            $(this).parent().parent().find('.include option:selected').remove().appendTo('.exclude');
+            $(this).parent().parent().find('.include option:selected').remove().appendTo($(this).parent().parent().find('.exclude'));
         });
 
         $('form').submit(function () {

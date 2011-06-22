@@ -21,6 +21,9 @@ namespace SampleApp.Controllers
 
         [ConsoleOptions]
         public List<string> Options { get; set; }
+
+        [ConsoleOptions]
+        public List<string> MoreOptions { get; set; }
     }
 
     public class ConsoleOptions : ConsoleAttribute { }
