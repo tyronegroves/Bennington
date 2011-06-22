@@ -92,6 +92,7 @@
     <Compile Include="Helpers\EditorTemplateHElpers.cs" />
     <Compile Include="Helpers\ValidationHelpers.cs" />
     <Compile Include="Metadata\CheckboxListAttributeHandler.cs" />
+    <Compile Include="Metadata\ConsoleAttributeHandler.cs" />
     <Compile Include="Metadata\DoNotShowThisProperty.cs" />
     <Compile Include="Metadata\DropdownListAttributeHandler.cs" />
     <Compile Include="Metadata\Hidden.cs" />
@@ -221,6 +222,7 @@
     <EmbeddedResource Include="Views\Shared\DisplayTemplates\DateTime.ascx" />
     <Content Include="Views\Shared\EditorTemplates\Boolean.ascx" />
     <EmbeddedResource Include="Views\Shared\EditorTemplates\DateTime.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\Console.ascx" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\Error.aspx" />
   </ItemGroup>

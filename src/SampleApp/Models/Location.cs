@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 using System.Web.Routing;
 using Bennington.Cms.Buttons;
 using Bennington.Cms.Metadata;
@@ -9,7 +11,7 @@ namespace SampleApp.Models
 {
     [SetSectionHeaderOnListPageTo("TESTING 1234")]
     [SetGridHeaderOnListPageTo("Displaying stuff")]
-    [TestingIndividualLines]
+    [TestingButtons]
     public class LocationViewModel
     {
         public string State { get; set; }
@@ -18,13 +20,18 @@ namespace SampleApp.Models
         public string Description { get; set; }
         public string Id { get; set; }
         public DateTime? FoundedOn { get; set;  }
+
+
     }
 
-    public class TestingIndividualLines : MetadataAttribute
+
+
+
+    public class TestingButtons : MetadataAttribute
     {
     }
 
-    public class TestingIndividualLinesHandler : LoadTheseButtonsForEachRow<LocationViewModel>, IMetadataAttributeHandler<TestingIndividualLines>
+    public class TestingButtonsHandler : LoadTheseButtonsForEachRow<LocationViewModel>, IMetadataAttributeHandler<TestingButtons>
     {
         public override IEnumerable<Button> GetButtons(LocationViewModel model)
         {

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Bennington.Cms.Buttons;
+using Bennington.Cms.Metadata;
 using Bennington.Cms.Models;
 using FluentValidation;
+using MvcTurbine.Web.Metadata;
 using SampleApp.Models;
 
 namespace SampleApp.Controllers
@@ -15,8 +17,23 @@ namespace SampleApp.Controllers
         public string MiddleName { get; set; }
         public string LastName { get; set; }
         public DateTime? FoundedOn { get; set; }
+
+        [ConsoleOptions]
+        public List<string> Options { get; set; }
     }
 
+    public class ConsoleOptions : MetadataAttribute { }
+
+    public class ConsoleOptionsAttributeHandler : ConsoleAttributeHandler<ConsoleOptions>
+    {
+        public override IEnumerable<SelectListItem> GetItems()
+        {
+            return new[] { "one", "two", "three", "four" }
+                .Select(x => new SelectListItem { Text = x, Value = x });
+
+        }
+    }
+    
     public class LocationFormValidator : AbstractValidator<LocationForm>
     {
         public LocationFormValidator()
@@ -31,7 +48,7 @@ namespace SampleApp.Controllers
     {
         public IEnumerable<Button> GetTheActionButtons()
         {
-            return new[] {new Button {Id = "Save", Text = "Save"}};
+            return new[] { new SubmitButton { Id = "Save", Text = "Save" } };
         }
     }
 
@@ -39,7 +56,7 @@ namespace SampleApp.Controllers
     {
         public ActionResult Edit(string id)
         {
-            return View("Edit", new LocationForm{FirstName ="Darren", FoundedOn = null});
+            return View("Edit", new LocationForm { FirstName = "Darren", FoundedOn = null, Options = new[] { "one", "two" }.ToList() });
         }
 
         [HttpPost]
