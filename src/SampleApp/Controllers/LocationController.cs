@@ -22,7 +22,7 @@ namespace SampleApp.Controllers
         public List<string> Options { get; set; }
     }
 
-    public class ConsoleOptions : MetadataAttribute { }
+    public class ConsoleOptions : ConsoleAttribute { }
 
     public class ConsoleOptionsAttributeHandler : ConsoleAttributeHandler<ConsoleOptions>
     {

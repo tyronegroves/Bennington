@@ -5,12 +5,15 @@
     var propertyName = Html.GetCurrentPropertyName();
 
     var currentlySelectedOptions = Model ?? new string[] {};
-    string currentSelectedOptionsFlatString = String.Join(",", currentlySelectedOptions);
+
+    var leftLabel = "Assigned " + (string.IsNullOrEmpty(ViewData.ModelMetadata.DisplayName) ? propertyName : ViewData.ModelMetadata.DisplayName);
+    var rightLabel = "Assigned " + (string.IsNullOrEmpty(ViewData.ModelMetadata.DisplayName) ? propertyName : ViewData.ModelMetadata.DisplayName); 
 %>
 <table class="console">
 <tr>
 <td>
 <select size="6" multiple="multiple" class="exclude" id="<%=propertyName.Replace(".", "_")%>_Exclude" name="<%=propertyName%>_Exclude" <%=(ViewData.ModelState.ContainsKey(propertyName) && ViewData.ModelState[propertyName].Errors.Any()) ? "class=\"input-validation-error\"" : string.Empty%>>
+<optgroup label="<%=leftLabel %>">
     <%
 foreach (var item in items.Where(x=>currentlySelectedOptions.Contains(x.Value) == false))
 {%>
@@ -25,6 +28,7 @@ foreach (var item in items.Where(x=>currentlySelectedOptions.Contains(x.Value) =
 </td>
 <td>
 <select size="6" multiple="multiple" class="include" id="<%=propertyName.Replace(".", "_")%>" name="<%=propertyName%>" <%=(ViewData.ModelState.ContainsKey(propertyName) && ViewData.ModelState[propertyName].Errors.Any()) ? "class=\"input-validation-error\"" : string.Empty%>>
+<optgroup label="<%=rightLabel %>">
     <%
 foreach (var item in items.Where(x=>currentlySelectedOptions.Contains(x.Value)))
 {%>

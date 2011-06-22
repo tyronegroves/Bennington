@@ -12,7 +12,9 @@
         if (property.GetCustomAttributes(false).Any(x=>x.GetType() == typeof(HiddenAttribute)))
         {
 %><%:Html.Editor(property.Name)%><%
-        }else{
+        }else if (property.GetCustomAttributes(false).Any(x=>x.GetType().BaseType == typeof(ConsoleAttribute))){
+%><tr><td colspan="2"><%:Html.Editor(property.Name)%></td></tr>
+   <%}else{
         %>
         <tr>
         <td><%:Html.Label(property.Name) %></td>

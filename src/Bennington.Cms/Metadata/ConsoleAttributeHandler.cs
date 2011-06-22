@@ -5,6 +5,8 @@ using MvcTurbine.Web.Metadata;
 
 namespace Bennington.Cms.Metadata
 {
+    public class ConsoleAttribute : MetadataAttribute{}
+
     public abstract class ConsoleAttributeHandler<T> : IMetadataAttributeHandler<T>
     {
         public abstract IEnumerable<SelectListItem> GetItems();

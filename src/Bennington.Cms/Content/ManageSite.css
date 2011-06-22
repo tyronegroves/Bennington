@@ -319,3 +319,12 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
 .PagedList-disabled.PagedList-skipToLast { display: none !important; }
 .PagedList-disabled.PagedList-skipToNext { display: none !important; }
 
+.console button 
+{
+    padding: 1px 6px;
+}
+.console td 
+{
+    padding: 3px;
+}
+
