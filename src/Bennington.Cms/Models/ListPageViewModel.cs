@@ -17,7 +17,12 @@ namespace Bennington.Cms.Models
 
         public ListPageViewModel()
         {
-            paginationStateRetriever = ServiceLocatorManager.Current.Resolve<IPaginationStateRetriever>();
+            try
+            {
+                paginationStateRetriever = ServiceLocatorManager.Current.Resolve<IPaginationStateRetriever>();
+            } catch
+            {
+            }
         }
 
         public IQueryable<T> Items { get; set; }

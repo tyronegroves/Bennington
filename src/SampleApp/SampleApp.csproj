@@ -127,6 +127,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bennington.AdminAccounts\Bennington.AdminAccounts.csproj">
+      <Project>{3CB562CE-264D-4883-8DB6-DE4782E2324E}</Project>
+      <Name>Bennington.AdminAccounts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bennington.Cms\Bennington.Cms.csproj">
       <Project>{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}</Project>
       <Name>Bennington.Cms</Name>
