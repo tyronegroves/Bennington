@@ -10,6 +10,7 @@
     <script type="text/javascript" src="/Scripts/jquery-1.5.1.min.js"></script>
     <script type="text/javascript" src="/Scripts/Site.js"></script>
     <script type="text/javascript" src="/Scripts/jquery-ui.js"></script>
+    <script type="text/javascript" src="/Scripts/tiny_mce/jquery.tinymce.js"></script>
 </head>
 
 <body>

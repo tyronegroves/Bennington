@@ -12,8 +12,13 @@
         if (property.GetCustomAttributes(false).Any(x=>x.GetType() == typeof(HiddenAttribute)))
         {
 %><%:Html.Editor(property.Name)%><%
-        }else if (property.GetCustomAttributes(false).Any(x=>x.GetType().BaseType == typeof(ConsoleAttribute))){
+        }else if (property.GetCustomAttributes(false).Any(x=>x.GetType().BaseType == typeof(ConsoleAttribute)))
+        {
 %><tr><td colspan="2"><%:Html.Editor(property.Name)%></td></tr>
+<%
+        }else if (property.GetCustomAttributes(false).Any(x=>x.GetType() == typeof(TextareaAttribute) || x.GetType().BaseType == typeof(TextareaAttribute))){%>
+        <tr><td colspan="2"><%:Html.Label(property.Name) %><br />
+        <%:Html.Editor(property.Name) %></td></tr>
    <%}else{
         %>
         <tr>
