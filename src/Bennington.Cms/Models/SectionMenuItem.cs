@@ -11,4 +11,9 @@
 
         public string Action { get; set; }
     }
+
+    public class SectionMenuItemForAUrl : SectionMenuItem
+    {
+        public string Url { get; set; }
+    }
 }

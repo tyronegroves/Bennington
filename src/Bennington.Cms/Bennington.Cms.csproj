@@ -486,6 +486,7 @@
     <EmbeddedResource Include="MANAGE\Scripts\tiny_mce\utils\validate.js" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MANAGE\Views\MenuSystem\DisplayTemplates\SectionMenuItemForAUrl.ascx" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
