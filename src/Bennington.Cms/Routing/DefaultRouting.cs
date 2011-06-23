@@ -10,7 +10,7 @@ namespace Bennington.Cms.Routing
         {
             routes.MapRoute(
                 null,
-                "Manage",
+                "",
                 new {controller = "EmptyDashboard", action = "Index"}
                 );
         }
