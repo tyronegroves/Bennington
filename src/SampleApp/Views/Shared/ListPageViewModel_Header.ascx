@@ -1,4 +1,7 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
+<%@ Import Namespace="Bennington.Cms.Helpers" %>
+<%@ Import Namespace="PagedList" %>
+<%@ Import Namespace="PagedList.Mvc" %>
 
 <%
     object model = Model;
@@ -23,4 +26,34 @@
           </li>
             
       </ul>
+    </div>
+    <div class="section">
+         <%if (Model.PagedItems.TotalItemCount > Model.PagedItems.PageSize)
+           {%>
+             <div class="content pagination" style="float:left">
+                 <%:Html.PagedListPager(Model.PagedItems as IPagedList,
+                                                     page => Url.Action("Index", new {page}),
+                                                     new PagedListRenderOptions
+                                                         {
+                                                             DisplayLinkToLastPage = false,
+                                                             DisplayLinkToFirstPage = false,
+                                                             DisplayLinkToNextPage = false,
+                                                             DisplayLinkToPreviousPage = false,
+                                                             DisplayLinkToIndividualPages = true,
+                                                             FunctionToDisplayAPageNumber = (p) => ((IPagedList)Model.PagedItems).GetPageRange(p).ToString()
+                                                         })%>
+             </div>
+
+             <div class="content pagination">
+                 <%:Html.PagedListPager(Model.PagedItems as IPagedList,
+                                                     page => Url.Action("Index", new {page}),
+                                                     new PagedListRenderOptions
+                                                         {
+                                                             DisplayLinkToLastPage = false,
+                                                             DisplayLinkToFirstPage = false,
+                                                             DisplayLinkToIndividualPages = false,
+                                                         })%>
+             </div>
+             <%
+           }%>
     </div>
