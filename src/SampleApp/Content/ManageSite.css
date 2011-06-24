@@ -64,7 +64,7 @@ body {
 
 div.section:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 div.section { background: #fff url(Canvas/Divider.gif) top left repeat-x; padding-top: 2px; zoom: 1; }
-div.section .content { padding: 15px; }
+div.section .content { padding: 0px; }
 div.section h2 { background: #e3e9ec; margin: 0; font-size: 13px; color: #848484; padding: 6px 10px; border-top: 2px solid #ecf0f2; }
 div.highlight {
     background-image: url(Canvas/Highlight-Content.gif);
@@ -146,7 +146,7 @@ form td
 
 
 .data_table{width:100%;margin-bottom:0em !important;}
-.data_table thead th{background:none no-repeat scroll 0 0 #E3E9EC;border-top:2px solid #ECF0F2;color:#848484;padding:8px;text-align:left;}
+.data_table thead th{background:none no-repeat scroll 0 0 #E3E9EC;border-top:2px solid #ECF0F2;border-right: 2px solid white;color:#848484;padding:8px;text-align:left;}
 .data_table tfoot td{background:none no-repeat scroll 0 0 #BFCCD4;border-top:2px solid #ECF0F2;padding:8px;text-align:right;}
 
 .data_table tbody td {padding:8px;}
