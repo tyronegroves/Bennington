@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
+<%@ Import Namespace="Bennington.Cms.Helpers" %>
 <%@ Import Namespace="PagedList" %>
 <%@ Import Namespace="PagedList.Mvc" %>
 
@@ -13,7 +14,9 @@
          <div class="section">
 
              <div class="content pagination">
-                 <%: Html.PagedListPager(Model.PagedItems as IPagedList, page => Url.Action("Index", new {page}))%>
+                 <%: Html.PagedListPager(Model.PagedItems as IPagedList, 
+                                         page => Url.Action("Index", new { page }), 
+                                         new PagedListRenderOptions { FunctionToDisplayAPageNumber = p => ((IPagedList)Model.PagedItems).GetPageRange(p).ToString()})%>
              </div>
 
              <div class="content actions">

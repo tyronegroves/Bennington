@@ -90,6 +90,7 @@
     <Compile Include="EmbeddedResources\EmbeddedResourceVirtualPathProvider.cs" />
     <Compile Include="Filters\LoadRouteDataToBeRetrievedLater.cs" />
     <Compile Include="Helpers\EditorTemplateHElpers.cs" />
+    <Compile Include="Helpers\PaginationHelpers.cs" />
     <Compile Include="Helpers\ValidationHelpers.cs" />
     <Compile Include="Metadata\CheckboxListAttributeHandler.cs" />
     <Compile Include="Metadata\ConsoleAttributeHandler.cs" />

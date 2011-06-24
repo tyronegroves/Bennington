@@ -4,30 +4,6 @@
         <name>PagedList.Mvc</name>
     </assembly>
     <members>
-        <member name="T:PagedList.Mvc.HtmlHelper">
-            <summary>
-             Extension methods for generating paging controls that can operate on instances of IPagedList.
-            </summary>
-        </member>
-        <member name="M:PagedList.Mvc.HtmlHelper.PagedListPager(System.Web.Mvc.HtmlHelper,PagedList.IPagedList,System.Func{System.Int32,System.String})">
-            <summary>
-             Displays a configurable paging control for instances of PagedList.
-            </summary>
-            <param name="html">This method is meant to hook off HtmlHelper as an extension method.</param>
-            <param name="list">The PagedList to use as the data source.</param>
-            <param name="generatePageUrl">A function that takes the index of the desired page and returns a URL-string that will load that page.</param>
-            <returns>Outputs the paging control HTML.</returns>
-        </member>
-        <member name="M:PagedList.Mvc.HtmlHelper.PagedListPager(System.Web.Mvc.HtmlHelper,PagedList.IPagedList,System.Func{System.Int32,System.String},PagedList.Mvc.PagedListRenderOptions)">
-            <summary>
-             Displays a configurable paging control for instances of PagedList.
-            </summary>
-            <param name="html">This method is meant to hook off HtmlHelper as an extension method.</param>
-            <param name="list">The PagedList to use as the data source.</param>
-            <param name="generatePageUrl">A function that takes the index of the desired page and returns a URL-string that will load that page.</param>
-            <param name="options">Formatting options.</param>
-            <returns>Outputs the paging control HTML.</returns>
-        </member>
         <member name="T:PagedList.Mvc.PagedListRenderOptions">
             <summary>
              Options for configuring the output of <see cref="T:PagedList.Mvc.HtmlHelper"/>.
@@ -78,6 +54,11 @@
             <example>
              "Showing items 75 through 100 of 183."
             </example>
+        </member>
+        <member name="P:PagedList.Mvc.PagedListRenderOptions.MaximumPageNumbers">
+            <summary>
+             The maximum number of page numbers to display, null for infinite
+            </summary>
         </member>
         <member name="P:PagedList.Mvc.PagedListRenderOptions.LinkToFirstPageFormat">
             <summary>
@@ -135,6 +116,11 @@
              "Showing items {0} through {1} of {2}."
             </example>
         </member>
+        <member name="P:PagedList.Mvc.PagedListRenderOptions.FunctionToDisplayAPageNumber">
+            <summary>
+            A function that will render a page number.
+            </summary>
+        </member>
         <member name="P:PagedList.Mvc.PagedListRenderOptions.Minimal">
             <summary>
              Shows only the Previous and Next links.
@@ -154,6 +140,35 @@
             <summary>
              Shows only links to each individual page.
             </summary>
+        </member>
+        <member name="P:PagedList.Mvc.PagedListRenderOptions.MaxNumberOfPages">
+            <summary>
+             Shows next, previous and Max of 5 number of pages at a time
+            </summary>
+        </member>
+        <member name="T:PagedList.Mvc.HtmlHelper">
+            <summary>
+             Extension methods for generating paging controls that can operate on instances of IPagedList.
+            </summary>
+        </member>
+        <member name="M:PagedList.Mvc.HtmlHelper.PagedListPager(System.Web.Mvc.HtmlHelper,PagedList.IPagedList,System.Func{System.Int32,System.String})">
+            <summary>
+             Displays a configurable paging control for instances of PagedList.
+            </summary>
+            <param name="html">This method is meant to hook off HtmlHelper as an extension method.</param>
+            <param name="list">The PagedList to use as the data source.</param>
+            <param name="generatePageUrl">A function that takes the index of the desired page and returns a URL-string that will load that page.</param>
+            <returns>Outputs the paging control HTML.</returns>
+        </member>
+        <member name="M:PagedList.Mvc.HtmlHelper.PagedListPager(System.Web.Mvc.HtmlHelper,PagedList.IPagedList,System.Func{System.Int32,System.String},PagedList.Mvc.PagedListRenderOptions)">
+            <summary>
+             Displays a configurable paging control for instances of PagedList.
+            </summary>
+            <param name="html">This method is meant to hook off HtmlHelper as an extension method.</param>
+            <param name="list">The PagedList to use as the data source.</param>
+            <param name="generatePageUrl">A function that takes the index of the desired page and returns a URL-string that will load that page.</param>
+            <param name="options">Formatting options.</param>
+            <returns>Outputs the paging control HTML.</returns>
         </member>
     </members>
 </doc>
