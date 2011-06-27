@@ -113,6 +113,7 @@
     <Compile Include="Models\ISubMenuItemRegistryRetriever.cs" />
     <Compile Include="Models\ISubMenuRetriever.cs" />
     <Compile Include="Models\ListPageViewModel.cs" />
+    <Compile Include="Models\SearchByOption.cs" />
     <Compile Include="Models\SectionMenu.cs" />
     <Compile Include="Models\SectionMenuItem.cs" />
     <Compile Include="Models\SectionMenuRetriever.cs" />

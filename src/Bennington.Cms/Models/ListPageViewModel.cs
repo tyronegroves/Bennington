@@ -20,6 +20,13 @@ namespace Bennington.Cms.Models
             paginationStateRetriever = ServiceLocatorManager.Current.Resolve<IPaginationStateRetriever>();
         }
 
+        public SearchByOptions<T> SearchByOptions { get; private set; }
+        public void SetSearchByOptions(SearchByOptions<T> searchByOptions)
+        {
+            searchByOptions.Items = () => Items;
+            SearchByOptions = searchByOptions;
+        }
+
         public IQueryable<T> Items { get; set; }
 
         public virtual PaginationState PaginationState

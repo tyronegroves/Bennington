@@ -15,6 +15,10 @@
 
         %>
    <div id="pageheader" class="clearfix">
+   <div style="float:right"><%
+   object @object = Model.SearchByOptions;
+   Html.RenderPartial("EditorForObject", @object);
+                                 %></div>
       <h1><%:sectionHeader %></h1>
    </div>
    <div class="section">

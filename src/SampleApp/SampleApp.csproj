@@ -441,6 +441,7 @@
     <Content Include="Views\Shared\EditorTemplates\Boolean.ascx" />
     <Content Include="Views\Shared\EditorTemplates\CheckboxList.ascx" />
     <Content Include="Views\Shared\EditorTemplates\Console.ascx" />
+    <Content Include="Views\Shared\EditorTemplates\SearchByOptions.ascx" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.ascx" />
     <Content Include="Views\Shared\EditorTemplates\Dropdown.ascx" />
     <Content Include="Views\Shared\EditorTemplates\EditForm.ascx" />
