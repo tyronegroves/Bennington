@@ -122,6 +122,7 @@
     <Content Include="Content\dataTable\back_enabled.jpg" />
     <Content Include="Content\dataTable\forward_disabled.jpg" />
     <Content Include="Content\dataTable\forward_enabled.jpg" />
+    <Content Include="Content\dataTable\select.jpg" />
     <Content Include="Content\dataTable\sort_asc.png" />
     <Content Include="Content\dataTable\sort_asc_disabled.png" />
     <Content Include="Content\dataTable\sort_both.png" />
