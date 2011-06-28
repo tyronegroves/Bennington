@@ -79,22 +79,11 @@
     $(document).ready(function () {
 
          $('.search_by_button').click(function () {
-            var windowLocation = window.location + '';
-            var url = windowLocation.substring(0, windowLocation.indexOf('?'));
-            var querystring = window.location.search.substring(1);
-            var urlParams = getUrlParams(querystring);
-            var newParams = getUrlParams('page=0&sortBy=&SearchBy=' + $('select[name="searchBy"]').val() + '&searchValue=' + $('input[name="searchValue"]').val());
-
-
-            for(var name in newParams){
-               urlParams[name] = newParams[name];
-            }
             
-            var newQuerystring = '?';
-            for(var name in urlParams){
-               newQuerystring += name + '=' + urlParams[name] + '&';
-            }
-            window.location = url + newQuerystring;
+            var newParams = getUrlParams('page=0&sortBy=&SearchBy=' + $('select[name="searchBy"]').val() + '&searchValue=' + $('input[name="searchValue"]').val());
+            var newUrl = getLinkToTheseValues(newParams);
+
+            window.location = newUrl;
          });
 
 
@@ -119,4 +108,23 @@ function getUrlParams(url){
        urlParams[d(e[1])] = d(e[2]);
 
     return urlParams;
+}
+
+function getLinkToTheseValues(newParams){
+    var windowLocation = window.location + '';
+    var url = windowLocation.substring(0, windowLocation.indexOf('?'));
+    var querystring = window.location.search.substring(1);
+    var urlParams = getUrlParams(querystring);
+    
+
+
+    for(var name in newParams){
+       urlParams[name] = newParams[name];
+    }
+    
+    var newQuerystring = '?';
+    for(var name in urlParams){
+       newQuerystring += name + '=' + urlParams[name] + '&';
+    }
+    return url + newQuerystring;
 }
