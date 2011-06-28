@@ -81,16 +81,23 @@
          $('.search_by_button').click(function () {
             var windowLocation = window.location + '';
             var url = windowLocation.substring(0, windowLocation.indexOf('?'));
-            window.location = url + '?SearchBy=' + $('select[name="searchBy"]').val() + '&searchValue=' + $('input[name="searchValue"]').val();
-         });
-////    var e,
-////        a = /\+/g,  // Regex for replacing addition symbol with a space
-////        r = /([^&=]+)=?([^&]*)/g,
-////        d = function (s) { return decodeURIComponent(s.replace(a, " ")); },
-////        q = window.location.search.substring(1);
+            var querystring = window.location.search.substring(1);
+            var urlParams = getUrlParams(querystring);
+            var newParams = getUrlParams('page=0&sortBy=&SearchBy=' + $('select[name="searchBy"]').val() + '&searchValue=' + $('input[name="searchValue"]').val());
 
-////    while (e = r.exec(q))
-////       urlParams[d(e[1])] = d(e[2]);
+
+            for(var name in newParams){
+               urlParams[name] = newParams[name];
+            }
+            
+            var newQuerystring = '?';
+            for(var name in urlParams){
+               newQuerystring += name + '=' + urlParams[name] + '&';
+            }
+            window.location = url + newQuerystring;
+         });
+
+
 
 //      
 
@@ -98,3 +105,18 @@
 
 
 } (jQuery));
+
+function getUrlParams(url){
+   var urlParams = {};
+   var e,
+       a = /\+/g,  // Regex for replacing addition symbol with a space
+       r = /([^&=]+)=?([^&]*)/g,
+       d = function (s) { return decodeURIComponent(s.replace(a, " ")); },
+       //q = window.location.search.substring(1);
+       q = url;
+
+    while (e = r.exec(q))
+       urlParams[d(e[1])] = d(e[2]);
+
+    return urlParams;
+}
