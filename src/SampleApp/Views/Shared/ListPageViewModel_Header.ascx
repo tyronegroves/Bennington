@@ -26,6 +26,7 @@
       <%
         }%>
    </div>
+   <%if (topRightButtons != null && topRightButtons.Any()){ %>
    <div class="section">
       <ul class="tabs">
          <li>
@@ -36,12 +37,13 @@
             
       </ul>
     </div>
+    <%} %>
     <div class="section extra_padding">
          <%if (Model.PagedItems.TotalItemCount > Model.PagedItems.PageSize)
            {%>
              <div class="content pagination" style="float:left">
                  <%:Html.PagedListPager(Model.PagedItems as IPagedList,
-                                                     page => Url.Action("Index", new { page }),
+                                                     page => "?page=" + page,
                                                      new PagedListRenderOptions
                                                          {
                                                              DisplayLinkToLastPage = false,
