@@ -19,24 +19,29 @@
    object @object = Model.SearchByOptions;
    Html.RenderPartial("EditorForObject", @object);
                                  %></div>
-      <h1><%:sectionHeader %></h1>
+      <div><h1><%:sectionHeader %></h1></div>
+      <%if (string.IsNullOrEmpty(gridHeader) == false)
+        {%>
+      <div><%:gridHeader%> </div>
+      <%
+        }%>
    </div>
    <div class="section">
       <ul class="tabs">
-         <li><%:gridHeader %> 
-            <div style="float:right">
+         <li>
+            <div style="float:left">
                 <% Html.RenderPartial("DisplayForObject", topRightButtons); %>
              </div>
           </li>
             
       </ul>
     </div>
-    <div class="section">
+    <div class="section extra_padding">
          <%if (Model.PagedItems.TotalItemCount > Model.PagedItems.PageSize)
            {%>
              <div class="content pagination" style="float:left">
                  <%:Html.PagedListPager(Model.PagedItems as IPagedList,
-                                                     page => Url.Action("Index", new {page}),
+                                                     page => Url.Action("Index", new { page }),
                                                      new PagedListRenderOptions
                                                          {
                                                              DisplayLinkToLastPage = false,
@@ -44,7 +49,13 @@
                                                              DisplayLinkToNextPage = false,
                                                              DisplayLinkToPreviousPage = false,
                                                              DisplayLinkToIndividualPages = true,
-                                                             FunctionToDisplayAPageNumber = (p) => ((IPagedList)Model.PagedItems).GetPageRange(p).ToString()
+                                                             Delimiter = " | ",
+                                                             FunctionToDisplayEachPageNumber = (p) =>
+                                                                                                   {
+                                                                                                       return ((IPagedList) Model.PagedItems)
+                                                                                                           .GetPageRange(p-1)
+                                                                                                           .ToString();
+                                                                                                   }
                                                          })%>
              </div>
 

@@ -9,7 +9,7 @@
     if (bottomLeftButtons == null) bottomLeftButtons = new Bennington.Cms.Buttons.Button[] {};
 %>
 
-         <div class="section">
+         <div class="section extra_padding">
 
          <%if (Model.PagedItems.TotalItemCount > Model.PagedItems.PageSize)
            {%>

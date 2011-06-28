@@ -14,10 +14,17 @@ namespace Bennington.Cms.Models
     public class ListPageViewModel<T>
     {
         private readonly IPaginationStateRetriever paginationStateRetriever;
+        private ISearchStateRetriever searchStateRetriever;
 
         public ListPageViewModel()
         {
-            paginationStateRetriever = ServiceLocatorManager.Current.Resolve<IPaginationStateRetriever>();
+            try
+            {
+                paginationStateRetriever = ServiceLocatorManager.Current.Resolve<IPaginationStateRetriever>();
+                searchStateRetriever = ServiceLocatorManager.Current.Resolve<ISearchStateRetriever>();
+            } catch
+            {
+            }
         }
 
         public SearchByOptions<T> SearchByOptions { get; private set; }
@@ -38,7 +45,13 @@ namespace Bennington.Cms.Models
         {
             get
             {
+                var searchState = searchStateRetriever.GetTheCurrnetSearchState(typeof (T));
+                var items = Items;
+                if (searchState.IsSearching && this.SearchByOptions != null)
+                    items = SearchByOptions.GetItems(searchState.SearchBy, searchState.SearchValue);
+                
                 var paginationState = paginationStateRetriever.GetTheCurrentPaginationState(typeof (T));
+
                 try
                 {
                     var sortBy = paginationState.SortBy;
@@ -46,15 +59,15 @@ namespace Bennington.Cms.Models
                     var expression = Pagination.CreateLambdaExpression(sortBy, typeof (T));
 
                     if (paginationState.SortOrder == "desc")
-                        return Pagination.ApplyOrderByDescending(Items, expression)
+                        return Pagination.ApplyOrderByDescending(items, expression)
                             .ToPagedList(paginationState.CurrentPage, paginationState.PageSize);
 
-                    return Pagination.ApplyOrderBy(Items, expression)
+                    return Pagination.ApplyOrderBy(items, expression)
                         .ToPagedList(paginationState.CurrentPage, paginationState.PageSize);
                 }
                 catch
                 {
-                    return Items.ToPagedList(paginationState.CurrentPage, paginationState.PageSize);
+                    return items.ToPagedList(paginationState.CurrentPage, paginationState.PageSize);
                 }
             }
         }

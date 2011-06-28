@@ -284,6 +284,17 @@ namespace SampleApp.Controllers
             this.Options.Add("Name", "Name");
             this.Options.Add("Other", "Other");
         }
+
+        public override IQueryable<LocationViewModel> GetItems(string searchBy, string searchValue)
+        {
+            var locationViewModels = base.GetItems(searchBy, searchValue);
+            switch (searchBy)
+            {
+                case "Name":
+                    return locationViewModels.Where(x => x.State.Contains(searchValue));
+            }
+            return locationViewModels;
+        }
     }
 
 }

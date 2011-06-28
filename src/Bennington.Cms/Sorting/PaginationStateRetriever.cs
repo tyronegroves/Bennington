@@ -3,6 +3,35 @@ using System.Web;
 
 namespace Bennington.Cms.Sorting
 {
+    public interface ISearchStateRetriever
+    {
+        SearchState GetTheCurrnetSearchState(Type type);
+    }
+
+    public class SearchStateRetriever : ISearchStateRetriever
+    {
+        public SearchState GetTheCurrnetSearchState(Type type)
+        {
+            var searchBy = HttpContext.Current.Request.QueryString["searchBy"];
+            var searchValue = HttpContext.Current.Request.QueryString["searchValue"];
+            return new SearchState
+                {
+                    IsSearching = string.IsNullOrEmpty(searchBy) == false && string.IsNullOrEmpty(searchValue) == false,
+                    SearchBy = searchBy,
+                    SearchValue = searchValue
+                };
+        }
+    }
+
+    public class SearchState
+    {
+        public bool IsSearching { get; set; }
+
+        public string SearchBy { get; set; }
+
+        public string SearchValue { get; set; }
+    }
+
     public interface IPaginationStateRetriever
     {
         PaginationState GetTheCurrentPaginationState(Type type);

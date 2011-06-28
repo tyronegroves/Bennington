@@ -15,7 +15,7 @@ namespace Bennington.Cms.Helpers
             if (pagedList.TotalItemCount < end)
                 end = pagedList.TotalItemCount;
 
-            var begin = i + 1*pagedList.PageSize;
+            var begin = 1 + i*pagedList.PageSize;
             if (i == 0) begin = 1;
 
             return new PaginationRange {Begin = begin, End = end};
