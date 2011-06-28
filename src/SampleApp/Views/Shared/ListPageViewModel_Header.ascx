@@ -63,7 +63,7 @@
 
              <div class="content pagination">
                  <%:Html.PagedListPager(Model.PagedItems as IPagedList,
-                                                     page => Url.Action("Index", new {page}),
+                                                     page => "?page=" + page,
                                                      new PagedListRenderOptions
                                                          {
                                                              DisplayLinkToLastPage = false,
