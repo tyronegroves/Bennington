@@ -133,7 +133,12 @@
     <Compile Include="Routing\DefaultRouting.cs" />
     <Compile Include="Routing\RegisterMenuSystemRoutes.cs" />
     <Compile Include="Filters\DefaultTheMasterPageToTheManageSite.cs" />
+    <Compile Include="Sorting\IPaginationStateRetriever.cs" />
+    <Compile Include="Sorting\ISearchStateRetriever.cs" />
+    <Compile Include="Sorting\PaginationState.cs" />
     <Compile Include="Sorting\PaginationStateRetriever.cs" />
+    <Compile Include="Sorting\SearchState.cs" />
+    <Compile Include="Sorting\SearchStateRetriever.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

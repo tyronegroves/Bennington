@@ -1,5 +1,6 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
 <%@ Import Namespace="Bennington.Cms.Helpers" %>
+<%@ Import Namespace="Bennington.Cms.Sorting" %>
 <%@ Import Namespace="PagedList" %>
 <%@ Import Namespace="PagedList.Mvc" %>
 
@@ -13,6 +14,8 @@
     var topRightButtons = ViewData.ModelMetadata.AdditionalValues["TopRightButtons"] as IEnumerable<Bennington.Cms.Buttons.Button>;
     if (topRightButtons == null) topRightButtons = new Bennington.Cms.Buttons.Button[] { };
 
+    PaginationState paginationState = Model.PaginationState;
+    
         %>
    <div id="pageheader" class="clearfix">
    <div style="float:right"><%
@@ -39,8 +42,13 @@
     </div>
     <%} %>
     <div class="section extra_padding">
-         <%if (Model.PagedItems.TotalItemCount > Model.PagedItems.PageSize)
+        <%if (paginationState.ViewingAll == true)
+          {%>
+           <div class="PagedList-pager"><ul><li class="PagedList-skipToPage"><a href="?">View by Page</a></li></ul></div>
+         <%
+          }else if (Model.PagedItems.TotalItemCount > Model.PagedItems.PageSize)
            {%>
+             <div class="PagedList-pager" style="float:left"><ul><li class="PagedList-skipToPage"><a href="?page=-1">View All</a></li><li> | </li></ul></div>
              <div class="content pagination" style="float:left">
                  <%:Html.PagedListPager(Model.PagedItems as IPagedList,
                                                      page => "?page=" + page,

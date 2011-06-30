@@ -3,40 +3,6 @@ using System.Web;
 
 namespace Bennington.Cms.Sorting
 {
-    public interface ISearchStateRetriever
-    {
-        SearchState GetTheCurrnetSearchState(Type type);
-    }
-
-    public class SearchStateRetriever : ISearchStateRetriever
-    {
-        public SearchState GetTheCurrnetSearchState(Type type)
-        {
-            var searchBy = HttpContext.Current.Request.QueryString["searchBy"];
-            var searchValue = HttpContext.Current.Request.QueryString["searchValue"];
-            return new SearchState
-                {
-                    IsSearching = string.IsNullOrEmpty(searchBy) == false && string.IsNullOrEmpty(searchValue) == false,
-                    SearchBy = searchBy,
-                    SearchValue = searchValue
-                };
-        }
-    }
-
-    public class SearchState
-    {
-        public bool IsSearching { get; set; }
-
-        public string SearchBy { get; set; }
-
-        public string SearchValue { get; set; }
-    }
-
-    public interface IPaginationStateRetriever
-    {
-        PaginationState GetTheCurrentPaginationState(Type type);
-    }
-
     public class PaginationStateRetriever : IPaginationStateRetriever
     {
         public PaginationState GetTheCurrentPaginationState(Type type)
@@ -45,9 +11,15 @@ namespace Bennington.Cms.Sorting
                        {
                            SortBy = GetSortBy(),
                            SortOrder = GetSortOrder(),
-                           PageSize = 10,
+                           PageSize = IsViewingAll() ? 1000 : 10,
                            CurrentPage = GetThePage(),
+                           ViewingAll = IsViewingAll(),
                        };
+        }
+
+        private static bool IsViewingAll()
+        {
+            return PullThePageFromTheQuerystring() < 0;
         }
 
         private static string GetSortOrder()
@@ -62,20 +34,15 @@ namespace Bennington.Cms.Sorting
 
         private static int GetThePage()
         {
+            var page = PullThePageFromTheQuerystring();
+            return page < 0 ? 0 : page;
+        }
+
+        private static int PullThePageFromTheQuerystring()
+        {
             int page;
             int.TryParse(HttpContext.Current.Request.QueryString["page"], out page);
             return page;
         }
-    }
-
-    public class PaginationState
-    {
-        public string SortBy { get; set; }
-
-        public int PageSize { get; set; }
-
-        public int CurrentPage { get; set; }
-
-        public string SortOrder { get; set; }
     }
 }
