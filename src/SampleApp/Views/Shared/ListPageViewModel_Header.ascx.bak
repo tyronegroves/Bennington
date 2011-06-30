@@ -44,7 +44,7 @@
     <div class="section extra_padding">
         <%if (paginationState.ViewingAll == true)
           {%>
-           <div class="PagedList-pager"><ul><li class="PagedList-skipToPage"><a href="?page=0">View by Page</a></li></ul></div>
+           <div class="PagedList-pager"><ul><li class="PagedList-skipToPage"><a href="?">View by Page</a></li></ul></div>
          <%
           }else if (Model.PagedItems.TotalItemCount > Model.PagedItems.PageSize)
            {%>

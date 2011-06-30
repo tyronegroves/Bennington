@@ -11,8 +11,6 @@
     <script type="text/javascript" src="/MANAGE/Scripts/Site.js"></script>
     <script type="text/javascript" src="/MANAGE/Scripts/jquery-ui.js"></script>
     <script type="text/javascript" src="/MANAGE/Scripts/tiny_mce/jquery.tinymce.js"></script>
-    <script type="text/javascript" src="/MANAGE/Scripts/parseuri.js"></script>
-    <script type="text/javascript" src="/MANAGE/Scripts/jquery.url.js"></script>
 </head>
 
 <body>
