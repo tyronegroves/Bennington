@@ -10,6 +10,7 @@
     <thead>
     <tr>
         <%
+            var columnIndex = 0;
             PaginationState paginationState = Model.PaginationState;
             foreach(var property in metadataForTheGenericType.Properties)
             {
@@ -25,14 +26,15 @@
                 %>
                 <%if (property.PropertyName == paginationState.SortBy)
                     {%>
-                    <th class="<%:paginationState.SortOrder == "asc" ? "headerSortUp" : "headerSortDown" %>"><a href="<%:sortUrl%>&sortOrder=<%:paginationState.SortOrder == "asc" ? "desc" : "asc" %>"><%:columnHeader%></a></th>
+                    <th class="listpageheaderrow_<%=columnIndex %> <%:paginationState.SortOrder == "asc" ? "headerSortUp" : "headerSortDown" %>"><a href="<%:sortUrl%>&sortOrder=<%:paginationState.SortOrder == "asc" ? "desc" : "asc" %>"><%:columnHeader%></a></th>
                 <%
                     }
                     else
 {%>
-                <th><a href="<%:sortUrl%>"><%:columnHeader%></a></th>
+                <th class="listpageheaderrow_<%=columnIndex %>"><a href="<%:sortUrl%>"><%:columnHeader%></a></th>
                 <%
 }
+                columnIndex++;
             }
         %>
         <th></th>

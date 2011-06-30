@@ -12,6 +12,7 @@
 
  <tr>
  <%
+    var columnIndex = 0;
     foreach (var key in modelProperties.Keys)
     {
         if (Model.GetType().GetProperties()
@@ -21,12 +22,13 @@
         {
             continue;
         }
-        %><td>
+        %><td class="listpagerow_<%=columnIndex%>">
 <%
         if (modelProperties[key] != null)
             Html.RenderPartial("DisplayForObject", modelProperties[key]);%></td>
    
  <%
+        columnIndex++;
     }%>
        <td class="actions">
           <%
