@@ -82,6 +82,7 @@
     <Compile Include="Buttons\ListPageButtonRegistry.cs" />
     <Compile Include="Buttons\ListPageButtonRetriever.cs" />
     <Compile Include="Buttons\RoutesButton.cs" />
+    <Compile Include="Buttons\UrlButton.cs" />
     <Compile Include="Controllers\EmptyDashboardController.cs" />
     <Compile Include="Controllers\MenuSystemController.cs" />
     <Compile Include="EmbeddedResources\AssemblyResourceFile.cs" />

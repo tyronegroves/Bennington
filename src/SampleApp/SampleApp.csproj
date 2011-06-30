@@ -432,6 +432,7 @@
     <Content Include="Views\Shared\ButtonsForEditForm.ascx" />
     <Content Include="Views\Shared\DisplayForObject.ascx" />
     <Content Include="Views\Shared\DisplayTemplates\Button.ascx" />
+    <Content Include="Views\Shared\DisplayTemplates\UrlButton.ascx" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.ascx" />
     <Content Include="Views\Shared\DisplayTemplates\DoNotShowThisProperty.ascx" />
     <Content Include="Views\Shared\DisplayTemplates\ListPageViewModel`1.ascx" />
