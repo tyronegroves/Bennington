@@ -55,13 +55,14 @@ body {
 
 #main { clear: both; }
 
-#pageheader { padding-bottom: 15px; margin-bottom: 2px; }
+#pageheader { padding-bottom: 0px; margin-bottom: 2px; }
 #pageheader p { margin: 0; }
 #pageheader h1 { margin: 0 0 .5em; }
-#pageheader h1, #pageheader .meta { float: left; }
+#pageheader h1, #pageheader .meta { }
 #pageheader .meta { clear: left; }
 #pageheader .search { float: right; }
 
+.extra_padding { padding: 10px 10px 10px 10px !important; }
 div.section:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 div.section { background: #fff url(Canvas/Divider.gif) top left repeat-x; padding-top: 2px; zoom: 1; }
 div.section .content { padding: 0px; }
@@ -155,8 +156,8 @@ form td
 .data_table td.actions{width:185px;text-align:right;}
 
 .data_table thead tr {background-image: url();background-repeat: no-repeat;background-position: center right;cursor: pointer;}
-.data_table thead tr .headerSortUp {background-position: center right;background-image: url(/Content/Canvas/asc.gif);background-color: #BDCBD2 !important;color:#636363 !important;}
-.data_table thead tr .headerSortDown {background-position: center right;background-image: url(/Content/Canvas/desc.gif);background-color: #BDCBD2 !important;color:#636363 !important;}
+.data_table thead tr .headerSortUp {background-position: center right;background-image: url(/MANAGE/Content/Canvas/asc.gif);background-color: #BDCBD2 !important;color:#636363 !important;}
+.data_table thead tr .headerSortDown {background-position: center right;background-image: url(/MANAGE/Content/Canvas/desc.gif);background-color: #BDCBD2 !important;color:#636363 !important;}
 table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {background-color: #F2F2F2;}
 
 /* thickbox: */

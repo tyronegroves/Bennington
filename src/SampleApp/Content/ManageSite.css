@@ -147,7 +147,7 @@ form td
 
 
 .data_table{width:100%;margin-bottom:0em !important;}
-.data_table thead th{background:none no-repeat scroll 0 0 #E3E9EC;border-top:2px solid #ECF0F2;border-right: 2px solid white;color:#848484;padding:8px;text-align:left;}
+.data_table thead th{background:none no-repeat scroll 0 0 #E3E9EC;border-top:2px solid #ECF0F2;border-right: 2px solid white;color:#848484;padding:8px;padding-right:20px;text-align:left;}
 .data_table tfoot td{background:none no-repeat scroll 0 0 #BFCCD4;border-top:2px solid #ECF0F2;padding:8px;text-align:right;}
 
 .data_table tbody td {padding:8px;}

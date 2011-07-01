@@ -10,11 +10,9 @@
                 <select id="searchBy" name="searchBy">
                    <option value="">- select -</option>
                     <%
-                        var currentSearchBy = HttpContext.Current.Request.QueryString["searchBy"];
-                        var currentSearchValue = HttpContext.Current.Request.QueryString["searchValue"];
                 foreach (var item in Model.Options)
                 {%>
-                    <option value="<%=HttpUtility.HtmlEncode(item.Key)%>" <%:(item.Key == currentSearchBy) ? "selected" : "" %>>
+                    <option value="<%=HttpUtility.HtmlEncode(item.Key)%>">
                         <%=Html.Encode(item.Value)%></option>
                     <%
                 }%>
@@ -24,7 +22,7 @@
             <%:Html.Label("Search:") %>
         </td>
         <td>
-            <input name="searchValue" name="searchValue" class="textfield" value="<%:currentSearchValue %>" />
+            <input name="searchValue" name="searchValue" class="textfield" />
         </td>
         <td>
             <a class="search_by_button">
