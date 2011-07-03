@@ -6,6 +6,7 @@ namespace Bennington.Cms.Models
     {
         string Controller { get; }
         string Action { get; }
+        string Id { get; }
     }
 
     public class CurrentSituation : ICurrentSituation
@@ -22,7 +23,7 @@ namespace Bennington.Cms.Models
             get
             {
                 return routeDataRetriever.GetRouteData().Values["callingController"] as string
-                    ?? routeDataRetriever.GetRouteData().Values["controller"] as string;
+                       ?? routeDataRetriever.GetRouteData().Values["controller"] as string;
             }
         }
 
@@ -30,8 +31,17 @@ namespace Bennington.Cms.Models
         {
             get
             {
-                return routeDataRetriever.GetRouteData().Values["callingAction"] as string 
-                    ?? routeDataRetriever.GetRouteData().Values["action"] as string;
+                return routeDataRetriever.GetRouteData().Values["callingAction"] as string
+                       ?? routeDataRetriever.GetRouteData().Values["action"] as string;
+            }
+        }
+
+        public string Id
+        {
+            get
+            {
+                return routeDataRetriever.GetRouteData().Values["callingId"] as string
+                       ?? routeDataRetriever.GetRouteData().Values["id"] as string;
             }
         }
     }

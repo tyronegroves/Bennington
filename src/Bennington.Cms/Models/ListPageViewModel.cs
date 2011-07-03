@@ -34,7 +34,7 @@ namespace Bennington.Cms.Models
             SearchByOptions = searchByOptions;
         }
 
-        public IQueryable<T> Items { get; set; }
+        public virtual IQueryable<T> Items { get; set; }
 
         public virtual PaginationState PaginationState
         {

@@ -39,8 +39,8 @@
                 </div> 
 
                 <%
-                    Html.RenderAction("SectionMenu", "MenuSystem", new { callingController = ViewContext.RouteData.Values["controller"], callingAction = ViewContext.RouteData.Values["action"] });
-                       Html.RenderAction("SubMenu", "MenuSystem", new { callingController = ViewContext.RouteData.Values["controller"], callingAction = ViewContext.RouteData.Values["action"] });
+                    Html.RenderAction("SectionMenu", "MenuSystem", new { callingController = ViewContext.RouteData.Values["controller"], callingAction = ViewContext.RouteData.Values["action"], callingId = ViewContext.RouteData.Values["id"] });
+                    Html.RenderAction("SubMenu", "MenuSystem", new { callingController = ViewContext.RouteData.Values["controller"], callingAction = ViewContext.RouteData.Values["action"], callingId = ViewContext.RouteData.Values["id"] });
 %>				
 
             </div>
