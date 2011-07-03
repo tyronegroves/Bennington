@@ -126,6 +126,7 @@
     <Compile Include="Models\ISubMenuItemRegistry.cs" />
     <Compile Include="Models\SubMenuItemRegistryRetriever.cs" />
     <Compile Include="Models\SubMenuRetriever.cs" />
+    <Compile Include="Models\UrlSubMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
     <Compile Include="Registration\Setup.cs" />

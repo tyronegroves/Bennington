@@ -429,6 +429,7 @@
     <Content Include="Views\EmptyDashboard\Index.aspx" />
     <Content Include="Views\Location\Edit.aspx" />
     <Content Include="Views\Location\Index.aspx" />
+    <Content Include="Views\MenuSystem\DisplayTemplates\UrlSubMenuItem.ascx" />
     <Content Include="Views\Shared\ButtonsForEditForm.ascx" />
     <Content Include="Views\Shared\DisplayForObject.ascx" />
     <Content Include="Views\Shared\DisplayTemplates\Button.ascx" />
