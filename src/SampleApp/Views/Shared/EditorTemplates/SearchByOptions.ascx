@@ -1,7 +1,8 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<Bennington.Cms.Models.SearchByOptions>" %>
 <%@ Import Namespace="Bennington.Cms.Helpers" %>
 <%@ Import Namespace="Bennington.Cms.Metadata" %>
-    <table>
+<%using (Html.BeginForm()){ %>
+    <table class="searchForm">
     <tr>
         <td>
             <%:Html.Label("Search By:") %>
@@ -33,3 +34,4 @@
         </td>        
     </tr>
     </table>
+<%} %>
