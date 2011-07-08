@@ -3,6 +3,7 @@
     public class SectionMenuItem
     {
         public string Name { get; set; }
+        public bool Selected { get; set; }
     }
 
     public class SectionMenuItemForAControllerAction : SectionMenuItem
