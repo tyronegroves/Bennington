@@ -21,6 +21,8 @@ namespace Bennington.Cms.Models
             Options = new Dictionary<string, string>();
         }
 
+        protected bool StartOptionsWithASelectLine { get; set; }
+
         public IDictionary<string, string> Options { get; set; }
     }
 }
