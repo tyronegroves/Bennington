@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<DegDarwin.Models.LoginForm>" %>
+﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<Bennington.Login.Models.LoginForm>" %>
 
 <div id="canvas">
 	<div id="login_form">

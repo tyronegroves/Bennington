@@ -2,7 +2,7 @@
 using System.Web.Routing;
 using MvcTurbine.Routing;
 
-namespace DegDarwin.Routing
+namespace Bennington.Login.Routing
 {
     public class DefaultRouting : IRouteRegistrator
     {

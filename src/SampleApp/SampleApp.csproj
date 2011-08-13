@@ -133,6 +133,9 @@
     <Content Include="Content\JSTree\dot_for_ie.gif" />
     <Content Include="Content\JSTree\Style.css" />
     <Content Include="Content\JSTree\throbber.gif" />
+    <Content Include="Content\Login\Canvas\login_bg.jpg" />
+    <Content Include="Content\Login\Canvas\login_bg.png" />
+    <Content Include="Content\Login\Site.css" />
     <Content Include="Content\ManageSite.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Reset.css" />

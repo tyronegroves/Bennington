@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<System.String>" %>
-<%@ Import Namespace="DegDarwin.Helpers" %>
+<%@ Import Namespace="Bennington.Login.Helpers" %>
 
 <p class="field-wrap">
     <%=Html.RenderLabelForModel()%>

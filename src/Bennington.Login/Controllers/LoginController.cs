@@ -1,8 +1,8 @@
 ﻿using System.Web.Mvc;
 using Bennington.Cms.Attributes;
-using DegDarwin.Models;
+using Bennington.Login.Models;
 
-namespace DegDarwin.Controllers
+namespace Bennington.Login.Controllers
 {
     [DoNotUseTheDefaultMasterPage]
     public class LoginController : Controller

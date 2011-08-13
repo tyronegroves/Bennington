@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 
-namespace DegDarwin.Helpers
+namespace Bennington.Login.Helpers
 {
     public static class EditorTemplateHelpers
     {

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace DegDarwin.Models
+namespace Bennington.Login.Models
 {
     public class LoginForm
     {
