@@ -1,10 +1,11 @@
-﻿using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
+using Bennington.Cms.Attributes;
 using MvcTurbine.Web.Filters;
 
-namespace Bennington.Cms
+namespace Bennington.Cms.Filters
 {
-    public class RegisterTheDefaultMasterPageSetting : MvcTurbine.Web.Filters.GlobalFilterRegistry
+    public class RegisterTheDefaultMasterPageSetting : GlobalFilterRegistry
     {
         public RegisterTheDefaultMasterPageSetting()
         {
@@ -16,15 +17,45 @@ namespace Bennington.Cms
     {
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            if (filterContext.IsChildAction) return;
+            if (TheMasterPageShouldNotBeSet(filterContext))
+                return;
 
-            var viewResult = filterContext.Result as ViewResult;
-            if (viewResult == null) return;
-
-            if (string.IsNullOrEmpty(viewResult.MasterName))
-                viewResult.MasterName = "ManageSite";
+            SetTheMasterPage(filterContext);
 
             base.OnActionExecuted(filterContext);
+        }
+
+        private bool TheMasterPageShouldNotBeSet(ActionExecutedContext filterContext)
+        {
+            return ThisIsNotTheMainPageThatIsBeingLoaded(filterContext)
+                   || ThisIsNotAViewResult(filterContext)
+                   || TheControllerIsMarkedAsOneThatWillNotUseTheDefaultMasterPage(filterContext)
+                   || TheMasterPageHasBeenSetByTheAction(filterContext);
+        }
+
+        private static void SetTheMasterPage(ActionExecutedContext filterContext)
+        {
+            ((ViewResult) filterContext.Result).MasterName = "ManageSite";
+        }
+
+        private bool TheMasterPageHasBeenSetByTheAction(ActionExecutedContext filterContext)
+        {
+            return string.IsNullOrEmpty((filterContext.Result as ViewResult).MasterName) == false;
+        }
+
+        private bool TheControllerIsMarkedAsOneThatWillNotUseTheDefaultMasterPage(ActionExecutedContext filterContext)
+        {
+            return filterContext.Controller.GetType().GetCustomAttributes(false).Any(x => x.GetType() == typeof (DoNotUseTheDefaultMasterPage));
+        }
+
+        private bool ThisIsNotAViewResult(ActionExecutedContext filterContext)
+        {
+            return filterContext.Result as ViewResult == null;
+        }
+
+        private bool ThisIsNotTheMainPageThatIsBeingLoaded(ActionExecutedContext filterContext)
+        {
+            return filterContext.IsChildAction;
         }
     }
 }
