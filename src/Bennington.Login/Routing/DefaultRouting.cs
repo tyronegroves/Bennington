@@ -12,7 +12,7 @@ namespace Bennington.Login.Routing
 
             routes.MapRoute(
                 "Default",
-                "{controller}/{action}/{id}",
+                "Login/{action}/{id}",
                 new { controller = "Login", action = "Index", id = UrlParameter.Optional }
                 );
         }
