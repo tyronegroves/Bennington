@@ -429,6 +429,11 @@
     <Content Include="Views\EmptyDashboard\Index.aspx" />
     <Content Include="Views\Location\Edit.aspx" />
     <Content Include="Views\Location\Index.aspx" />
+    <Content Include="Views\Login\EditorTemplates\LoginForm.ascx" />
+    <Content Include="Views\Login\EditorTemplates\Password.ascx" />
+    <Content Include="Views\Login\EditorTemplates\String.ascx" />
+    <Content Include="Views\Login\Index.aspx" />
+    <Content Include="Views\Login\Styles.ascx" />
     <Content Include="Views\MenuSystem\DisplayTemplates\UrlSubMenuItem.ascx" />
     <Content Include="Views\Shared\ButtonsForEditForm.ascx" />
     <Content Include="Views\Shared\DisplayForObject.ascx" />
@@ -489,6 +494,10 @@
       <Project>{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}</Project>
       <Name>Bennington.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Bennington.Login\Bennington.Login.csproj">
+      <Project>{7DBAF057-8A9B-4EC2-B8FC-505978DA86DE}</Project>
+      <Name>Bennington.Login</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bennington.Repository\Bennington.Repository.csproj">
       <Project>{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}</Project>
       <Name>Bennington.Repository</Name>
@@ -497,6 +506,7 @@
   <ItemGroup>
     <None Include="Content\dataTable\Sorting icons.psd" />
     <Content Include="Views\Shared\ManageSite.master" />
+    <Content Include="Views\Login\Site.Master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
