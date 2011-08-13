@@ -109,6 +109,8 @@
     <Compile Include="Metadata\RadioButtonListAttributeHandler.cs" />
     <Compile Include="Metadata\SetGridHeaderOnListPageTo.cs" />
     <Compile Include="Metadata\SetSectionHeaderOnListPageTo.cs" />
+    <Compile Include="Metadata\SmallMemo.cs" />
+    <Compile Include="Metadata\TextareaAttribute.cs" />
     <Compile Include="Models\CurrentSituation.cs" />
     <Compile Include="Models\EditForm.cs" />
     <Compile Include="Models\EmptySectionMenuItemRegistry.cs" />
