@@ -14,7 +14,8 @@ namespace Bennington.Cms.Models
     public class ListPageViewModel<T>
     {
         private readonly IPaginationStateRetriever paginationStateRetriever;
-        private ISearchStateRetriever searchStateRetriever;
+        private readonly ISearchStateRetriever searchStateRetriever;
+        private PaginationState paginationState;
 
         public ListPageViewModel()
         {
@@ -22,12 +23,14 @@ namespace Bennington.Cms.Models
             {
                 paginationStateRetriever = ServiceLocatorManager.Current.Resolve<IPaginationStateRetriever>();
                 searchStateRetriever = ServiceLocatorManager.Current.Resolve<ISearchStateRetriever>();
-            } catch
+            }
+            catch
             {
             }
         }
 
         public SearchByOptions<T> SearchByOptions { get; private set; }
+
         public void SetSearchByOptions(SearchByOptions<T> searchByOptions)
         {
             searchByOptions.Items = () => Items;
@@ -38,7 +41,16 @@ namespace Bennington.Cms.Models
 
         public virtual PaginationState PaginationState
         {
-            get { return paginationStateRetriever.GetTheCurrentPaginationState(typeof (T)); }
+            get
+            {
+                if (paginationState == null) 
+                    paginationState = paginationState = paginationStateRetriever.GetTheCurrentPaginationState(typeof (T));
+                return paginationState;
+            }
+            set
+            {
+                paginationState = value;
+            }
         }
 
         public virtual IPagedList<T> PagedItems
@@ -49,8 +61,6 @@ namespace Bennington.Cms.Models
                 var items = Items;
                 if (searchState.IsSearching && this.SearchByOptions != null)
                     items = SearchByOptions.GetItems(searchState.SearchBy, searchState.SearchValue);
-                
-                var paginationState = paginationStateRetriever.GetTheCurrentPaginationState(typeof (T));
 
                 try
                 {
