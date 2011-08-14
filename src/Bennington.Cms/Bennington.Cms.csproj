@@ -85,6 +85,7 @@
     <Compile Include="Buttons\RoutesButton.cs" />
     <Compile Include="Buttons\UrlButton.cs" />
     <Compile Include="Controllers\EmptyDashboardController.cs" />
+    <Compile Include="Controllers\LogoutController.cs" />
     <Compile Include="Controllers\MenuSystemController.cs" />
     <Compile Include="EmbeddedResources\AssemblyResourceFile.cs" />
     <Compile Include="EmbeddedResources\EmbeddedResource.cs" />
@@ -134,7 +135,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
     <Compile Include="Registration\Setup.cs" />
-    <Compile Include="Routing\AccountRouteRegistrator.cs" />
+    <Compile Include="Routing\LogoutRouteRegistrator.cs" />
     <Compile Include="Routing\DefaultRouting.cs" />
     <Compile Include="Routing\RegisterMenuSystemRoutes.cs" />
     <Compile Include="Filters\DefaultTheMasterPageToTheManageSite.cs" />

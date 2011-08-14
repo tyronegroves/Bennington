@@ -31,10 +31,9 @@
                 </div>
 
                 <div id="logindisplay">
-                    <%--Welcome Kip, SMS Admin | KU School of Business Website | <% Html.RenderPartial("LogOnUserControl"); %>--%>
 					<% if (Request.IsAuthenticated) { %>
 						Welcome <b><%= Page.User.Identity.Name %></b>.
-						[ <%= Html.ActionLink("Log Off", "LogOff", "Account") %> ]
+						[ <%= Html.ActionLink("Log Off", "Index", "Logout") %> ]
 					<% } %> 
                 </div> 
 

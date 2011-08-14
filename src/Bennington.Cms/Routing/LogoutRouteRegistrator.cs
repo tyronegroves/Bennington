@@ -4,14 +4,14 @@ using MvcTurbine.Routing;
 
 namespace Bennington.Cms.Routing
 {
-	public class AccountRouteRegistrator : IRouteRegistrator
+	public class LogoutRouteRegistrator : IRouteRegistrator
 	{
 		public void Register(RouteCollection routes)
 		{
 			routes.MapRoute(
 					null,
-					"Account/{action}",
-					new { controller = "Account", action = "Index" }
+					"Logout/{action}",
+					new { controller = "Logout", action = "Index" }
 					);
 		}
 	}
