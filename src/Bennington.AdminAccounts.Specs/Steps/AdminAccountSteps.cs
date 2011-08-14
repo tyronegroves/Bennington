@@ -12,7 +12,7 @@ namespace Bennington.AdminAccounts.Specs.Steps
         [Given(@"the following admin accounts exist in the database")]
         public void ix(Table table)
         {
-            var db = Database.OpenConnection("Data Source=localhost;Initial Catalog=AGCEVENTREG_TESTING;Trusted_Connection=True;");
+            var db = Database.OpenConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=test;Trusted_Connection=True;");
 
             db.AdminAccounts.DeleteAll();
 

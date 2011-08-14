@@ -9,7 +9,7 @@ namespace Bennington.AdminAccounts.Models
     {
         public IEnumerable<AdminAccount> GetAllAdminAccounts()
         {
-            var db = Database.OpenConnection("Data Source=localhost;Initial Catalog=AGCEVENTREG_TESTING;Trusted_Connection=True;");
+            var db = Database.OpenConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=test;Trusted_Connection=True;");
             var all = db.AdminAccounts.All();
             var castAs = (IEnumerable<AdminAccount>)all.Cast<AdminAccount>();
             return castAs.ToList();
