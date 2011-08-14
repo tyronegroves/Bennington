@@ -10,7 +10,7 @@ namespace Bennington.Cms.Routing
 		{
 			routes.MapRoute(
 				null,
-				"Manage/MenuSystemController/{action}",
+				"MenuSystemController/{action}",
 				new { controller = "MenuSystem", action = "Index" }
 				);
 		}

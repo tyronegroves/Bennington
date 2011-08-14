@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Repository", "Bennington.Repository\Bennington.Repository.csproj", "{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Cms", "Bennington.Cms\Bennington.Cms.csproj", "{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Core", "Bennington.Core\Bennington.Core.csproj", "{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "SampleApp\SampleApp.csproj", "{796D8BB9-A4C1-4AB8-A877-605860129243}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Cms.Tests", "Bennington.Cms.Tests\Bennington.Cms.Tests.csproj", "{474349E9-716F-4336-8BBC-4D62346731A7}"
+EndProject
+<<<<<<< HEAD
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.AdminAccounts.Specs", "Bennington.AdminAccounts.Specs\Bennington.AdminAccounts.Specs.csproj", "{1E89D92C-7887-4ECA-8A06-F64F392F57C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.AdminAccounts", "Bennington.AdminAccounts\Bennington.AdminAccounts.csproj", "{3CB562CE-264D-4883-8DB6-DE4782E2324E}"
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Login", "Bennington.Login\Bennington.Login.csproj", "{7DBAF057-8A9B-4EC2-B8FC-505978DA86DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Login.Tests", "Bennington.Login.Tests\Bennington.Login.Tests.csproj", "{70E472B0-B8F2-4EC6-9791-69379128DC90}"
+>>>>>>> worry_about_security
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Paragon.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}.Release|Any CPU.Build.0 = Release|Any CPU
+		{796D8BB9-A4C1-4AB8-A877-605860129243}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{796D8BB9-A4C1-4AB8-A877-605860129243}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{796D8BB9-A4C1-4AB8-A877-605860129243}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{796D8BB9-A4C1-4AB8-A877-605860129243}.Release|Any CPU.Build.0 = Release|Any CPU
+		{474349E9-716F-4336-8BBC-4D62346731A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{474349E9-716F-4336-8BBC-4D62346731A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{474349E9-716F-4336-8BBC-4D62346731A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{474349E9-716F-4336-8BBC-4D62346731A7}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
+		{1E89D92C-7887-4ECA-8A06-F64F392F57C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E89D92C-7887-4ECA-8A06-F64F392F57C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E89D92C-7887-4ECA-8A06-F64F392F57C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E89D92C-7887-4ECA-8A06-F64F392F57C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CB562CE-264D-4883-8DB6-DE4782E2324E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CB562CE-264D-4883-8DB6-DE4782E2324E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CB562CE-264D-4883-8DB6-DE4782E2324E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CB562CE-264D-4883-8DB6-DE4782E2324E}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{7DBAF057-8A9B-4EC2-B8FC-505978DA86DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DBAF057-8A9B-4EC2-B8FC-505978DA86DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DBAF057-8A9B-4EC2-B8FC-505978DA86DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DBAF057-8A9B-4EC2-B8FC-505978DA86DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70E472B0-B8F2-4EC6-9791-69379128DC90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70E472B0-B8F2-4EC6-9791-69379128DC90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70E472B0-B8F2-4EC6-9791-69379128DC90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70E472B0-B8F2-4EC6-9791-69379128DC90}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> worry_about_security
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -5,9 +5,9 @@ using System.Web.Routing;
 
 namespace Bennington.Cms.Filters
 {
-    public class RegisterTheDefaultMasterPageSetting : MvcTurbine.Web.Filters.GlobalFilterRegistry
+    public class LoadRouteDataToBeRetrievedLater : MvcTurbine.Web.Filters.GlobalFilterRegistry
     {
-        public RegisterTheDefaultMasterPageSetting()
+        public LoadRouteDataToBeRetrievedLater()
         {
             AsGlobal<LoadRouteData>();
         }

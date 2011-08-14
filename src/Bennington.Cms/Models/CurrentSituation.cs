@@ -1,4 +1,5 @@
-﻿using Bennington.Cms.Filters;
+﻿using System.Web.Routing;
+using Bennington.Cms.Filters;
 
 namespace Bennington.Cms.Models
 {
@@ -6,6 +7,7 @@ namespace Bennington.Cms.Models
     {
         string Controller { get; }
         string Action { get; }
+        string Id { get; }
     }
 
     public class CurrentSituation : ICurrentSituation
@@ -21,17 +23,32 @@ namespace Bennington.Cms.Models
         {
             get
             {
-                return routeDataRetriever.GetRouteData().Values["callingController"] as string
-                    ?? routeDataRetriever.GetRouteData().Values["controller"] as string;
+                return GetTheRouteData()["callingController"] as string
+                       ?? GetTheRouteData()["controller"] as string;
             }
+        }
+
+        private RouteValueDictionary GetTheRouteData()
+        {
+            var routeData = routeDataRetriever.GetRouteData();
+            return routeData != null ? routeData.Values : new RouteValueDictionary();
         }
 
         public string Action
         {
             get
             {
-                return routeDataRetriever.GetRouteData().Values["callingAction"] as string 
-                    ?? routeDataRetriever.GetRouteData().Values["action"] as string;
+                return GetTheRouteData()["callingAction"] as string
+                       ?? GetTheRouteData()["action"] as string;
+            }
+        }
+
+        public string Id
+        {
+            get
+            {
+                return GetTheRouteData()["callingId"] as string
+                       ?? GetTheRouteData()["id"] as string;
             }
         }
     }

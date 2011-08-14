@@ -28,7 +28,21 @@ namespace Bennington.Cms.Buttons
 
             return ThisIsNotAValidButtonRegistryType(buttonRegistryType)
                        ? AnEmptySet()
-                       : CreateTheButtonRegistry(buttonRegistryType).GetTheActionButtons();
+                       : iGo(type, buttonRegistryType, @object);
+        }
+
+        private IEnumerable<Button> iGo(Type @interface, Type buttonRegistryType, Object @object)
+        {
+            var registry = CreateTheButtonRegistry(buttonRegistryType);
+            return typeof(EditPageButtonRetriever)
+                .GetMethod("PublicMethodForCallingAGenericMethod")
+                .MakeGenericMethod(@interface)
+                .Invoke(this, new[] { registry, @object }) as IEnumerable<Button>;
+        }
+
+        public IEnumerable<Button> PublicMethodForCallingAGenericMethod<T>(IEditPageButtonRegistry<T> buttonRegistry, T source) where T : class
+        {
+            return buttonRegistry.GetTheActionButtons(source);
         }
 
         private IEditPageButtonRegistry CreateTheButtonRegistry(Type buttonRegistryType)

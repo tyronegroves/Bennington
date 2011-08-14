@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<repositories>
+  <repository path="..\Bennington.Cms\packages.config" />
+  <repository path="..\Bennington.Core\packages.config" />
+  <repository path="..\Bennington.Repository\packages.config" />
+  <repository path="..\SampleApp\packages.config" />
+  <repository path="..\Bennington.Cms.Tests\packages.config" />
+<<<<<<< HEAD
+  <repository path="..\Bennington.AdminAccounts\packages.config" />
+  <repository path="..\Bennington.AdminAccounts.Specs\packages.config" />
+=======
+  <repository path="..\Bennington.Login\packages.config" />
+  <repository path="..\Bennington.Login.Tests\packages.config" />
+>>>>>>> worry_about_security
+</repositories>

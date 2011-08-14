@@ -14,29 +14,54 @@ namespace Bennington.Cms.Models
     public class ListPageViewModel<T>
     {
         private readonly IPaginationStateRetriever paginationStateRetriever;
+        private readonly ISearchStateRetriever searchStateRetriever;
+        private PaginationState paginationState;
 
         public ListPageViewModel()
         {
             try
             {
                 paginationStateRetriever = ServiceLocatorManager.Current.Resolve<IPaginationStateRetriever>();
-            } catch
+                searchStateRetriever = ServiceLocatorManager.Current.Resolve<ISearchStateRetriever>();
+            }
+            catch
             {
             }
         }
 
-        public IQueryable<T> Items { get; set; }
+        public SearchByOptions<T> SearchByOptions { get; private set; }
+
+        public void SetSearchByOptions(SearchByOptions<T> searchByOptions)
+        {
+            searchByOptions.Items = () => Items;
+            SearchByOptions = searchByOptions;
+        }
+
+        public virtual IQueryable<T> Items { get; set; }
 
         public virtual PaginationState PaginationState
         {
-            get { return paginationStateRetriever.GetTheCurrentPaginationState(typeof (T)); }
+            get
+            {
+                if (paginationState == null) 
+                    paginationState = paginationState = paginationStateRetriever.GetTheCurrentPaginationState(typeof (T));
+                return paginationState;
+            }
+            set
+            {
+                paginationState = value;
+            }
         }
 
         public virtual IPagedList<T> PagedItems
         {
             get
             {
-                var paginationState = paginationStateRetriever.GetTheCurrentPaginationState(typeof (T));
+                var searchState = searchStateRetriever.GetTheCurrnetSearchState(typeof (T));
+                var items = Items;
+                if (searchState.IsSearching && this.SearchByOptions != null)
+                    items = SearchByOptions.GetItems(searchState.SearchBy, searchState.SearchValue);
+
                 try
                 {
                     var sortBy = paginationState.SortBy;
@@ -44,15 +69,15 @@ namespace Bennington.Cms.Models
                     var expression = Pagination.CreateLambdaExpression(sortBy, typeof (T));
 
                     if (paginationState.SortOrder == "desc")
-                        return Pagination.ApplyOrderByDescending(Items, expression)
+                        return Pagination.ApplyOrderByDescending(items, expression)
                             .ToPagedList(paginationState.CurrentPage, paginationState.PageSize);
 
-                    return Pagination.ApplyOrderBy(Items, expression)
+                    return Pagination.ApplyOrderBy(items, expression)
                         .ToPagedList(paginationState.CurrentPage, paginationState.PageSize);
                 }
                 catch
                 {
-                    return Items.ToPagedList(paginationState.CurrentPage, paginationState.PageSize);
+                    return items.ToPagedList(paginationState.CurrentPage, paginationState.PageSize);
                 }
             }
         }

@@ -7,7 +7,7 @@ namespace Bennington.Cms.Helpers
 {
     public static class ValidationSummaryHelpers
     {
-        public static Func<HtmlHelper, string, MvcHtmlString> GetValidationError = (htmlHelper, x) => htmlHelper.ValidationMessage(x);
+        public static Func<HtmlHelper, string, MvcHtmlString> GetValidationError = (htmlHelper, x) => MvcHtmlString.Create(MvcHtmlString.Create(@"<div id=""validationSummary"">").ToHtmlString() + htmlHelper.ValidationMessage(x).ToHtmlString() + MvcHtmlString.Create("</div>").ToHtmlString());
 
         public static MvcHtmlString ValidationSummaryForForm(this HtmlHelper htmlHelper)
         {
@@ -26,7 +26,7 @@ namespace Bennington.Cms.Helpers
             var modelState = htmlHelper.ViewData.ModelState;
             return AnErrorExists(modelState, prefixValue)
                        ? GetValidationError(htmlHelper, GetTheFirstPropertyWithAnError(modelState, prefixValue))
-                       : MvcHtmlString.Create(@"<span id=""validationSummary"" class=""field-validation-error""></span>");
+                       : MvcHtmlString.Create(@"<div  id=""validationSummary""><span class=""field-validation-error""></span></div>");
         }
 
         private static bool AnErrorExists(ModelStateDictionary modelState, string prefixValue)

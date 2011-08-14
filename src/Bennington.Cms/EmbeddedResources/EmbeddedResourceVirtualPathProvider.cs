@@ -36,6 +36,8 @@ namespace MvcTurbine.EmbeddedResources
 
 		public override VirtualFile GetFile(string virtualPath)
 		{
+		    virtualPath = VirtualPathUtility.ToAppRelative(virtualPath);
+
 			if (base.FileExists(virtualPath))
 				return base.GetFile(virtualPath);
 

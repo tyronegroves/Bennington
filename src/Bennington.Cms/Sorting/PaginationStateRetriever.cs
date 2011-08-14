@@ -3,11 +3,6 @@ using System.Web;
 
 namespace Bennington.Cms.Sorting
 {
-    public interface IPaginationStateRetriever
-    {
-        PaginationState GetTheCurrentPaginationState(Type type);
-    }
-
     public class PaginationStateRetriever : IPaginationStateRetriever
     {
         public PaginationState GetTheCurrentPaginationState(Type type)
@@ -16,9 +11,15 @@ namespace Bennington.Cms.Sorting
                        {
                            SortBy = GetSortBy(),
                            SortOrder = GetSortOrder(),
-                           PageSize = 10,
+                           PageSize = IsViewingAll() ? 1000 : 10,
                            CurrentPage = GetThePage(),
+                           ViewingAll = IsViewingAll(),
                        };
+        }
+
+        private static bool IsViewingAll()
+        {
+            return PullThePageFromTheQuerystring() < 0;
         }
 
         private static string GetSortOrder()
@@ -33,20 +34,15 @@ namespace Bennington.Cms.Sorting
 
         private static int GetThePage()
         {
+            var page = PullThePageFromTheQuerystring();
+            return page < 0 ? 0 : page;
+        }
+
+        private static int PullThePageFromTheQuerystring()
+        {
             int page;
             int.TryParse(HttpContext.Current.Request.QueryString["page"], out page);
             return page;
         }
-    }
-
-    public class PaginationState
-    {
-        public string SortBy { get; set; }
-
-        public int PageSize { get; set; }
-
-        public int CurrentPage { get; set; }
-
-        public string SortOrder { get; set; }
     }
 }
