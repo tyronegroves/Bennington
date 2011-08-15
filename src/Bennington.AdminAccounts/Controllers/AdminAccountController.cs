@@ -10,21 +10,29 @@ namespace Bennington.AdminAccounts.Controllers
     {
         private readonly IAdminAccountRepository adminAccountRepository;
         private readonly IAdminAccountListPageViewModelMapper adminAccountListPageViewModelMapper;
+        private readonly IAdminAccountEditFormStore adminAccountEditFormStore;
 
         public AdminAccountController(IAdminAccountRepository adminAccountRepository,
-                                      IAdminAccountListPageViewModelMapper adminAccountListPageViewModelMapper)
+                                      IAdminAccountListPageViewModelMapper adminAccountListPageViewModelMapper,
+                                      IAdminAccountEditFormStore adminAccountEditFormStore)
         {
             this.adminAccountRepository = adminAccountRepository;
             this.adminAccountListPageViewModelMapper = adminAccountListPageViewModelMapper;
+            this.adminAccountEditFormStore = adminAccountEditFormStore;
         }
 
         public ActionResult Index()
         {
             var adminAccounts = adminAccountRepository.GetAllAdminAccounts();
-    
+
             var mappedResults = adminAccountListPageViewModelMapper.CreateSet(adminAccounts);
 
-            return View("Index", new ListPageViewModel<AdminAccountListPageViewModel>{Items = mappedResults.AsQueryable()});
+            return View("Index", new ListPageViewModel<AdminAccountListPageViewModel> {Items = mappedResults.AsQueryable()});
+        }
+
+        public ActionResult Edit(string id)
+        {
+            return View("Edit", adminAccountEditFormStore.GetForm(id));
         }
     }
 

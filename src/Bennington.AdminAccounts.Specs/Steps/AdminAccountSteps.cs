@@ -1,6 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using Bennington.AdminAccounts.Data;
 using Bennington.AdminAccounts.Models;
-using Simple.Data;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
@@ -12,7 +11,7 @@ namespace Bennington.AdminAccounts.Specs.Steps
         [Given(@"the following admin accounts exist in the database")]
         public void ix(Table table)
         {
-            var db = Database.OpenConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=test;Trusted_Connection=True;");
+            var db = ServiceLocatorSteps.ServiceLocator.Resolve<IDatabaseRetriever>().GetTheDatabase();
 
             db.AdminAccounts.DeleteAll();
 

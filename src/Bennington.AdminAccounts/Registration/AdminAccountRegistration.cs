@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Web;
+﻿using System.Linq;
 using Bennington.AdminAccounts.Controllers;
+using Bennington.AdminAccounts.Data;
 using Bennington.AdminAccounts.Models;
-using Bennington.Core.Registration;
 using MvcTurbine.ComponentModel;
 
 namespace Bennington.AdminAccounts.Registration
@@ -16,6 +12,13 @@ namespace Bennington.AdminAccounts.Registration
         {
             locator.Register<IAdminAccountRepository, AdminAccountRepository>();
             locator.Register<IAdminAccountListPageViewModelMapper, AdminAccountListPageViewModelMapper>();
+            locator.Register<IAdminAccountEditFormStore, AdminAccountEditFormStore>();
+
+            locator.Register<IDatabaseRetriever>(() =>
+                                                     {
+                                                         var adminAccountSettings = locator.Resolve<IAdminAccountSettings>();
+                                                         return new DatabaseRetriever(adminAccountSettings.ConnectionString);
+                                                     });
         }
     }
 }

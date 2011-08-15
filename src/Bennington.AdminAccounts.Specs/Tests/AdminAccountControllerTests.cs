@@ -3,15 +3,49 @@ using System.Web.Mvc;
 using AutoMoq;
 using Bennington.AdminAccounts.Controllers;
 using Bennington.AdminAccounts.Models;
-using Bennington.AdminAccounts.Specs.Steps;
 using Bennington.Cms.Models;
+using Machine.Specifications;
 using NUnit.Framework;
 using Should;
 
 namespace Bennington.AdminAccounts.Specs.Tests
 {
+    [Subject(typeof (AdminAccountController))]
+    public class when_viewing_the_edit_page_of_an_account : with_automoqer
+    {
+        private Establish context =
+            () =>
+                {
+                    id = "{B9801DE2-3A22-423C-9474-8F70E50911AB}";
+
+                    expectedModel = new AdminAccountEditForm();
+                    GetMock<IAdminAccountEditFormStore>()
+                        .Setup(x => x.GetForm(id))
+                        .Returns(expectedModel);
+
+                    controller = Create<AdminAccountController>();
+                };
+
+        private Because of =
+            () => result = controller.Edit(id);
+
+        private It should_return_a_view_result =
+            () => result.ShouldBeOfType(typeof (ViewResult));
+
+        private It should_return_an_edit_view =
+            () => ShouldExtensionMethods.ShouldEqual(((ViewResult) result).ViewName, "Edit");
+
+        private It should_return_the_edit_form_from_the_retriever =
+            () => ((ViewResult) result).Model.ShouldBeTheSameAs(expectedModel);
+
+        private static AdminAccountController controller;
+        private static string id;
+        private static ActionResult result;
+        private static AdminAccountEditForm expectedModel;
+    }
+
     [TestFixture]
-    public class AdminAccountControllerTests
+    public class when_visiting_the_list_page_of_an_account
     {
         private AutoMoqer mocker;
 
@@ -27,8 +61,8 @@ namespace Bennington.AdminAccounts.Specs.Tests
             var controller = mocker.Create<AdminAccountController>();
             var result = controller.Index();
 
-            result.ShouldBeType(typeof (ViewResult));
-            ((ViewResult) result).ViewName.ShouldEqual("Index");
+            result.ShouldBeOfType(typeof (ViewResult));
+            ObjectAssertExtensions.ShouldEqual(((ViewResult) result).ViewName, "Index");
         }
 
         [Test]
@@ -36,7 +70,7 @@ namespace Bennington.AdminAccounts.Specs.Tests
         {
             var controller = mocker.Create<AdminAccountController>();
 
-            var result = (ViewResult)controller.Index();
+            var result = (ViewResult) controller.Index();
 
             result.Model.ShouldBeType(typeof (ListPageViewModel<AdminAccountListPageViewModel>));
         }
@@ -44,7 +78,7 @@ namespace Bennington.AdminAccounts.Specs.Tests
         [Test]
         public void Index_sets_the_items_to_the_result_from_the_view_model_builder()
         {
-            var expected = new[] { new AdminAccountListPageViewModel()};
+            var expected = new[] {new AdminAccountListPageViewModel()};
 
             var adminAccounts = new AdminAccount[] {};
 
@@ -60,9 +94,8 @@ namespace Bennington.AdminAccounts.Specs.Tests
 
             var listPageViewModel = ((ListPageViewModel<AdminAccountListPageViewModel>) ((ViewResult) controller.Index()).Model);
 
-            listPageViewModel.Items.Count().ShouldEqual(1);
+            ObjectAssertExtensions.ShouldEqual(listPageViewModel.Items.Count(), 1);
             listPageViewModel.Items.Contains(expected.Single());
-
         }
     }
 }
