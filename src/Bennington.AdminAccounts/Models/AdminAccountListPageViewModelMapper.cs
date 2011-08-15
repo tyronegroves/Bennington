@@ -3,7 +3,7 @@ using Bennington.AdminAccounts.Controllers;
 
 namespace Bennington.AdminAccounts.Models
 {
-    public class AdminAccountListPageViewModelMapper : Mapper<AdminAccount, AdminAccountListPageViewModel>,
+    public class AdminAccountListPageViewModelMapper : Mapper<AdminAccount, AdminAccountListPageItem>,
                                                        IAdminAccountListPageViewModelMapper
     {
     }

@@ -96,10 +96,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\IAdminAccountIdGenerator.cs" />
     <Compile Include="IAdminAccountSettings.cs" />
     <Compile Include="Models\AdminAccount.cs" />
     <Compile Include="Models\AdminAccountEditForm.cs" />
     <Compile Include="Models\AdminAccountEditFormStore.cs" />
+    <Compile Include="Models\AdminAccountListPageItem.cs" />
     <Compile Include="Models\AdminAccountListPageViewModel.cs" />
     <Compile Include="Models\AdminAccountListPageViewModelMapper.cs" />
     <Compile Include="Models\AdminAccountRepository.cs" />

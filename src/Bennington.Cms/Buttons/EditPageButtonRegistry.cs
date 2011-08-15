@@ -8,6 +8,6 @@ namespace Bennington.Cms.Buttons
 
     public interface IEditPageButtonRegistry<T> : IEditPageButtonRegistry
     {
-        IEnumerable<Button> GetTheActionButtons(T @object);
+        IEnumerable<Button> GetTheActionButtons(T adminAccountEditForm);
     }
 }

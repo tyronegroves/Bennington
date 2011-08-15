@@ -1,47 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.Web.Routing;
 using Bennington.Cms.Buttons;
-using Bennington.Cms.Metadata;
-using MvcTurbine.Web.Metadata;
+using Bennington.Cms.Models;
 
 namespace Bennington.AdminAccounts.Models
 {
-    [LoadButtonsForTheAdminPage]
-    public class AdminAccountListPageViewModel
-    {
-        [DoNotShowThisProperty]
-        public string Id { get; set; }
-
-        public string Username { get; set; }
-
-        [DisplayName("First Name")]
-        public string FirstName { get; set; }
-
-        [DisplayName("Last Name")]
-        public string LastName { get; set; }
-    }
-
-    public class LoadButtonsForTheAdminPage : MetadataAttribute
+    public class AdminAccountListPageViewModel : ListPageViewModel<AdminAccountListPageItem>
     {
     }
 
-    public class LoadButtonsForTheAdminPageHandler : LoadTheseButtonsForEachRow<AdminAccountListPageViewModel>, IMetadataAttributeHandler<LoadButtonsForTheAdminPage>
+    public class AdminAccountListPageViewModelRegistry : IListPageButtonRegistry<AdminAccountListPageItem>
     {
-        public override IEnumerable<Button> GetButtons(AdminAccountListPageViewModel model)
+        public IEnumerable<Button> GetTheTopRightButtons()
         {
-            if (model == null) return new Button[] { };
-            var routeValueDictionary = new RouteValueDictionary();
-            routeValueDictionary["action"] = "Edit";
-            routeValueDictionary["controller"] = "AdminAccount";
-            routeValueDictionary["id"] = model.Id;
+            return new Button[] {};
+        }
 
+        public IEnumerable<Button> GetTheBottomRightButtons()
+        {
+            var routeValueDictionary = new RouteValueDictionary();
+            routeValueDictionary["controller"] = "AdminAccount";
+            routeValueDictionary["action"] = "Edit";
             return new[]
                        {
-                           new RoutesButton {Id = "Edit", Text = "Edit", RouteValues = routeValueDictionary}
-                       };
+                           new
+                               RoutesButton
+                               {
+                                   Id = "CreateAdminAccount",
+                                   Text = "Create",
+                                   RouteValues = routeValueDictionary
+                               }
+                       }
+                ;
         }
     }
-
 }

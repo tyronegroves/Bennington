@@ -27,6 +27,16 @@ Scenario: Admin goes to the edit page for an admin account
 	| Username  | hroark                               |
 	| Password  |                                      |
 
+Scenario: Admin goes to the create page for an admin account
+	When the administrator visits the Admin Account edit page for ''
+	Then he should see the Admin Account edit page
+	And he should see an admin account edit form with the following values
+	| Field     | Value |
+	| FirstName |       |
+	| LastName  |       |
+	| Username  |       |
+	| Password  |       |
+
 Scenario: Admin edits an admin account
 	Given the following admin accounts exist in the database
 	| Id                                   | FirstName | LastName | Username |

@@ -62,7 +62,7 @@ namespace SampleApp.Controllers
 
     public class LocationFormButtons : IEditPageButtonRegistry<LocationForm>
     {
-        public IEnumerable<Button> GetTheActionButtons(LocationForm @object)
+        public IEnumerable<Button> GetTheActionButtons(LocationForm adminAccountEditForm)
         {
             return new[] { new SubmitButton { Id = "Save", Text = "Save" } };
         }
