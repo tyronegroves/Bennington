@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Web.Routing;
 using Bennington.Cms.Buttons;
 using Bennington.Cms.Metadata;
@@ -10,8 +11,15 @@ namespace Bennington.AdminAccounts.Models
     [LoadButtonsForTheAdminPage]
     public class AdminAccountListPageViewModel
     {
+        [DoNotShowThisProperty]
         public string Id { get; set; }
+
+        public string Username { get; set; }
+
+        [DisplayName("First Name")]
         public string FirstName { get; set; }
+
+        [DisplayName("Last Name")]
         public string LastName { get; set; }
     }
 

@@ -122,7 +122,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table4.AddRow(new string[] {
                         "Id",
-                        "1567DDA0-8FC1-45C5-B0D3-F9396DD9BDB8"});
+                        "1567dda0-8fc1-45c5-b0d3-f9396dd9bdb8"});
             table4.AddRow(new string[] {
                         "FirstName",
                         "Howard"});
@@ -155,7 +155,7 @@ this.ScenarioSetup(scenarioInfo);
                         "LastName",
                         "Username"});
             table5.AddRow(new string[] {
-                        "73977DAE-10FA-4311-95B1-9B3ECCA0023D",
+                        "20c492e8-b610-43f8-b97a-bdd50c9c864e",
                         "E",
                         "W",
                         "sdf"});
@@ -167,7 +167,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table6.AddRow(new string[] {
                         "Id",
-                        "73977DAE-10FA-4311-95B1-9B3ECCA0023D"});
+                        "20c492e8-b610-43f8-b97a-bdd50c9c864e"});
             table6.AddRow(new string[] {
                         "FirstName",
                         "Ellis"});
@@ -192,7 +192,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Username",
                         "Password"});
             table7.AddRow(new string[] {
-                        "73977DAE-10FA-4311-95B1-9B3ECCA0023D",
+                        "20C492E8-B610-43F8-B97A-BDD50C9C864E",
                         "Ellis",
                         "Wyatt",
                         "wyattoil",
@@ -224,7 +224,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table9.AddRow(new string[] {
                         "Id",
-                        "73977DAE-10FA-4311-95B1-9B3ECCA0023D"});
+                        "73977dae-10fa-4311-95b1-9b3ecca0023d"});
             table9.AddRow(new string[] {
                         "FirstName",
                         "Ellis"});
@@ -256,6 +256,70 @@ this.ScenarioSetup(scenarioInfo);
                         "upsrXq/NBgWdbsiDjl9dto6Dtu1Oba3wjYghQjOrGM0="});
 #line 57
  testRunner.And("the following admin accounts should exist in the database", ((string)(null)), table10);
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Admin does not set a password when saving it")]
+        public virtual void AdminDoesNotSetAPasswordWhenSavingIt()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Admin does not set a password when saving it", ((string[])(null)));
+#line 61
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "FirstName",
+                        "LastName",
+                        "Username",
+                        "Password"});
+            table11.AddRow(new string[] {
+                        "20c492e8-b610-43f8-b97a-bdd50c9c864e",
+                        "E",
+                        "W",
+                        "sdf",
+                        "upsrXq/NBgWdbsiDjl9dto6Dtu1Oba3wjYghQjOrGM0="});
+#line 62
+ testRunner.Given("the following admin accounts exist in the database", ((string)(null)), table11);
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Field",
+                        "Value"});
+            table12.AddRow(new string[] {
+                        "Id",
+                        "20c492e8-b610-43f8-b97a-bdd50c9c864e"});
+            table12.AddRow(new string[] {
+                        "FirstName",
+                        "Ellis"});
+            table12.AddRow(new string[] {
+                        "LastName",
+                        "Wyatt"});
+            table12.AddRow(new string[] {
+                        "Username",
+                        "wyattoil"});
+            table12.AddRow(new string[] {
+                        "Password",
+                        ""});
+#line 65
+ testRunner.When("the administrator submits the following Admin Account edit page", ((string)(null)), table12);
+#line 72
+ testRunner.Then("he should see the Admin Account edit page");
+#line hidden
+            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "FirstName",
+                        "LastName",
+                        "Username",
+                        "Password"});
+            table13.AddRow(new string[] {
+                        "20C492E8-B610-43F8-B97A-BDD50C9C864E",
+                        "Ellis",
+                        "Wyatt",
+                        "wyattoil",
+                        "upsrXq/NBgWdbsiDjl9dto6Dtu1Oba3wjYghQjOrGM0="});
+#line 73
+ testRunner.And("the following admin accounts should exist in the database", ((string)(null)), table13);
 #line hidden
             testRunner.CollectScenarioErrors();
         }

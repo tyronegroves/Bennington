@@ -36,6 +36,7 @@ namespace Bennington.AdminAccounts.Controllers
             return View("Edit", adminAccountEditFormStore.GetForm(id));
         }
 
+        [HttpPost]
         public ActionResult Edit(AdminAccountEditForm adminAccountEditForm)
         {
             adminAccountEditFormStore.SaveForm(adminAccountEditForm);

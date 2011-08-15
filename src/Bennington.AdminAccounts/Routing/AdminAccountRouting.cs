@@ -10,7 +10,7 @@ namespace SampleApp.Routing
         {
             routes.MapRoute(
                 null,
-                "Manage/AdminAccount/{action}/{id}",
+                "AdminAccount/{action}/{id}",
                 new { controller = "AdminAccount", action = "Index", id = UrlParameter.Optional }
                 );
         }

@@ -51,11 +51,6 @@ namespace Bennington.AdminAccounts.Specs.Tests
             () =>
                 {
                     form = new AdminAccountEditForm();
-
-                    GetMock<IAdminAccountEditFormStore>()
-                        .Setup(x => x.SaveForm(form))
-                        .Returns(new AdminAccountSaveResult {WasANewRecord = false});
-
                     controller = Create<AdminAccountController>();
                 };
 

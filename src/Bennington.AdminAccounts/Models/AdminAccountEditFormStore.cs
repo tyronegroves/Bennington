@@ -23,32 +23,33 @@ namespace Bennington.AdminAccounts.Models
                        {
                            FirstName = adminAccount.FirstName,
                            LastName = adminAccount.LastName,
-                           Id = adminAccount.Id.ToString().ToUpper(),
+                           Id = adminAccount.Id.ToString(),
                            Username = adminAccount.Username
                        };
         }
 
-        public AdminAccountSaveResult SaveForm(AdminAccountEditForm adminAccountEditForm)
+        public void SaveForm(AdminAccountEditForm adminAccountEditForm)
         {
-            var database = databaseRetriever.GetTheDatabase();
-
-            if (database.AdminAccounts.FindAllById(new Guid(adminAccountEditForm.Id)).Any())
-                database
+            if (databaseRetriever.GetTheDatabase().AdminAccounts.FindAllById(new Guid(adminAccountEditForm.Id)).Any())
+                databaseRetriever.GetTheDatabase()
                     .AdminAccounts
                     .UpdateById(Id: new Guid(adminAccountEditForm.Id),
                                 FirstName: adminAccountEditForm.FirstName,
                                 LastName: adminAccountEditForm.LastName,
-                                Username: adminAccountEditForm.Username,
-                                Password: passwordHasher.GetHash(adminAccountEditForm.Password));
+                                Username: adminAccountEditForm.Username);
 
             else
-                database.AdminAccounts
+                databaseRetriever.GetTheDatabase().AdminAccounts
                     .Insert(Id: new Guid(adminAccountEditForm.Id),
                             FirstName: adminAccountEditForm.FirstName,
                             LastName: adminAccountEditForm.LastName,
-                            Username: adminAccountEditForm.Username,
-                            Password: passwordHasher.GetHash(adminAccountEditForm.Password));
-            return null;
+                            Username: adminAccountEditForm.Username);
+
+            if (string.IsNullOrEmpty(adminAccountEditForm.Password) == false)
+                databaseRetriever.GetTheDatabase()
+                    .AdminAccounts
+                    .UpdateById(Id: new Guid(adminAccountEditForm.Id),
+                                Password: passwordHasher.GetHash(adminAccountEditForm.Password));
         }
     }
 }
