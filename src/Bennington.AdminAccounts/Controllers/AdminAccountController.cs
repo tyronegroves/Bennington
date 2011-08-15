@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using System.Web.Mvc;
 using Bennington.AdminAccounts.Helpers;
+using Bennington.AdminAccounts.Mappers;
 using Bennington.AdminAccounts.Models;
 
 namespace Bennington.AdminAccounts.Controllers
@@ -55,15 +56,11 @@ namespace Bennington.AdminAccounts.Controllers
                 return RedirectToAction("Index", "AdminAccount");
             return View("Edit", adminAccountEditForm);
         }
-    }
 
-    public interface IAdminAccountListPageViewModelMapper
-    {
-        IEnumerable<AdminAccountListPageItem> CreateSet(IEnumerable<AdminAccount> adminAccounts);
-    }
-
-    public interface IAdminAccountRepository
-    {
-        IEnumerable<AdminAccount> GetAllAdminAccounts();
+        public ActionResult Delete(string id)
+        {
+            adminAccountEditFormStore.DeleteForm(id);
+            return RedirectToAction("Index", "AdminAccount");
+        }
     }
 }

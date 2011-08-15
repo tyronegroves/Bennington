@@ -98,6 +98,7 @@
     </Compile>
     <Compile Include="Helpers\IAdminAccountIdGenerator.cs" />
     <Compile Include="IAdminAccountSettings.cs" />
+    <Compile Include="Mappers\IAdminAccountListPageViewModelMapper.cs" />
     <Compile Include="Models\AdminAccount.cs" />
     <Compile Include="Models\AdminAccountEditForm.cs" />
     <Compile Include="Models\AdminAccountEditFormStore.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Models\AdminAccountListPageViewModelMapper.cs" />
     <Compile Include="Models\AdminAccountRepository.cs" />
     <Compile Include="Models\IAdminAccountEditFormStore.cs" />
+    <Compile Include="Models\IAdminAccountRepository.cs" />
     <Compile Include="Passwords\PasswordEncrypter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\AdminAccountRegistration.cs" />

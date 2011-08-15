@@ -4,5 +4,6 @@
     {
         AdminAccountEditForm GetForm(string id);
         void SaveForm(AdminAccountEditForm adminAccountEditForm);
+        void DeleteForm(string id);
     }
 }

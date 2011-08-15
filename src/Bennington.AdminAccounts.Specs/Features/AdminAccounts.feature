@@ -83,3 +83,12 @@ Scenario: Admin does not set a password when saving it
 	And the following admin accounts should exist in the database
 	| Id                                   | FirstName | LastName | Username | Password                                     |
 	| 20C492E8-B610-43F8-B97A-BDD50C9C864E | Ellis     | Wyatt    | wyattoil | upsrXq/NBgWdbsiDjl9dto6Dtu1Oba3wjYghQjOrGM0= |
+
+Scenario: Delete an account
+	Given the following admin accounts exist in the database
+	| Id                                   | FirstName | LastName | Username | Password                                     |
+	| 20c492e8-b610-43f8-b97a-bdd50c9c864e | A         | D        | usera    | upsrXq/NBgWdbsiDjl9dto6Dtu1Oba3wjYghQjOrGM0= |
+	| A8886A73-90FC-4675-A943-59A1A73CF19B | B         | E        | userb    | upsrXq/NBgWdbsiDjl9dto6Dtu1Oba3wjYghQjOrGM1= |
+	| 2F44420B-4D33-405E-9599-54D4FFFE9F0A | C         | F        | userc    | upsrXq/NBgWdbsiDjl9dto6Dtu1Oba3wjYghQjOrGM2= |
+	When the administrator deletes the admin account '20c492e8-b610-43f8-b97a-bdd50c9c864e'
+	Then he should be sent to the admin account list page

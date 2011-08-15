@@ -356,6 +356,49 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Delete an account")]
+        public virtual void DeleteAnAccount()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete an account", ((string[])(null)));
+#line 87
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "FirstName",
+                        "LastName",
+                        "Username",
+                        "Password"});
+            table15.AddRow(new string[] {
+                        "20c492e8-b610-43f8-b97a-bdd50c9c864e",
+                        "A",
+                        "D",
+                        "usera",
+                        "upsrXq/NBgWdbsiDjl9dto6Dtu1Oba3wjYghQjOrGM0="});
+            table15.AddRow(new string[] {
+                        "A8886A73-90FC-4675-A943-59A1A73CF19B",
+                        "B",
+                        "E",
+                        "userb",
+                        "upsrXq/NBgWdbsiDjl9dto6Dtu1Oba3wjYghQjOrGM1="});
+            table15.AddRow(new string[] {
+                        "2F44420B-4D33-405E-9599-54D4FFFE9F0A",
+                        "C",
+                        "F",
+                        "userc",
+                        "upsrXq/NBgWdbsiDjl9dto6Dtu1Oba3wjYghQjOrGM2="});
+#line 88
+ testRunner.Given("the following admin accounts exist in the database", ((string)(null)), table15);
+#line 93
+ testRunner.When("the administrator deletes the admin account \'20c492e8-b610-43f8-b97a-bdd50c9c864e" +
+                    "\'");
+#line 94
+ testRunner.Then("he should be sent to the admin account list page");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
     }
 }
 #endregion

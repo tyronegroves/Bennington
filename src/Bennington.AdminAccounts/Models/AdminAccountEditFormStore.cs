@@ -51,5 +51,12 @@ namespace Bennington.AdminAccounts.Models
                     .UpdateById(Id: new Guid(adminAccountEditForm.Id),
                                 Password: passwordHasher.GetHash(adminAccountEditForm.Password));
         }
+
+        public void DeleteForm(string id)
+        {
+            databaseRetriever.GetTheDatabase()
+                .AdminAccounts
+                .DeleteById(new Guid(id));
+        }
     }
 }

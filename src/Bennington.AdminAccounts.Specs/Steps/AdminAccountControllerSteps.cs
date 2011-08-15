@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using Bennington.AdminAccounts.Controllers;
 using Bennington.AdminAccounts.Models;
 using Should;
@@ -37,6 +38,16 @@ namespace Bennington.AdminAccounts.Specs.Steps
             ScenarioContext.Current.Set(result);
         }
 
+        [When(@"the administrator deletes the admin account '(.*)'")]
+        public void x(string adminAccountId)
+        {
+            var controller = CreateTheController();
+
+            var result = controller.Delete(adminAccountId);
+
+            ScenarioContext.Current.Set(result);
+        }
+
         private AdminAccountController CreateTheController()
         {
             return ServiceLocatorSteps.ServiceLocator.Resolve<AdminAccountController>();
@@ -58,6 +69,18 @@ namespace Bennington.AdminAccounts.Specs.Steps
             actionResult.ShouldBeType(typeof (ViewResult));
 
             ((ViewResult) actionResult).ViewName.ShouldEqual("Edit");
+        }
+
+        [Then(@"he should be sent to the admin account list page")]
+        public void ThenHeShouldBeSentToTheAdminAccountListPage()
+        {
+            var actionResult = ScenarioContext.Current.Get<ActionResult>();
+            actionResult.ShouldBeType(typeof (RedirectToRouteResult));
+
+            var redirectToRouteResult = actionResult as RedirectToRouteResult;
+
+            redirectToRouteResult.RouteValues.Single(x => x.Key == "controller").Value.ShouldEqual("AdminAccount");
+            redirectToRouteResult.RouteValues.Single(x => x.Key == "action").Value.ShouldEqual("Index");
         }
     }
 }

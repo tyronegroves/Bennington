@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using AutoMoq;
 using Bennington.AdminAccounts.Controllers;
 using Bennington.AdminAccounts.Helpers;
+using Bennington.AdminAccounts.Mappers;
 using Bennington.AdminAccounts.Models;
 using Bennington.Cms.Models;
 using Machine.Specifications;
@@ -124,7 +125,7 @@ namespace Bennington.AdminAccounts.Specs.Tests
             };
 
         private Because of =
-            () => result = controller.Edit(form);
+            () => result = controller.Edit(form, true);
 
         private It should_return_a_redirect_to_route_result =
             () => result.ShouldBeOfType(typeof(RedirectToRouteResult));
@@ -137,6 +138,31 @@ namespace Bennington.AdminAccounts.Specs.Tests
         private static ActionResult result;
         private static AdminAccountEditForm expectedModel;
         private static AdminAccountEditForm form;
+    }
+
+    [Subject(typeof(AdminAccountController))]
+    public class when_deleting_an_account : with_automoqer
+    {
+        private Establish context =
+            () =>
+                {
+                    id = "{3FF6E712-14F8-4D42-A892-A13FC609942A}";
+
+                    controller = Create<AdminAccountController>();
+                };
+
+        private Because of =
+            () => result = controller.Delete(id);
+
+        private It should_return_a_redirect_result =
+            () => result.ShouldBeOfType(typeof (RedirectToRouteResult));
+
+        private It should_delete_the_id_from_the_store =
+            () => GetMock<IAdminAccountEditFormStore>().Verify(x => x.DeleteForm(id), Moq.Times.Once());
+
+        private static string id;
+        private static AdminAccountController controller;
+        private static ActionResult result;
     }
 
     [TestFixture]
