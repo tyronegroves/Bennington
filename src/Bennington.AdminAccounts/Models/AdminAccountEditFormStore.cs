@@ -30,14 +30,24 @@ namespace Bennington.AdminAccounts.Models
 
         public AdminAccountSaveResult SaveForm(AdminAccountEditForm adminAccountEditForm)
         {
-            databaseRetriever.GetTheDatabase()
-                .AdminAccounts
-                .UpdateById(Id: new Guid(adminAccountEditForm.Id),
+            var database = databaseRetriever.GetTheDatabase();
+
+            if (database.AdminAccounts.FindAllById(new Guid(adminAccountEditForm.Id)).Any())
+                database
+                    .AdminAccounts
+                    .UpdateById(Id: new Guid(adminAccountEditForm.Id),
+                                FirstName: adminAccountEditForm.FirstName,
+                                LastName: adminAccountEditForm.LastName,
+                                Username: adminAccountEditForm.Username,
+                                Password: passwordHasher.GetHash(adminAccountEditForm.Password));
+
+            else
+                database.AdminAccounts
+                    .Insert(Id: new Guid(adminAccountEditForm.Id),
                             FirstName: adminAccountEditForm.FirstName,
                             LastName: adminAccountEditForm.LastName,
                             Username: adminAccountEditForm.Username,
                             Password: passwordHasher.GetHash(adminAccountEditForm.Password));
-
             return null;
         }
     }

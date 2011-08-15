@@ -42,3 +42,18 @@ Scenario: Admin edits an admin account
 	And the following admin accounts should exist in the database
 	| Id                                   | FirstName | LastName | Username | Password                                     |
 	| 73977DAE-10FA-4311-95B1-9B3ECCA0023D | Ellis     | Wyatt    | wyattoil | upsrXq/NBgWdbsiDjl9dto6Dtu1Oba3wjYghQjOrGM0= |
+
+Scenario: Admin creates an admin account
+	Given the following admin accounts exist in the database
+	| Id                                   | FirstName | LastName | Username |
+	When the administrator submits the following Admin Account edit page
+	| Field     | Value                                |
+	| Id        | 73977DAE-10FA-4311-95B1-9B3ECCA0023D |
+	| FirstName | Ellis                                |
+	| LastName  | Wyatt                                |
+	| Username  | wyattoil                             |
+	| Password  | elliswyattoil                        |
+	Then he should see the Admin Account edit page
+	And the following admin accounts should exist in the database
+	| Id                                   | FirstName | LastName | Username | Password                                     |
+	| 73977DAE-10FA-4311-95B1-9B3ECCA0023D | Ellis     | Wyatt    | wyattoil | upsrXq/NBgWdbsiDjl9dto6Dtu1Oba3wjYghQjOrGM0= |
