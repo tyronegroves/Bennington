@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Bennington.AdminAccounts.Models;
@@ -33,6 +34,12 @@ namespace Bennington.AdminAccounts.Controllers
         public ActionResult Edit(string id)
         {
             return View("Edit", adminAccountEditFormStore.GetForm(id));
+        }
+
+        public ActionResult Edit(AdminAccountEditForm adminAccountEditForm)
+        {
+            adminAccountEditFormStore.SaveForm(adminAccountEditForm);
+            return View("Edit", adminAccountEditForm);
         }
     }
 

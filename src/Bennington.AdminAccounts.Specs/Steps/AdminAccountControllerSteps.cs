@@ -1,7 +1,9 @@
 ﻿using System.Web.Mvc;
 using Bennington.AdminAccounts.Controllers;
+using Bennington.AdminAccounts.Models;
 using Should;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace Bennington.AdminAccounts.Specs.Steps
 {
@@ -22,6 +24,15 @@ namespace Bennington.AdminAccounts.Specs.Steps
         {
             var controller = CreateTheController();
             var result = controller.Edit(adminAccountId);
+
+            ScenarioContext.Current.Set(result);
+        }
+
+        [When(@"the administrator submits the following Admin Account edit page")]
+        public void WhenTheAdministratorSubmitsTheFollowingAdminAccountEditPage(Table table)
+        {
+            var controller = CreateTheController();
+            var result = controller.Edit(table.CreateInstance<AdminAccountEditForm>());
 
             ScenarioContext.Current.Set(result);
         }

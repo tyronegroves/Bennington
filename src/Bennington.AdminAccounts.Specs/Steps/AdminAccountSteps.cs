@@ -1,4 +1,6 @@
-﻿using Bennington.AdminAccounts.Data;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Bennington.AdminAccounts.Data;
 using Bennington.AdminAccounts.Models;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -11,7 +13,7 @@ namespace Bennington.AdminAccounts.Specs.Steps
         [Given(@"the following admin accounts exist in the database")]
         public void ix(Table table)
         {
-            var db = ServiceLocatorSteps.ServiceLocator.Resolve<IDatabaseRetriever>().GetTheDatabase();
+            var db = GetTheDatabase();
 
             db.AdminAccounts.DeleteAll();
 
@@ -19,5 +21,22 @@ namespace Bennington.AdminAccounts.Specs.Steps
             foreach (var adminAccount in adminAccounts)
                 db.AdminAccounts.Insert(adminAccount);
         }
+
+
+        [Then(@"the following admin accounts should exist in the database")]
+        public void ThenTheFollowingAdminAccountsShouldExistInTheDatabase(Table table)
+        {
+            var db = GetTheDatabase();
+
+            IEnumerable<AdminAccount> adminAccounts = db["AdminAccounts"].All().Cast<AdminAccount>();
+
+            table.CompareToSet(adminAccounts.ToList());
+        }
+
+        private static dynamic GetTheDatabase()
+        {
+            return ServiceLocatorSteps.ServiceLocator.Resolve<IDatabaseRetriever>().GetTheDatabase();
+        }
+
     }
 }

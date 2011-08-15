@@ -44,6 +44,43 @@ namespace Bennington.AdminAccounts.Specs.Tests
         private static AdminAccountEditForm expectedModel;
     }
 
+    [Subject(typeof (AdminAccountController))]
+    public class when_saving_an_existing_form : with_automoqer
+    {
+        private Establish context =
+            () =>
+                {
+                    form = new AdminAccountEditForm();
+
+                    GetMock<IAdminAccountEditFormStore>()
+                        .Setup(x => x.SaveForm(form))
+                        .Returns(new AdminAccountSaveResult {WasANewRecord = false});
+
+                    controller = Create<AdminAccountController>();
+                };
+
+        private Because of =
+            () => result = controller.Edit(form);
+
+        private It should_return_a_view_result =
+            () => result.ShouldBeOfType(typeof (ViewResult));
+
+        private It should_return_an_edit_view =
+            () => ShouldExtensionMethods.ShouldEqual(((ViewResult) result).ViewName, "Edit");
+
+        private It should_return_the_edit_form_from_the_retriever =
+            () => ((ViewResult)result).Model.ShouldBeTheSameAs(form);
+
+        private It should_save_the_form =
+            () => GetMock<IAdminAccountEditFormStore>().Verify(x => x.SaveForm(form), Moq.Times.Once());
+
+        private static AdminAccountController controller;
+        private static string id;
+        private static ActionResult result;
+        private static AdminAccountEditForm expectedModel;
+        private static AdminAccountEditForm form;
+    }
+
     [TestFixture]
     public class when_visiting_the_list_page_of_an_account
     {

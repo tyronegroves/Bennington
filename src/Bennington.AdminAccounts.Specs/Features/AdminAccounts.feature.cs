@@ -140,6 +140,68 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Admin edits an admin account")]
+        public virtual void AdminEditsAnAdminAccount()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Admin edits an admin account", ((string[])(null)));
+#line 30
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "FirstName",
+                        "LastName",
+                        "Username"});
+            table5.AddRow(new string[] {
+                        "73977DAE-10FA-4311-95B1-9B3ECCA0023D",
+                        "E",
+                        "W",
+                        "sdf"});
+#line 31
+ testRunner.Given("the following admin accounts exist in the database", ((string)(null)), table5);
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Field",
+                        "Value"});
+            table6.AddRow(new string[] {
+                        "Id",
+                        "73977DAE-10FA-4311-95B1-9B3ECCA0023D"});
+            table6.AddRow(new string[] {
+                        "FirstName",
+                        "Ellis"});
+            table6.AddRow(new string[] {
+                        "LastName",
+                        "Wyatt"});
+            table6.AddRow(new string[] {
+                        "Username",
+                        "wyattoil"});
+            table6.AddRow(new string[] {
+                        "Password",
+                        "elliswyattoil"});
+#line 34
+ testRunner.When("the administrator submits the following Admin Account edit page", ((string)(null)), table6);
+#line 41
+ testRunner.Then("he should see the Admin Account edit page");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "FirstName",
+                        "LastName",
+                        "Username",
+                        "Password"});
+            table7.AddRow(new string[] {
+                        "73977DAE-10FA-4311-95B1-9B3ECCA0023D",
+                        "Ellis",
+                        "Wyatt",
+                        "wyattoil",
+                        "upsrXq/NBgWdbsiDjl9dto6Dtu1Oba3wjYghQjOrGM0="});
+#line 42
+ testRunner.And("the following admin accounts should exist in the database", ((string)(null)), table7);
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
     }
 }
 #endregion

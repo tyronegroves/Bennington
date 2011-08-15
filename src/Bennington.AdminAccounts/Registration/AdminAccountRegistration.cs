@@ -2,6 +2,7 @@
 using Bennington.AdminAccounts.Controllers;
 using Bennington.AdminAccounts.Data;
 using Bennington.AdminAccounts.Models;
+using Bennington.AdminAccounts.Passwords;
 using MvcTurbine.ComponentModel;
 
 namespace Bennington.AdminAccounts.Registration
@@ -19,6 +20,12 @@ namespace Bennington.AdminAccounts.Registration
                                                          var adminAccountSettings = locator.Resolve<IAdminAccountSettings>();
                                                          return new DatabaseRetriever(adminAccountSettings.ConnectionString);
                                                      });
+
+            locator.Register<IPasswordHasher>(() =>
+                                                  {
+                                                      var adminAccountSettings = locator.Resolve<IAdminAccountSettings>();
+                                                      return new PasswordHasher(adminAccountSettings);
+                                                  });
         }
     }
 }

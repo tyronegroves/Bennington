@@ -1,5 +1,4 @@
-﻿using Bennington.AdminAccounts.Data;
-using Bennington.AdminAccounts.Registration;
+﻿using Bennington.AdminAccounts.Registration;
 using MvcTurbine.Unity;
 using TechTalk.SpecFlow;
 
@@ -22,12 +21,16 @@ namespace Bennington.AdminAccounts.Specs.Steps
         }
     }
 
-
     public class TestAdminAccountSettings : IAdminAccountSettings
     {
         public string ConnectionString
         {
             get { return @"Data Source=.\SQLEXPRESS;Initial Catalog=test;Trusted_Connection=True;"; }
+        }
+
+        public string PasswordHash
+        {
+            get { return @"4uGq/30m8LU3QWt10lTSZQ=="; }
         }
     }
 }
