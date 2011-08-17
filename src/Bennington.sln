@@ -21,8 +21,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Login.Tests", "B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleContentWebsite", "SampleContentWebsite\SampleContentWebsite.csproj", "{AB40D462-89CE-4357-AF08-D33B36FCE7C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleContentWebsite.Tests", "SampleContentWebsite.Tests\SampleContentWebsite.Tests.csproj", "{83B79F73-EBEB-4015-8FE2-EB0899D6C67E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.ContentTree", "Bennington.ContentTree\Bennington.ContentTree.csproj", "{97981EC9-A1C5-460E-9244-9D5C9169E47F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.ContentTree.Tests", "Bennington.ContentTree.Tests\Bennington.ContentTree.Tests.csproj", "{06B21D4A-7480-4AD3-8112-B09B73B80573}"
@@ -90,10 +88,6 @@ Global
 		{AB40D462-89CE-4357-AF08-D33B36FCE7C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB40D462-89CE-4357-AF08-D33B36FCE7C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB40D462-89CE-4357-AF08-D33B36FCE7C2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{83B79F73-EBEB-4015-8FE2-EB0899D6C67E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{83B79F73-EBEB-4015-8FE2-EB0899D6C67E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{83B79F73-EBEB-4015-8FE2-EB0899D6C67E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{83B79F73-EBEB-4015-8FE2-EB0899D6C67E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{97981EC9-A1C5-460E-9244-9D5C9169E47F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{97981EC9-A1C5-460E-9244-9D5C9169E47F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97981EC9-A1C5-460E-9244-9D5C9169E47F}.Release|Any CPU.ActiveCfg = Release|Any CPU

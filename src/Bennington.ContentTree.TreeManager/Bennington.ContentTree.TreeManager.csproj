@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.2.0.0.0\lib\SL4\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="MvcTurbine">
       <HintPath>..\packages\MVCTurbine.3.2\lib\MvcTurbine.dll</HintPath>
     </Reference>
@@ -56,15 +59,8 @@
     <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
     <Compile Include="Routing\RegisterContentTreeSmsRoutes.cs" />
     <Compile Include="Routing\RegisterSmsRoutesForAllProviders.cs" />
+    <Compile Include="Validators\TreeNodeCreationInputModelValidator.cs" />
     <Compile Include="ViewModelBuilders\TreeBranchViewModelBuilder.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\Shared\EditorTemplates\ProviderTypes.ascx" />
-    <EmbeddedResource Include="Views\TreeManager\Index.aspx" />
-    <EmbeddedResource Include="Views\TreeManager\Branch.aspx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bennington.ContentTree\Bennington.ContentTree.csproj">
