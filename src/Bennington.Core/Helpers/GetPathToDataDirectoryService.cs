@@ -27,7 +27,7 @@ namespace Bennington.Core.Helpers
             var x = Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
             if (x.IndexOf("DevServer", 0) > 0)
             {
-                var z = Directory.GetParent(HttpContext.Current.Server.MapPath("/"));
+                var z = Directory.GetParent(HttpContext.Current.Server.MapPath("/MANAGE"));
                 z = Directory.GetParent(z.Parent.FullName);
                 return z.FullName + Path.DirectorySeparatorChar + "localWorkingFolder" + Path.DirectorySeparatorChar + BenningtonContentTreeDataFolderName + Path.DirectorySeparatorChar;
             }
