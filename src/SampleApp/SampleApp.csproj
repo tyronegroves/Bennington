@@ -450,6 +450,18 @@
     <Content Include="Scripts\tiny_mce\utils\validate.js" />
     <Content Include="Views\AdminAccount\Edit.aspx" />
     <Content Include="Views\AdminAccount\Index.aspx" />
+    <Content Include="Views\ContentTreeNode\ContentItemNavigation.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Views\ContentTreeNode\Index.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Views\ContentTreeNode\Modify.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Views\ContentTreeSectionNode\Modify.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="Views\EmptyDashboard\Index.aspx" />
     <Content Include="Views\Location\Edit.aspx" />
     <Content Include="Views\Location\Index.aspx" />
@@ -473,6 +485,11 @@
     <Content Include="Views\Shared\EditorTemplates\Boolean.ascx" />
     <Content Include="Views\Shared\EditorTemplates\CheckboxList.ascx" />
     <Content Include="Views\Shared\EditorTemplates\Console.ascx" />
+    <Content Include="Views\Shared\EditorTemplates\ContentTreeNodeInputModel.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Views\Shared\EditorTemplates\DefaultTreeNodeId.ascx" />
+    <Content Include="Views\Shared\EditorTemplates\ProviderTypes.ascx" />
     <Content Include="Views\Shared\EditorTemplates\SearchByOptions.ascx" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.ascx" />
     <Content Include="Views\Shared\EditorTemplates\Dropdown.ascx" />
@@ -496,6 +513,8 @@
     <Content Include="Views\MenuSystem\GetSectionMenuViewModel.aspx" />
     <Content Include="Views\MenuSystem\SectionMenu.ascx" />
     <Content Include="Views\MenuSystem\SubMenu.ascx" />
+    <Content Include="Views\TreeManager\Branch.aspx" />
+    <Content Include="Views\TreeManager\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -517,6 +536,10 @@
     <ProjectReference Include="..\Bennington.Cms\Bennington.Cms.csproj">
       <Project>{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}</Project>
       <Name>Bennington.Cms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bennington.ContentTree.TreeManager\Bennington.ContentTree.TreeManager.csproj">
+      <Project>{5440F3E1-26AD-4355-875B-50ABF7484181}</Project>
+      <Name>Bennington.ContentTree.TreeManager</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bennington.Core\Bennington.Core.csproj">
       <Project>{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}</Project>
