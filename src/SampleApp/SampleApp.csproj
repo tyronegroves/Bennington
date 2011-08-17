@@ -66,7 +66,10 @@
     <Reference Include="MvcTurbine.FluentValidation">
       <HintPath>..\packages\MvcTurbine.FluentValidation.3.0\lib\MvcTurbine.FluentValidation.dll</HintPath>
     </Reference>
-    <Reference Include="MvcTurbine.MembershipProvider, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="MvcTurbine.MembershipProvider, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvcTurbine.MembershipProvider.3.0\lib\MvcTurbine.MembershipProvider.dll</HintPath>
+    </Reference>
     <Reference Include="MvcTurbine.Unity">
       <HintPath>..\packages\MvcTurbine.Unity.3.2\lib\MvcTurbine.Unity.dll</HintPath>
     </Reference>
