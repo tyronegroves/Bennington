@@ -39,7 +39,7 @@
     </Reference>
     <Reference Include="Microsoft.Build.Engine" />
     <Reference Include="MvcTurbine">
-      <HintPath>..\..\lib\Turbine\MvcTurbine.dll</HintPath>
+      <HintPath>..\packages\MVCTurbine.3.2\lib\MvcTurbine.dll</HintPath>
     </Reference>
     <Reference Include="SimpleCqrs">
       <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.dll</HintPath>
