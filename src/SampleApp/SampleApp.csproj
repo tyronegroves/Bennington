@@ -195,6 +195,7 @@
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Scripts\Site.js" />
+    <Content Include="Scripts\thickbox-compressed.js" />
     <Content Include="Scripts\tiny_mce\jquery.tinymce.js" />
     <Content Include="Scripts\tiny_mce\langs\en.js" />
     <Content Include="Scripts\tiny_mce\license.txt" />
@@ -537,6 +538,10 @@
     <ProjectReference Include="..\Bennington.Cms\Bennington.Cms.csproj">
       <Project>{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}</Project>
       <Name>Bennington.Cms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bennington.ContentTree.Providers.ContentNodeProvider\Bennington.ContentTree.Providers.ContentNodeProvider.csproj">
+      <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
+      <Name>Bennington.ContentTree.Providers.ContentNodeProvider</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bennington.ContentTree.TreeManager\Bennington.ContentTree.TreeManager.csproj">
       <Project>{5440F3E1-26AD-4355-875B-50ABF7484181}</Project>

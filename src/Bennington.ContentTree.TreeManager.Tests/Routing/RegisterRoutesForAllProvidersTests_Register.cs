@@ -38,7 +38,7 @@ namespace Bennington.ContentTree.TreeManager.Tests.Routing
 			mocker.Resolve<RegisterSmsRoutesForAllProviders>().Register(routes);
 			
 			var query = from item in routes
-						where (((System.Web.Routing.Route)item).Url == "Manage/ControllerToUseForCreation/{action}")
+						where (((System.Web.Routing.Route)item).Url == "ControllerToUseForCreation/{action}")
 						select item;
 
 			Assert.AreEqual(1, query.Count());
@@ -59,7 +59,7 @@ namespace Bennington.ContentTree.TreeManager.Tests.Routing
 			mocker.Resolve<RegisterSmsRoutesForAllProviders>().Register(routes);
 
 			var query = from item in routes
-						where (((System.Web.Routing.Route)item).Url == "Manage/ControllerToUseForModification/{action}")
+						where (((System.Web.Routing.Route)item).Url == "ControllerToUseForModification/{action}")
 						select item;
 
 			Assert.AreEqual(1, query.Count());
