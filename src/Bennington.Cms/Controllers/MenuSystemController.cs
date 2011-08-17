@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Web.Mvc;
 using Bennington.Cms.Models;
+using Bennington.Core.MenuSystem;
+using MvcTurbine.ComponentModel;
 
 namespace Bennington.Cms.Controllers
 {
@@ -8,32 +10,32 @@ namespace Bennington.Cms.Controllers
     {
         private readonly ISectionMenuRetriever sectionMenuRetriever;
         private readonly ISubMenuRetriever subMenuRetriever;
+        private IServiceLocator serviceLocator;
 
         public MenuSystemController(ISectionMenuRetriever sectionMenuRetriever,
-            ISubMenuRetriever subMenuRetriever)
+            ISubMenuRetriever subMenuRetriever, IServiceLocator serviceLocator)
         {
+            this.serviceLocator = serviceLocator;
             this.sectionMenuRetriever = sectionMenuRetriever;
             this.subMenuRetriever = subMenuRetriever;
         }
 
         public ActionResult GetSectionMenuViewModel()
         {
-            //var menuItems = serviceLocator.ResolveServices<IAmASectionMenuItem>();
-            //return View("GetSectionMenuViewModel", new SectionMenuViewModel()
-            //                                        {
-            //                                            MenuItems = menuItems,
-            //                                        });
-            return null;
+            var menuItems = serviceLocator.ResolveServices<IAmASectionMenuItem>();
+            return View("GetSectionMenuViewModel", new SectionMenuViewModel()
+                                                    {
+                                                        MenuItems = menuItems,
+                                                    });
         }
 
         public ActionResult GetIconMenuViewModel()
         {
-            //var menuItems = serviceLocator.ResolveServices<IAmAnIconMenuItem>();
-            //return View("GetIconMenuViewModel", new IconMenuViewModel
-            //                                        {
-            //                                            IconMenuItems = menuItems,
-            //                                        });
-            return null;
+            var menuItems = serviceLocator.ResolveServices<IAmAnIconMenuItem>();
+            return View("GetIconMenuViewModel", new IconMenuViewModel
+                                                    {
+                                                        IconMenuItems = menuItems,
+                                                    });
         }
 
         public ActionResult SectionMenu()

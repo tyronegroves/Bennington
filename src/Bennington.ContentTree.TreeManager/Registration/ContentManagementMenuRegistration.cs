@@ -13,7 +13,7 @@ namespace Bennington.ContentTree.TreeManager.Registration
 		
 		public string IconUrl 
 		{
-			get { return "/Content/Canvas/ContentTreeManagementIcon.gif"; }
+			get { return "/MANAGE/Content/Canvas/ContentTreeManagementIcon.gif"; }
 		}
 		
 		public string Controller
