@@ -39,19 +39,13 @@
     </Reference>
     <Reference Include="Microsoft.Build.Engine" />
     <Reference Include="MvcTurbine">
-      <HintPath>..\..\lib\Turbine\MvcTurbine.dll</HintPath>
-    </Reference>
-    <Reference Include="MvcTurbine.EmbeddedViews">
-      <HintPath>..\..\lib\Turbine\MvcTurbine.EmbeddedViews.dll</HintPath>
-    </Reference>
-    <Reference Include="MvcTurbine.FluentValidation">
-      <HintPath>..\..\lib\Turbine\MvcTurbine.FluentValidation.dll</HintPath>
+      <HintPath>..\packages\MVCTurbine.3.2\lib\MvcTurbine.dll</HintPath>
     </Reference>
     <Reference Include="MvcTurbine.Unity">
-      <HintPath>..\..\lib\Turbine\MvcTurbine.Unity.dll</HintPath>
+      <HintPath>..\packages\MvcTurbine.Unity.3.2\lib\MvcTurbine.Unity.dll</HintPath>
     </Reference>
     <Reference Include="MvcTurbine.Web">
-      <HintPath>..\..\lib\Turbine\MvcTurbine.Web.dll</HintPath>
+      <HintPath>..\packages\MVCTurbine.3.2\lib\MvcTurbine.Web.dll</HintPath>
     </Reference>
     <Reference Include="SimpleCqrs">
       <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.dll</HintPath>
