@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.ContentTree.Prov
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.ContentTree.Providers.ContentNodeProvider.Tests", "Bennington.ContentTree.Providers.ContentNodeProvider.Tests\Bennington.ContentTree.Providers.ContentNodeProvider.Tests.csproj", "{F6D3D7F4-4970-4CA5-AFFD-D2D2E7B669EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.ContentTree.TreeManager", "Bennington.ContentTree.TreeManager\Bennington.ContentTree.TreeManager.csproj", "{5440F3E1-26AD-4355-875B-50ABF7484181}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.ContentTree.TreeManager.Tests", "Bennington.ContentTree.TreeManager.Tests\Bennington.ContentTree.TreeManager.Tests.csproj", "{EA7FC590-DDE5-47E6-B906-D5E6666F8F1F}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Paragon.vsmdi
@@ -106,6 +110,14 @@ Global
 		{F6D3D7F4-4970-4CA5-AFFD-D2D2E7B669EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6D3D7F4-4970-4CA5-AFFD-D2D2E7B669EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6D3D7F4-4970-4CA5-AFFD-D2D2E7B669EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5440F3E1-26AD-4355-875B-50ABF7484181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5440F3E1-26AD-4355-875B-50ABF7484181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5440F3E1-26AD-4355-875B-50ABF7484181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5440F3E1-26AD-4355-875B-50ABF7484181}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA7FC590-DDE5-47E6-B906-D5E6666F8F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA7FC590-DDE5-47E6-B906-D5E6666F8F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA7FC590-DDE5-47E6-B906-D5E6666F8F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA7FC590-DDE5-47E6-B906-D5E6666F8F1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
