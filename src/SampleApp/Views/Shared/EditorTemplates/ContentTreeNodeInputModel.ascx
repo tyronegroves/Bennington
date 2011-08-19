@@ -122,7 +122,7 @@
         <%: Html.LabelFor(model => model.Body) %>
     </div>
 	<div class="editor-field">
-        <%--<%: Html.TextAreaFor(model => model.Body)%>--%>
-        <%: Html.EditorFor(model => model.Body) %>
+        <%: Html.TextAreaFor(model => model.Body, new { @class = "tinymce" })%>
+        <%--<%: Html.EditorFor(model => model.Body) %>--%>
         <%: Html.ValidationMessageFor(model => model.Body)%>
     </div>

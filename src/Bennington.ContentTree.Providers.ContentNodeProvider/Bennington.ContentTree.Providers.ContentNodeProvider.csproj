@@ -117,10 +117,6 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bennington.Cms\Bennington.Cms.csproj">
-      <Project>{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}</Project>
-      <Name>Bennington.Cms</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Bennington.ContentTree.Domain\Bennington.ContentTree.Domain.csproj">
       <Project>{9F36EE92-6F9A-4C57-AA4B-81328423D0DA}</Project>
       <Name>Bennington.ContentTree.Domain</Name>
