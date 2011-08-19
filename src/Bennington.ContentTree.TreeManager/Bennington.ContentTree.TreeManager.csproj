@@ -63,6 +63,10 @@
     <Compile Include="ViewModelBuilders\TreeBranchViewModelBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bennington.Cms\Bennington.Cms.csproj">
+      <Project>{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}</Project>
+      <Name>Bennington.Cms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bennington.ContentTree\Bennington.ContentTree.csproj">
       <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
       <Name>Bennington.ContentTree</Name>
