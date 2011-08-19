@@ -564,6 +564,7 @@
     <None Include="Content\dataTable\Sorting icons.psd" />
     <Content Include="Views\Shared\ManageSite.master" />
     <Content Include="Views\Login\Site.Master" />
+    <Content Include="Target_\Active\AppSettings.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

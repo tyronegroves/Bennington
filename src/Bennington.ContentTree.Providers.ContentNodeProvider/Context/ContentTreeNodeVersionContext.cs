@@ -36,7 +36,8 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Context
 		{
 			if (versionContext.GetCurrentVersionId() == VersionContext.Publish)
 			{
-				return contentNodeProviderPublishedVersionToContentTreeNodeMapper.CreateSet(contentNodeProviderPublishedVersionRepository.GetAllContentNodeProviderPublishedVersions().Where(a => a.Inactive == false)).AsQueryable();
+			    var contentNodeProviderPublishedVersions = contentNodeProviderPublishedVersionRepository.GetAllContentNodeProviderPublishedVersions().Where(a => a.Inactive == false);
+				return contentNodeProviderPublishedVersionToContentTreeNodeMapper.CreateSet(contentNodeProviderPublishedVersions).AsQueryable();
 			}
 				
 			if (versionContext.GetCurrentVersionId() == VersionContext.Manage)

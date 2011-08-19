@@ -219,6 +219,11 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		public virtual ActionResult Modify(string treeNodeId, string contentItemId)
 		{
 			if (string.IsNullOrEmpty(contentItemId)) contentItemId = "Index";
+
+            var all = contentTreeNodeVersionContext.GetAllContentTreeNodes().ToArray();
+		    var test = contentTreeNodeVersionContext.GetAllContentTreeNodes().Where(a => a.TreeNodeId == treeNodeId).ToArray();
+		    
+
 			var contentTreeNode = contentTreeNodeVersionContext.GetAllContentTreeNodes().Where(a => a.TreeNodeId == treeNodeId && a.Action == contentItemId).FirstOrDefault();
 			var contentTreeNodeInputModel = contentTreeNode == null ? new ContentTreeNodeInputModel()
 			                		                        	{

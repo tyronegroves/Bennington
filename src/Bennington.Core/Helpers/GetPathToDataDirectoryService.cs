@@ -8,31 +8,59 @@ namespace Bennington.Core.Helpers
         string GetPathToDirectory();
     }
 
-    public class GetPathToDataDirectoryService : IGetPathToDataDirectoryService
+    public interface IGetPathToWorkingDirectoryService
+    {
+        string GetPathToDirectory();
+    }
+
+    public class GetPathToWorkingDirectoryService : IGetPathToWorkingDirectoryService
     {
         private readonly IApplicationSettingsValueGetter applicationSettingsValueGetter;
-        private const string BenningtonContentTreeDataFolderName = "BenningtonData";
 
-        public GetPathToDataDirectoryService(IApplicationSettingsValueGetter applicationSettingsValueGetter)
+        public GetPathToWorkingDirectoryService(IApplicationSettingsValueGetter applicationSettingsValueGetter)
         {
             this.applicationSettingsValueGetter = applicationSettingsValueGetter;
         }
 
         public string GetPathToDirectory()
         {
-            var overridePath = applicationSettingsValueGetter.GetValue("BenningtonDataPath");
+            var overridePath = applicationSettingsValueGetter.GetValue("Bennington.LocalWorkingFolder");
             if (!string.IsNullOrEmpty(overridePath))
                 return overridePath;
+
+            const string localWorkingFolderName = "localWorkingFolder";
 
             var x = Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
             if (x.IndexOf("DevServer", 0) > 0)
             {
-                var z = Directory.GetParent(HttpContext.Current.Server.MapPath("/MANAGE"));
-                z = Directory.GetParent(z.Parent.FullName);
-                return z.FullName + Path.DirectorySeparatorChar + "localWorkingFolder" + Path.DirectorySeparatorChar + BenningtonContentTreeDataFolderName + Path.DirectorySeparatorChar;
+                var z = Directory.GetParent(HttpContext.Current.Server.MapPath("/Manage")).Parent.FullName;
+                return z + Path.DirectorySeparatorChar + localWorkingFolderName + Path.DirectorySeparatorChar;
             }
 
-            return System.IO.Directory.GetParent(HttpContext.Current.Server.MapPath("/")).Parent.FullName + System.IO.Path.DirectorySeparatorChar + BenningtonContentTreeDataFolderName + Path.DirectorySeparatorChar;
+            return System.IO.Directory.GetParent(HttpContext.Current.Server.MapPath("/")).Parent.FullName + System.IO.Path.DirectorySeparatorChar + localWorkingFolderName + Path.DirectorySeparatorChar;
+        }        
+    }
+
+    public class GetPathToDataDirectoryService : IGetPathToDataDirectoryService
+    {
+        private readonly IApplicationSettingsValueGetter applicationSettingsValueGetter;
+        private readonly IGetPathToWorkingDirectoryService getPathToWorkingDirectoryService;
+        private const string BenningtonContentTreeDataFolderName = "BenningtonData";
+
+        public GetPathToDataDirectoryService(IApplicationSettingsValueGetter applicationSettingsValueGetter,
+                                            IGetPathToWorkingDirectoryService getPathToWorkingDirectoryService)
+        {
+            this.getPathToWorkingDirectoryService = getPathToWorkingDirectoryService;
+            this.applicationSettingsValueGetter = applicationSettingsValueGetter;
+        }
+
+        public string GetPathToDirectory()
+        {
+            var overridePath = applicationSettingsValueGetter.GetValue("Bennington.DataPath");
+            if (!string.IsNullOrEmpty(overridePath))
+                return overridePath;
+
+            return getPathToWorkingDirectoryService.GetPathToDirectory() + Path.DirectorySeparatorChar + BenningtonContentTreeDataFolderName + Path.DirectorySeparatorChar;
         }
     }
 }
