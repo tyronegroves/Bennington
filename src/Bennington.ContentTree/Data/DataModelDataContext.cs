@@ -32,7 +32,11 @@ namespace Bennington.ContentTree.Data
 
 		public IQueryable<TreeNode> TreeNodes
 		{
-			get { return xmlFileSerializationHelper.DeserializeListFromPath<TreeNode>(GetXmlFilePath()).AsQueryable(); }
+			get
+			{
+			    var path = GetXmlFilePath();
+			    return xmlFileSerializationHelper.DeserializeListFromPath<TreeNode>(path).AsQueryable();
+			}
 			set { throw new NotImplementedException(); }
 		}
 
@@ -69,7 +73,8 @@ namespace Bennington.ContentTree.Data
 
 		private string GetXmlFilePath()
 		{
-			return getPathToDataDirectoryService.GetPathToDirectory() + Path.DirectorySeparatorChar + "TreeNodes.xml";
+		    var path = getPathToDataDirectoryService.GetPathToDirectory();
+			return path + Path.DirectorySeparatorChar + "TreeNodes.xml";
 		}
 	}
 }

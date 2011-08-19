@@ -56,7 +56,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		public virtual ActionResult Index()
 		{
 			return View("Index", contentTreeNodeDisplayViewModelBuilder
-										.BuildViewModel(rawUrlGetter.GetRawUrl(), RouteData));
+                                        .BuildViewModel(rawUrlGetter.GetRawUrl(), ControllerContext.RouteData));
 		}
 
 		[Authorize]
@@ -242,6 +242,11 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 
 			return View("Modify", viewModel);
 		}
+
+        public ActionResult Display()
+        {
+            return View();
+        }
 
 		[Authorize]
 		public virtual ActionResult ContentItemNavigation(string treeNodeId)

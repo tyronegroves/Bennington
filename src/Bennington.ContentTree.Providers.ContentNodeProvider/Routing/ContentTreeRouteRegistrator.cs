@@ -26,6 +26,12 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Routing
 			contentTreeRoute.Constraints = new RouteValueDictionary();
 			contentTreeRoute.Constraints.Add(contentTreeRouteConstraint.GetType().AssemblyQualifiedName ?? "Unkown content tree route contraint", contentTreeRouteConstraint);
 			routes.Add(contentTreeRoute);
+
+            routes.MapRoute(
+                "ContentTreeDisplayRoute", // Route name
+                "ContentTreeNode/{action}", // URL with parameters
+                new { controller = "ContentTreeNode", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+            );
         }
 
 		private static RouteValueDictionary GetDefaultRouteValues(int maxDepth)
@@ -35,8 +41,8 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Routing
 			for (var i = 0; i < maxDepth; i++)
 				defaults.Add(string.Format("nodesegment-{0}", i), UrlParameter.Optional);
 
-			defaults.Add("Controller", "BenningtonPage");
-			defaults.Add("Action", "Index");
+			defaults.Add("Controller", "ContentTreeNode");
+			defaults.Add("Action", "Display");
 
 			return defaults;
 		}

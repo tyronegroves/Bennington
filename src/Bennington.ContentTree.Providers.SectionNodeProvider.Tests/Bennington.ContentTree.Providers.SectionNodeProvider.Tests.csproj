@@ -84,10 +84,6 @@
       <Project>{3DE65C2E-791C-4B05-815F-986782A5153A}</Project>
       <Name>Bennington.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Bennington.ContentTree.Providers.SectionNodeProvider\Bennington.ContentTree.Providers.SectionNodeProvider.csproj">
-      <Project>{F5B06173-0873-4E7E-BBD5-9F58D69E077F}</Project>
-      <Name>Bennington.ContentTree.Providers.SectionNodeProvider</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

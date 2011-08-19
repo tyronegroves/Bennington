@@ -18,7 +18,9 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders
 		private readonly IContentTreeNodeContext contentTreeNodeContext;
 		private readonly IGetParentRouteDataDictionaryFromChildActionRouteData getParentRouteDataDictionaryFromChildActionRouteData;
 
-		public ContentTreeNodeDisplayViewModelBuilder(ITreeNodeSummaryContext treeNodeSummaryContext, IContentTreeNodeContext contentTreeNodeContext, IGetParentRouteDataDictionaryFromChildActionRouteData getParentRouteDataDictionaryFromChildActionRouteData)
+		public ContentTreeNodeDisplayViewModelBuilder(ITreeNodeSummaryContext treeNodeSummaryContext, 
+                                                        IContentTreeNodeContext contentTreeNodeContext, 
+                                                        IGetParentRouteDataDictionaryFromChildActionRouteData getParentRouteDataDictionaryFromChildActionRouteData)
 		{
 			this.getParentRouteDataDictionaryFromChildActionRouteData = getParentRouteDataDictionaryFromChildActionRouteData;
 			this.contentTreeNodeContext = contentTreeNodeContext;
@@ -29,7 +31,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders
 		{
 			var nodeSegments = ScrubUrlAndReturnEnumerableOfNodeSegments(rawUrl);
 
-			string workingTreeNodeId = GetTreeNodeIdFromTreeNodeSummaryContextUsingNodeSegments(nodeSegments);
+			var workingTreeNodeId = GetTreeNodeIdFromTreeNodeSummaryContextUsingNodeSegments(nodeSegments);
 
 			var viewModel = new ContentTreeNodeDisplayViewModel()
 			       	{
@@ -39,7 +41,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders
 			if (string.IsNullOrEmpty(workingTreeNodeId)) return viewModel;
 
 			var data = getParentRouteDataDictionaryFromChildActionRouteData.GetRouteValues(routeData);
-			var action = GetAction(data);
+            var action = routeData.Values["action"].ToString();  //GetAction(data);
 
 			var contentTreeNodes = contentTreeNodeContext.GetContentTreeNodesByTreeId(workingTreeNodeId).Where(a => a.Action == action);
 			if (contentTreeNodes.Count() == 0) return viewModel;

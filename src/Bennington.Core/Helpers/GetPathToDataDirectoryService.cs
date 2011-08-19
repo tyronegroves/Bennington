@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Web;
 
 namespace Bennington.Core.Helpers
@@ -33,7 +34,17 @@ namespace Bennington.Core.Helpers
             var x = Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
             if (x.IndexOf("DevServer", 0) > 0)
             {
-                var z = Directory.GetParent(HttpContext.Current.Server.MapPath("/Manage")).Parent.FullName;
+                var rootPath = string.Empty;
+                try
+                {
+                    rootPath = HttpContext.Current.Server.MapPath("/");
+                }
+                catch (Exception)
+                {
+                    rootPath = HttpContext.Current.Server.MapPath("/Manage");
+                }
+
+                var z = Directory.GetParent(rootPath).Parent.Parent.FullName;
                 return z + Path.DirectorySeparatorChar + localWorkingFolderName + Path.DirectorySeparatorChar;
             }
 
