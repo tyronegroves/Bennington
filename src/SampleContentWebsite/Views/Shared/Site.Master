@@ -24,7 +24,7 @@
             </div>
         </div>
         <div id="main">
-            <% Html.RenderAction("Index", "ContentTreeNode");%>
+            <%--<% Html.RenderAction("Index", "ContentTreeNode");%>--%>
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
             <div id="footer">
             </div>
