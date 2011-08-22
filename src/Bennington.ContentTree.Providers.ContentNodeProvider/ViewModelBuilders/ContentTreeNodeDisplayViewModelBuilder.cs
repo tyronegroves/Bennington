@@ -16,11 +16,14 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders
 	{
 		private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
 		private readonly IContentTreeNodeContext contentTreeNodeContext;
+	    private IGetParentRouteDataDictionaryFromChildActionRouteData getParentRouteDataDictionaryFromChildActionRouteData;
 
-		public ContentTreeNodeDisplayViewModelBuilder(ITreeNodeSummaryContext treeNodeSummaryContext, 
-                                                        IContentTreeNodeContext contentTreeNodeContext)
+	    public ContentTreeNodeDisplayViewModelBuilder(ITreeNodeSummaryContext treeNodeSummaryContext, 
+                                                        IContentTreeNodeContext contentTreeNodeContext,
+                                                        IGetParentRouteDataDictionaryFromChildActionRouteData getParentRouteDataDictionaryFromChildActionRouteData)
 		{
-			this.contentTreeNodeContext = contentTreeNodeContext;
+	        this.getParentRouteDataDictionaryFromChildActionRouteData = getParentRouteDataDictionaryFromChildActionRouteData;
+	        this.contentTreeNodeContext = contentTreeNodeContext;
 			this.treeNodeSummaryContext = treeNodeSummaryContext;
 		}
 
@@ -38,6 +41,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders
 			if (string.IsNullOrEmpty(workingTreeNodeId)) return viewModel;
 
             var action = GetAction(routeData);
+		    //var parentRouteData = getParentRouteDataDictionaryFromChildActionRouteData.GetRouteValues(routeData);
 
 			var contentTreeNodes = contentTreeNodeContext.GetContentTreeNodesByTreeId(workingTreeNodeId).Where(a => a.Action == action);
 			if (contentTreeNodes.Count() == 0) return viewModel;
