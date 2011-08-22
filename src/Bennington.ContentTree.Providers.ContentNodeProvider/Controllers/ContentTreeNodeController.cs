@@ -55,8 +55,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 
 		public virtual ActionResult Index()
 		{
-			return View("Index", contentTreeNodeDisplayViewModelBuilder
-                                        .BuildViewModel(rawUrlGetter.GetRawUrl(), ControllerContext.RouteData));
+			return View("Index", contentTreeNodeDisplayViewModelBuilder.BuildViewModel(rawUrlGetter.GetRawUrl(), (ControllerContext ?? new ControllerContext()).RouteData));
 		}
 
 		[Authorize]
