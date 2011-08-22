@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.ContentTree.Prov
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.ContentTree.Providers.ToolLinkNodeProvider.Tests", "Bennington.ContentTree.Providers.ToolLinkNodeProvider.Tests\Bennington.ContentTree.Providers.ToolLinkNodeProvider.Tests.csproj", "{004B9AE0-CDE2-43B3-8BC2-BD5C6346F0DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleFeature", "SampleFeature\SampleFeature.csproj", "{0124D513-5EBF-4CA9-9DA4-EC0A75E0C629}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Paragon.vsmdi
@@ -136,6 +138,10 @@ Global
 		{004B9AE0-CDE2-43B3-8BC2-BD5C6346F0DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{004B9AE0-CDE2-43B3-8BC2-BD5C6346F0DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{004B9AE0-CDE2-43B3-8BC2-BD5C6346F0DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0124D513-5EBF-4CA9-9DA4-EC0A75E0C629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0124D513-5EBF-4CA9-9DA4-EC0A75E0C629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0124D513-5EBF-4CA9-9DA4-EC0A75E0C629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0124D513-5EBF-4CA9-9DA4-EC0A75E0C629}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

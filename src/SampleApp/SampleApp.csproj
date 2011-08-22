@@ -569,6 +569,10 @@
       <Project>{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}</Project>
       <Name>Bennington.Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SampleFeature\SampleFeature.csproj">
+      <Project>{0124D513-5EBF-4CA9-9DA4-EC0A75E0C629}</Project>
+      <Name>SampleFeature</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\dataTable\Sorting icons.psd" />
