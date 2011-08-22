@@ -12,5 +12,11 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Mappers
 
 	public class SectionNodeProviderDraftToContentTreeSectionNodeMapper : Mapper<SectionNodeProviderDraft, ContentTreeSectionNode>, ISectionNodeProviderDraftToContentTreeSectionNodeMapper
 	{
+        public override void DefineMap(AutoMapper.IConfiguration configuration)
+        {
+
+            configuration.CreateMap<SectionNodeProviderDraft, ContentTreeSectionNode>()
+                .ForMember(a => a.IconUrl, b => b.Ignore());
+        }
 	}
 }

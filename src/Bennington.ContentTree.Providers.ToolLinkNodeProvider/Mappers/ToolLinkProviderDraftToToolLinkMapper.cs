@@ -12,5 +12,11 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Mappers
 
 	public class ToolLinkProviderDraftToToolLinkMapper : Mapper<ToolLinkProviderDraft, ToolLink>, IToolLinkProviderDraftToToolLinkMapper
 	{
+        public override void DefineMap(AutoMapper.IConfiguration configuration)
+        {
+            configuration.CreateMap<ToolLinkProviderDraft, ToolLink>()
+                    .ForMember(a => a.IconUrl, b => b.Ignore())
+                ;
+        }
 	}
 }

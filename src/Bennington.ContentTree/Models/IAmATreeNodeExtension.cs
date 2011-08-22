@@ -8,5 +8,6 @@
 		string Name { get; set; }
 		bool Hidden { get; set; }
 		bool Inactive { get; set; }
+	    string IconUrl { get; set; }
 	}
 }

@@ -1,4 +1,5 @@
-﻿using Bennington.ContentTree.Models;
+﻿using System;
+using Bennington.ContentTree.Models;
 
 namespace Bennington.ContentTree.Providers.ContentNodeProvider.Models
 {
@@ -14,6 +15,13 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Models
 		public string HeaderText { get; set; }
 		public string HeaderImage { get; set; }
 		public bool Inactive { get; set; }
-		public bool Hidden { get; set; }
+
+	    public string IconUrl
+	    {
+            get { return "/MANAGE/Content/ContentNodeProvider/page.gif"; }
+	        set { throw new NotImplementedException(); }
+	    }
+
+	    public bool Hidden { get; set; }
 	}
 }

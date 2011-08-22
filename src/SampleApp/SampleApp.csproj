@@ -157,7 +157,7 @@
     <Content Include="Content\Login\Site.css" />
     <Content Include="Content\ManageSite.css" />
     <Content Include="Content\PagedList.css" />
-    <Content Include="Content\PlusSign.gif" />
+    <Content Include="Content\TreeManager\PlusSign.gif" />
     <Content Include="Content\Reset.css" />
     <Content Include="Content\themes\base\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Content\themes\base\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
@@ -174,6 +174,9 @@
     <Content Include="Content\themes\base\images\ui-icons_ffd27a_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\ContentNodeProvider\controller.gif" />
+    <Content Include="Content\ContentNodeProvider\page.gif" />
+    <Content Include="Content\SectionNodeProvider\section.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
@@ -518,7 +521,7 @@
     <Content Include="Views\MenuSystem\SubMenu.ascx" />
     <Content Include="Views\ToolLinkProviderNode\Modify.aspx" />
     <Content Include="Views\TreeManager\Branch.aspx" />
-    <Content Include="Content\CreateInRoot.gif" />
+    <Content Include="Content\TreeManager\CreateInRoot.gif" />
     <Content Include="Views\TreeManager\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

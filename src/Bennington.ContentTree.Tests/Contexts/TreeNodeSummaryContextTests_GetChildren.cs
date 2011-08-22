@@ -545,7 +545,13 @@ namespace Bennington.ContentTree.Tests.Contexts
 			set { throw new NotImplementedException(); }
 		}
 
-		public IEnumerable<ContentTreeNodeContentItem> ContentTreeNodeContentItems
+	    public string IconUrl
+	    {
+	        get { return string.Empty; }
+	        set { throw new NotImplementedException(); }
+	    }
+
+	    public IEnumerable<ContentTreeNodeContentItem> ContentTreeNodeContentItems
 		{
 			get { throw new NotImplementedException(); }
 			set { throw new NotImplementedException(); }

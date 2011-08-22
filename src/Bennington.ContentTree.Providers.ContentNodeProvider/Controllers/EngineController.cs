@@ -9,6 +9,7 @@ using Bennington.ContentTree.Contexts;
 using Bennington.ContentTree.Helpers;
 using Bennington.ContentTree.Models;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Context;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Routing;
 using Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders.Helpers;
 using Bennington.ContentTree.Repositories;
@@ -39,10 +40,17 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 
 		public virtual IQueryable<IAmATreeNodeExtension> GetAll()
 		{
-			var query = from item in contentTreeNodeVersionContext.GetAllContentTreeNodes().Where(a => a.Action == "Index")
-						select item;
+		    var query = from item in contentTreeNodeVersionContext.GetAllContentTreeNodes().Where(a => a.Action == "Index")
+		                select item;
 
-			return query;
+		    var treeNodeExtensions = new List<IAmATreeNodeExtension>();
+            foreach (var item in query)
+            {
+                item.IconUrl = "/MANAGE/Content/ContentNodeProvider/controller.gif";
+                treeNodeExtensions.Add(item);
+            }
+
+			return treeNodeExtensions.AsQueryable();
 		}
 
 		public abstract string Name {get;}
