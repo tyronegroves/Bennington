@@ -543,6 +543,10 @@
       <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
       <Name>Bennington.ContentTree.Providers.ContentNodeProvider</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Bennington.ContentTree.Providers.SectionNodeProvider\Bennington.ContentTree.Providers.SectionNodeProvider.csproj">
+      <Project>{F5B06173-0873-4E7E-BBD5-9F58D69E077F}</Project>
+      <Name>Bennington.ContentTree.Providers.SectionNodeProvider</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bennington.ContentTree.TreeManager\Bennington.ContentTree.TreeManager.csproj">
       <Project>{5440F3E1-26AD-4355-875B-50ABF7484181}</Project>
       <Name>Bennington.ContentTree.TreeManager</Name>

@@ -171,6 +171,10 @@
       <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
       <Name>Bennington.ContentTree.Providers.ContentNodeProvider</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Bennington.ContentTree.Providers.SectionNodeProvider\Bennington.ContentTree.Providers.SectionNodeProvider.csproj">
+      <Project>{F5B06173-0873-4E7E-BBD5-9F58D69E077F}</Project>
+      <Name>Bennington.ContentTree.Providers.SectionNodeProvider</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bennington.ContentTree\Bennington.ContentTree.csproj">
       <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
       <Name>Bennington.ContentTree</Name>
