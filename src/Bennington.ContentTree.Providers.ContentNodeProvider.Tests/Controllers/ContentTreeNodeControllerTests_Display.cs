@@ -29,10 +29,10 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			                        	{
 			                        		Header = "Header",
 			                        	};
-			mocker.GetMock<IContentTreeNodeDisplayViewModelBuilder>().Setup(a => a.BuildViewModel("url", It.IsAny<RouteData>()))
+			mocker.GetMock<IContentTreeNodeDisplayViewModelBuilder>().Setup(a => a.BuildViewModel("url", It.IsAny<RouteData>(), It.IsAny<string>()))
 				.Returns(expectedViewModel);
 
-			var result = (ContentTreeNodeDisplayViewModel) ((ViewResult) mocker.Resolve<ContentTreeNodeController>().Index()).ViewData.Model;
+			var result = (ContentTreeNodeDisplayViewModel) ((ViewResult) mocker.Resolve<ContentTreeNodeController>().Index("controller", "action")).ViewData.Model;
 
 			Assert.AreEqual(expectedViewModel, result);
 		}
@@ -40,7 +40,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 		[TestMethod]
 		public void Returns_view_name()
 		{
-			var result = mocker.Resolve<ContentTreeNodeController>().Index();
+			var result = mocker.Resolve<ContentTreeNodeController>().Index("controller", "action");
 
 			Assert.AreEqual("Index", ((ViewResult)result).ViewName);
 		}

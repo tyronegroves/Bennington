@@ -9,7 +9,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders
 {
 	public interface IContentTreeNodeDisplayViewModelBuilder
 	{
-		ContentTreeNodeDisplayViewModel BuildViewModel(string rawUrl, RouteData routeData);
+		ContentTreeNodeDisplayViewModel BuildViewModel(string rawUrl, RouteData routeData, string currentAction);
 	}
 
 	public class ContentTreeNodeDisplayViewModelBuilder : IContentTreeNodeDisplayViewModelBuilder
@@ -27,7 +27,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders
 			this.treeNodeSummaryContext = treeNodeSummaryContext;
 		}
 
-		public ContentTreeNodeDisplayViewModel BuildViewModel(string rawUrl, RouteData routeData)
+		public ContentTreeNodeDisplayViewModel BuildViewModel(string rawUrl, RouteData routeData, string currentAction)
 		{
 			var nodeSegments = ScrubUrlAndReturnEnumerableOfNodeSegments(rawUrl);
 
@@ -40,7 +40,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders
 			       	};
 			if (string.IsNullOrEmpty(workingTreeNodeId)) return viewModel;
 
-            var action = GetAction(routeData);
+            var action = currentAction; //GetAction(routeData);
 		    //var parentRouteData = getParentRouteDataDictionaryFromChildActionRouteData.GetRouteValues(routeData);
 
 			var contentTreeNodes = contentTreeNodeContext.GetContentTreeNodesByTreeId(workingTreeNodeId).Where(a => a.Action == action);

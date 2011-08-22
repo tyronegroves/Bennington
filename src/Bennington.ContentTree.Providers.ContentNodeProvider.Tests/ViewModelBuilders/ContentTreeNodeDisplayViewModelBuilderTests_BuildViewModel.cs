@@ -48,7 +48,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.ViewModelBu
 			var routeData = new RouteData();
 			routeData.Values.Add("Action", "Index");
 
-			var result = mocker.Resolve<ContentTreeNodeDisplayViewModelBuilder>().BuildViewModel("test?a=1", routeData);
+			var result = mocker.Resolve<ContentTreeNodeDisplayViewModelBuilder>().BuildViewModel("test?a=1", routeData, "Index");
 
 			Assert.AreEqual("test1", result.Header);
 		}
@@ -80,7 +80,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.ViewModelBu
 			var routeData = new RouteData();
 			routeData.Values.Add("Action", "Index");
 
-			var result = mocker.Resolve<ContentTreeNodeDisplayViewModelBuilder>().BuildViewModel("test", routeData);
+			var result = mocker.Resolve<ContentTreeNodeDisplayViewModelBuilder>().BuildViewModel("test", routeData, "Index");
 
 			Assert.AreEqual("test.jpg", result.HeaderImage);
 		}
@@ -130,7 +130,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.ViewModelBu
 			var routeData = new RouteData();
 			routeData.Values.Add("Action", "Index");
 
-			var result = mocker.Resolve<ContentTreeNodeDisplayViewModelBuilder>().BuildViewModel("SECTION1/TEST", routeData);
+			var result = mocker.Resolve<ContentTreeNodeDisplayViewModelBuilder>().BuildViewModel("SECTION1/TEST", routeData, "Index");
 
 			Assert.AreEqual("page1", result.Header);
 		}
@@ -160,7 +160,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.ViewModelBu
 			var routeData = new RouteData();
 			routeData.Values.Add("Action", "Index");
 
-			var result = mocker.Resolve<ContentTreeNodeDisplayViewModelBuilder>().BuildViewModel("SECTION1", routeData);
+			var result = mocker.Resolve<ContentTreeNodeDisplayViewModelBuilder>().BuildViewModel("SECTION1", routeData, "Index");
 
 			Assert.AreEqual("section1", result.Header);
 		}
@@ -190,7 +190,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.ViewModelBu
 			var routeData = new RouteData();
 			routeData.Values.Add("Action", "Index");
 
-			var result = mocker.Resolve<ContentTreeNodeDisplayViewModelBuilder>().BuildViewModel("Section1/", routeData);
+			var result = mocker.Resolve<ContentTreeNodeDisplayViewModelBuilder>().BuildViewModel("Section1/", routeData, "Index");
 
 			Assert.AreEqual("section1", result.Header);
 		}
@@ -219,7 +219,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.ViewModelBu
 			var routeData = new RouteData();
 			routeData.Values.Add("Action", "Index");
 
-			var result = mocker.Resolve<ContentTreeNodeDisplayViewModelBuilder>().BuildViewModel("Section1/", routeData);
+			var result = mocker.Resolve<ContentTreeNodeDisplayViewModelBuilder>().BuildViewModel("Section1/", routeData, "Index");
 
 			Assert.AreEqual("page content", result.Body);
 		}
@@ -261,7 +261,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.ViewModelBu
 			var routeData = new RouteData();
 			routeData.Values.Add("Action", "Index2");
 
-		    var result = mocker.Resolve<ContentTreeNodeDisplayViewModelBuilder>().BuildViewModel("Section1/", routeData);
+		    var result = mocker.Resolve<ContentTreeNodeDisplayViewModelBuilder>().BuildViewModel("Section1/", routeData, "Index2");
 
 		    Assert.AreEqual("page content2", result.Body);
 		}
@@ -269,7 +269,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.ViewModelBu
 		[TestMethod]
 		public void Returns_emtpy_view_model_when_url_doesnt_match_a_tree_node_url()
 		{
-			var result = mocker.Resolve<ContentTreeNodeDisplayViewModelBuilder>().BuildViewModel(null, null);
+			var result = mocker.Resolve<ContentTreeNodeDisplayViewModelBuilder>().BuildViewModel(null, null, "Index");
 
 			Assert.AreEqual(string.Empty, result.Header);
 			Assert.AreEqual(string.Empty, result.Body);
