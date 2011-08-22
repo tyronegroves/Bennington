@@ -54,6 +54,9 @@
     <Reference Include="MvcTurbine.FluentValidation">
       <HintPath>..\packages\MvcTurbine.FluentValidation.3.0\lib\MvcTurbine.FluentValidation.dll</HintPath>
     </Reference>
+    <Reference Include="MvcTurbine.MembershipProvider">
+      <HintPath>..\packages\MvcTurbine.MembershipProvider.3.0\lib\MvcTurbine.MembershipProvider.dll</HintPath>
+    </Reference>
     <Reference Include="MvcTurbine.Web, Version=3.2.1.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
       <HintPath>..\packages\MVCTurbine.3.2.1\lib\MvcTurbine.Web.dll</HintPath>
     </Reference>
@@ -109,6 +112,7 @@
     <Compile Include="Models\IAdminAccountEditFormStore.cs" />
     <Compile Include="Models\IAdminAccountRepository.cs" />
     <Compile Include="Passwords\PasswordEncrypter.cs" />
+    <Compile Include="PrincipalProviders\AdminAccountPrincipalProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\AdminAccountRegistration.cs" />
     <Compile Include="Routing\AdminAccountRouting.cs" />
