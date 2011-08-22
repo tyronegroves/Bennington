@@ -13,6 +13,7 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
     		this.modifyViewModelBuilder = modifyViewModelBuilder;
     	}
 
+        [Authorize]
 		public ActionResult Create(string parentTreeNodeId)
 		{
 			return View("Modify", modifyViewModelBuilder.BuildViewModel(new ToolLinkInputModel()
@@ -23,6 +24,7 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
 		}
 
 		[HttpPost]
+        [Authorize]
 		public ActionResult Create(ToolLinkInputModel toolLinkInputModel)
 		{
 			if (!ModelState.IsValid)
@@ -31,6 +33,7 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
 			return new RedirectResult(GetRedirectUrlToModifyMethod(toolLinkInputModel));
 		}
 
+        [Authorize]
 		public ActionResult Modify(string treeNodeId)
 		{
 			return View("Modify", modifyViewModelBuilder.BuildViewModel(new ToolLinkInputModel()
@@ -41,6 +44,7 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
 		}
 
 		[HttpPost]
+        [Authorize]
 		public ActionResult Modify(ToolLinkInputModel toolLinkInputModel)
 		{
 			if (!ModelState.IsValid)

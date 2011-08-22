@@ -37,6 +37,9 @@
     <Reference Include="AutoMapperAssist">
       <HintPath>..\..\lib\AutoMapperAssist\AutoMapperAssist.dll</HintPath>
     </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.2.0.0.0\lib\SL4\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="MvcTurbine, Version=2.1.0.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Turbine\MvcTurbine.dll</HintPath>
@@ -82,11 +85,11 @@
     <Compile Include="Registration\ToolLinkNodeProviderServiceRegistrations.cs" />
     <Compile Include="Repositories\ToolLinkProviderDraftRepository.cs" />
     <Compile Include="ToolLinkNodeProvider.cs" />
+    <Compile Include="Validators\ToolLinkInputModelValidator.cs" />
     <Compile Include="ViewModelBuilders\ModifyViewModelBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Views\ToolLinkProviderNode\Modify.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -94,7 +97,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
