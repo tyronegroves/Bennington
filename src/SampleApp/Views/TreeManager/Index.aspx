@@ -1,4 +1,5 @@
-﻿<%@ Import Namespace="Bennington.ContentTree.Models" %>
+﻿<%@ Import Namespace="Bennington.ContentTree" %>
+<%@ Import Namespace="Bennington.ContentTree.Models" %>
 <%@ Page Language="C#" MasterPageFile="~/Views/Shared/ManageSite.Master" Inherits="System.Web.Mvc.ViewPage<Bennington.ContentTree.TreeManager.Models.TreeManagerIndexViewModel>" %>
 <%@ Import Namespace="System.Security.Policy" %>
 <%@ Import Namespace="System.Web.Mvc" %>
@@ -17,7 +18,7 @@
 					"ajax": {
 						"url": "<%=Url.Action("Branch", "TreeManager") %>",
 						"data": function (n) {
-							return { id: n.attr ? n.attr("id") : '00000000-0000-0000-0000-000000000000' };
+							return { id: n.attr ? n.attr("id") : '<%=Constants.RootNodeId %>' };
 						}
 					}
 				},
@@ -51,7 +52,7 @@
         </div>
 
 		<br />
-		<a id="createInRootLink" href="#TB_inline?height=155&width=300&inlineId=createFormContainer&modal=false" class="thickbox" title="Create a Node:" >[Create a parent page]</a>
+		<a id="createInRootLink" href="#TB_inline?height=155&width=300&inlineId=createFormContainer&modal=false" class="thickbox" title="Create a Node:" ><img src="/MANAGE/Content/CreateInRoot.gif" alt="Create in Root" /></a>
 		
     </div>
 

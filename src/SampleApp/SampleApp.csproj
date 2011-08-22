@@ -157,6 +157,7 @@
     <Content Include="Content\Login\Site.css" />
     <Content Include="Content\ManageSite.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\PlusSign.gif" />
     <Content Include="Content\Reset.css" />
     <Content Include="Content\themes\base\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Content\themes\base\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
@@ -517,6 +518,7 @@
     <Content Include="Views\MenuSystem\SubMenu.ascx" />
     <Content Include="Views\ToolLinkProviderNode\Modify.aspx" />
     <Content Include="Views\TreeManager\Branch.aspx" />
+    <Content Include="Content\CreateInRoot.gif" />
     <Content Include="Views\TreeManager\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
