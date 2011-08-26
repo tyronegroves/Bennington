@@ -8,6 +8,7 @@ using MvcTurbine.Web.Metadata;
 namespace Bennington.AdminAccounts.Models
 {
     [LoadButtonsForTheAdminPage]
+    [SetSectionHeaderOnListPageTo("Administrators")]
     public class AdminAccountListPageItem
     {
         [DoNotShowThisProperty]
