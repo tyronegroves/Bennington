@@ -9,4 +9,7 @@
     <p>
         This is the About Action of HomeContoller.
     </p>
+
+    <p><%=Html.ActionLink("Link to example controller About view", "About", "Example") %></p>
+    <p><%=Html.ActionLink("Link to example controller Index view", "Index", "Example") %></p>
 </asp:Content>
