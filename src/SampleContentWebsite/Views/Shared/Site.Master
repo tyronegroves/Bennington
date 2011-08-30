@@ -24,7 +24,7 @@
             </div>
         </div>
         <div id="main">
-            <% Html.RenderAction("Index", "ContentTreeNode", new { currentController = ViewContext.RouteData.Values["controller"].ToString(), currentAction = ViewContext.RouteData.Values["action"].ToString() });%>
+            <% Html.RenderAction("Display", "ContentTreeNode", new { currentController = ViewContext.RouteData.Values["controller"].ToString(), currentAction = ViewContext.RouteData.Values["action"].ToString() });%>
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
             <div id="footer">
             </div>

@@ -42,7 +42,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Routing
 				defaults.Add(string.Format("nodesegment-{0}", i), UrlParameter.Optional);
 
 			defaults.Add("Controller", "ContentTreeNode");
-			defaults.Add("Action", "Display");
+			defaults.Add("Action", "Index");
 
 			return defaults;
 		}

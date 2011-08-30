@@ -53,9 +53,9 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 			this.contentTreeNodeVersionContext = contentTreeNodeVersionContext;
 		}
 
-        public virtual ActionResult Index(string currentController, string currentAction)
+        public virtual ActionResult Display(string currentController, string currentAction)
 		{
-            return View("Index", contentTreeNodeDisplayViewModelBuilder.BuildViewModel(rawUrlGetter.GetRawUrl(), (ControllerContext ?? new ControllerContext()).RouteData, currentAction));
+            return View("Display", contentTreeNodeDisplayViewModelBuilder.BuildViewModel(rawUrlGetter.GetRawUrl(), (ControllerContext ?? new ControllerContext()).RouteData, currentAction));
 		}
 
 		[Authorize]
@@ -242,7 +242,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 			return View("Modify", viewModel);
 		}
 
-        public ActionResult Display()
+        public ActionResult Index()
         {
             return View();
         }
