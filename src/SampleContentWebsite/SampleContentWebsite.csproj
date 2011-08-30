@@ -130,7 +130,6 @@
     <Content Include="Views\ContentTreeNode\Index.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="Views\ContentTreeNode\Index_remove.aspx" />
     <Content Include="Views\Example\About.aspx" />
     <Content Include="Views\Example\Index.aspx" />
     <Content Include="Web.config" />

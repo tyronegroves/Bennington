@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Cms", "Benningto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Core", "Bennington.Core\Bennington.Core.csproj", "{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "SampleApp\SampleApp.csproj", "{796D8BB9-A4C1-4AB8-A877-605860129243}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleCmsWebsite", "SampleApp\SampleCmsWebsite.csproj", "{796D8BB9-A4C1-4AB8-A877-605860129243}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Cms.Tests", "Bennington.Cms.Tests\Bennington.Cms.Tests.csproj", "{474349E9-716F-4336-8BBC-4D62346731A7}"
 EndProject
