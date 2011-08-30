@@ -14,14 +14,19 @@ namespace SampleFeature
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult About(string id)
         {
-            return View();
+            return View("About", new AboutViewModel() { Id = id });
         }
 
         public override string Name
         {
             get { return "Example Controller"; }
         }
+    }
+
+    public class AboutViewModel
+    {
+        public string Id { get; set; }
     }
 }

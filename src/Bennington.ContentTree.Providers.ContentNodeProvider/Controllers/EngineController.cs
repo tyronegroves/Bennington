@@ -131,26 +131,32 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 
 		public void Register(RouteCollection routes)
 		{
-		    // add catch-all route 
-		    AddRoute(routes, "{nodesegment-0}/{action}");
-            AddRoute(routes, "{nodesegment-0}/{nodesegment-1}/{action}");
-            AddRoute(routes, "{nodesegment-0}/{nodesegment-1}/{nodesegment-2}/{action}");
+		    // add catch-all routes for incoming routes that will match dynamically created controllers
+            for (var n = 0; n < 3 /*ContentTreeRouteRegistrator.MaxDepthForContentTreeUrlSegments*/; n++)
+            {
+                var sb = new StringBuilder();
+                for (var x = 0; x <= n; x++)
+                {
+                    sb.Append(string.Format("{{nodesegment-{0}}}/", x));
+                }
+                AddRoute(routes, string.Format("{0}{{action}}", sb));
+            }
 
 		    // add hard coded routes for all instances of this engine type
-			foreach (var treeNode in treeNodeRepository.GetAll().Where(a => a.Type == this.GetType().AssemblyQualifiedName))
-			{
-				var url = treeNodeIdToUrl.GetUrlByTreeNodeId(treeNode.Id);
-				if (url.StartsWith("/")) url = url.Substring(1);
-				url = url + "/{action}";
+            foreach (var treeNode in treeNodeRepository.GetAll().Where(a => a.Type == this.GetType().AssemblyQualifiedName))
+            {
+                var url = treeNodeIdToUrl.GetUrlByTreeNodeId(treeNode.Id);
+                if (url.StartsWith("/")) url = url.Substring(1);
+                url = url + "/{action}";
 
-				var controllerName = (this.GetType().Name ?? string.Empty).Replace("Controller", string.Empty);
+                var controllerName = (this.GetType().Name ?? string.Empty).Replace("Controller", string.Empty);
 
-				routes.MapRoute(
-					null,
-					url,
-					new { controller = controllerName, action = "Index" }
-				);
-			}
+                routes.MapRoute(
+                    null,
+                    url,
+                    new { controller = controllerName, action = "Index" }
+                );
+            }
 		}
 
 	    private void AddRoute(RouteCollection routes, string urlPattern)
