@@ -19,7 +19,7 @@ using MvcTurbine.Routing;
 
 namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 {
-	public abstract class EngineController : Controller, IAmATreeNodeExtensionProvider, IRouteRegistrator//, IRouteConstraint
+	public abstract class EngineController : Controller, IAmATreeNodeExtensionProvider, IRouteRegistrator, IRouteConstraint
     {
 		private readonly IContentTreeNodeVersionContext contentTreeNodeVersionContext;
 		private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
@@ -132,15 +132,15 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		public void Register(RouteCollection routes)
 		{
 			// add catch-all route 
-            //var contentTreeRoute = new Route
-            //            (
-            //                GetUrlPatternForDepth(ContentTreeRouteRegistrator.MaxDepthForContentTreeUrlSegments),
-            //                GetDefaultRouteValues(ContentTreeRouteRegistrator.MaxDepthForContentTreeUrlSegments),
-            //                new MvcRouteHandler()
-            //            );
-            //contentTreeRoute.Constraints = new RouteValueDictionary();
-            //contentTreeRoute.Constraints.Add(GetType().AssemblyQualifiedName ?? "Unkown content tree route contraint", this);
-            //routes.Add(contentTreeRoute);
+            var contentTreeRoute = new Route
+                        (
+                            GetUrlPatternForDepth(ContentTreeRouteRegistrator.MaxDepthForContentTreeUrlSegments),
+                            GetDefaultRouteValues(ContentTreeRouteRegistrator.MaxDepthForContentTreeUrlSegments),
+                            new MvcRouteHandler()
+                        );
+            contentTreeRoute.Constraints = new RouteValueDictionary();
+            contentTreeRoute.Constraints.Add(GetType().AssemblyQualifiedName ?? "Unkown content tree route contraint", this);
+            routes.Add(contentTreeRoute);
 
 			// add hard coded routes for all instances of this engine type
 			foreach (var treeNode in treeNodeRepository.GetAll().Where(a => a.Type == this.GetType().AssemblyQualifiedName))
@@ -159,47 +159,47 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 			}
 		}
 
-        //private RouteValueDictionary GetDefaultRouteValues(int maxDepth)
-        //{
-        //    var defaults = new RouteValueDictionary();
+        private RouteValueDictionary GetDefaultRouteValues(int maxDepth)
+        {
+            var defaults = new RouteValueDictionary();
 
-        //    for (var i = 0; i < maxDepth; i++)
-        //        defaults.Add(string.Format("nodesegment-{0}", i), UrlParameter.Optional);
+            for (var i = 0; i < maxDepth; i++)
+                defaults.Add(string.Format("nodesegment-{0}", i), UrlParameter.Optional);
 
-        //    defaults.Add("Controller", GetControllerNameFromThisType());
-        //    defaults.Add("Action", "Index");
+            defaults.Add("Controller", GetControllerNameFromThisType());
+            defaults.Add("Action", "Index");
 
-        //    return defaults;
-        //}
+            return defaults;
+        }
 
 		private string GetControllerNameFromThisType()
 		{
 			return GetType().Name.Replace("Controller", string.Empty);
 		}
 
-        //private string GetUrlPatternForDepth(int maxDepth)
-        //{
-        //    var builder = new StringBuilder("{nodesegment-0}");
+        private string GetUrlPatternForDepth(int maxDepth)
+        {
+            var builder = new StringBuilder("{nodesegment-0}/{action}");
 
-        //    for (var i = 1; i < maxDepth; i++)
-        //        builder.AppendFormat("/{{nodesegment-{0}}}", i);
+            //for (var i = 1; i < maxDepth; i++)
+            //    builder.AppendFormat("/{{nodesegment-{0}}}", i);
 
-        //    return builder.ToString();
-        //}
+            return builder.ToString();
+        }
 
-        //public bool Match(HttpContextBase httpContext, Route route, string parameterName, RouteValueDictionary values, RouteDirection routeDirection)
-        //{
-        //    var treeNodeSummary = urlToTreeNodeSummaryMapper.CreateInstance(rawUrlGetter.GetRawUrl());
+        public bool Match(HttpContextBase httpContext, Route route, string parameterName, RouteValueDictionary values, RouteDirection routeDirection)
+        {
+            var treeNodeSummary = urlToTreeNodeSummaryMapper.CreateInstance(rawUrlGetter.GetRawUrl());
 
-        //    if (treeNodeSummary == null) return false;
+            if (treeNodeSummary == null) return false;
 
-        //    return (treeNodeSummary.Type == GetType().AssemblyQualifiedName);
-        //}
+            return (treeNodeSummary.Type == GetType().AssemblyQualifiedName);
+        }
 
-        //private TreeNodeSummary FindByUrlSegment(string urlSegment, string parentTreeNodeId)
-        //{
-        //    var children = treeNodeSummaryContext.GetChildren(parentTreeNodeId).Where(a => a.Type == GetType().AssemblyQualifiedName);
-        //    return children.Where(a => a.UrlSegment == urlSegment).FirstOrDefault();
-        //}
+        private TreeNodeSummary FindByUrlSegment(string urlSegment, string parentTreeNodeId)
+        {
+            var children = treeNodeSummaryContext.GetChildren(parentTreeNodeId).Where(a => a.Type == GetType().AssemblyQualifiedName);
+            return children.Where(a => a.UrlSegment == urlSegment).FirstOrDefault();
+        }
     }
 }
