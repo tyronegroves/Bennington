@@ -14,9 +14,9 @@ namespace SampleFeature
             return View();
         }
 
-        public ActionResult About(string id)
+        public ActionResult About(string id, int? somethingElse)
         {
-            return View("About", new AboutViewModel() { Id = id });
+            return View("About", new AboutViewModel() { Id = id, SomethingElse = somethingElse });
         }
 
         public override string Name
@@ -28,5 +28,7 @@ namespace SampleFeature
     public class AboutViewModel
     {
         public string Id { get; set; }
+
+        public int? SomethingElse { get; set; }
     }
 }

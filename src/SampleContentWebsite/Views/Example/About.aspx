@@ -4,7 +4,9 @@
 
     <p>This is the example controller About view.</p>
 
-    <p>id is: <%:Model.Id %></p>
+    <p>Id is: <%:Model.Id %></p>
+
+    <p>SomethingElse is: <%:Model.SomethingElse %></p>
 
     <p><%=Html.ActionLink("Link to example controller Index view", "Index", "Example") %></p>
 
