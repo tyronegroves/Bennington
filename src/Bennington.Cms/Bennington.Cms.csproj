@@ -100,6 +100,7 @@
     <Compile Include="Helpers\ValidationHelpers.cs" />
     <Compile Include="Metadata\CheckboxListAttributeHandler.cs" />
     <Compile Include="Metadata\ConsoleAttributeHandler.cs" />
+    <Compile Include="Metadata\ConsoleDropdownAttribute.cs" />
     <Compile Include="Metadata\DoNotShowALabel.cs" />
     <Compile Include="Metadata\HtmlEditorAttributeHandler.cs" />
     <Compile Include="Metadata\DoNotShowThisProperty.cs" />

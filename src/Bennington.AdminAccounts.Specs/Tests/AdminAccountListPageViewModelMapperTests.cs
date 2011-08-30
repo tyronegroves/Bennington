@@ -16,11 +16,11 @@ namespace Bennington.AdminAccounts.Specs.Tests
             mocker = new AutoMoqer();
         }
 
-        [Test]
-        public void Assert_configuration_is_valid()
-        {
-            var mapper = mocker.Create<AdminAccountListPageViewModelMapper>();
-            mapper.AssertConfigurationIsValid();
-        }
+        //[Test]
+        //public void Assert_configuration_is_valid()
+        //{
+        //    var mapper = mocker.Create<AdminAccountListPageViewModelMapper>();
+        //    mapper.AssertConfigurationIsValid();
+        //}
     }
 }
