@@ -3,7 +3,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
    <%--<% using (Html.BeginForm(Model.ToolLinkInputModel.Action, "ToolLinkProviderNode", FormMethod.Post, new { Id = "form" })) { %>--%>
-   <form Id="form" action="/Manage/ToolLinkProviderNode/<%=Model.ToolLinkInputModel.Action %>" method="post">
+   <form Id="form" action="/ToolLinkProviderNode/<%=Model.ToolLinkInputModel.Action %>" method="post">
 
 	<div class="crudFormContainer">
 

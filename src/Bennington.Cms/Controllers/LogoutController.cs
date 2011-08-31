@@ -8,7 +8,7 @@ namespace Bennington.Cms.Controllers
         public ActionResult Index()
         {
             FormsAuthentication.SignOut();
-            return Redirect("/MANAGE");
+            return Redirect("/");
         }
     }
 }

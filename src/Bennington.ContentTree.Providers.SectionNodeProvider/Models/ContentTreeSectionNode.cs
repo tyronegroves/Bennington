@@ -15,7 +15,7 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Models
 
 	    public string IconUrl
 	    {
-            get { return "/MANAGE/Content/SectionNodeProvider/section.png"; }
+            get { return "/Content/SectionNodeProvider/section.png"; }
 	        set { throw new NotImplementedException(); }
 	    }
 

@@ -52,7 +52,7 @@
         </div>
 
 		<br />
-		<a id="createInRootLink" href="#TB_inline?height=155&width=300&inlineId=createFormContainer&modal=false" class="thickbox" title="Create a Node:" ><img src="/MANAGE/Content/TreeManager/CreateInRoot.gif" alt="Create in Root" /></a>
+		<a id="createInRootLink" href="#TB_inline?height=155&width=300&inlineId=createFormContainer&modal=false" class="thickbox" title="Create a Node:" ><img src="/Content/TreeManager/CreateInRoot.gif" alt="Create in Root" /></a>
 		
     </div>
 

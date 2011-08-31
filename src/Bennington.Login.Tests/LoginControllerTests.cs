@@ -62,7 +62,7 @@ namespace Bennington.Login.Tests
             () => result.ShouldBeOfType(typeof (RedirectResult));
 
         private It should_redirect_to_manage =
-            () => ((RedirectResult) result).Url.ShouldEqual("/MANAGE");
+            () => ((RedirectResult) result).Url.ShouldEqual("/");
 
         private static LoginForm loginForm;
         private static LoginController controller;

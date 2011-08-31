@@ -45,6 +45,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.ContentTree.Prov
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleFeature", "SampleFeature\SampleFeature.csproj", "{0124D513-5EBF-4CA9-9DA4-EC0A75E0C629}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{DECE7245-2CB4-4F20-86DB-28FC05BFF23A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Cms.PrincipalProvider", "Bennington.Cms.PrincipalProvider\Bennington.Cms.PrincipalProvider.csproj", "{BE0B07EB-DEA9-4CA0-9D0D-E6892A1453B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Cms.PrincipalProvider.Tests", "Bennington.Cms.PrincipalProvider.Tests\Bennington.Cms.PrincipalProvider.Tests.csproj", "{13111C4F-BEC5-431F-802E-B1286E5EE348}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Paragon.vsmdi
@@ -142,8 +148,21 @@ Global
 		{0124D513-5EBF-4CA9-9DA4-EC0A75E0C629}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0124D513-5EBF-4CA9-9DA4-EC0A75E0C629}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0124D513-5EBF-4CA9-9DA4-EC0A75E0C629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE0B07EB-DEA9-4CA0-9D0D-E6892A1453B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE0B07EB-DEA9-4CA0-9D0D-E6892A1453B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE0B07EB-DEA9-4CA0-9D0D-E6892A1453B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE0B07EB-DEA9-4CA0-9D0D-E6892A1453B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13111C4F-BEC5-431F-802E-B1286E5EE348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13111C4F-BEC5-431F-802E-B1286E5EE348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13111C4F-BEC5-431F-802E-B1286E5EE348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13111C4F-BEC5-431F-802E-B1286E5EE348}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{796D8BB9-A4C1-4AB8-A877-605860129243} = {DECE7245-2CB4-4F20-86DB-28FC05BFF23A}
+		{0124D513-5EBF-4CA9-9DA4-EC0A75E0C629} = {DECE7245-2CB4-4F20-86DB-28FC05BFF23A}
+		{AB40D462-89CE-4357-AF08-D33B36FCE7C2} = {DECE7245-2CB4-4F20-86DB-28FC05BFF23A}
 	EndGlobalSection
 EndGlobal

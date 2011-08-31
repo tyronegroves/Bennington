@@ -28,7 +28,7 @@ namespace Bennington.Login.Filters
 
         private void RedirectToTheLoginPage(ActionExecutedContext filterContext)
         {
-            filterContext.Result = new RedirectResult("/MANAGE/Login");
+            filterContext.Result = new RedirectResult("/Login");
         }
 
         private bool NoLoginRedirectionIsNecessary(ActionExecutedContext filterContext)

@@ -113,7 +113,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminAccounts\Setup.cs" />
+    <Compile Include="AddDummyAdminAccountIfItDoesntExistBlade.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -121,7 +121,6 @@
     <Compile Include="Models\Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routing\LocationRouting.cs" />
-    <Compile Include="Security\DefaultSecurity.cs" />
     <Compile Include="Validation\LoginFormValidator.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -537,9 +536,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bennington.AdminAccounts\Bennington.AdminAccounts.csproj">
-      <Project>{3CB562CE-264D-4883-8DB6-DE4782E2324E}</Project>
-      <Name>Bennington.AdminAccounts</Name>
+    <ProjectReference Include="..\Bennington.Cms.PrincipalProvider\Bennington.Cms.PrincipalProvider.csproj">
+      <Project>{BE0B07EB-DEA9-4CA0-9D0D-E6892A1453B3}</Project>
+      <Name>Bennington.Cms.PrincipalProvider</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bennington.Cms\Bennington.Cms.csproj">
       <Project>{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}</Project>
@@ -599,7 +598,7 @@
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53411</DevelopmentServerPort>
-          <DevelopmentServerVPath>/MANAGE</DevelopmentServerVPath>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
