@@ -10,7 +10,7 @@ namespace Bennington.Cms.Controllers
     {
         private readonly ISectionMenuRetriever sectionMenuRetriever;
         private readonly ISubMenuRetriever subMenuRetriever;
-        private IServiceLocator serviceLocator;
+        private readonly IServiceLocator serviceLocator;
 
         public MenuSystemController(ISectionMenuRetriever sectionMenuRetriever,
             ISubMenuRetriever subMenuRetriever, IServiceLocator serviceLocator)

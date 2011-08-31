@@ -120,6 +120,7 @@
     </Compile>
     <Compile Include="Models\Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration\LocationSectionMenuRegistration.cs" />
     <Compile Include="Routing\LocationRouting.cs" />
     <Compile Include="Validation\LoginFormValidator.cs" />
   </ItemGroup>
