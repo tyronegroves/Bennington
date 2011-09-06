@@ -28,7 +28,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
 		private readonly ITreeNodeProviderContext treeNodeProviderContext;
 		private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
 		private readonly IApplicationSettingsValueGetter applicationSettingsValueGetter;
-		private IFileSystem fileSystem;
+		private readonly IFileSystem fileSystem;
 
 		public ContentNodeProviderDraftDenormalizer(IContentNodeProviderDraftRepository contentNodeProviderDraftRepository,
 													ITreeNodeProviderContext treeNodeProviderContext,

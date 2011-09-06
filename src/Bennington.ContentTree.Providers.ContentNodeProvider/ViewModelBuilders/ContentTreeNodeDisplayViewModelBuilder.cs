@@ -9,27 +9,29 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders
 {
 	public interface IContentTreeNodeDisplayViewModelBuilder
 	{
-		ContentTreeNodeDisplayViewModel BuildViewModel(string rawUrl, RouteData routeData);
+		ContentTreeNodeDisplayViewModel BuildViewModel(string rawUrl, RouteData routeData, string currentAction);
 	}
 
 	public class ContentTreeNodeDisplayViewModelBuilder : IContentTreeNodeDisplayViewModelBuilder
 	{
 		private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
 		private readonly IContentTreeNodeContext contentTreeNodeContext;
-		private readonly IGetParentRouteDataDictionaryFromChildActionRouteData getParentRouteDataDictionaryFromChildActionRouteData;
+	    private IGetParentRouteDataDictionaryFromChildActionRouteData getParentRouteDataDictionaryFromChildActionRouteData;
 
-		public ContentTreeNodeDisplayViewModelBuilder(ITreeNodeSummaryContext treeNodeSummaryContext, IContentTreeNodeContext contentTreeNodeContext, IGetParentRouteDataDictionaryFromChildActionRouteData getParentRouteDataDictionaryFromChildActionRouteData)
+	    public ContentTreeNodeDisplayViewModelBuilder(ITreeNodeSummaryContext treeNodeSummaryContext, 
+                                                        IContentTreeNodeContext contentTreeNodeContext,
+                                                        IGetParentRouteDataDictionaryFromChildActionRouteData getParentRouteDataDictionaryFromChildActionRouteData)
 		{
-			this.getParentRouteDataDictionaryFromChildActionRouteData = getParentRouteDataDictionaryFromChildActionRouteData;
-			this.contentTreeNodeContext = contentTreeNodeContext;
+	        this.getParentRouteDataDictionaryFromChildActionRouteData = getParentRouteDataDictionaryFromChildActionRouteData;
+	        this.contentTreeNodeContext = contentTreeNodeContext;
 			this.treeNodeSummaryContext = treeNodeSummaryContext;
 		}
 
-		public ContentTreeNodeDisplayViewModel BuildViewModel(string rawUrl, RouteData routeData)
+		public ContentTreeNodeDisplayViewModel BuildViewModel(string rawUrl, RouteData routeData, string currentAction)
 		{
 			var nodeSegments = ScrubUrlAndReturnEnumerableOfNodeSegments(rawUrl);
 
-			string workingTreeNodeId = GetTreeNodeIdFromTreeNodeSummaryContextUsingNodeSegments(nodeSegments);
+			var workingTreeNodeId = GetTreeNodeIdFromTreeNodeSummaryContextUsingNodeSegments(nodeSegments);
 
 			var viewModel = new ContentTreeNodeDisplayViewModel()
 			       	{
@@ -38,8 +40,8 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders
 			       	};
 			if (string.IsNullOrEmpty(workingTreeNodeId)) return viewModel;
 
-			var data = getParentRouteDataDictionaryFromChildActionRouteData.GetRouteValues(routeData);
-			var action = GetAction(data);
+            var action = currentAction; //GetAction(routeData);
+		    //var parentRouteData = getParentRouteDataDictionaryFromChildActionRouteData.GetRouteValues(routeData);
 
 			var contentTreeNodes = contentTreeNodeContext.GetContentTreeNodesByTreeId(workingTreeNodeId).Where(a => a.Action == action);
 			if (contentTreeNodes.Count() == 0) return viewModel;

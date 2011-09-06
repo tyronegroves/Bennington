@@ -1,9 +1,11 @@
 ﻿using System.Web.Mvc;
+using Bennington.Cms.Attributes;
 using Bennington.ContentTree.TreeManager.Models;
 using Bennington.ContentTree.TreeManager.ViewModelBuilders;
 
 namespace Bennington.ContentTree.TreeManager.Controllers
 {
+    [DoNotUseTheDefaultMasterPage]
 	public class TreeManagerController : Controller
 	{
 		private readonly ITreeBranchViewModelBuilder treeBranchViewModelBuilder;

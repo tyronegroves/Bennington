@@ -34,11 +34,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapperAssist">
-      <HintPath>..\..\lib\AutoMapperAssist\AutoMapperAssist.dll</HintPath>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.1.1.0.118\lib\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapperAssist, Version=1.0.0.155, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapperAssist.1.1\lib\AutoMapperAssist.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation">
-      <HintPath>..\..\lib\FluentValidation\FluentValidation.dll</HintPath>
+      <HintPath>..\packages\FluentValidation.2.0.0.0\lib\SL4\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="MvcContrib, Version=3.0.51.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -47,12 +51,15 @@
     <Reference Include="MvcContrib.FluentHtml">
       <HintPath>..\..\lib\MvcContrib.FluentHtml.dll</HintPath>
     </Reference>
-    <Reference Include="MvcTurbine, Version=2.1.0.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL" />
+    <Reference Include="MvcTurbine, Version=3.2.1.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MVCTurbine.3.2.1\lib\MvcTurbine.dll</HintPath>
+    </Reference>
     <Reference Include="MvcTurbine.FluentValidation">
-      <HintPath>..\..\lib\FluentValidation\MvcTurbine.FluentValidation.dll</HintPath>
+      <HintPath>..\packages\MvcTurbine.FluentValidation.3.0\lib\MvcTurbine.FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="MvcTurbine.MembershipProvider">
-      <HintPath>..\..\lib\MvcTurbine.MembershipProvider\MvcTurbine.MembershipProvider.dll</HintPath>
+      <HintPath>..\packages\MvcTurbine.MembershipProvider.3.0\lib\MvcTurbine.MembershipProvider.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

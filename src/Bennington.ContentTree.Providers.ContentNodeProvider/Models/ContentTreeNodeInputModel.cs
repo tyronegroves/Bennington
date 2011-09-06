@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
+//using Bennington.Cms.Metadata;
 
 namespace Bennington.ContentTree.Providers.ContentNodeProvider.Models
 {
@@ -34,7 +35,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Models
 		[DisplayName("Url Segment")]
 		public string UrlSegment { get; set; }
 
-		[DataType(DataType.MultilineText)]
+        //[HtmlEditor]
 		public string Body { get; set; }
 
 		[DisplayName("Hidden?")]

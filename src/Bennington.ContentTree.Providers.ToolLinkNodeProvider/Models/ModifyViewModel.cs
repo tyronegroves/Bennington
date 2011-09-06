@@ -2,6 +2,6 @@
 {
 	public class ModifyViewModel
 	{
-		public ToolLinkInputModel ToolLinkInputModel { get; set; }
+	    public ToolLinkInputModel ToolLinkInputModel { get; set; }
 	}
 }

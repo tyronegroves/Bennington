@@ -29,7 +29,7 @@
         </td>
         <td>
             <a class="search_by_button">
-            <img src="/MANAGE/Content/datatable/select.jpg"/>
+            <img src="/Content/datatable/select.jpg"/>
             </a>
         </td>        
     </tr>

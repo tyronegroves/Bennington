@@ -101,6 +101,7 @@ namespace Bennington.ContentTree.Contexts
 						Type = treeNode.Type,
 						MayHaveChildNodes = provider.MayHaveChildNodes,
 						Hidden = treeNodeExtension.Hidden,
+                        IconUrl = treeNodeExtension.IconUrl
 			       	};
 			return treeNodeSummary;
 		}

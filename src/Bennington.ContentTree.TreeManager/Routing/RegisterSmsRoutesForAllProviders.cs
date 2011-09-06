@@ -20,13 +20,13 @@ namespace Bennington.ContentTree.TreeManager.Routing
 			{
 				routes.MapRoute(
 							null,
-							string.Format("Manage/{0}/{{action}}", provider.ControllerToUseForCreation, provider.ActionToUseForCreation),
+							string.Format("{0}/{{action}}", provider.ControllerToUseForCreation, provider.ActionToUseForCreation),
 							new { controller = provider.ControllerToUseForCreation, action = provider.ActionToUseForCreation}
 						);
 
 				routes.MapRoute(
 							null,
-							string.Format("Manage/{0}/{{action}}", provider.ControllerToUseForModification, provider.ActionToUseForModification),
+							string.Format("{0}/{{action}}", provider.ControllerToUseForModification, provider.ActionToUseForModification),
 							new { controller = provider.ControllerToUseForModification, action = provider.ActionToUseForModification }
 						);
 			}

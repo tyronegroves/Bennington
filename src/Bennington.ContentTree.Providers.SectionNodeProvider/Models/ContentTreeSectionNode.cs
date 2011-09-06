@@ -1,4 +1,5 @@
-﻿using Bennington.ContentTree.Models;
+﻿using System;
+using Bennington.ContentTree.Models;
 
 namespace Bennington.ContentTree.Providers.SectionNodeProvider.Models
 {
@@ -11,6 +12,13 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Models
 		public string DefaultTreeNodeId { get; set; }
 		public int? Sequence { get; set; }
 		public bool Inactive { get; set; }
-		public bool Hidden { get; set; }
+
+	    public string IconUrl
+	    {
+            get { return "/Content/SectionNodeProvider/section.png"; }
+	        set { throw new NotImplementedException(); }
+	    }
+
+	    public bool Hidden { get; set; }
 	}
 }

@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Bennington.ContentTree.Contexts;
 using Bennington.ContentTree.Domain.Commands;
+using Bennington.ContentTree.Helpers;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Context;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Helpers;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Mappers;
@@ -12,6 +13,7 @@ using Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders;
 using Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders.Helpers;
 using Bennington.ContentTree.Repositories;
 using Bennington.Core.Helpers;
+using MvcTurbine.ComponentModel;
 using SimpleCqrs.Commanding;
 
 namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
@@ -53,10 +55,9 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 			this.contentTreeNodeVersionContext = contentTreeNodeVersionContext;
 		}
 
-		public virtual ActionResult Index()
+        public virtual ActionResult Display(string currentController, string currentAction)
 		{
-			return View("Index", contentTreeNodeDisplayViewModelBuilder
-										.BuildViewModel(rawUrlGetter.GetRawUrl(), RouteData));
+            return View("Display", contentTreeNodeDisplayViewModelBuilder.BuildViewModel(rawUrlGetter.GetRawUrl(), (ControllerContext ?? new ControllerContext()).RouteData, currentAction));
 		}
 
 		[Authorize]
@@ -219,6 +220,11 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		public virtual ActionResult Modify(string treeNodeId, string contentItemId)
 		{
 			if (string.IsNullOrEmpty(contentItemId)) contentItemId = "Index";
+
+            var all = contentTreeNodeVersionContext.GetAllContentTreeNodes().ToArray();
+		    var test = contentTreeNodeVersionContext.GetAllContentTreeNodes().Where(a => a.TreeNodeId == treeNodeId).ToArray();
+		    
+
 			var contentTreeNode = contentTreeNodeVersionContext.GetAllContentTreeNodes().Where(a => a.TreeNodeId == treeNodeId && a.Action == contentItemId).FirstOrDefault();
 			var contentTreeNodeInputModel = contentTreeNode == null ? new ContentTreeNodeInputModel()
 			                		                        	{
@@ -237,6 +243,11 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 
 			return View("Modify", viewModel);
 		}
+
+        public ActionResult Index()
+        {
+            return View();
+        }
 
 		[Authorize]
 		public virtual ActionResult ContentItemNavigation(string treeNodeId)

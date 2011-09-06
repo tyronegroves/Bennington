@@ -12,7 +12,7 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider
 	public class SectionNodeProvider : IAmATreeNodeExtensionProvider
 	{
 		private readonly IContentTreeSectionNodeRepository contentTreeSectionNodeRepository;
-		private IVersionContext versionContext;
+		private readonly IVersionContext versionContext;
 
 		public SectionNodeProvider(IContentTreeSectionNodeRepository contentTreeSectionNodeRepository,
 									IVersionContext versionContext)

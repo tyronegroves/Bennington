@@ -14,6 +14,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Mappers
 		{
 			configuration.CreateMap<Data.ContentNodeProviderDraft, Models.ContentTreeNode>()
 					.ForMember(a => a.Body, opt => opt.MapFrom(c => c.Body))
+                    .ForMember(a => a.IconUrl, b => b.Ignore())
 					.ForMember(a => a.Action, opt => opt.MapFrom(c => c.Action))
 				;
 		}

@@ -9,6 +9,7 @@ using Bennington.ContentTree.Contexts;
 using Bennington.ContentTree.Helpers;
 using Bennington.ContentTree.Models;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Context;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Routing;
 using Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders.Helpers;
 using Bennington.ContentTree.Repositories;
@@ -39,10 +40,17 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 
 		public virtual IQueryable<IAmATreeNodeExtension> GetAll()
 		{
-			var query = from item in contentTreeNodeVersionContext.GetAllContentTreeNodes().Where(a => a.Action == "Index")
-						select item;
+		    var query = from item in contentTreeNodeVersionContext.GetAllContentTreeNodes().Where(a => a.Action == "Index")
+		                select item;
 
-			return query;
+		    var treeNodeExtensions = new List<IAmATreeNodeExtension>();
+            foreach (var item in query)
+            {
+                item.IconUrl = "/Content/ContentNodeProvider/controller.gif";
+                treeNodeExtensions.Add(item);
+            }
+
+			return treeNodeExtensions.AsQueryable();
 		}
 
 		public abstract string Name {get;}
@@ -123,75 +131,108 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 
 		public void Register(RouteCollection routes)
 		{
-			// add catch-all route 
-			//var contentTreeRoute = new Route
-			//            (
-			//                GetUrlPatternForDepth(ContentTreeRouteRegistrator.MaxDepthForContentTreeUrlSegments),
-			//                GetDefaultRouteValues(ContentTreeRouteRegistrator.MaxDepthForContentTreeUrlSegments),
-			//                new MvcRouteHandler()
-			//            );
-			//contentTreeRoute.Constraints = new RouteValueDictionary();
-			//contentTreeRoute.Constraints.Add(GetType().AssemblyQualifiedName ?? "Unkown content tree route contraint", this);
-			//routes.Add(contentTreeRoute);
+		    // add catch-all routes for incoming routes that will match dynamically created controllers
+            for (var n = 0; n < 3 /*ContentTreeRouteRegistrator.MaxDepthForContentTreeUrlSegments*/; n++)
+            {
+                var sb = new StringBuilder();
+                for (var x = 0; x <= n; x++)
+                {
+                    sb.Append(string.Format("{{nodesegment-{0}}}/", x));
+                }
+                AddRoute(routes, string.Format("{0}{{action}}", sb));
+            }
 
-			// add hard coded routes for all instances of this engine type
-			foreach (var treeNode in treeNodeRepository.GetAll().Where(a => a.Type == this.GetType().AssemblyQualifiedName))
-			{
-				var url = treeNodeIdToUrl.GetUrlByTreeNodeId(treeNode.Id);
-				if (url.StartsWith("/")) url = url.Substring(1);
-				url = url + "/{action}";
+		    // add hard coded routes for all instances of this engine type
+            foreach (var treeNode in treeNodeRepository.GetAll().Where(a => a.Type == this.GetType().AssemblyQualifiedName))
+            {
+                var url = treeNodeIdToUrl.GetUrlByTreeNodeId(treeNode.Id);
+                if (url.StartsWith("/")) url = url.Substring(1);
+                url = url + "/{action}";
 
-				var controllerName = (this.GetType().Name ?? string.Empty).Replace("Controller", string.Empty);
+                var controllerName = (this.GetType().Name ?? string.Empty).Replace("Controller", string.Empty);
 
-				routes.MapRoute(
-					null,
-					url,
-					new { controller = controllerName, action = "Index" }
-				);
-			}
+                routes.MapRoute(
+                    null,
+                    url,
+                    new { controller = controllerName, action = "Index" }
+                );
+            }
 		}
 
-		private RouteValueDictionary GetDefaultRouteValues(int maxDepth)
-		{
-			var defaults = new RouteValueDictionary();
+	    private void AddRoute(RouteCollection routes, string urlPattern)
+	    {
+	        var contentTreeRoute = new Route
+	            (
+	            urlPattern,
+	            GetDefaultRouteValues(ContentTreeRouteRegistrator.MaxDepthForContentTreeUrlSegments),
+	            new MvcRouteHandler()
+	            );
+	        contentTreeRoute.Constraints = new RouteValueDictionary();
+	        contentTreeRoute.Constraints.Add(GetType().AssemblyQualifiedName ?? "Unkown content tree route contraint", this);
+	        routes.Add(contentTreeRoute);
+	    }
 
-			for (var i = 0; i < maxDepth; i++)
-				defaults.Add(string.Format("nodesegment-{0}", i), UrlParameter.Optional);
+	    private RouteValueDictionary GetDefaultRouteValues(int maxDepth)
+        {
+            var defaults = new RouteValueDictionary();
 
-			defaults.Add("Controller", GetControllerNameFromThisType());
-			defaults.Add("Action", "Index");
+            for (var i = 0; i < maxDepth; i++)
+                defaults.Add(string.Format("nodesegment-{0}", i), UrlParameter.Optional);
 
-			return defaults;
-		}
+            defaults.Add("Controller", GetControllerNameFromThisType());
+            defaults.Add("Action", "Index");
+
+            return defaults;
+        }
 
 		private string GetControllerNameFromThisType()
 		{
 			return GetType().Name.Replace("Controller", string.Empty);
 		}
 
-		private string GetUrlPatternForDepth(int maxDepth)
-		{
-			var builder = new StringBuilder("{nodesegment-0}");
+        private string GetUrlPatternForDepth(int maxDepth)
+        {
+            var builder = new StringBuilder("{nodesegment-0}/{action}");
 
-			for (var i = 1; i < maxDepth; i++)
-				builder.AppendFormat("/{{nodesegment-{0}}}", i);
+            //for (var i = 1; i < maxDepth; i++)
+            //    builder.AppendFormat("/{{nodesegment-{0}}}", i);
 
-			return builder.ToString();
-		}
+            return builder.ToString();
+        }
 
-		public bool Match(HttpContextBase httpContext, Route route, string parameterName, RouteValueDictionary values, RouteDirection routeDirection)
-		{
-			var treeNodeSummary = urlToTreeNodeSummaryMapper.CreateInstance(rawUrlGetter.GetRawUrl());
+        public bool Match(HttpContextBase httpContext, Route route, string parameterName, RouteValueDictionary values, RouteDirection routeDirection)
+        {
+            if (routeDirection == RouteDirection.UrlGeneration) return false;
 
-			if (treeNodeSummary == null) return false;
+            var treeNodeSummary = urlToTreeNodeSummaryMapper.CreateInstance(rawUrlGetter.GetRawUrl());
 
-			return (treeNodeSummary.Type == GetType().AssemblyQualifiedName);
-		}
+            if (treeNodeSummary == null) return false;
 
-		private TreeNodeSummary FindByUrlSegment(string urlSegment, string parentTreeNodeId)
-		{
-			var children = treeNodeSummaryContext.GetChildren(parentTreeNodeId).Where(a => a.Type == GetType().AssemblyQualifiedName);
-			return children.Where(a => a.UrlSegment == urlSegment).FirstOrDefault();
-		}
+            // if the last nodesegment doesn't match treeNodeSummary.UrlSegment then return false
+            if (FindLastNodeSegmentInRouteData(values) != treeNodeSummary.UrlSegment) return false;
+
+            return (treeNodeSummary.Type == GetType().AssemblyQualifiedName);
+        }
+
+	    private string FindLastNodeSegmentInRouteData(RouteValueDictionary values)
+	    {
+	        int n;
+            for (n = 0; n < ContentTreeRouteRegistrator.MaxDepthForContentTreeUrlSegments; n++)
+            {
+                var nextNodeSegmentRouteValueKey = string.Format("nodesegment-{0}", n);
+                if (!values.ContainsKey(nextNodeSegmentRouteValueKey)) break;
+                if (values[nextNodeSegmentRouteValueKey] == null) break;
+                if (string.IsNullOrEmpty(values[nextNodeSegmentRouteValueKey].ToString())) break;
+            }
+            if (n == 0) return string.Empty;
+
+	        return values[string.Format("nodesegment-{0}", n - 1)].ToString();
+	    }
+
+	    private TreeNodeSummary FindByUrlSegment(string urlSegment, string parentTreeNodeId)
+        {
+            var children = treeNodeSummaryContext.GetChildren(parentTreeNodeId).Where(a => a.Type == GetType().AssemblyQualifiedName);
+            return children.Where(a => a.UrlSegment == urlSegment).FirstOrDefault();
+        }
     }
 }

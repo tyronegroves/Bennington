@@ -10,7 +10,7 @@ namespace Bennington.ContentTree.TreeManager.Routing
 		{
 			routes.MapRoute(
 				null,
-				"Manage/ContentTree/{action}",
+				"ContentTree/{action}",
 				new { controller = "TreeManager", action = "Index" }
 				);
 		}
