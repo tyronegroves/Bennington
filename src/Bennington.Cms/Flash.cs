@@ -13,7 +13,7 @@ namespace Bennington.Cms
 
         public static void Notify(string value)
         {
-            if (value != null)
+            if (notificationFunction != null && value != null)
                 notificationFunction(value);
         }
     }

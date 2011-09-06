@@ -45,6 +45,12 @@
             </div>
 
             <div id="main">
+                <%if (string.IsNullOrEmpty(HttpContext.Current.Session["Flash_Notification"] as string) == false)
+                  {%>
+                  <div class="notify><%:HttpContext.Current.Session["Flash_Notification"] as string %></div>
+                <%
+                      HttpContext.Current.Session["Flash_Notification"] = null;
+                  }%>
                 <asp:ContentPlaceHolder ID="MainContent" runat="server" />
 
                 <div id="footer">
