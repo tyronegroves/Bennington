@@ -456,18 +456,6 @@
     <Content Include="Scripts\tiny_mce\utils\validate.js" />
     <Content Include="Views\AdminAccount\Edit.aspx" />
     <Content Include="Views\AdminAccount\Index.aspx" />
-    <Content Include="Views\ContentTreeNode\ContentItemNavigation.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="Views\ContentTreeNode\Index.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="Views\ContentTreeNode\Modify.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="Views\ContentTreeSectionNode\Modify.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
     <Content Include="Views\EmptyDashboard\Index.aspx" />
     <Content Include="Views\Location\Edit.aspx" />
     <Content Include="Views\Location\Index.aspx" />
@@ -491,11 +479,6 @@
     <Content Include="Views\Shared\EditorTemplates\Boolean.ascx" />
     <Content Include="Views\Shared\EditorTemplates\CheckboxList.ascx" />
     <Content Include="Views\Shared\EditorTemplates\Console.ascx" />
-    <Content Include="Views\Shared\EditorTemplates\ContentTreeNodeInputModel.ascx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="Views\Shared\EditorTemplates\DefaultTreeNodeId.ascx" />
-    <Content Include="Views\Shared\EditorTemplates\ProviderTypes.ascx" />
     <Content Include="Views\Shared\EditorTemplates\SearchByOptions.ascx" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.ascx" />
     <Content Include="Views\Shared\EditorTemplates\Dropdown.ascx" />
@@ -519,10 +502,7 @@
     <Content Include="Views\MenuSystem\GetSectionMenuViewModel.aspx" />
     <Content Include="Views\MenuSystem\SectionMenu.ascx" />
     <Content Include="Views\MenuSystem\SubMenu.ascx" />
-    <Content Include="Views\ToolLinkProviderNode\Modify.aspx" />
-    <Content Include="Views\TreeManager\Branch.aspx" />
     <Content Include="Content\TreeManager\CreateInRoot.gif" />
-    <Content Include="Views\TreeManager\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

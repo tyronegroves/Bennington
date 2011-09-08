@@ -123,7 +123,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\DefaultTreeNodeId.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentTreeSectionNode\Modify.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
