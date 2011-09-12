@@ -114,6 +114,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <EmbeddedResource Include="Views\AdminAccount\Edit.aspx" />
+    <EmbeddedResource Include="Views\AdminAccount\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -124,7 +126,6 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\AdminAccount\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>

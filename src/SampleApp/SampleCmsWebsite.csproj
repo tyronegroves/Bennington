@@ -454,17 +454,8 @@
     <Content Include="Scripts\tiny_mce\utils\form_utils.js" />
     <Content Include="Scripts\tiny_mce\utils\mctabs.js" />
     <Content Include="Scripts\tiny_mce\utils\validate.js" />
-    <Content Include="Views\AdminAccount\Edit.aspx" />
-    <Content Include="Views\AdminAccount\Index.aspx" />
-    <Content Include="Views\EmptyDashboard\Index.aspx" />
     <Content Include="Views\Location\Edit.aspx" />
     <Content Include="Views\Location\Index.aspx" />
-    <Content Include="Views\Login\EditorTemplates\LoginForm.ascx" />
-    <Content Include="Views\Login\EditorTemplates\Password.ascx" />
-    <Content Include="Views\Login\EditorTemplates\String.ascx" />
-    <Content Include="Views\Login\Index.aspx" />
-    <Content Include="Views\Login\Styles.ascx" />
-    <Content Include="Views\MenuSystem\DisplayTemplates\UrlSubMenuItem.ascx" />
     <Content Include="Views\Shared\ButtonsForEditForm.ascx" />
     <Content Include="Views\Shared\DisplayForObject.ascx" />
     <Content Include="Views\Shared\DisplayTemplates\Button.ascx" />
@@ -492,16 +483,6 @@
     <Content Include="Views\Shared\ListPageViewModel_Header.ascx" />
     <Content Include="Views\Shared\ListPageViewModel_PagerHeaders.ascx" />
     <Content Include="Views\Shared\SingleRowForListPage.ascx" />
-    <Content Include="Views\MenuSystem\DisplayTemplates\SectionMenu.ascx" />
-    <Content Include="Views\MenuSystem\DisplayTemplates\SectionMenuItem.ascx" />
-    <Content Include="Views\MenuSystem\DisplayTemplates\SectionMenuItemForAControllerAction.ascx" />
-    <Content Include="Views\MenuSystem\DisplayTemplates\SectionMenuItemForAUrl.ascx" />
-    <Content Include="Views\MenuSystem\DisplayTemplates\SubMenu.ascx" />
-    <Content Include="Views\MenuSystem\DisplayTemplates\SubMenuItem.ascx" />
-    <Content Include="Views\MenuSystem\GetIconMenuViewModel.aspx" />
-    <Content Include="Views\MenuSystem\GetSectionMenuViewModel.aspx" />
-    <Content Include="Views\MenuSystem\SectionMenu.ascx" />
-    <Content Include="Views\MenuSystem\SubMenu.ascx" />
     <Content Include="Content\TreeManager\CreateInRoot.gif" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -557,7 +538,6 @@
   <ItemGroup>
     <None Include="Content\dataTable\Sorting icons.psd" />
     <Content Include="Views\Shared\ManageSite.master" />
-    <Content Include="Views\Login\Site.Master" />
     <Content Include="Target_\Active\AppSettings.config" />
     <Content Include="Views\Shared\Blank.master" />
   </ItemGroup>

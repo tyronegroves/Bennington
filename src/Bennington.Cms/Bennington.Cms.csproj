@@ -153,6 +153,18 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SectionMenu.ascx" />
+    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SectionMenuItem.ascx" />
+    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SectionMenuItemForAControllerAction.ascx" />
+    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SectionMenuItemForAUrl.ascx" />
+    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SubMenu.ascx" />
+    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SubMenuItem.ascx" />
+    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\UrlSubMenuItem.ascx" />
+    <EmbeddedResource Include="Views\MenuSystem\GetIconMenuViewModel.aspx" />
+    <EmbeddedResource Include="Views\MenuSystem\GetSectionMenuViewModel.aspx" />
+    <EmbeddedResource Include="Views\MenuSystem\SectionMenu.ascx" />
+    <EmbeddedResource Include="Views\MenuSystem\SubMenu.ascx" />
+    <EmbeddedResource Include="Views\EmptyDashboard\Index.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
