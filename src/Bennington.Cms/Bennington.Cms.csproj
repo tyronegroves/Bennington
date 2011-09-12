@@ -165,6 +165,33 @@
     <EmbeddedResource Include="Views\MenuSystem\SectionMenu.ascx" />
     <EmbeddedResource Include="Views\MenuSystem\SubMenu.ascx" />
     <EmbeddedResource Include="Views\EmptyDashboard\Index.aspx" />
+    <EmbeddedResource Include="Views\Shared\ButtonsForEditForm.ascx" />
+    <EmbeddedResource Include="Views\Shared\DisplayForObject.ascx" />
+    <EmbeddedResource Include="Views\Shared\DisplayTemplates\Button.ascx" />
+    <EmbeddedResource Include="Views\Shared\DisplayTemplates\DateTime.ascx" />
+    <EmbeddedResource Include="Views\Shared\DisplayTemplates\DoNotShowThisProperty.ascx" />
+    <EmbeddedResource Include="Views\Shared\DisplayTemplates\ListPageViewModel`1.ascx" />
+    <EmbeddedResource Include="Views\Shared\DisplayTemplates\RoutesButton.ascx" />
+    <EmbeddedResource Include="Views\Shared\DisplayTemplates\String.ascx" />
+    <EmbeddedResource Include="Views\Shared\DisplayTemplates\SubmitButton.ascx" />
+    <EmbeddedResource Include="Views\Shared\DisplayTemplates\UrlButton.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorForObject.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\Boolean.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\CheckboxList.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\Console.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\DateTime.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\Dropdown.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\EditForm.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\Hidden.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\HtmlEditor.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\RadioButtonList.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\SearchByOptions.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\String.ascx" />
+    <EmbeddedResource Include="Views\Shared\Error.aspx" />
+    <EmbeddedResource Include="Views\Shared\ListPageViewModel_Footer.ascx" />
+    <EmbeddedResource Include="Views\Shared\ListPageViewModel_Header.ascx" />
+    <EmbeddedResource Include="Views\Shared\ListPageViewModel_PagerHeaders.ascx" />
+    <EmbeddedResource Include="Views\Shared\SingleRowForListPage.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -184,6 +211,12 @@
       <Project>{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}</Project>
       <Name>Bennington.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Shared\Blank.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Shared\ManageSite.master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

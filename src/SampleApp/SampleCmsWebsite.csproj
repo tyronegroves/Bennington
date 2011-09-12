@@ -456,33 +456,6 @@
     <Content Include="Scripts\tiny_mce\utils\validate.js" />
     <Content Include="Views\Location\Edit.aspx" />
     <Content Include="Views\Location\Index.aspx" />
-    <Content Include="Views\Shared\ButtonsForEditForm.ascx" />
-    <Content Include="Views\Shared\DisplayForObject.ascx" />
-    <Content Include="Views\Shared\DisplayTemplates\Button.ascx" />
-    <Content Include="Views\Shared\DisplayTemplates\UrlButton.ascx" />
-    <Content Include="Views\Shared\DisplayTemplates\DateTime.ascx" />
-    <Content Include="Views\Shared\DisplayTemplates\DoNotShowThisProperty.ascx" />
-    <Content Include="Views\Shared\DisplayTemplates\ListPageViewModel`1.ascx" />
-    <Content Include="Views\Shared\DisplayTemplates\RoutesButton.ascx" />
-    <Content Include="Views\Shared\DisplayTemplates\String.ascx" />
-    <Content Include="Views\Shared\DisplayTemplates\SubmitButton.ascx" />
-    <Content Include="Views\Shared\EditorForObject.ascx" />
-    <Content Include="Views\Shared\EditorTemplates\Boolean.ascx" />
-    <Content Include="Views\Shared\EditorTemplates\CheckboxList.ascx" />
-    <Content Include="Views\Shared\EditorTemplates\Console.ascx" />
-    <Content Include="Views\Shared\EditorTemplates\SearchByOptions.ascx" />
-    <Content Include="Views\Shared\EditorTemplates\DateTime.ascx" />
-    <Content Include="Views\Shared\EditorTemplates\Dropdown.ascx" />
-    <Content Include="Views\Shared\EditorTemplates\EditForm.ascx" />
-    <Content Include="Views\Shared\EditorTemplates\Hidden.ascx" />
-    <Content Include="Views\Shared\EditorTemplates\HtmlEditor.ascx" />
-    <Content Include="Views\Shared\EditorTemplates\RadioButtonList.ascx" />
-    <Content Include="Views\Shared\EditorTemplates\String.ascx" />
-    <Content Include="Views\Shared\Error.aspx" />
-    <Content Include="Views\Shared\ListPageViewModel_Footer.ascx" />
-    <Content Include="Views\Shared\ListPageViewModel_Header.ascx" />
-    <Content Include="Views\Shared\ListPageViewModel_PagerHeaders.ascx" />
-    <Content Include="Views\Shared\SingleRowForListPage.ascx" />
     <Content Include="Content\TreeManager\CreateInRoot.gif" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -493,7 +466,9 @@
     </Content>
     <Content Include="Views\Web.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Shared\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -537,9 +512,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\dataTable\Sorting icons.psd" />
-    <Content Include="Views\Shared\ManageSite.master" />
     <Content Include="Target_\Active\AppSettings.config" />
-    <Content Include="Views\Shared\Blank.master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
