@@ -22,7 +22,8 @@ namespace Bennington.ContentTree.Contexts
 
 		public IEnumerable<IAmATreeNodeExtensionProvider> GetAllTreeNodeProviders()
 		{
-			return serviceLocator.ResolveServices<IAmATreeNodeExtensionProvider>();
+		    var providers = serviceLocator.ResolveServices<IAmATreeNodeExtensionProvider>();
+			return providers;
 		}
 
 		public IAmATreeNodeExtensionProvider GetProviderByTypeName(string providerTypeName)

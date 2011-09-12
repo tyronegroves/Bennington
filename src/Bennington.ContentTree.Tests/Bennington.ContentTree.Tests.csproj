@@ -59,7 +59,6 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contexts\TreeNodeProviderContextTests_GetAllTreeNodeProviders.cs" />
     <Compile Include="Contexts\TreeNodeSummaryContextTests_GetChildren.cs" />
     <Compile Include="Contexts\TreeNodeSummaryContextTests_Create.cs" />
     <Compile Include="Data\DataModelDataContextTests.cs" />
