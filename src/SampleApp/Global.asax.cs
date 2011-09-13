@@ -10,7 +10,13 @@ namespace SampleApp
     {
         public IEnumerable<SectionMenuItem> GetItems()
         {
-            return new[] {new SectionMenuItem(), new SectionMenuItem()};
+            return new[] { 
+                new SectionMenuItemForAUrl
+                {
+                    Name = "Button!",
+                    Url = "/MANAGE/BUTTON"
+                }
+            };
         }
     }
 
