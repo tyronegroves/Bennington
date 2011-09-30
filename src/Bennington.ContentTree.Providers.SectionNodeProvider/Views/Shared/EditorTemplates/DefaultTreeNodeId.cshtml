@@ -1,0 +1,18 @@
+﻿
+@using Bennington.ContentTree.Contexts
+@using MvcTurbine.ComponentModel
+@using Bennington.ContentTree.Contexts
+@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@(Html.DropDownListFor(x => x, 
+	(new SelectListItem[] {
+			new SelectListItem()
+                    {
+                        Value = string.Empty,
+						Text = "- please select -",
+					},
+	}).Union(
+					ServiceLocatorManager.Current.Resolve<ITreeNodeSummaryContext>().GetChildren(HttpContext.Current.Request.QueryString["TreeNodeId"])
+						.Select(a => new SelectListItem() { Selected = ((string)ViewData.ModelMetadata.Model == a.Id), Text = a.Name, Value = a.Id }))
+	))
+

@@ -104,6 +104,8 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <EmbeddedResource Include="Views\ContentTreeSectionNode\Modify.cshtml" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\DefaultTreeNodeId.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
@@ -121,14 +123,6 @@
       <Project>{3DE65C2E-791C-4B05-815F-986782A5153A}</Project>
       <Name>Bennington.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\Shared\EditorTemplates\DefaultTreeNodeId.ascx" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\ContentTreeSectionNode\Modify.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

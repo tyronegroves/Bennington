@@ -1,0 +1,84 @@
+﻿@model Bennington.ContentTree.Providers.ContentNodeProvider.Models.ContentTreeNodeInputModel
+
+@Html.ValidationSummary(true)
+        
+            
+@Html.HiddenFor(model => model.Action)
+@Html.HiddenFor(model => model.FormAction)
+@Html.HiddenFor(model => model.Type)
+@Html.HiddenFor(model => model.TreeNodeId)
+@Html.HiddenFor(model => model.PageId)
+@Html.HiddenFor(model => model.ParentTreeNodeId)
+@Html.ValidationMessageFor(model => model.TreeNodeId)
+
+@if ((Model.Action ?? "Index") == "Index") { 
+
+    <div class="editor-label">
+        @Html.CheckBoxFor(model => model.Inactive)
+		@Html.LabelFor(model => model.Inactive)
+    </div>
+    <div class="editor-field">
+        @Html.ValidationMessageFor(model => model.Inactive)
+    </div>
+
+    <div class="editor-label">
+        @Html.CheckBoxFor(model => model.Hidden)
+		@Html.LabelFor(model => model.Hidden)
+    </div>
+    <div class="editor-field">
+        @Html.ValidationMessageFor(model => model.Hidden)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.UrlSegment)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.UrlSegment)
+        @Html.ValidationMessageFor(model => model.UrlSegment)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Sequence)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Sequence)
+        @Html.ValidationMessageFor(model => model.Sequence)
+    </div>
+
+ } 
+            
+    <div class="editor-label">
+        @Html.LabelFor(model => model.HeaderText)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.HeaderText)
+        @Html.ValidationMessageFor(model => model.HeaderText)
+    </div>
+
+	<div class="editor-label">
+        @Html.LabelFor(model => model.HeaderImage)@if (!string.IsNullOrEmpty(Model.HeaderImage)) { @:: <i>@Model.HeaderImage</i>
+		@:&nbsp;@Html.CheckBoxFor(model => model.RemoveHeaderImage) @Html.LabelFor(model => model.RemoveHeaderImage)
+		 } 
+		
+    </div>
+    <div class="editor-field">
+		<input type="file" name="ContentTreeNodeInputModel_HeaderImage" id="ContentTreeNodeInputModel_HeaderImage" />
+        @Html.ValidationMessageFor(model => model.HeaderImage)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Body)
+    </div>
+	<div class="editor-field">
+        @Html.TextAreaFor(model => model.Body, new { @class = "tinymce" })
+        @*<%: Html.EditorFor(model => model.Body) %>*@
+        @Html.ValidationMessageFor(model => model.Body)
+    </div>
