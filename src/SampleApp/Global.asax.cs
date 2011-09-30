@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Bennington.Cms.MenuSystem;
 using Bennington.Cms.Models;
 using MvcTurbine.ComponentModel;
 using MvcTurbine.Unity;

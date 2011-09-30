@@ -23,7 +23,7 @@ namespace Bennington.Cms.MenuSystem
 
         public IconMenuViewModel GetIconMenu(ControllerContext controllerContext)
         {
-            return new IconMenuViewModel {Items = iconMenuItems.Select(i => i.GetViewModel(controllerContext)).ToList()};
+            return new IconMenuViewModel { Items = iconMenuItems.Select(i => i.GetViewModel(controllerContext)).ToList() };
         }
 
         public void Add(IIconMenuItem iconMenuItem)
