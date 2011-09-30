@@ -54,10 +54,10 @@
     <div id="tab1" class="tabContent">
         <div class="section">
             <div class="createFormContainer" id="createFormContainer" style="display:none">
-				<% using (Html.BeginForm("Index", "ContentTree", FormMethod.Get, new {  })) { %>
-					<%=Html.EditorFor(a => a.TreeNodeCreationInputModel)%>
+				@using (Html.BeginForm("Index", "ContentTree", FormMethod.Get, new {  })) {
+					@Html.EditorFor(a => a.TreeNodeCreationInputModel)
 					<input type="button" class="button" value="Create" onclick="window.location=$('#TreeNodeCreationInputModel_ProviderType').val() + '&parentTreeNodeId=' + $('#TreeNodeCreationInputModel_ParentTreeNodeId').val();" />
-				<% } %>
+				}
 			</div>
 			<div class="contentTreeContainer clearfix">
                 <div class="contentTree">
