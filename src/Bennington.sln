@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.ContentTree.Prov
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.ContentTree.Tests", "Bennington.ContentTree.Tests\Bennington.ContentTree.Tests.csproj", "{06B21D4A-7480-4AD3-8112-B09B73B80573}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Core.Tests", "Bennington.Core.Tests\Bennington.Core.Tests.csproj", "{39B12768-97F9-4521-BD44-25C261CA3FFB}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Paragon.vsmdi
@@ -156,6 +158,10 @@ Global
 		{06B21D4A-7480-4AD3-8112-B09B73B80573}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06B21D4A-7480-4AD3-8112-B09B73B80573}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06B21D4A-7480-4AD3-8112-B09B73B80573}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

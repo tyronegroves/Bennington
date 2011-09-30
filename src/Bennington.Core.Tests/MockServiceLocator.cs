@@ -31,6 +31,11 @@ namespace Bennington.Core.Tests
             throw new NotImplementedException();
         }
 
+        public IList<object> ResolveServices(Type type)
+        {
+            throw new NotImplementedException();
+        }
+
         public IServiceRegistrar Batch()
         {
             throw new NotImplementedException();
@@ -57,6 +62,11 @@ namespace Bennington.Core.Tests
         }
 
         public virtual void Register(Type serviceType, Type implType)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Register(Type serviceType, Type implType, string key)
         {
             throw new NotImplementedException();
         }
