@@ -1,0 +1,10 @@
+﻿@model dynamic
+
+@Html.EditorForModel()
+<script type="text/javascript">
+    $("#SaveAndExit").click(function () {
+        $(this).parent('form').append('<input type="hidden" name="SaveAndExit" value="True" />');
+    });
+</script>
+
+

@@ -1,0 +1,11 @@
+﻿@using Bennington.ContentTree.Providers.ContentNodeProvider.Models
+@using System.Linq
+@model Bennington.ContentTree.Providers.ContentNodeProvider.Models.ContentItemNavigationViewModel
+
+@if (Model.ContentTreeNodeContentItems.Count() > 1) { 
+	<ul>
+	@foreach (var contentItem in Model.ContentTreeNodeContentItems) { 
+		<li>@Html.ActionLink(contentItem.Name, "Modify", "ContentTreeNode", new { treeNodeId = Model.TreeNodeId, contentItemId = contentItem.Id }, null)</li>
+	 } 
+	</ul>
+ } 

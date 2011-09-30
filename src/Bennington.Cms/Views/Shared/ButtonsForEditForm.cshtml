@@ -1,0 +1,4 @@
+﻿@model object
+    @{
+    var buttons = ViewData.ModelMetadata.AdditionalValues["ActionButtons"];
+    @Html.Partial("DisplayForObject", buttons) }
