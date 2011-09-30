@@ -16,12 +16,15 @@ namespace Bennington.ContentTree.Contexts
 
 		public string GetCurrentVersionId()
 		{
-			try
-			{
-                if (HttpContext.Current.Request.RawUrl.StartsWith("/Manage", StringComparison.InvariantCultureIgnoreCase)) return Manage;
+            if (HttpContext.Current == null) return Publish;
+            if (HttpContext.Current.Request == null) return Publish;
+            if (HttpContext.Current.Request.RawUrl == null) return Publish;
 
-				if (HttpContext.Current.Request.QueryString["Version"] == Draft) return Draft;
-			}catch(Exception) {}
+            if (HttpContext.Current.Request.RawUrl.StartsWith("/ContentTree")) return Manage;
+
+            //if (HttpContext.Current.Request.RawUrl.StartsWith("/Manage", StringComparison.InvariantCultureIgnoreCase)) return Manage;
+
+            if (HttpContext.Current.Request.QueryString["Version"] == Draft) return Draft;
 
 			return Publish;
 		}
