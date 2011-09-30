@@ -8,20 +8,6 @@ using MvcTurbine.Web;
 
 namespace SampleApp
 {
-    //public class TestingRegistry : ISectionMenuItemRegistry
-    //{
-    //    public IEnumerable<SectionMenuItem> GetItems()
-    //    {
-    //        return new[] { 
-    //            new SectionMenuItemForAUrl
-    //            {
-    //                Name = "Button!",
-    //                Url = "/MANAGE/BUTTON"
-    //            }
-    //        };
-    //    }
-    //}
-
     public class MvcApplication : TurbineApplication
     {
         static MvcApplication()

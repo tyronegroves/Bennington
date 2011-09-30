@@ -56,7 +56,6 @@
     <Compile Include="Models\TreeManagerIndexViewModel.cs" />
     <Compile Include="Models\TreeNodeCreationInputModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registration\ContentManagementMenuRegistration.cs" />
     <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
     <Compile Include="Routing\RegisterContentTreeSmsRoutes.cs" />
     <Compile Include="Routing\RegisterSmsRoutesForAllProviders.cs" />
@@ -78,8 +77,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\TreeManager\Branch.aspx" />
-    <EmbeddedResource Include="Views\TreeManager\Index.aspx" />
+    <EmbeddedResource Include="Views\TreeManager\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\TreeManager\Branch.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

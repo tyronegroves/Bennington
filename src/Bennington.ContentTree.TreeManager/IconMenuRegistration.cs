@@ -8,21 +8,11 @@ using Bennington.Cms.Models;
 
 namespace Bennington.ContentTree.TreeManager
 {
-    public class MenuSystemConfigurer : IMenuSystemConfigurer, IIconMenuItem
+    public class MenuSystemConfigurer : IMenuSystemConfigurer
     {
         public void Configure(IMenuRegistry sectionMenuRegistry)
         {
-            sectionMenuRegistry.Add(this);
-        }
-
-        public IconMenuItemViewModel GetViewModel(ControllerContext controllerContext)
-        {
-            return new IconMenuItemViewModel()
-                       {
-                           Name = "Content Tree",
-                           IconUrl = "/Content/Canvas/ContentTreeManagementIcon.gif",
-                           //Url = 
-                       };
+            sectionMenuRegistry.Add(new ActionIconMenuItem("Content Tree", "/Content/Canvas/ContentTreeManagementIcon.gif", "Index", "TreeManager"));
         }
     }
 }

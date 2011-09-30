@@ -1,0 +1,72 @@
+﻿@using Bennington.ContentTree
+@using Bennington.ContentTree.Models
+@using System.Security.Policy
+@using System.Web.Mvc
+@{ Layout = "~/Views/Shared/ManageSite.cshtml"; }
+@model Bennington.ContentTree.TreeManager.Models.TreeManagerIndexViewModel
+
+@section title{
+    Content Tree
+}
+
+@section head {
+
+    <script type="text/javascript" src="/Scripts/jquery-1.5.1.min.js"></script>
+    <script type="text/javascript" src="/Scripts/Site.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery-ui.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.jstree.js"></script>
+    <script type="text/javascript" src="/Scripts/tiny_mce/jquery.tinymce.js"></script>
+    <script type="text/javascript" src="/Scripts/parseuri.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.url.js"></script>
+    <script type="text/javascript" src="/Scripts/thickbox-compressed.js"></script>
+
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+			$(".contentTree").jstree({
+				"html_data": {
+					"ajax": {
+						"url": "@Url.Action("Branch", "TreeManager")",
+						"data": function (n) {
+							return { id: n.attr ? n.attr("id") : '@Constants.RootNodeId' };
+						}
+					}
+				},
+				"plugins": ["themes", "html_data"/*, 'ui', 'checkbox'*/]
+			});
+
+			$("#TreeNodeCreationInputModel_ProviderType").change(function () {
+				var selected = $("#TreeNodeCreationInputModel_ProviderType option:selected");
+				var output = "";
+				if (selected.val() != "") {
+					document.forms[0].action = $("#TreeNodeCreationInputModel_ProviderType").val();
+				}
+			});
+		});
+	</script>
+    }
+    
+    <div id="pageheader" class="clearfix" style="padding-top:50px;"></div>
+
+    <div id="tab1" class="tabContent">
+        <div class="section">
+            <div class="createFormContainer" id="createFormContainer" style="display:none">
+				<% using (Html.BeginForm("Index", "ContentTree", FormMethod.Get, new {  })) { %>
+					<%=Html.EditorFor(a => a.TreeNodeCreationInputModel)%>
+					<input type="button" class="button" value="Create" onclick="window.location=$('#TreeNodeCreationInputModel_ProviderType').val() + '&parentTreeNodeId=' + $('#TreeNodeCreationInputModel_ParentTreeNodeId').val();" />
+				<% } %>
+			</div>
+			<div class="contentTreeContainer clearfix">
+                <div class="contentTree">
+                </div>
+            </div>
+        </div>
+
+		<br />
+		<a id="createInRootLink" href="#TB_inline?height=155&width=300&inlineId=createFormContainer&modal=false" class="thickbox" title="Create a Node:" ><img src="/Content/TreeManager/CreateInRoot.gif" alt="Create in Root" /></a>
+		
+    </div>
+
+    <div id="tab2" class="tabContent">
+    </div>
