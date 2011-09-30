@@ -1,0 +1,14 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model Bennington.Cms.Models.GridViewModel
+<div class="section extra_padding">
+    @if (Model.Items.TotalItemCount > Model.Items.PageSize)
+    {
+        <div class="content pagination">
+            @Html.PagedListPager(Model.Items, page => "?page=" + page, PagedListRenderOptions.Minimal)
+        </div>
+    }
+    <div class="content actions">
+        @Html.DisplayFor(model => model.BottomLeftButtons)
+    </div>
+</div>

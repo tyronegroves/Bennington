@@ -35,7 +35,7 @@ namespace Bennington.Cms.Filters
 
         private static void SetTheMasterPage(ActionExecutedContext filterContext)
         {
-            ((ViewResult) filterContext.Result).MasterName = "ManageSite";
+            ((ViewResult)filterContext.Result).MasterName = "~/Views/Shared/ManageSite.cshtml";
         }
 
         private bool TheMasterPageHasBeenSetByTheAction(ActionExecutedContext filterContext)
@@ -45,7 +45,7 @@ namespace Bennington.Cms.Filters
 
         private bool TheControllerIsMarkedAsOneThatWillNotUseTheDefaultMasterPage(ActionExecutedContext filterContext)
         {
-            return filterContext.Controller.GetType().GetCustomAttributes(false).Any(x => x.GetType() == typeof (DoNotUseTheDefaultMasterPage));
+            return filterContext.Controller.GetType().GetCustomAttributes(false).Any(x => x.GetType() == typeof(DoNotUseTheDefaultMasterPage));
         }
 
         private bool ThisIsNotAViewResult(ActionExecutedContext filterContext)

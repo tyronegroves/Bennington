@@ -1,51 +1,30 @@
-﻿using System;
-using System.Web.Mvc;
-using Bennington.Cms.Models;
-using Bennington.Core.MenuSystem;
-using MvcTurbine.ComponentModel;
+﻿using System.Web.Mvc;
+using Bennington.Cms.MenuSystem;
 
 namespace Bennington.Cms.Controllers
 {
     public class MenuSystemController : Controller
     {
-        private readonly ISectionMenuRetriever sectionMenuRetriever;
-        private readonly ISubMenuRetriever subMenuRetriever;
-        private readonly IServiceLocator serviceLocator;
+        private readonly IMenuRegistry menuRegistry;
 
-        public MenuSystemController(ISectionMenuRetriever sectionMenuRetriever,
-            ISubMenuRetriever subMenuRetriever, IServiceLocator serviceLocator)
+        public MenuSystemController(IMenuRegistry menuRegistry)
         {
-            this.serviceLocator = serviceLocator;
-            this.sectionMenuRetriever = sectionMenuRetriever;
-            this.subMenuRetriever = subMenuRetriever;
+            this.menuRegistry = menuRegistry;
         }
 
-        public ActionResult GetSectionMenuViewModel()
+        public ActionResult IconMenu()
         {
-            var menuItems = serviceLocator.ResolveServices<IAmASectionMenuItem>();
-            return View("GetSectionMenuViewModel", new SectionMenuViewModel()
-                                                    {
-                                                        MenuItems = menuItems,
-                                                    });
-        }
-
-        public ActionResult GetIconMenuViewModel()
-        {
-            var menuItems = serviceLocator.ResolveServices<IAmAnIconMenuItem>();
-            return View("GetIconMenuViewModel", new IconMenuViewModel
-                                                    {
-                                                        IconMenuItems = menuItems,
-                                                    });
+            return View("IconMenu", menuRegistry.GetIconMenu(ControllerContext));
         }
 
         public ActionResult SectionMenu()
         {
-            return View("SectionMenu", sectionMenuRetriever.GetTheSectionMenu());
+            return View("SectionMenu", menuRegistry.GetSectionMenu(ControllerContext));
         }
 
         public ActionResult SubMenu()
         {
-            return View("SubMenu", subMenuRetriever.GetTheSubMenu());
+            return View("SubMenu", menuRegistry.GetSubMenu(ControllerContext));
         }
     }
 }

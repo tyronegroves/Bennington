@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>@RenderSection("title", false)</title>
+    <link href="@Url.Content("~/Content/ManageSite.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui.css")" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div id="canvas">
+        <div class="page">
+            <div id="header" class="clearfix">
+                <div id="title">
+                    <a href=""><img src="@Url.Content("~/Content/Canvas/Logo.gif")" alt="Digital Evolution Group - Site Management System 4.0" width="450" height="34" /></a>
+                </div>
+              
+                <div id="topmenucontainer">
+			        @{Html.RenderAction("IconMenu", "MenuSystem");}
+                </div>
+
+                <div id="logindisplay">
+				    @RenderSection("login", false) 
+                </div>
+                @{Html.RenderAction("SectionMenu", "MenuSystem");}
+                @{Html.RenderAction("SubMenu", "MenuSystem");}
+            </div>
+            <div id="main">
+                @RenderBody()
+                <div id="footer">
+                @RenderSection("footer", false)
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

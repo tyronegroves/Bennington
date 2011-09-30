@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Bennington.Cms.Metadata;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvcTurbine.Web.Metadata;
-using NUnit.Framework;
 using Should;
 
 namespace Bennington.Cms.Tests
 {
-    [TestFixture]
+    [TestClass]
     public class CheckboxListAttributeHandlerTests
     {
-        [Test]
+        [TestMethod]
         public void The_template_hint_should_be_set_to_dropdown()
         {
             var metadata = MetadataTestHelpers.CreateModelMetadata();
@@ -23,7 +23,7 @@ namespace Bennington.Cms.Tests
             metadata.TemplateHint.ShouldEqual("CheckboxList");
         }
 
-        [Test]
+        [TestMethod]
         public void The_results_of_the_GetItems_method_should_be_set_to_SelectList_in_AdditionalItems()
         {
             var first = new SelectListItem();

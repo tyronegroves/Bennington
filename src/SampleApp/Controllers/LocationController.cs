@@ -24,8 +24,9 @@ namespace SampleApp.Controllers
         [HttpPost]
         public ActionResult Edit(LocationForm locationForm)
         {
-            Flash.Notify(string.Format("Location {0} saved.", locationForm.FirstName));
-            return View("Edit", locationForm);
+            throw new NotImplementedException();
+            //Flash.Notify(string.Format("Location {0} saved.", locationForm.FirstName));
+            //return View("Edit", locationForm);
         }
 
         public ActionResult Index()

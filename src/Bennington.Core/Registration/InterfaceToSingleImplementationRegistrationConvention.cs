@@ -14,12 +14,7 @@ namespace Bennington.Core.Registration
     /// </remarks>
     public abstract class InterfaceToSingleImplementationRegistrationConvention : IServiceRegistration
     {
-        protected InterfaceToSingleImplementationRegistrationConvention()
-        {
-            InterfacesToIgnore = new List<Type>();
-        }
-
-        protected IList<Type> InterfacesToIgnore { get; private set; }
+        protected IList<Type> InterfacesToIgnore = new List<Type>();
 
         /// <summary>
         ///   Registers the types in the <see cref = "IServiceLocator" />.

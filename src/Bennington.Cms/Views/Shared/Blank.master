@@ -1,2 +1,0 @@
-﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
-<asp:ContentPlaceHolder ID="MainContent" runat="server" />

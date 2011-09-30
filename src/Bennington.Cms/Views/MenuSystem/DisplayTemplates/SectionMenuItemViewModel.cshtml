@@ -1,0 +1,7 @@
+﻿@model Bennington.Cms.Models.SectionMenuItemViewModel
+@helper Selected() { 
+    if (Model.Selected) { 
+        @:class="selected"
+    }
+}
+<li @Selected()><a href="@Model.Url">@Model.Name</a></li>

@@ -1,0 +1,69 @@
+﻿@using PagedList.Mvc
+@using PagedList
+@using Bennington.Cms.Helpers
+@model Bennington.Cms.Models.GridViewModel
+<div id="pageheader" class="clearfix">
+    <div style="float: right">
+        @Html.EditorFor(model => model.SearchByOptions)
+    </div>
+    <div>
+        <h1>@Model.Title</h1>
+    </div>
+    @if (!string.IsNullOrEmpty(Model.GridHeader))
+    {
+        <div>@Model.GridHeader</div>
+    }
+</div>
+@if (Model.TopRightButtons != null && Model.TopRightButtons.Any())
+{
+    <div class="section">
+        <ul class="tabs">
+            <li>
+                <div style="float: left">
+                    @Html.DisplayFor(model => model.TopRightButtons)
+                </div>
+            </li>
+        </ul>
+    </div>
+}
+<div class="section extra_padding">
+    @if (Model.ViewingAll == true)
+    {
+        <div class="PagedList-pager">
+            <ul>
+                <li class="PagedList-skipToPage"><a href="?page=0">View by Page</a></li>
+            </ul>
+        </div>
+    }
+    else if (Model.Items.TotalItemCount > Model.Items.PageSize)
+    {
+        <div class="PagedList-pager" style="float: left">
+            <ul>
+                <li class="PagedList-skipToPage"><a href="?page=-1">View All</a></li>
+                <li>| </li>
+            </ul>
+        </div>
+        <div class="content pagination" style="float: left">
+            @{
+        var pageListRenderOptions = PagedListRenderOptions.PageNumbersOnly;
+        pageListRenderOptions.DisplayLinkToIndividualPages = true;
+        pageListRenderOptions.Delimiter = " | ";
+        pageListRenderOptions.FunctionToDisplayEachPageNumber = (p) =>
+                                              {
+                                                  return ((IPagedList)Model.Items)
+                                                      .GetPageRange(p - 1)
+                                                      .ToString();
+                                              };
+            }
+            @Html.PagedListPager(Model.Items, page => "?page=" + page, pageListRenderOptions)
+        </div>
+
+        <div class="content pagination">
+            <div class="PagedList-pager">
+                <ul>
+                    <li class="PagedList-skipToNext"><a href="?page=@(Model.Items.PageIndex + 1)">Next &gt;</a></li>
+                </ul>
+            </div>
+        </div>
+    }
+</div>

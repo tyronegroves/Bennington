@@ -14,6 +14,7 @@
     <AssemblyName>Bennington.Cms</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,51 +34,51 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MvcTurbine, Version=3.2.0.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MVCTurbine.3.2\lib\MvcTurbine.dll</HintPath>
+    <Reference Include="MvcTurbine">
+      <HintPath>..\packages\MVCTurbine.3.2.1\lib\MvcTurbine.dll</HintPath>
     </Reference>
-    <Reference Include="MvcTurbine.Web, Version=3.2.0.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MVCTurbine.3.2\lib\MvcTurbine.Web.dll</HintPath>
+    <Reference Include="MvcTurbine.Web">
+      <HintPath>..\packages\MVCTurbine.3.2.1\lib\MvcTurbine.Web.dll</HintPath>
     </Reference>
-    <Reference Include="PagedList, Version=1.2.1.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\PagedList.1.2.1.0\lib\40\PagedList.dll</HintPath>
+    <Reference Include="PagedList">
+      <HintPath>..\..\lib\PagedList.dll</HintPath>
     </Reference>
-    <Reference Include="PagedList.Mvc, Version=3.0.4.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\PagedList.Mvc.3.0.1.0\lib\40\PagedList.Mvc.dll</HintPath>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\..\lib\PagedList.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
-    <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\DoNotUseTheDefaultMasterPage.cs" />
-    <Compile Include="Blades\FlashBlade.cs" />
-    <Compile Include="Blades\SectionMenuRegistrationBlade.cs" />
+    <Compile Include="Controllers\ListDetailController.cs" />
+    <Compile Include="MenuSystem\ActionIconMenuItem.cs" />
+    <Compile Include="MenuSystem\ActionSubMenuItem.cs" />
+    <Compile Include="MenuSystem\IIconMenuItem.cs" />
+    <Compile Include="MenuSystem\ISectionMenuItem.cs" />
+    <Compile Include="MenuSystem\ISubMenuItem.cs" />
+    <Compile Include="MenuSystem\MenuRegistry.cs" />
+    <Compile Include="Blades\MenuSystemRegistrationBlade.cs" />
     <Compile Include="Buttons\Button.cs" />
+    <Compile Include="MenuSystem\IMenuRegistry.cs" />
+    <Compile Include="MenuSystem\UrlIconMenuItem.cs" />
+    <Compile Include="Models\GridColumn.cs" />
+    <Compile Include="Models\GridViewModel.cs" />
+    <Compile Include="Models\IconMenuItemViewModel.cs" />
+    <Compile Include="MenuSystem\ActionSectionMenuItem.cs" />
+    <Compile Include="MenuSystem\IMenuSystemConfigurer.cs" />
     <Compile Include="Buttons\SubmitButton.cs" />
     <Compile Include="Buttons\EditPageButtonRegistry.cs" />
     <Compile Include="Buttons\EditPageButtonRetriever.cs" />
@@ -86,7 +87,6 @@
     <Compile Include="Buttons\RoutesButton.cs" />
     <Compile Include="Buttons\UrlButton.cs" />
     <Compile Include="Controllers\EmptyDashboardController.cs" />
-    <Compile Include="Controllers\LogoutController.cs" />
     <Compile Include="Controllers\MenuSystemController.cs" />
     <Compile Include="EmbeddedResources\AssemblyResourceFile.cs" />
     <Compile Include="EmbeddedResources\EmbeddedResource.cs" />
@@ -95,8 +95,7 @@
     <Compile Include="EmbeddedResources\EmbeddedResourceTable.cs" />
     <Compile Include="EmbeddedResources\EmbeddedResourceVirtualPathProvider.cs" />
     <Compile Include="Filters\LoadRouteDataToBeRetrievedLater.cs" />
-    <Compile Include="Flash.cs" />
-    <Compile Include="Helpers\EditorTemplateHElpers.cs" />
+    <Compile Include="Helpers\EditorTemplateHelpers.cs" />
     <Compile Include="Helpers\HtmlExtensions.cs" />
     <Compile Include="Helpers\PaginationHelpers.cs" />
     <Compile Include="Helpers\ValidationHelpers.cs" />
@@ -118,28 +117,18 @@
     <Compile Include="Metadata\TextareaAttribute.cs" />
     <Compile Include="Models\CurrentSituation.cs" />
     <Compile Include="Models\EditForm.cs" />
-    <Compile Include="Models\EmptySectionMenuItemRegistry.cs" />
     <Compile Include="Models\IconMenuViewModel.cs" />
-    <Compile Include="Models\ISectionMenuItemRegistry.cs" />
-    <Compile Include="Models\ISubMenuItemRegistryRetriever.cs" />
-    <Compile Include="Models\ISubMenuRetriever.cs" />
     <Compile Include="Models\ListPageViewModel.cs" />
     <Compile Include="Models\SearchByOption.cs" />
-    <Compile Include="Models\SectionMenu.cs" />
-    <Compile Include="Models\SectionMenuItem.cs" />
-    <Compile Include="Models\SectionMenuRetriever.cs" />
     <Compile Include="Models\SectionMenuViewModel.cs" />
-    <Compile Include="Models\SubMenu.cs" />
-    <Compile Include="Models\SubMenuItem.cs" />
-    <Compile Include="Models\ISubMenuItemRegistry.cs" />
-    <Compile Include="Models\SubMenuItemRegistryRetriever.cs" />
-    <Compile Include="Models\SubMenuRetriever.cs" />
-    <Compile Include="Models\UrlSubMenuItem.cs" />
+    <Compile Include="MenuSystem\UrlSectionMenuItem.cs" />
+    <Compile Include="Models\SubMenuViewModel.cs" />
+    <Compile Include="Models\SubMenuItemViewModel.cs" />
+    <Compile Include="MenuSystem\UrlSubMenuItem.cs" />
+    <Compile Include="Models\SectionMenuItemViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
-    <Compile Include="Registration\Setup.cs" />
-    <Compile Include="Routing\LogoutRouteRegistrator.cs" />
-    <Compile Include="Routing\DefaultRouting.cs" />
+    <Compile Include="Routing\EmptyDashboardRoute.cs" />
     <Compile Include="Routing\RegisterMenuSystemRoutes.cs" />
     <Compile Include="Filters\DefaultTheMasterPageToTheManageSite.cs" />
     <Compile Include="Sorting\IPaginationStateRetriever.cs" />
@@ -150,21 +139,12 @@
     <Compile Include="Sorting\SearchStateRetriever.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SectionMenu.ascx" />
-    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SectionMenuItem.ascx" />
-    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SectionMenuItemForAControllerAction.ascx" />
-    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SectionMenuItemForAUrl.ascx" />
-    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SubMenu.ascx" />
-    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SubMenuItem.ascx" />
-    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\UrlSubMenuItem.ascx" />
-    <EmbeddedResource Include="Views\MenuSystem\GetIconMenuViewModel.aspx" />
-    <EmbeddedResource Include="Views\MenuSystem\GetSectionMenuViewModel.aspx" />
-    <EmbeddedResource Include="Views\MenuSystem\SectionMenu.ascx" />
-    <EmbeddedResource Include="Views\MenuSystem\SubMenu.ascx" />
-    <EmbeddedResource Include="Views\EmptyDashboard\Index.aspx" />
+    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SectionMenuViewModel.cshtml" />
+    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SectionMenuItemViewModel.cshtml" />
+    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SubMenuViewModel.cshtml" />
+    <EmbeddedResource Include="Views\MenuSystem\DisplayTemplates\SubMenuItemViewModel.cshtml" />
+    <EmbeddedResource Include="Views\MenuSystem\SectionMenu.cshtml" />
+    <EmbeddedResource Include="Views\MenuSystem\SubMenu.cshtml" />
     <EmbeddedResource Include="Views\Shared\ButtonsForEditForm.ascx" />
     <EmbeddedResource Include="Views\Shared\DisplayForObject.ascx" />
     <EmbeddedResource Include="Views\Shared\DisplayTemplates\Button.ascx" />
@@ -185,13 +165,55 @@
     <EmbeddedResource Include="Views\Shared\EditorTemplates\Hidden.ascx" />
     <EmbeddedResource Include="Views\Shared\EditorTemplates\HtmlEditor.ascx" />
     <EmbeddedResource Include="Views\Shared\EditorTemplates\RadioButtonList.ascx" />
-    <EmbeddedResource Include="Views\Shared\EditorTemplates\SearchByOptions.ascx" />
+    <EmbeddedResource Include="Views\Shared\EditorTemplates\SearchByOptions.cshtml" />
     <EmbeddedResource Include="Views\Shared\EditorTemplates\String.ascx" />
     <EmbeddedResource Include="Views\Shared\Error.aspx" />
     <EmbeddedResource Include="Views\Shared\ListPageViewModel_Footer.ascx" />
     <EmbeddedResource Include="Views\Shared\ListPageViewModel_Header.ascx" />
     <EmbeddedResource Include="Views\Shared\ListPageViewModel_PagerHeaders.ascx" />
     <EmbeddedResource Include="Views\Shared\SingleRowForListPage.ascx" />
+    <EmbeddedResource Include="Content\ManageSite.css" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-bg_flat_10_000000_40x100.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-icons_228ef1_256x240.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-icons_ef8c08_256x240.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-icons_ffd27a_256x240.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <EmbeddedResource Include="Content\themes\base\jquery-ui.css" />
+    <EmbeddedResource Include="Content\canvas\asc.gif" />
+    <EmbeddedResource Include="Content\canvas\Body-Bg.gif" />
+    <EmbeddedResource Include="Content\canvas\Button-Highlight.gif" />
+    <EmbeddedResource Include="Content\canvas\ContentTreeManagementIcon.gif" />
+    <EmbeddedResource Include="Content\canvas\desc.gif" />
+    <EmbeddedResource Include="Content\canvas\Divider.gif" />
+    <EmbeddedResource Include="Content\canvas\Highlight-Content.gif" />
+    <EmbeddedResource Include="Content\canvas\Logo.gif" />
+    <EmbeddedResource Include="Content\canvas\Tabs-Bg.gif" />
+    <EmbeddedResource Include="Content\canvas\Top-Menu-Bg.gif" />
+    <EmbeddedResource Include="Content\canvas\Top-Menu-Icons.gif" />
+    <EmbeddedResource Include="Content\canvas\UserManagementIcon.gif" />
+    <EmbeddedResource Include="Content\Reset.css" />
+    <EmbeddedResource Include="Content\dataTable\back_disabled.jpg" />
+    <EmbeddedResource Include="Content\dataTable\back_enabled.jpg" />
+    <EmbeddedResource Include="Content\dataTable\forward_disabled.jpg" />
+    <EmbeddedResource Include="Content\dataTable\forward_enabled.jpg" />
+    <EmbeddedResource Include="Content\dataTable\select.jpg" />
+    <EmbeddedResource Include="Content\dataTable\sort_asc.png" />
+    <EmbeddedResource Include="Content\dataTable\sort_asc_disabled.png" />
+    <EmbeddedResource Include="Content\dataTable\sort_both.png" />
+    <EmbeddedResource Include="Content\dataTable\sort_desc.png" />
+    <EmbeddedResource Include="Content\dataTable\sort_desc_disabled.png" />
+    <EmbeddedResource Include="Views\ListDetail\PagerHeaders.cshtml" />
+    <EmbeddedResource Include="Views\ListDetail\SingleRow.cshtml" />
+    <EmbeddedResource Include="Views\ListDetail\Footer.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -213,10 +235,22 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Shared\Blank.master" />
+    <EmbeddedResource Include="Views\Shared\ManageSite.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Shared\ManageSite.master" />
+    <EmbeddedResource Include="Views\EmptyDashboard\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MenuSystem\IconMenu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ListDetail\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ListDetail\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ListDetail\Header.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -235,7 +269,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>54543</DevelopmentServerPort>
+          <DevelopmentServerPort>54077</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

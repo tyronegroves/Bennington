@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Web.Mvc;
 using Bennington.Cms.Metadata;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvcTurbine.Web.Metadata;
-using NUnit.Framework;
 using Should;
 
 namespace Bennington.Cms.Tests
 {
-    [TestFixture]
+    [TestClass]
     public class DropdownListAttributeHandlerTests
     {
-        [Test]
+        [TestMethod]
         public void The_template_hint_should_be_set_to_dropdown()
         {
             var metadata = MetadataTestHelpers.CreateModelMetadata();
@@ -24,7 +23,7 @@ namespace Bennington.Cms.Tests
             metadata.TemplateHint.ShouldEqual("Dropdown");
         }
 
-        [Test]
+        [TestMethod]
         public void The_results_of_the_GetItems_method_should_be_set_to_SelectList_in_AdditionalItems()
         {
             var first = new SelectListItem();
@@ -42,7 +41,7 @@ namespace Bennington.Cms.Tests
             selectList.Contains(second);
         }
 
-        [Test]
+        [TestMethod]
         public void The_first_result_should_be_an_empty_item_when_PrependItemsWithSelector_is_true()
         {
             var metadata = MetadataTestHelpers.CreateModelMetadata();
@@ -57,7 +56,7 @@ namespace Bennington.Cms.Tests
             selectList.First().Value.ShouldEqual("");
         }
 
-        [Test]
+        [TestMethod]
         public void The_first_result_should_not_be_an_empty_item_when_PreprendItemsWithSelector_is_false()
         {
             var metadata = MetadataTestHelpers.CreateModelMetadata();
@@ -71,21 +70,21 @@ namespace Bennington.Cms.Tests
             selectList.Count().ShouldEqual(0);
         }
 
-        [Test]
+        [TestMethod]
         public void The_PrependItemsWithSelector_is_true_by_default()
         {
             var handler = new TestDropdownListAttributeHandler();
             handler.PrependItemsWithSelector.ShouldBeTrue();
         }
 
-        [Test]
+        [TestMethod]
         public void The_Selector_text_defaults_to_dashdash_select_dashdash()
         {
             var handler = new TestDropdownListAttributeHandler();
             handler.SelectorText.ShouldEqual("-- select --");
         }
 
-        [Test]
+        [TestMethod]
         public void Uses_the_selector_text()
         {
             var metadata = MetadataTestHelpers.CreateModelMetadata();

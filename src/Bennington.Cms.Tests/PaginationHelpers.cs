@@ -1,8 +1,4 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMoq;
+﻿using System.Linq;
 using Bennington.Cms.Helpers;
 using Machine.Specifications;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -13,14 +9,6 @@ namespace Bennington.Cms.Tests
     [TestClass]
     public class PaginationHelpers
     {
-        private AutoMoqer mocker;
-
-        [TestInitialize]
-        public void Setup()
-        {
-            mocker = new AutoMoqer();
-        }
-
         [TestMethod]
         public void Returns_nothing_when_there_are_no_pages()
         {
@@ -31,7 +19,7 @@ namespace Bennington.Cms.Tests
         [TestMethod]
         public void Returns_1_to_2_when_there_are_two_items_and_page_size_is_10()
         {
-            var paginationRange = new string[]{"a", "b"}.ToPagedList(0, 10).GetPageRange(0);
+            var paginationRange = new[] {"a", "b"}.ToPagedList(0, 10).GetPageRange(0);
             paginationRange.Begin.ShouldEqual(1);
             paginationRange.End.ShouldEqual(2);
         }
@@ -50,7 +38,6 @@ namespace Bennington.Cms.Tests
             var paginationRange = Enumerable.Range(0, 12).ToPagedList(0, 10).GetPageRange(1);
             paginationRange.Begin.ShouldEqual(11);
             paginationRange.End.ShouldEqual(12);
-    
         }
 
         [TestMethod]
@@ -59,7 +46,6 @@ namespace Bennington.Cms.Tests
             var paginationRange = Enumerable.Range(0, 21).ToPagedList(0, 10).GetPageRange(1);
             paginationRange.Begin.ShouldEqual(11);
             paginationRange.End.ShouldEqual(20);
-         
         }
 
         [TestMethod]
@@ -82,6 +68,5 @@ namespace Bennington.Cms.Tests
             var paginationRange = Enumerable.Range(0, 11).ToPagedList(0, 10).GetPageRange(1).ToString();
             paginationRange.ShouldEqual("11");
         }
-
     }
 }

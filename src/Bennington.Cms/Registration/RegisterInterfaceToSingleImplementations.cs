@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Reflection;
-using Bennington.Cms.Models;
+using Bennington.Cms.MenuSystem;
 using Bennington.Core.Registration;
 
 namespace Bennington.Cms.Registration
@@ -9,12 +9,12 @@ namespace Bennington.Cms.Registration
     {
         public RegisterInterfaceToSingleImplementations()
         {
-            InterfacesToIgnore.Add(typeof (ISectionMenuItemRegistry));
+            InterfacesToIgnore.Add(typeof(IMenuRegistry));
         }
 
         protected override IEnumerable<Assembly> GetAssembliesToScan()
         {
-            return new[] { Assembly.GetExecutingAssembly() };
+            return new[] {Assembly.GetExecutingAssembly()};
         }
     }
 }
