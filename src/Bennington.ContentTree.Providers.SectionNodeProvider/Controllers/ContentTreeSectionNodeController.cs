@@ -37,14 +37,19 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Controllers
 		}
 
 		[Authorize]
-		public ActionResult Delete(string treeNodeId)
+		public ActionResult Delete(string id)
 		{
 			commandBus.Send(new DeleteTreeNodeCommand()
 			{
-				AggregateRootId = new Guid(treeNodeId)
+				AggregateRootId = new Guid(id)
 			});
-			commandBus.Send(new DeleteSectionCommand(){ AggregateRootId = new Guid(treeNodeId) });
-			return new RedirectToRouteResult(new RouteValueDictionary { { "controller", "ContentTree" }, { "action", "Index" } });
+			commandBus.Send(new DeleteSectionCommand(){ AggregateRootId = new Guid(id) });
+		    
+            return new RedirectResult("/ContentTree");
+            //var routeValueDictionary = new RouteValueDictionary();
+            //routeValueDictionary.Add("controller", "ContentTree");
+            //routeValueDictionary.Add("action", "Index");
+            //return new RedirectToRouteResult(routeValueDictionary);
 		}
 
 		[Authorize]
@@ -132,7 +137,7 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Controllers
 			                                 	{
 			                                 		{"controller", "ContentTreeSectionNode"},
 													{"action", "Modify"},
-													{ "treeNodeId", contentTreeSectionInputModel == null ? "0" : contentTreeSectionInputModel.TreeNodeId },
+													{ "id", contentTreeSectionInputModel == null ? "0" : contentTreeSectionInputModel.TreeNodeId },
 			                                 	});
 		}
 

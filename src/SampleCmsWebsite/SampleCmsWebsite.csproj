@@ -124,6 +124,9 @@
     <Compile Include="Models\Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\LocationSectionMenuRegistration.cs" />
+    <Compile Include="Routes.aspx.cs">
+      <DependentUpon>Routes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Routing\LocationRouting.cs" />
     <Compile Include="Validation\LoginFormValidator.cs" />
   </ItemGroup>
@@ -181,6 +184,7 @@
     <Content Include="Content\ContentNodeProvider\page.gif" />
     <Content Include="Content\SectionNodeProvider\section.png" />
     <Content Include="Global.asax" />
+    <Content Include="Routes.aspx" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />

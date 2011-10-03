@@ -94,6 +94,7 @@
     </Compile>
     <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
     <Compile Include="Registration\TreeNodeExtensionProviderRegistration.cs" />
+    <Compile Include="Routing\SectionNodeProviderRouteRegistrator.cs" />
     <Compile Include="SectionNodeProvider.cs" />
     <Compile Include="Repositories\ContentTreeSectionNodeRepository.cs" />
     <Compile Include="Validation\ContentTreeInputModelValidator.cs" />
@@ -128,6 +129,7 @@
       <SubType>Code</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

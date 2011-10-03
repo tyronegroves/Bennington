@@ -28,7 +28,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Routing
 			routes.Add(contentTreeRoute);
 
             routes.MapRoute(
-                "ContentTreeDisplayRoute", // Route name
+                "ContentTreeNode", // Route name
                 "ContentTreeNode/{action}", // URL with parameters
                 new { controller = "ContentTreeNode", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
