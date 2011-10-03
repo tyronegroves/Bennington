@@ -94,7 +94,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <EmbeddedResource Include="Views\ToolLinkProviderNode\Modify.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -115,6 +114,11 @@
       <Project>{3DE65C2E-791C-4B05-815F-986782A5153A}</Project>
       <Name>Bennington.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ToolLinkProviderNode\Modify.cshtml">
+      <SubType>Code</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
