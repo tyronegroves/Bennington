@@ -6,11 +6,11 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{06B21D4A-7480-4AD3-8112-B09B73B80573}</ProjectGuid>
+    <ProjectGuid>{9B73007F-4EB9-47ED-9720-D2A4D22977AD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bennington.ContentTree.Tests</RootNamespace>
-    <AssemblyName>Bennington.ContentTree.Tests</AssemblyName>
+    <RootNamespace>TestProject1</RootNamespace>
+    <AssemblyName>TestProject1</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,10 +34,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMoq">
-      <HintPath>..\..\lib\AutoMoq\AutoMoq.dll</HintPath>
+      <HintPath>..\packages\AutoMoq.1.6.0\lib\AutoMoq.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\Unity.2.0\lib\20\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity">
       <HintPath>..\packages\Unity.2.0\lib\20\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.2.0\lib\20\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\packages\Unity.2.0\lib\20\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\packages\Unity.2.0\lib\20\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Moq">
@@ -50,8 +62,6 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
@@ -59,18 +69,8 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contexts\TreeNodeSummaryContextTests_GetChildren.cs" />
-    <Compile Include="Contexts\TreeNodeSummaryContextTests_Create.cs" />
-    <Compile Include="Data\DataModelDataContextTests.cs" />
-    <Compile Include="Denormalizers\TreeNodeDenormalizerTests_Handle_TreeParentNodeIdSetEvent.cs" />
-    <Compile Include="Denormalizers\TreeNodeDenormalizerTests_Handle_TreeNodeCreatedEvent.cs" />
-    <Compile Include="Denormalizers\TreeNodeDenormalizerTests_Handle_TreeNodeTypeSetEvent.cs" />
-    <Compile Include="Denormalizers\TreeNodeDenormalizerTests_Handle_TreeNodeDeletedEvent.cs" />
-    <Compile Include="Helpers\TreeNodeIdToUrlTests_GetUrlByTreeNodeId.cs" />
-    <Compile Include="Helpers\UrlToTreeNodeSummaryMapperTests_CreateInstance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Routing\ContentTreeRouteConstraintTests.cs" />
-    <Compile Include="TreeNodeExtensionProvider\GetAllContentTreeNodeProvidersTests_GetAll.cs" />
+    <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bennington.ContentTree.Domain\Bennington.ContentTree.Domain.csproj">
@@ -81,16 +81,22 @@
       <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
       <Name>Bennington.ContentTree.Providers.ContentNodeProvider</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Bennington.Core\Bennington.Core.csproj">
-      <Project>{3DE65C2E-791C-4B05-815F-986782A5153A}</Project>
-      <Name>Bennington.Core</Name>
+    <ProjectReference Include="..\Bennington.ContentTree.Tests\Bennington.ContentTree.Tests.csproj">
+      <Project>{06B21D4A-7480-4AD3-8112-B09B73B80573}</Project>
+      <Name>Bennington.ContentTree.Tests</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bennington.ContentTree\Bennington.ContentTree.csproj">
       <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
       <Name>Bennington.ContentTree</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Bennington.Core\Bennington.Core.csproj">
+      <Project>{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}</Project>
+      <Name>Bennington.Core</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

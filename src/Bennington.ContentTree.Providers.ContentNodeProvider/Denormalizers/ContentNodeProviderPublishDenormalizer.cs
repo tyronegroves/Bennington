@@ -31,7 +31,8 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
 
 		public void Handle(PagePublishedEvent domainEvent)
 		{
-			var draftVersion = contentNodeProviderDraftRepository.GetAllContentNodeProviderDrafts().Where(a => a.PageId == domainEvent.AggregateRootId.ToString()).FirstOrDefault();
+            var contentNodeProviderDrafts = contentNodeProviderDraftRepository.GetAllContentNodeProviderDrafts().ToArray();
+			var draftVersion = contentNodeProviderDrafts.Where(a => a.PageId == domainEvent.AggregateRootId.ToString()).FirstOrDefault();
 			if (draftVersion == null) return;
 
 			var existingPublishedVersion = contentNodeProviderPublishedVersionRepository.GetAllContentNodeProviderPublishedVersions()

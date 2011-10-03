@@ -20,6 +20,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Denomarlize
 		[TestInitialize]
 		public void Init()
 		{
+		    mocker = null;
 			mocker = new AutoMoqer();
 		}
 
@@ -122,7 +123,9 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Denomarlize
 		[TestMethod]
 		public void Calls_Update_method_of_IContentNodeProviderPublishedVersionRepository_when_a_matching_published_version_exists()
 		{
-			var pageId = Guid.NewGuid();
+		    mocker = null;
+            mocker = new AutoMoqer();
+			var pageId = "49d114b4-d992-48a7-a7fb-b7546cf5bcdb";
 			mocker.GetMock<IContentNodeProviderDraftRepository>().Setup(a => a.GetAllContentNodeProviderDrafts())
 				.Returns(new ContentNodeProviderDraft[]
 				         	{
@@ -144,7 +147,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Denomarlize
 
 			mocker.Resolve<ContentNodeProviderPublishDenormalizer>().Handle(new PagePublishedEvent()
 			{
-				AggregateRootId = pageId,
+				AggregateRootId = new Guid(pageId),
 			});
 
 			mocker.GetMock<IContentNodeProviderPublishedVersionRepository>().Verify(a => a.Update(It.IsAny<ContentNodeProviderPublishedVersion>()), Times.Once());
