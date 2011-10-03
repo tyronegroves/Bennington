@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using Bennington.Cms.PrincipalProvider.Encryption;
 using Bennington.Cms.PrincipalProvider.Models;
 using Bennington.Cms.PrincipalProvider.Repositories;
 using MvcTurbine;
 using MvcTurbine.Blades;
 
-namespace SampleApp
+namespace SampleCmsWebsite
 {
     public class AddDummyAdminAccountIfItDoesntExistBlade : Blade
     {

@@ -2,7 +2,7 @@
 using System.Web.Routing;
 using MvcTurbine.Routing;
 
-namespace SampleApp.Routing
+namespace SampleCmsWebsite.Routing
 {
     public class LocationRouting : IRouteRegistrator
     {

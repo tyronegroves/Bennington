@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Bennington.Cms.MenuSystem;
-using Bennington.Cms.Models;
-using MvcTurbine.ComponentModel;
+﻿using MvcTurbine.ComponentModel;
 using MvcTurbine.Unity;
 using MvcTurbine.Web;
 
-namespace SampleApp
+namespace SampleCmsWebsite
 {
     public class MvcApplication : TurbineApplication
     {
