@@ -53,8 +53,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.ContentTree.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.Core.Tests", "Bennington.Core.Tests\Bennington.Core.Tests.csproj", "{39B12768-97F9-4521-BD44-25C261CA3FFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{9B73007F-4EB9-47ED-9720-D2A4D22977AD}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{101BDBA4-3F0E-45EF-ACE3-261073BE5AF1}"
 	ProjectSection(SolutionItems) = preProject
 		Bennington.vsmdi = Bennington.vsmdi
@@ -171,10 +169,6 @@ Global
 		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39B12768-97F9-4521-BD44-25C261CA3FFB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9B73007F-4EB9-47ED-9720-D2A4D22977AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9B73007F-4EB9-47ED-9720-D2A4D22977AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9B73007F-4EB9-47ED-9720-D2A4D22977AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9B73007F-4EB9-47ED-9720-D2A4D22977AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
