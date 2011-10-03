@@ -118,7 +118,6 @@
     </None>
     <EmbeddedResource Include="Views\ContentTreeNode\ContentItemNavigation.cshtml" />
     <EmbeddedResource Include="Views\ContentTreeNode\Display.cshtml" />
-    <EmbeddedResource Include="Views\ContentTreeNode\Index.cshtml" />
     <EmbeddedResource Include="Views\ContentTreeNode\Modify.cshtml" />
     <EmbeddedResource Include="Views\Shared\EditorTemplates\ContentTreeNodeInputModel.cshtml" />
   </ItemGroup>
@@ -138,6 +137,9 @@
       <Project>{3DE65C2E-791C-4B05-815F-986782A5153A}</Project>
       <Name>Bennington.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentTreeNode\Index.aspx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
