@@ -17,8 +17,6 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Controllers
 	{
 		private readonly IContentTreeSectionNodeRepository contentTreeSectionNodeRepository;
 		private readonly IContentTreeSectionNodeToContentTreeSectionInputModelMapper contentTreeSectionNodeToContentTreeSectionInputModelMapper;
-		private readonly IContentTreeSectionInputModelToContentTreeSectionNodeMapper contentTreeSectionInputModelToContentTreeSectionNodeMapper;
-		private readonly IContentTreeSectionNodeContext contentTreeSectionNodeContext;
 		private readonly ICommandBus commandBus;
 		private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
 		private readonly IGuidGetter guidGetter;
@@ -34,8 +32,6 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Controllers
 			this.guidGetter = guidGetter;
 			this.treeNodeSummaryContext = treeNodeSummaryContext;
 			this.commandBus = commandBus;
-			this.contentTreeSectionNodeContext = contentTreeSectionNodeContext;
-			this.contentTreeSectionInputModelToContentTreeSectionNodeMapper = contentTreeSectionInputModelToContentTreeSectionNodeMapper;
 			this.contentTreeSectionNodeToContentTreeSectionInputModelMapper = contentTreeSectionNodeToContentTreeSectionInputModelMapper;
 			this.contentTreeSectionNodeRepository = contentTreeSectionNodeRepository;
 		}
