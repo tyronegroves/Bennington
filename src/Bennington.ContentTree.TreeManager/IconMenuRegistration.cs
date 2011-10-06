@@ -12,7 +12,7 @@ namespace Bennington.ContentTree.TreeManager
     {
         public void Configure(IMenuRegistry sectionMenuRegistry)
         {
-            sectionMenuRegistry.Add(new ActionIconMenuItem("Content Tree", "/Content/Canvas/ContentTreeManagementIcon.gif", "Index", "TreeManager"));
+            sectionMenuRegistry.Add(new ActionIconMenuItem("Content Tree", "Content/Canvas/ContentTreeManagementIcon.gif", "Index", "TreeManager"));
         }
     }
 }
