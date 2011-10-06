@@ -42,7 +42,7 @@ namespace Bennington.Login.Controllers
         private ActionResult LoginAndRedirect(LoginForm loginForm)
         {
             membershipService.LogInAsUser(loginForm.Username, loginForm.Password);
-            return Redirect("/");
+            return Redirect("~/");
         }
 
         private bool ThisIsAValidLogin(LoginForm loginForm)
