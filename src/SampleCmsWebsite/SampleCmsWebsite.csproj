@@ -126,6 +126,7 @@
     <Compile Include="Registration\LocationSectionMenuRegistration.cs" />
     <Compile Include="Routes.aspx.cs">
       <DependentUpon>Routes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Routing\LocationRouting.cs" />
     <Compile Include="Validation\LoginFormValidator.cs" />
