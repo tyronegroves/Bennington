@@ -82,6 +82,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Views\TreeManager\Branch.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Shared\Blank.cshtml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
