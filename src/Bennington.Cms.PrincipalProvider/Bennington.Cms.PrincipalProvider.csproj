@@ -91,6 +91,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HttpModules\LogoutHttpModule.cs" />
     <Compile Include="Mappers\UserInputModelToUserMapper.cs" />
     <Compile Include="Mappers\UserToUserInputModelMapper.cs" />
     <Compile Include="Models\Group.cs" />
