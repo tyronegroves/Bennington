@@ -15,3 +15,11 @@ Bennington.ContentTree.Providers.ContentNodeProvider
 Bennington.ContentTree.Providers.SectionNodeProvider
 Bennington.ContentTree.Providers.ToolLinkNodeProvider
 
+If you're using your CMS under /Manage:
+---------------------------------------
+In your web.config:
+	<authentication mode="Forms">
+      <forms loginUrl="~/Login" timeout="2880" />
+    </authentication>
+
+    

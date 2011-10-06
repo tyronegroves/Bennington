@@ -20,7 +20,7 @@ namespace Bennington.ContentTree.Contexts
             if (HttpContext.Current.Request == null) return Publish;
             if (HttpContext.Current.Request.RawUrl == null) return Publish;
 
-            if (HttpContext.Current.Request.RawUrl.StartsWith("/ContentTree")) return Manage;
+            if (HttpContext.Current.Request.RawUrl.Contains("/ContentTree")) return Manage;
 
             //if (HttpContext.Current.Request.RawUrl.StartsWith("/Manage", StringComparison.InvariantCultureIgnoreCase)) return Manage;
 

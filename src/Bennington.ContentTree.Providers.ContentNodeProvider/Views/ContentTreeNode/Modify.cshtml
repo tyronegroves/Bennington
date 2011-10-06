@@ -5,18 +5,19 @@
 
 
 @section head {
-    <script type="text/javascript" src="/Scripts/jquery-ui.js"></script>
-    <script type="text/javascript" src="/Scripts/jquery.jstree.js"></script>
-    <script type="text/javascript" src="/Scripts/parseuri.js"></script>
-    <script type="text/javascript" src="/Scripts/jquery.url.js"></script>
-    <script type="text/javascript" src="/Scripts/thickbox-compressed.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.jstree.js")"></script>
+    @*<script type="text/javascript" src="@Url.Content("~/Scripts/parseuri.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.url.js")"></script>*@
+    <script type="text/javascript" src="@Url.Content("~/Scripts/thickbox-compressed.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/tiny_mce/tiny_mce.js")"></script>
 }
 
 
 @{ Html.RenderAction("ContentItemNavigation", "ContentTreeNode", new { TreeNodeId = Model.ContentTreeNodeInputModel.TreeNodeId }); }
 
 	@*<% using (Html.BeginForm(Model.Action, "ContentTreeNode", FormMethod.Post, new { Id = "form" })) { %>*@
-	<form Id="form" action="/ContentTreeNode/@Model.Action" method="post" enctype="multipart/form-data">
+	<form Id="form" action="@Url.Content("~/")ContentTreeNode/@Model.Action" method="post" enctype="multipart/form-data">
 
 	<div class="contentNodeProviderForm">
 
