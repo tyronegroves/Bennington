@@ -4,9 +4,9 @@
 <div class="section extra_padding">
     @if (Model.Items.TotalItemCount > Model.Items.PageSize)
     {
-        <div class="content pagination">
-            @Html.PagedListPager(Model.Items, page => "?page=" + page, PagedListRenderOptions.Minimal)
-        </div>
+        <div class="iterative-paging">
+        @Html.PagedListPager(Model.Items, page => "?page=" + page, PagedListRenderOptions.Minimal)   
+        </div>     
     }
     <div class="content actions">
         @Html.DisplayFor(model => model.BottomLeftButtons)

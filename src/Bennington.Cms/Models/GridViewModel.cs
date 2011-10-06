@@ -9,11 +9,9 @@ namespace Bennington.Cms.Models
         public string Title { get; set; }
 
         public IEnumerable<GridColumn> Columns { get; set; }
-
+        public IPagedList Items { get; set; }
 
         // Not tested
-
-        public IPagedList<object> Items { get; set; }
         public SearchByOptions SearchByOptions { get; set; }
         public string Subtitle { get; set; } // TODO: Rename subtitle
         public List<Button> TopRightButtons { get; set; }

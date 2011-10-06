@@ -1,12 +1,18 @@
 ﻿@using PagedList
 @using PagedList.Mvc
 @model Bennington.Cms.Models.GridViewModel
+
+@section currentUser {
+    <ul class="current-user-items">
+        <li>Welcome, Young Man</li>
+        <li>Kansas City Institute of Bacon</li>
+        <li><a href="?Logout=1">Logout</a></li>
+    </ul>
+}
+
 <div id="content_container" style="display: block;">
     @{Html.RenderPartial("~/Views/ListDetail/Header.cshtml", Model);}
-    <div id="tab1" class="tabContent">
-        <div class="section">
-            <div class="highlight">
-                <div class="content">
+    
                     <table cellpadding="0" cellspacing="0" class="data_table" id="data_table">
                         @{Html.RenderPartial("~/Views/ListDetail/PagerHeaders.cshtml", Model);}
                         <tbody>
@@ -16,9 +22,5 @@
                             }
                         </tbody>
                     </table>
-                </div>
-            </div>
-        </div>
         @{Html.RenderPartial("~/Views/ListDetail/Footer.cshtml", Model);}
-    </div>
 </div>

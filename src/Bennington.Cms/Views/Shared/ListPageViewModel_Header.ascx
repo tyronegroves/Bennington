@@ -21,7 +21,7 @@
    <div style="float:right"><%
    object @object = Model.SearchByOptions;
    Html.RenderPartial("EditorForObject", @object); %></div>
-      <div><h1><%:sectionHeader %></h1></div>
+      <div><h2><%:sectionHeader %></h2></div>
       <%if (string.IsNullOrEmpty(gridHeader) == false)
         {%>
       <div><%:gridHeader%> </div>

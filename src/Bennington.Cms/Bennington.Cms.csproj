@@ -34,17 +34,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MvcTurbine">
-      <HintPath>..\packages\MVCTurbine.3.2.1\lib\MvcTurbine.dll</HintPath>
+    <Reference Include="MvcTurbine, Version=3.4.0.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\MvcTurbine.dll</HintPath>
     </Reference>
-    <Reference Include="MvcTurbine.Web">
-      <HintPath>..\packages\MVCTurbine.3.2.1\lib\MvcTurbine.Web.dll</HintPath>
+    <Reference Include="MvcTurbine.Web, Version=3.4.0.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\MvcTurbine.Web.dll</HintPath>
     </Reference>
-    <Reference Include="PagedList">
-      <HintPath>..\..\lib\PagedList.dll</HintPath>
+    <Reference Include="PagedList, Version=1.2.4.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\PagedList.dll</HintPath>
     </Reference>
-    <Reference Include="PagedList.Mvc">
-      <HintPath>..\..\lib\PagedList.Mvc.dll</HintPath>
+    <Reference Include="PagedList.Mvc, Version=3.0.4.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\PagedList.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -247,13 +251,13 @@
     <EmbeddedResource Include="Views\ListDetail\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ListDetail\Create.cshtml" />
+    <EmbeddedResource Include="Views\ListDetail\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\ListDetail\Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Shared\Blank.cshtml" />
+    <EmbeddedResource Include="Views\ListDetail\Manage.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

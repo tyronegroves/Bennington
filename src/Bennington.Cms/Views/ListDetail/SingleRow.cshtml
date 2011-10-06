@@ -26,10 +26,8 @@
                 Html.RenderPartial("DisplayForObject", modelProperties[key]);
             }
         </td>
-            columnIndex++;
-        <td class="actions">
-            @{Html.RenderPartial("DisplayForObject", buttons);}
-        </td>
+            columnIndex++;        
       }
     }
+    <td class="actions">@{Html.RenderPartial("DisplayForObject", buttons);}</td>
 </tr>

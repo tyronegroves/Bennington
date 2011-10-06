@@ -2,7 +2,7 @@
 
 <ul class="menu">
 	@foreach (var menuItem in Model.Items) {
-		<li><a href="@menuItem.Url"><img src="@menuItem.IconUrl" alt="@menuItem.Name" /></a></li>
+		<li><a href="@menuItem.Url" title="@menuItem.Name"><img src="@menuItem.IconUrl" alt="@menuItem.Name" /></a></li>
 	}
 </ul>
 
