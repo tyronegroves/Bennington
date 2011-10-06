@@ -61,17 +61,14 @@
     <Reference Include="Moq">
       <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
     </Reference>
-    <Reference Include="MvcTurbine, Version=3.2.1.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MVCTurbine.3.2.1\lib\MvcTurbine.dll</HintPath>
+    <Reference Include="MvcTurbine">
+      <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.dll</HintPath>
     </Reference>
-    <Reference Include="MvcTurbine.Unity, Version=3.2.1.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MvcTurbine.Unity.3.2.1\lib\MvcTurbine.Unity.dll</HintPath>
+    <Reference Include="MvcTurbine.Unity">
+      <HintPath>..\packages\MvcTurbine.Unity.3.4\lib\MvcTurbine.Unity.dll</HintPath>
     </Reference>
-    <Reference Include="MvcTurbine.Web, Version=3.2.1.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MVCTurbine.3.2.1\lib\MvcTurbine.Web.dll</HintPath>
+    <Reference Include="MvcTurbine.Web">
+      <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.Web.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.5.10.11092\lib\nunit.framework.dll</HintPath>
