@@ -33,31 +33,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMoq, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\lib\AutoMoq.dll</HintPath>
+    <Reference Include="AutoMoq">
+      <HintPath>..\..\lib\AutoMoq\AutoMoq.dll</HintPath>
     </Reference>
-    <Reference Include="Machine.Specifications, Version=0.4.13.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\lib\Machine.Specifications.dll</HintPath>
+    <Reference Include="Machine.Specifications">
+      <HintPath>..\..\lib\Machine.Specifications.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Moq, Version=4.0.10827.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\lib\Moq.dll</HintPath>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
     </Reference>
-    <Reference Include="MvcTurbine.Web, Version=3.2.1.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\lib\MvcTurbine.Web.dll</HintPath>
+    <Reference Include="MvcTurbine">
+      <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.dll</HintPath>
     </Reference>
-    <Reference Include="PagedList, Version=1.2.4.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\lib\PagedList.dll</HintPath>
+    <Reference Include="MvcTurbine.Web">
+      <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.Web.dll</HintPath>
     </Reference>
-    <Reference Include="Should, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\lib\Should.dll</HintPath>
+    <Reference Include="PagedList">
+      <HintPath>..\..\lib\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="Should">
+      <HintPath>..\..\lib\Should.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -98,6 +95,9 @@
       <Project>{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}</Project>
       <Name>Bennington.Cms</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
