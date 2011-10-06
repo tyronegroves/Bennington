@@ -6,11 +6,8 @@
 
 @section head {
 
-    <script type="text/javascript" src="/Scripts/jquery-ui.js"></script>
-    <script type="text/javascript" src="/Scripts/jquery.jstree.js"></script>
-    <script type="text/javascript" src="/Scripts/parseuri.js"></script>
-    <script type="text/javascript" src="/Scripts/jquery.url.js"></script>
-    <script type="text/javascript" src="/Scripts/thickbox-compressed.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.jstree.js")"></script>
 }
 
 	@using (Html.BeginForm(Model.Action, "ContentTreeSectionNode", FormMethod.Post, new { Id = "form" })) { 
