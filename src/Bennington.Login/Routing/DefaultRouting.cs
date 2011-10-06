@@ -11,7 +11,7 @@ namespace Bennington.Login.Routing
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                "Default",
+                "LoginRoute",
                 "Login/{action}/{id}",
                 new { controller = "Login", action = "Index", id = UrlParameter.Optional }
                 );

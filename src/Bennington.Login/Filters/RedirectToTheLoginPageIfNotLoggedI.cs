@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Bennington.Login.Attributes;
 using MvcTurbine.Web.Filters;
 
@@ -28,7 +29,10 @@ namespace Bennington.Login.Filters
 
         private void RedirectToTheLoginPage(ActionExecutedContext filterContext)
         {
-            filterContext.Result = new RedirectResult("/Login");
+            var routeValueDictionary = new RouteValueDictionary();
+            routeValueDictionary.Add("controller", "Login");
+            routeValueDictionary.Add("action", "Index");
+            filterContext.Result = new RedirectToRouteResult(routeValueDictionary);
         }
 
         private bool NoLoginRedirectionIsNecessary(ActionExecutedContext filterContext)
