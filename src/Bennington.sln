@@ -60,8 +60,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleContentWebsite", "Sam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleCmsWebsite", "SampleCmsWebsite\SampleCmsWebsite.csproj", "{796D8BB9-A4C1-4AB8-A877-605860129243}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcApplication1", "MvcApplication1\MvcApplication1.csproj", "{0B531C7A-AA93-4677-AC70-C22FDFC3503A}"
-EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Bennington.vsmdi
@@ -171,10 +169,6 @@ Global
 		{796D8BB9-A4C1-4AB8-A877-605860129243}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{796D8BB9-A4C1-4AB8-A877-605860129243}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{796D8BB9-A4C1-4AB8-A877-605860129243}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0B531C7A-AA93-4677-AC70-C22FDFC3503A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B531C7A-AA93-4677-AC70-C22FDFC3503A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B531C7A-AA93-4677-AC70-C22FDFC3503A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B531C7A-AA93-4677-AC70-C22FDFC3503A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -183,6 +177,5 @@ Global
 		{0124D513-5EBF-4CA9-9DA4-EC0A75E0C629} = {DECE7245-2CB4-4F20-86DB-28FC05BFF23A}
 		{78192D6F-A8DF-43E0-B3BA-DD25AE1EA2A4} = {DECE7245-2CB4-4F20-86DB-28FC05BFF23A}
 		{796D8BB9-A4C1-4AB8-A877-605860129243} = {DECE7245-2CB4-4F20-86DB-28FC05BFF23A}
-		{0B531C7A-AA93-4677-AC70-C22FDFC3503A} = {DECE7245-2CB4-4F20-86DB-28FC05BFF23A}
 	EndGlobalSection
 EndGlobal
