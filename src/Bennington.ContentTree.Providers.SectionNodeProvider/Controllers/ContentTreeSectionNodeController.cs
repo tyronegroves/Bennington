@@ -137,15 +137,13 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Controllers
 			                                 	{
 			                                 		{"controller", "ContentTreeSectionNode"},
 													{"action", "Modify"},
-													{ "id", contentTreeSectionInputModel == null ? "0" : contentTreeSectionInputModel.TreeNodeId },
+													{ "treenodeid", contentTreeSectionInputModel == null ? "0" : contentTreeSectionInputModel.TreeNodeId },
 			                                 	});
 		}
 
 		[Authorize]
 		public ActionResult Modify(string treeNodeId)
 		{
-			var viewData = ViewData;
-
 			var contentTreeSection = contentTreeSectionNodeRepository.GetAllContentTreeSectionNodes().Where(a => a.TreeNodeId == treeNodeId).FirstOrDefault();
 			var contentTreeSectionInputModel = contentTreeSection == null ? new ContentTreeSectionInputModel()
 			                		                        	{
