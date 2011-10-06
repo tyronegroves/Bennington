@@ -85,6 +85,26 @@
   <ItemGroup>
     <EmbeddedResource Include="Views\Shared\Blank.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Content\TreeManager\JSTree\Content-Tree-Bg.gif" />
+    <EmbeddedResource Include="Content\TreeManager\JSTree\d.png" />
+    <EmbeddedResource Include="Content\TreeManager\JSTree\dot_for_ie.gif" />
+    <EmbeddedResource Include="Content\TreeManager\JSTree\Style.css" />
+    <EmbeddedResource Include="Content\TreeManager\JSTree\throbber.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\TreeManager\jquery-ui.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\TreeManager\jquery.jstree.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\TreeManager\thickbox-compressed.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Content\TreeManager\CreateInRoot.gif" />
+    <EmbeddedResource Include="Content\TreeManager\PlusSign.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

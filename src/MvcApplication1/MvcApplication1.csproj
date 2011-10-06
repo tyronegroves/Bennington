@@ -167,6 +167,22 @@
       <Project>{FF8F2B28-E0B8-4B6E-92C2-A8FFD0A68C8A}</Project>
       <Name>Bennington.Cms</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Bennington.ContentTree.Providers.ContentNodeProvider\Bennington.ContentTree.Providers.ContentNodeProvider.csproj">
+      <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
+      <Name>Bennington.ContentTree.Providers.ContentNodeProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bennington.ContentTree.Providers.SectionNodeProvider\Bennington.ContentTree.Providers.SectionNodeProvider.csproj">
+      <Project>{F5B06173-0873-4E7E-BBD5-9F58D69E077F}</Project>
+      <Name>Bennington.ContentTree.Providers.SectionNodeProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bennington.ContentTree.Providers.ToolLinkNodeProvider\Bennington.ContentTree.Providers.ToolLinkNodeProvider.csproj">
+      <Project>{BD01E5D0-D160-4E39-B18B-61D2B375977B}</Project>
+      <Name>Bennington.ContentTree.Providers.ToolLinkNodeProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bennington.ContentTree.TreeManager\Bennington.ContentTree.TreeManager.csproj">
+      <Project>{5440F3E1-26AD-4355-875B-50ABF7484181}</Project>
+      <Name>Bennington.ContentTree.TreeManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bennington.Core\Bennington.Core.csproj">
       <Project>{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}</Project>
       <Name>Bennington.Core</Name>
