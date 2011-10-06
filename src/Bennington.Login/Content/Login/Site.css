@@ -95,7 +95,7 @@ h5, h6 { font-size: 1em; }
 .text-box { width: 30em; }
 .text-box.multi-line { height: 6.5em; }
 .tri-state { width: 6em; }
-body {background: #B5C3CC url(/Content/Canvas/login_bg.jpg) top repeat-x;}
+body {background: #B5C3CC url(/Content/Login/Canvas/login_bg.jpg) top repeat-x;}
 #canvas { width: 915px; margin: 0 auto; }
 #header { margin: 0 0 15px; }
 #header #title { padding: 15px 0 10px 0; float: left; }
