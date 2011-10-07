@@ -44,13 +44,10 @@
     </Reference>
     <Reference Include="Microsoft.Build.Engine" />
     <Reference Include="MvcTurbine">
-      <HintPath>..\packages\MVCTurbine.3.2\lib\MvcTurbine.dll</HintPath>
-    </Reference>
-    <Reference Include="MvcTurbine.Unity">
-      <HintPath>..\packages\MvcTurbine.Unity.3.2\lib\MvcTurbine.Unity.dll</HintPath>
+      <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.dll</HintPath>
     </Reference>
     <Reference Include="MvcTurbine.Web">
-      <HintPath>..\packages\MVCTurbine.3.2\lib\MvcTurbine.Web.dll</HintPath>
+      <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.Web.dll</HintPath>
     </Reference>
     <Reference Include="SimpleCqrs">
       <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.dll</HintPath>
@@ -101,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

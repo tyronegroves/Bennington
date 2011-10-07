@@ -52,15 +52,17 @@
     <Reference Include="MvcContrib.FluentHtml">
       <HintPath>..\..\lib\MvcContrib.FluentHtml.dll</HintPath>
     </Reference>
-    <Reference Include="MvcTurbine, Version=3.2.1.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MVCTurbine.3.2.1\lib\MvcTurbine.dll</HintPath>
+    <Reference Include="MvcTurbine, Version=3.4.0.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
+      <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.dll</HintPath>
     </Reference>
     <Reference Include="MvcTurbine.FluentValidation">
       <HintPath>..\packages\MvcTurbine.FluentValidation.3.0\lib\MvcTurbine.FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="MvcTurbine.MembershipProvider">
       <HintPath>..\packages\MvcTurbine.MembershipProvider.3.0\lib\MvcTurbine.MembershipProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcTurbine.Web, Version=3.4.0.0, Culture=neutral, PublicKeyToken=0e426322531bc5b0, processorArchitecture=MSIL">
+      <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.Web.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -135,6 +137,9 @@
       <Project>{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}</Project>
       <Name>Bennington.Repository</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

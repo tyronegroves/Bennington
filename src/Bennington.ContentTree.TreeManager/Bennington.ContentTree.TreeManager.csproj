@@ -36,7 +36,10 @@
       <HintPath>..\packages\FluentValidation.2.0.0.0\lib\SL4\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="MvcTurbine">
-      <HintPath>..\packages\MVCTurbine.3.2\lib\MvcTurbine.dll</HintPath>
+      <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcTurbine.Web">
+      <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.Web.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -104,6 +107,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Content\TreeManager\CreateInRoot.gif" />
     <EmbeddedResource Include="Content\TreeManager\PlusSign.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
