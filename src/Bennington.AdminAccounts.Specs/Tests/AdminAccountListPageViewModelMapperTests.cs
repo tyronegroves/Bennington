@@ -1,5 +1,4 @@
-﻿using AutoMapperAssist;
-using AutoMoq;
+﻿using AutoMoq;
 using Bennington.AdminAccounts.Models;
 using NUnit.Framework;
 

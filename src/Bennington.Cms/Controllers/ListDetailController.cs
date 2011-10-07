@@ -14,7 +14,7 @@ namespace Bennington.Cms.Controllers
             var gridViewModel = new GridViewModel();
             gridViewModel.Title = GetListTitle(GetType().Name);
             gridViewModel.Columns = GetColumns();
-            gridViewModel.Items = GetListItems(0, 1);
+            gridViewModel.Items = GetListItems(1, 1);
 
             return View("~/Views/ListDetail/Index.cshtml", gridViewModel);
         }
