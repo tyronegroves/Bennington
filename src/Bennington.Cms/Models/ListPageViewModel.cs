@@ -77,7 +77,7 @@ namespace Bennington.Cms.Models
                 }
                 catch
                 {
-                    return items.ToPagedList(paginationState.CurrentPage, paginationState.PageSize);
+                    return items.ToPagedList(paginationState.CurrentPage < 1 ? 1 : paginationState.CurrentPage, paginationState.PageSize);
                 }
             }
         }

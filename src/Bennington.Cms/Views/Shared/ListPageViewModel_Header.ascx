@@ -58,7 +58,7 @@
                                                              DisplayLinkToNextPage = false,
                                                              DisplayLinkToPreviousPage = false,
                                                              DisplayLinkToIndividualPages = true,
-                                                             Delimiter = " | ",
+                                                             // Delimiter = " | ",
                                                              FunctionToDisplayEachPageNumber = (p) =>
                                                                                                    {
                                                                                                        return ((IPagedList) Model.PagedItems)
