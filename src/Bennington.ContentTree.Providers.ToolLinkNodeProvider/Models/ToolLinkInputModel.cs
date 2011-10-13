@@ -5,7 +5,13 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models
 {
 	public class ToolLinkInputModel
 	{
-		[HiddenInput(DisplayValue = false)]
+        [DisplayName("Inactive?")]
+        public bool Inactive { get; set; }
+
+        [DisplayName("Hidden?")]
+        public bool Hidden { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
 		public string SectionId { get; set; }
 
 		[HiddenInput(DisplayValue = false)]

@@ -29,7 +29,14 @@ namespace Bennington.Repository.Helpers
 			
 			if (idPropertyInformation == null)
 			{
-				return o.GetType().GetField(nameOfIdPropertyFieldOrProperty, BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public).GetValue(o).ToString();
+			    var fieldInfo = o.GetType().GetField(nameOfIdPropertyFieldOrProperty,
+			                                 BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static |
+			                                 BindingFlags.Public);
+
+                if (nameOfIdPropertyFieldOrProperty == null)
+                    throw new Exception("Could not find id property for type " + o.GetType().FullName);
+
+				return fieldInfo.GetValue(o).ToString();
 			}
 
 			return idPropertyInformation.GetValue(o, null).ToString();

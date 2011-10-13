@@ -114,6 +114,10 @@
       <Project>{3DE65C2E-791C-4B05-815F-986782A5153A}</Project>
       <Name>Bennington.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Bennington.Repository\Bennington.Repository.csproj">
+      <Project>{C46BBBB8-68BF-4A57-BE88-0734B26CD51C}</Project>
+      <Name>Bennington.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\ToolLinkProviderNode\Modify.cshtml">
