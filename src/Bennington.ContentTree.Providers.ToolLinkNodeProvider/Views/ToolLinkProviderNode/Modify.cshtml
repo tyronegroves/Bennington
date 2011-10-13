@@ -1,9 +1,9 @@
-﻿@using System.Web.Mvc.Html
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Html
 @model Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models.ModifyViewModel
 
 
-   @*<% using (Html.BeginForm(Model.ToolLinkInputModel.Action, "ToolLinkProviderNode", FormMethod.Post, new { Id = "form" })) { %>*@
-   <form Id="form" action="/ToolLinkProviderNode/@Model.ToolLinkInputModel.Action" method="post">
+   @using (Html.BeginForm(ViewContext.RouteData.Values["action"].ToString(), "ToolLinkProviderNode", FormMethod.Post, new { Id = "form" })){
 
 	<div class="crudFormContainer">
 
@@ -19,8 +19,4 @@
 		</div>
 	</div>
 
-	@*<% } %>*@
-    </form>
-
-
-
+	}
