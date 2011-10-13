@@ -50,10 +50,10 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Tests.Controller
 		{
 			GetToolLinkProviderNodeControllerWithInvalidModelState().Modify(new ToolLinkInputModel()
 			                                                        	{
-			                                                        		Action = "Modify",
+			                                                        		TreeNodeId = "id",
 			                                                        	});
 
-			mocker.GetMock<IModifyViewModelBuilder>().Verify(a => a.BuildViewModel(It.Is<ToolLinkInputModel>(b => b.Action == "Modify")), Times.Once());
+			mocker.GetMock<IModifyViewModelBuilder>().Verify(a => a.BuildViewModel(It.Is<ToolLinkInputModel>(b => b.TreeNodeId == "id")), Times.Once());
 		}
 
 		[TestMethod]

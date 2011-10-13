@@ -1,7 +1,10 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using AutoMoq;
 using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Data;
 using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models;
+using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Repositories;
 using Bennington.ContentTree.Providers.ToolLinkNodeProvider.ViewModelBuilders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -17,6 +20,16 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Tests.Controller
 		public void Init()
 		{
 			mocker = new AutoMoqer();
+
+            mocker.GetMock<IToolLinkProviderDraftRepository>()
+                .Setup(a => a.GetAll())
+                .Returns(new ToolLinkProviderDraft[]
+		                                 {
+		                                     new ToolLinkProviderDraft()
+		                                         {
+		                                             Id = "id",
+		                                         }, 
+		                                 }.AsQueryable());
 		}
 
 		[TestMethod]
@@ -46,12 +59,5 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Tests.Controller
 			mocker.GetMock<IModifyViewModelBuilder>().Verify(a => a.BuildViewModel(It.Is<ToolLinkInputModel>(b => b.TreeNodeId == "id")), Times.Once());
 		}
 
-		[TestMethod]
-		public void Passes_input_model_with_Action_set_to_Modify()
-		{
-			mocker.Resolve<ToolLinkProviderNodeController>().Modify("id");
-
-			mocker.GetMock<IModifyViewModelBuilder>().Verify(a => a.BuildViewModel(It.Is<ToolLinkInputModel>(b => b.Action == "Modify")), Times.Once());
-		}
 	}
 }

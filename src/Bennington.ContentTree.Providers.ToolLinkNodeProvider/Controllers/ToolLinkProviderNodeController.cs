@@ -28,7 +28,6 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
 		{
 			return View("Modify", modifyViewModelBuilder.BuildViewModel(new ToolLinkInputModel()
 			                                                            	{
-																				Action = "Create",
 			                                                            		ParentTreeNodeId = parentTreeNodeId,
 			                                                            	}));
 		}
@@ -63,7 +62,6 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
 
 			return View("Modify", modifyViewModelBuilder.BuildViewModel(new ToolLinkInputModel()
 			                                                            	{
-																				Action = "Modify",
 			                                                            		TreeNodeId = treeNodeId,
                                                                                 Hidden = toolLinkProviderDraft.Hidden,
                                                                                 Inactive = toolLinkProviderDraft.Inactive,

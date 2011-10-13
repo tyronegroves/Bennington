@@ -45,13 +45,5 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Tests.Controller
 
 			mocker.GetMock<IModifyViewModelBuilder>().Verify(a => a.BuildViewModel(It.Is<ToolLinkInputModel>(b => b.ParentTreeNodeId == "parentTreeNodeId")), Times.Once());
 		}
-
-		[TestMethod]
-		public void Passes_input_model_with_Action_set_to_Create()
-		{
-			mocker.Resolve<ToolLinkProviderNodeController>().Create((string)null);
-
-			mocker.GetMock<IModifyViewModelBuilder>().Verify(a => a.BuildViewModel(It.Is<ToolLinkInputModel>(b => b.Action == "Create")), Times.Once());
-		}
 	}
 }

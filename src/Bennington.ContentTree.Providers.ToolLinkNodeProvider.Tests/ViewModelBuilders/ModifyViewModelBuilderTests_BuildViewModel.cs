@@ -21,10 +21,10 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Tests.ViewModelB
 		{
 			var result = mocker.Resolve<ModifyViewModelBuilder>().BuildViewModel(new ToolLinkInputModel()
 			                                                                     	{
-			                                                                     		Action = "test",
+			                                                                     		TreeNodeId = "test",
 			                                                                     	});
 
-			Assert.AreEqual("test", result.ToolLinkInputModel.Action);
+			Assert.AreEqual("test", result.ToolLinkInputModel.TreeNodeId);
 		}
 	}
 }

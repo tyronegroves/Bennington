@@ -1,14 +1,5 @@
-﻿@model Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models.ModifyViewModel
-
-
-@section head {
-
-    <script type="text/javascript" src="/Scripts/jquery-ui.js"></script>
-    <script type="text/javascript" src="/Scripts/jquery.jstree.js"></script>
-    <script type="text/javascript" src="/Scripts/parseuri.js"></script>
-    <script type="text/javascript" src="/Scripts/jquery.url.js"></script>
-    <script type="text/javascript" src="/Scripts/thickbox-compressed.js"></script>
-}
+﻿@using System.Web.Mvc.Html
+@model Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models.ModifyViewModel
 
 
    @*<% using (Html.BeginForm(Model.ToolLinkInputModel.Action, "ToolLinkProviderNode", FormMethod.Post, new { Id = "form" })) { %>*@
@@ -21,8 +12,10 @@
 		<div class="commandButtonContainer">
 			<input type="button" class="button" value="Cancel" onclick="window.location='@Url.Action("Index", "ContentTree")';" />
 			<input type="button" class="button" value="Save" onclick="$('#ToolLinkInputModel_FormAction').val(this.value);$('#form').submit();" />
-			<input type="button" class="button" value="Save And Exit" onclick="$('#ToolLinkInputModel_FormAction').val(this.value);$('#form').submit();" />
-			<input type="button" class="button important" value="Delete" onclick="if (confirm('Are you sure you want to delete this item?')) { window.location='@Url.Action("Delete", "ToolLinkProviderNode", new { treeNodeId = Model.ToolLinkInputModel.TreeNodeId })'; }" />
+			@if (ViewContext.RouteData.Values["action"].ToString() == "Modify") 
+            {
+            <input type="button" class="button important" value="Delete" onclick="if (confirm('Are you sure you want to delete this item?')) { window.location='@Url.Action("Delete", "ToolLinkProviderNode", new { treeNodeId = Model.ToolLinkInputModel.TreeNodeId })'; }" />
+            }
 		</div>
 	</div>
 
