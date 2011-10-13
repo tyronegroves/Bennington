@@ -46,7 +46,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		    var treeNodeExtensions = new List<IAmATreeNodeExtension>();
             foreach (var item in query)
             {
-                item.IconUrl = "/Content/ContentNodeProvider/controller.gif";
+                item.IconUrl = "Content/ContentNodeProvider/controller.gif";
                 treeNodeExtensions.Add(item);
             }
 

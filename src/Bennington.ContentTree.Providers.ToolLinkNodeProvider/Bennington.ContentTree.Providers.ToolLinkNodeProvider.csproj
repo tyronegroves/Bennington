@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexts\ToolLinkContext.cs" />
+    <Compile Include="Controllers\ToolLinkController.cs" />
     <Compile Include="Controllers\ToolLinkProviderNodeController.cs" />
     <Compile Include="Data\ToolLinkProviderDraft.cs" />
     <Compile Include="Global.asax.cs">
@@ -115,6 +116,10 @@
     <ProjectReference Include="..\Bennington.ContentTree.Domain\Bennington.ContentTree.Domain.csproj">
       <Project>{9F36EE92-6F9A-4C57-AA4B-81328423D0DA}</Project>
       <Name>Bennington.ContentTree.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bennington.ContentTree.Providers.ContentNodeProvider\Bennington.ContentTree.Providers.ContentNodeProvider.csproj">
+      <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
+      <Name>Bennington.ContentTree.Providers.ContentNodeProvider</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bennington.ContentTree\Bennington.ContentTree.csproj">
       <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>

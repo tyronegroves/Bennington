@@ -194,6 +194,10 @@
       <Project>{7DBAF057-8A9B-4EC2-B8FC-505978DA86DE}</Project>
       <Name>Bennington.Login</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SampleFeature\SampleFeature.csproj">
+      <Project>{0124D513-5EBF-4CA9-9DA4-EC0A75E0C629}</Project>
+      <Name>SampleFeature</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
