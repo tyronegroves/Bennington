@@ -11,11 +11,6 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models
 		public int? Sequence { get; set; }
 		public bool Hidden { get; set; }
 		public bool Inactive { get; set; }
-
-	    public string IconUrl
-	    {
-            get { return string.Empty; }
-	        set { throw new NotImplementedException(); }
-	    }
+        public string IconUrl { get; set; }
 	}
 }

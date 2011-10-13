@@ -1,10 +1,14 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Bennington.ContentTree.Contexts;
+using Bennington.ContentTree.Domain.Commands;
 using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Data;
 using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models;
 using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Repositories;
 using Bennington.ContentTree.Providers.ToolLinkNodeProvider.ViewModelBuilders;
+using SimpleCqrs.Commanding;
 
 namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
 {
@@ -13,11 +17,14 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
     	private readonly IModifyViewModelBuilder modifyViewModelBuilder;
         private readonly IToolLinkProviderDraftRepository toolLinkProviderDraftRepository;
         private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
+        private ICommandBus commandBus;
 
         public ToolLinkProviderNodeController(IModifyViewModelBuilder modifyViewModelBuilder,
                                                 IToolLinkProviderDraftRepository toolLinkProviderDraftRepository,
-                                                ITreeNodeSummaryContext treeNodeSummaryContext)
+                                                ITreeNodeSummaryContext treeNodeSummaryContext,
+                                                ICommandBus commandBus)
         {
+            this.commandBus = commandBus;
             this.treeNodeSummaryContext = treeNodeSummaryContext;
             this.toolLinkProviderDraftRepository = toolLinkProviderDraftRepository;
             this.modifyViewModelBuilder = modifyViewModelBuilder;
@@ -93,6 +100,19 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
 
             return new RedirectResult(GetRedirectUrlToModifyMethod(toolLinkProviderDraft));
 		}
+
+        public ActionResult Delete(string treeNodeId)
+        {
+            commandBus.Send(new DeleteTreeNodeCommand()
+            {
+                AggregateRootId = new Guid(treeNodeId)
+            });
+
+            var routes = new RouteValueDictionary();
+            routes.Add("controller", "TreeManager");
+            routes.Add("action", "Index");
+            return new RedirectToRouteResult(routes);
+        }
 
 		private string GetRedirectUrlToModifyMethod(ToolLinkProviderDraft toolLinkProviderDraft)
 		{

@@ -15,7 +15,7 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Mappers
         public override void DefineMap(AutoMapper.IConfiguration configuration)
         {
             configuration.CreateMap<ToolLinkProviderDraft, ToolLink>()
-                    .ForMember(a => a.IconUrl, b => b.Ignore())
+                    .ForMember(a => a.IconUrl, b => b.UseValue("Content/ToolLinkProviderNode/ToolLinkProviderNode.gif"))
                     .ForMember(a => a.TreeNodeId, b => b.MapFrom(c => c.Id))
                 ;
         }
