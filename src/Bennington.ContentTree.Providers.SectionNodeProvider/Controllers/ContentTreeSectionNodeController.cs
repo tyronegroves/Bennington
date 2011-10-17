@@ -37,7 +37,7 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Controllers
 		}
 
 		[Authorize]
-		public ActionResult Delete(string id)
+		public virtual ActionResult Delete(string id)
 		{
 			commandBus.Send(new DeleteTreeNodeCommand()
 			{
@@ -45,16 +45,12 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Controllers
 			});
 			commandBus.Send(new DeleteSectionCommand(){ AggregateRootId = new Guid(id) });
 		    
-            return new RedirectResult("/ContentTree");
-            //var routeValueDictionary = new RouteValueDictionary();
-            //routeValueDictionary.Add("controller", "ContentTree");
-            //routeValueDictionary.Add("action", "Index");
-            //return new RedirectToRouteResult(routeValueDictionary);
+            return new RedirectToRouteResult(new RouteValueDictionary { { "controller", "TreeManager" }, { "action", "Index" } });
 		}
 
 		[Authorize]
 		[HttpPost]
-		public ActionResult Create(ContentTreeSectionInputModel contentTreeSectionInputModel)
+        public virtual ActionResult Create(ContentTreeSectionInputModel contentTreeSectionInputModel)
 		{
 			if (ModelState.IsValid == false)
 				return View("Modify", new ContentTreeSectionNodeViewModel()
@@ -90,7 +86,7 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Controllers
 		}
 
 		[Authorize]
-		public ActionResult Create(string parentTreeNodeId)
+        public virtual ActionResult Create(string parentTreeNodeId)
 		{
 			return View("Modify", new ContentTreeSectionNodeViewModel()
 			                      	{
@@ -104,7 +100,7 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Controllers
 
 		[Authorize]
 		[HttpPost]
-		public ActionResult Modify(ContentTreeSectionInputModel contentTreeSectionInputModel)
+        public virtual ActionResult Modify(ContentTreeSectionInputModel contentTreeSectionInputModel)
 		{
 			if (ModelState.IsValid == false)
 				return View("Modify", new ContentTreeSectionNodeViewModel() { Action = "Modify", ContentTreeSectionInputModel = contentTreeSectionInputModel });
@@ -142,7 +138,7 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Controllers
 		}
 
 		[Authorize]
-		public ActionResult Modify(string treeNodeId)
+        public virtual ActionResult Modify(string treeNodeId)
 		{
 			var contentTreeSection = contentTreeSectionNodeRepository.GetAllContentTreeSectionNodes().Where(a => a.TreeNodeId == treeNodeId).FirstOrDefault();
 			var contentTreeSectionInputModel = contentTreeSection == null ? new ContentTreeSectionInputModel()

@@ -16,7 +16,7 @@ namespace Bennington.ContentTree.TreeManager.Controllers
 		}
 
 		[Authorize]
-		public ActionResult Index()
+		public virtual ActionResult Index()
 		{
 			return View("Index", new Models.TreeManagerIndexViewModel()
 			                     	{
@@ -28,7 +28,8 @@ namespace Bennington.ContentTree.TreeManager.Controllers
 		}
 
 		[Authorize]
-		public ActionResult Branch(string id)
+        [Bennington.Cms.Attributes.DoNotUseTheDefaultMasterPage]
+        public virtual ActionResult Branch(string id)
 		{
 			return View("Branch", treeBranchViewModelBuilder.BuildViewModel(id));
 		}
