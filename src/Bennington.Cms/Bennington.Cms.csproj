@@ -127,7 +127,6 @@
     <Compile Include="Models\SectionMenuItemViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
-    <Compile Include="Routing\EmptyDashboardRoute.cs" />
     <Compile Include="Routing\RegisterMenuSystemRoutes.cs" />
     <Compile Include="Filters\DefaultTheMasterPageToTheManageSite.cs" />
     <Compile Include="Sorting\IPaginationStateRetriever.cs" />
