@@ -6,13 +6,15 @@
 
 .jstree-default li, 
 .jstree-default ins { background-image:url("d.png"); background-repeat:no-repeat; background-color:transparent; }
+body .jstree-default ins { height: 30px; line-height: 30px; }
 .jstree-default li { background-position:-90px 0; background-repeat:repeat-y;  }
 .jstree-default li.jstree-last { background:transparent; }
 .jstree-default .jstree-open > ins { background-position:-72px 0; }
 .jstree-default .jstree-closed > ins { background-position:-54px 0; }
 .jstree-default .jstree-leaf > ins { background-position:-36px 0; }
 
-.jstree-default li a { padding: 6px !important; border: 1px solid transparent; }
+.jstree-default li a { padding: 0 6px !important; height: 30px; line-height: 30px; border: 0; }
+.jstree-default li span.noicon { height: 30px; line-height: 30px; display: inline-block; }
 
 .jstree-default .jstree-hovered { background:#e7f4f9; border:1px solid #d8f0fa; padding:0 2px 0 1px; }
 .jstree-default .jstree-clicked { background:#beebff; border:1px solid #99defd; padding:0 2px 0 1px; }
