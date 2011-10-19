@@ -29,8 +29,3 @@ Bennington.ContentTree
 Bennington.ContentTree.Providers.CotnentNodeProvider
 Bennington.ContentTree.Providers.SectionNodeProvider
 Bennington.ContentTree.Providers.ToolLinkNodeProvider
-
-	you will also have to add:
-		FluentValidation, Version=2.0.0.0
-		AutoMapperAssist, Version=2.0.0.0
-
