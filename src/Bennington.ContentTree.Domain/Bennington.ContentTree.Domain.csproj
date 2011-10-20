@@ -41,20 +41,11 @@
     <Reference Include="MvcTurbine.Web">
       <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.Web.dll</HintPath>
     </Reference>
-    <Reference Include="NServiceBus">
-      <HintPath>..\..\lib\NServiceBus\NServiceBus.dll</HintPath>
+    <Reference Include="SimpleCqrs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleCqrs.1.0\lib\SimpleCqrs.dll</HintPath>
     </Reference>
-    <Reference Include="NServiceBus.Core">
-      <HintPath>..\..\lib\NServiceBus\NServiceBus.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="SimpleCqrs">
-      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.dll</HintPath>
-    </Reference>
-    <Reference Include="SimpleCqrs.NServiceBus">
-      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.NServiceBus.dll</HintPath>
-    </Reference>
-    <Reference Include="SimpleCqrs.Unity">
-      <HintPath>..\..\lib\SimpleCqrs\SimpleCqrs.Unity.dll</HintPath>
+    <Reference Include="SimpleCqrs.Unity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleCqrs.Unity.1.0\lib\SimpleCqrs.Unity.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -124,7 +115,7 @@
     <Compile Include="Events\TreeNode\TreeNodeTypeSetEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\SimpleCqrsRegistration.cs" />
-    <Compile Include="WebRootSimpleCqrsRuntime.cs" />
+    <Compile Include="BenningtonContentTreeSimpleCqrsRuntime.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
