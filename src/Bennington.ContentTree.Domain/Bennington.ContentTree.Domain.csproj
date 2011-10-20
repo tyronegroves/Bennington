@@ -32,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net">
-      <HintPath>..\..\lib\NServiceBus\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="MvcTurbine">
       <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.dll</HintPath>
     </Reference>
@@ -44,10 +41,14 @@
     <Reference Include="SimpleCqrs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleCqrs.1.0\lib\SimpleCqrs.dll</HintPath>
     </Reference>
+    <Reference Include="SimpleCqrs.EventStore.SqlServer">
+      <HintPath>..\packages\SimpleCqrs.EventStore.SqlServer.1.0\lib\SimpleCqrs.EventStore.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="SimpleCqrs.Unity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleCqrs.Unity.1.0\lib\SimpleCqrs.Unity.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
