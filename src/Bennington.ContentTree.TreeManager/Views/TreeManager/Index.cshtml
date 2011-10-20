@@ -7,7 +7,7 @@
 @model Bennington.ContentTree.TreeManager.Models.TreeManagerIndexViewModel
 
 @section title{
-    Content Tree
+    Content Tree Management
 }
 
 @section head {
@@ -31,7 +31,7 @@
 						}
 					}
 				},
-				"plugins": ["themes", "html_data", "cookies"/*, 'ui', 'checkbox'*/]
+				"plugins": ["themes", "html_data", "cookies"]
 			});
 
 			$("#TreeNodeCreationInputModel_ProviderType").change(function () {
@@ -51,7 +51,7 @@
             <div class="createFormContainer" id="createFormContainer" style="display:none">
 				@using (Html.BeginForm("Index", "ContentTree", FormMethod.Get, new { })) {
 					@Html.EditorFor(a => a.TreeNodeCreationInputModel)
-					<input type="button" class="button" value="Create" onclick="window.location=$('#TreeNodeCreationInputModel_ProviderType').val() + '&parentTreeNodeId=' + $('#TreeNodeCreationInputModel_ParentTreeNodeId').val();" />
+					<input type="button" class="button" value="Create" onclick="if ($('#TreeNodeCreationInputModel_ProviderType').val() != '') {window.location=$('#TreeNodeCreationInputModel_ProviderType').val() + '&parentTreeNodeId=' + $('#TreeNodeCreationInputModel_ParentTreeNodeId').val();} else { alert('Please choose a type'); }" />
 				}
 			</div>
 			<div class="contentTreeContainer clearfix">
