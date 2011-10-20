@@ -19,6 +19,7 @@ namespace Bennington.AdminAccounts.Passwords
 
         public string GetHash(string password)
         {
+            if (string.IsNullOrEmpty(password)) return string.Empty;
             password += adminAccountSettings.PasswordHash;
 
             var hashAlgorithm = new SHA256CryptoServiceProvider();

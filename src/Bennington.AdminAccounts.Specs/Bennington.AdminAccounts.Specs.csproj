@@ -121,6 +121,7 @@
     <Compile Include="Steps\ServiceLocatorSteps.cs" />
     <Compile Include="Tests\AdminAccountControllerTests.cs" />
     <Compile Include="Tests\AdminAccountListPageViewModelMapperTests.cs" />
+    <Compile Include="Tests\PasswordHasherTests.cs" />
     <Compile Include="with_automoqer.cs" />
   </ItemGroup>
   <ItemGroup>
