@@ -17,7 +17,7 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
     	private readonly IModifyViewModelBuilder modifyViewModelBuilder;
         private readonly IToolLinkProviderDraftRepository toolLinkProviderDraftRepository;
         private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
-        private ICommandBus commandBus;
+        private readonly ICommandBus commandBus;
 
         public ToolLinkProviderNodeController(IModifyViewModelBuilder modifyViewModelBuilder,
                                                 IToolLinkProviderDraftRepository toolLinkProviderDraftRepository,
@@ -55,7 +55,8 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
 		                    Name = toolLinkInputModel.Name,
 		                    Inactive = toolLinkInputModel.Inactive,
 		                    Url = toolLinkInputModel.Url,
-		                    UrlSegment = toolLinkInputModel.UrlSegment
+		                    UrlSegment = toolLinkInputModel.UrlSegment,
+                            Sequence = toolLinkInputModel.Sequence,
 		                };
 		    toolLinkProviderDraftRepository.SaveAndReturnId(toolLinkProviderDraft);
 
@@ -74,7 +75,8 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
                                                                                 Inactive = toolLinkProviderDraft.Inactive,
                                                                                 Name = toolLinkProviderDraft.Name,
                                                                                 Url = toolLinkProviderDraft.Url,
-                                                                                UrlSegment = toolLinkProviderDraft.UrlSegment
+                                                                                UrlSegment = toolLinkProviderDraft.UrlSegment,
+                                                                                Sequence = toolLinkProviderDraft.Sequence,
 			                                                            	}));
 		}
 

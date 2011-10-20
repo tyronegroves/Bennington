@@ -1,4 +1,5 @@
-﻿@using Bennington.ContentTree
+﻿@using System.Web.Mvc.Html
+@using Bennington.ContentTree
 @using Bennington.ContentTree.Models
 @using System.Security.Policy
 @using System.Web.Mvc
@@ -17,10 +18,6 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/TreeManager/jquery.jstree.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/TreeManager/thickbox-compressed.js")"></script>
 
-    @*<script type="text/javascript" src="/Scripts/TreeManager/parseuri.js"></script>
-    <script type="text/javascript" src="/Scripts/TreeManager/jquery.url.js"></script>*@
-
-
 	<script type="text/javascript">
 		$(document).ready(function () {
 
@@ -38,7 +35,6 @@
 
 			$("#TreeNodeCreationInputModel_ProviderType").change(function () {
 				var selected = $("#TreeNodeCreationInputModel_ProviderType option:selected");
-				var output = "";
 				if (selected.val() != "") {
 					document.forms[0].action = $("#TreeNodeCreationInputModel_ProviderType").val();
 				}
@@ -52,7 +48,7 @@
     <div id="tab1" class="tabContent">
         <div class="section">
             <div class="createFormContainer" id="createFormContainer" style="display:none">
-				@using (Html.BeginForm("Index", "ContentTree", FormMethod.Get, new {  })) {
+				@using (Html.BeginForm("Index", "ContentTree", FormMethod.Get, new { })) {
 					@Html.EditorFor(a => a.TreeNodeCreationInputModel)
 					<input type="button" class="button" value="Create" onclick="window.location=$('#TreeNodeCreationInputModel_ProviderType').val() + '&parentTreeNodeId=' + $('#TreeNodeCreationInputModel_ParentTreeNodeId').val();" />
 				}
