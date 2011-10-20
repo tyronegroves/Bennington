@@ -15,6 +15,7 @@
     <link href="@Url.Content("~/Content/TreeManager/JSTree/Style.css")" rel="stylesheet" type="text/css" />
     
     <script type="text/javascript" src="@Url.Content("~/Scripts/TreeManager/jquery-ui.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/TreeManager/jquery.cookie.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/TreeManager/jquery.jstree.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/TreeManager/thickbox-compressed.js")"></script>
 
@@ -30,7 +31,7 @@
 						}
 					}
 				},
-				"plugins": ["themes", "html_data"/*, 'ui', 'checkbox'*/]
+				"plugins": ["themes", "html_data", "cookies"/*, 'ui', 'checkbox'*/]
 			});
 
 			$("#TreeNodeCreationInputModel_ProviderType").change(function () {
