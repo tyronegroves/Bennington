@@ -3,5 +3,7 @@
 	public class TreeManagerIndexViewModel
 	{
 		public TreeNodeCreationInputModel TreeNodeCreationInputModel { get; set; }
+
+	    public bool ContentTreeHasNodes { get; set; }
 	}
 }

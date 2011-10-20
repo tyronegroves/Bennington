@@ -9,22 +9,19 @@ namespace Bennington.ContentTree.TreeManager.Controllers
 	public class TreeManagerController : Controller
 	{
 		private readonly ITreeBranchViewModelBuilder treeBranchViewModelBuilder;
+        private readonly ITreeManagerIndexViewModelBuilder treeManagerIndexViewModelBuilder;
 
-		public TreeManagerController(ITreeBranchViewModelBuilder treeBranchViewModelBuilder)
-		{
-			this.treeBranchViewModelBuilder = treeBranchViewModelBuilder;
-		}
+        public TreeManagerController(ITreeBranchViewModelBuilder treeBranchViewModelBuilder,
+                                    ITreeManagerIndexViewModelBuilder treeManagerIndexViewModelBuilder)
+        {
+            this.treeManagerIndexViewModelBuilder = treeManagerIndexViewModelBuilder;
+            this.treeBranchViewModelBuilder = treeBranchViewModelBuilder;
+        }
 
-		[Authorize]
+        [Authorize]
 		public virtual ActionResult Index()
 		{
-			return View("Index", new Models.TreeManagerIndexViewModel()
-			                     	{
-			                     		TreeNodeCreationInputModel = new TreeNodeCreationInputModel()
-			                     		                             	{
-			                     		                             		ParentTreeNodeId = Constants.RootNodeId,
-			                     		                             	}
-			                     	});
+			return View("Index", treeManagerIndexViewModelBuilder.BuildViewModel());
 		}
 
 		[Authorize]

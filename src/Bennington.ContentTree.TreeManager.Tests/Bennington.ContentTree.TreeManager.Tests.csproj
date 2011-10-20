@@ -70,10 +70,12 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\ContentTreeControllerTests_Branch.cs" />
+    <Compile Include="Controllers\TreeManagerControllerTests_Branch.cs" />
+    <Compile Include="Controllers\TreeManagerControllerTests_Index.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routing\RegisterRoutesForAllProvidersTests_Register.cs" />
     <Compile Include="ViewModelBuilders\TreeBranchViewModelBuilderTests_BuildViewModel.cs" />
+    <Compile Include="ViewModelBuilders\TreeManagerIndexViewModelBuilderTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bennington.ContentTree\Bennington.ContentTree.csproj">

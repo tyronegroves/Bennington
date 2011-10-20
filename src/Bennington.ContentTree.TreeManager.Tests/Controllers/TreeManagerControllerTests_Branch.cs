@@ -9,7 +9,7 @@ using Moq;
 namespace Bennington.ContentTree.TreeManager.Tests.Controllers
 {
 	[TestClass]
-	public class ContentTreeControllerTests_Branch
+	public class TreeManagerControllerTests_Branch
 	{
 		private AutoMoqer mocker;
 

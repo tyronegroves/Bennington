@@ -63,6 +63,7 @@
     <Compile Include="Routing\RegisterContentTreeSmsRoutes.cs" />
     <Compile Include="Routing\RegisterSmsRoutesForAllProviders.cs" />
     <Compile Include="Validators\TreeNodeCreationInputModelValidator.cs" />
+    <Compile Include="ViewModelBuilders\TreeManagerIndexViewModelBuilder.cs" />
     <Compile Include="ViewModelBuilders\TreeBranchViewModelBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
