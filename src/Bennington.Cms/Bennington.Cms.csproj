@@ -42,8 +42,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.Web.dll</HintPath>
     </Reference>
-    <Reference Include="PagedList">
-      <HintPath>..\packages\PagedList.1.10\lib\net40\PagedList.dll</HintPath>
+    <Reference Include="PagedList, Version=1.10.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\PagedList.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
