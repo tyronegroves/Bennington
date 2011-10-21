@@ -64,6 +64,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.Web.dll</HintPath>
     </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\packages\ServiceStack.Text.2.27\lib\net35\ServiceStack.Text.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -202,6 +205,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Target_\Active\AppSettings.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Target_\Active\ConnectionStrings.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -38,6 +38,9 @@
     <Reference Include="MvcTurbine.Web">
       <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.Web.dll</HintPath>
     </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\packages\ServiceStack.Text.2.27\lib\net35\ServiceStack.Text.dll</HintPath>
+    </Reference>
     <Reference Include="SimpleCqrs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleCqrs.1.0\lib\SimpleCqrs.dll</HintPath>
     </Reference>
