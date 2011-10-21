@@ -170,6 +170,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bennington.ContentTree.Cache\Bennington.ContentTree.Cache.csproj">
+      <Project>{D95A8959-7718-481E-B384-32CDA2E104BF}</Project>
+      <Name>Bennington.ContentTree.Cache</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bennington.ContentTree.Providers.ContentNodeProvider\Bennington.ContentTree.Providers.ContentNodeProvider.csproj">
       <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
       <Name>Bennington.ContentTree.Providers.ContentNodeProvider</Name>

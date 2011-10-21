@@ -60,6 +60,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleContentWebsite", "Sam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleCmsWebsite", "SampleCmsWebsite\SampleCmsWebsite.csproj", "{45E3DF26-F5F8-41D5-83A0-AA97A69148BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bennington.ContentTree.Cache", "Bennington.ContentTree.Cache\Bennington.ContentTree.Cache.csproj", "{D95A8959-7718-481E-B384-32CDA2E104BF}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Bennington.vsmdi
@@ -169,6 +171,10 @@ Global
 		{45E3DF26-F5F8-41D5-83A0-AA97A69148BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45E3DF26-F5F8-41D5-83A0-AA97A69148BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45E3DF26-F5F8-41D5-83A0-AA97A69148BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D95A8959-7718-481E-B384-32CDA2E104BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D95A8959-7718-481E-B384-32CDA2E104BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D95A8959-7718-481E-B384-32CDA2E104BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D95A8959-7718-481E-B384-32CDA2E104BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
