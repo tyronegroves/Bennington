@@ -5,7 +5,6 @@ using Bennington.ContentTree.TreeManager.ViewModelBuilders;
 
 namespace Bennington.ContentTree.TreeManager.Controllers
 {
-    [DoNotUseTheDefaultMasterPage]
 	public class TreeManagerController : Controller
 	{
 		private readonly ITreeBranchViewModelBuilder treeBranchViewModelBuilder;
@@ -28,7 +27,7 @@ namespace Bennington.ContentTree.TreeManager.Controllers
         [Bennington.Cms.Attributes.DoNotUseTheDefaultMasterPage]
         public virtual ActionResult Branch(string id)
 		{
-			return View("Branch", treeBranchViewModelBuilder.BuildViewModel(id));
+			return View("Branch", "Blank", treeBranchViewModelBuilder.BuildViewModel(id));
 		}
 	}
 }
