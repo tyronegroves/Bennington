@@ -114,13 +114,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-	<Content Include="Scripts\TreeManager\jquery.jstree.grid.js" /><Content Include="Scripts\TreeManager\jquery.jstree.grid.js" />
+<<<<<<< HEAD
     <EmbeddedResource Include="Scripts\TreeManager\jquery.cookie.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Shared\EditorTemplates\ProviderTypes.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </EmbeddedResource>
+=======
+    <Content Include="Scripts\TreeManager\jquery.jstree.grid.js" />
+>>>>>>> d7b77f8fe6713a97c098927114e649c75d81f873
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
