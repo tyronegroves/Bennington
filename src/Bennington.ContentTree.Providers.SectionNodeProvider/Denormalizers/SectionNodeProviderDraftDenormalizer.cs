@@ -14,7 +14,9 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Denormalizers
 														IHandleDomainEvents<SectionSequenceSetEvent>,
 														IHandleDomainEvents<SectionDefaultTreeNodeIdSetEvent>,
 														IHandleDomainEvents<SectionHiddenSetEvent>,
-														IHandleDomainEvents<SectionInactiveSetEvent>
+														IHandleDomainEvents<SectionInactiveSetEvent>,
+                                                        IHandleDomainEvents<SectionLastModifyBySetEvent>,
+                                                        IHandleDomainEvents<SectionLastModifyDateSetEvent>
 	{
 		private readonly IDataModelDataContext dataModelDataContext;
 
@@ -91,5 +93,19 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Denormalizers
 			sectionNodeProviderDraft.Hidden = domainEvent.Hidden;
 			dataModelDataContext.Update(sectionNodeProviderDraft);
 		}
+
+	    public void Handle(SectionLastModifyBySetEvent domainEvent)
+	    {
+            var sectionNodeProviderDraft = GetSectionNodeProviderDraftFromDomainEvent(domainEvent);
+            sectionNodeProviderDraft.LastModifyBy = domainEvent.LastModifyBy;
+            dataModelDataContext.Update(sectionNodeProviderDraft);
+	    }
+
+	    public void Handle(SectionLastModifyDateSetEvent domainEvent)
+	    {
+            var sectionNodeProviderDraft = GetSectionNodeProviderDraftFromDomainEvent(domainEvent);
+            sectionNodeProviderDraft.LastModifyDate = domainEvent.LastModifyDate;
+            dataModelDataContext.Update(sectionNodeProviderDraft);
+	    }
 	}
 }

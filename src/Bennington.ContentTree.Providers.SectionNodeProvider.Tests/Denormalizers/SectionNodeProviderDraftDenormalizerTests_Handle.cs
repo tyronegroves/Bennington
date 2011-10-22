@@ -206,5 +206,53 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Tests.Denormalize
 				&& b.Inactive == true
 				)), Times.Once());
 		}
+
+        [TestMethod]
+        public void Calls_Update_method_of_IDataModelDataContext_with_LastModifyBy_property_set_on_SectionNodeProvider_instance()
+        {
+            var id = Guid.NewGuid();
+            mocker.GetMock<IDataModelDataContext>().Setup(a => a.GetAllSectionNodeProviderDrafts())
+                .Returns(new SectionNodeProviderDraft[]
+								{
+									new SectionNodeProviderDraft()
+										{
+											SectionId = id.ToString(),
+											DefaultTreeNodeId = "x",
+										}, 
+								});
+
+            mocker.Resolve<SectionNodeProviderDraftDenormalizer>().Handle(new SectionLastModifyBySetEvent()
+            {
+                AggregateRootId = id,
+                LastModifyBy = "test"
+            });
+
+            mocker.GetMock<IDataModelDataContext>().Verify(a => a.Update(It.Is<SectionNodeProviderDraft>(b =>
+                b.LastModifyBy == "test")), Times.Once());
+        }
+
+        [TestMethod]
+        public void Calls_Update_method_of_IDataModelDataContext_with_LastModifyDate_property_set_on_SectionNodeProvider_instance()
+        {
+            var id = Guid.NewGuid();
+            mocker.GetMock<IDataModelDataContext>().Setup(a => a.GetAllSectionNodeProviderDrafts())
+                .Returns(new SectionNodeProviderDraft[]
+								{
+									new SectionNodeProviderDraft()
+										{
+											SectionId = id.ToString(),
+											DefaultTreeNodeId = "x",
+										}, 
+								});
+
+            mocker.Resolve<SectionNodeProviderDraftDenormalizer>().Handle(new SectionLastModifyDateSetEvent()
+            {
+                AggregateRootId = id,
+                LastModifyDate = new DateTime(2010, 1, 1)
+            });
+
+            mocker.GetMock<IDataModelDataContext>().Verify(a => a.Update(It.Is<SectionNodeProviderDraft>(b =>
+                b.LastModifyDate == new DateTime(2010, 1, 1))), Times.Once());
+        }
 	}
 }
