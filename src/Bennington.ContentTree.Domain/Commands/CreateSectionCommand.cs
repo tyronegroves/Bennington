@@ -13,5 +13,7 @@ namespace Bennington.ContentTree.Domain.Commands
 		public string Name { get; set; }
 		public bool Hidden { get; set; }
 		public bool Inactive { get; set; }
+
+	    public string LastModifyBy { get; set; }
 	}
 }

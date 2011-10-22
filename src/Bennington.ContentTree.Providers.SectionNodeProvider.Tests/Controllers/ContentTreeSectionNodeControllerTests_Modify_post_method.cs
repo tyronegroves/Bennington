@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Security.Principal;
 using AutoMoq;
+using Bennington.ContentTree.Contexts;
 using Bennington.ContentTree.Domain.Commands;
 using Bennington.ContentTree.Providers.SectionNodeProvider.Controllers;
 using Bennington.ContentTree.Providers.SectionNodeProvider.Models;
@@ -18,6 +20,9 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Tests.Controllers
 		public void Init()
 		{
 			mocker = new AutoMoqer();
+            mocker.GetMock<ICurrentUserContext>()
+               .Setup(a => a.GetCurrentPrincipal())
+               .Returns(new GenericPrincipal(new GenericIdentity("test"), new string[] { }));
 		}
 
 		[TestMethod]
@@ -159,5 +164,19 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Tests.Controllers
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifySectionCommand>(b => b.Inactive == true)), Times.Once());
 		}
+
+        [TestMethod]
+        public void Sends_ModifySectionCommand_with_LastModifyBy_set_when_input_model_is_valid()
+        {
+            var defaultTreeNodeId = new Guid().ToString();
+            mocker.Resolve<ContentTreeSectionNodeController>().Modify(new ContentTreeSectionInputModel()
+            {
+                Action = "action",
+                DefaultTreeNodeId = defaultTreeNodeId,
+                SectionId = Guid.NewGuid().ToString()
+            });
+
+            mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<ModifySectionCommand>(b => b.LastModifyBy == "test")), Times.Once());
+        }
 	}
 }

@@ -20,16 +20,17 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Controllers
 		private readonly ICommandBus commandBus;
 		private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
 		private readonly IGuidGetter guidGetter;
+	    private ICurrentUserContext currentUserContext;
 
-		public ContentTreeSectionNodeController(IContentTreeSectionNodeRepository contentTreeSectionNodeRepository, 
-												IContentTreeSectionNodeToContentTreeSectionInputModelMapper contentTreeSectionNodeToContentTreeSectionInputModelMapper, 
-												IContentTreeSectionInputModelToContentTreeSectionNodeMapper contentTreeSectionInputModelToContentTreeSectionNodeMapper, 
-												IContentTreeSectionNodeContext contentTreeSectionNodeContext,
+	    public ContentTreeSectionNodeController(IContentTreeSectionNodeRepository contentTreeSectionNodeRepository, 
+												IContentTreeSectionNodeToContentTreeSectionInputModelMapper contentTreeSectionNodeToContentTreeSectionInputModelMapper,
 												ICommandBus commandBus,
 												ITreeNodeSummaryContext treeNodeSummaryContext,
-												IGuidGetter guidGetter)
+												IGuidGetter guidGetter,
+                                                ICurrentUserContext currentUserContext)
 		{
-			this.guidGetter = guidGetter;
+	        this.currentUserContext = currentUserContext;
+	        this.guidGetter = guidGetter;
 			this.treeNodeSummaryContext = treeNodeSummaryContext;
 			this.commandBus = commandBus;
 			this.contentTreeSectionNodeToContentTreeSectionInputModelMapper = contentTreeSectionNodeToContentTreeSectionInputModelMapper;
@@ -43,7 +44,7 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Controllers
 			{
 				AggregateRootId = new Guid(id)
 			});
-			commandBus.Send(new DeleteSectionCommand(){ AggregateRootId = new Guid(id) });
+			commandBus.Send(new DeleteSectionCommand(){ AggregateRootId = new Guid(id), LastModifyBy = currentUserContext.GetCurrentPrincipal().Identity.Name });
 		    
             return new RedirectToRouteResult(new RouteValueDictionary { { "controller", "TreeManager" }, { "action", "Index" } });
 		}
@@ -72,6 +73,7 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Controllers
 									UrlSegment = contentTreeSectionInputModel.UrlSegment,
 									Hidden = contentTreeSectionInputModel.Hidden,
 									Inactive = contentTreeSectionInputModel.Inactive,
+                                    LastModifyBy = currentUserContext.GetCurrentPrincipal().Identity.Name,
 			                	});
 
 			if (contentTreeSectionInputModel.Action.ToLower() == "save and exit")
@@ -117,6 +119,7 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Controllers
 									Name = contentTreeSectionInputModel.Name,
 									Hidden = contentTreeSectionInputModel.Hidden,
 									Inactive = contentTreeSectionInputModel.Inactive,
+                                    LastModifyBy = currentUserContext.GetCurrentPrincipal().Identity.Name
 			                	});
 
 			if (contentTreeSectionInputModel.Action != null)
