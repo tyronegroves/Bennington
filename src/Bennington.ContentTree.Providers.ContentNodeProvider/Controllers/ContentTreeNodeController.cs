@@ -179,6 +179,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 					ActionId = contentTreeNodeInputModel.Action,
 					Hidden = contentTreeNodeInputModel.Hidden,
 					Inactive = contentTreeNodeInputModel.Inactive,
+                    LastModifyBy = currentUserContext.GetCurrentPrincipal().Identity.Name
 				};
 				commandBus.Send(modifyPageComand);
 			} else {
