@@ -1,5 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System.Security.Principal;
+using System.Web.Mvc;
 using AutoMoq;
+using Bennington.ContentTree.Contexts;
 using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers;
 using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models;
 using Bennington.ContentTree.Providers.ToolLinkNodeProvider.ViewModelBuilders;
@@ -17,6 +19,9 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Tests.Controller
 		public void Init()
 		{
 			mocker = new AutoMoqer();
+		    mocker.GetMock<ICurrentUserContext>()
+		        .Setup(a => a.GetCurrentPrincipal())
+		        .Returns(new GenericPrincipal(new GenericIdentity("test"), new string[] {}));
 		}
 
 		[TestMethod]

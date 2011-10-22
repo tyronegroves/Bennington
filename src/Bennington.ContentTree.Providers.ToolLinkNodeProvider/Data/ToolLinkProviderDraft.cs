@@ -1,4 +1,6 @@
-﻿namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Data
+﻿using System;
+
+namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Data
 {
 	public class ToolLinkProviderDraft
 	{
@@ -9,5 +11,7 @@
 		public string UrlSegment { get; set; }
 		public string Url { get; set; }
 		public bool Hidden { get; set; }
+        public DateTime LastModifyDate { get; set; }
+	    public string LastModifyBy { get; set; }
 	}
 }

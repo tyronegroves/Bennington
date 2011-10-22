@@ -18,12 +18,15 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
         private readonly IToolLinkProviderDraftRepository toolLinkProviderDraftRepository;
         private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
         private readonly ICommandBus commandBus;
+        private readonly ICurrentUserContext currentUserContext;
 
         public ToolLinkProviderNodeController(IModifyViewModelBuilder modifyViewModelBuilder,
                                                 IToolLinkProviderDraftRepository toolLinkProviderDraftRepository,
                                                 ITreeNodeSummaryContext treeNodeSummaryContext,
-                                                ICommandBus commandBus)
+                                                ICommandBus commandBus,
+                                                ICurrentUserContext currentUserContext)
         {
+            this.currentUserContext = currentUserContext;
             this.commandBus = commandBus;
             this.treeNodeSummaryContext = treeNodeSummaryContext;
             this.toolLinkProviderDraftRepository = toolLinkProviderDraftRepository;
@@ -57,6 +60,8 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
 		                    Url = toolLinkInputModel.Url,
 		                    UrlSegment = toolLinkInputModel.UrlSegment,
                             Sequence = toolLinkInputModel.Sequence,
+                            LastModifyDate = DateTime.Now,
+                            LastModifyBy = currentUserContext.GetCurrentPrincipal().Identity.Name
 		                };
 		    toolLinkProviderDraftRepository.SaveAndReturnId(toolLinkProviderDraft);
 
@@ -96,6 +101,8 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
 		                                        UrlSegment = toolLinkInputModel.UrlSegment,
 		                                        Id = toolLinkInputModel.TreeNodeId,
 		                                        Sequence = toolLinkInputModel.Sequence,
+                                                LastModifyDate = DateTime.Now,
+                                                LastModifyBy = currentUserContext.GetCurrentPrincipal().Identity.Name
 		                                    };
 
 		    toolLinkProviderDraftRepository.SaveAndReturnId(toolLinkProviderDraft);
