@@ -836,6 +836,31 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.Name == inputModel.Name)), Times.Once());
 		}
 
+        [TestMethod]
+        public void Sends_CreatePageCommand_with_LastModifyBy_set_when_attempting_to_modify_a_page_that_does_not_exist()
+        {
+            var treeNodeId = Guid.NewGuid();
+            mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.GetContentTreeNodesByTreeId(treeNodeId.ToString()))
+                .Returns(new ContentTreeNode[]
+				         	{
+				         		new ContentTreeNode()
+				         			{
+				         				TreeNodeId = treeNodeId.ToString(),
+										Action = "Index",
+				         			}, 
+							});
+            var inputModel = new ContentTreeNodeInputModel()
+            {
+                TreeNodeId = treeNodeId.ToString(),
+                Action = "Confirmation",
+                Name = "name"
+            };
+
+            mocker.Resolve<ContentTreeNodeController>().Modify(inputModel);
+
+            mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.LastModifyBy == "test")), Times.Once());
+        }
+
 		[TestMethod]
 		public void Sends_CreatePageCommand_with_correct_UrlSegment_when_attempting_to_modify_a_page_that_does_not_exist()
 		{

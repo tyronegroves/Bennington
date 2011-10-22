@@ -195,6 +195,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 										Action = contentTreeNodeInputModel.Action,
 										Hidden = contentTreeNodeInputModel.Hidden,
 										Inactive = contentTreeNodeInputModel.Inactive,
+                                        LastModifyBy = currentUserContext.GetCurrentPrincipal().Identity.Name
 				                	});
 			}
 
