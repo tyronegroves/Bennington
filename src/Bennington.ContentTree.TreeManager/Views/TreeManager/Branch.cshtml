@@ -11,8 +11,8 @@
 				        <a href="#TB_inline?height=155&width=300&inlineId=createFormContainer&modal=false" class="thickbox" onclick="$('#TreeNodeCreationInputModel_ParentTreeNodeId').val('@treeNode.TreeNodeSummary.Id');$('#createInRootLink').click();"><img src="@Url.Content("~/Content/TreeManager/PlusSign.gif")" alt="Create a child" /></a>
 			        </span>                
                 </span>
-                <span class="last-updated-date">@treeNode.LastModifyDate</span>
-                <span class="last-updated-by">@treeNode.LastModifyBy</span>
+                <span class="last-updated-date">@treeNode.TreeNodeSummary.LastModifyDate</span>
+                <span class="last-updated-by">@(treeNode.TreeNodeSummary.LastModifyBy ?? "Unknown")</span>
                 <span class="version">@treeNode.Version</span>
                 <span class="active">@(treeNode.IsActive ? "Yes" : "No")</span>
             </span>

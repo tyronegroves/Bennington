@@ -32,7 +32,6 @@ namespace Bennington.ContentTree.TreeManager.ViewModelBuilders
 				                     {
                                          TreeNodeSummary = treeNodeSummary,
                                          IsActive = true,
-                                         LastModifyBy = "Unknown",
                                          Version = 1
 				                     });
 			}

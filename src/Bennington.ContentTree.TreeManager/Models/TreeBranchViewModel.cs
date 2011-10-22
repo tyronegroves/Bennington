@@ -12,8 +12,6 @@ namespace Bennington.ContentTree.TreeManager.Models
     public class TreeBranchItemViewModel
     {
         public TreeNodeSummary TreeNodeSummary { get; set; }
-        public string LastModifyBy { get; set; }
-        public DateTime LastModifyDate { get; set; }
         public bool IsActive { get; set; }
         public int Version { get; set; }
     }
