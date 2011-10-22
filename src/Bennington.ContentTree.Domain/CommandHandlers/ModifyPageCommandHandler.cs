@@ -1,4 +1,5 @@
-﻿using Bennington.ContentTree.Domain.AggregateRoots;
+﻿using System;
+using Bennington.ContentTree.Domain.AggregateRoots;
 using Bennington.ContentTree.Domain.Commands;
 using SimpleCqrs.Commanding;
 
@@ -19,6 +20,7 @@ namespace Bennington.ContentTree.Domain.CommandHandlers
 			page.SetInactive(command.Inactive);
 			page.SetHidden(command.Hidden);
             page.SetLastModifyBy(command.LastModifyBy);
+            page.SetLastModifyDate(DateTime.Now);
 		}
 	}
 }

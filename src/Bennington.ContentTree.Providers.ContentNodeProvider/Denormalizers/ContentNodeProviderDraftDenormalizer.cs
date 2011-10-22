@@ -22,7 +22,9 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
 														IHandleDomainEvents<PageUrlSegmentSetEvent>,
 														IHandleDomainEvents<PageSequenceSetEvent>,
 														IHandleDomainEvents<PageHiddenSetEvent>,
-														IHandleDomainEvents<PageInactiveSetEvent>
+														IHandleDomainEvents<PageInactiveSetEvent>,
+                                                        IHandleDomainEvents<PageLastModifyBySetEvent>,
+                                                        IHandleDomainEvents<PageLastModifyDateSetEvent>
 	{
 		private readonly IContentNodeProviderDraftRepository contentNodeProviderDraftRepository;
 		private readonly ITreeNodeProviderContext treeNodeProviderContext;
@@ -177,5 +179,19 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
 			fileSystem.Copy(string.Format(@"{0}{1}\{3}\HeaderImage\{2}", providerUploadPath, contentNodeProviderDraft.TreeNodeId, domainEvent.HeaderImage, contentNodeProviderDraft.Action), 
 							string.Format(@"{0}{1}\HeaderImage\{2}", draftFileUploadPath, domainEvent.AggregateRootId, domainEvent.HeaderImage));
 		}
+
+	    public void Handle(PageLastModifyBySetEvent domainEvent)
+	    {
+            var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
+            contentNodeProviderDraft.LastModifyBy = domainEvent.LastModifyBy;
+            contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+	    }
+
+	    public void Handle(PageLastModifyDateSetEvent domainEvent)
+	    {
+            var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
+            contentNodeProviderDraft.LastModifyDate = domainEvent.DateTime;
+            contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+	    }
 	}
 }

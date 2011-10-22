@@ -74,5 +74,21 @@ namespace Bennington.ContentTree.Domain.AggregateRoots
 						TreeNodeId = guid,
 			      	});
 		}
+
+	    public void SetLastModifyBy(string lastModifyBy)
+	    {
+	        Apply(new SectionLastModifyBySetEvent()
+	                  {
+	                      LastModifyBy = lastModifyBy,
+	                  });
+	    }
+
+	    public void SetLastModifyDate(DateTime now)
+	    {
+	        Apply(new SectionLastModifyDateSetEvent()
+	                  {
+	                      LastModifyDate = now,
+	                  });
+	    }
 	}
 }

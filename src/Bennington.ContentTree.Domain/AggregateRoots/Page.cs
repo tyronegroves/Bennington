@@ -140,5 +140,13 @@ namespace Bennington.ContentTree.Domain.AggregateRoots
                           LastModifyBy = lastModifyBy,
                       });
         }
+
+	    public void SetLastModifyDate(DateTime now)
+	    {
+	        Apply(new PageLastModifyDateSetEvent()
+	                  {
+	                      DateTime = now,
+	                  });
+	    }
 	}
 }

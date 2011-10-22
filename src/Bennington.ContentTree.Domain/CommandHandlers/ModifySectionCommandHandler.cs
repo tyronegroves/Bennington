@@ -20,6 +20,8 @@ namespace Bennington.ContentTree.Domain.CommandHandlers
 			section.SetUrlSegment(command.UrlSegment);
 			section.SetInactive(command.Inactive);
 			section.SetHidden(command.Hidden);
+            section.SetLastModifyBy(command.LastModifyBy);
+            section.SetLastModifyDate(DateTime.Now);
 		}
 	}
 }

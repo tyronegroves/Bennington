@@ -1,4 +1,5 @@
-﻿using Bennington.ContentTree.Domain.AggregateRoots;
+﻿using System;
+using Bennington.ContentTree.Domain.AggregateRoots;
 using Bennington.ContentTree.Domain.Commands;
 using SimpleCqrs.Commanding;
 using SimpleCqrs.Domain;
@@ -32,6 +33,7 @@ namespace Bennington.ContentTree.Domain.CommandHandlers
 			page.SetMetaKeyword(command.MetaKeyword);
 			page.SetSequence(command.Sequence);
             page.SetLastModifyBy(command.LastModifyBy);
+            page.SetLastModifyDate(DateTime.Now);
 			domainRepository.Save(page);
 		}
 	}
