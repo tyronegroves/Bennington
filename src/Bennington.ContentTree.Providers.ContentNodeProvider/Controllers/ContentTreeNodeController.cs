@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Security.Principal;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Bennington.ContentTree.Contexts;
@@ -30,8 +31,10 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		private readonly ICommandBus commandBus;
 		private readonly IGuidGetter guidGetter;
 		private readonly IContentTreeNodeFileUploadPersister contentTreeNodeFileUploadPersister;
+	    private IPrincipal principal;
+	    private ICurrentUserContext currentUserContext;
 
-		public ContentTreeNodeController(IContentTreeNodeVersionContext contentTreeNodeVersionContext, 
+	    public ContentTreeNodeController(IContentTreeNodeVersionContext contentTreeNodeVersionContext, 
 											IContentTreeNodeToContentTreeNodeInputModelMapper contentTreeNodeToContentTreeNodeInputModelMapper, 
 											IContentTreeNodeInputModelToContentTreeNodeMapper contentTreeNodeInputModelToContentTreeNodeMapper, 
 											IContentTreeNodeContext contentTreeNodeContext, 
@@ -41,9 +44,11 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 											IRawUrlGetter rawUrlGetter,
 											ICommandBus commandBus,
 											IGuidGetter guidGetter,
-											IContentTreeNodeFileUploadPersister contentTreeNodeFileUploadPersister)
+											IContentTreeNodeFileUploadPersister contentTreeNodeFileUploadPersister,
+                                            ICurrentUserContext currentUserContext)
 		{
-			this.contentTreeNodeFileUploadPersister = contentTreeNodeFileUploadPersister;
+	        this.currentUserContext = currentUserContext;
+	        this.contentTreeNodeFileUploadPersister = contentTreeNodeFileUploadPersister;
 			this.guidGetter = guidGetter;
 			this.commandBus = commandBus;
 			this.rawUrlGetter = rawUrlGetter;
@@ -107,6 +112,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 									Type = Type.GetType(contentTreeNodeInputModel.Type),
 									Inactive = contentTreeNodeInputModel.Inactive,
 									Hidden = contentTreeNodeInputModel.Hidden,
+                                    LastModifyBy = currentUserContext.GetCurrentPrincipal().Identity.Name
 			                	});
 
 			if (!string.IsNullOrEmpty(contentTreeNodeInputModel.FormAction))
@@ -172,7 +178,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 					UrlSegment = contentTreeNodeInputModel.UrlSegment,
 					ActionId = contentTreeNodeInputModel.Action,
 					Hidden = contentTreeNodeInputModel.Hidden,
-					Inactive = contentTreeNodeInputModel.Inactive
+					Inactive = contentTreeNodeInputModel.Inactive,
 				};
 				commandBus.Send(modifyPageComand);
 			} else {

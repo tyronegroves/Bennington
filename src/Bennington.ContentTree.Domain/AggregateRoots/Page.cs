@@ -132,5 +132,13 @@ namespace Bennington.ContentTree.Domain.AggregateRoots
 				PageSequence = sequence
 			});
 		}
+
+        public void SetLastModifyBy(string lastModifyBy)
+        {
+            Apply(new PageLastModifyBySetEvent()
+                      {
+                          LastModifyBy = lastModifyBy,
+                      });
+        }
 	}
 }

@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\Page\PageLastModifyBySetEvent.cs" />
     <Compile Include="AggregateRoots\TreeNode.cs" />
     <Compile Include="CommandHandlers\PublishPageCommandHandler.cs" />
     <Compile Include="CommandHandlers\DeleteTreeNodeCommandHandler.cs" />

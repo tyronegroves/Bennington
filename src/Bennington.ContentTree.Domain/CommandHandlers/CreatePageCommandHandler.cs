@@ -31,6 +31,7 @@ namespace Bennington.ContentTree.Domain.CommandHandlers
 			page.SetMetaDescription(command.MetaDescription);
 			page.SetMetaKeyword(command.MetaKeyword);
 			page.SetSequence(command.Sequence);
+            page.SetLastModifyBy(command.LastModifyBy);
 			domainRepository.Save(page);
 		}
 	}

@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Security.Principal;
 using System.Web.Mvc;
+using System.Web.Security;
 using AutoMoq;
+using Bennington.ContentTree.Contexts;
 using Bennington.ContentTree.Domain.Commands;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Context;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Controllers;
@@ -22,6 +25,10 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 		public void Init()
 		{
 			mocker = new AutoMoqer();
+
+            mocker.GetMock<ICurrentUserContext>()
+                .Setup(a => a.GetCurrentPrincipal())
+                .Returns(new GenericPrincipal(new GenericIdentity("test"), new string[] { }));
 		}
 
 		[TestMethod]
@@ -324,6 +331,23 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.HeaderImage == contentTreeNodeInputModel.HeaderImage)), Times.Once());
 		}
+
+        [TestMethod]
+        public void Sends_CreatePageCommand_command_with_LastModifyBy_property_set_when_ModelState_is_valid()
+        {
+            mocker.GetMock<IContentTreeNodeContext>().Setup(a => a.CreateTreeNodeAndReturnTreeNodeId(It.IsAny<ContentTreeNodeInputModel>())).Returns(new Guid().ToString());
+            var contentTreeNodeInputModel = new ContentTreeNodeInputModel()
+                                                {
+                                                    ParentTreeNodeId = "2",
+                                                    Type = typeof(string).AssemblyQualifiedName,
+                                                    HeaderImage = "test"
+                                                };
+
+            mocker.Resolve<ContentTreeNodeController>().Create(contentTreeNodeInputModel);
+
+            mocker.GetMock<ICommandBus>()
+                .Verify(a => a.Send(It.Is<CreatePageCommand>(b => b.LastModifyBy == "test")), Times.Once());
+        }
 
 		[TestMethod]
 		public void Does_not_send_CreatePageCommand_command_when_ModelState_is_not_valid()

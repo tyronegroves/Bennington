@@ -18,6 +18,7 @@ namespace Bennington.ContentTree.Domain.CommandHandlers
 			page.SetActionId(command.ActionId);
 			page.SetInactive(command.Inactive);
 			page.SetHidden(command.Hidden);
+            page.SetLastModifyBy(command.LastModifyBy);
 		}
 	}
 }

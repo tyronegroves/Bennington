@@ -19,6 +19,7 @@ namespace Bennington.ContentTree.Domain.Commands
 		public string MetaTitle { get; set; }
 		public Guid TreeNodeId { get; set; }
 		public string Action { get; set; }
+        public string LastModifyBy { get; set; }
 
 		public Guid PageId
 		{

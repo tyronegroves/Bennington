@@ -6,5 +6,6 @@ namespace Bennington.ContentTree.Domain.Commands
 	public class DeletePageCommand : CommandWithAggregateRootId
 	{
 		public Guid TreeNodeId {get; set;}
+        public string LastModifyBy { get; set; }
 	}
 }
