@@ -33,7 +33,7 @@ namespace Bennington.ContentTree.TreeManager.Tests.ViewModelBuilders
 			var treeBranchViewModelBuilder = mocker.Resolve<TreeBranchViewModelBuilder>();
 			var result = treeBranchViewModelBuilder.BuildViewModel("1");
 
-			Assert.AreEqual("Unknown", result.TreeNodeSummaries.First().Name);
+			Assert.AreEqual("Unknown", result.TreeNodeSummaries.First().TreeNodeSummary.Name);
 		}
 
 		[TestMethod]

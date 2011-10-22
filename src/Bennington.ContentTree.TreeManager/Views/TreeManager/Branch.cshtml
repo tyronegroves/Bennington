@@ -3,18 +3,18 @@
 @model Bennington.ContentTree.TreeManager.Models.TreeBranchViewModel
     
 	@foreach (var treeNode in Model.TreeNodeSummaries) {
-		<li id="@treeNode.Id" class="@(treeNode.HasChildren ? "jstree-closed" : string.Empty)">
-            <span class="name"><a href="@Url.Action(treeNode.ActionToUseForModification, treeNode.ControllerToUseForModification, treeNode.RouteValuesForModification)"><img src="@Url.Content("~")@treeNode.IconUrl" alt="@treeNode.Name" />@treeNode.Name</a></span>
+		<li id="@treeNode.TreeNodeSummary.Id" class="@(treeNode.TreeNodeSummary.HasChildren ? "jstree-closed" : string.Empty)">
+            <span class="name"><a href="@Url.Action(treeNode.TreeNodeSummary.ActionToUseForModification, treeNode.TreeNodeSummary.ControllerToUseForModification, treeNode.TreeNodeSummary.RouteValuesForModification)"><img src="@Url.Content("~")@treeNode.TreeNodeSummary.IconUrl" alt="@treeNode.TreeNodeSummary.Name" />@treeNode.TreeNodeSummary.Name</a></span>
             <span class="tree-meta">
                 <span class="tools">
 			        <span class="noicon">
-				        <a href="#TB_inline?height=155&width=300&inlineId=createFormContainer&modal=false" class="thickbox" onclick="$('#TreeNodeCreationInputModel_ParentTreeNodeId').val('@treeNode.Id');$('#createInRootLink').click();"><img src="@Url.Content("~/Content/TreeManager/PlusSign.gif")" alt="Create a child" /></a>
+				        <a href="#TB_inline?height=155&width=300&inlineId=createFormContainer&modal=false" class="thickbox" onclick="$('#TreeNodeCreationInputModel_ParentTreeNodeId').val('@treeNode.TreeNodeSummary.Id');$('#createInRootLink').click();"><img src="@Url.Content("~/Content/TreeManager/PlusSign.gif")" alt="Create a child" /></a>
 			        </span>                
                 </span>
-                <span class="last-updated-date">04/12/2012 - 5:54PM CST</span>
-                <span class="last-updated-by">Tyrone Groves</span>
-                <span class="version">4</span>
-                <span class="active">Yes</span>
+                <span class="last-updated-date">@treeNode.LastModifyDate</span>
+                <span class="last-updated-by">@treeNode.LastModifyBy</span>
+                <span class="version">@treeNode.Version</span>
+                <span class="active">@(treeNode.IsActive ? "Yes" : "No")</span>
             </span>
 		</li>
 	}

@@ -22,13 +22,19 @@ namespace Bennington.ContentTree.TreeManager.ViewModelBuilders
 
 		public TreeBranchViewModel BuildViewModel(string parentNodeId)
 		{
-			var listToReturn = new List<TreeNodeSummary>();
+            var listToReturn = new List<TreeBranchItemViewModel>();
 			var treeNodeSummaries = treeNodeSummaryContext.GetChildren(parentNodeId).OrderBy(a => a.Sequence ?? 999999);
 			foreach (var treeNodeSummary in treeNodeSummaries)
 			{
 				if (string.IsNullOrEmpty(treeNodeSummary.Name))
 					treeNodeSummary.Name = "Unknown";
-				listToReturn.Add(treeNodeSummary);
+				listToReturn.Add(new TreeBranchItemViewModel()
+				                     {
+                                         TreeNodeSummary = treeNodeSummary,
+                                         IsActive = true,
+                                         LastModifyBy = "Unknown",
+                                         Version = 1
+				                     });
 			}
 			return new TreeBranchViewModel()
 			       	{
