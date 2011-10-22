@@ -72,3 +72,12 @@ div.contentTree ul li a img
 #vakata-contextmenu.jstree-default-context li ul { margin-left:-4px; }
 
 /* TODO: IE6 support - the `>` selectors */
+
+.jstree-default li { position: relative; }
+.tree-meta { display: block; color: #000; position: absolute; top: 0; right: 0; }
+.tree-meta > span { display: inline-block; overflow: hidden; line-height: 30px; height: 30px; padding: 0 8px; border-left: 2px solid #fff; text-align: center; }
+.tree-meta .tools { width: 50px; }
+.tree-meta .last-updated-date { width: 150px; }
+.tree-meta .last-updated-by { width: 150px; }
+.tree-meta .version { width: 30px; }
+.tree-meta .active { width: 30px; }

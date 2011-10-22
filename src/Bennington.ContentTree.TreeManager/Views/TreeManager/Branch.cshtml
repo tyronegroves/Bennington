@@ -4,9 +4,17 @@
     
 	@foreach (var treeNode in Model.TreeNodeSummaries) {
 		<li id="@treeNode.Id" class="@(treeNode.HasChildren ? "jstree-closed" : string.Empty)">
-			<span class="noicon">
-				<a href="#TB_inline?height=155&width=300&inlineId=createFormContainer&modal=false" class="thickbox" onclick="$('#TreeNodeCreationInputModel_ParentTreeNodeId').val('@treeNode.Id');$('#createInRootLink').click();"><img src="@Url.Content("~/Content/TreeManager/PlusSign.gif")" alt="Create a child" /></a>
-			</span>
-            <a href="@Url.Action(treeNode.ActionToUseForModification, treeNode.ControllerToUseForModification, treeNode.RouteValuesForModification)"><img src="@Url.Content("~")@treeNode.IconUrl" alt="@treeNode.Name" />@treeNode.Name</a>
+            <span class="name"><a href="@Url.Action(treeNode.ActionToUseForModification, treeNode.ControllerToUseForModification, treeNode.RouteValuesForModification)"><img src="@Url.Content("~")@treeNode.IconUrl" alt="@treeNode.Name" />@treeNode.Name</a></span>
+            <span class="tree-meta">
+                <span class="tools">
+			        <span class="noicon">
+				        <a href="#TB_inline?height=155&width=300&inlineId=createFormContainer&modal=false" class="thickbox" onclick="$('#TreeNodeCreationInputModel_ParentTreeNodeId').val('@treeNode.Id');$('#createInRootLink').click();"><img src="@Url.Content("~/Content/TreeManager/PlusSign.gif")" alt="Create a child" /></a>
+			        </span>                
+                </span>
+                <span class="last-updated-date">04/12/2012 - 5:54PM CST</span>
+                <span class="last-updated-by">Tyrone Groves</span>
+                <span class="version">4</span>
+                <span class="active">Yes</span>
+            </span>
 		</li>
 	}
