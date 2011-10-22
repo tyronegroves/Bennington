@@ -524,6 +524,112 @@ namespace Bennington.ContentTree.Tests.Contexts
 
 			Assert.AreEqual(1, result.Count());
 		}
+
+        [TestMethod]
+        public void Returns_1_result_with_LastModifyBy_property_set_from_provider()
+        {
+            var fakeTreeNodeExtensionProvider = new Mock<IAmATreeNodeExtensionProvider>();
+            fakeTreeNodeExtensionProvider.Setup(a => a.GetAll())
+                .Returns(new FakeTreeNode[]
+				         	{
+								new FakeTreeNode()
+									{
+										TreeNodeId = "1",
+                                        LastModifyBy = "test"
+									}, 
+								new FakeTreeNode()
+									{
+										TreeNodeId = "2",
+										Name = "fake tree node name",
+                                        LastModifyBy = "test"
+									}, 
+								new FakeTreeNode()
+									{
+										TreeNodeId = "3",
+                                        LastModifyBy = "test"
+									}, 
+				         	}.AsQueryable());
+            fakeTreeNodeExtensionProvider.SetupProperty(a => a.ActionToUseForModification, "FakeTreeNodeExtensionProviderAction");
+            mocker.GetMock<ITreeNodeProviderContext>().Setup(a => a.GetProviderByTypeName("FakeTreeNodeExtensionProvider"))
+                .Returns(fakeTreeNodeExtensionProvider.Object);
+            mocker.GetMock<ITreeNodeRepository>().Setup(a => a.GetAll())
+                .Returns(new TreeNode[]
+				         	{
+				         		new TreeNode()
+				         			{
+										Id = "1",
+				         			},
+				         		new TreeNode()
+				         			{
+				         				ParentTreeNodeId = "1",
+										Id = "2",
+										Type = "FakeTreeNodeExtensionProvider",
+				         			},
+				         		new TreeNode()
+				         			{
+										Id = "3",
+				         				ParentTreeNodeId = "2",
+				         			},
+							}.AsQueryable());
+
+            var treeNodeSummarContext = mocker.Resolve<TreeNodeSummaryContext>();
+            var result = treeNodeSummarContext.GetChildren("1");
+
+            Assert.AreEqual("test", result.First().LastModifyBy);
+        }
+
+        [TestMethod]
+        public void Returns_1_result_with_LastModifyDate_property_set_from_provider()
+        {
+            var fakeTreeNodeExtensionProvider = new Mock<IAmATreeNodeExtensionProvider>();
+            fakeTreeNodeExtensionProvider.Setup(a => a.GetAll())
+                .Returns(new FakeTreeNode[]
+				         	{
+								new FakeTreeNode()
+									{
+										TreeNodeId = "1",
+                                        LastModifyDate = new DateTime(2010, 1, 1)
+									}, 
+								new FakeTreeNode()
+									{
+										TreeNodeId = "2",
+										Name = "fake tree node name",
+                                        LastModifyDate = new DateTime(2010, 1, 1)
+									}, 
+								new FakeTreeNode()
+									{
+										TreeNodeId = "3",
+                                        LastModifyDate = new DateTime(2010, 1, 1)
+									}, 
+				         	}.AsQueryable());
+            fakeTreeNodeExtensionProvider.SetupProperty(a => a.ActionToUseForModification, "FakeTreeNodeExtensionProviderAction");
+            mocker.GetMock<ITreeNodeProviderContext>().Setup(a => a.GetProviderByTypeName("FakeTreeNodeExtensionProvider"))
+                .Returns(fakeTreeNodeExtensionProvider.Object);
+            mocker.GetMock<ITreeNodeRepository>().Setup(a => a.GetAll())
+                .Returns(new TreeNode[]
+				         	{
+				         		new TreeNode()
+				         			{
+										Id = "1",
+				         			},
+				         		new TreeNode()
+				         			{
+				         				ParentTreeNodeId = "1",
+										Id = "2",
+										Type = "FakeTreeNodeExtensionProvider",
+				         			},
+				         		new TreeNode()
+				         			{
+										Id = "3",
+				         				ParentTreeNodeId = "2",
+				         			},
+							}.AsQueryable());
+
+            var treeNodeSummarContext = mocker.Resolve<TreeNodeSummaryContext>();
+            var result = treeNodeSummarContext.GetChildren("1");
+
+            Assert.AreEqual(new DateTime(2010, 1, 1), result.First().LastModifyDate);
+        }
 	}
 
 	public class FakeTreeNode : IAmATreeNodeExtension
@@ -550,6 +656,10 @@ namespace Bennington.ContentTree.Tests.Contexts
 	        get { return string.Empty; }
 	        set { throw new NotImplementedException(); }
 	    }
+
+        public DateTime LastModifyDate { get; set; }
+
+        public string LastModifyBy { get; set; }
 
 	    public IEnumerable<ContentTreeNodeContentItem> ContentTreeNodeContentItems
 		{

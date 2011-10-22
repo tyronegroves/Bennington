@@ -1,4 +1,6 @@
-﻿namespace Bennington.ContentTree.Models
+﻿using System;
+
+namespace Bennington.ContentTree.Models
 {
 	public class TreeNodeSummary
 	{
@@ -18,5 +20,7 @@
         public string IconUrl { get; set; }
 		public bool MayHaveChildNodes { get; set; }
 		public bool Hidden { get; set; }
+        public DateTime LastModifyDate { get; set; }
+        public string LastModifyBy { get; set; }
 	}
 }

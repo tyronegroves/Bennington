@@ -19,6 +19,9 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Models
 	        set { throw new NotImplementedException(); }
 	    }
 
+	    public DateTime LastModifyDate { get; set; }
+	    public string LastModifyBy { get; set; }
+
 	    public bool Hidden { get; set; }
 	}
 }

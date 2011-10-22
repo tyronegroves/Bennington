@@ -1,4 +1,6 @@
-﻿namespace Bennington.ContentTree.Providers.ContentNodeProvider.Data
+﻿using System;
+
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Data
 {
 	public class ContentNodeProviderPublishedVersion
 	{
@@ -16,5 +18,7 @@
 		public string Body { get; set; }
 		public bool Inactive { get; set; }
 		public bool Hidden { get; set; }
+        public DateTime LastModifyDate { get; set; }
+        public string LastModifyBy { get; set; }
 	}
 }

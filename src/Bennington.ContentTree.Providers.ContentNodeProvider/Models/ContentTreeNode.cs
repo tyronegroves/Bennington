@@ -23,6 +23,9 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Models
 	        set { pathToIcon = value; }
 	    }
 
+	    public DateTime LastModifyDate { get; set; }
+	    public string LastModifyBy { get; set; }
+
 	    public bool Hidden { get; set; }
 	}
 }

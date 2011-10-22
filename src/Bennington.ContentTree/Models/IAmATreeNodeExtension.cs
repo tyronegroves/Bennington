@@ -1,4 +1,6 @@
-﻿namespace Bennington.ContentTree.Models
+﻿using System;
+
+namespace Bennington.ContentTree.Models
 {
 	public interface IAmATreeNodeExtension
 	{
@@ -9,5 +11,7 @@
 		bool Hidden { get; set; }
 		bool Inactive { get; set; }
 	    string IconUrl { get; set; }
+        DateTime LastModifyDate { get; set; }
+        string LastModifyBy { get; set; }
 	}
 }
