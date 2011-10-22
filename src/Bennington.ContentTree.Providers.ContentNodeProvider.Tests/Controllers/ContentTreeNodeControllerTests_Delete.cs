@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Security.Principal;
 using System.Web.Mvc;
 using AutoMoq;
+using Bennington.ContentTree.Contexts;
 using Bennington.ContentTree.Domain.Commands;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -18,6 +20,9 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 		public void Init()
 		{
 			mocker = new AutoMoqer();
+            mocker.GetMock<ICurrentUserContext>()
+                .Setup(a => a.GetCurrentPrincipal())
+                .Returns(new GenericPrincipal(new GenericIdentity("test"), new string[] { }));
 		}
 
 		[TestMethod]
@@ -27,9 +32,6 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			var result = contentTreeNodeController.Delete(new Guid().ToString());
 
 			Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));
-			var redirectToRouteResult = (RedirectToRouteResult) result;
-			//Assert.AreEqual(1, redirectToRouteResult.RouteValues.ToArray().Where(a => a.Key == "controller").Where(a => a.Value == "ContentTree").Count());
-			//Assert.AreEqual(1, redirectToRouteResult.RouteValues.Where(a => a.Key == "action").Where(a => a.Value == "index").Count());
 		}
 
 		[TestMethod]
@@ -42,6 +44,17 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 
 			mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<DeletePageCommand>(b => b.AggregateRootId == treeNodeId)), Times.Once());
 		}
+
+        [TestMethod]
+        public void Sends_DeletePageCommand_with_LastModifyBy_set()
+        {
+            var treeNodeId = new Guid();
+
+            var contentTreeNodeController = mocker.Resolve<ContentTreeNodeController>();
+            contentTreeNodeController.Delete(treeNodeId.ToString());
+
+            mocker.GetMock<ICommandBus>().Verify(a => a.Send(It.Is<DeletePageCommand>(b => b.LastModifyBy == "test")), Times.Once());
+        }
 
 		[TestMethod]
 		public void Sends_DeleteTreeNodeCommand()

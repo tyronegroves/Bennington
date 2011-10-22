@@ -77,6 +77,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 			                	{
 									TreeNodeId = treeNodeGuidId,
 									AggregateRootId = treeNodeGuidId,
+                                    LastModifyBy = currentUserContext.GetCurrentPrincipal().Identity.Name
 			                	});
 			return new RedirectToRouteResult(new RouteValueDictionary { { "controller", "TreeManager" }, { "action", "Index" }});
 		}
