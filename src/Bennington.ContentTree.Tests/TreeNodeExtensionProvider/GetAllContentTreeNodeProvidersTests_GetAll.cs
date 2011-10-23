@@ -5,7 +5,6 @@ using System.Web.Routing;
 using AutoMoq;
 using Bennington.ContentTree.Contexts;
 using Bennington.ContentTree.Models;
-using Bennington.ContentTree.TreeNodeExtensionProvider;
 using Bennington.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

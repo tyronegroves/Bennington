@@ -87,7 +87,7 @@
     <Compile Include="Contexts\TreeNodeSummaryContext.cs" />
     <Compile Include="Repositories\TreeNodeRepository.cs" />
     <Compile Include="Contexts\TreeNodeProviderContext.cs" />
-    <Compile Include="TreeNodeExtensionProvider\IAmATreeNodeExtensionProvider.cs" />
+    <Compile Include="IAmATreeNodeExtensionProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />

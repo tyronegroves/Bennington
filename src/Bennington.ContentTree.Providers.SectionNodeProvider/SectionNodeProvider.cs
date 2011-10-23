@@ -5,7 +5,6 @@ using System.Web.Routing;
 using Bennington.ContentTree.Contexts;
 using Bennington.ContentTree.Models;
 using Bennington.ContentTree.Providers.SectionNodeProvider.Repositories;
-using Bennington.ContentTree.TreeNodeExtensionProvider;
 
 namespace Bennington.ContentTree.Providers.SectionNodeProvider
 {

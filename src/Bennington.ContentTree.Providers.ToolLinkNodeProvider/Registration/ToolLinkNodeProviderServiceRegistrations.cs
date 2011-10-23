@@ -1,5 +1,4 @@
-﻿using Bennington.ContentTree.TreeNodeExtensionProvider;
-using MvcTurbine.ComponentModel;
+﻿using MvcTurbine.ComponentModel;
 
 namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Registration
 {

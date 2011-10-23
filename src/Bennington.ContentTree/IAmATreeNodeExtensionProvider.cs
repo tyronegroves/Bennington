@@ -2,7 +2,7 @@
 using System.Linq;
 using Bennington.ContentTree.Models;
 
-namespace Bennington.ContentTree.TreeNodeExtensionProvider
+namespace Bennington.ContentTree
 {
 	public interface IAmATreeNodeExtensionProvider
 	{

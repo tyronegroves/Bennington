@@ -6,7 +6,6 @@ using Bennington.ContentTree.Contexts;
 using Bennington.ContentTree.Data;
 using Bennington.ContentTree.Models;
 using Bennington.ContentTree.Repositories;
-using Bennington.ContentTree.TreeNodeExtensionProvider;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -630,6 +629,59 @@ namespace Bennington.ContentTree.Tests.Contexts
 
             Assert.AreEqual(new DateTime(2010, 1, 1), result.First().LastModifyDate);
         }
+
+        [TestMethod]
+        public void Returns_1_result_with_Active_property_set_from_provider()
+        {
+            var fakeTreeNodeExtensionProvider = new Mock<IAmATreeNodeExtensionProvider>();
+            fakeTreeNodeExtensionProvider.Setup(a => a.GetAll())
+                .Returns(new FakeTreeNode[]
+				         	{
+								new FakeTreeNode()
+									{
+										TreeNodeId = "1",
+                                        Inactive = false
+									}, 
+								new FakeTreeNode()
+									{
+										TreeNodeId = "2",
+										Name = "fake tree node name",
+                                        Inactive = false
+									}, 
+								new FakeTreeNode()
+									{
+										TreeNodeId = "3",
+                                        Inactive = false
+									}, 
+				         	}.AsQueryable());
+            fakeTreeNodeExtensionProvider.SetupProperty(a => a.ActionToUseForModification, "FakeTreeNodeExtensionProviderAction");
+            mocker.GetMock<ITreeNodeProviderContext>().Setup(a => a.GetProviderByTypeName("FakeTreeNodeExtensionProvider"))
+                .Returns(fakeTreeNodeExtensionProvider.Object);
+            mocker.GetMock<ITreeNodeRepository>().Setup(a => a.GetAll())
+                .Returns(new TreeNode[]
+				         	{
+				         		new TreeNode()
+				         			{
+										Id = "1",
+				         			},
+				         		new TreeNode()
+				         			{
+				         				ParentTreeNodeId = "1",
+										Id = "2",
+										Type = "FakeTreeNodeExtensionProvider",
+				         			},
+				         		new TreeNode()
+				         			{
+										Id = "3",
+				         				ParentTreeNodeId = "2",
+				         			},
+							}.AsQueryable());
+
+            var treeNodeSummarContext = mocker.Resolve<TreeNodeSummaryContext>();
+            var result = treeNodeSummarContext.GetChildren("1");
+            
+            Assert.IsTrue(result.First().Active);
+        }
 	}
 
 	public class FakeTreeNode : IAmATreeNodeExtension
@@ -645,11 +697,7 @@ namespace Bennington.ContentTree.Tests.Contexts
 			set;
 		}
 
-		public bool Inactive
-		{
-			get { throw new NotImplementedException(); }
-			set { throw new NotImplementedException(); }
-		}
+        public bool Inactive { get; set; }
 
 	    public string IconUrl
 	    {

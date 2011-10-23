@@ -8,7 +8,6 @@ using Bennington.ContentTree.Data;
 using Bennington.ContentTree.Domain.Commands;
 using Bennington.ContentTree.Models;
 using Bennington.ContentTree.Repositories;
-using Bennington.ContentTree.TreeNodeExtensionProvider;
 using Bennington.Core.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;

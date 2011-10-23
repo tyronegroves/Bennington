@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Bennington.ContentTree.TreeNodeExtensionProvider;
+using Bennington.ContentTree;
 using MvcTurbine.ComponentModel;
 
 namespace SampleFeature

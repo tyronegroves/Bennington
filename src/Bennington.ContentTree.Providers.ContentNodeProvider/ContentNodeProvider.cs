@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web.Routing;
 using Bennington.ContentTree.Models;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Context;
-using Bennington.ContentTree.TreeNodeExtensionProvider;
 
 namespace Bennington.ContentTree.Providers.ContentNodeProvider
 {

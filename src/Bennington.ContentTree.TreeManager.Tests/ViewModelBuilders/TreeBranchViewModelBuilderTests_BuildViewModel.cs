@@ -62,5 +62,41 @@ namespace Bennington.ContentTree.TreeManager.Tests.ViewModelBuilders
 
 			Assert.AreEqual(0, result.TreeNodeSummaries.Count());
 		}
+
+        [TestMethod]
+        public void Sets_IsActive_property_to_true_when_item_is_active()
+        {
+            mocker.GetMock<ITreeNodeSummaryContext>().Setup(a => a.GetChildren("1"))
+                .Returns(new TreeNodeSummary[]
+				         	{
+				         		new TreeNodeSummary()
+				         			{
+				         				Active = true,
+				         			}, 
+							});
+
+            var treeBranchViewModelBuilder = mocker.Resolve<TreeBranchViewModelBuilder>();
+            var result = treeBranchViewModelBuilder.BuildViewModel("1");
+
+            Assert.IsTrue(result.TreeNodeSummaries.First().IsActive);
+        }
+
+        [TestMethod]
+        public void Sets_IsActive_property_to_false_when_item_is_not_active()
+        {
+            mocker.GetMock<ITreeNodeSummaryContext>().Setup(a => a.GetChildren("1"))
+                .Returns(new TreeNodeSummary[]
+				         	{
+				         		new TreeNodeSummary()
+				         			{
+				         				Active = false,
+				         			}, 
+							});
+
+            var treeBranchViewModelBuilder = mocker.Resolve<TreeBranchViewModelBuilder>();
+            var result = treeBranchViewModelBuilder.BuildViewModel("1");
+
+            Assert.IsFalse(result.TreeNodeSummaries.First().IsActive);
+        }
 	}
 }

@@ -10,7 +10,6 @@ using Bennington.ContentTree.Models;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Controllers;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
 using Bennington.ContentTree.Repositories;
-using Bennington.ContentTree.TreeNodeExtensionProvider;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers

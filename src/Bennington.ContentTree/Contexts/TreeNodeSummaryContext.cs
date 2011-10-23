@@ -5,7 +5,6 @@ using Bennington.ContentTree.Data;
 using Bennington.ContentTree.Domain.Commands;
 using Bennington.ContentTree.Models;
 using Bennington.ContentTree.Repositories;
-using Bennington.ContentTree.TreeNodeExtensionProvider;
 using Bennington.Core.Helpers;
 using SimpleCqrs.Commanding;
 
@@ -103,7 +102,8 @@ namespace Bennington.ContentTree.Contexts
 						Hidden = treeNodeExtension.Hidden,
                         IconUrl = treeNodeExtension.IconUrl,
                         LastModifyBy = treeNodeExtension.LastModifyBy,
-                        LastModifyDate = treeNodeExtension.LastModifyDate
+                        LastModifyDate = treeNodeExtension.LastModifyDate,
+                        Active = !treeNodeExtension.Inactive
 			       	};
 			return treeNodeSummary;
 		}

@@ -13,7 +13,6 @@ using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Routing;
 using Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders.Helpers;
 using Bennington.ContentTree.Repositories;
-using Bennington.ContentTree.TreeNodeExtensionProvider;
 using MvcTurbine.ComponentModel;
 using MvcTurbine.Routing;
 
@@ -72,7 +71,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 			get { return null; }
 		}
 
-		public IEnumerable<ContentTreeNodeContentItem> ContentTreeNodeContentItems
+		public virtual IEnumerable<ContentTreeNodeContentItem> ContentTreeNodeContentItems
 		{
 			get
 			{
@@ -100,7 +99,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 			set { throw new NotImplementedException(); }
 		}
 
-		public void RegisterRouteForTreeNodeId(string treeNodeId)
+		public virtual void RegisterRouteForTreeNodeId(string treeNodeId)
 		{
 			var routeValueDictionary = new RouteValueDictionary();
 			routeValueDictionary.Add("Controller", GetControllerNameFromThisType());
@@ -129,7 +128,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 			set { throw new NotImplementedException(); }
 		}
 
-		public void Register(RouteCollection routes)
+		public virtual void Register(RouteCollection routes)
 		{
 		    // add catch-all routes for incoming routes that will match dynamically created controllers
             for (var n = 0; n < 10; n++)
@@ -189,16 +188,6 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		{
 			return GetType().Name.Replace("Controller", string.Empty);
 		}
-
-        private string GetUrlPatternForDepth(int maxDepth)
-        {
-            var builder = new StringBuilder("{nodesegment-0}/{action}");
-
-            //for (var i = 1; i < maxDepth; i++)
-            //    builder.AppendFormat("/{{nodesegment-{0}}}", i);
-
-            return builder.ToString();
-        }
 
         public bool Match(HttpContextBase httpContext, Route route, string parameterName, RouteValueDictionary values, RouteDirection routeDirection)
         {

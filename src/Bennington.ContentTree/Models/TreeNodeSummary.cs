@@ -22,5 +22,6 @@ namespace Bennington.ContentTree.Models
 		public bool Hidden { get; set; }
         public DateTime LastModifyDate { get; set; }
         public string LastModifyBy { get; set; }
+        public bool Active { get; set; }
 	}
 }
