@@ -13,8 +13,7 @@
                 </span>
                 <span class="last-updated-date">@treeNode.TreeNodeSummary.LastModifyDate</span>
                 <span class="last-updated-by">@(treeNode.TreeNodeSummary.LastModifyBy ?? "Unknown")</span>
-                <span class="version">@treeNode.Version</span>
-                <span class="active">@(treeNode.IsActive ? "Yes" : "No")</span>
+                <span class="active">@(treeNode.TreeNodeSummary.Active ? "Active" : "Inactive")</span>
             </span>
 		</li>
 	}

@@ -12,7 +12,5 @@ namespace Bennington.ContentTree.TreeManager.Models
     public class TreeBranchItemViewModel
     {
         public TreeNodeSummary TreeNodeSummary { get; set; }
-        public bool IsActive { get; set; }
-        public int Version { get; set; }
     }
 }

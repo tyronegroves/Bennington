@@ -31,8 +31,6 @@ namespace Bennington.ContentTree.TreeManager.ViewModelBuilders
 				listToReturn.Add(new TreeBranchItemViewModel()
 				                     {
                                          TreeNodeSummary = treeNodeSummary,
-                                         IsActive = treeNodeSummary.Active,
-                                         Version = 1
 				                     });
 			}
 			return new TreeBranchViewModel()

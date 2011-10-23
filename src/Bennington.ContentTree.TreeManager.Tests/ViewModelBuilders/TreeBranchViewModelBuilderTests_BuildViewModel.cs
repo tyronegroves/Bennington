@@ -78,7 +78,7 @@ namespace Bennington.ContentTree.TreeManager.Tests.ViewModelBuilders
             var treeBranchViewModelBuilder = mocker.Resolve<TreeBranchViewModelBuilder>();
             var result = treeBranchViewModelBuilder.BuildViewModel("1");
 
-            Assert.IsTrue(result.TreeNodeSummaries.First().IsActive);
+            Assert.IsTrue(result.TreeNodeSummaries.First().TreeNodeSummary.Active);
         }
 
         [TestMethod]
@@ -96,7 +96,7 @@ namespace Bennington.ContentTree.TreeManager.Tests.ViewModelBuilders
             var treeBranchViewModelBuilder = mocker.Resolve<TreeBranchViewModelBuilder>();
             var result = treeBranchViewModelBuilder.BuildViewModel("1");
 
-            Assert.IsFalse(result.TreeNodeSummaries.First().IsActive);
+            Assert.IsFalse(result.TreeNodeSummaries.First().TreeNodeSummary.Active);
         }
 	}
 }
