@@ -132,7 +132,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		public void Register(RouteCollection routes)
 		{
 		    // add catch-all routes for incoming routes that will match dynamically created controllers
-            for (var n = 0; n < 3 /*ContentTreeRouteRegistrator.MaxDepthForContentTreeUrlSegments*/; n++)
+            for (var n = 0; n < 10; n++)
             {
                 var sb = new StringBuilder();
                 for (var x = 0; x <= n; x++)
@@ -228,11 +228,5 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 
 	        return values[string.Format("nodesegment-{0}", n - 1)].ToString();
 	    }
-
-	    private TreeNodeSummary FindByUrlSegment(string urlSegment, string parentTreeNodeId)
-        {
-            var children = treeNodeSummaryContext.GetChildren(parentTreeNodeId).Where(a => a.Type == GetType().AssemblyQualifiedName);
-            return children.Where(a => a.UrlSegment == urlSegment).FirstOrDefault();
-        }
     }
 }
