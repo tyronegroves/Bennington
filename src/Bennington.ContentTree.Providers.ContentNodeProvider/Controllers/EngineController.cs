@@ -145,16 +145,19 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
             foreach (var treeNode in treeNodeRepository.GetAll().Where(a => a.Type == this.GetType().AssemblyQualifiedName))
             {
                 var url = treeNodeIdToUrl.GetUrlByTreeNodeId(treeNode.Id);
-                if (url.StartsWith("/")) url = url.Substring(1);
-                url = url + "/{action}";
+                if (url != null)
+                {
+                    if (url.StartsWith("/")) url = url.Substring(1);
+                    url = url + "/{action}";
 
-                var controllerName = (this.GetType().Name ?? string.Empty).Replace("Controller", string.Empty);
+                    var controllerName = (this.GetType().Name ?? string.Empty).Replace("Controller", string.Empty);
 
-                routes.MapRoute(
-                    null,
-                    url,
-                    new { controller = controllerName, action = "Index" }
-                );
+                    routes.MapRoute(
+                        null,
+                        url,
+                        new { controller = controllerName, action = "Index" }
+                    );                    
+                }
             }
 		}
 

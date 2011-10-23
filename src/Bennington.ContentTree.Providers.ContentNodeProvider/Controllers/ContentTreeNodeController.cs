@@ -33,7 +33,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		private readonly IContentTreeNodeFileUploadPersister contentTreeNodeFileUploadPersister;
 	    private readonly ICurrentUserContext currentUserContext;
 	    private readonly ITreeNodeIdToUrl treeNodeIdToUrl;
-	    private IGetUrlOfFrontSideWebsite getUrlOfFrontSideWebsite;
+	    private readonly IGetUrlOfFrontSideWebsite getUrlOfFrontSideWebsite;
 
 	    public ContentTreeNodeController(IContentTreeNodeVersionContext contentTreeNodeVersionContext, 
 											IContentTreeNodeToContentTreeNodeInputModelMapper contentTreeNodeToContentTreeNodeInputModelMapper, 
