@@ -1,4 +1,5 @@
-﻿@using Bennington.ContentTree.Providers.ContentNodeProvider.Models
+﻿@using System.Web.Mvc.Html
+@using Bennington.ContentTree.Providers.ContentNodeProvider.Models
 @model Bennington.ContentTree.Providers.ContentNodeProvider.Models.ModifyViewModel
 @using System.Web.Mvc
 @using System.Security.Policy
@@ -7,8 +8,6 @@
 @section head {
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.jstree.js")"></script>
-    @*<script type="text/javascript" src="@Url.Content("~/Scripts/parseuri.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.url.js")"></script>*@
     <script type="text/javascript" src="@Url.Content("~/Scripts/thickbox-compressed.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/tiny_mce/tiny_mce.js")"></script>
 }
@@ -21,6 +20,11 @@
 
 	<div class="contentNodeProviderForm">
 
+        @if (!string.IsNullOrEmpty(Model.Url))
+        {
+            <div><a href="@Html.Raw(Model.Url)" target="_blank">@Model.Url</a></div>
+        }
+            
 		@Html.EditorFor(x => x.ContentTreeNodeInputModel)
 
 		<div class="commandButtonContainer">

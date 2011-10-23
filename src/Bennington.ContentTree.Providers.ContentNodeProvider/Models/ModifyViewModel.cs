@@ -4,5 +4,6 @@
 	{
 		public string Action { get; set;}
 		public ContentTreeNodeInputModel ContentTreeNodeInputModel { get; set; }
+        public string Url { get; set; }
 	}
 }

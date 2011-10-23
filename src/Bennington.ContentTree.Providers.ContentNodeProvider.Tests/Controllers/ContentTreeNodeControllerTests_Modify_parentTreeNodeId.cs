@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using AutoMoq;
+using Bennington.ContentTree.Helpers;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Context;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Controllers;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Mappers;
@@ -131,6 +132,22 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
 			var viewModel = (ModifyViewModel)((ViewResult)result).ViewData.Model;
 			Assert.AreEqual("0", viewModel.ContentTreeNodeInputModel.TreeNodeId);
 		}
+
+        [TestMethod]
+        public void Sets_Url_property_of_Model_to_url_of_page_being_manage()
+        {
+            mocker.GetMock<IGetUrlOfFrontSideWebsite>()
+                .Setup(a => a.GetUrlOfFrontSide())
+                .Returns("http://test.com");
+            mocker.GetMock<ITreeNodeIdToUrl>()
+                .Setup(a => a.GetUrlByTreeNodeId("1"))
+                .Returns("/url");
+
+            var result = mocker.Resolve<ContentTreeNodeController>().Modify("1", "Index");
+
+            var viewModel = (ModifyViewModel)((ViewResult)result).ViewData.Model;
+            Assert.AreEqual("http://test.com/url", viewModel.Url);
+        }
 
 		[TestMethod]
 		public void Returns_empty_view_model_with_empty_input_model_when_passed_0()

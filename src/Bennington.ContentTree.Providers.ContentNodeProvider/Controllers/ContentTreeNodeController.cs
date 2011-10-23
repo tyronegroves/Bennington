@@ -31,12 +31,12 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		private readonly ICommandBus commandBus;
 		private readonly IGuidGetter guidGetter;
 		private readonly IContentTreeNodeFileUploadPersister contentTreeNodeFileUploadPersister;
-	    private IPrincipal principal;
-	    private ICurrentUserContext currentUserContext;
+	    private readonly ICurrentUserContext currentUserContext;
+	    private readonly ITreeNodeIdToUrl treeNodeIdToUrl;
+	    private IGetUrlOfFrontSideWebsite getUrlOfFrontSideWebsite;
 
 	    public ContentTreeNodeController(IContentTreeNodeVersionContext contentTreeNodeVersionContext, 
 											IContentTreeNodeToContentTreeNodeInputModelMapper contentTreeNodeToContentTreeNodeInputModelMapper, 
-											IContentTreeNodeInputModelToContentTreeNodeMapper contentTreeNodeInputModelToContentTreeNodeMapper, 
 											IContentTreeNodeContext contentTreeNodeContext, 
 											ITreeNodeRepository treeNodeRepository, 
 											ITreeNodeProviderContext treeNodeProviderContext,  
@@ -45,8 +45,12 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 											ICommandBus commandBus,
 											IGuidGetter guidGetter,
 											IContentTreeNodeFileUploadPersister contentTreeNodeFileUploadPersister,
-                                            ICurrentUserContext currentUserContext)
+                                            ICurrentUserContext currentUserContext,
+                                            ITreeNodeIdToUrl treeNodeIdToUrl,
+                                            IGetUrlOfFrontSideWebsite getUrlOfFrontSideWebsite)
 		{
+	        this.getUrlOfFrontSideWebsite = getUrlOfFrontSideWebsite;
+	        this.treeNodeIdToUrl = treeNodeIdToUrl;
 	        this.currentUserContext = currentUserContext;
 	        this.contentTreeNodeFileUploadPersister = contentTreeNodeFileUploadPersister;
 			this.guidGetter = guidGetter;
@@ -228,11 +232,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		[Authorize]
 		public virtual ActionResult Modify(string treeNodeId, string contentItemId)
 		{
-			if (string.IsNullOrEmpty(contentItemId)) contentItemId = "Index";
-
-            var all = contentTreeNodeVersionContext.GetAllContentTreeNodes().ToArray();
-		    var test = contentTreeNodeVersionContext.GetAllContentTreeNodes().Where(a => a.TreeNodeId == treeNodeId).ToArray();
-		    
+			if (string.IsNullOrEmpty(contentItemId)) contentItemId = "Index";		    
 
 			var contentTreeNode = contentTreeNodeVersionContext.GetAllContentTreeNodes().Where(a => a.TreeNodeId == treeNodeId && a.Action == contentItemId).FirstOrDefault();
 			var contentTreeNodeInputModel = contentTreeNode == null ? new ContentTreeNodeInputModel()
@@ -249,6 +249,8 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 			                	};
 			if (string.IsNullOrEmpty(viewModel.ContentTreeNodeInputModel.Action))
 				viewModel.ContentTreeNodeInputModel.Action = "Index";
+
+		    viewModel.Url = string.Format("{0}{1}", getUrlOfFrontSideWebsite.GetUrlOfFrontSide(), treeNodeIdToUrl.GetUrlByTreeNodeId(treeNodeId));
 
 			return View("Modify", viewModel);
 		}
