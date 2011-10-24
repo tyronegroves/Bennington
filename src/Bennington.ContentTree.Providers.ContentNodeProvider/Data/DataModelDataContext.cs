@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Bennington.ContentTree.Denormalizers;
 using Bennington.ContentTree.Helpers;
 using Bennington.Core.Helpers;
+using Bennington.Core.SisoDb;
 
 namespace Bennington.ContentTree.Providers.ContentNodeProvider.Data
 {
@@ -18,7 +20,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Data
 		IQueryable<ContentNodeProviderDraft> ContentNodeProviderDrafts { get; }
 	}
 
-	public class DataModelDataContext : IDataModelDataContext
+	public class DataModelDataContext : DatabaseFactory, IDataModelDataContext
 	{
 		private static readonly object _lockObject = "lock";
 		private readonly IXmlFileSerializationHelper xmlFileSerializationHelper;
@@ -87,11 +89,11 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Data
 		{
 			get
 			{
-				lock(_lockObject)
-				{
-					return xmlFileSerializationHelper
-							.DeserializeListFromPath<ContentNodeProviderDraft>(GetPathToDraftVersionXmlFile()).AsQueryable();					
-				}
+                using (var unitOfWork = database.CreateUnitOfWork())
+                {
+                    return unitOfWork.GetAll<ContentNodeProviderDraft>().AsQueryable();
+                }
+
 			}
 		}
 
@@ -109,17 +111,19 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Data
 		{
 			get
 			{
-				lock(_lockObject)
-				{
-					return xmlFileSerializationHelper
-								.DeserializeListFromPath<ContentNodeProviderPublishedVersion>(GetPathToPublishedVersionXmlFile()).AsQueryable();
-				}
+                using (var unitOfWork = database.CreateUnitOfWork())
+                {
+                    return unitOfWork.GetAll<ContentNodeProviderPublishedVersion>().AsQueryable();
+                }
 			}
 		}
 
 		private List<ContentNodeProviderPublishedVersion> GetContentNodeProviderPublishedVersionsFromXmlFile()
 		{
-			return xmlFileSerializationHelper.DeserializeListFromPath<ContentNodeProviderPublishedVersion>(GetPathToPublishedVersionXmlFile());
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                return unitOfWork.GetAll<ContentNodeProviderPublishedVersion>().ToList();
+            }
 		}
 
 		private string GetPathToPublishedVersionXmlFile()

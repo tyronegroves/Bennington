@@ -34,7 +34,7 @@ namespace Bennington.ContentTree.Tests.Denormalizers
 				         				Id = guid.ToString(),
 										Type = "test",
 				         			}, 
-							}.AsQueryable());
+							}.ToList());
 
 			mocker.Resolve<TreeNodeDenormalizer>().Handle(new TreeNodeParentTreeNodeIdSetEvent()
 			                                              	{

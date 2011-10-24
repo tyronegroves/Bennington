@@ -38,7 +38,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Mappers
 				         				Id = "1",
 										Type = "testType"
 				         			}, 
-							}.AsQueryable());
+							}.ToList());
 
 			var mapper = mocker.Resolve<ContentTreeNodeToContentTreeNodeInputModelMapper>();
 			var result = mapper.CreateInstance(new ContentTreeNode()

@@ -37,7 +37,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
             																	Id = "1",
 																				Type = "providertype",
             																}, 
-																	}.AsQueryable());
+																	}.ToList());
 			mocker.GetMock<ITreeNodeProviderContext>().Setup(a => a.GetProviderByTypeName("providertype"))
 				.Returns(new FakeIAmATreeNodeExtensionProvider());
 
@@ -60,7 +60,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
             																	Id = "1",
 																				Type = "providertype",
             																}, 
-																	}.AsQueryable());
+																	}.ToList());
 			mocker.GetMock<ITreeNodeProviderContext>().Setup(a => a.GetProviderByTypeName("providertype"))
 				.Returns(new FakeIAmATreeNodeExtensionProvider());
 
@@ -156,7 +156,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
             																	Id = "1",
 																				Type = "providertype",
             																}, 
-																	}.AsQueryable());
+																	}.ToList());
 			mocker.GetMock<ITreeNodeProviderContext>().Setup(a => a.GetProviderByTypeName("providertype"))
 				.Returns(new FakeIAmATreeNodeExtensionProvider());
 
@@ -175,7 +175,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Tests.Controllers
             																	Id = "1",
 																				Type = "providertype",
             																}, 
-																	}.AsQueryable());
+																	}.ToList());
 			mocker.GetMock<ITreeNodeProviderContext>().Setup(a => a.GetProviderByTypeName("providertype"))
 				.Returns(new FakeIAmATreeNodeExtensionProvider());
 	

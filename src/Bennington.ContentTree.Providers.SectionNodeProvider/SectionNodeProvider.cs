@@ -26,7 +26,7 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider
 			var query = from item in contentTreeSectionNodeRepository.GetAllContentTreeSectionNodes().Where(a => a.Inactive == false || versionContext.GetCurrentVersionId() == VersionContext.Manage)
 						select item;
 			
-			return query;
+			return query.AsQueryable();
 		}
 
 		public string Name

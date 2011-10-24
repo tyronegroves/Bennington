@@ -1,53 +1,76 @@
 ﻿using System.Linq;
 using Bennington.ContentTree.Data;
 using Bennington.ContentTree.Domain.Events.TreeNode;
-using Bennington.ContentTree.Repositories;
+using Bennington.Core.SisoDb;
 using SimpleCqrs.Eventing;
 
 namespace Bennington.ContentTree.Denormalizers
 {
-	public class TreeNodeDenormalizer : IHandleDomainEvents<TreeNodeDeletedEvent>,
+    public class TreeNodeDenormalizer : DatabaseFactory, IHandleDomainEvents<TreeNodeDeletedEvent>,
 										IHandleDomainEvents<TreeNodeCreatedEvent>,
 										IHandleDomainEvents<TreeNodeTypeSetEvent>,
 										IHandleDomainEvents<TreeNodeParentTreeNodeIdSetEvent>
 	{
-		private readonly ITreeNodeRepository treeNodeRepository;
-
-		public TreeNodeDenormalizer(ITreeNodeRepository treeNodeRepository)
-		{
-			this.treeNodeRepository = treeNodeRepository;
-		}
-
 		private TreeNode GetTreeNodeFromDomainEvent(DomainEvent domainEvent)
 		{
-			return treeNodeRepository.GetAll().Where(a => a.Id == domainEvent.AggregateRootId.ToString()).FirstOrDefault();
-		}
-
-		public void Handle(TreeNodeDeletedEvent treeNodeDeletedEvent)
-		{
-			treeNodeRepository.Delete(treeNodeDeletedEvent.TreeNodeId.ToString());
-		}
+            using (var queryEngine = database.CreateQueryEngine())
+            {
+                return queryEngine.Where<TreeNode>(x => x.Id == domainEvent.AggregateRootId.ToString()).First();
+            }
+        }
 
 		public void Handle(TreeNodeCreatedEvent domainEvent)
 		{
-			treeNodeRepository.Create(new TreeNode()
-										{
-											Id = domainEvent.AggregateRootId.ToString(),
-										});
+            var treeNode = new TreeNode
+            {
+                Id = domainEvent.AggregateRootId.ToString(),
+            };
+
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                unitOfWork.Insert(treeNode);
+                unitOfWork.Commit();
+            }
 		}
+
+        public void Handle(TreeNodeDeletedEvent treeNodeDeletedEvent)
+        {
+            TreeNode treeNode;
+
+            using (var queryEngine = database.CreateQueryEngine())
+            {
+                treeNode = queryEngine.Where<TreeNode>(x => x.Id == treeNodeDeletedEvent.AggregateRootId.ToString()).First();
+            }
+
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                unitOfWork.DeleteById<TreeNode>(treeNode.SisoId);
+                unitOfWork.Commit();
+            }
+        }
 
 		public void Handle(TreeNodeTypeSetEvent domainEvent)
 		{
 			var treeNode = GetTreeNodeFromDomainEvent(domainEvent);
-			treeNode.Type = domainEvent.Type.AssemblyQualifiedName;
-			treeNodeRepository.Update(treeNode);
+
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                treeNode.Type = domainEvent.Type.AssemblyQualifiedName;
+                unitOfWork.Update(treeNode);
+                unitOfWork.Commit();
+            }
 		}
 
 		public void Handle(TreeNodeParentTreeNodeIdSetEvent domainEvent)
 		{
 			var treeNode = GetTreeNodeFromDomainEvent(domainEvent);
-			treeNode.ParentTreeNodeId = domainEvent.ParentTreeNodeId.ToString();
-			treeNodeRepository.Update(treeNode);
+
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                treeNode.ParentTreeNodeId = domainEvent.ParentTreeNodeId.ToString();
+                unitOfWork.Update(treeNode);
+                unitOfWork.Commit();
+            }
 		}
 	}
 }

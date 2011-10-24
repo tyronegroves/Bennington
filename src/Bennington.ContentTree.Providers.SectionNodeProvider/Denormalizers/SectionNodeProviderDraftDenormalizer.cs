@@ -2,11 +2,14 @@
 using System.Linq;
 using Bennington.ContentTree.Domain.Events.Section;
 using Bennington.ContentTree.Providers.SectionNodeProvider.Data;
+using Bennington.Core.SisoDb;
 using SimpleCqrs.Eventing;
+using SisoDb;
+using SisoDb.Sql2008;
 
 namespace Bennington.ContentTree.Providers.SectionNodeProvider.Denormalizers
 {
-	public class SectionNodeProviderDraftDenormalizer : IHandleDomainEvents<SectionCreatedEvent>,
+    public class SectionNodeProviderDraftDenormalizer : DatabaseFactory, IHandleDomainEvents<SectionCreatedEvent>,
 														IHandleDomainEvents<SectionDeletedEvent>,
 														IHandleDomainEvents<SectionNameSetEvent>,
 														IHandleDomainEvents<SectionTreeNodeIdSetEvent>,
@@ -16,80 +19,129 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Denormalizers
 														IHandleDomainEvents<SectionHiddenSetEvent>,
 														IHandleDomainEvents<SectionInactiveSetEvent>
 	{
-		private readonly IDataModelDataContext dataModelDataContext;
-
-		public SectionNodeProviderDraftDenormalizer(IDataModelDataContext dataModelDataContext)
-		{
-			this.dataModelDataContext = dataModelDataContext;
-		}
-
 		public void Handle(SectionCreatedEvent domainEvent)
 		{
-			dataModelDataContext.Create(new SectionNodeProviderDraft()
-			                            	{
-			                            		SectionId = domainEvent.SectionId.ToString(),
-			                            	});
+		    var sectionnNode = new SectionNodeProviderDraft { SectionId = domainEvent.SectionId.ToString() };
+
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                unitOfWork.Insert(sectionnNode);
+                unitOfWork.Commit();
+            }
 		}
 
 		public void Handle(SectionDeletedEvent domainEvent)
 		{
-			var sectionNodeProviderDraft = dataModelDataContext.GetAllSectionNodeProviderDrafts().Where(a => a.TreeNodeId == domainEvent.AggregateRootId.ToString()).FirstOrDefault();
-			dataModelDataContext.Delete(sectionNodeProviderDraft);
+		    var sectionNodeProviderDraft = new SectionNodeProviderDraft();
+
+            using (var queryEngine = database.CreateQueryEngine())
+            {
+                sectionNodeProviderDraft = queryEngine.Where<SectionNodeProviderDraft>(x => x.SectionId == domainEvent.AggregateRootId.ToString()).First();
+            }
+
+		    using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                unitOfWork.DeleteById<SectionNodeProviderDraft>(sectionNodeProviderDraft.SisoId);
+                unitOfWork.Commit();
+            }
 		}
 
 		public void Handle(SectionNameSetEvent domainEvent)
 		{
 			var sectionNodeProviderDraft = GetSectionNodeProviderDraftFromDomainEvent(domainEvent);
-			sectionNodeProviderDraft.Name = domainEvent.Name;
-			dataModelDataContext.Update(sectionNodeProviderDraft);
+
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                var section = unitOfWork.Where<SectionNodeProviderDraft>(x => x.SectionId == domainEvent.AggregateRootId.ToString()).First();
+                section.Name = domainEvent.Name;
+                unitOfWork.Update(section);
+                unitOfWork.Commit();
+            }
 		}
 
 		private SectionNodeProviderDraft GetSectionNodeProviderDraftFromDomainEvent(DomainEvent domainEvent)
 		{
-			return dataModelDataContext.GetAllSectionNodeProviderDrafts().Where(a => a.SectionId == domainEvent.AggregateRootId.ToString()).FirstOrDefault();
+            using (var queryEngine = database.CreateQueryEngine())
+            {
+                return queryEngine.Where<SectionNodeProviderDraft>(x => x.SectionId == domainEvent.AggregateRootId.ToString()).First();
+            }
 		}
 
 		public void Handle(SectionSequenceSetEvent domainEvent)
 		{
-			var section = GetSectionNodeProviderDraftFromDomainEvent(domainEvent);
-			section.Sequence = domainEvent.SectionSequence;
-			dataModelDataContext.Update(section);
+            var sectionNodeProviderDraft = GetSectionNodeProviderDraftFromDomainEvent(domainEvent);
+
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                var section = unitOfWork.Where<SectionNodeProviderDraft>(x => x.SectionId == sectionNodeProviderDraft.SectionId).First();
+                section.Sequence = domainEvent.SectionSequence;
+                unitOfWork.Update(section);
+                unitOfWork.Commit();
+            }
 		}
 
 		public void Handle(SectionUrlSegmentSetEvent domainEvent)
 		{
 			var sectionNodeProviderDraft = GetSectionNodeProviderDraftFromDomainEvent(domainEvent);
-			sectionNodeProviderDraft.UrlSegment = domainEvent.UrlSegment;
-			dataModelDataContext.Update(sectionNodeProviderDraft);
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                var section = unitOfWork.Where<SectionNodeProviderDraft>(x => x.SectionId == sectionNodeProviderDraft.SectionId).First();
+                section.UrlSegment = domainEvent.UrlSegment;
+                unitOfWork.Update(section);
+                unitOfWork.Commit();
+            }
 		}
 
-		public void Handle(SectionDefaultTreeNodeIdSetEvent domainEvent)
-		{
-			var sectionNodeProviderDraft = GetSectionNodeProviderDraftFromDomainEvent(domainEvent);
-			sectionNodeProviderDraft.DefaultTreeNodeId = domainEvent.DefaultTreeNodeId.ToString();
-			dataModelDataContext.Update(sectionNodeProviderDraft);
-		}
+        public void Handle(SectionDefaultTreeNodeIdSetEvent domainEvent)
+        {
+            var sectionNodeProviderDraft = GetSectionNodeProviderDraftFromDomainEvent(domainEvent);
 
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                var section = unitOfWork.Where<SectionNodeProviderDraft>(x=> x.SectionId == sectionNodeProviderDraft.SectionId).First();
+                section.DefaultTreeNodeId = domainEvent.DefaultTreeNodeId.ToString();
+                unitOfWork.Update(section);
+                unitOfWork.Commit();
+            }
+        }
+        
 		public void Handle(SectionTreeNodeIdSetEvent domainEvent)
 		{
 			var sectionNodeProviderDraft = GetSectionNodeProviderDraftFromDomainEvent(domainEvent);
-			sectionNodeProviderDraft.TreeNodeId = domainEvent.TreeNodeId.ToString();
-			dataModelDataContext.Update(sectionNodeProviderDraft);
+			
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                var section = unitOfWork.Where<SectionNodeProviderDraft>(x => x.SectionId == sectionNodeProviderDraft.SectionId).First();
+                section.DefaultTreeNodeId = domainEvent.TreeNodeId.ToString();
+                unitOfWork.Update(section);
+                unitOfWork.Commit();
+            }
 		}
 
+        public void Handle(SectionInactiveSetEvent domainEvent)
+        {
+            var sectionNodeProviderDraft = GetSectionNodeProviderDraftFromDomainEvent(domainEvent);
 
-		public void Handle(SectionInactiveSetEvent domainEvent)
-		{
-			var sectionNodeProviderDraft = GetSectionNodeProviderDraftFromDomainEvent(domainEvent);
-			sectionNodeProviderDraft.Inactive = domainEvent.Inactive;
-			dataModelDataContext.Update(sectionNodeProviderDraft);
-		}
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                var section = unitOfWork.Where<SectionNodeProviderDraft>(x => x.SectionId == sectionNodeProviderDraft.SectionId).First();
+                section.Inactive = domainEvent.Inactive;
+                unitOfWork.Update(section);
+                unitOfWork.Commit();
+            }
+        }
 
-		public void Handle(SectionHiddenSetEvent domainEvent)
-		{
-			var sectionNodeProviderDraft = GetSectionNodeProviderDraftFromDomainEvent(domainEvent);
-			sectionNodeProviderDraft.Hidden = domainEvent.Hidden;
-			dataModelDataContext.Update(sectionNodeProviderDraft);
-		}
+        public void Handle(SectionHiddenSetEvent domainEvent)
+        {
+            var sectionNodeProviderDraft = GetSectionNodeProviderDraftFromDomainEvent(domainEvent);
+
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                var section = unitOfWork.Where<SectionNodeProviderDraft>(x => x.SectionId == sectionNodeProviderDraft.SectionId).First();
+                section.Hidden = domainEvent.Hidden;
+                unitOfWork.Update(section);
+                unitOfWork.Commit();
+            }
+        }
 	}
 }

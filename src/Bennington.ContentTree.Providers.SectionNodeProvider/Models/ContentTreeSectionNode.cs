@@ -5,6 +5,7 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Models
 {
 	public class ContentTreeSectionNode : IAmATreeNodeExtension
 	{
+        public Guid SisoId { get; set; }
 		public string SectionId { get; set; }
 		public string TreeNodeId { get; set; }
 		public string Name { get; set; }

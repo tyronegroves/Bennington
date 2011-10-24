@@ -37,6 +37,15 @@
     <Reference Include="MvcTurbine.Web">
       <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.Web.dll</HintPath>
     </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\packages\ServiceStack.Text.2.27\lib\net35\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="SisoDb">
+      <HintPath>..\packages\SisoDb.SQL2008.3.1\lib\SisoDb.dll</HintPath>
+    </Reference>
+    <Reference Include="SisoDb.Sql2008">
+      <HintPath>..\packages\SisoDb.SQL2008.3.1\lib\SisoDb.Sql2008.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -63,6 +72,7 @@
     <Compile Include="Registration\InterfaceToSingleImplementationRegistrationConvention.cs" />
     <Compile Include="Registration\RegisterInterfaceToSingleImplementations.cs" />
     <Compile Include="ServiceLocatorWrapper.cs" />
+    <Compile Include="SisoDb\DatabaseFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

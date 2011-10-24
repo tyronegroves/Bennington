@@ -1,11 +1,12 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Bennington.ContentTree.Data;
 
 namespace Bennington.ContentTree.Repositories
 {
 	public interface ITreeNodeRepository
 	{
-		IQueryable<TreeNode> GetAll();
+		IList<TreeNode> GetAll();
 		TreeNode Create(TreeNode treeNode);
 		void Delete(string id);
 		void Update(TreeNode treeNode);
@@ -20,7 +21,7 @@ namespace Bennington.ContentTree.Repositories
 			this.dataModelDataContext = dataModelDataContext;
 		}
 
-		public IQueryable<TreeNode> GetAll()
+        public IList<TreeNode> GetAll()
 		{
 			return dataModelDataContext.TreeNodes;
 		}

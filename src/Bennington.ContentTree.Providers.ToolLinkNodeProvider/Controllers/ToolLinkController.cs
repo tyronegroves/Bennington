@@ -16,17 +16,17 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
 {
     public class ToolLinkController : Controller, IRouteRegistrator, IRouteConstraint
     {
-        private readonly ITreeNodeRepository treeNodeRepository;
-        private readonly ITreeNodeIdToUrl treeNodeIdToUrl;
-        private readonly IUrlToTreeNodeSummaryMapper urlToTreeNodeSummaryMapper;
-        private readonly IRawUrlGetter rawUrlGetter;
-        private readonly IToolLinkProviderDraftRepository toolLinkProviderDraftRepository;
+        private readonly Func<ITreeNodeRepository> treeNodeRepository;
+        private readonly Func<ITreeNodeIdToUrl> treeNodeIdToUrl;
+        private readonly Func<IUrlToTreeNodeSummaryMapper> urlToTreeNodeSummaryMapper;
+        private readonly Func<IRawUrlGetter> rawUrlGetter;
+        private readonly Func<IToolLinkProviderDraftRepository> toolLinkProviderDraftRepository;
 
-        public ToolLinkController(ITreeNodeRepository treeNodeRepository, 
-                                    ITreeNodeIdToUrl treeNodeIdToUrl,
-                                    IUrlToTreeNodeSummaryMapper urlToTreeNodeSummaryMapper,
-                                    IRawUrlGetter rawUrlGetter,
-                                    IToolLinkProviderDraftRepository toolLinkProviderDraftRepository)
+        public ToolLinkController(Func<ITreeNodeRepository> treeNodeRepository,
+                                    Func<ITreeNodeIdToUrl> treeNodeIdToUrl,
+                                    Func<IUrlToTreeNodeSummaryMapper> urlToTreeNodeSummaryMapper,
+                                    Func<IRawUrlGetter> rawUrlGetter,
+                                    Func<IToolLinkProviderDraftRepository> toolLinkProviderDraftRepository)
         {
             this.toolLinkProviderDraftRepository = toolLinkProviderDraftRepository;
             this.rawUrlGetter = rawUrlGetter;
@@ -37,10 +37,10 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
 
         public ActionResult Index()
         {
-            var url = rawUrlGetter.GetRawUrl();
-            var treeNodeSummary = urlToTreeNodeSummaryMapper.CreateInstance(url);
+            var url = rawUrlGetter.Invoke().GetRawUrl();
+            var treeNodeSummary = urlToTreeNodeSummaryMapper.Invoke().CreateInstance(url);
 
-            var toolLink = toolLinkProviderDraftRepository.GetAll().Where(a => a.Id == treeNodeSummary.Id).FirstOrDefault();
+            var toolLink = toolLinkProviderDraftRepository.Invoke().GetAll().Where(a => a.Id == treeNodeSummary.Id).FirstOrDefault();
 
             if (toolLink == null) return new HttpNotFoundResult();
 
@@ -61,9 +61,9 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
             }
 
             // add hard coded routes for all instances of this engine type
-            foreach (var treeNode in treeNodeRepository.GetAll().Where(a => a.Type == this.GetType().AssemblyQualifiedName))
+            foreach (var treeNode in treeNodeRepository.Invoke().GetAll().Where(a => a.Type == this.GetType().AssemblyQualifiedName))
             {
-                var url = treeNodeIdToUrl.GetUrlByTreeNodeId(treeNode.Id);
+                var url = treeNodeIdToUrl.Invoke().GetUrlByTreeNodeId(treeNode.Id);
                 if (url.StartsWith("/")) url = url.Substring(1);
                 url = url + "/{action}";
 
@@ -112,9 +112,9 @@ namespace Bennington.ContentTree.Providers.ToolLinkNodeProvider.Controllers
         {
             if (routeDirection == RouteDirection.UrlGeneration) return false;
 
-            var url = rawUrlGetter.GetRawUrl();
+            var url = rawUrlGetter.Invoke().GetRawUrl();
 
-            var treeNodeSummary = urlToTreeNodeSummaryMapper.CreateInstance(url);
+            var treeNodeSummary = urlToTreeNodeSummaryMapper.Invoke().CreateInstance(url);
 
             if (treeNodeSummary == null) return false;
 

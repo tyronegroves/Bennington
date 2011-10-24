@@ -65,7 +65,7 @@ namespace Bennington.ContentTree.Tests.Contexts
 										Id = "3",
 				         				ParentTreeNodeId = "2",
 				         			}, 
-							}.AsQueryable());
+							}.ToList());
 
 			var treeNodeSummarContext = mocker.Resolve<TreeNodeSummaryContext>();
 			var result = treeNodeSummarContext.GetChildren("1");
@@ -116,7 +116,7 @@ namespace Bennington.ContentTree.Tests.Contexts
 										Id = "3",
 				         				ParentTreeNodeId = "2",
 				         			},
-							}.AsQueryable());
+							}.ToList());
 
 			var treeNodeSummarContext = mocker.Resolve<TreeNodeSummaryContext>();
 			var result = treeNodeSummarContext.GetChildren("1");
@@ -167,7 +167,7 @@ namespace Bennington.ContentTree.Tests.Contexts
 										Id = "3",
 				         				ParentTreeNodeId = "2",
 				         			},
-							}.AsQueryable());
+							}.ToList());
 
 			var treeNodeSummarContext = mocker.Resolve<TreeNodeSummaryContext>();
 			var result = treeNodeSummarContext.GetChildren("1");
@@ -218,7 +218,7 @@ namespace Bennington.ContentTree.Tests.Contexts
 										Id = "3",
 				         				ParentTreeNodeId = "2",
 				         			}, 
-							}.AsQueryable());
+							}.ToList());
 
 			var treeNodeSummarContext = mocker.Resolve<TreeNodeSummaryContext>();
 			var result = treeNodeSummarContext.GetChildren("1");
@@ -268,7 +268,7 @@ namespace Bennington.ContentTree.Tests.Contexts
 										Id = "3",
 				         				ParentTreeNodeId = "2",
 				         			}, 
-							}.AsQueryable());
+							}.ToList());
 
 			var treeNodeSummarContext = mocker.Resolve<TreeNodeSummaryContext>();
 			var result = treeNodeSummarContext.GetChildren("1");
@@ -318,7 +318,7 @@ namespace Bennington.ContentTree.Tests.Contexts
 										Id = "3",
 				         				ParentTreeNodeId = "2",
 				         			}, 
-							}.AsQueryable());
+							}.ToList());
 
 			var treeNodeSummarContext = mocker.Resolve<TreeNodeSummaryContext>();
 			var result = treeNodeSummarContext.GetChildren("1");
@@ -369,7 +369,7 @@ namespace Bennington.ContentTree.Tests.Contexts
 										Id = "3",
 				         				ParentTreeNodeId = "2",
 				         			}, 
-							}.AsQueryable());
+							}.ToList());
 
 			var treeNodeSummarContext = mocker.Resolve<TreeNodeSummaryContext>();
 			var result = treeNodeSummarContext.GetChildren("1");
@@ -419,7 +419,7 @@ namespace Bennington.ContentTree.Tests.Contexts
 										Id = "3",
 				         				ParentTreeNodeId = "2",
 				         			}, 
-							}.AsQueryable());
+							}.ToList());
 
 			var treeNodeSummarContext = mocker.Resolve<TreeNodeSummaryContext>();
 			var result = treeNodeSummarContext.GetChildren("1");
@@ -471,7 +471,7 @@ namespace Bennington.ContentTree.Tests.Contexts
 				         				ParentTreeNodeId = "1",
 										Type = "FakeTreeNodeExtensionProvider",
 				         			}, 
-							}.AsQueryable());
+							}.ToList());
 
 			var treeNodeSummarContext = mocker.Resolve<TreeNodeSummaryContext>();
 			var result = treeNodeSummarContext.GetChildren("1");
@@ -517,7 +517,7 @@ namespace Bennington.ContentTree.Tests.Contexts
 										ParentTreeNodeId = "1",
 										Type = "FakeTreeNodeExtensionProvider",
 				         			}, 
-							}.AsQueryable());
+							}.ToList());
 
 			var treeNodeSummarContext = mocker.Resolve<TreeNodeSummaryContext>();
 			var result = treeNodeSummarContext.GetChildren("1");

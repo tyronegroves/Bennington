@@ -5,11 +5,14 @@ using Bennington.ContentTree.Domain.Events.Page;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Data;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Repositories;
 using Bennington.Core.Helpers;
+using Bennington.Core.SisoDb;
 using SimpleCqrs.Eventing;
+using SisoDb;
+using SisoDb.Sql2008;
 
 namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
 {
-	public class ContentNodeProviderDraftDenormalizer : IHandleDomainEvents<PageCreatedEvent>,
+    public class ContentNodeProviderDraftDenormalizer : DatabaseFactory, IHandleDomainEvents<PageCreatedEvent>,
 														IHandleDomainEvents<PageDeletedEvent>,
 														IHandleDomainEvents<PageTreeNodeIdSetEvent>,
 														IHandleDomainEvents<PageNameSetEvent>,
@@ -45,44 +48,75 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
 
 		public void Handle(PageCreatedEvent domainEvent)
 		{
-			contentNodeProviderDraftRepository.Create(new ContentNodeProviderDraft()
-			                                          	{
-			                                          		PageId = domainEvent.AggregateRootId.ToString()
-			                                          	});
+            var page = new ContentNodeProviderDraft
+            {
+                PageId = domainEvent.AggregateRootId.ToString()
+            };
+
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                unitOfWork.Insert(page);
+                unitOfWork.Commit();
+            }
+
 		}
 
 		private ContentNodeProviderDraft GetContentNodeProviderDraft(DomainEvent domainEvent)
 		{
-			return contentNodeProviderDraftRepository
-						.GetAllContentNodeProviderDrafts().Where(a => a.PageId == domainEvent.AggregateRootId.ToString()).FirstOrDefault();
+            using (var queryEngine = database.CreateQueryEngine())
+            {
+                return queryEngine.Where<ContentNodeProviderDraft>(x => x.PageId == domainEvent.AggregateRootId.ToString()).First();
+            }
 		}
 
 		public void Handle(PageNameSetEvent domainEvent)
 		{
 			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
-			contentNodeProviderDraft.Name = domainEvent.Name;
-			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+			
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                contentNodeProviderDraft.Name = domainEvent.Name;
+                unitOfWork.Update(contentNodeProviderDraft);
+                unitOfWork.Commit();
+            }
 		}
 
 		public void Handle(PageActionSetEvent domainEvent)
 		{
 			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
-			contentNodeProviderDraft.Action = domainEvent.Action;
-			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                contentNodeProviderDraft.Action = domainEvent.Action;
+                unitOfWork.Update(contentNodeProviderDraft);
+                unitOfWork.Commit();
+            }
 		}
 
 		public void Handle(MetaTitleSetEvent domainEvent)
 		{
 			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
 			contentNodeProviderDraft.MetaTitle = domainEvent.MetaTitle;
-			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                contentNodeProviderDraft.MetaTitle = domainEvent.MetaTitle;
+                unitOfWork.Update(contentNodeProviderDraft);
+                unitOfWork.Commit();
+            }
+			
 		}
 
 		public void Handle(MetaDescriptionSetEvent domainEvent)
 		{
 			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
-			contentNodeProviderDraft.MetaDescription = domainEvent.MetaDescription;
-			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+			
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                contentNodeProviderDraft.MetaDescription = domainEvent.MetaDescription;
+                unitOfWork.Update(contentNodeProviderDraft);
+                unitOfWork.Commit();
+            }
 		}
 
 		public void Handle(PageUrlSegmentSetEvent domainEvent)
@@ -91,38 +125,49 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
 			var treeNodeSummary = treeNodeSummaryContext.GetTreeNodeSummaryByTreeNodeId(contentNodeProviderDraft.TreeNodeId);
 			
 			contentNodeProviderDraft.UrlSegment = domainEvent.UrlSegment;
-			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
 
-			if (treeNodeSummary != null)
-			{
-				if (treeNodeSummary.UrlSegment != domainEvent.UrlSegment)
-				{
-					var provider = treeNodeProviderContext.GetProviderByTypeName(treeNodeSummary.Type);
-					provider.RegisterRouteForTreeNodeId(treeNodeSummary.Id);
-				}
-			}
+		    if (treeNodeSummary == null) return;
+		    if (treeNodeSummary.UrlSegment == domainEvent.UrlSegment) return;
+		    
+            var provider = treeNodeProviderContext.GetProviderByTypeName(treeNodeSummary.Type);
+		    provider.RegisterRouteForTreeNodeId(treeNodeSummary.Id);
 		}
 
 		public void Handle(HeaderTextSetEvent domainEvent)
 		{
 			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
-			contentNodeProviderDraft.HeaderText = domainEvent.HeaderText;
-			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+			
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                contentNodeProviderDraft.HeaderText = domainEvent.HeaderText;
+                unitOfWork.Update(contentNodeProviderDraft);
+                unitOfWork.Commit();
+            }
 		}
 
 		public void Handle(BodySetEvent domainEvent)
 		{
 			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
-			contentNodeProviderDraft.Body = domainEvent.Body;
-			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+			
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                contentNodeProviderDraft.Body = domainEvent.Body;
+                unitOfWork.Update(contentNodeProviderDraft);
+                unitOfWork.Commit();
+            }
 		}
 
 		public void Handle(PageSequenceSetEvent domainEvent)
 		{
 			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
-			contentNodeProviderDraft.Sequence = domainEvent.PageSequence;
-			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
-		}
+			
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+            contentNodeProviderDraft.Sequence = domainEvent.PageSequence;
+                unitOfWork.Update(contentNodeProviderDraft);
+                unitOfWork.Commit();
+            }
+        }
 
 		public void Handle(PageDeletedEvent domainEvent)
 		{
@@ -135,23 +180,38 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
 		public void Handle(PageTreeNodeIdSetEvent domainEvent)
 		{
 			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
-			contentNodeProviderDraft.TreeNodeId = domainEvent.TreeNodeId.ToString();
-			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+			
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                contentNodeProviderDraft.TreeNodeId = domainEvent.TreeNodeId.ToString();
+                unitOfWork.Update(contentNodeProviderDraft);
+                unitOfWork.Commit();
+            }
 		}
 
 		public void Handle(PageHiddenSetEvent domainEvent)
 		{
 			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
-			contentNodeProviderDraft.Hidden = domainEvent.Hidden;
-			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
-		}
+			
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                contentNodeProviderDraft.Hidden = domainEvent.Hidden;
+                unitOfWork.Update(contentNodeProviderDraft);
+                unitOfWork.Commit();
+            }
+        }
 
 		public void Handle(PageInactiveSetEvent domainEvent)
 		{
 			var contentNodeProviderDraft = GetContentNodeProviderDraft(domainEvent);
-			contentNodeProviderDraft.Inactive = domainEvent.Inactive;
-			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
-		}
+
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                contentNodeProviderDraft.Inactive = domainEvent.Inactive;
+                unitOfWork.Update(contentNodeProviderDraft);
+                unitOfWork.Commit();
+            }
+        }
 
 		public void Handle(PageHeaderImageSetEvent domainEvent)
 		{
@@ -170,8 +230,15 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Denormalizers
 				fileSystem.DeleteFile(string.Format(@"{0}{1}\HeaderImage\{2}", draftFileUploadPath, domainEvent.AggregateRootId, contentNodeProviderDraft.HeaderImage));
 			}
 			catch (Exception) { }
-			contentNodeProviderDraft.HeaderImage = domainEvent.HeaderImage;
+			
 			contentNodeProviderDraftRepository.Update(contentNodeProviderDraft);
+            
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                contentNodeProviderDraft.HeaderImage = domainEvent.HeaderImage;
+                unitOfWork.Update(contentNodeProviderDraft);
+                unitOfWork.Commit();
+            }
 
 			if (string.IsNullOrEmpty(domainEvent.HeaderImage)) return;
 			fileSystem.Copy(string.Format(@"{0}{1}\{3}\HeaderImage\{2}", providerUploadPath, contentNodeProviderDraft.TreeNodeId, domainEvent.HeaderImage, contentNodeProviderDraft.Action), 

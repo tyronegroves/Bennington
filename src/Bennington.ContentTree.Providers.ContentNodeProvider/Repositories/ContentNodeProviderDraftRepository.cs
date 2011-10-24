@@ -1,17 +1,20 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Bennington.ContentTree.Denormalizers;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Data;
+using Bennington.Core.SisoDb;
 
 namespace Bennington.ContentTree.Providers.ContentNodeProvider.Repositories
 {
 	public interface IContentNodeProviderDraftRepository
 	{
-		IQueryable<ContentNodeProviderDraft> GetAllContentNodeProviderDrafts();
+		IList<ContentNodeProviderDraft> GetAllContentNodeProviderDrafts();
 		void Update(ContentNodeProviderDraft instance);
 		void Create(ContentNodeProviderDraft instance);
 		void Delete(ContentNodeProviderDraft instance);
 	}
 
-	public class ContentNodeProviderDraftRepository : IContentNodeProviderDraftRepository
+	public class ContentNodeProviderDraftRepository : DatabaseFactory, IContentNodeProviderDraftRepository
 	{
 		private readonly IDataModelDataContext dataModelDataContext;
 
@@ -20,10 +23,12 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Repositories
 			this.dataModelDataContext = dataModelDataContext;
 		}
 
-		public IQueryable<ContentNodeProviderDraft> GetAllContentNodeProviderDrafts()
+		public IList<ContentNodeProviderDraft> GetAllContentNodeProviderDrafts()
 		{
-			var x = dataModelDataContext.ContentNodeProviderDrafts.ToArray();
-			return x.AsQueryable();
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                return unitOfWork.GetAll<ContentNodeProviderDraft>().ToList();
+            }
 		}
 
 		public void Delete(ContentNodeProviderDraft instance)

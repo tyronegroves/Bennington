@@ -1,18 +1,21 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Bennington.ContentTree.Denormalizers;
 using Bennington.ContentTree.Providers.SectionNodeProvider.Data;
 using Bennington.ContentTree.Providers.SectionNodeProvider.Mappers;
 using Bennington.ContentTree.Providers.SectionNodeProvider.Models;
 using Bennington.ContentTree.Repositories;
+using Bennington.Core.SisoDb;
 
 namespace Bennington.ContentTree.Providers.SectionNodeProvider.Repositories
 {
 	public interface IContentTreeSectionNodeRepository
 	{
-		IQueryable<ContentTreeSectionNode> GetAllContentTreeSectionNodes();
+		IList<ContentTreeSectionNode> GetAllContentTreeSectionNodes();
 		void Delete(ContentTreeSectionNode instance);
 	}
 
-	public class ContentTreeSectionNodeRepository : IContentTreeSectionNodeRepository
+    public class ContentTreeSectionNodeRepository : DatabaseFactory, IContentTreeSectionNodeRepository
 	{
 		private readonly IDataModelDataContext dataModelDataContext;
 		private readonly ITreeNodeRepository treeNodeRepository;
@@ -25,9 +28,12 @@ namespace Bennington.ContentTree.Providers.SectionNodeProvider.Repositories
 			this.dataModelDataContext = dataModelDataContext;
 		}
 
-		public IQueryable<ContentTreeSectionNode> GetAllContentTreeSectionNodes()
+		public IList<ContentTreeSectionNode> GetAllContentTreeSectionNodes()
 		{
-			return sectionNodeProviderDraftToContentTreeSectionNodeMapper.CreateSet(dataModelDataContext.GetAllSectionNodeProviderDrafts()).AsQueryable();
+            using (var unitOfWork = database.CreateUnitOfWork())
+            {
+                return unitOfWork.GetAll<ContentTreeSectionNode>().ToList();
+            }
 			//return dataModelDataContext.ContentTreeSectionNodes;
 		}
 
