@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Controllers;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Routing.Controller;
 
 namespace SampleFeature
 {

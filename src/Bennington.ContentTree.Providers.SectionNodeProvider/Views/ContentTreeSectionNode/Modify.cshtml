@@ -6,9 +6,7 @@
 @using System.Web.Mvc
 
 @section head {
-
-    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.jstree.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SectionNodeProvider/jquery-1.6.4.min.js")"></script>
 }
 
 	@using (Html.BeginForm(Model.Action, "ContentTreeSectionNode", FormMethod.Post, new { Id = "form" })) { 

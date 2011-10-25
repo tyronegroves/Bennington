@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{55B46DAA-0659-4486-B350-DF312147305A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bennington.ContentTree.Providers.ContentNodeProvider.Routing</RootNamespace>
+    <AssemblyName>Bennington.ContentTree.Providers.ContentNodeProvider.Routing</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MvcTurbine">
+      <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcTurbine.Web">
+      <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\EngineController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Routing\ContentTreeRouteConstraint.cs" />
+    <Compile Include="Routing\ContentTreeRouteRegistrator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bennington.ContentTree.Providers.ContentNodeProvider\Bennington.ContentTree.Providers.ContentNodeProvider.csproj">
+      <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
+      <Name>Bennington.ContentTree.Providers.ContentNodeProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bennington.ContentTree\Bennington.ContentTree.csproj">
+      <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
+      <Name>Bennington.ContentTree</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bennington.Core\Bennington.Core.csproj">
+      <Project>{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}</Project>
+      <Name>Bennington.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

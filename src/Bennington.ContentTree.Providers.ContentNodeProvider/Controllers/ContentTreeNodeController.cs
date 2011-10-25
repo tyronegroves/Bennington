@@ -11,7 +11,6 @@ using Bennington.ContentTree.Providers.ContentNodeProvider.Helpers;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Mappers;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
 using Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders;
-using Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders.Helpers;
 using Bennington.ContentTree.Repositories;
 using Bennington.Core.Helpers;
 using MvcTurbine.ComponentModel;

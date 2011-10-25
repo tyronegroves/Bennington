@@ -90,6 +90,10 @@
       <Project>{9F36EE92-6F9A-4C57-AA4B-81328423D0DA}</Project>
       <Name>Bennington.ContentTree.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Bennington.ContentTree.Providers.ContentNodeProvider.Routing\Bennington.ContentTree.Providers.ContentNodeProvider.Routing.csproj">
+      <Project>{55B46DAA-0659-4486-B350-DF312147305A}</Project>
+      <Name>Bennington.ContentTree.Providers.ContentNodeProvider.Routing</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bennington.ContentTree.Providers.ContentNodeProvider\Bennington.ContentTree.Providers.ContentNodeProvider.csproj">
       <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
       <Name>Bennington.ContentTree.Providers.ContentNodeProvider</Name>

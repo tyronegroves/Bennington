@@ -2,6 +2,9 @@
 @using System.Web.Mvc.Html
 @model Bennington.ContentTree.Providers.ToolLinkNodeProvider.Models.ModifyViewModel
 
+@section head {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/ToolLinkNodeProvider/jquery-1.6.4.min.js")"></script>
+}
 
    @using (Html.BeginForm(ViewContext.RouteData.Values["action"].ToString(), "ToolLinkProviderNode", FormMethod.Post, new { Id = "form" })){
 

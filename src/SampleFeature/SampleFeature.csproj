@@ -53,6 +53,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bennington.ContentTree.Providers.ContentNodeProvider.Routing\Bennington.ContentTree.Providers.ContentNodeProvider.Routing.csproj">
+      <Project>{55B46DAA-0659-4486-B350-DF312147305A}</Project>
+      <Name>Bennington.ContentTree.Providers.ContentNodeProvider.Routing</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bennington.ContentTree.Providers.ContentNodeProvider\Bennington.ContentTree.Providers.ContentNodeProvider.csproj">
       <Project>{BA1AC304-5E93-4EE3-ACE1-E1E2DEC5C93D}</Project>
       <Name>Bennington.ContentTree.Providers.ContentNodeProvider</Name>

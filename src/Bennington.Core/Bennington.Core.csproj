@@ -38,10 +38,10 @@
       <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.Web.dll</HintPath>
     </Reference>
     <Reference Include="PagedList">
-      <HintPath>..\Bennington.Cms\bin\PagedList.dll</HintPath>
+      <HintPath>..\..\lib\PagedList.dll</HintPath>
     </Reference>
     <Reference Include="PagedList.Mvc">
-      <HintPath>..\Bennington.Cms\bin\PagedList.Mvc.dll</HintPath>
+      <HintPath>..\..\lib\PagedList.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -63,6 +63,7 @@
     <Compile Include="Helpers\GetParentRouteDataDictionaryFromChildActionRouteData.cs" />
     <Compile Include="Helpers\GetPathToDataDirectoryService.cs" />
     <Compile Include="Helpers\GuidGetter.cs" />
+    <Compile Include="Helpers\RawUrlGetter.cs" />
     <Compile Include="Helpers\XmlFileSerializationHelper.cs" />
     <Compile Include="List\DefaultListColumnProvider.cs" />
     <Compile Include="List\DefaultListViewModelProvider.cs" />
