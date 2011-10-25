@@ -69,6 +69,7 @@
     <Compile Include="Attributes\IdentifierAttribute.cs" />
     <Compile Include="Attributes\NoIdentifierAttribute.cs" />
     <Compile Include="Controllers\ListDetailController.cs" />
+    <Compile Include="Helpers\ValidationSummaryHelpers.cs" />
     <Compile Include="List\CmsListViewModelOptions.cs" />
     <Compile Include="MenuSystem\ActionIconMenuItem.cs" />
     <Compile Include="MenuSystem\ActionSubMenuItem.cs" />

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using Bennington.Cms.Attributes;
+using MvcTurbine.ComponentModel;
 using MvcTurbine.Web.Filters;
 
 namespace Bennington.Cms.Filters
@@ -15,6 +16,13 @@ namespace Bennington.Cms.Filters
 
     public class DefaultTheMasterPageToTheManageSite : ActionFilterAttribute
     {
+        private IServiceLocator serviceLocator;
+
+        public DefaultTheMasterPageToTheManageSite(IServiceLocator serviceLocator)
+        {
+            this.serviceLocator = serviceLocator;
+        }
+
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             if(TheMasterPageShouldNotBeSet(filterContext))
@@ -33,9 +41,17 @@ namespace Bennington.Cms.Filters
                    || TheMasterPageHasBeenSetByTheAction(filterContext);
         }
 
-        private static void SetTheMasterPage(ActionExecutedContext filterContext)
+        private void SetTheMasterPage(ActionExecutedContext filterContext)
         {
             ((ViewResult)filterContext.Result).MasterName = "~/Views/Shared/ManageSite.cshtml";
+            var masterName = "~/Views/Shared/ManageSite.cshtml";
+            var getDefaultCmsMasterPageName = serviceLocator.ResolveServices<IGetDefaultCmsMasterPageName>();
+            if (getDefaultCmsMasterPageName.Count > 0)
+            {
+                masterName = getDefaultCmsMasterPageName.First().GetMasterName();
+            }
+
+            ((ViewResult)filterContext.Result).MasterName = masterName;
         }
 
         private bool TheMasterPageHasBeenSetByTheAction(ActionExecutedContext filterContext)
@@ -57,5 +73,10 @@ namespace Bennington.Cms.Filters
         {
             return filterContext.IsChildAction;
         }
+    }
+
+    public interface IGetDefaultCmsMasterPageName
+    {
+        string GetMasterName();
     }
 }

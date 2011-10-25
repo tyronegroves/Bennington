@@ -18,7 +18,8 @@ namespace Bennington.Cms.MenuSystem
 
         public IconMenuItemViewModel GetViewModel(ControllerContext controllerContext)
         {
-            return new IconMenuItemViewModel {Name = name, Url = url, IconUrl = iconUrl};
+            var urlHelper = new UrlHelper(controllerContext.RequestContext);
+            return new IconMenuItemViewModel { Name = name, Url = url, IconUrl = urlHelper.Content(iconUrl) };
         }
     }
 }
