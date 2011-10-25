@@ -21,7 +21,6 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 	public abstract class EngineController : Controller, IAmATreeNodeExtensionProvider, IRouteRegistrator, IRouteConstraint
     {
 		private readonly IContentTreeNodeVersionContext contentTreeNodeVersionContext;
-		private readonly ITreeNodeSummaryContext treeNodeSummaryContext;
 		private readonly ITreeNodeRepository treeNodeRepository;
 		private readonly ITreeNodeIdToUrl treeNodeIdToUrl;
 		private readonly IUrlToTreeNodeSummaryMapper urlToTreeNodeSummaryMapper;
@@ -30,7 +29,6 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		public EngineController()
 		{
 			this.contentTreeNodeVersionContext = ServiceLocatorManager.Current.Resolve<IContentTreeNodeVersionContext>();
-			this.treeNodeSummaryContext = ServiceLocatorManager.Current.Resolve<ITreeNodeSummaryContext>();
 			this.treeNodeRepository = ServiceLocatorManager.Current.Resolve<ITreeNodeRepository>();
 			this.treeNodeIdToUrl = ServiceLocatorManager.Current.Resolve<ITreeNodeIdToUrl>();
 			this.urlToTreeNodeSummaryMapper = ServiceLocatorManager.Current.Resolve<IUrlToTreeNodeSummaryMapper>();
