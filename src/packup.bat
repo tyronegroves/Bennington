@@ -20,3 +20,4 @@ copy "C:\_Application\Bennington\src\Bennington.Repository\bin\Debug\Bennington.
 copy "C:\_Application\Bennington\src\Bennington.ContentTree.TreeManager\bin\Debug\Bennington.ContentTree.TreeManager.dll" "C:\_Application\Bennington\localWorkingFolder\Deploy"
 copy "C:\_Application\Bennington\src\Bennington.ContentTree.TreeManager\bin\Debug\Bennington.ContentTree.TreeManager.pdb" "C:\_Application\Bennington\localWorkingFolder\Deploy"
 copy "C:\_Application\Bennington\src\Bennington.ContentTree.Providers.ToolLinkNodeProvider\bin\Bennington.ContentTree.Providers.ToolLinkNodeProvider.dll" "C:\_Application\Bennington\localWorkingFolder\Deploy"
+copy "C:\_Application\Bennington\src\Bennington.ContentTree.Providers.ContentNodeProvider.Routing\bin\Debug\Bennington.ContentTree.Providers.ContentNodeProvider.Routing.dll" "C:\_Application\Bennington\localWorkingFolder\Deploy"
