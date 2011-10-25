@@ -1,4 +1,6 @@
 ﻿using System.Web.Mvc;
+using System.Web.UI.WebControls;
+using Bennington.Core.List;
 
 namespace SampleContentWebsite.Controllers
 {
@@ -8,6 +10,8 @@ namespace SampleContentWebsite.Controllers
         {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
 
+            var listViewModel = ListViewModelProviders.Providers.GetListViewModelForType(typeof(ListItem), ControllerContext);
+            
             return View();
         }
 

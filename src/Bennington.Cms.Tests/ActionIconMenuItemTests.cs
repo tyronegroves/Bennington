@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 using Bennington.Cms.MenuSystem;
-using Bennington.Cms.Models;
+using Bennington.Cms.Models.MenuSystem;
 using Bennington.Cms.Tests.Mocks;
 using Machine.Specifications;
 

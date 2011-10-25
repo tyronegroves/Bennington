@@ -87,16 +87,6 @@ body {
 }
 #topmenucontainer li a:hover { margin-top: 4px; }
 
-/*
-#topmenucontainer li.menuItem1 a { background-position: 7px 3px; }
-#topmenucontainer li.menuItem2 a { background-position: -31px 3px; }
-#topmenucontainer li.menuItem3 a { background-position: -68px 3px; }
-#topmenucontainer li.menuItem4 a { background-position: -106px 3px; }
-#topmenucontainer li.menuItem5 a { background-position: -142px 3px; }
-#topmenucontainer li.menuItem6 a { background-position: -180px 3px; }
-#topmenucontainer li.menuItem7 a { background-position: -217px 3px; }
-*/
-
 #menucontainer 
 { 
     clear: both; 
@@ -150,30 +140,40 @@ body {
 
 #main { clear: both; }
 
-#pageheader 
+#titlebar 
 { 
     padding: 10px 0; 
     border-bottom: 2px dotted #ccc;
 }
 
-#pageheader .title
+#titlebar .title
 {
     float: left;
 }
 
-#pageheader h2 
+#titlebar h2 
 { 
     margin: 0 0 3px 0; 
 }
 
-#pageheader .meta 
+#titlebar .meta 
 {
     margin: 0;  
 }
 
-#pageheader .search { float: right; }
+#titlebar .search { float: right; }
 
-
+input.search[type="submit"] {
+    background: url("datatable/select.jpg") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    display: inline-block;
+    font-size: 0;
+    height: 27px;
+    line-height: 0;
+    margin-left: 0.5em;
+    text-indent: -99999px;
+    width: 28px;
+}
 
 .extra_padding { padding: 10px 10px 10px 10px !important; }
 div.section:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
@@ -204,19 +204,29 @@ div.section .contentTreePreview {
 }
 .contentTreeContainer { background: url(Canvas/Divider.gif) 550px 0 repeat-y; }
 
-input.button {
-    padding: 0;
-    margin: 0;
+input.button, a.button {
+    background: url("Canvas/Button-Highlight.gif") repeat-x scroll center top #266FA2;
     border: 1px solid #818181;
-    color: #fff;
-    background: #266fa2 url(Canvas/Button-Highlight.gif) top repeat-x;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Arial,Verdana;
     font-size: 12px;
     line-height: 13px;
-    padding: 3px 5px;
-    font-family: Arial, Verdana;
+    margin: 0;
     overflow: visible;
-    cursor: pointer;
+    padding: 3px 5px;
+    white-space: nowrap;
 }
+
+a.button {
+    padding: 4px 5px;
+}
+
+a.button:hover {
+    text-decoration: none;
+}
+
 input.important { background-color: #dc6d00; background-position: 0 -198px; }
 
 ul.tabs:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
@@ -328,9 +338,9 @@ form td
 .data_table td.actions{width:185px;text-align:right;}
 
 .data_table thead tr {background-image: url();background-repeat: no-repeat;background-position: center right;cursor: pointer;}
-.data_table thead tr .headerSortUp {background-position: center right;background-image: url(/Content/Canvas/asc.gif);background-color: #BDCBD2 !important;color:#636363 !important;}
-.data_table thead tr .headerSortDown {background-position: center right;background-image: url(/Content/Canvas/desc.gif);background-color: #BDCBD2 !important;color:#636363 !important;}
-table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {background-color: #F2F2F2;}
+.data_table thead tr .ascending {background-position: center right;background-image: url(canvas/asc.gif);background-color: #BDCBD2 !important;color:#636363 !important;}
+.data_table thead tr .descending {background-position: center right;background-image: url(canvas/desc.gif);background-color: #BDCBD2 !important;color:#636363 !important;}
+table.tablesorter thead tr .descending, table.tablesorter thead tr .ascending {background-color: #F2F2F2;}
 
 /* thickbox: */
 /* ----------------------------------------------------------------------------------------------------------------*/
@@ -485,7 +495,7 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
 }
 .PagedList-pager
 {
-    float: left;
+    float: right;
     vertical-align: top;
     margin: 0 5px;
 }

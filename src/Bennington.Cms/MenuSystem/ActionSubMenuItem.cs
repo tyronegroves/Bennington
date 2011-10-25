@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
-using Bennington.Cms.Models;
+using Bennington.Cms.Models.MenuSystem;
 
 namespace Bennington.Cms.MenuSystem
 {
@@ -30,8 +30,8 @@ namespace Bennington.Cms.MenuSystem
             var routeData = GetRootRouteData(controllerContext);
             return new SubMenuItemViewModel
                        {
-                           Name = name, Url = urlHelper.Action(actionName, controllerName, routeValues), 
-                           Selected = routeData.GetRequiredString("controller") == controllerName && routeData.GetRequiredString("action") == actionName, 
+                           Name = name, Url = urlHelper.Action(actionName, controllerName, routeValues),
+                           Selected = routeData.GetRequiredString("controller") == controllerName && routeData.GetRequiredString("action") == actionName,
                            Visible = routeData.GetRequiredString("controller") == controllerName
                        };
         }

@@ -6,53 +6,53 @@ using System.Web.Hosting;
 
 namespace MvcTurbine.EmbeddedResources
 {
-	public class EmbeddedResourceVirtualPathProvider : VirtualPathProvider
-	{
-		private readonly EmbeddedResourceTable embeddedResources;
+    public class EmbeddedResourceVirtualPathProvider : VirtualPathProvider
+    {
+        private readonly EmbeddedResourceTable embeddedResources;
 
-		public EmbeddedResourceVirtualPathProvider(EmbeddedResourceTable table)
-		{
-			if (table == null)
-				throw new ArgumentNullException("table", "EmbeddedResourceTable cannot be null.");
+        public EmbeddedResourceVirtualPathProvider(EmbeddedResourceTable table)
+        {
+            if(table == null)
+                throw new ArgumentNullException("table", "EmbeddedResourceTable cannot be null.");
 
-			embeddedResources = table;
-		}
+            embeddedResources = table;
+        }
 
-		public override bool FileExists(string virtualPath)
-		{
-			return base.FileExists(virtualPath) || IsEmbeddedResource(virtualPath);
-		}
+        public override bool FileExists(string virtualPath)
+        {
+            return base.FileExists(virtualPath) || IsEmbeddedResource(virtualPath);
+        }
 
-		private bool IsEmbeddedResource(string virtualPath)
-		{
-			virtualPath = VirtualPathUtility.ToAppRelative(virtualPath);
+        private bool IsEmbeddedResource(string virtualPath)
+        {
+            virtualPath = VirtualPathUtility.ToAppRelative(virtualPath);
 
-			var isContent = virtualPath.Contains("/Content/");
-			var isScript = virtualPath.Contains("/Scripts/");
-			if (!isContent && !isScript)
-				return false;
-			return embeddedResources.ContainsEmbeddedResource(virtualPath);
-		}
+            var isContent = virtualPath.Contains("/Content/");
+            var isScript = virtualPath.Contains("/Scripts/");
+            if(!isContent && !isScript)
+                return false;
+            return embeddedResources.ContainsEmbeddedResource(virtualPath);
+        }
 
-		public override VirtualFile GetFile(string virtualPath)
-		{
-		    virtualPath = VirtualPathUtility.ToAppRelative(virtualPath);
+        public override VirtualFile GetFile(string virtualPath)
+        {
+            virtualPath = VirtualPathUtility.ToAppRelative(virtualPath);
 
-			if (base.FileExists(virtualPath))
-				return base.GetFile(virtualPath);
+            if(base.FileExists(virtualPath))
+                return base.GetFile(virtualPath);
 
-			if (IsEmbeddedResource(virtualPath))
-			{
-				var embeddedResource = embeddedResources.FindEmbeddedResource(virtualPath);
-				return new AssemblyResourceFile(embeddedResource, virtualPath);
-			}
+            if(IsEmbeddedResource(virtualPath))
+            {
+                var embeddedResource = embeddedResources.FindEmbeddedResource(virtualPath);
+                return new AssemblyResourceFile(embeddedResource, virtualPath);
+            }
 
-			return null;
-		}
+            return null;
+        }
 
-		public override CacheDependency GetCacheDependency(string virtualPath, IEnumerable virtualPathDependencies, DateTime utcStart)
-		{
-			return IsEmbeddedResource(virtualPath) ? null : base.GetCacheDependency(virtualPath, virtualPathDependencies, utcStart);
-		}
-	}
+        public override CacheDependency GetCacheDependency(string virtualPath, IEnumerable virtualPathDependencies, DateTime utcStart)
+        {
+            return IsEmbeddedResource(virtualPath) ? null : base.GetCacheDependency(virtualPath, virtualPathDependencies, utcStart);
+        }
+    }
 }

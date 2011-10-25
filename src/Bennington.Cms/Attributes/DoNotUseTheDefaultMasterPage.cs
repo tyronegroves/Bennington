@@ -2,5 +2,7 @@
 
 namespace Bennington.Cms.Attributes
 {
-    public class DoNotUseTheDefaultMasterPage : Attribute{}
+    public class DoNotUseTheDefaultMasterPage : Attribute
+    {
+    }
 }

@@ -1,0 +1,30 @@
+﻿@using Bennington.Core.List;
+
+@helper RenderListColumns(this HtmlHelper htmlHelper, ListColumns columns)
+{
+    foreach (var column in columns)
+    {
+        @htmlHelper.RenderListColumn(column)
+    }
+}
+
+@helper RenderListColumn(this HtmlHelper htmlHelper, ListColumn column)
+{
+    if (column.HasHeaderTemplate)
+    {
+        htmlHelper.RenderPartial(column.HeaderTemplate, column);
+    }
+    else
+    {             
+    <th @SortClass(column)>
+        <a href="@column.SortUrl">@column.DisplayName</a>
+    </th>
+    }
+}
+@helper SortClass(ListColumn column)
+{
+    if (column.IsSorted)
+    {
+        @:class="@(column.SortDirection.GetValueOrDefault().ToString().ToLower())"
+    }
+}

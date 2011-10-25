@@ -1,0 +1,22 @@
+﻿@model Bennington.Cms.Models.ListDetail.ListViewModel
+@section currentUser {
+    <ul class="current-user-items">
+        <li>Welcome, Young Man</li>
+        <li>Kansas City Institute of Bacon</li>
+        <li><a href="?Logout=1">Logout</a></li>
+    </ul>
+}
+<div id="content_container" style="display: block;">
+    <div id="titlebar" class="clearfix">
+        @{Html.RenderPartial(Model.TitleViewName, Model);}
+        @{Html.RenderPartial(Model.SearchViewName, Model);}
+    </div>
+    <div class="section">
+        @{Html.RenderPartial(Model.ButtonsViewName, Model);}
+        @{Html.RenderPartial(Model.PagerViewName, Model);}
+    </div>
+    @{Html.RenderPartial(Model.RowsViewName, Model);}
+    <div class="section">
+        @{Html.RenderPartial(Model.PagerViewName, Model);}
+    </div>
+</div>

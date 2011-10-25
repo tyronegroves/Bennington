@@ -193,7 +193,9 @@ namespace Bennington.AdminAccounts.Specs.Tests
 
             var result = (ViewResult) controller.Index();
 
-            result.Model.ShouldBeOfType(typeof (AdminAccountListPageViewModel));
+            //result.Model.ShouldBeOfType(typeof (AdminAccountListPageViewModel));
+
+            throw new NotImplementedException();
         }
 
         [Test]
@@ -213,10 +215,12 @@ namespace Bennington.AdminAccounts.Specs.Tests
 
             var controller = mocker.Create<AdminAccountController>();
 
-            var listPageViewModel = ((ListPageViewModel<AdminAccountListPageItem>) ((ViewResult) controller.Index()).Model);
+            //var listPageViewModel = ((ListPageViewModel<AdminAccountListPageItem>) ((ViewResult) controller.Index()).Model);
 
-            listPageViewModel.Items.Count().ShouldEqual(1);
-            listPageViewModel.Items.Contains(expected.Single());
+            //listPageViewModel.Items.Count().ShouldEqual(1);
+            //listPageViewModel.Items.Contains(expected.Single());
+
+            throw new NotImplementedException();
         }
     }
 }

@@ -101,7 +101,6 @@
     <Compile Include="Models\AdminAccountEditForm.cs" />
     <Compile Include="Models\AdminAccountEditFormStore.cs" />
     <Compile Include="Models\AdminAccountListPageItem.cs" />
-    <Compile Include="Models\AdminAccountListPageViewModel.cs" />
     <Compile Include="Models\AdminAccountListPageViewModelMapper.cs" />
     <Compile Include="Models\AdminAccountRepository.cs" />
     <Compile Include="Models\IAdminAccountEditFormStore.cs" />

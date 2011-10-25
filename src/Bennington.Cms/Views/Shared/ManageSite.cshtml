@@ -4,18 +4,17 @@
     <title>@RenderSection("title", false)</title>
     <link href="@Url.Content("~/Content/ManageSite.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/themes/base/jquery-ui.css")" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.5.1.min.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/Site.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.6.4.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.jstree.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jstreegrid.js")"></script>
 	<script type="text/javascript" src="@Url.Content("~/Scripts/tiny_mce/jquery.tinymce.js")"></script>
-    @RenderSection("head", false)
 </head>
-
 <body>
     <div id="canvas">
         <div class="page">
             <div id="header" class="clearfix">
                 <div id="title">
-                    <h1><a href="@Url.Content("~/")"><img src="@Url.Content("~/Content/Canvas/Logo.gif")" alt="Digital Evolution Group - Site Management System 4.0" width="450" height="34" /></a></h1>
+                    <h1><a href=""><img src="@Url.Content("~/Content/Canvas/Logo.gif")" alt="Digital Evolution Group - Site Management System 4.0" width="450" height="34" /></a></h1>
                 </div>
               
                 <div id="topmenucontainer">
@@ -36,5 +35,6 @@
             </div>
         </div>
     </div>
+    @RenderSection("AdditionalScripts", false)
 </body>
 </html>

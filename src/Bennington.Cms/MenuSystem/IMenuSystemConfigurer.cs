@@ -2,6 +2,6 @@
 {
     public interface IMenuSystemConfigurer
     {
-        void Configure(IMenuRegistry sectionMenuRegistry);
+        void Configure(IMenuRegistry menuRegistry);
     }
 }

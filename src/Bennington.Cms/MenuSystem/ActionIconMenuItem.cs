@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
-using Bennington.Cms.Models;
+using Bennington.Cms.Models.MenuSystem;
 
 namespace Bennington.Cms.MenuSystem
 {
@@ -26,10 +26,10 @@ namespace Bennington.Cms.MenuSystem
             this.routeValues = new RouteValueDictionary(routeValues);
         }
 
-        public IconMenuItemViewModel GetViewModel(ControllerContext controllerContext)
+        public virtual IconMenuItemViewModel GetViewModel(ControllerContext controllerContext)
         {
             var urlHelper = new UrlHelper(controllerContext.RequestContext);
-            return new IconMenuItemViewModel{Name = name, Url = urlHelper.Action(actionName, controllerName, routeValues), IconUrl = iconUrl };
+            return new IconMenuItemViewModel {Name = name, Url = urlHelper.Action(actionName, controllerName, routeValues), IconUrl = urlHelper.Content(iconUrl)};
         }
     }
 }

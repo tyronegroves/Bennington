@@ -1,0 +1,8 @@
+﻿@model Bennington.Cms.Models.ListDetail.ListViewModel
+<div class="title">
+    <h2>@Model.Title</h2>
+    @if (!string.IsNullOrEmpty(Model.Subtitle))
+    {
+        <p class="meta">@Model.Subtitle</p>
+    }
+</div>
