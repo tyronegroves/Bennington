@@ -5,20 +5,18 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Bennington.ContentTree.Contexts;
 using Bennington.ContentTree.Helpers;
 using Bennington.ContentTree.Models;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Context;
-using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
-using Bennington.ContentTree.Providers.ContentNodeProvider.Routing;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Routing.Routing;
 using Bennington.ContentTree.Repositories;
 using Bennington.Core.Helpers;
 using MvcTurbine.ComponentModel;
 using MvcTurbine.Routing;
 
-namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Routing.Controller
 {
-	public abstract class EngineController : Controller, IAmATreeNodeExtensionProvider, IRouteRegistrator, IRouteConstraint
+	public abstract class EngineController : System.Web.Mvc.Controller, IAmATreeNodeExtensionProvider, IRouteRegistrator, IRouteConstraint
     {
 		private readonly IContentTreeNodeVersionContext contentTreeNodeVersionContext;
 		private readonly ITreeNodeRepository treeNodeRepository;

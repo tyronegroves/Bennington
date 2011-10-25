@@ -4,7 +4,7 @@ using System.Web.Routing;
 using Bennington.ContentTree.Contexts;
 using Bennington.ContentTree.Models;
 
-namespace Bennington.ContentTree.Providers.ContentNodeProvider.Routing
+namespace Bennington.ContentTree.Providers.ContentNodeProvider.Routing.Routing
 {
     public class ContentTreeRouteConstraint : IRouteConstraint
     {

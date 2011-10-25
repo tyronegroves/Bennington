@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Bennington.ContentTree.Helpers;
-using Bennington.ContentTree.Providers.ContentNodeProvider.Routing;
+using Bennington.ContentTree.Providers.ContentNodeProvider.Routing.Routing;
 using Bennington.ContentTree.Providers.ToolLinkNodeProvider.Repositories;
 using Bennington.ContentTree.Repositories;
 using Bennington.Core.Helpers;
