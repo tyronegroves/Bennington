@@ -12,12 +12,17 @@ namespace SampleContentWebsite.Controllers
 
             var listViewModel = ListViewModelProviders.Providers.GetListViewModelForType(typeof(ListItem), ControllerContext);
             
-            return View();
+            return View("Index", listViewModel);
         }
 
         public ActionResult About()
         {
             return View();
         }
+    }
+
+    public class NewsroomListItem
+    {
+        
     }
 }

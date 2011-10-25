@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic;
 using System.Web.Mvc;
+using Bennington.Cms.List;
 using Bennington.Core.List;
 using PagedList;
 
@@ -12,7 +13,7 @@ namespace Bennington.Cms.Controllers
     {
         public virtual ActionResult Index()
         {
-            var listViewModel = ListViewModelProviders.Providers.GetListViewModelForType(typeof(TListItem), ControllerContext);
+            var listViewModel = ListViewModelProviders.Providers.GetListViewModelForType(typeof(TListItem), ControllerContext, new CmsListViewModelOptions());
             OnPreRenderModel(listViewModel);
 
             return ViewOrDefaultView("List", "~/Views/ListDetail/List.cshtml", listViewModel);

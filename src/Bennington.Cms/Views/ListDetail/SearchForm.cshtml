@@ -1,4 +1,4 @@
-﻿@model Bennington.Cms.Models.ListDetail.ListViewModel
+﻿@model Bennington.Core.List.ListViewModel
 @{var searchableColumns = new SelectList(Model.Columns.Where(c => c.IsSearchable), "Name", "DisplayName");}
 @if (searchableColumns.Count() > 0)
 {
