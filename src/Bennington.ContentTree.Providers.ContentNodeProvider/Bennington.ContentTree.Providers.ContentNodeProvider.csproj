@@ -109,7 +109,6 @@
     <Compile Include="Context\ContentTreeNodeVersionContext.cs" />
     <Compile Include="Validation\ContentTreeInputModelValidator.cs" />
     <Compile Include="ViewModelBuilders\ContentTreeNodeDisplayViewModelBuilder.cs" />
-    <Compile Include="ViewModelBuilders\Helpers\RawUrlGetter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -149,6 +148,7 @@
     <EmbeddedResource Include="Content\ContentNodeProvider\controller.gif" />
     <EmbeddedResource Include="Content\ContentNodeProvider\page.gif" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

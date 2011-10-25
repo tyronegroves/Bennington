@@ -1,6 +1,6 @@
 ﻿using System.Web;
 
-namespace Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders.Helpers
+namespace Bennington.Core.Helpers
 {
 	public interface IRawUrlGetter
 	{
@@ -12,7 +12,6 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders
 		public string GetRawUrl()
 		{
 			return HttpContext.Current.Request.Url.LocalPath;
-			// return HttpContext.Current.Request.RawUrl;
 		}
 	}
 }

@@ -11,8 +11,8 @@ using Bennington.ContentTree.Models;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Context;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Routing;
-using Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders.Helpers;
 using Bennington.ContentTree.Repositories;
+using Bennington.Core.Helpers;
 using MvcTurbine.ComponentModel;
 using MvcTurbine.Routing;
 
@@ -131,7 +131,7 @@ namespace Bennington.ContentTree.Providers.ContentNodeProvider.Controllers
 		public virtual void Register(RouteCollection routes)
 		{
 		    // add catch-all routes for incoming routes that will match dynamically created controllers
-            for (var n = 0; n < 10; n++)
+            for (var n = 0; n < ContentTreeRouteRegistrator.MaxDepthForContentTreeUrlSegments; n++)
             {
                 var sb = new StringBuilder();
                 for (var x = 0; x <= n; x++)

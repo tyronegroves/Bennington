@@ -4,7 +4,7 @@ using AutoMoq;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Controllers;
 using Bennington.ContentTree.Providers.ContentNodeProvider.Models;
 using Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders;
-using Bennington.ContentTree.Providers.ContentNodeProvider.ViewModelBuilders.Helpers;
+using Bennington.Core.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
