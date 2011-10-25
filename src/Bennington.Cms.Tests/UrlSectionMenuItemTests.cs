@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using Bennington.Cms.MenuSystem;
 using Bennington.Cms.Models;
+using Bennington.Cms.Models.MenuSystem;
 using Machine.Specifications;
 
 namespace Bennington.Cms.Tests

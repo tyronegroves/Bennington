@@ -31,7 +31,7 @@ namespace Bennington.AdminAccounts.Controllers
 
             var mappedResults = adminAccountListPageViewModelMapper.CreateSet(adminAccounts);
 
-            return View("Index", new AdminAccountListPageViewModel {Items = mappedResults.AsQueryable()});
+            return View("Index");
         }
 
         public ActionResult Edit(string id)

@@ -1,0 +1,32 @@
+﻿@using System.Collections;
+@using Bennington.Cms;
+@using Bennington.Cms.Views.ListDetail;
+@using Bennington.Cms.Models.ListDetail;
+@model Bennington.Cms.Models.ListDetail.ListViewModel
+<table cellpadding="0" cellspacing="0" class="data_table" id="data_table">
+    <thead>
+        <tr>
+            @Html.RenderListColumns(Model.Columns)
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var listItem in (IEnumerable)Model.Items)
+        {
+            <tr>
+                @foreach (var column in Model.Columns)
+                {
+                    <td>
+                        @if (column.HasCellTemplate)
+                        {
+                            Html.RenderPartial(column.CellTemplate, listItem);
+                        }
+                        else
+                        {
+                            Html.RenderPartial("~/Views/ListDetail/ValueDisplay.cshtml", new ViewDataDictionary(column.GetValue(listItem)));
+                        }
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using Bennington.AdminAccounts.Models;
 using Bennington.Cms.Models;
 using TechTalk.SpecFlow;
@@ -14,9 +15,10 @@ namespace Bennington.AdminAccounts.Specs.Steps
         {
             var viewResult = (ViewResult) ScenarioContext.Current.Get<ActionResult>();
 
-            var listPageViewModel = ((ListPageViewModel<AdminAccountListPageItem>) viewResult.Model);
+            //var listPageViewModel = ((ListPageViewModel<AdminAccountListPageItem>) viewResult.Model);
 
-            table.CompareToSet(listPageViewModel.Items);
+            //table.CompareToSet(listPageViewModel.Items);
+            throw new NotImplementedException();
         }
     }
 }

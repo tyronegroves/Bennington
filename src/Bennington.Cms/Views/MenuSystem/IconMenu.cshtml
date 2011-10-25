@@ -1,8 +1,6 @@
-﻿@model Bennington.Cms.Models.IconMenuViewModel
+﻿@model Bennington.Cms.Models.MenuSystem.IconMenuViewModel
 
 <ul class="menu">
-	@foreach (var menuItem in Model.Items) {
-		<li><a href="@menuItem.Url" title="@menuItem.Name"><img src="@Url.Content("~")@menuItem.IconUrl" alt="@menuItem.Name" /></a></li>
-	}
+    @Html.DisplayFor(model => model.Items)
 </ul>
 

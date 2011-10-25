@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 using Bennington.Cms.MenuSystem;
-using Bennington.Cms.Models;
+using Bennington.Cms.Models.MenuSystem;
 using Bennington.Cms.Tests.Mocks;
 using Machine.Specifications;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -13,12 +13,12 @@ namespace Bennington.Cms.Tests
     {
         private Establish context = () =>
                                         {
-                                            RouteTable.Routes.MapRoute(null, "testing/{controller}/{action}/fun"); 
+                                            RouteTable.Routes.MapRoute(null, "testing/{controller}/{action}/fun");
                                             var httpContext = new MockHttpContext(new MockHttpRequest(), new MockResponseBase());
                                             var routeData = new RouteData();
                                             routeData.Values.Add("controller", "MyController");
 
-                                            controllerContext = new ControllerContext { RequestContext = new RequestContext(httpContext, routeData), HttpContext = httpContext };
+                                            controllerContext = new ControllerContext {RequestContext = new RequestContext(httpContext, routeData), HttpContext = httpContext};
 
                                             sectionMenuItem = new ActionSectionMenuItem("My Name", "MyAction", "MyController", new {pp = "pp", gg = "gg"});
                                         };

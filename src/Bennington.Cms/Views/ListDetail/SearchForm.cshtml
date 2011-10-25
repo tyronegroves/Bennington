@@ -1,0 +1,18 @@
+﻿@model Bennington.Cms.Models.ListDetail.ListViewModel
+@{var searchableColumns = new SelectList(Model.Columns.Where(c => c.IsSearchable), "Name", "DisplayName");}
+@if (searchableColumns.Count() > 0)
+{
+    <form action="@Model.SearchUrl" method="post">
+    <fieldset class="searchForm">
+        <div class="field">
+            @Html.Label("Search By:")
+            @Html.DropDownListFor(model => model.SearchBy, searchableColumns)
+        </div>
+        <div class="field">
+            @Html.Label("Search:")
+            @Html.TextBoxFor(model => model.SearchValue)
+        </div>
+        <input class="search" type="submit" value="Search" />
+    </fieldset>
+    </form>
+}

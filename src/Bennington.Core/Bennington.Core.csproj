@@ -37,19 +37,26 @@
     <Reference Include="MvcTurbine.Web">
       <HintPath>..\packages\MVCTurbine.3.4\lib\MvcTurbine.Web.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\Bennington.Cms\bin\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\Bennington.Cms\bin\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\EntityConnectionInformation.cs" />
+    <Compile Include="Extensions\MetadataExtensions.cs" />
+    <Compile Include="Extensions\ValueProviderExtensions.cs" />
+    <Compile Include="Extensions\ViewEnginesExtensions.cs" />
     <Compile Include="Helpers\ApplicationSettingsValueGetter.cs" />
     <Compile Include="Helpers\FileSystem.cs" />
     <Compile Include="Helpers\GetCurrentDateTime.cs" />
@@ -57,6 +64,21 @@
     <Compile Include="Helpers\GetPathToDataDirectoryService.cs" />
     <Compile Include="Helpers\GuidGetter.cs" />
     <Compile Include="Helpers\XmlFileSerializationHelper.cs" />
+    <Compile Include="List\DefaultListColumnProvider.cs" />
+    <Compile Include="List\DefaultListViewModelProvider.cs" />
+    <Compile Include="List\HiddenAttribute.cs" />
+    <Compile Include="List\IListColumnProvider.cs" />
+    <Compile Include="List\IListViewModelProvider.cs" />
+    <Compile Include="Linq\Dynamic.cs" />
+    <Compile Include="List\ListColumn.cs" />
+    <Compile Include="List\ListColumns.cs" />
+    <Compile Include="List\ListExtensions.cs" />
+    <Compile Include="List\ListViewModel.cs" />
+    <Compile Include="List\ListViewModelBinder.cs" />
+    <Compile Include="List\ListViewModelOptions.cs" />
+    <Compile Include="List\ListViewModelProviderDictionary.cs" />
+    <Compile Include="List\ListViewModelProviders.cs" />
+    <Compile Include="List\SearchableAttribute.cs" />
     <Compile Include="MenuSystem\IAmAnIconMenuItem.cs" />
     <Compile Include="MenuSystem\IAmASectionMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

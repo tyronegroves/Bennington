@@ -186,6 +186,10 @@
       <Project>{97981EC9-A1C5-460E-9244-9D5C9169E47F}</Project>
       <Name>Bennington.ContentTree</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Bennington.Core\Bennington.Core.csproj">
+      <Project>{AAB424EE-5CFA-42BE-9F9A-2350C5C8E715}</Project>
+      <Name>Bennington.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SampleFeature\SampleFeature.csproj">
       <Project>{0124D513-5EBF-4CA9-9DA4-EC0A75E0C629}</Project>
       <Name>SampleFeature</Name>

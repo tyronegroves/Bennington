@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
-using Bennington.Cms.Models;
+using Bennington.Cms.Models.MenuSystem;
 
 namespace Bennington.Cms.MenuSystem
 {
