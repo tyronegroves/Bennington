@@ -1,3 +1,4 @@
-﻿@using PagedList.Mvc;
-@model Bennington.Cms.Models.ListDetail.ListViewModel
+﻿@using Bennington.Core.List
+@using PagedList.Mvc;
+@model ListViewModel
 @Html.PagedListPager(Model.Items, pageIndex => Url.Action("Index", new { pageIndex, sortby = Model.SortBy, sortDirection = Model.SortDirection, searchby = Model.SearchBy, searchvalue = Model.SearchValue }), Model.RenderOptions)
